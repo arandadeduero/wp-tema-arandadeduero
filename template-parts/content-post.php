@@ -30,6 +30,28 @@
 		<?php endif; ?>
 	</header><!-- .entry-header -->
 
+	<?php
+	// Check if post is older than 3 years and display warning
+	$post_date = get_the_date('Y-m-d');
+	$three_years_ago = date('Y-m-d', strtotime('-3 years'));
+
+	if ($post_date < $three_years_ago && is_singular()) : ?>
+		<div class="outdated-post-warning alert alert-warning mb-3" role="alert">
+			<div class="d-flex align-items-center">
+				<i class="fas fa-exclamation-triangle me-2" aria-hidden="true"></i>
+				<div>
+					<strong><?php esc_html_e('Contenido desactualizado', 'aranda-de-duero'); ?></strong><br>
+					<small><?php
+						printf(
+							esc_html__('Esta noticia fue publicada el %1$s y puede contener información desactualizada. Por favor, consulte fuentes más recientes para obtener información actualizada.', 'aranda-de-duero'),
+							get_the_date()
+						);
+					?></small>
+				</div>
+			</div>
+		</div>
+	<?php endif; ?>
+
 	<?php aranda_de_duero_post_thumbnail(); ?>
 
 	<div class="entry-content">

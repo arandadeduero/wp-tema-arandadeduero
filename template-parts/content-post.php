@@ -33,9 +33,8 @@
 	<?php
 	// Check if post is older than 3 years and display warning
 	$post_date = get_the_date('Y-m-d');
-	$three_years_ago = date('Y-m-d', strtotime('-3 years'));
 
-	if ($post_date < $three_years_ago && is_singular()) : ?>
+	if (strtotime($post_date) < strtotime('-3 years') && is_singular()) : ?>
 		<div class="outdated-post-warning alert alert-warning mb-3" role="alert">
 			<div class="d-flex align-items-center">
 				<i class="fas fa-exclamation-triangle me-2" aria-hidden="true"></i>

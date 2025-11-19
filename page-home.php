@@ -26,14 +26,14 @@ get_header();
 		</div>
 	</div>
     <!-- Banner de plenos  -->
-    <?php 
+    <?php
         if ( get_theme_mod('aranda_de_duero_show_banner') == 1 && get_theme_mod('aranda_de_duero_show_banner_text') !=''):
      ?>
         <div class="container">
             <div class="row my-5">
                 <div class="col-12">
                    <!-- Inicio banner plenos  -->
-                        <div id="banner_streaming" class="d-md-flex w-100 justify-content-between align-items-center">		
+                        <div id="banner_streaming" class="d-md-flex w-100 justify-content-between align-items-center">
                                 <div id="banner_left" class="d-flex">
                                     <div><img src="<?php echo get_template_directory_uri();?>/images/webcamIcon.png"></div>
                                     <div class="ml-3"><small class="banner_streaming_color font-weight-bold">En directo - <?php echo get_theme_mod('aranda_de_duero_show_banner_text');?></small><br><span class="font-weight-bold">PLENO DEL AYUNTAMIENTO DE ARANDA DE DUERO</span></div>
@@ -49,17 +49,17 @@ get_header();
         </div>
     <?php endif;?>
     <!-- Secciones principales -->
-    <?php 
+    <?php
         $args = array(
             'taxonomy' => 'home_section_category',
             // 'hide_empty' => false,
             'orderby' => 'name',
-            'order' => 'ASC' 
+            'order' => 'ASC'
         );
         $taxonomies = get_terms($args);
-        
+
     ?>
-    <?php if ( !empty($taxonomies) ) : ?> 
+    <?php if ( !empty($taxonomies) ) : ?>
         <div class="container mt-3">
             <div class="row align-center justify-content-center">
                 <!-- the loop -->
@@ -69,11 +69,11 @@ get_header();
                             <a href="<?php echo get_term_link($category->term_id); ?>" class="home-main-section-a" data-categoryid="<?php echo $category->term_id?>" style="color:<?php echo get_theme_mod('aranda_de_duero_main_section_text_color'); ?>!important;"><p class="mb-0 py-2" style="color:<?php echo get_theme_mod('aranda_de_duero_main_section_text_color'); ?>!important;"><?php echo $category->name; ?></p></a>
                         </div>
                     </div>
-                    
+
                 <?php } ?>
                 <!-- end of the loop -->
             </div>
-            
+
         </div>
         <div class="container">
             <?php foreach ($taxonomies as $category) {?>
@@ -93,7 +93,7 @@ get_header();
                         ),
                     );
                     $query = new WP_Query( $args );
-                    
+
                 ?>
                     <div class="row justify-content-center">
                         <?php while ( $query->have_posts() ) : $query->the_post(); ?>
@@ -106,7 +106,7 @@ get_header();
                                     </div>
                                 </div>
                         <?php endwhile;?>
-                        
+
                     </div>
                     <?php wp_reset_postdata(); ?>
             </div>
@@ -116,49 +116,49 @@ get_header();
     <?php endif;?>
     <!-- Fin secciones principales  -->
     <!-- Secciones principales -->
-    <?php 
+    <?php
         $query = aranda_de_duero_content(
             'post',
             'publish_date',
             'DESC',
             '9'
         );
-        
+
     ?>
     <div class="container mt-4">
         <div class="row">
             <div class="col-12">
                 <div class="home-news-title mb-4 text-center">
-                    <h3>Actualidad y Eventos</h3>   
+                    <h3>Actualidad y Eventos</h3>
                 </div>
             </div>
         </div>
-        
+
         <div class="row">
             <div class="col-lg-8 col-sm-12 mt-4">
-            <?php if ( $query->have_posts() ) : ?> 
-                
-                    
+            <?php if ( $query->have_posts() ) : ?>
+
+
                         <!-- the loop -->
                             <?php $count = 0; ?>
                             <?php while ( $query->have_posts() ) : $query->the_post(); ?>
-                                <?php 
+                                <?php
                                 $image_type='';
                                 if($count == 0 || $count%2 == 1)  {
                                     echo '<div class="row">';
-                                } 
-                                
+                                }
+
                                 if($count == 0) {
-                                    $image_type='medium';
+                                    $image_type='large';
                                     echo '<div class="col-lg-12">';
                                 } else {
-                                    $image_type='medium';
+                                    $image_type='large';
                                     echo '<div class="col-sm-12 col-lg-6 mt-4">';
                                 }?>
                                         <div class="home-main-news p-3 rounded h-100">
                                             <div class="row">
-                                                <?php 
-                                                    if(get_the_post_thumbnail_url(get_the_ID(), 'medium')) {
+                                                <?php
+                                                    if(get_the_post_thumbnail_url(get_the_ID(), 'large')) {
                                                 ?>
                                                         <div class="col-12">
                                                             <div class="home-main-news-image mb-3 <?php $count == 0 ? print_r('first-news') : '' ;?>">
@@ -176,7 +176,7 @@ get_header();
                                                                  <p class="small"><?php echo wp_strip_all_tags( get_the_excerpt(), true ); ?></p>
                                                                 </div>
                                                             <?php
-                                                                } 
+                                                                }
                                                             ?>
                                                             <div class="home-main-news-button my-3">
                                                                 <a href="<?php echo the_permalink(get_the_ID());?>" class="btn btn-primary" role="button" style="color:white !important;"><?php _e('Leer más');?></a>
@@ -194,11 +194,11 @@ get_header();
                                                                 <a href="<?php echo the_permalink(get_the_ID());?>" class="btn btn-primary" role="button" style="color:white !important;"><?php _e('Leer más');?></a>
                                                             </div>
                                                         </div>
-                                                        
-                                                <?php } ?>
-                                                      
 
-                                                
+                                                <?php } ?>
+
+
+
                                             </div>
                                         </div>
                                     </div>
@@ -210,12 +210,12 @@ get_header();
                             <?php if($count%2 != 1){
                                 echo '</div>';
                             }?>
-                        
+
                         <!-- end of the loop -->
-                
+
                 <?php wp_reset_postdata(); ?>
             <?php endif;?>
-            
+
             </div>
             <div class="col-12 col-lg-4 mt-4">
     <?php
@@ -229,9 +229,9 @@ get_header();
         );
     ?>
 
-    <?php if ( $query->have_posts() ) : ?> 
+    <?php if ( $query->have_posts() ) : ?>
         <div class="container">
-        <?php 
+        <?php
         $array_posts = array();
         $total_posts = 0;
 
@@ -240,15 +240,15 @@ get_header();
         $next_year = $current_year + 1;
 
         while ( $query->have_posts() ) : $query->the_post(); ?>
-          
-            <?php 
+
+            <?php
                 $array_post = array();
 
                 $datos_evento = get_post_meta(get_the_ID(), '_mc_event_data');
-                
+
                 $date_start = $datos_evento[0]['event_begin'];
                 $date_end = $datos_evento[0]['event_end'];
-                
+
                 $date_start_sto = strtotime($date_start);
                 $date_end_sto = strtotime($date_end);
 
@@ -267,22 +267,22 @@ get_header();
                     $event_id = get_post_meta(get_the_ID(), '_mc_event_id');
 
                     $occur_id = $wpdb->get_row("SELECT * FROM ayad_my_calendar_events WHERE occur_event_id =" . $event_id[0])->occur_id;
-                                       
+
                     $array_post['link'] = get_permalink(get_the_ID()) . '?mc_id=' . $occur_id;
 
-                    $array_posts[] = $array_post;     
+                    $array_posts[] = $array_post;
                 }
             ?>
-        <?php endwhile; 
+        <?php endwhile;
 
             // Ordenar los posts por la fecha de inicio
             $columns_dates = array_column($array_posts, 'date_start');
             array_multisort($columns_dates, SORT_ASC, $array_posts);
         ?>
 
-        <?php 
+        <?php
         $cont_events = 0;
-        foreach ($array_posts as $post) { 
+        foreach ($array_posts as $post) {
             if($cont_events < 4){
                 $time = strtotime($post['date_start']);
                 $day = date('d', $time);
@@ -304,7 +304,7 @@ get_header();
                     <a href="<?php echo $post['link'];?>" style="color:<?php echo get_theme_mod('aranda_de_duero_link_color'); ?>!important;">Más información ></a>
                 </div>
             </div>
-        <?php 
+        <?php
             }
             $cont_events++;
         } ?>
@@ -313,8 +313,8 @@ get_header();
 </div>
 
 
-            
-            
+
+
         </div>
     </div>
     <div class="container mt-4">
@@ -323,7 +323,7 @@ get_header();
                 <div class="home-more-news col-8 p-0 mx-auto">
                     <a href="<?php echo get_permalink(get_page_by_title('Noticias')); ?>page/2/" class="home-more-news-button"><p class="mb-0 py-2"><?php _e('Más actualidad');?></p></a>
                 </div>
-                
+
             </div>
 
             <div class="p-0 col-6 text-center">
@@ -333,7 +333,7 @@ get_header();
             </div>
         </div>
     </div>
-    
+
     <!-- Fin noticias  -->
 <?php
 

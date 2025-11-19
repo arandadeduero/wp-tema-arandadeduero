@@ -13,7 +13,7 @@
  */
 
 
-// Nuevo 
+// Nuevo
 get_header();
 
 $header_image = wp_get_attachment_url( get_theme_mod('aranda_de_duero_default_header_image'));
@@ -35,39 +35,39 @@ if(get_field('cabecera_de_pagina', $term)) {
 			</div>
 			<div class="col-lg-9 pt-4">
 				<main id="primary" class="site-main">
-                <?php 
+                <?php
                     $query = aranda_de_duero_content(
                         'post',
                         'publish_date',
                         'DESC',
                         '9'
                     );
-        
+
                 ?>
-					
-                    <?php if ( $query->have_posts() ) : ?> 
-                
-                    
+
+                    <?php if ( $query->have_posts() ) : ?>
+
+
                 <!-- the loop -->
                     <?php $count = 0; ?>
                     <?php while ( $query->have_posts() ) : $query->the_post(); ?>
-                        <?php 
+                        <?php
                         $image_type='';
                         if($count == 0 || $count%2 == 1)  {
                             echo '<div class="row">';
-                        } 
-                        
+                        }
+
                         if($count == 0) {
-                            $image_type='medium';
+                            $image_type='large';
                             echo '<div class="col-lg-12">';
                         } else {
-                            $image_type='medium';
+                            $image_type='large';
                             echo '<div class="col-sm-12 col-lg-6 mt-4">';
                         }?>
                                 <div class="home-main-news p-3 rounded h-100">
                                     <div class="row">
-                                        <?php 
-                                            if(get_the_post_thumbnail_url(get_the_ID(), 'medium')) {
+                                        <?php
+                                            if(get_the_post_thumbnail_url(get_the_ID(), 'large')) {
                                         ?>
                                                 <div class="col-12">
                                                     <div class="home-main-news-image  mb-3 <?php $count == 0 ? print_r('first-news') : '' ;?>">
@@ -78,13 +78,13 @@ if(get_field('cabecera_de_pagina', $term)) {
                                                 <div class="home-main-news-content px-2  d-flex flex-column justify-content-between">
                                                     <div class="home-main-news-description">
                                                         <a href="<?php echo the_permalink(get_the_ID());?>" style="color:<?php echo get_theme_mod('aranda_de_duero_main_section_text_color'); ?>!important;"><h2 class="h6 mb-0 font-weight-bold"><?php the_title(); ?></h2></a>
-                                                    
+
                                                     <?php
                                                         if($count == 0) {
                                                     ?>
                                                         <p class="small mt-3 w-100 pr-2"><?php echo wp_strip_all_tags( get_the_excerpt(), true ); ?></p>
                                                     <?php
-                                                        } 
+                                                        }
                                                     ?>
                                                     </div>
                                                     <div class="home-main-news-button my-3">
@@ -105,11 +105,11 @@ if(get_field('cabecera_de_pagina', $term)) {
                                                     </div>
                                                 </div>
                                                 </div>
-                                                
-                                        <?php } ?>
-                                              
 
-                                        
+                                        <?php } ?>
+
+
+
                                     </div>
                                 </div>
                             </div>
@@ -121,10 +121,10 @@ if(get_field('cabecera_de_pagina', $term)) {
                     <?php if($count%2 != 1){
                         echo '</div>';
                     }?>
-                
+
                 <!-- end of the loop -->
-               
-        
+
+
         <?php wp_reset_postdata(); ?>
     <?php endif;?>
     <?php if ($query->max_num_pages  > 1) { // check if the max number of pages is greater than 1  ?>
@@ -137,10 +137,10 @@ if(get_field('cabecera_de_pagina', $term)) {
                         </div>
                     </nav>
                 <?php } ?>
-                    
+
 				</main><!-- #main -->
 			</div>
-			
+
 		</div>
 	</div>
 

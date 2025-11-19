@@ -356,11 +356,13 @@ footer i {
 }
 
 .home-especial-title {
-  height: 75px;
+  align-items: center;
+  margin: auto;
+  height: 100px;
   text-align: center;
-  padding-left: 10px;
-  padding-top: 20px;
+  padding: 5px;
   background: #0069b3;
+  display: grid;
 }
 
 .home-especial-image img {

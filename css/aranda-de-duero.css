@@ -15,15 +15,6 @@
   src: url("outfit-v15-latin-300.woff2") format("woff2");
 }
 
-/* outfit-regular - latin */
-@font-face {
-  font-display: swap;
-  font-family: "Outfit";
-  font-style: normal;
-  font-weight: 400;
-  src: url("outfit-v15-latin-regular.woff2") format("woff2");
-}
-
 .search-icon::before {
   content: "";
 }

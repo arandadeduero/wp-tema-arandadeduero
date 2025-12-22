@@ -124,6 +124,7 @@ header#masthead {
 header .custom-logo-link {
   margin-bottom: 0.5rem;
 }
+
 @media (max-width: 768px) {
   #primary-menu {
     text-align: right;

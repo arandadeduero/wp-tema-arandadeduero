@@ -1,15 +1,6 @@
-/* outfit-300 - latin */
-@font-face {
-  font-display: swap;
-  font-family: "Outfit";
-  font-style: normal;
-  font-weight: 300;
-  src: url("outfit-v15-latin-300.woff2") format("woff2");
-}
-
 /* Force for the page, because of bootstrap */
 #page {
-  font-family: "Outfit";
+  font-family: "Outfit", sans-serif;
 }
 
 .search-icon::before {
@@ -63,7 +54,7 @@ input[type="submit"] {
   color: #000;
   text-decoration: none;
   border-radius: 0.5em !important;
-  border: 2px solid #3cb4e5;
+  border: 2px solid #0083c1;
   font-size: 18px;
   padding: 0.5rem;
 }
@@ -88,7 +79,7 @@ header#masthead {
   display: inline;
   padding-right: 0.5rem;
   font-size: 1.1rem;
-  font-family: "Outfit";
+  font-family: "Outfit", sans-serif;
 }
 @media (max-width: 768px) {
   #secondary-menu > li {
@@ -116,7 +107,7 @@ header#masthead {
 @media (min-width: 768px) {
   #secondary-menu > li:before {
     content: ">";
-    color: #e9f4f9;
+    color: #0083c1;
     font-weight: bold;
   }
   .astm-search-menu:before {
@@ -146,7 +137,7 @@ header .custom-logo-link {
   padding-right: 1.5rem;
   padding-left: 1.5rem;
   font-size: 1.1rem;
-  font-family: "Outfit";
+  font-family: "Outfit", sans-serif;
   margin-top: auto;
 }
 #primary-menu > li > a {
@@ -154,18 +145,18 @@ header .custom-logo-link {
   text-decoration: none;
 }
 /* #primary-menu > li:hover{
-    background-color: #e9f4f9;
+    background-color: #0083c1;
 }
 #primary-menu > li:hover > a{
     color: white;
 } */
 /* .sub-menu {
-    border-top: #e9f4f9 3px solid;
+    border-top: #0083c1 3px solid;
 } */
 #primary-menu > li:not(.sub-menu):hover {
   text-underline-offset: 100%;
   text-decoration: underline;
-  text-decoration-color: #e9f4f9;
+  text-decoration-color: #0083c1;
   text-decoration-thickness: 3px;
 }
 
@@ -295,7 +286,7 @@ footer i {
 /** HOME */
 .home-main-section.rounded {
   border-radius: 0.5em !important;
-  border: 2px solid #3cb4e5;
+  border: 2px solid #0083c1;
 }
 
 .home-main-section.rounded a {
@@ -323,7 +314,7 @@ footer i {
 
 .home-more-news {
   border-radius: 10px !important;
-  border: 2px solid #3cb4e5;
+  border: 2px solid #0083c1;
 }
 
 .home-more-news a {
@@ -396,7 +387,7 @@ footer i {
   color: #000 !important;
   text-decoration: none !important;
   border-radius: 0.5em !important;
-  border: 2px solid #3cb4e5 !important;
+  border: 2px solid #0083c1 !important;
   font-size: 18px !important;
   padding: 0.5rem !important;
   background-color: white !important;
@@ -421,7 +412,7 @@ footer i {
 
 .home-more-events {
   border-radius: 0.5em !important;
-  border: 2px solid #3cb4e5;
+  border: 2px solid #0083c1;
 }
 
 .home-evento-fecha {
@@ -431,7 +422,7 @@ footer i {
 }
 
 .home-evento-fecha .home-evento-fecha-clock {
-  color: #3cb4e5;
+  color: #0083c1;
   font-size: 16px;
   margin-left: 5px;
   margin-top: 5px;
@@ -517,7 +508,7 @@ footer i {
 }
 #menu-ayuntamiento > li {
   font-size: 1.1rem;
-  font-family: "Outfit";
+  font-family: "Outfit", sans-serif;
   padding: 0.375rem 0.75rem;
   margin: 0;
   border-bottom: #ccc 1px solid;
@@ -543,7 +534,7 @@ footer i {
 }
 #menu-tramites > li {
   font-size: 1.1rem;
-  font-family: "Outfit";
+  font-family: "Outfit", sans-serif;
   padding: 0.375rem 0.75rem;
   margin: 0;
   border-bottom: #ccc 1px solid;
@@ -566,7 +557,7 @@ footer i {
 }
 #menu-la-villa-de-aranda > li {
   font-size: 1.1rem;
-  font-family: "Outfit";
+  font-family: "Outfit", sans-serif;
   padding: 0.375rem 0.75rem;
   margin: 0;
   border-bottom: #ccc 1px solid;
@@ -591,7 +582,7 @@ footer i {
 }
 #menu-noticias > li {
   font-size: 1.1rem;
-  font-family: "Outfit";
+  font-family: "Outfit", sans-serif;
   padding: 0.375rem 0.75rem;
   margin: 0;
   border-bottom: #ccc 1px solid;
@@ -614,11 +605,11 @@ footer i {
 .himno-letra {
   font-size: 0.8rem;
   padding-left: 2rem;
-  font-family: "Outfit";
+  font-family: "Outfit", sans-serif;
 }
 .himno-autor {
   font-size: 0.9rem;
-  font-family: "Outfit";
+  font-family: "Outfit", sans-serif;
 }
 .himno-imagen {
   box-shadow: 0px 0px 20px 0px #6c757d;
@@ -634,12 +625,12 @@ footer i {
 
 /** Página de noticia */
 .single-post .nav-links .btn-primary {
-  background-color: #e9f4f9;
-  border-color: #e9f4f9;
+  background-color: #0083c1;
+  border-color: #0083c1;
 }
 
 .cabecera_pagina {
-  border-bottom: 4px solid #e9f4f9;
+  border-bottom: 4px solid #0083c1;
   max-height: 192px;
   object-fit: cover;
   object-position: center;
@@ -649,7 +640,7 @@ footer i {
   text-decoration: none;
   color: black;
   border-radius: 10px;
-  border: 2px solid #3cb4e5;
+  border: 2px solid #0083c1;
 }
 
 /** FIN Página de noticia */
@@ -662,7 +653,7 @@ footer i {
 }
 #menu-actualidad > li {
   font-size: 1.1rem;
-  font-family: "Outfit";
+  font-family: "Outfit", sans-serif;
   padding: 0.375rem 0.75rem;
   margin: 0;
   border-bottom: #ccc 1px solid;
@@ -689,7 +680,7 @@ footer i {
 }
 #menu-area-ciudadana > li {
   font-size: 1.1rem;
-  font-family: "Outfit";
+  font-family: "Outfit", sans-serif;
   padding: 0.375rem 0.75rem;
   margin: 0;
   border-bottom: #ccc 1px solid;
@@ -716,7 +707,7 @@ footer i {
 }
 #menu-servicios-municipales > li {
   font-size: 1.1rem;
-  font-family: "Outfit";
+  font-family: "Outfit", sans-serif;
   padding: 0.375rem 0.75rem;
   margin: 0;
   border-bottom: #ccc 1px solid;
@@ -743,7 +734,7 @@ footer i {
 }
 .page-template-page-agenda-php .upcoming-events > li {
   font-size: 1.1rem;
-  font-family: "Outfit";
+  font-family: "Outfit", sans-serif;
   padding: 0.375rem 0.75rem;
   margin: 0;
   border-bottom: #ccc 1px solid;
@@ -763,7 +754,7 @@ footer i {
 }
 .single-mc-events .upcoming-events > li {
   font-size: 1.1rem;
-  font-family: "Outfit";
+  font-family: "Outfit", sans-serif;
   padding: 0.375rem 0.75rem;
   margin: 0;
   border-bottom: #ccc 1px solid;
@@ -796,7 +787,7 @@ footer.search-entry-footer {
 }
 
 .text-blue {
-  color: #e9f4f9 !important;
+  color: #0083c1 !important;
 }
 /** FIN Página de buscador*/
 

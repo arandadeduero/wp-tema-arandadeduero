@@ -17,6 +17,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="zoom-domain-verification" content="ZOOM_verify_KMhEiObFczwnG46wHdMKHq">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
 	<?php wp_head(); ?>
 </head>
 
@@ -84,14 +87,14 @@
 						</nav><!-- #site-navigation -->
 					</div>
 				</header><!-- #masthead -->
-				  <!-- Social bar  -->
-				  	<div class="social-bar">
-						<p><a aria-label="Perfil de Facebook de Aranda de Duero" href="https://www.facebook.com/ArandaMeGusta/" rel="external" target="_blank"><span class="d-none">Facebook</span><i aria-hidden="true" class="fab fa-facebook-square fa-2x" title="Perfil de Facebook de Aranda de Duero"></i></a></p>
-						<p><a aria-label="Perfil de Twitter de Aranda de Duero" href="https://twitter.com/aranda_megusta" rel="external" target="_blank"><span class="d-none">Twitter</span><i aria-hidden="true" class="fab fa-twitter-square fa-2x" title="Perfil de Twitter de Aranda de Duero"></i></a></p>
-						<p><a aria-label="Perfil de Instagram de Aranda de Duero" href="http://www.instagram.com/arandamegusta/" rel="external" target="_blank"><span class="d-none">Instagram</span><i aria-hidden="true" class="fab fa-instagram-square fa-2x" aria-label="Perfil de Instagram de Aranda de Duero"></i></a></p>
-						<p><a aria-label="Blog de Aranda de Duero" href="http://blog.arandadeduero.es/" rel="external" target="_blank"><span class="d-none">Blog</span><i aria-hidden="true" class="fab fa-blogger fa-2x" title="Blog de Aranda de Duero"></i></a></p>
-					</div>
-    <!-- Fin social bar  -->
+				<!-- Social bar  -->
+				<div class="social-bar">
+					<p><a aria-label="Perfil de Facebook de Aranda de Duero" href="https://www.facebook.com/ArandaMeGusta/" rel="external" target="_blank"><span class="d-none">Facebook</span><i aria-hidden="true" class="fab fa-facebook-square fa-2x" title="Perfil de Facebook de Aranda de Duero"></i></a></p>
+					<p><a aria-label="Perfil de Twitter de Aranda de Duero" href="https://twitter.com/aranda_megusta" rel="external" target="_blank"><span class="d-none">Twitter</span><i aria-hidden="true" class="fab fa-twitter-square fa-2x" title="Perfil de Twitter de Aranda de Duero"></i></a></p>
+					<p><a aria-label="Perfil de Instagram de Aranda de Duero" href="http://www.instagram.com/arandamegusta/" rel="external" target="_blank"><span class="d-none">Instagram</span><i aria-hidden="true" class="fab fa-instagram-square fa-2x" aria-label="Perfil de Instagram de Aranda de Duero"></i></a></p>
+					<p><a aria-label="Blog de Aranda de Duero" href="http://blog.arandadeduero.es/" rel="external" target="_blank"><span class="d-none">Blog</span><i aria-hidden="true" class="fab fa-blogger fa-2x" title="Blog de Aranda de Duero"></i></a></p>
+				</div>
+    			<!-- Fin social bar  -->
 		</div>
 	</div>
 </div>

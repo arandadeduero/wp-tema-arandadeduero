@@ -65,6 +65,7 @@ $query = aranda_de_duero_content(
         <div class="col-lg-8 col-sm-12 mt-4">
             <?php if ($query->have_posts()) : ?>
                 <!-- the loop -->
+                <h3 class="text-blue font-weight-normal text-uppercase">Últimas noticias</h3>
                 <?php $count = 0; ?>
                 <?php while ($query->have_posts()) : $query->the_post(); ?>
                     <?php
@@ -93,7 +94,7 @@ $query = aranda_de_duero_content(
                                 <div class="col-12">
                                     <div class="home-main-news-description">
                                         <a href="<?php echo the_permalink(get_the_ID()); ?>" style="color:<?php echo get_theme_mod('aranda_de_duero_main_section_text_color'); ?>!important;">
-                                            <h2 class="h6 mb-0 font-weight-bold"><?php the_title(); ?></h2>
+                                            <h2 class="h6 mb-0 font-weight-normal"><?php the_title(); ?></h2>
                                         </a>
                                     </div>
                                     <?php
@@ -106,7 +107,7 @@ $query = aranda_de_duero_content(
                                     }
                                     ?>
                                     <div class="home-main-news-button my-3">
-                                        <a href="<?php echo the_permalink(get_the_ID()); ?>" class="read-more"><span class="arrow">➔</span> <?php _e('Leer noticia'); ?></a>
+                                        <a href="<?php echo the_permalink(get_the_ID()); ?>" class="text-blue"><span class="arrow">➔</span> <?php _e('Leer noticia'); ?></a>
                                     </div>
 
                                 </div>
@@ -116,11 +117,11 @@ $query = aranda_de_duero_content(
                                 <div class="col-12">
                                     <div class="home-main-news-description">
                                         <a href="<?php echo the_permalink(get_the_ID()); ?>" style="color:<?php echo get_theme_mod('aranda_de_duero_main_section_text_color'); ?>!important;">
-                                            <h2 class="h6 mb-0 font-weight-bold"><?php the_title(); ?></h2>
+                                            <h2 class="h6 mb-0 font-weight-normal"><?php the_title(); ?></h2>
                                         </a>
                                     </div>
                                     <div class="home-main-news-button my-3">
-                                        <a href="<?php echo the_permalink(get_the_ID()); ?>" class="read-more"><span class="arrow">➔</span> <?php _e('Leer noticia'); ?></a>
+                                        <a href="<?php echo the_permalink(get_the_ID()); ?>" class="text-blue"><span class="arrow">➔</span> <?php _e('Leer noticia'); ?></a>
                                     </div>
                                 </div>
 

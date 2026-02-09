@@ -126,19 +126,10 @@ get_header();
 
     ?>
     <div class="container mt-4">
-        <div class="row">
-            <div class="col-12">
-                <div class="home-news-title mb-4 text-center">
-                    <h3>Actualidad y Eventos</h3>
-                </div>
-            </div>
-        </div>
 
         <div class="row">
             <div class="col-lg-8 col-sm-12 mt-4">
             <?php if ( $query->have_posts() ) : ?>
-
-
                         <!-- the loop -->
                             <?php $count = 0; ?>
                             <?php while ( $query->have_posts() ) : $query->the_post(); ?>
@@ -179,7 +170,7 @@ get_header();
                                                                 }
                                                             ?>
                                                             <div class="home-main-news-button my-3">
-                                                                <a href="<?php echo the_permalink(get_the_ID());?>" class="btn btn-primary" role="button" style="color:white !important;"><?php _e('Leer más');?></a>
+                                                                <a href="<?php echo the_permalink(get_the_ID());?>" class="btn btn-primary" role="button" style="color:white !important;"><?php _e('Leer noticia');?></a>
                                                             </div>
 
                                                         </div>
@@ -191,7 +182,7 @@ get_header();
                                                                 <a href="<?php echo the_permalink(get_the_ID());?>" style="color:<?php echo get_theme_mod('aranda_de_duero_main_section_text_color'); ?>!important;"><h2 class="h6 mb-0 font-weight-bold"><?php the_title(); ?></h2></a>
                                                             </div>
                                                             <div class="home-main-news-button my-3">
-                                                                <a href="<?php echo the_permalink(get_the_ID());?>" class="btn btn-primary" role="button" style="color:white !important;"><?php _e('Leer más');?></a>
+                                                                <a href="<?php echo the_permalink(get_the_ID());?>" class="btn btn-primary" role="button" style="color:white !important;"><?php _e('Leer noticia');?></a>
                                                             </div>
                                                         </div>
 
@@ -312,9 +303,6 @@ get_header();
     <?php endif; ?>
 </div>
 
-
-
-
         </div>
     </div>
     <div class="container mt-4">
@@ -322,13 +310,6 @@ get_header();
             <div class="p-0 col-6 text-center">
                 <div class="home-more-news col-8 p-0 mx-auto">
                     <a href="<?php echo get_permalink(get_page_by_title('Noticias')); ?>page/2/" class="home-more-news-button"><p class="mb-0 py-2"><?php _e('Más actualidad');?></p></a>
-                </div>
-
-            </div>
-
-            <div class="p-0 col-6 text-center">
-                <div class="home-more-events col-8 p-0 mx-auto">
-                    <a href="/agenda" class="home-more-events-button"><p class="mb-0 py-2"><?php _e('Más eventos');?></p></a>
                 </div>
             </div>
         </div>

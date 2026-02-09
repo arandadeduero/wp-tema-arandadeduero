@@ -921,3 +921,28 @@ footer.search-entry-footer {
     min-width: 6rem;
   }
 }
+/* Home page theme colors */
+.news-title-link {
+  text-decoration: none;
+}
+
+.news-title-link:hover {
+  text-decoration: underline;
+}
+
+.event-link {
+  text-decoration: none;
+}
+
+.event-link:hover {
+  text-decoration: underline;
+}
+
+.banner-streaming-text {
+  color: #b50101;
+  text-decoration: underline;
+}
+
+.home-main-news-button .btn-primary {
+  color: white !important;
+}

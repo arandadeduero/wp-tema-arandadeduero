@@ -106,7 +106,7 @@ $query = aranda_de_duero_content(
                                     }
                                     ?>
                                     <div class="home-main-news-button my-3">
-                                        <a href="<?php echo the_permalink(get_the_ID()); ?>" class="btn btn-primary" role="button" style="color:white !important;"><?php _e('Leer noticia'); ?></a>
+                                        <a href="<?php echo the_permalink(get_the_ID()); ?>" class="read-more"><span class="arrow">➔</span> <?php _e('Leer noticia'); ?></a>
                                     </div>
 
                                 </div>
@@ -120,7 +120,7 @@ $query = aranda_de_duero_content(
                                         </a>
                                     </div>
                                     <div class="home-main-news-button my-3">
-                                        <a href="<?php echo the_permalink(get_the_ID()); ?>" class="btn btn-primary" role="button" style="color:white !important;"><?php _e('Leer noticia'); ?></a>
+                                        <a href="<?php echo the_permalink(get_the_ID()); ?>" class="read-more"><span class="arrow">➔</span> <?php _e('Leer noticia'); ?></a>
                                     </div>
                                 </div>
 
@@ -231,7 +231,7 @@ $query = aranda_de_duero_content(
                                 <p>
                                     <img src="<?php echo $post['thumbnail']; ?>" alt="<?php echo $post['title']; ?>">
                                 </p>
-                                <a href="<?php echo $post['link']; ?>" style="color:<?php echo get_theme_mod('aranda_de_duero_link_color'); ?>!important;">Más información ></a>
+                                <a href="<?php echo $post['link']; ?>" style="color:<?php echo get_theme_mod('aranda_de_duero_link_color'); ?>!important;"><span class="arrow">➔</span> Más información</a>
                             </div>
                         </div>
                 <?php

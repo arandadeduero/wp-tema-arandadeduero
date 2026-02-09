@@ -106,7 +106,7 @@ header#masthead {
 }
 @media (min-width: 768px) {
   #secondary-menu > li:before {
-    content: ">";
+    content: "";
     color: #0083c1;
     font-weight: bold;
   }
@@ -162,7 +162,7 @@ header .custom-logo-link {
 }
 
 .sub-menu li:hover {
-  background: #f9f9f9;
+  background: #e9f4f9;
   color: #000;
 }
 
@@ -240,7 +240,7 @@ header .custom-logo-link {
 /*Footer*/
 
 footer {
-  background-color: #f9f9f9;
+  background-color: #e9f4f9;
 }
 .footer img {
   padding-top: 3rem;
@@ -304,7 +304,7 @@ footer i {
 }
 
 .home-main-news {
-  background-color: #f9f9f9;
+  background-color: #e9f4f9;
   text-align: left;
 }
 
@@ -515,7 +515,7 @@ footer i {
   border-bottom: #ccc 1px solid;
 }
 #menu-ayuntamiento > li:hover {
-  background: #f9f9f9;
+  background: #e9f4f9;
 }
 #menu-ayuntamiento > li a,
 #menu-ayuntamiento > li a:hover {
@@ -541,7 +541,7 @@ footer i {
   border-bottom: #ccc 1px solid;
 }
 #menu-tramites > li:hover {
-  background: #f9f9f9;
+  background: #e9f4f9;
 }
 #menu-tramites > li a,
 #menu-tramites > li a:hover {
@@ -564,7 +564,7 @@ footer i {
   border-bottom: #ccc 1px solid;
 }
 #menu-la-villa-de-aranda > li:hover {
-  background: #f9f9f9;
+  background: #e9f4f9;
 }
 #menu-la-villa-de-aranda > li a,
 #menu-la-villa-de-aranda > li a:hover {
@@ -589,7 +589,7 @@ footer i {
   border-bottom: #ccc 1px solid;
 }
 #menu-noticias > li:hover {
-  background: #f9f9f9;
+  background: #e9f4f9;
 }
 #menu-noticias > li a,
 #menu-noticias > li a:hover {
@@ -660,7 +660,7 @@ footer i {
   border-bottom: #ccc 1px solid;
 }
 #menu-actualidad > li:hover {
-  background: #f9f9f9;
+  background: #e9f4f9;
 }
 #menu-actualidad > li a,
 #menu-actualidad > li a:hover {
@@ -687,7 +687,7 @@ footer i {
   border-bottom: #ccc 1px solid;
 }
 #menu-area-ciudadana > li:hover {
-  background: #f9f9f9;
+  background: #e9f4f9;
 }
 #menu-area-ciudadana > li a,
 #menu-area-ciudadana > li a:hover {
@@ -714,7 +714,7 @@ footer i {
   border-bottom: #ccc 1px solid;
 }
 #menu-servicios-municipales > li:hover {
-  background: #f9f9f9;
+  background: #e9f4f9;
 }
 #menu-servicios-municipales > li a,
 #menu-servicios-municipales > li a:hover {
@@ -741,7 +741,7 @@ footer i {
   border-bottom: #ccc 1px solid;
 }
 .page-template-page-agenda-php .upcoming-events > li:hover {
-  background: #f9f9f9;
+  background: #e9f4f9;
 }
 .page-template-page-agenda-php .upcoming-events > li a,
 #menu-actualidad > li a:hover {
@@ -761,7 +761,7 @@ footer i {
   border-bottom: #ccc 1px solid;
 }
 .single-mc-events .upcoming-events > li:hover {
-  background: #f9f9f9;
+  background: #e9f4f9;
 }
 .single-mc-events .upcoming-events > li a,
 #menu-actualidad > li a:hover {

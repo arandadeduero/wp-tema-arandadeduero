@@ -15,7 +15,7 @@
 <div class="container mt-5 home-especial-container">
     <div class="row">
         <?php
-        echo do_shortcode('[ajax_load_more id="9318154416" loading_style="infinite skype" container_type="div" css_classes="container" post_type="especial" posts_per_page="12" orderby="meta_value_num" custom_args="limit:24" scroll_distance="-50" button_label="Cargar más"]');
+        echo do_shortcode('[ajax_load_more id="9318154416" container_type="div" css_classes="container" post_type="especial" posts_per_page="18" orderby="meta_value_num" custom_args="limit:24" scroll_distance="-50" button_label="Cargar más"]');
         ?>
         <div class="container mt-1">
             <div class="row justify-content-center">

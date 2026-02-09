@@ -6,7 +6,7 @@
  *
  * @package Aranda_de_Duero
  */
- 
+
  		// Desactivamos el editor Gutenberg.
  add_filter('use_block_editor_for_post', '__return_false', 10);
 
@@ -98,8 +98,8 @@ if ( ! function_exists( 'aranda_de_duero_setup' ) ) :
 		add_theme_support(
 			'custom-logo',
 			array(
-				'height'      => 250,
-				'width'       => 250,
+				'height'      => 600,
+				'width'       => 200,
 				'flex-width'  => true,
 				'flex-height' => true,
 			)
@@ -137,7 +137,7 @@ function aranda_de_duero_widgets_init() {
 			'after_title'   => '</h2>',
 		)
 	);
-	// Sidebar para Ayuntamiento 
+	// Sidebar para Ayuntamiento
 	register_sidebar(
 		array(
 			'name'          => esc_html__( 'Ayuntamiento', 'aranda-de-duero' ),
@@ -149,7 +149,7 @@ function aranda_de_duero_widgets_init() {
 			'after_title'   => '</h2>',
 		)
 	);
-	// Sidebar para Villa de Aranda 
+	// Sidebar para Villa de Aranda
 	register_sidebar(
 		array(
 			'name'          => esc_html__( 'Villa', 'aranda-de-duero' ),
@@ -198,7 +198,7 @@ function aranda_de_duero_widgets_init() {
 			'before_title'  => '<h2 class="widget-title">',
 			'after_title'   => '</h2>',
 		)
-	);	
+	);
 
 	register_sidebar(
 		array(
@@ -248,25 +248,25 @@ function aranda_de_duero_scripts() {
 add_action( 'wp_enqueue_scripts', 'aranda_de_duero_scripts' );
 
 function bootstrap_css() {
-	wp_enqueue_style( 'bootstrap_css', 
-  					'https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css', 
-  					array(), 
+	wp_enqueue_style( 'bootstrap_css',
+  					'https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css',
+  					array(),
   					'4.6.2'
-  					); 
+  					);
 }
 add_action( 'wp_enqueue_scripts', 'bootstrap_css');
 
 function bootstrap_js() {
-	wp_enqueue_script( 'bootstrap_js', 
-  					'https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/js/bootstrap.min.js', 
-  					array('jquery','popper_js'), 
+	wp_enqueue_script( 'bootstrap_js',
+  					'https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/js/bootstrap.min.js',
+  					array('jquery','popper_js'),
   					'4.6.2',
-					  true); 
-	wp_enqueue_script( 'popper_js', 
-  					'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js', 
-  					array(), 
-  					'1.16.1', 
-  					true); 
+					  true);
+	wp_enqueue_script( 'popper_js',
+  					'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js',
+  					array(),
+  					'1.16.1',
+  					true);
 }
 add_action( 'wp_enqueue_scripts', 'bootstrap_js');
 
@@ -317,7 +317,7 @@ if ( class_exists( 'WooCommerce' ) ) {
  */
 
 function aranda_de_duero_customizer_settings($wp_customize) {
-	
+
 		$wp_customize->add_section('aranda_de_duero_options', array(
 			'title' => 'Aranda de Duero',
 			'description' => 'Opciones específicas para el tema Aranda de Duero',
@@ -385,7 +385,7 @@ function aranda_de_duero_customizer_settings($wp_customize) {
 
 		$wp_customize->add_setting( 'aranda_de_duero_custom_script' );
     	$wp_customize->add_control( 'aranda_de_duero_custom_script', array(
-		'type' => 'textarea',	
+		'type' => 'textarea',
         'id'=> 'aranda_de_duero_custom_script',
         'label' => 'Javascript personalizado',
         'section' => 'aranda_de_duero_options'
@@ -482,7 +482,7 @@ function aranda_de_duero_customize_css()
 				 color: <?php echo get_theme_mod('aranda_de_duero_text_color', '#000000'); ?> !important;
 				 background-color: <?php echo get_theme_mod('aranda_de_duero_background_color', '#ffffff'); ?> !important;
 			 }
-			 
+
              h1,
 			 h2,
 			 h3,
@@ -494,7 +494,7 @@ function aranda_de_duero_customize_css()
 			 h3 a,
 			 h4 a,
 			 h5 a,
-			 h6 a { 
+			 h6 a {
 				 color: <?php echo get_theme_mod('aranda_de_duero_header_text_color', '#000000'); ?>!important;
 				}
 			.post a:not(h1 a,h2 a, h3 a, h4 a, h5 a, h6 a) {
@@ -513,10 +513,10 @@ function aranda_de_duero_customize_js()
 				<?php echo get_theme_mod('aranda_de_duero_custom_script'); ?>
 				jQuery('video').on("loadeddata", function() {
 				jQuery('video').bind('contextmenu',function() { return false; });
-				
-				}); 
+
+				});
 			});
-	   		
+
 	   </script>
     <?php
 }
@@ -584,7 +584,7 @@ function aranda_de_duero_concejalias($slug)
 }
 add_action( 'admin_init', 'register_editor_stylesheet' );
 
-/** 
+/**
  * Cambiar entradas por noticias
 */
 function revcon_change_post_label() {
@@ -612,6 +612,6 @@ function revcon_change_post_object() {
     $labels->menu_name = 'Noticias';
     $labels->name_admin_bar = 'Noticias';
 }
- 
+
 add_action( 'admin_menu', 'revcon_change_post_label' );
 add_action( 'init', 'revcon_change_post_object' );

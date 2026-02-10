@@ -65,7 +65,7 @@ $query = aranda_de_duero_content(
         <div class="col-lg-8 col-sm-12 mt-4">
             <?php if ($query->have_posts()) : ?>
                 <!-- the loop -->
-                <h3 class="text-blue font-weight-normal text-uppercase">Últimas noticias</h3>
+                <h4 class="text-blue font-weight-normal text-uppercase">Últimas noticias</h4>
                 <?php $count = 0; ?>
                 <?php while ($query->have_posts()) : $query->the_post(); ?>
                     <?php
@@ -149,96 +149,50 @@ $query = aranda_de_duero_content(
     </div>
     <div class="col-12 col-lg-4 mt-4">
         <?php
-        global $wpdb;
-
-        $query = aranda_de_duero_content(
-            'mc-events',
-            '',
-            '',
-            300
-        );
+        // Get upcoming events using helper function
+        $upcoming_events = aranda_de_duero_get_upcoming_events(50);
+        $link_color = get_theme_mod('aranda_de_duero_link_color');
         ?>
 
-        <?php if ($query->have_posts()) : ?>
+        <?php if (! empty($upcoming_events)) : ?>
             <div class="container">
+                <h4 class="text-blue font-weight-normal text-uppercase">Agenda de eventos</h4>
+
                 <?php
-                $array_posts = array();
-                $total_posts = 0;
-
-                // Año actual y año siguiente
-                $current_year = date("Y");
-                $next_year = $current_year + 1;
-
-                while ($query->have_posts()) : $query->the_post(); ?>
-
-                    <?php
-                    $array_post = array();
-
-                    $datos_evento = get_post_meta(get_the_ID(), '_mc_event_data');
-
-                    $date_start = $datos_evento[0]['event_begin'];
-                    $date_end = $datos_evento[0]['event_end'];
-
-                    $date_start_sto = strtotime($date_start);
-                    $date_end_sto = strtotime($date_end);
-
-                    $today = date("Y-m-d");
-                    $today_sto = strtotime($today);
-
-                    $event_start_year = date("Y", $date_start_sto);
-
-                    // Filtro para mostrar eventos que empiezan en el año actual o el siguiente y están activos
-                    if (($event_start_year == $current_year || $event_start_year == $next_year) &&
-                        $today_sto <= $date_end_sto
-                    ) {
-                        $array_post['date_start'] = $date_start;
-                        $array_post['date_end'] = $date_end;
-                        $array_post['title'] = get_the_title();
-                        $array_post['thumbnail'] = wp_get_attachment_url(get_post_thumbnail_id(get_the_ID(), 'thumbnail'));
-                        $event_id = get_post_meta(get_the_ID(), '_mc_event_id');
-
-                        $occur_id = $wpdb->get_row("SELECT * FROM ayad_my_calendar_events WHERE occur_event_id =" . $event_id[0])->occur_id;
-
-                        $array_post['link'] = get_permalink(get_the_ID()) . '?mc_id=' . $occur_id;
-
-                        $array_posts[] = $array_post;
+                $event_count = 0;
+                foreach ($upcoming_events as $event) {
+                    if ($event_count >= 4) {
+                        break; // Only show 4 events
                     }
-                    ?>
-                <?php endwhile;
 
-                // Ordenar los posts por la fecha de inicio
-                $columns_dates = array_column($array_posts, 'date_start');
-                array_multisort($columns_dates, SORT_ASC, $array_posts);
+                    $event_time = strtotime($event['date_start']);
+                    $day = date('d', $event_time);
+                    $month = date('m', $event_time);
                 ?>
-
-                <?php
-                $cont_events = 0;
-                foreach ($array_posts as $post) {
-                    if ($cont_events < 4) {
-                        $time = strtotime($post['date_start']);
-                        $day = date('d', $time);
-                        $month = date('m', $time);
-                ?>
-                        <div class="home-evento-descripcion row mb-2">
-                            <div class="col-1 p-0">
-                                <div class="home-evento-fecha">
-                                    <p class="m-0"><?php echo $day . '.'; ?></p>
-                                    <p class="m-0"><?php echo $month; ?></p>
-                                    <p class="home-evento-fecha-clock mb-1"><i class="far fa-clock"></i></p>
-                                </div>
-                            </div>
-                            <div class="col-11 pl-5">
-                                <h4><?php echo $post['title']; ?></h4>
-                                <p>
-                                    <img src="<?php echo $post['thumbnail']; ?>" alt="<?php echo $post['title']; ?>">
-                                </p>
-                                <a href="<?php echo $post['link']; ?>" style="color:<?php echo get_theme_mod('aranda_de_duero_link_color'); ?>!important;"><span class="arrow">➔</span> Más información</a>
+                    <div class="home-evento-descripcion row mb-2">
+                        <div class="col-1 p-0">
+                            <div class="home-evento-fecha">
+                                <p class="m-0"><?php echo esc_html($day . '.'); ?></p>
+                                <p class="m-0"><?php echo esc_html($month); ?></p>
+                                <p class="home-evento-fecha-clock mb-1"><i class="far fa-clock" aria-hidden="true"></i></p>
                             </div>
                         </div>
+                        <div class="col-11 pl-5">
+                            <h4><?php echo esc_html($event['title']); ?></h4>
+                            <p>
+                                <?php if (! empty($event['thumbnail'])) : ?>
+                                    <img src="<?php echo esc_url($event['thumbnail']); ?>" alt="<?php echo esc_attr($event['title']); ?>">
+                                <?php endif; ?>
+                            </p>
+                            <a href="<?php echo esc_url($event['link']); ?>" class="event-link" style="color: <?php echo esc_attr($link_color); ?> !important;">
+                                <span class="arrow">➔</span> Más información
+                            </a>
+                        </div>
+                    </div>
                 <?php
-                    }
-                    $cont_events++;
-                } ?>
+                    $event_count++;
+                }
+                ?>
             </div>
         <?php endif; ?>
     </div>
@@ -258,6 +212,81 @@ $query = aranda_de_duero_content(
 </div>
 
 <!-- Fin noticias  -->
+
+<!-- Agenda de eventos  -->
+<?php
+// Get upcoming events for the main agenda section
+$agenda_events = aranda_de_duero_get_upcoming_events(50);
+
+if (! empty($agenda_events)) :
+    $first_event = $agenda_events[0]; // Get the first event for the date display
+    $event_time = strtotime($first_event['date_start']);
+?>
+    <div class="container py-5">
+        <div class="events-agenda-card p-4">
+            <h4 class="agenda-title text-blue mb-4">AGENDA DE EVENTOS</h4>
+
+            <div class="row no-gutters bg-white rounded shadow-sm">
+                <!-- Event Poster (First Event) -->
+                <div class="col-md-2 border-right p-3">
+                    <?php if (! empty($first_event['thumbnail'])) : ?>
+                        <img src="<?php echo esc_url($first_event['thumbnail']); ?>" class="img-fluid" alt="<?php echo esc_attr($first_event['title']); ?>">
+                    <?php else : ?>
+                        <div class="bg-light d-flex align-items-center justify-content-center" style="min-height: 200px;">
+                            <span class="text-muted"><?php esc_html_e('Sin imagen', 'aranda-de-duero'); ?></span>
+                        </div>
+                    <?php endif; ?>
+                </div>
+
+                <!-- Current Date Display -->
+                <div class="col-md-2 border-right p-3 d-flex flex-column align-items-center justify-content-center text-center">
+                    <span class="text-muted text-uppercase small"><?php echo esc_html(date_i18n('l')); ?></span>
+                    <h1 class="display-3 font-weight-bold mb-0"><?php echo esc_html(date_i18n('d')); ?></h1>
+                    <span class="h5 text-uppercase"><?php echo esc_html(date_i18n('F')); ?></span>
+                </div>
+
+                <!-- Events Grid (2x2) -->
+                <?php
+                // Display events in a 2-column grid
+                $event_index = 0;
+                $events_to_show = array_slice($agenda_events, 0, 4); // Show up to 4 events
+
+                for ($col = 0; $col < 2; $col++) : // 2 columns
+                ?>
+                    <div class="col-md-4 <?php echo ($col < 1) ? 'border-right' : ''; ?>">
+                        <?php
+                        // Display 2 events per column
+                        for ($row = 0; $row < 2; $row++) :
+                            $event_idx = ($col * 2) + $row;
+
+                            if (! empty($events_to_show[$event_idx])) :
+                                $event   = $events_to_show[$event_idx];
+                                $event_dt = strtotime($event['date_start']);
+                                $is_last = ($event_idx === count($events_to_show) - 1);
+                        ?>
+                                <div class="event-item p-3 <?php echo (! $is_last && $row === 0) ? 'border-bottom' : ''; ?>">
+                                    <h6 class="event-name">
+                                        <a href="<?php echo esc_url($event['link']); ?>" class="text-dark text-decoration-none">
+                                            <?php echo esc_html($event['title']); ?>
+                                        </a>
+                                    </h6>
+                                    <div class="event-meta small text-muted">
+                                        <span>📅 <?php echo esc_html(date_i18n('d-m-Y', $event_dt)); ?></span>
+                                    </div>
+                                </div>
+                        <?php
+                            endif;
+                        endfor;
+                        ?>
+                    </div>
+                <?php
+                endfor;
+                ?>
+            </div>
+        </div>
+    </div>
+<?php endif; ?>
+<!-- Fin agenda de eventos  -->
 <?php
 
 get_footer();

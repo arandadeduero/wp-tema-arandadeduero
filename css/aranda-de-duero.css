@@ -946,3 +946,50 @@ footer.search-entry-footer {
 .home-main-news-button .btn-primary {
   color: white !important;
 }
+
+/* Container styling */
+.events-agenda-card {
+  background-color: #eaf6fa; /* The light blue background from the image */
+  border-radius: 50px;
+}
+
+.agenda-title {
+  color: #0088cc;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
+/* Event text styling */
+.event-name {
+  color: #006699;
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.event-meta {
+  line-height: 1.4;
+}
+
+/* Calendar specifics */
+.small-calendar-text {
+  font-size: 0.75rem;
+}
+
+.small-calendar-text th,
+.small-calendar-text td {
+  padding: 2px !important;
+  text-align: center;
+}
+
+.bg-warning {
+  background-color: #ffcc66 !important; /* The gold/yellow highlight on day 22 */
+}
+
+/* Button override to match screenshot */
+.btn-outline-primary {
+  color: #006699;
+  border-color: #006699;
+  font-weight: 500;
+  border-radius: 4px;
+}

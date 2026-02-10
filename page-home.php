@@ -60,7 +60,6 @@ $query = aranda_de_duero_content(
 
 ?>
 <div class="container mt-4">
-
     <div class="row">
         <div class="col mt-4">
             <!-- the loop -->
@@ -237,8 +236,9 @@ $query = aranda_de_duero_content(
                 </div>
             </div>
         </div>
-    <?php endif; ?>
-    <!-- Fin agenda de eventos  -->
-    <?php
+</div>
+<?php endif; ?>
+<!-- Fin agenda de eventos  -->
+<?php
 
-    get_footer();
+get_footer();

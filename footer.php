@@ -12,86 +12,210 @@
 
 ?>
 
-<div class="container mt-5 home-especial-container">
-    <div class="row">
-        <?php
-        echo do_shortcode('[ajax_load_more id="9318154416" container_type="div" css_classes="container" post_type="especial" posts_per_page="18" orderby="meta_value_num" custom_args="limit:24" scroll_distance="-50" button_label="Cargar más"]');
-        ?>
-        <div class="container mt-1">
-            <div class="row justify-content-center">
-                <div class="p-0 col-6 text-center">
-                    <button id="moreEspecial" class="more-especial col-8 p-0 mx-auto">
-                        <p class="mb-0 py-2">Más especiales
-                    </button>
+<!-- Featured Specials Section -->
+<section class="home-especial-section py-5">
+    <div class="container">
+        <div class="row mb-4">
+            <div class="col-12 text-center">
+                <h2 class="section-title">Especiales</h2>
+                <p class="text-muted mt-4">Contenidos destacados de nuestro municipio</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <?php
+            echo do_shortcode('[ajax_load_more id="9318154416" container_type="div" css_classes="row" post_type="especial" posts_per_page="18" orderby="meta_value_num" custom_args="limit:24" scroll_distance="-50" button_label="Cargar más especiales"]');
+            ?>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-12 text-center">
+                <button id="moreEspecial" class="btn btn-outline-primary btn-lg px-5">
+                    Más especiales
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer id="colophon" class="site-footer">
+    <!-- Pre-footer Newsletter/CTA Section -->
+    <div class="footer-cta">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <h3 class="text-white mb-2">¿Quieres estar informado?</h3>
+                    <p class="text-white mb-lg-0">Mantente al día con las novedades de Aranda de Duero</p>
+                </div>
+                <div class="col-lg-4 text-lg-right mt-3 mt-lg-0">
+                    <a href="<?php echo esc_url(get_permalink(get_page_by_title('Newsletter'))); ?>"
+                        class="btn btn-light btn-lg px-4">
+                        Suscríbete ahora
+                    </a>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
-<footer id="colophon" class="site-footer py-4 mt-4">
-    <div class="container">
-        <div class="row">
-            <div id="footer-text" class="col-12 text-center small">
-                &copy;
-                <?php
-                /* translators: 1: Theme name, 2: Theme author. */
-                printf(esc_html__('%1$s', 'aranda-de-duero'), 'Ilustre Ayuntamiento de Aranda de Duero');
-                ?>
-                <span class="sep"> | </span>
-                <?php
-                printf(esc_html__('%1$s, %2$s', 'aranda-de-duero'), 'Plaza Mayor', '1');
-                ?>
-                <span class="sep"> | </span>
-                <?php
-                printf(esc_html__('%1$s %2$s', 'aranda-de-duero'), '09400', 'Aranda de Duero');
-                ?>
-                <span class="sep"> | </span>
-                <?php
-                printf(esc_html__('%1$s', 'aranda-de-duero'), 'Burgos');
-                ?>
-                <span class="sep"> | </span>
-                <?php
-                printf(esc_html__('%1$s. %2$s', 'aranda-de-duero'), 'Tlfno', '947 500 100');
-                ?>
-                <span class="sep"> | </span>
-                <a class="text-dark" href="<?php echo esc_url(__(get_permalink(get_page_by_title('Web Map')), 'aranda-de-duero')); ?>">
-                    <?php
-                    printf(esc_html__('%s', 'aranda-de-duero'), 'Mapa Web');
-                    ?>
-                </a>
-                <span class="sep"> | </span>
-                <a class="text-dark" href="<?php echo esc_url(__(get_permalink(get_page_by_title('Aviso legal')), 'aranda-de-duero')); ?>">
-                    <?php
-                    printf(esc_html__('%s', 'aranda-de-duero'), 'Aviso Legal');
-                    ?>
-                </a>
-                <span class="sep"> | </span>
-                <a class="text-dark" href="<?php echo esc_url(__(get_permalink(get_page_by_title('Política de Accesibilidad')), 'aranda-de-duero')); ?>">
-                    <?php
-                    printf(esc_html__('%s', 'aranda-de-duero'), 'Política de Accesibilidad');
-                    ?>
-                </a>
+    <!-- Main Footer -->
+    <div class="footer-main">
+        <div class="container">
+            <div class="row">
+                <!-- Column 1: About Municipality -->
+                <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+                    <div class="footer-about">
+                        <h4 class="text-white mb-3">Ilustre Ayuntamiento de Aranda de Duero</h4>
+                        <p class="text-white-50 mb-3">
+                            Trabajando cada día por y para la ciudadanía de Aranda de Duero.
+                            Gobierno municipal comprometido con la transparencia y la participación ciudadana.
+                        </p>
+                        <div class="footer-seal mt-4">
+                            <span>🏛️</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Column 2: Quick Links -->
+                <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+                    <h5 class="text-white mb-3">Servicios</h5>
+                    <ul class="list-unstyled footer-links">
+                        <li class="mb-2">
+                            <a href="<?php echo esc_url(get_permalink(get_page_by_title('Trámites'))); ?>">
+                                → Trámites Online
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="<?php echo esc_url(get_permalink(get_page_by_title('Agenda'))); ?>">
+                                → Agenda Municipal
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="<?php echo esc_url(get_permalink(get_page_by_title('Ayudas'))); ?>">
+                                → Ayudas y Subvenciones
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="<?php echo esc_url(get_permalink(get_page_by_title('Empleo'))); ?>">
+                                → Ofertas de Empleo
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="<?php echo esc_url(get_permalink(get_page_by_title('Sede Electrónica'))); ?>">
+                                → Sede Electrónica
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Contact -->
+                <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                    <h5 class="text-white mb-3">Contacto</h5>
+                    <ul class="list-unstyled text-white-50 footer-contact-item">
+                        <li class="mb-2">
+                            <i class="fas fa-map-marker-alt footer-contact-icon"></i>
+                            Plaza Mayor, 1<br>
+                            <span class="ml-4">09400 Aranda de Duero, Burgos</span>
+                        </li>
+                        <li class="mb-2">
+                            <i class="fas fa-phone-alt footer-contact-icon"></i>
+                            <a href="tel:947500100">947 500 100</a>
+                        </li>
+                        <li class="mb-2">
+                            <i class="fas fa-envelope footer-contact-icon"></i>
+                            <a href="mailto:info@arandadeduero.es">info@arandadeduero.es</a>
+                        </li>
+                        <li class="mb-2">
+                            <i class="fas fa-clock footer-contact-icon"></i>
+                            Lun - Vie: 8:30 - 14:30
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Social Media -->
+                <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                    <h5 class="text-white mb-3">Síguenos</h5>
+                    <p class="text-white-50 mb-3">Mantente conectado con nosotros en las redes sociales</p>
+                    <div class="footer-social d-flex gap-2 mb-4">
+                        <a href="https://www.facebook.com/ArandaMeGusta/"
+                            rel="external noopener"
+                            target="_blank"
+                            class="social-icon"
+                            aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://twitter.com/aranda_megusta"
+                            rel="external noopener"
+                            target="_blank"
+                            class="social-icon"
+                            aria-label="Twitter/X">
+                            <i class="fab fa-x-twitter"></i>
+                        </a>
+                        <a href="http://www.instagram.com/arandamegusta/"
+                            rel="external noopener"
+                            target="_blank"
+                            class="social-icon"
+                            aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.youtube.com/@ArandaMeGusta"
+                            rel="external noopener"
+                            target="_blank"
+                            class="social-icon"
+                            aria-label="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+
+                    <!-- Accessibility & Quality Badges -->
+                    <div class="footer-badges mt-4">
+                        <p class="text-white-50 small mb-2">Comprometidos con:</p>
+                        <div class="d-flex flex-wrap gap-2">
+                            <span class="badge">♿ Accesibilidad</span>
+                            <span class="badge">🔒 Seguridad</span>
+                            <span class="badge">📊 Transparencia</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-12">
-                <div class="footer-links d-flex flex-lg-row flex-column justify-content-between mt-4">
-                    <div class="footer-images ">
-                        <img class="img img-fluid mr-4" src="/wp-content/uploads/2021/04/impulso.png" alt="Impulso">
-                    </div>
-                    <div id="footer-social" class="text-right d-flex flex-column justify-content-end col-sm-12 col-md-12 col-lg-6 col-xl-6">
-                        <div class="footer-social-text">
-                            <?php
-                            printf(esc_html__('%s:', 'aranda-de-duero'), 'Síguenos en');
-                            ?>
-                        </div>
-                        <div class="footer-social-icons">
-                            <a href="https://www.facebook.com/ArandaMeGusta/" rel="external" target="_blank"><span class="d-none">Facebook</span><i class="fab fa-facebook-square ml-2 fa-2x"></i></a>
-                            <a href="https://twitter.com/aranda_megusta" rel="external" target="_blank"><span class="d-none">Twitter</span><i class="fa-brands fa-square-x-twitter ml-2 fa-2x"></i></a>
-                            <a href="http://www.instagram.com/arandamegusta/" rel="external" target="_blank"><span class="d-none">Instagram</span><i class="fab fa-instagram-square ml-2 fa-2x"></i></a>
-                        </div>
-                    </div>
+    </div>
+
+    <!-- Footer Bottom Bar -->
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-3 mb-lg-0">
+                    <p class="mb-0 text-white-50 small">
+                        &copy; <?php echo date('Y'); ?> Ilustre Ayuntamiento de Aranda de Duero. Todos los derechos reservados.
+                    </p>
+                </div>
+                <div class="col-lg-6 text-lg-right">
+                    <ul class="list-inline mb-0 footer-legal-links">
+                        <li class="list-inline-item">
+                            <a href="<?php echo esc_url(get_permalink(get_page_by_title('Aviso legal'))); ?>">
+                                Aviso Legal
+                            </a>
+                        </li>
+                        <li class="list-inline-item mx-2 text-white-50">•</li>
+                        <li class="list-inline-item">
+                            <a href="<?php echo esc_url(get_permalink(get_page_by_title('Política de Privacidad'))); ?>">
+                                Privacidad
+                            </a>
+                        </li>
+                        <li class="list-inline-item mx-2 text-white-50">•</li>
+                        <li class="list-inline-item">
+                            <a href="<?php echo esc_url(get_permalink(get_page_by_title('Política de Accesibilidad'))); ?>">
+                                Accesibilidad
+                            </a>
+                        </li>
+                        <li class="list-inline-item mx-2 text-white-50">•</li>
+                        <li class="list-inline-item">
+                            <a href="<?php echo esc_url(get_permalink(get_page_by_title('Web Map'))); ?>">
+                                Mapa Web
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>

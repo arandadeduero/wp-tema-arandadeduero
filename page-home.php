@@ -81,17 +81,17 @@ $query = aranda_de_duero_content(
                         $image_type = 'large';
                         echo '<div class="col-sm-12 col-lg-6 mt-4">';
                     } ?>
-                    <div class="home-main-news p-3 rounded h-100">
-                        <div class="row">
+                    <div class="events-agenda-card p-3 h-100">
+                        <div class="row p-2">
                             <?php
                             if (get_the_post_thumbnail_url(get_the_ID(), 'large')) {
                             ?>
                                 <div class="col-12">
-                                    <div class="home-main-news-image mb-3 <?php $count == 0 ? print_r('first-news') : ''; ?>">
+                                    <div class="p-1 mb-3 <?php $count == 0 ? print_r('first-news') : ''; ?>">
                                         <img class="img-fluid" src="<?php echo get_the_post_thumbnail_url(get_the_ID(), $image_type); ?>" alt="<?php the_title(); ?>">
                                     </div>
                                 </div>
-                                <div class="col-12">
+                                <div class="col-12 p-3">
                                     <div class="home-main-news-description">
                                         <a href="<?php echo the_permalink(get_the_ID()); ?>" style="color:<?php echo get_theme_mod('aranda_de_duero_main_section_text_color'); ?>!important;">
                                             <h2 class="h6 mb-0 font-weight-normal"><?php the_title(); ?></h2>
@@ -226,15 +226,19 @@ if (! empty($agenda_events)) :
         <div class="events-agenda-card p-4">
             <h4 class="agenda-title text-blue mb-4">AGENDA DE EVENTOS</h4>
 
-            <div class="row no-gutters bg-white rounded shadow-sm">
+            <div class="row no-gutters bg-white shadow-sm">
                 <!-- Event Poster (First Event) -->
                 <div class="col-md-2 border-right p-3">
                     <?php if (! empty($first_event['thumbnail'])) : ?>
-                        <img src="<?php echo esc_url($first_event['thumbnail']); ?>" class="img-fluid" alt="<?php echo esc_attr($first_event['title']); ?>">
+                        <a href="<?php echo esc_url($first_event['link']); ?>" title="<?php echo esc_attr($first_event['title']); ?>">
+                            <img src="<?php echo esc_url($first_event['thumbnail']); ?>" class="img-fluid" alt="<?php echo esc_attr($first_event['title']); ?>">
+                        </a>
                     <?php else : ?>
-                        <div class="bg-light d-flex align-items-center justify-content-center" style="min-height: 200px;">
-                            <span class="text-muted"><?php esc_html_e('Sin imagen', 'aranda-de-duero'); ?></span>
-                        </div>
+                        <a href="<?php echo esc_url($first_event['link']); ?>" title="<?php echo esc_attr($first_event['title']); ?>" class="text-decoration-none">
+                            <div class="bg-light d-flex align-items-center justify-content-center" style="min-height: 200px;">
+                                <span class="text-muted"><?php esc_html_e('Sin imagen', 'aranda-de-duero'); ?></span>
+                            </div>
+                        </a>
                     <?php endif; ?>
                 </div>
 

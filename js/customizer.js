@@ -1,4 +1,3 @@
-/* global wp */
 /**
  * WordPress Theme Customizer Live Preview
  *

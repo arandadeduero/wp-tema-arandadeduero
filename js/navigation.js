@@ -26,7 +26,7 @@
  * @version 1.0
  */
 
-const NavigationMenu = (() => {
+(() => {
     'use strict';
 
     const nav = document.getElementById('site-navigation');
@@ -104,6 +104,4 @@ const NavigationMenu = (() => {
             menuItem.classList.toggle('focus');
         }
     }
-
-    return { toggle, menu, nav };
 })();

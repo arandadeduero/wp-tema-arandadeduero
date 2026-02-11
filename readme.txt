@@ -26,7 +26,7 @@ Tema para  el sitio web del Excmo. Ayuntamiento de Aranda de Duero
 
 = Does this theme support any plugins? =
 
-Aranda de Duero includes support for WooCommerce and for Infinite Scroll in Jetpack.
+Aranda de Duero includes support for Infinite Scroll in Jetpack.
 
 == Changelog ==
 

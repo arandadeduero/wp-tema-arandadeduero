@@ -19,11 +19,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta name="description" content="<?php echo esc_attr(get_bloginfo('description')); ?>">
     <meta name="theme-color" content="#0083c1">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="format-detection" content="telephone=no">
-    <meta name="zoom-domain-verification" content="ZOOM_verify_KMhEiObFczwnG46wHdMKHq">
 
-    <link rel="profile" href="https://gmpg.org/xfn/11">
+    <!-- Preconnect to Google Fonts for better performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
@@ -46,10 +44,10 @@
                 </div>
             </div>
 
-            <!-- Main Header -->
+            <!-- Main Header - Semantic HTML5 -->
             <div class="row">
                 <div class="col-12">
-                    <header id="masthead" class="site-header d-flex justify-content-between mt-2">
+                    <header id="masthead" class="site-header d-flex justify-content-between mt-2" role="banner">
                         <!-- Site Branding -->
                         <div class="site-branding order-2 order-lg-1 d-none d-md-block">
                             <?php
@@ -60,11 +58,11 @@
                             if (is_front_page() && is_home()) : ?>
                                 <h1 class="site-title"><?php echo esc_html($site_name); ?></h1>
                             <?php else : ?>
-                                <p class="site-title">
+                                <div class="site-title">
                                     <a href="<?php echo esc_url(home_url('/')); ?>" rel="home">
                                         <?php echo esc_html($site_name); ?>
                                     </a>
-                                </p>
+                                </div>
                             <?php endif;
 
                             if ($site_description || is_customize_preview()) : ?>
@@ -73,7 +71,8 @@
                         </div>
 
                         <!-- Navigation -->
-                        <div class="header-nav order-1 order-lg-2 align-self-stretch">
+                        <nav class="header-nav order-1 order-lg-2 align-self-stretch" role="navigation" aria-label="<?php esc_attr_e('Main Navigation', 'aranda-de-duero'); ?>">
+                            <!-- Secondary Menu -->
                             <?php if (has_nav_menu('top')) : ?>
                                 <nav class="menu-top" aria-label="<?php esc_attr_e('Secondary Menu', 'aranda-de-duero'); ?>">
                                     <?php
@@ -87,13 +86,14 @@
                                 </nav>
                             <?php endif; ?>
 
+                            <!-- Primary Menu -->
                             <nav id="site-navigation" class="main-navigation mt-4" aria-label="<?php esc_attr_e('Primary Menu', 'aranda-de-duero'); ?>">
                                 <button class="menu-toggle"
                                     aria-controls="primary-menu"
                                     aria-expanded="false"
-                                    aria-label="<?php esc_attr_e('Toggle navigation menu', 'aranda-de-duero'); ?>">
+                                    aria-label="<?php esc_attr_e('Toggle navigation menu', 'aranda-de-duero'); ?>"
+                                    type="button">
                                     <i class="fas fa-bars" aria-hidden="true"></i>
-                                    <span class="screen-reader-text"><?php esc_html_e('Menu', 'aranda-de-duero'); ?></span>
                                 </button>
                                 <?php
                                 wp_nav_menu(array(
@@ -104,7 +104,7 @@
                                 ));
                                 ?>
                             </nav>
-                        </div>
+                        </nav>
                     </header>
                 </div>
             </div>

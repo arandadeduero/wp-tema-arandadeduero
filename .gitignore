@@ -1,3 +1,56 @@
+# Dependencies
 node_modules/
+vendor/
+composer.lock
+
+# Build artifacts
+dist/
+build/
+*.css.map
+*.js.map
+
+# IDE & Editor
 .vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.classpath
+.c9/
+
+# OS
 .DS_Store
+Thumbs.db
+.env
+.env.local
+.env.*.local
+
+# Development
+npm-debug.log
+npm-debug.log.*
+yarn-debug.log
+yarn-error.log
+.cache/
+
+# WordPress specific
+wp-content/plugins/*
+wp-content/themes/*
+!wp-content/themes/aranda-de-duero-theme/
+wp-content/uploads/
+wp-config.php
+wp-content/
+
+# Backup files
+*.bak
+*.backup
+*.tmp
+*.swp
+
+# Test coverage
+coverage/
+.nyc_output/
+
+# Compiled CSS (generated)
+style.css.map
+style-rtl.css.map

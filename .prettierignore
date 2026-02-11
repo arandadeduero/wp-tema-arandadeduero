@@ -1,0 +1,31 @@
+# Ignore files from prettier formatting
+
+# Generated/vendor files
+node_modules/
+vendor/
+dist/
+build/
+
+# Build artifacts
+*.min.js
+*.min.css
+style.css.map
+style-rtl.css.map
+
+# IDE & OS
+.vscode/
+.idea/
+.DS_Store
+
+# WordPress
+wp-config.php
+wp-content/plugins/
+wp-content/uploads/
+
+# Git
+.git/
+.gitignore
+
+# Package files
+package.json
+composer.json

@@ -1,0 +1,8 @@
+# Browserslist configuration for autoprefixer and other tools
+
+# https://browserslist.dev/
+
+> 1%
+> last 2 versions
+> not dead
+> supports es6-class

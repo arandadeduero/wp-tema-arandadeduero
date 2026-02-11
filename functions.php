@@ -316,13 +316,13 @@ add_action('wp_enqueue_scripts', 'aranda_de_duero_scripts');
  */
 function bootstrap_css()
 {
-	wp_enqueue_style(
-		'bootstrap_css',
-		'https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css',
-		[],
-		'5.3.2',
-		'all'
-	);
+    wp_enqueue_style(
+        'bootstrap_css',
+        'https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css',
+        [],
+        '5.3.2',
+        'all'
+    );
 }
 add_action('wp_enqueue_scripts', 'bootstrap_css');
 
@@ -337,16 +337,16 @@ add_action('wp_enqueue_scripts', 'bootstrap_css');
  */
 function bootstrap_js()
 {
-	wp_enqueue_script(
-		'bootstrap_js',
-		'https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js',
-		[],
-		'5.3.2',
-		[
-			'in_footer' => true,
-			'strategy' => 'defer'
-		]
-	);
+    wp_enqueue_script(
+        'bootstrap_js',
+        'https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js',
+        [],
+        '5.3.2',
+        [
+            'in_footer' => true,
+            'strategy' => 'defer'
+        ]
+    );
 }
 add_action('wp_enqueue_scripts', 'bootstrap_js');
 
@@ -362,13 +362,13 @@ add_action('wp_enqueue_scripts', 'bootstrap_js');
  */
 function font_awesome_script()
 {
-	wp_enqueue_style(
-		'font-awesome',
-		'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css',
-		[],
-		'6.5.0',
-		'all'
-	);
+    wp_enqueue_style(
+        'font-awesome',
+        'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css',
+        [],
+        '6.5.0',
+        'all'
+    );
 }
 
 
@@ -633,10 +633,10 @@ function aranda_de_duero_customize_js()
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             'use strict';
-            
+
             // User custom script from theme customizer
             <?php echo get_theme_mod('aranda_de_duero_custom_script'); ?>
-            
+
             // Prevent right-click context menu on video elements
             document.querySelectorAll('video').forEach(video => {
                 video.addEventListener('loadeddata', () => {
@@ -648,7 +648,7 @@ function aranda_de_duero_customize_js()
             });
         });
     </script>
-<?php
+    <?php
 }
 add_action('wp_footer', 'aranda_de_duero_customize_js');
 
@@ -838,4 +838,42 @@ function aranda_de_duero_get_upcoming_events($limit = 50)
     }
 
     return $upcoming_events;
+}
+
+/**
+ * Check if a post is older than 2 years
+ *
+ * @return bool True if the post is more than 2 years old, false otherwise
+ */
+if (! function_exists('aranda_de_duero_is_post_old')) {
+    function aranda_de_duero_is_post_old()
+    {
+        $post_date = get_the_date('U');
+        $current_date = current_time('U');
+        $two_years_in_seconds = 2 * 365.25 * 24 * 60 * 60;
+
+        return ($current_date - $post_date) > $two_years_in_seconds;
+    }
+}
+
+/**
+ * Display old post disclaimer
+ *
+ * @return void
+ */
+if (! function_exists('aranda_de_duero_old_post_disclaimer')) {
+    function aranda_de_duero_old_post_disclaimer()
+    {
+        if (aranda_de_duero_is_post_old()) {
+    ?>
+            <div class="old-post-disclaimer alert alert-warning d-flex align-items-center mt-3 mb-3" role="alert">
+                <i class="fas fa-exclamation-triangle fa-lg mr-3" style="color: #856404;"></i>
+                <div>
+                    <strong><?php esc_html_e('Contenido antiguo', 'aranda-de-duero'); ?>:</strong>
+                    <?php esc_html_e('Este contenido tiene más de 2 años. La información puede estar desactualizada.', 'aranda-de-duero'); ?>
+                </div>
+            </div>
+<?php
+        }
+    }
 }

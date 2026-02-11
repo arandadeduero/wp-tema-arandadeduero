@@ -1705,3 +1705,20 @@ textarea:focus {
         margin-left: 0.5rem !important;
     }
 }
+
+/* Old post disclaimer styling */
+.old-post-disclaimer {
+    background-color: #fff3cd;
+    border: 1px solid #ffeeba;
+    border-radius: 0.375rem;
+    padding: 0.75rem 1.25rem;
+}
+
+.old-post-disclaimer strong {
+    color: #856404;
+}
+
+.old-post-disclaimer i {
+    flex-shrink: 0;
+    margin-right: 0.75rem;
+}

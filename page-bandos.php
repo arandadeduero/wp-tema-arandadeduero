@@ -28,10 +28,7 @@ if (get_field('cabecera_de_pagina', $term)) {
 </div>
 <div class="container mt-4">
     <div class="row">
-        <div class="col-lg-3 pt-4">
-            <?php dynamic_sidebar('Actualidad'); ?>
-        </div>
-        <div class="col-lg-9 pt-4">
+        <div class="col pt-4">
             <main id="primary" class="site-main">
                 <!-- Explicación sobre Bandos -->
                 <div class="alert alert-info mb-4" role="alert">
@@ -80,9 +77,9 @@ if (get_field('cabecera_de_pagina', $term)) {
                                             $thumbnail_url = 'https://www.arandadeduero.es/wp-content/uploads/2025/11/Copia-de-Banner-ayuntamiento-5-300x107.png';
                                         }
                                         ?>
-                                            <div class="bando-card-image mb-3">
-                                                <img class="img-fluid rounded" src="<?php echo $thumbnail_url; ?>" alt="<?php the_title(); ?>">
-                                            </div>
+                                        <div class="bando-card-image mb-3">
+                                            <img class="img-fluid rounded" src="<?php echo $thumbnail_url; ?>" alt="<?php the_title(); ?>">
+                                        </div>
 
                                         <div class="bando-card-description">
                                             <a href="<?php echo the_permalink(get_the_ID()); ?>" style="color:<?php echo get_theme_mod('aranda_de_duero_main_section_text_color'); ?>!important;">

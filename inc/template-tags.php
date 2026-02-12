@@ -29,7 +29,7 @@ if (! function_exists('aranda_de_duero_posted_on')) :
 
         $posted_on = sprintf(
             /* translators: %s: post date. */
-            esc_html_x('Publicado el %s', 'post date', 'aranda-de-duero'),
+            esc_html_x('📅 %s', 'post date', 'aranda-de-duero'),
             '<a href="' . esc_url(get_permalink()) . '" rel="bookmark">' . $time_string . '</a>'
         );
 
@@ -46,7 +46,7 @@ if (! function_exists('aranda_de_duero_posted_by')) :
     {
         $byline = sprintf(
             /* translators: %s: post author. */
-            esc_html_x('por %s', 'post author', 'aranda-de-duero'),
+            esc_html_x('👤 por %s', 'post author', 'aranda-de-duero'),
             '<span class="author vcard"><a class="url fn n" href="' . esc_url(get_author_posts_url(get_the_author_meta('ID'))) . '">' . esc_html(get_the_author()) . '</a></span>'
         );
 
@@ -54,7 +54,23 @@ if (! function_exists('aranda_de_duero_posted_by')) :
 
     }
 endif;
-
+if (! function_exists('aranda_de_duero_posted_categories')) :
+    /**
+     * Prints HTML with the categories for the current post.
+     */
+    function aranda_de_duero_posted_categories()
+    {
+        if ('post' === get_post_type()) {
+            $categories_list = get_the_category_list(esc_html__(', ', 'aranda-de-duero'));
+            if ($categories_list) {
+                printf(
+                    '<span class="categories-link">📂 %s</span>',
+                    $categories_list // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                );
+            }
+        }
+    }
+endif;
 if (! function_exists('aranda_de_duero_entry_footer')) :
     /**
      * Prints HTML with meta information for the categories, tags and comments.

@@ -31,6 +31,7 @@
                 <?php
                 aranda_de_duero_posted_on();
                 aranda_de_duero_posted_by();
+                aranda_de_duero_posted_categories();
                 ?>
             </div><!-- .entry-meta -->
         <?php endif; ?>

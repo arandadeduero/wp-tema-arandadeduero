@@ -11,24 +11,24 @@ get_header();
 ?>
 
 <div class="container mt-4">
-		<div class="row">
-			<div class="col-lg-3 pt-4">
-				<?php dynamic_sidebar(get_post_type());?>
-			</div>
-			<div class="col-lg-9 pt-4">
-				<main id="primary" class="site-main">
-				
-					<?php 
-						$query = aranda_de_duero_content(
-							get_post_type(),
-							'publish_date',
-							'DESC',
-							'9'
-						);
-			
-					?>
+        <div class="row">
+            <div class="col-lg-3 pt-4">
+                <?php dynamic_sidebar(get_post_type());?>
+            </div>
+            <div class="col-lg-9 pt-4">
+                <main id="primary" class="site-main">
+                
+                    <?php 
+                        $query = aranda_de_duero_content(
+                            get_post_type(),
+                            'publish_date',
+                            'DESC',
+                            '9'
+                        );
+            
+                    ?>
 
-					<?php if ( $query->have_posts() ) : ?> 
+                    <?php if ( $query->have_posts() ) : ?> 
                         <div class="col-lg-8 col-sm-12">
                             <div class="row">
                                 <ul>
@@ -45,12 +45,12 @@ get_header();
                         </div>
                        
                     <?php endif;?>
-				</main>
-			</div>
-		</div>
+                </main>
+            </div>
+        </div>
 </div> 
 
-	
+    
 
 <?php
 // get_sidebar();

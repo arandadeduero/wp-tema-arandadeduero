@@ -18,7 +18,7 @@ get_header();
 $term = get_queried_object();
 $header_image = wp_get_attachment_url( get_theme_mod('aranda_de_duero_default_header_image'));
 if(get_field('cabecera_de_pagina', $term)) {
-	$header_image = get_field('cabecera_de_pagina', $term);
+    $header_image = get_field('cabecera_de_pagina', $term);
 }
 ?>
     <div class="container-fluid">
@@ -30,18 +30,18 @@ if(get_field('cabecera_de_pagina', $term)) {
     </div>
 
 
-	<div class="container mt-4">
-		<div class="row">
-			<div class="col-lg-3 pt-4">
-				<?php dynamic_sidebar('Tramites');?>
-			</div>
-			<div class="col-lg-9 pt-4">
-				<main id="primary" class="site-main">
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-lg-3 pt-4">
+                <?php dynamic_sidebar('Tramites');?>
+            </div>
+            <div class="col-lg-9 pt-4">
+                <main id="primary" class="site-main">
                 <?php 
                     $query = aranda_de_duero_temas('oficina-desarrollo-local');
         
                 ?>
-					
+                    
                     <?php if ( $query->have_posts() ) : ?> 
                 
                     
@@ -83,11 +83,11 @@ if(get_field('cabecera_de_pagina', $term)) {
                     </nav>
                 <?php } ?>
                     
-				</main><!-- #main -->
-			</div>
-			
-		</div>
-	</div>
+                </main><!-- #main -->
+            </div>
+            
+        </div>
+    </div>
 
 <?php
 

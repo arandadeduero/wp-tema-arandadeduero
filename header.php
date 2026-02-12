@@ -54,27 +54,14 @@
                             the_custom_logo();
                             $site_name = get_bloginfo('name');
                             $site_description = get_bloginfo('description', 'display');
-
-                            if (is_front_page() && is_home()) : ?>
-                                <h1 class="site-title"><?php echo esc_html($site_name); ?></h1>
-                            <?php else : ?>
-                                <div class="site-title">
-                                    <a href="<?php echo esc_url(home_url('/')); ?>" rel="home">
-                                        <?php echo esc_html($site_name); ?>
-                                    </a>
-                                </div>
-                            <?php endif;
-
-                            if ($site_description || is_customize_preview()) : ?>
-                                <p class="site-description"><?php echo esc_html($site_description); ?></p>
-                            <?php endif; ?>
+                            ?>
                         </div>
 
                         <!-- Navigation -->
                         <nav class="header-nav order-1 order-lg-2 align-self-stretch" role="navigation" aria-label="<?php esc_attr_e('Main Navigation', 'aranda-de-duero'); ?>">
                             <!-- Secondary Menu -->
                             <?php if (has_nav_menu('top')) : ?>
-                                <nav class="menu-top" aria-label="<?php esc_attr_e('Secondary Menu', 'aranda-de-duero'); ?>">
+                                <nav class="menu-top mt-3" aria-label="<?php esc_attr_e('Secondary Menu', 'aranda-de-duero'); ?>">
                                     <?php
                                     wp_nav_menu(array(
                                         'theme_location' => 'top',
@@ -87,7 +74,7 @@
                             <?php endif; ?>
 
                             <!-- Primary Menu -->
-                            <nav id="site-navigation" class="main-navigation mt-4" aria-label="<?php esc_attr_e('Primary Menu', 'aranda-de-duero'); ?>">
+                            <nav id="site-navigation" class="main-navigation mt-3" aria-label="<?php esc_attr_e('Primary Menu', 'aranda-de-duero'); ?>">
                                 <button class="menu-toggle"
                                     aria-controls="primary-menu"
                                     aria-expanded="false"

@@ -53,6 +53,17 @@
     margin: 0;
 }
 
+/* Site Branding */
+.site-branding {
+    max-width: 350px;
+}
+
+.site-branding img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
 /* Buttons - Unified styling with modern approach */
 button,
 input[type='button'],
@@ -128,7 +139,6 @@ header#masthead {
     justify-content: space-between;
     align-items: center;
     gap: var(--spacing-2xl);
-    padding: var(--spacing-lg) 0;
 }
 
 /* Secondary Menu */

@@ -40,7 +40,7 @@
 </section>
 
 <footer id="colophon" class="site-footer">
-    <!-- Pre-footer Newsletter/CTA Section -->
+    <!-- Pre-footer Newsletter/CTA Section
     <div class="footer-cta">
         <div class="container">
             <div class="row align-items-center">
@@ -56,7 +56,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <!-- Main Footer -->
     <div class="footer-main">
@@ -82,27 +82,27 @@
                     <ul class="list-unstyled footer-links">
                         <li class="mb-2">
                             <a href="<?php echo esc_url(get_permalink(get_page_by_title('Trámites'))); ?>">
-                                → Trámites Online
+                                → Trámites online
                             </a>
                         </li>
                         <li class="mb-2">
                             <a href="<?php echo esc_url(get_permalink(get_page_by_title('Agenda'))); ?>">
-                                → Agenda Municipal
+                                → Agenda municipal
                             </a>
                         </li>
                         <li class="mb-2">
                             <a href="<?php echo esc_url(get_permalink(get_page_by_title('Ayudas'))); ?>">
-                                → Ayudas y Subvenciones
+                                → Ayudas y subvenciones
                             </a>
                         </li>
                         <li class="mb-2">
                             <a href="<?php echo esc_url(get_permalink(get_page_by_title('Empleo'))); ?>">
-                                → Ofertas de Empleo
+                                → Ofertas de empleo
                             </a>
                         </li>
                         <li class="mb-2">
                             <a href="<?php echo esc_url(get_permalink(get_page_by_title('Sede Electrónica'))); ?>">
-                                → Sede Electrónica
+                                → Sede electrónica
                             </a>
                         </li>
                     </ul>
@@ -123,7 +123,7 @@
                         </li>
                         <li class="mb-2">
                             <i class="fas fa-envelope footer-contact-icon"></i>
-                            <a href="mailto:info@arandadeduero.es">info@arandadeduero.es</a>
+                            <a href="mailto:atencionpublico@arandadeduero.es">atencionpublico@arandadeduero.es</a>
                         </li>
                         <li class="mb-2">
                             <i class="fas fa-clock footer-contact-icon"></i>
@@ -165,16 +165,6 @@
                             aria-label="YouTube">
                             <i class="fab fa-youtube"></i>
                         </a>
-                    </div>
-
-                    <!-- Accessibility & Quality Badges -->
-                    <div class="footer-badges mt-4">
-                        <p class="text-white-50 small mb-2">Comprometidos con:</p>
-                        <div class="d-flex flex-wrap gap-2">
-                            <span class="badge">♿ Accesibilidad</span>
-                            <span class="badge">🔒 Seguridad</span>
-                            <span class="badge">📊 Transparencia</span>
-                        </div>
                     </div>
                 </div>
             </div>

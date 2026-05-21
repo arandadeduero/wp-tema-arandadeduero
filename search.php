@@ -9,7 +9,7 @@
 
 get_header();
 
-$allsearch = new WP_Query("s=$s&showposts=0");
+$allsearch = new WP_Query(array('s' => get_search_query(), 'posts_per_page' => 0));
 $total_results = $allsearch->found_posts;
 ?>
 
@@ -61,5 +61,4 @@ $total_results = $allsearch->found_posts;
 </div>
 </div>
 <?php
-// get_sidebar();
 get_footer();

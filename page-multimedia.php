@@ -46,15 +46,10 @@ if(get_field('cabecera_de_pagina')) {
 					?>
 
 				</main><!-- #main -->
-			</div>
-			<!-- <div class="col-lg-3">
-				<div class="video-sidebar">
-					<?php 
-						// echo get_field('videos-multimedia');
-						//dynamic_sidebar('Multimedia');?>
-				</div>
-			</div> -->
 		</div>
+	</div>
+
+<?php
 	</div>
 
 <?php

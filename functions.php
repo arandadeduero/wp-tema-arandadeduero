@@ -8,8 +8,6 @@
  * @package Aranda_de_Duero
  */
 
-// Desactivamos el editor Gutenberg.
-// add_filter('use_block_editor_for_post', '__return_false', 10);
 
 if (! defined('_S_VERSION')) {
     // Replace the version number of the theme on each release.
@@ -370,6 +368,7 @@ function font_awesome_script()
         'all'
     );
 }
+add_action('wp_enqueue_scripts', 'font_awesome_script');
 
 
 /**
@@ -458,17 +457,6 @@ function aranda_de_duero_customizer_settings($wp_customize)
             'label' => 'Color del texto',
             'section' => 'aranda_de_duero_options',
             'settings' => 'aranda_de_duero_text_color',
-        )
-    ));
-
-    // Add a control select header text color
-    $wp_customize->add_control(new WP_Customize_Color_Control(
-        $wp_customize,
-        'aranda_de_duero_header_text_color',
-        array(
-            'label' => 'Color de los encabezados',
-            'section' => 'aranda_de_duero_options',
-            'settings' => 'aranda_de_duero_header_text_color',
         )
     ));
 
@@ -711,43 +699,11 @@ function register_editor_stylesheet()
 {
     add_editor_style('css/aranda-de-duero.css');
     add_editor_style('css/ajax-load-more.css');
-    add_editor_style('https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css');
+    add_editor_style('css/bootstrap.min.css');
 }
 add_action('admin_init', 'register_editor_stylesheet');
 
-/**
- * Cambiar entradas por noticias
- */
-function revcon_change_post_label()
-{
-    global $menu;
-    global $submenu;
-    $menu[5][0] = 'Noticias';
-    $submenu['edit.php'][5][0] = 'Noticias';
-    $submenu['edit.php'][10][0] = 'Añadir Noticia';
-    $submenu['edit.php'][16][0] = 'Etiquetas';
-}
-function revcon_change_post_object()
-{
-    global $wp_post_types;
-    $labels = &$wp_post_types['post']->labels;
-    $labels->name = 'Noticias';
-    $labels->singular_name = 'Noticia';
-    $labels->add_new = 'Añadir Noticia';
-    $labels->add_new_item = 'Añadir Noticia';
-    $labels->edit_item = 'Editar Noticia';
-    $labels->new_item = 'Noticia';
-    $labels->view_item = 'Ver Noticias';
-    $labels->search_items = 'Buscar Noticias';
-    $labels->not_found = 'No se han encontrado noticias';
-    $labels->not_found_in_trash = 'No hay Noticias en la Papelera';
-    $labels->all_items = 'Todas las Noticias';
-    $labels->menu_name = 'Noticias';
-    $labels->name_admin_bar = 'Noticias';
-}
 
-add_action('admin_menu', 'revcon_change_post_label');
-add_action('init', 'revcon_change_post_object');
 /**
  * Get upcoming events from My Calendar plugin
  *

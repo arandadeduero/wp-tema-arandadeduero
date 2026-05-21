@@ -1,0 +1,27 @@
+bin/build-zip.sh
+  s_a9512bdc80039c::t_eec68e6bdb972a 1-27
+.gitignore
+  h_76010f91c016f7 57-58,60-63
+  s_a9512bdc80039c::t_896c37bf2dc178 59
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.0",
+  "base_commit_sha": "485e59040fdf8abb0313ecffd34720f42ffba53c",
+  "prompts": {},
+  "humans": {
+    "h_76010f91c016f7": {
+      "author": "Guillermo López Leal <guillermo.lopezleal@vonage.com>"
+    }
+  },
+  "sessions": {
+    "s_a9512bdc80039c": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_1b3765910ffedJ2Oj6Y9EkABMR",
+        "model": "claude-sonnet-4.6"
+      },
+      "human_author": "Guillermo López Leal <guillermo.lopezleal@vonage.com>"
+    }
+  }
+}

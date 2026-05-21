@@ -48,7 +48,7 @@ if(get_field('cabecera_de_pagina')) {
                         <div style="overflow-x:auto;">
                                 <table id="tableTramites" class="table table-responsive-md table-striped">
                                     <thead>
-                                        <transliterator_create>
+                                        <tr>
                                             <th><?php _e('Fecha');?></th>
                                             <th><?php _e('Gestor');?></th>
                                             <th><?php _e('Trámite');?></th>

@@ -37,8 +37,6 @@
         <?php endif; ?>
     </header><!-- .entry-header -->
 
-    <?php /* aranda_de_duero_post_thumbnail(); */ ?>
-
     <div class="entry-content">
         <?php
         the_content(

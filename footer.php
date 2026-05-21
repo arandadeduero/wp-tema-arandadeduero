@@ -40,24 +40,6 @@
 </section>
 
 <footer id="colophon" class="site-footer">
-    <!-- Pre-footer Newsletter/CTA Section
-    <div class="footer-cta">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-8">
-                    <h3 class="text-white mb-2">¿Quieres estar informado?</h3>
-                    <p class="text-white mb-lg-0">Mantente al día con las novedades de Aranda de Duero</p>
-                </div>
-                <div class="col-lg-4 text-lg-right mt-3 mt-lg-0">
-                    <a href="<?php echo esc_url(get_permalink(get_page_by_title('Newsletter'))); ?>"
-                        class="btn btn-light btn-lg px-4">
-                        Suscríbete ahora
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div> -->
-
     <!-- Main Footer -->
     <div class="footer-main">
         <div class="container">

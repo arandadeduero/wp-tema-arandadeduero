@@ -94,25 +94,6 @@ if (! function_exists('aranda_de_duero_entry_footer')) :
             }
         }
 
-        // if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
-        //     echo '<span class="comments-link">';
-        //     comments_popup_link(
-        //         sprintf(
-        //             wp_kses(
-        //                 /* translators: %s: post title */
-        //                 __( 'Dejar un comentario<span class="screen-reader-text"> en %s</span>', 'aranda-de-duero' ),
-        //                 array(
-        //                     'span' => array(
-        //                         'class' => array(),
-        //                     ),
-        //                 )
-        //             ),
-        //             wp_kses_post( get_the_title() )
-        //         )
-        //     );
-        //     echo '</span>';
-        // }
-
         edit_post_link(
             sprintf(
                 wp_kses(
@@ -167,44 +148,14 @@ if (! function_exists('aranda_de_duero_entry_topics_footer')) :
         // Hide category and tag text for pages.
         if ('post' === get_post_type()) {
             /* translators: used between list items, there is a space after the comma */
-            // $categories_list = get_the_category_list( esc_html__( ', ', 'aranda-de-duero' ) );
-            // if ( $categories_list ) {
-            //     /* translators: 1: list of categories. */
-            //     printf( '<span class="cat-links">' . esc_html__( 'Publicado en %1$s', 'aranda-de-duero' ) . '</span>', $categories_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-            // }
 
             $topics = get_the_terms($post->id, 'tema');
-            // /* translators: used between list items, there is a space after the comma */
-            // $tags_list = get_the_tag_list( '', esc_html_x( ', ', 'list item separator', 'aranda-de-duero' ) );
-            // if ( $tags_list ) {
-            //     /* translators: 1: list of tags. */
-            //     printf( '<span class="tags-links">' . esc_html__( 'Tagged %1$s', 'aranda-de-duero' ) . '</span>', $tags_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-            // }
 
             foreach ($topics as $topic) {
 
                 printf('<span class="cat-links">' . esc_html__('Publicado en %1$s', 'aranda-de-duero') . '</span>', '<span class="tags-links"><a href="' . get_term_link($topic) . '">' . $topic->name . '</a></span>'); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
             }
         }
-
-        // if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
-        //     echo '<span class="comments-link">';
-        //     comments_popup_link(
-        //         sprintf(
-        //             wp_kses(
-        //                 /* translators: %s: post title */
-        //                 __( 'Dejar un comentario<span class="screen-reader-text"> en %s</span>', 'aranda-de-duero' ),
-        //                 array(
-        //                     'span' => array(
-        //                         'class' => array(),
-        //                     ),
-        //                 )
-        //             ),
-        //             wp_kses_post( get_the_title() )
-        //         )
-        //     );
-        //     echo '</span>';
-        // }
 
         edit_post_link(
             sprintf(

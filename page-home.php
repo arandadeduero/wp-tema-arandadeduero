@@ -17,9 +17,6 @@ get_header();
                 <div class="home-video ">
                     <?php
                     echo do_shortcode('[smartslider3 slider="2"]');
-                    /*<video id="home-video-video" class="w-100" autoplay muted loop>
-                            <source src="<?//php echo wp_get_attachment_url( get_theme_mod('aranda_de_duero_front_page_video')); ?>" />
-                        </video>*/
                     ?>
                 </div>
             </div>

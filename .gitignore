@@ -54,3 +54,10 @@ coverage/
 # Compiled CSS (generated)
 style.css.map
 style-rtl.css.map
+
+# Linting cache
+.phplint.cache
+
+# Dist folder
+dist/
+build/

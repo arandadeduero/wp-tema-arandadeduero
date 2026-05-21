@@ -15,8 +15,8 @@
 get_header();
 
 $header_image = wp_get_attachment_url(get_theme_mod('aranda_de_duero_default_header_image'));
-if (get_field('cabecera_de_pagina', $term)) {
-    $header_image = get_field('cabecera_de_pagina', $term);
+if (get_field('cabecera_de_pagina')) {
+    $header_image = get_field('cabecera_de_pagina');
 }
 ?>
 <div class="container-fluid">

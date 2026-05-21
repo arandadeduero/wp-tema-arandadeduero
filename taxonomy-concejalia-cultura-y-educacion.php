@@ -45,7 +45,6 @@ if(get_field('cabecera_de_pagina', $term)) {
                 
                     
                 <!-- the loop -->
-                <?php $count = 0; ?>
                     <?php while ( $query->have_posts() ) : $query->the_post(); ?>
                       <div class="col-12">
                         <div class="noticia-listada d-flex mb-4">

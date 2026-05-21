@@ -52,8 +52,6 @@
                         <div class="site-branding order-2 order-lg-1 d-none d-md-block">
                             <?php
                             the_custom_logo();
-                            $site_name = get_bloginfo('name');
-                            $site_description = get_bloginfo('description', 'display');
                             ?>
                         </div>
 

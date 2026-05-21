@@ -1,0 +1,12 @@
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.0",
+  "base_commit_sha": "86e692c8c880cabd2a25fe1e7a2f97db55da3eef",
+  "prompts": {},
+  "humans": {
+    "h_76010f91c016f7": {
+      "author": "Guillermo López Leal <guillermo.lopezleal@vonage.com>"
+    }
+  }
+}

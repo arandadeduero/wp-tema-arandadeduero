@@ -21,12 +21,6 @@
     <meta name="theme-color" content="#0083c1">
     <meta name="format-detection" content="telephone=no">
 
-    <!-- Preconnect to Google Fonts for better performance -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
-
     <?php wp_head(); ?>
 </head>
 

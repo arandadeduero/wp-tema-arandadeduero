@@ -189,19 +189,6 @@ function aranda_de_duero_widgets_init()
         )
     );
 
-    // Sidebar para Tramites
-    register_sidebar(
-        array(
-            'name'          => esc_html__('tramite', 'aranda-de-duero'),
-            'id'            => 'sidebar-tramite',
-            'description'   => esc_html__('Add widgets here.', 'aranda-de-duero'),
-            'before_widget' => '<section id="%1$s" class="widget %2$s">',
-            'after_widget'  => '</section>',
-            'before_title'  => '<h2 class="widget-title">',
-            'after_title'   => '</h2>',
-        )
-    );
-
     register_sidebar(
         array(
             'name'          => esc_html__('Actualidad', 'aranda-de-duero'),
@@ -306,8 +293,8 @@ add_action('wp_enqueue_scripts', 'aranda_de_duero_scripts');
 /**
  * Enqueue Bootstrap 5 CSS.
  *
- * Loads the latest Bootstrap 5 framework CSS from CDN with SRI
- * for security and performance.
+ * Loads Bootstrap 5 framework CSS from the theme's local css/ directory.
+ * Self-hosted to avoid sending visitor IP addresses to third-party CDNs (GDPR).
  *
  * @since 1.0.0
  * @return void
@@ -316,7 +303,7 @@ function bootstrap_css()
 {
     wp_enqueue_style(
         'bootstrap_css',
-        'https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css',
+        get_template_directory_uri() . '/css/bootstrap.min.css',
         [],
         '5.3.2',
         'all'
@@ -328,7 +315,7 @@ add_action('wp_enqueue_scripts', 'bootstrap_css');
  * Enqueue Bootstrap 5 JavaScript Bundle.
  *
  * Loads Bootstrap 5 with bundled Popper.js (no jQuery required).
- * Uses modern vanilla JS only.
+ * Self-hosted to avoid sending visitor IP addresses to third-party CDNs (GDPR).
  *
  * @since 1.0.0
  * @return void
@@ -337,7 +324,7 @@ function bootstrap_js()
 {
     wp_enqueue_script(
         'bootstrap_js',
-        'https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js',
+        get_template_directory_uri() . '/js/bootstrap.bundle.min.js',
         [],
         '5.3.2',
         [
@@ -352,8 +339,8 @@ add_action('wp_enqueue_scripts', 'bootstrap_js');
 /**
  * Enqueue Font Awesome Icons.
  *
- * Loads Font Awesome 6.5 with modern SVG icons and web fonts.
- * Provides 2000+ professional icons for UI.
+ * Loads Font Awesome 6.5 web fonts and CSS from the theme's local css/fontawesome/ directory.
+ * Self-hosted to avoid sending visitor IP addresses to third-party CDNs (GDPR).
  *
  * @since 1.0.0
  * @return void
@@ -362,7 +349,7 @@ function font_awesome_script()
 {
     wp_enqueue_style(
         'font-awesome',
-        'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css',
+        get_template_directory_uri() . '/css/fontawesome/all.min.css',
         [],
         '6.5.0',
         'all'

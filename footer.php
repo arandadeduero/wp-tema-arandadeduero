@@ -13,7 +13,7 @@
 ?>
 
 <!-- Featured Specials Section -->
-<section class="home-especial-section py-5">
+<section class="home-especial-section py-5" aria-label="<?php esc_attr_e('Contenidos especiales', 'aranda-de-duero'); ?>">
     <div class="container">
         <div class="row mb-4">
             <div class="col-12 text-center">
@@ -32,7 +32,7 @@
             <div class="col-12 text-center">
                 <button id="moreEspecial" class="btn btn-outline-primary btn-lg px-5">
                     Más especiales
-                    <i class="fas fa-arrow-right ml-2"></i>
+                    <i class="fas fa-arrow-right ms-2"></i>
                 </button>
             </div>
         </div>
@@ -63,7 +63,7 @@
                     <h5 class="text-white mb-3">Servicios</h5>
                     <ul class="list-unstyled footer-links">
                         <li class="mb-2">
-                            <a href="<?php echo esc_url(get_permalink(get_page_by_title('Trámites'))); ?>">
+                            <a href="https://sede.arandadeduero.es/sta/CarpetaPublic/doEvent?APP_CODE=STA&PAGE_CODE=CATALOGO">
                                 → Trámites online
                             </a>
                         </li>
@@ -78,12 +78,12 @@
                             </a>
                         </li>
                         <li class="mb-2">
-                            <a href="<?php echo esc_url(get_permalink(get_page_by_title('Empleo'))); ?>">
+                            <a href="https://sede.arandadeduero.es/sta/CarpetaPublic/doEvent?APP_CODE=STA&PAGE_CODE=PTS2_TABLON">
                                 → Ofertas de empleo
                             </a>
                         </li>
                         <li class="mb-2">
-                            <a href="<?php echo esc_url(get_permalink(get_page_by_title('Sede Electrónica'))); ?>">
+                            <a href="https://sede.arandadeduero.es/">
                                 → Sede electrónica
                             </a>
                         </li>
@@ -97,7 +97,7 @@
                         <li class="mb-2">
                             <i class="fas fa-map-marker-alt footer-contact-icon"></i>
                             Plaza Mayor, 1<br>
-                            <span class="ml-4">09400 Aranda de Duero, Burgos</span>
+                            <span class="ms-4">09400 Aranda de Duero, Burgos</span>
                         </li>
                         <li class="mb-2">
                             <i class="fas fa-phone-alt footer-contact-icon"></i>
@@ -119,28 +119,28 @@
                     <h5 class="text-white mb-3">Síguenos</h5>
                     <p class="text-white-50 mb-3">Mantente conectado con nosotros en las redes sociales</p>
                     <div class="footer-social d-flex gap-2 mb-4">
-                        <a href="https://www.facebook.com/ArandaMeGusta/"
+                        <a href="https://www.facebook.com/aytoarandadeduero/"
                             rel="external noopener"
                             target="_blank"
                             class="social-icon"
                             aria-label="Facebook">
                             <i class="fab fa-facebook-f"></i>
                         </a>
-                        <a href="https://twitter.com/aranda_megusta"
+                        <a href="https://twitter.com/aytoaranda"
                             rel="external noopener"
                             target="_blank"
                             class="social-icon"
                             aria-label="Twitter/X">
                             <i class="fab fa-x-twitter"></i>
                         </a>
-                        <a href="http://www.instagram.com/arandamegusta/"
+                        <a href="https://www.instagram.com/ayuntamientoarandadeduero/"
                             rel="external noopener"
                             target="_blank"
                             class="social-icon"
                             aria-label="Instagram">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="https://www.youtube.com/@ArandaMeGusta"
+                        <a href="https://www.youtube.com/@SMArandaDeDuero"
                             rel="external noopener"
                             target="_blank"
                             class="social-icon"
@@ -159,10 +159,10 @@
             <div class="row align-items-center">
                 <div class="col-lg-6 mb-3 mb-lg-0">
                     <p class="mb-0 text-white-50 small">
-                        &copy; <?php echo date('Y'); ?> Ilustre Ayuntamiento de Aranda de Duero. Todos los derechos reservados.
+                        &copy; <?php echo esc_html(wp_date('Y')); ?> Ilustre Ayuntamiento de Aranda de Duero. Todos los derechos reservados.
                     </p>
                 </div>
-                <div class="col-lg-6 text-lg-right">
+                <div class="col-lg-6 text-lg-end">
                     <ul class="list-inline mb-0 footer-legal-links">
                         <li class="list-inline-item">
                             <a href="<?php echo esc_url(get_permalink(get_page_by_title('Aviso legal'))); ?>">

@@ -1,4 +1,6 @@
 <?php
+defined( 'ABSPATH' ) || exit;
+
 /**
  * Functions which enhance the theme by hooking into WordPress
  *
@@ -17,8 +19,26 @@ function aranda_de_duero_body_classes( $classes ) {
         $classes[] = 'hfeed';
     }
 
-    // Adds a class of no-sidebar when there is no sidebar present.
-    if ( ! is_active_sidebar( 'sidebar-1' ) ) {
+    // Adds a class of no-sidebar when no sidebar is active for the current context.
+    $sidebar_ids = array(
+        'sidebar-1',
+        'sidebar-ayuntamiento',
+        'sidebar-villa',
+        'sidebar-noticias',
+        'sidebar-tramites',
+        'sidebar-actualidad',
+        'sidebar-servicios',
+    );
+
+    $any_active = false;
+    foreach ( $sidebar_ids as $sidebar_id ) {
+        if ( is_active_sidebar( $sidebar_id ) ) {
+            $any_active = true;
+            break;
+        }
+    }
+
+    if ( ! $any_active ) {
         $classes[] = 'no-sidebar';
     }
 

@@ -1,0 +1,30 @@
+page-villa.php
+  h_3aa52f59e1a7c5 2,14,16-17,19-20,22-23,25-27,39,41,43
+  h_3aa52f59e1a7c5 29,31-34,36-37
+404.php
+  h_3aa52f59e1a7c5 19,29,49,63,77,139
+page.php
+  h_3aa52f59e1a7c5 2,17-20,22-23,25-26,28-30,42,44,46
+  h_3aa52f59e1a7c5 32,34-37,39-40
+single-tramite.php
+  h_3aa52f59e1a7c5 2,16,20-23,25,31,34
+  h_3aa52f59e1a7c5 13-14,17-19,28-29
+header.php
+  h_3aa52f59e1a7c5 26,28,30,33,35-36,41,43,53,68,70-71
+  h_3aa52f59e1a7c5 15-19,21,25,27,29,32,37-38,40,42,44-51,54-67,73
+inc/template-tags.php
+  h_3aa52f59e1a7c5 2,31,33,48,50,152-165
+single.php
+  h_3aa52f59e1a7c5 17,30-31
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.21",
+  "base_commit_sha": "25439bbfcd59d6e1f7df5c2976842f7fbc43cc1d",
+  "prompts": {},
+  "humans": {
+    "h_3aa52f59e1a7c5": {
+      "author": "Guillermo López <willyaranda@gmail.com>"
+    }
+  }
+}

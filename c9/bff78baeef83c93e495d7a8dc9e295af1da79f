@@ -1,0 +1,14 @@
+page-notas-de-prensa.php
+  h_3aa52f59e1a7c5 1-128
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "c9bff78baeef83c93e495d7a8dc9e295af1da79f",
+  "prompts": {},
+  "humans": {
+    "h_3aa52f59e1a7c5": {
+      "author": "Guillermo López <willyaranda@gmail.com>"
+    }
+  }
+}

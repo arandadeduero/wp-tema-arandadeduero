@@ -16,7 +16,7 @@ $header_image = wp_get_attachment_url(get_theme_mod('aranda_de_duero_default_hea
 <div class="container-fluid">
     <div class="row">
         <div class="col-12 p-0">
-            <img src="<?php echo $header_image; ?>" class="img-fluid w-100 cabecera_pagina" alt="<?php echo $header_image; ?>" />
+            <img src="<?php echo esc_url($header_image); ?>" class="img-fluid w-100 cabecera_pagina" alt="" />
         </div>
     </div>
 </div>
@@ -26,7 +26,7 @@ $header_image = wp_get_attachment_url(get_theme_mod('aranda_de_duero_default_hea
         <div class="col pt-4">
             <main id="primary" class="site-main">
 
-                <section class="error-404 not-found">
+                <section class="error-404 not-found" aria-label="<?php esc_attr_e('Página no encontrada', 'aranda-de-duero'); ?>">
                     <!-- Hero 404 Section -->
                     <div class="error-hero text-center mb-5">
                         <div class="error-hero-number">404</div>
@@ -46,7 +46,7 @@ $header_image = wp_get_attachment_url(get_theme_mod('aranda_de_duero_default_hea
                                 <p>
                                     Te invitamos a conocer nuestra histórica villa del Duero, sus bodegas subterráneas y su rica gastronomía.
                                 </p>
-                                <a href="<?php echo esc_url(get_permalink(get_page_by_title('Villa'))); ?>"
+                                <a href="https://turismo.arandadeduero.es/" target="_blank" rel="noopener noreferrer"
                                     class="btn btn-outline-primary btn-sm">
                                     Ver más
                                 </a>
@@ -60,7 +60,7 @@ $header_image = wp_get_attachment_url(get_theme_mod('aranda_de_duero_default_hea
                                 <p>
                                     Consulta los eventos, conciertos, exposiciones y actividades que tenemos preparadas.
                                 </p>
-                                <a href="<?php echo esc_url(get_permalink(get_page_by_title('Agenda'))); ?>"
+                                <a href="<?php echo esc_url(get_permalink(get_page_by_path('agenda'))); ?>"
                                     class="btn btn-outline-primary btn-sm">
                                     Ver agenda
                                 </a>
@@ -74,7 +74,7 @@ $header_image = wp_get_attachment_url(get_theme_mod('aranda_de_duero_default_hea
                                 <p>
                                     Mantente informado sobre las novedades y actualidad de nuestro municipio.
                                 </p>
-                                <a href="<?php echo esc_url(get_permalink(get_page_by_title('Noticias'))); ?>"
+                                <a href="<?php echo esc_url(get_permalink(get_page_by_path('noticias'))); ?>"
                                     class="btn btn-outline-primary btn-sm">
                                     Leer noticias
                                 </a>
@@ -136,7 +136,7 @@ $header_image = wp_get_attachment_url(get_theme_mod('aranda_de_duero_default_hea
                                 </a>
                             </div>
                             <div class="col-md-6 mb-3">
-                                <a href="<?php echo esc_url(get_permalink(get_page_by_title('Web Map'))); ?>" class="quick-link-card">
+                                <a href="<?php echo esc_url(get_permalink(get_page_by_path('web-map'))); ?>" class="quick-link-card">
                                     <span class="quick-link-card-icon">🗺️</span>
                                     <span class="quick-link-card-text">Mapa del sitio web</span>
                                 </a>

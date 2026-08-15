@@ -1,4 +1,5 @@
 <?php
+defined( 'ABSPATH' ) || exit;
 
 /**
  * Custom template tags for this theme
@@ -27,9 +28,9 @@ if (! function_exists('aranda_de_duero_posted_on')) :
             esc_html(get_the_modified_date())
         );
 
-        $posted_on = sprintf(
+        $posted_on = '📅 ' . sprintf(
             /* translators: %s: post date. */
-            esc_html_x('📅 %s', 'post date', 'aranda-de-duero'),
+            esc_html_x( '%s', 'post date', 'aranda-de-duero' ),
             '<a href="' . esc_url(get_permalink()) . '" rel="bookmark">' . $time_string . '</a>'
         );
 
@@ -44,9 +45,9 @@ if (! function_exists('aranda_de_duero_posted_by')) :
      */
     function aranda_de_duero_posted_by()
     {
-        $byline = sprintf(
+        $byline = '👤 ' . sprintf(
             /* translators: %s: post author. */
-            esc_html_x('👤 por %s', 'post author', 'aranda-de-duero'),
+            esc_html_x( 'por %s', 'post author', 'aranda-de-duero' ),
             '<span class="author vcard"><a class="url fn n" href="' . esc_url(get_author_posts_url(get_the_author_meta('ID'))) . '">' . esc_html(get_the_author()) . '</a></span>'
         );
 
@@ -148,12 +149,20 @@ if (! function_exists('aranda_de_duero_entry_topics_footer')) :
         // Hide category and tag text for pages.
         if ('post' === get_post_type()) {
             /* translators: used between list items, there is a space after the comma */
+            global $post;
+            $topics = get_the_terms( $post->ID, 'tema' );
 
-            $topics = get_the_terms($post->id, 'tema');
-
-            foreach ($topics as $topic) {
-
-                printf('<span class="cat-links">' . esc_html__('Publicado en %1$s', 'aranda-de-duero') . '</span>', '<span class="tags-links"><a href="' . get_term_link($topic) . '">' . $topic->name . '</a></span>'); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+            if ( ! empty( $topics ) && ! is_wp_error( $topics ) ) {
+                foreach ($topics as $topic) {
+                    $term_link = get_term_link( $topic );
+                    if ( is_wp_error( $term_link ) ) {
+                        continue;
+                    }
+                    printf(
+                        '<span class="cat-links">' . esc_html__( 'Publicado en %1$s', 'aranda-de-duero' ) . '</span>',
+                        '<span class="tags-links"><a href="' . esc_url( $term_link ) . '">' . esc_html( $topic->name ) . '</a></span>'
+                    ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                }
             }
         }
 
@@ -218,14 +227,3 @@ if (! function_exists('aranda_de_duero_post_thumbnail')) :
     }
 endif;
 
-if (! function_exists('wp_body_open')) :
-    /**
-     * Shim for sites older than 5.2.
-     *
-     * @link https://core.trac.wordpress.org/ticket/12563
-     */
-    function wp_body_open()
-    {
-        do_action('wp_body_open');
-    }
-endif;

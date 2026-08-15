@@ -14,7 +14,7 @@ get_header();
 <div class="container">
     <div class="row">
         <div class="col-lg-3 pt-4">
-            <?php dynamic_sidebar('Actualidad'); ?>
+            <?php dynamic_sidebar('sidebar-actualidad'); ?>
         </div>
         <div class="col-lg-9 pt-4">
             <main id="primary" class="site-main">
@@ -27,8 +27,8 @@ get_header();
 
                     the_post_navigation(
                         array(
-                            'prev_text' => '<span class="nav-subtitle">' . esc_html__('', 'aranda-de-duero') . '</span> <span class="nav-title btn-news px-3 py-2">' . esc_html__("Noticia anterior") . '</span>',
-                            'next_text' => '<span class="nav-subtitle">' . esc_html__('', 'aranda-de-duero') . '</span> <span class="nav-title btn-news px-3 py-2">' . esc_html__("Noticia posterior") . '</span>',
+                            'prev_text' => '<span class="nav-subtitle">' . esc_html__('', 'aranda-de-duero') . '</span> <span class="nav-title btn-news px-3 py-2">' . esc_html__('Noticia anterior', 'aranda-de-duero') . '</span>',
+                            'next_text' => '<span class="nav-subtitle">' . esc_html__('', 'aranda-de-duero') . '</span> <span class="nav-title btn-news px-3 py-2">' . esc_html__('Noticia posterior', 'aranda-de-duero') . '</span>',
                         )
                     );
 

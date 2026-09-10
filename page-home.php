@@ -60,6 +60,18 @@ $query = aranda_de_duero_content(
     <div class="row">
         <div class="col mt-4">
             <!-- the loop -->
+            <?php
+            $aranda_hoy = (int) current_time('Ymd');
+            if ($aranda_hoy >= 20260911 && $aranda_hoy <= 20260920) :
+            ?>
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <a href="https://fiestas.arandadeduero.dev/" class="d-block p-3 text-center text-white font-weight-bold text-uppercase" style="background-color: #b50101; border-radius: 4px; text-decoration: none;">
+                            Visita aquí el programa de las Fiestas Patronales
+                        </a>
+                    </div>
+                </div>
+            <?php endif; ?>
             <h4 class="text-blue font-weight-normal text-uppercase">Últimas noticias</h4>
             <?php $count = 0; ?>
             <?php while ($query->have_posts()) : $query->the_post(); ?>

@@ -32,12 +32,15 @@ if (get_field('cabecera_de_pagina')) {
     <div class="bg-light p-4 p-md-5 rounded-3 mb-5">
         <header class="text-center mb-4">
             <h1 class="display-5 fw-bold mb-3">Plaza de Toros «La Chata» de Aranda de Duero</h1>
-            <p class="lead text-muted mb-0">Proceso de desafectación, enajenación y venta (2001-2003)</p>
+            <p class="lead text-muted mb-0">Proceso de desafectación, enajenación y venta (2001-2003) y expediente de resolución del contrato (2025-2026)</p>
         </header>
         <div class="row justify-content-center">
             <div class="col-lg-8">
-                <p class="text-secondary text-center mb-0" style="line-height:1.7">
+                <p class="text-secondary text-center" style="line-height:1.7">
                     La desafectación, enajenación y venta de la Plaza de Toros «La Chata» de Aranda de Duero (2001-2003) marcó un hito en la gestión del patrimonio local. Este proceso, que incluyó la venta del inmueble y los terrenos adjuntos y la posterior gestión del contrato de la feria taurina, ha sido uno de los temas más debatidos y complejos de la política arandina en el último cuarto de siglo, convirtiéndose en un símbolo fundamental sobre la necesidad de transparencia en la gestión pública municipal.
+                </p>
+                <p class="text-secondary text-center mb-0" style="line-height:1.7">
+                    En julio de 2025 el Ayuntamiento abrió un nuevo expediente (ref. 2025/00016874B) de resolución del contrato de enajenación, tras constatarse que el adjudicatario, Toros Ricord S.L., no ha mantenido la continuidad de la feria taurina de las Fiestas Patronales —obligación recogida en el pliego del concurso— desde la edición de 2021. A raíz de esta providencia del alcalde, Antonio Linaje, se están elaborando sucesivos informes técnicos y jurídicos, tanto sobre el cumplimiento del contrato como sobre posibles deficiencias del expediente original de 2001-2003, que se recogen en esta página.
                 </p>
             </div>
         </div>

@@ -630,6 +630,13 @@ footer i {
     height: 225px;
 }
 
+.nota-de-prensa-card-image img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    object-position: center;
+}
+
 .home-more-news-button p {
     font-size: 18px;
 }

@@ -1,0 +1,21 @@
+theme.json
+  s_0ea6a7ec9df8b3::t_ada0bea7e720f1 3
+readme.txt
+  s_0ea6a7ec9df8b3::t_60b46308524688 6
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "be2cba37ec9547b5685538439e5b31d5d76073f0",
+  "prompts": {},
+  "sessions": {
+    "s_0ea6a7ec9df8b3": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "592c1094-2653-493f-9bda-b8cd15851fad",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": "Guillermo López <willyaranda@gmail.com>"
+    }
+  }
+}

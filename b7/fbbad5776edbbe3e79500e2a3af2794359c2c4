@@ -1,0 +1,61 @@
+package.json
+  s_0ea6a7ec9df8b3::t_264402e56afbfc 51,53
+taxonomy-tema-oposiciones-y-empleo.php
+  s_0ea6a7ec9df8b3::t_01acbbfab5da3b 41
+phpstan.neon.dist
+  s_0ea6a7ec9df8b3::t_f3ac245cc67589 1-2,4-13
+  s_0ea6a7ec9df8b3::t_59b990651e47af 3
+  s_0ea6a7ec9df8b3::t_5c590ed67a713b 14,16-17
+  s_0ea6a7ec9df8b3::t_67bc32a172f53e 15
+phpstan-stubs/acf.stub.php
+  s_0ea6a7ec9df8b3::t_552d6818fc3d5e 1-10,12,14-18
+  s_0ea6a7ec9df8b3::t_b669063325b0ec 11
+  s_0ea6a7ec9df8b3::t_977e8e3fc9ac56 13
+taxonomy-tema-tributos.php
+  s_0ea6a7ec9df8b3::t_f2fe71b4277c3f 41
+.stylelintignore
+  s_0ea6a7ec9df8b3::t_6e4f23392fdc41 1-8
+.eslintignore
+  s_0ea6a7ec9df8b3::t_125752bbc2ac16 1-7
+taxonomy-tema-concursos.php
+  s_0ea6a7ec9df8b3::t_5cdd01478010ce 41
+.github/workflows/tests.yml
+  s_0ea6a7ec9df8b3::t_7e44faed96e1ba 1-67
+phpstan-baseline.neon
+  s_0ea6a7ec9df8b3::t_ae1770de5db6ea 1-261
+taxonomy-tema-empleo.php
+  s_0ea6a7ec9df8b3::t_081eccdb86e217 28
+composer.json
+  s_0ea6a7ec9df8b3::t_a0a6e248da16fa 27
+  s_0ea6a7ec9df8b3::t_1ae6d19726c238 28-29
+  s_0ea6a7ec9df8b3::t_9cdf29549012e7 38
+css/aranda-de-duero.css
+  s_0ea6a7ec9df8b3::t_f3a790cc93a9b4 8,18,20
+  s_0ea6a7ec9df8b3::t_c7a58c00f35f28 13-16,25-27
+  s_0ea6a7ec9df8b3::t_760f0e801fcc43 1770,1776
+phpcs.xml.dist
+  s_0ea6a7ec9df8b3::t_6d08dec5a9aaea 89-91
+  s_0ea6a7ec9df8b3::t_cbb5315213a834 6
+  s_0ea6a7ec9df8b3::t_427fa2457663be 61-63
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "b7fbbad5776edbbe3e79500e2a3af2794359c2c4",
+  "prompts": {},
+  "humans": {
+    "h_3aa52f59e1a7c5": {
+      "author": "Guillermo López <willyaranda@gmail.com>"
+    }
+  },
+  "sessions": {
+    "s_0ea6a7ec9df8b3": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "592c1094-2653-493f-9bda-b8cd15851fad",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": "Guillermo López <willyaranda@gmail.com>"
+    }
+  }
+}

@@ -108,142 +108,22 @@ parameters:
 		-
 			message: "#^Unreachable statement \\- code above always terminates\\.$#"
 			count: 1
-			path: taxonomy-concejalia-cultura-y-educacion.php
+			path: taxonomy-concejalia.php
 
 		-
 			message: "#^While loop condition is always true\\.$#"
 			count: 1
-			path: taxonomy-concejalia-cultura-y-educacion.php
+			path: taxonomy-concejalia.php
 
 		-
 			message: "#^Unreachable statement \\- code above always terminates\\.$#"
 			count: 1
-			path: taxonomy-concejalia-juventud.php
+			path: taxonomy-tema.php
 
 		-
 			message: "#^While loop condition is always true\\.$#"
 			count: 1
-			path: taxonomy-concejalia-juventud.php
-
-		-
-			message: "#^Unreachable statement \\- code above always terminates\\.$#"
-			count: 1
-			path: taxonomy-concejalia-urbanismo-y-vivienda.php
-
-		-
-			message: "#^While loop condition is always true\\.$#"
-			count: 1
-			path: taxonomy-concejalia-urbanismo-y-vivienda.php
-
-		-
-			message: "#^Unreachable statement \\- code above always terminates\\.$#"
-			count: 1
-			path: taxonomy-tema-anuncios.php
-
-		-
-			message: "#^While loop condition is always true\\.$#"
-			count: 1
-			path: taxonomy-tema-anuncios.php
-
-		-
-			message: "#^Unreachable statement \\- code above always terminates\\.$#"
-			count: 1
-			path: taxonomy-tema-consumo-y-comercio.php
-
-		-
-			message: "#^While loop condition is always true\\.$#"
-			count: 1
-			path: taxonomy-tema-consumo-y-comercio.php
-
-		-
-			message: "#^Unreachable statement \\- code above always terminates\\.$#"
-			count: 1
-			path: taxonomy-tema-cultura-y-ocio.php
-
-		-
-			message: "#^While loop condition is always true\\.$#"
-			count: 1
-			path: taxonomy-tema-cultura-y-ocio.php
-
-		-
-			message: "#^Unreachable statement \\- code above always terminates\\.$#"
-			count: 1
-			path: taxonomy-tema-educacion.php
-
-		-
-			message: "#^While loop condition is always true\\.$#"
-			count: 1
-			path: taxonomy-tema-educacion.php
-
-		-
-			message: "#^Unreachable statement \\- code above always terminates\\.$#"
-			count: 1
-			path: taxonomy-tema-movilidad-y-transportes.php
-
-		-
-			message: "#^While loop condition is always true\\.$#"
-			count: 1
-			path: taxonomy-tema-movilidad-y-transportes.php
-
-		-
-			message: "#^Unreachable statement \\- code above always terminates\\.$#"
-			count: 1
-			path: taxonomy-tema-oficina-desarrollo-local.php
-
-		-
-			message: "#^While loop condition is always true\\.$#"
-			count: 1
-			path: taxonomy-tema-oficina-desarrollo-local.php
-
-		-
-			message: "#^Unreachable statement \\- code above always terminates\\.$#"
-			count: 1
-			path: taxonomy-tema-participacion-ciudadana.php
-
-		-
-			message: "#^While loop condition is always true\\.$#"
-			count: 1
-			path: taxonomy-tema-participacion-ciudadana.php
-
-		-
-			message: "#^Unreachable statement \\- code above always terminates\\.$#"
-			count: 1
-			path: taxonomy-tema-salud.php
-
-		-
-			message: "#^While loop condition is always true\\.$#"
-			count: 1
-			path: taxonomy-tema-salud.php
-
-		-
-			message: "#^Unreachable statement \\- code above always terminates\\.$#"
-			count: 1
-			path: taxonomy-tema-seguridad-ciudadana.php
-
-		-
-			message: "#^While loop condition is always true\\.$#"
-			count: 1
-			path: taxonomy-tema-seguridad-ciudadana.php
-
-		-
-			message: "#^Unreachable statement \\- code above always terminates\\.$#"
-			count: 1
-			path: taxonomy-tema-servicios-sociales.php
-
-		-
-			message: "#^While loop condition is always true\\.$#"
-			count: 1
-			path: taxonomy-tema-servicios-sociales.php
-
-		-
-			message: "#^Unreachable statement \\- code above always terminates\\.$#"
-			count: 1
-			path: taxonomy-tema-urbanismo-e-infraestructuras.php
-
-		-
-			message: "#^While loop condition is always true\\.$#"
-			count: 1
-			path: taxonomy-tema-urbanismo-e-infraestructuras.php
+			path: taxonomy-tema.php
 
 		-
 			message: "#^Variable \\$post might not be defined\\.$#"

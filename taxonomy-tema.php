@@ -1,8 +1,19 @@
 <?php
+
 /**
- * 
+ * Taxonomy archive template for "tema" terms.
  *
- * Página para mostrar la sección Villa de Aranda
+ * A single generic template for every "tema" term, replacing one
+ * hand-copied file per term (taxonomy-tema-salud.php,
+ * taxonomy-tema-tributos.php, etc.) that differed only in the sidebar
+ * name and which term slug was hardcoded.
+ *
+ * Two layouts were in use across those files: a card/list layout for
+ * general topics, and a simple date/title table for terms that behave
+ * like a bulletin (tributos, empleo, concursos...). $table_layout_terms
+ * below lists which slugs use the table layout; everything else gets
+ * the card layout. $sidebar_by_term lists the handful of terms whose
+ * sidebar differs from the 'Servicios' default.
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -10,33 +21,82 @@
  */
 
 get_header();
+$term = get_queried_object();
+aranda_de_duero_the_header_image('', $term);
+$query = aranda_de_duero_temas($term->slug);
+
+$table_layout_terms = array('tributos', 'concursos', 'oposiciones-y-empleo', 'ayudas-y-subvenciones', 'empleo');
+$is_table_layout = in_array($term->slug, $table_layout_terms, true);
+
+$sidebar_by_term = array(
+    'anuncios' => 'Actualidad',
+    'oficina-desarrollo-local' => 'Tramites',
+);
+foreach ($table_layout_terms as $table_term_slug) {
+    $sidebar_by_term[$table_term_slug] = 'Tramites';
+}
+$sidebar = isset($sidebar_by_term[$term->slug]) ? $sidebar_by_term[$term->slug] : 'Servicios';
 ?>
 
     <div class="container mt-4">
         <div class="row">
             <div class="col-lg-3 pt-4">
-                <?php dynamic_sidebar('Villa');?>
+                <?php dynamic_sidebar($sidebar); ?>
             </div>
-            <div class="col-lg-9">
+            <div class="col-lg-9 pt-4">
                 <main id="primary" class="site-main">
-
-                    <?php
-                    while ( have_posts() ) :
-                        the_post();
-
-                        get_template_part( 'template-parts/content', 'page-notitle' );
-
-                        // If comments are open or we have at least one comment, load up the comment template.
-                        if ( comments_open() || get_comments_number() ) :
-                            comments_template();
-                        endif;
-
-                    endwhile; // End of the loop.
-                    ?>
-
+                    <?php if ($is_table_layout) : ?>
+                        <table class="table table-responsive-md table-striped">
+                            <thead>
+                                <tr>
+                                    <th><?php _e('Fecha'); ?></th>
+                                    <th><?php _e('Descripción'); ?></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php while ($query->have_posts()) : $query->the_post(); ?>
+                                    <tr>
+                                        <td><?php echo get_the_date(); ?></td>
+                                        <td><a class="text-dark" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></td>
+                                    </tr>
+                                <?php endwhile; ?>
+                            </tbody>
+                        </table>
+                        <?php the_posts_navigation(); ?>
+                    <?php else : ?>
+                        <?php if ($query->have_posts()) : ?>
+                            <!-- the loop -->
+                            <?php while ($query->have_posts()) : $query->the_post(); ?>
+                                <div class="col-12">
+                                    <div class="noticia-listada d-flex mb-4">
+                                        <?php if (get_the_post_thumbnail_url(get_the_ID(), 'medium') != '') : ?>
+                                            <div class="noticia-listada-imagen mr-3">
+                                                <img loading="lazy" decoding="async" class="img-thumbnail" title="<?php the_title(); ?>" alt="<?php the_title(); ?>" src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'medium'); ?>">
+                                            </div>
+                                        <?php endif; ?>
+                                        <div class="noticia-listada-texto">
+                                            <h2 class="h4"><a class="text-blue" href="<?php echo the_permalink(get_the_ID()); ?>"><?php the_title(); ?></a></h2>
+                                            <p><?php echo wp_strip_all_tags(get_the_excerpt(), true); ?></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            <?php endwhile; ?>
+                            <!-- end of the loop -->
+                            <?php wp_reset_postdata(); ?>
+                        <?php endif; ?>
+                        <?php if ($query->max_num_pages > 1) : ?>
+                            <nav class="prev-next-posts d-flex justify-content-between my-3">
+                                <div class="prev-posts-link">
+                                    <?php echo get_next_posts_link('Noticias anteriores', $query->max_num_pages); ?>
+                                </div>
+                                <div class="next-posts-link">
+                                    <?php echo get_previous_posts_link('Noticias posteriores'); ?>
+                                </div>
+                            </nav>
+                        <?php endif; ?>
+                    <?php endif; ?>
                 </main><!-- #main -->
             </div>
-            
         </div>
     </div>
 

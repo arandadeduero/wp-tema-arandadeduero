@@ -13,11 +13,6 @@
 
 get_header();
 
-$header_image = wp_get_attachment_url(get_theme_mod('aranda_de_duero_default_header_image'));
-if (get_field('cabecera_de_pagina')) {
-    $header_image = get_field('cabecera_de_pagina');
-}
-
 $barrios = array(
     array(
         'nombre' => 'La Aguilera',
@@ -80,14 +75,8 @@ $barrios = array(
         'pdf' => 'https://www.arandadeduero.es/wp-content/uploads/2026/10/Las-Casitas.-Resumen-reunión-11-08-2026-1.pdf',
     ),
 );
+aranda_de_duero_the_header_image();
 ?>
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-12 p-0">
-            <img src="<?php echo $header_image; ?>" class="img-fluid w-100 cabecera_pagina" alt="<?php echo $header_image; ?>" />
-        </div>
-    </div>
-</div>
 
 <div class="container py-5">
 

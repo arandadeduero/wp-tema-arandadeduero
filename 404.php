@@ -10,16 +10,8 @@
 
 get_header();
 
-$header_image = wp_get_attachment_url(get_theme_mod('aranda_de_duero_default_header_image'));
-
+aranda_de_duero_the_header_image('');
 ?>
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-12 p-0">
-            <img src="<?php echo esc_url($header_image); ?>" class="img-fluid w-100 cabecera_pagina" alt="" />
-        </div>
-    </div>
-</div>
 
 <div class="container mt-5">
     <div class="row">

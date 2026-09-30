@@ -15,7 +15,7 @@
 
 get_header();
 aranda_de_duero_the_header_image(esc_attr(get_the_title() . ' - Cabecera'));
-?>`
+?>
 
 <div class="container">
 	<div class="row">

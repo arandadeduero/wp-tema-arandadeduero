@@ -106,16 +106,6 @@ parameters:
 			path: page-tramite.php
 
 		-
-			message: "#^Function aranda_de_duero_the_header_image not found\\.$#"
-			count: 1
-			path: page-villa.php
-
-		-
-			message: "#^Function aranda_de_duero_the_header_image not found\\.$#"
-			count: 1
-			path: page.php
-
-		-
 			message: "#^Unreachable statement \\- code above always terminates\\.$#"
 			count: 1
 			path: taxonomy-concejalia-cultura-y-educacion.php

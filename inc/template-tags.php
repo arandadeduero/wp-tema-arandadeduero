@@ -185,6 +185,44 @@ if (! function_exists('aranda_de_duero_entry_topics_footer')) :
     }
 endif;
 
+if (! function_exists('aranda_de_duero_the_header_image')) :
+    /**
+     * Prints the full-width header image used at the top of page and
+     * taxonomy-archive templates.
+     *
+     * Uses the ACF "cabecera_de_pagina" field when set on the current
+     * object (or on $object, e.g. the WP_Term of a taxonomy archive),
+     * falling back to the site-wide default header image set in the
+     * Customizer.
+     *
+     * @param string            $alt    Accessible alt text for the image.
+     *                                  Empty by default (the header image
+     *                                  is decorative in most templates).
+     * @param int|WP_Term|null  $object Optional. Pass the current term on a
+     *                                  taxonomy archive template so its own
+     *                                  ACF field is used instead of the
+     *                                  current post's.
+     */
+    function aranda_de_duero_the_header_image($alt = '', $object = null)
+    {
+        $header_image = wp_get_attachment_url(get_theme_mod('aranda_de_duero_default_header_image'));
+
+        $field = $object ? get_field('cabecera_de_pagina', $object) : get_field('cabecera_de_pagina');
+        if ($field) {
+            $header_image = $field;
+        }
+        ?>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 p-0">
+                    <img src="<?php echo esc_url($header_image); ?>" class="img-fluid w-100 cabecera_pagina" alt="<?php echo esc_attr($alt); ?>" />
+                </div>
+            </div>
+        </div>
+        <?php
+    }
+endif;
+
 if (! function_exists('aranda_de_duero_post_thumbnail')) :
     /**
      * Displays an optional post thumbnail.

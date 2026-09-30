@@ -1,0 +1,33 @@
+.stylelintignore
+  s_0ea6a7ec9df8b3::t_d76dd57fd2a8a7 4
+package.json
+  s_0ea6a7ec9df8b3::t_0d3642d7eb4e78 36
+  s_0ea6a7ec9df8b3::t_07ccd304d0000a 27
+eslint.config.js
+  s_0ea6a7ec9df8b3::t_3ed39fa3af54a1 1-41
+css/aranda-de-duero.css
+  s_0ea6a7ec9df8b3::t_d28d980754bec8 1498
+package-lock.json
+  s_0ea6a7ec9df8b3::t_03d9dc2e765347 12,21,2160-2180,11511-11523
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "465c31645cbea6e19e1739482f93da6b16b8c8c1",
+  "prompts": {},
+  "humans": {
+    "h_3aa52f59e1a7c5": {
+      "author": "Guillermo López <willyaranda@gmail.com>"
+    }
+  },
+  "sessions": {
+    "s_0ea6a7ec9df8b3": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "592c1094-2653-493f-9bda-b8cd15851fad",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": "Guillermo López <willyaranda@gmail.com>"
+    }
+  }
+}

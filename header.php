@@ -56,7 +56,7 @@
 							aria-expanded="false"
 							aria-label="<?php esc_attr_e('Toggle navigation menu', 'aranda-de-duero'); ?>"
 							type="button">
-							<i class="fas fa-bars" aria-hidden="true"></i>
+							<?php echo aranda_de_duero_icon('aranda-de-duero/bars'); ?>
 						</button>
 						<?php wp_nav_menu(array(
 							'theme_location' => 'menu-1',

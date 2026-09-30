@@ -13,5 +13,6 @@ parameters:
         - dist/*
     stubFiles:
         - phpstan-stubs/acf.stub.php
+        - phpstan-stubs/wp-svg-icons.stub.php
     parallel:
         maximumNumberOfProcesses: 1

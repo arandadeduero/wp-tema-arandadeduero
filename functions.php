@@ -349,31 +349,14 @@ add_action('wp_enqueue_scripts', 'bootstrap_js');
 
 
 /**
- * Enqueue Font Awesome Icons.
- *
- * Loads Font Awesome 6.5 web fonts and CSS from the theme's local css/fontawesome/ directory.
- * Self-hosted to avoid sending visitor IP addresses to third-party CDNs (GDPR).
- *
- * @since 1.0.0
- * @return void
- */
-function font_awesome_script()
-{
-    wp_enqueue_style(
-        'font-awesome',
-        get_template_directory_uri() . '/css/fontawesome/all.min.css',
-        [],
-        '6.5.0',
-        'all'
-    );
-}
-add_action('wp_enqueue_scripts', 'font_awesome_script');
-
-
-/**
  * Implement the Custom Header feature.
  */
 require get_template_directory() . '/inc/custom-header.php';
+
+/**
+ * SVG icon set (replaces Font Awesome).
+ */
+require get_template_directory() . '/inc/icons.php';
 
 /**
  * Custom template tags for this theme.
@@ -822,7 +805,7 @@ if (! function_exists('aranda_de_duero_old_post_disclaimer')) {
         if (aranda_de_duero_is_post_old()) {
     ?>
             <div class="old-post-disclaimer alert alert-warning d-flex align-items-center mt-3 mb-3" role="alert">
-                <i class="fas fa-exclamation-triangle fa-lg mr-3" style="color: #856404;"></i>
+                <span class="mr-3" style="color: #856404;"><?php echo aranda_de_duero_icon('aranda-de-duero/triangle-exclamation', array('size' => 21)); ?></span>
                 <div>
                     <strong><?php esc_html_e('Contenido antiguo', 'aranda-de-duero'); ?>:</strong>
                     <?php esc_html_e('Este contenido tiene más de 2 años. La información puede estar desactualizada.', 'aranda-de-duero'); ?>

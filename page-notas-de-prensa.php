@@ -33,8 +33,8 @@ if (get_field('cabecera_de_pagina')) {
                 <!-- Explicación sobre Notas de Prensa -->
                 <div class="alert alert-info mb-4" role="alert">
                     <div class="d-flex">
-                        <div class="mr-3">
-                            <i class="fas fa-question-circle" style="font-size: 2rem; color: #0c5460;"></i>
+                        <div class="mr-3" style="color: #0c5460;">
+                            <?php echo aranda_de_duero_icon('aranda-de-duero/circle-question', array('size' => 32)); ?>
                         </div>
                         <div>
                             <h5 class="alert-heading"><?php _e('¿Qué es una Nota de Prensa?'); ?></h5>

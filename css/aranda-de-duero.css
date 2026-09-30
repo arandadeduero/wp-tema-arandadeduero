@@ -1676,7 +1676,8 @@ textarea:focus {
     box-shadow: 0 5px 15px rgb(0 131 193 / 40%);
 }
 
-.social-icon i {
+.social-icon i,
+.social-icon svg {
     color: white;
 }
 

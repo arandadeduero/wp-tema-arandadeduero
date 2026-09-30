@@ -32,7 +32,7 @@
             <div class="col-12 text-center">
                 <button id="moreEspecial" class="btn btn-outline-primary btn-lg px-5">
                     Más especiales
-                    <i class="fas fa-arrow-right ms-2"></i>
+                    <?php echo aranda_de_duero_icon('aranda-de-duero/arrow-right', array('size' => 16, 'class' => 'ms-2')); ?>
                 </button>
             </div>
         </div>
@@ -95,20 +95,20 @@
                     <h5 class="text-white mb-3">Contacto</h5>
                     <ul class="list-unstyled text-white-50 footer-contact-item">
                         <li class="mb-2">
-                            <i class="fas fa-map-marker-alt footer-contact-icon"></i>
+                            <?php echo aranda_de_duero_icon('aranda-de-duero/location-dot', array('size' => 16, 'class' => 'footer-contact-icon')); ?>
                             Plaza Mayor, 1<br>
                             <span class="ms-4">09400 Aranda de Duero, Burgos</span>
                         </li>
                         <li class="mb-2">
-                            <i class="fas fa-phone-alt footer-contact-icon"></i>
+                            <?php echo aranda_de_duero_icon('aranda-de-duero/phone-flip', array('size' => 16, 'class' => 'footer-contact-icon')); ?>
                             <a href="tel:947500100">947 500 100</a>
                         </li>
                         <li class="mb-2">
-                            <i class="fas fa-envelope footer-contact-icon"></i>
+                            <?php echo aranda_de_duero_icon('aranda-de-duero/envelope', array('size' => 16, 'class' => 'footer-contact-icon')); ?>
                             <a href="mailto:atencionpublico@arandadeduero.es">atencionpublico@arandadeduero.es</a>
                         </li>
                         <li class="mb-2">
-                            <i class="fas fa-clock footer-contact-icon"></i>
+                            <?php echo aranda_de_duero_icon('aranda-de-duero/clock', array('size' => 16, 'class' => 'footer-contact-icon')); ?>
                             Lun - Vie: 8:30 - 14:30
                         </li>
                     </ul>
@@ -124,28 +124,28 @@
                             target="_blank"
                             class="social-icon"
                             aria-label="Facebook">
-                            <i class="fab fa-facebook-f"></i>
+                            <?php echo aranda_de_duero_icon('aranda-de-duero/facebook-f', array('size' => 18)); ?>
                         </a>
                         <a href="https://twitter.com/aytoaranda"
                             rel="external noopener"
                             target="_blank"
                             class="social-icon"
                             aria-label="Twitter/X">
-                            <i class="fab fa-x-twitter"></i>
+                            <?php echo aranda_de_duero_icon('aranda-de-duero/x-twitter', array('size' => 18)); ?>
                         </a>
                         <a href="https://www.instagram.com/ayuntamientoarandadeduero/"
                             rel="external noopener"
                             target="_blank"
                             class="social-icon"
                             aria-label="Instagram">
-                            <i class="fab fa-instagram"></i>
+                            <?php echo aranda_de_duero_icon('aranda-de-duero/instagram', array('size' => 18)); ?>
                         </a>
                         <a href="https://www.youtube.com/@SMArandaDeDuero"
                             rel="external noopener"
                             target="_blank"
                             class="social-icon"
                             aria-label="YouTube">
-                            <i class="fab fa-youtube"></i>
+                            <?php echo aranda_de_duero_icon('aranda-de-duero/youtube', array('size' => 18)); ?>
                         </a>
                     </div>
                 </div>

@@ -1,6 +1,5 @@
 # Vendor/bundled/minified CSS — not our source, not worth linting
 css/*.min.css
-css/fontawesome/**
 css/ajax-load-more.css
 style-rtl.css
 

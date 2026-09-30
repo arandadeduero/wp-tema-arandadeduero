@@ -93,6 +93,15 @@ if (! function_exists('aranda_de_duero_setup')) :
         // Load the theme's own stylesheets inside the block editor (see add_editor_style() calls below).
         add_theme_support('editor-styles');
 
+        // Add default styling for core blocks (buttons, quotes, etc.) when used in page content.
+        add_theme_support('wp-block-styles');
+
+        // Allow wide and full alignment for blocks used in page content.
+        add_theme_support('align-wide');
+
+        // Make embedded content (YouTube, Twitter, etc.) responsive by default.
+        add_theme_support('responsive-embeds');
+
         /**
          * Add support for core custom logo.
          *

@@ -1,0 +1,22 @@
+functions.php
+  s_0ea6a7ec9df8b3::t_4ea4624f23416b 342-369,371-385
+  s_0ea6a7ec9df8b3::t_4ddc66b86e064c 143-151,154-166
+phpstan-baseline.neon
+  s_0ea6a7ec9df8b3::t_99ab1d5eb57168 24
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "d8dab320c03b31a6080509bd7a361b1915264533",
+  "prompts": {},
+  "sessions": {
+    "s_0ea6a7ec9df8b3": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "592c1094-2653-493f-9bda-b8cd15851fad",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": "Guillermo López <willyaranda@gmail.com>"
+    }
+  }
+}

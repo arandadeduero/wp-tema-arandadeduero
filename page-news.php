@@ -61,7 +61,7 @@ if (get_field('cabecera_de_pagina')) {
                                     ?>
                                         <div class="col-12">
                                             <div class="home-main-news-image mb-3">
-                                                <img class="img-fluid" src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'large'); ?>" alt="<?php the_title(); ?>">
+                                                <img loading="lazy" decoding="async" class="img-fluid" src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'large'); ?>" alt="<?php the_title(); ?>">
                                             </div>
                                         </div>
                                         <div class="col-12">

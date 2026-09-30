@@ -99,7 +99,7 @@ $query = aranda_de_duero_content(
                         ?>
                             <div class="col-12">
                                 <div class="home-main-news-image p-1 mb-3 <?php $count == 0 ? print_r('first-news') : ''; ?>">
-                                    <img class="d-block mx-auto" src="<?php echo get_the_post_thumbnail_url(get_the_ID(), $image_type); ?>" alt="<?php the_title(); ?>">
+                                    <img loading="lazy" decoding="async" class="d-block mx-auto" src="<?php echo get_the_post_thumbnail_url(get_the_ID(), $image_type); ?>" alt="<?php the_title(); ?>">
                                 </div>
                             </div>
                             <div class="col-12 p-3">
@@ -187,7 +187,7 @@ $query = aranda_de_duero_content(
                     <div class="col-md-2 border-right p-3">
                         <?php if (! empty($first_event['thumbnail'])) : ?>
                             <a href="<?php echo esc_url($first_event['link']); ?>" title="<?php echo esc_attr($first_event['title']); ?>">
-                                <img src="<?php echo esc_url($first_event['thumbnail']); ?>" class="img-fluid" alt="<?php echo esc_attr($first_event['title']); ?>">
+                                <img loading="lazy" decoding="async" src="<?php echo esc_url($first_event['thumbnail']); ?>" class="img-fluid" alt="<?php echo esc_attr($first_event['title']); ?>">
                             </a>
                         <?php else : ?>
                             <a href="<?php echo esc_url($first_event['link']); ?>" title="<?php echo esc_attr($first_event['title']); ?>" class="text-decoration-none">

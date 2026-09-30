@@ -78,7 +78,7 @@ if (get_field('cabecera_de_pagina')) {
                                         }
                                         ?>
                                         <div class="bando-card-image mb-3">
-                                            <img class="img-fluid rounded" src="<?php echo $thumbnail_url; ?>" alt="<?php the_title(); ?>">
+                                            <img loading="lazy" decoding="async" class="img-fluid rounded" src="<?php echo $thumbnail_url; ?>" alt="<?php the_title(); ?>">
                                         </div>
 
                                         <div class="bando-card-description">

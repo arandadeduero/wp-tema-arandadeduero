@@ -54,7 +54,7 @@ if (get_field('cabecera_de_pagina')) {
 
             <div class="col">
                 <div class="card h-100 shadow-sm position-relative">
-                    <img src="https://www.arandadeduero.es/wp-content/uploads/2026/06/pdt-chata.jpg" class="card-img-top" style="height:220px;object-fit:cover" alt="Plaza de toros La Chata">
+                    <img loading="lazy" decoding="async" src="https://www.arandadeduero.es/wp-content/uploads/2026/06/pdt-chata.jpg" class="card-img-top" style="height:220px;object-fit:cover" alt="Plaza de toros La Chata">
                     <div class="card-body p-4">
                         <h3 class="h5 fw-bold mb-2">
                             <a href="https://www.arandadeduero.es/wp-content/uploads/2026/06/pdt-NdP-1-origen-plaza-de-toros-Aranda.pdf" class="stretched-link text-decoration-none" target="_blank" rel="noopener">Nota de prensa 1 - Sobre la desafectación y enajenación</a>
@@ -66,7 +66,7 @@ if (get_field('cabecera_de_pagina')) {
 
             <div class="col">
                 <div class="card h-100 shadow-sm position-relative">
-                    <img src="https://www.arandadeduero.es/wp-content/uploads/2026/07/pdt-firmas.jpg" class="card-img-top" style="height:220px;object-fit:cover" alt="Firmas del expediente">
+                    <img loading="lazy" decoding="async" src="https://www.arandadeduero.es/wp-content/uploads/2026/07/pdt-firmas.jpg" class="card-img-top" style="height:220px;object-fit:cover" alt="Firmas del expediente">
                     <div class="card-body p-4">
                         <h3 class="h5 fw-bold mb-2">
                             <a href="https://www.arandadeduero.es/wp-content/uploads/2026/07/pdt-NdP-Plaza-de-Toros-2.pdf" class="stretched-link text-decoration-none" target="_blank" rel="noopener">Nota de prensa 2 - Sobre la valoración económica, la falta de fiscalización y firma de un gobierno en funciones</a>
@@ -78,7 +78,7 @@ if (get_field('cabecera_de_pagina')) {
 
             <div class="col">
                 <div class="card h-100 shadow-sm position-relative">
-                    <img src="https://www.arandadeduero.es/wp-content/uploads/2026/09/pdt-nueva.jpg" class="card-img-top" style="height:220px;object-fit:cover" alt="Plaza de toros La Chata">
+                    <img loading="lazy" decoding="async" src="https://www.arandadeduero.es/wp-content/uploads/2026/09/pdt-nueva.jpg" class="card-img-top" style="height:220px;object-fit:cover" alt="Plaza de toros La Chata">
                     <div class="card-body p-4">
                         <h3 class="h5 fw-bold mb-2">
                             <a href="https://www.arandadeduero.es/wp-content/uploads/2026/09/pdt-NdP-3-construccion-licencias-incumplimientos.pdf" class="stretched-link text-decoration-none" target="_blank" rel="noopener">Nota de prensa 3 - Sobre la construcción, licencias e incumplimientos</a>
@@ -90,7 +90,7 @@ if (get_field('cabecera_de_pagina')) {
 
             <div class="col">
                 <div class="card h-100 border-dashed bg-light" style="border-style:dashed">
-                    <img src="https://www.arandadeduero.es/wp-content/uploads/2026/07/pdt-firmas.jpg" class="card-img-top" style="height:220px;object-fit:cover;opacity:.4;filter:grayscale(1)" alt="">
+                    <img loading="lazy" decoding="async" src="https://www.arandadeduero.es/wp-content/uploads/2026/07/pdt-firmas.jpg" class="card-img-top" style="height:220px;object-fit:cover;opacity:.4;filter:grayscale(1)" alt="">
                     <div class="card-body p-4">
                         <span class="badge bg-secondary mb-2">Próximamente</span>
                         <h3 class="h5 fw-bold text-muted mb-2">Nota de prensa 4</h3>

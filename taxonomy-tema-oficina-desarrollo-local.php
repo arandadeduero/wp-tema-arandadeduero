@@ -53,7 +53,7 @@ if(get_field('cabecera_de_pagina', $term)) {
                                         if(get_the_post_thumbnail_url(get_the_ID(),'medium')!= "") :
                                     ?>
                                         <div class="noticia-listada-imagen mr-3">
-                                            <img class="img-thumbnail" title="<?php the_title();?>" alt="<?php the_title();?>" src="<?php echo get_the_post_thumbnail_url(get_the_ID(),'medium');?>">
+                                            <img loading="lazy" decoding="async" class="img-thumbnail" title="<?php the_title();?>" alt="<?php the_title();?>" src="<?php echo get_the_post_thumbnail_url(get_the_ID(),'medium');?>">
                                         </div>   
                                     <?php
                                         endif;

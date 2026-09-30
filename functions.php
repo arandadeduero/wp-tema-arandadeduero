@@ -359,6 +359,11 @@ require get_template_directory() . '/inc/custom-header.php';
 require get_template_directory() . '/inc/icons.php';
 
 /**
+ * Reusable block patterns for content editors.
+ */
+require get_template_directory() . '/inc/block-patterns.php';
+
+/**
  * Custom template tags for this theme.
  */
 require get_template_directory() . '/inc/template-tags.php';

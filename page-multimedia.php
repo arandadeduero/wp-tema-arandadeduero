@@ -49,7 +49,6 @@ if(get_field('cabecera_de_pagina')) {
 		</div>
 	</div>
 
-<?php
 	</div>
 
 <?php

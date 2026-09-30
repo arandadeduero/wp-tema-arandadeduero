@@ -1,0 +1,23 @@
+taxonomy-tema.php
+  s_0ea6a7ec9df8b3::t_c54622d265b78a 2,4-9,11-16,24-38,44,46,48-97
+taxonomy-concejalia.php
+  s_0ea6a7ec9df8b3::t_1ad4e4849cc034 2,4-8,16-18,24,26,28-57
+phpstan-baseline.neon
+  s_0ea6a7ec9df8b3::t_d791a08c52cd04 111,116,121,126
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "a1c6e63542ef330b0bc0ad57437eb02716a69298",
+  "prompts": {},
+  "sessions": {
+    "s_0ea6a7ec9df8b3": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "592c1094-2653-493f-9bda-b8cd15851fad",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": "Guillermo López <willyaranda@gmail.com>"
+    }
+  }
+}

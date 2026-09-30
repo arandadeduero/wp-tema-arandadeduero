@@ -1,0 +1,19 @@
+functions.php
+  s_0ea6a7ec9df8b3::t_9d174a5f06d1ad 93-95
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "4de6af87fa7766ad96a45db5534fd70dc5230259",
+  "prompts": {},
+  "sessions": {
+    "s_0ea6a7ec9df8b3": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "592c1094-2653-493f-9bda-b8cd15851fad",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": "Guillermo López <willyaranda@gmail.com>"
+    }
+  }
+}

@@ -21,32 +21,7 @@ parameters:
 			path: functions.php
 
 		-
-			message: "#^Parameter \\#3 \\$args of class WP_Customize_Color_Control constructor expects array\\{instance_number\\?\\: int, manager\\?\\: WP_Customize_Manager, id\\?\\: string, settings\\?\\: array, setting\\?\\: string, capability\\?\\: string, priority\\?\\: int, section\\?\\: string, \\.\\.\\.\\}, array\\{label\\: 'Color de fondo de…', section\\: 'aranda_de_duero…', settings\\: 'aranda_de_duero…'\\} given\\.$#"
-			count: 1
-			path: functions.php
-
-		-
-			message: "#^Parameter \\#3 \\$args of class WP_Customize_Color_Control constructor expects array\\{instance_number\\?\\: int, manager\\?\\: WP_Customize_Manager, id\\?\\: string, settings\\?\\: array, setting\\?\\: string, capability\\?\\: string, priority\\?\\: int, section\\?\\: string, \\.\\.\\.\\}, array\\{label\\: 'Color de fondo', section\\: 'aranda_de_duero…', settings\\: 'aranda_de_duero…'\\} given\\.$#"
-			count: 1
-			path: functions.php
-
-		-
-			message: "#^Parameter \\#3 \\$args of class WP_Customize_Color_Control constructor expects array\\{instance_number\\?\\: int, manager\\?\\: WP_Customize_Manager, id\\?\\: string, settings\\?\\: array, setting\\?\\: string, capability\\?\\: string, priority\\?\\: int, section\\?\\: string, \\.\\.\\.\\}, array\\{label\\: 'Color de los enlaces', section\\: 'aranda_de_duero…', settings\\: 'aranda_de_duero…'\\} given\\.$#"
-			count: 1
-			path: functions.php
-
-		-
-			message: "#^Parameter \\#3 \\$args of class WP_Customize_Color_Control constructor expects array\\{instance_number\\?\\: int, manager\\?\\: WP_Customize_Manager, id\\?\\: string, settings\\?\\: array, setting\\?\\: string, capability\\?\\: string, priority\\?\\: int, section\\?\\: string, \\.\\.\\.\\}, array\\{label\\: 'Color de los…', section\\: 'aranda_de_duero…', settings\\: 'aranda_de_duero…'\\} given\\.$#"
-			count: 1
-			path: functions.php
-
-		-
-			message: "#^Parameter \\#3 \\$args of class WP_Customize_Color_Control constructor expects array\\{instance_number\\?\\: int, manager\\?\\: WP_Customize_Manager, id\\?\\: string, settings\\?\\: array, setting\\?\\: string, capability\\?\\: string, priority\\?\\: int, section\\?\\: string, \\.\\.\\.\\}, array\\{label\\: 'Color de texto de…', section\\: 'aranda_de_duero…', settings\\: 'aranda_de_duero…'\\} given\\.$#"
-			count: 1
-			path: functions.php
-
-		-
-			message: "#^Parameter \\#3 \\$args of class WP_Customize_Color_Control constructor expects array\\{instance_number\\?\\: int, manager\\?\\: WP_Customize_Manager, id\\?\\: string, settings\\?\\: array, setting\\?\\: string, capability\\?\\: string, priority\\?\\: int, section\\?\\: string, \\.\\.\\.\\}, array\\{label\\: 'Color del texto', section\\: 'aranda_de_duero…', settings\\: 'aranda_de_duero…'\\} given\\.$#"
+			message: "#^Parameter \\#3 \\$args of class WP_Customize_Color_Control constructor expects array\\{instance_number\\?\\: int, manager\\?\\: WP_Customize_Manager, id\\?\\: string, settings\\?\\: array, setting\\?\\: string, capability\\?\\: string, priority\\?\\: int, section\\?\\: string, \\.\\.\\.\\}, array\\{label\\: 'Color de fondo'\\|'Color de fondo de…'\\|'Color de los…'\\|'Color de los enlaces'\\|'Color de texto de…'\\|'Color del texto', section\\: 'aranda_de_duero…', settings\\: 'aranda_de_duero…'\\} given\\.$#"
 			count: 1
 			path: functions.php
 

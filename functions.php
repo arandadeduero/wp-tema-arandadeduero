@@ -140,90 +140,30 @@ add_action('after_setup_theme', 'aranda_de_duero_content_width', 0);
  */
 function aranda_de_duero_widgets_init()
 {
-    register_sidebar(
-        array(
-            'name'          => esc_html__('Sidebar', 'aranda-de-duero'),
-            'id'            => 'sidebar-1',
-            'description'   => esc_html__('Add widgets here.', 'aranda-de-duero'),
-            'before_widget' => '<section id="%1$s" class="widget %2$s">',
-            'after_widget'  => '</section>',
-            'before_title'  => '<h2 class="widget-title">',
-            'after_title'   => '</h2>',
-        )
-    );
-    // Sidebar para Ayuntamiento
-    register_sidebar(
-        array(
-            'name'          => esc_html__('Ayuntamiento', 'aranda-de-duero'),
-            'id'            => 'sidebar-ayuntamiento',
-            'description'   => esc_html__('Add widgets here.', 'aranda-de-duero'),
-            'before_widget' => '<section id="%1$s" class="widget %2$s">',
-            'after_widget'  => '</section>',
-            'before_title'  => '<h2 class="widget-title">',
-            'after_title'   => '</h2>',
-        )
-    );
-    // Sidebar para Villa de Aranda
-    register_sidebar(
-        array(
-            'name'          => esc_html__('Villa', 'aranda-de-duero'),
-            'id'            => 'sidebar-villa',
-            'description'   => esc_html__('Add widgets here.', 'aranda-de-duero'),
-            'before_widget' => '<section id="%1$s" class="widget %2$s">',
-            'after_widget'  => '</section>',
-            'before_title'  => '<h2 class="widget-title">',
-            'after_title'   => '</h2>',
-        )
-    );
-    // Sidebar para Noticias
-    register_sidebar(
-        array(
-            'name'          => esc_html__('Noticias', 'aranda-de-duero'),
-            'id'            => 'sidebar-noticias',
-            'description'   => esc_html__('Add widgets here.', 'aranda-de-duero'),
-            'before_widget' => '<section id="%1$s" class="widget %2$s">',
-            'after_widget'  => '</section>',
-            'before_title'  => '<h2 class="widget-title">',
-            'after_title'   => '</h2>',
-        )
+    // All sidebars share the same shape; only the name/id differ.
+    $sidebars = array(
+        'sidebar-1'          => 'Sidebar',
+        'sidebar-ayuntamiento' => 'Ayuntamiento',
+        'sidebar-villa'      => 'Villa',
+        'sidebar-noticias'   => 'Noticias',
+        'sidebar-tramites'   => 'Tramites',
+        'sidebar-actualidad' => 'Actualidad',
+        'sidebar-servicios'  => 'Servicios',
     );
 
-    // Sidebar para Tramites
-    register_sidebar(
-        array(
-            'name'          => esc_html__('Tramites', 'aranda-de-duero'),
-            'id'            => 'sidebar-tramites',
-            'description'   => esc_html__('Add widgets here.', 'aranda-de-duero'),
-            'before_widget' => '<section id="%1$s" class="widget %2$s">',
-            'after_widget'  => '</section>',
-            'before_title'  => '<h2 class="widget-title">',
-            'after_title'   => '</h2>',
-        )
-    );
-
-    register_sidebar(
-        array(
-            'name'          => esc_html__('Actualidad', 'aranda-de-duero'),
-            'id'            => 'sidebar-actualidad',
-            'description'   => esc_html__('Add widgets here.', 'aranda-de-duero'),
-            'before_widget' => '<section id="%1$s" class="widget %2$s">',
-            'after_widget'  => '</section>',
-            'before_title'  => '<h2 class="widget-title">',
-            'after_title'   => '</h2>',
-        )
-    );
-
-    register_sidebar(
-        array(
-            'name'          => esc_html__('Servicios', 'aranda-de-duero'),
-            'id'            => 'sidebar-servicios',
-            'description'   => esc_html__('Add widgets here.', 'aranda-de-duero'),
-            'before_widget' => '<section id="%1$s" class="widget %2$s">',
-            'after_widget'  => '</section>',
-            'before_title'  => '<h2 class="widget-title">',
-            'after_title'   => '</h2>',
-        )
-    );
+    foreach ($sidebars as $sidebar_id => $sidebar_name) {
+        register_sidebar(
+            array(
+                'name'          => esc_html__($sidebar_name, 'aranda-de-duero'),
+                'id'            => $sidebar_id,
+                'description'   => esc_html__('Add widgets here.', 'aranda-de-duero'),
+                'before_widget' => '<section id="%1$s" class="widget %2$s">',
+                'after_widget'  => '</section>',
+                'before_title'  => '<h2 class="widget-title">',
+                'after_title'   => '</h2>',
+            )
+        );
+    }
 }
 add_action('widgets_init', 'aranda_de_duero_widgets_init');
 
@@ -399,69 +339,50 @@ function aranda_de_duero_customizer_settings($wp_customize)
         'description' => 'Opciones específicas para el tema Aranda de Duero',
         'priority' => 120,
     ));
-    // add a setting for background color
-    $wp_customize->add_setting('aranda_de_duero_background_color', array(
-        'default'     => '#ffffff',
-        'transport'   => 'refresh',
-    ));
-    // Add a control select background color
-    $wp_customize->add_control(new WP_Customize_Color_Control(
-        $wp_customize,
-        'aranda_de_duero_background_color',
-        array(
-            'label' => 'Color de fondo',
-            'section' => 'aranda_de_duero_options',
-            'settings' => 'aranda_de_duero_background_color',
-        )
-    ));
+    // Color controls: all share the same setting/control shape, differing
+    // only in slug, label and default value.
+    $color_settings = array(
+        'aranda_de_duero_background_color' => array(
+            'label'   => 'Color de fondo',
+            'default' => '#ffffff',
+        ),
+        'aranda_de_duero_header_text_color' => array(
+            'label'   => 'Color de los encabezados',
+            'default' => '#000000',
+        ),
+        'aranda_de_duero_text_color' => array(
+            'label'   => 'Color del texto',
+            'default' => '#000000',
+        ),
+        'aranda_de_duero_link_color' => array(
+            'label'   => 'Color de los enlaces',
+            'default' => '#000000',
+        ),
+        'aranda_de_duero_main_section_background' => array(
+            'label'   => 'Color de fondo de las secciones principales en el home',
+            'default' => '#000000',
+        ),
+        'aranda_de_duero_main_section_text_color' => array(
+            'label'   => 'Color de texto de las secciones principales en el home',
+            'default' => '#000000',
+        ),
+    );
 
-    // add a setting for the header text color
-    $wp_customize->add_setting('aranda_de_duero_header_text_color', array(
-        'default'     => '#000000',
-        'transport'   => 'refresh',
-    ));
-    // Add a control select header text color
-    $wp_customize->add_control(new WP_Customize_Color_Control(
-        $wp_customize,
-        'aranda_de_duero_header_text_color',
-        array(
-            'label' => 'Color de los encabezados',
-            'section' => 'aranda_de_duero_options',
-            'settings' => 'aranda_de_duero_header_text_color',
-        )
-    ));
-
-    // add a setting for text color
-    $wp_customize->add_setting('aranda_de_duero_text_color', array(
-        'default'     => '#000000',
-        'transport'   => 'refresh',
-    ));
-    // Add a control select text color
-    $wp_customize->add_control(new WP_Customize_Color_Control(
-        $wp_customize,
-        'aranda_de_duero_text_color',
-        array(
-            'label' => 'Color del texto',
-            'section' => 'aranda_de_duero_options',
-            'settings' => 'aranda_de_duero_text_color',
-        )
-    ));
-
-    // add a setting for link color
-    $wp_customize->add_setting('aranda_de_duero_link_color', array(
-        'default'     => '#000000',
-        'transport'   => 'refresh',
-    ));
-    // Add a control select link color
-    $wp_customize->add_control(new WP_Customize_Color_Control(
-        $wp_customize,
-        'aranda_de_duero_link_color',
-        array(
-            'label' => 'Color de los enlaces',
-            'section' => 'aranda_de_duero_options',
-            'settings' => 'aranda_de_duero_link_color',
-        )
-    ));
+    foreach ($color_settings as $setting_id => $setting_args) {
+        $wp_customize->add_setting($setting_id, array(
+            'default'   => $setting_args['default'],
+            'transport' => 'refresh',
+        ));
+        $wp_customize->add_control(new WP_Customize_Color_Control(
+            $wp_customize,
+            $setting_id,
+            array(
+                'label' => $setting_args['label'],
+                'section' => 'aranda_de_duero_options',
+                'settings' => $setting_id,
+            )
+        ));
+    }
 
     $wp_customize->add_setting('aranda_de_duero_custom_script');
     $wp_customize->add_control('aranda_de_duero_custom_script', array(
@@ -478,38 +399,6 @@ function aranda_de_duero_customizer_settings($wp_customize)
         'label' => 'Vídeo para la página de inicio',
         'mime_type' => 'video'
     )));
-
-    // add a setting for main sections background color
-    $wp_customize->add_setting('aranda_de_duero_main_section_background', array(
-        'default'     => '#000000',
-        'transport'   => 'refresh',
-    ));
-    // Add a control select main sections background color
-    $wp_customize->add_control(new WP_Customize_Color_Control(
-        $wp_customize,
-        'aranda_de_duero_main_section_background',
-        array(
-            'label' => 'Color de fondo de las secciones principales en el home',
-            'section' => 'aranda_de_duero_options',
-            'settings' => 'aranda_de_duero_main_section_background',
-        )
-    ));
-
-    // add a setting for main sections text color
-    $wp_customize->add_setting('aranda_de_duero_main_section_text_color', array(
-        'default'     => '#000000',
-        'transport'   => 'refresh',
-    ));
-    // Add a control select main sections text color
-    $wp_customize->add_control(new WP_Customize_Color_Control(
-        $wp_customize,
-        'aranda_de_duero_main_section_text_color',
-        array(
-            'label' => 'Color de texto de las secciones principales en el home',
-            'section' => 'aranda_de_duero_options',
-            'settings' => 'aranda_de_duero_main_section_text_color',
-        )
-    ));
 
     // add a setting for Default list image
     $wp_customize->add_setting('aranda_de_duero_default_list_image');

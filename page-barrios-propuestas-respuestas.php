@@ -22,7 +22,7 @@ $barrios = array(
     array(
         'nombre' => 'La Aguilera',
         'fecha' => '5 de mayo de 2026',
-        'pdf' => 'https://www.arandadeduero.es/wp-content/uploads/2026/07/01.-La-Aguilera.-Resumen-Reunion-2.pdf',
+        'pdf' => 'https://www.arandadeduero.es/wp-content/uploads/2026/10/La-Aguilera.-Reunión-con-desarrollo.pdf',
     ),
     array(
         'nombre' => 'Costaján',
@@ -42,42 +42,42 @@ $barrios = array(
     array(
         'nombre' => 'La Estación',
         'fecha' => '9 de junio de 2026',
-        'pdf' => 'https://www.arandadeduero.es/wp-content/uploads/2026/07/05.-La-Estacion.-Resumen-reunion-3-2.pdf',
+        'pdf' => 'https://www.arandadeduero.es/wp-content/uploads/2026/10/La-Estación.-Resumen-reunión-09-06-2026.pdf',
     ),
     array(
         'nombre' => 'El Polígono',
         'fecha' => '18 de junio de 2026',
-        'pdf' => 'https://www.arandadeduero.es/wp-content/uploads/2026/07/06.-El-Poligono.-Resumen-reunion-3.pdf',
+        'pdf' => 'https://www.arandadeduero.es/wp-content/uploads/2026/10/El-Polígono.-Resumen-reunión-18-06-2026.pdf',
     ),
     array(
         'nombre' => 'Allendeduero',
         'fecha' => '30 de junio de 2026',
-        'pdf' => 'https://www.arandadeduero.es/wp-content/uploads/2026/07/07.-Allendeduero-3.pdf',
+        'pdf' => 'https://www.arandadeduero.es/wp-content/uploads/2026/10/Allendeduero.-Resumen-reunión-30-06-2026.pdf',
     ),
     array(
         'nombre' => 'Tenerías',
         'fecha' => '7 de julio de 2026',
-        'pdf' => 'https://www.arandadeduero.es/wp-content/uploads/2026/07/08.-Tenerias.-Resumen-Reunion-2-2.pdf',
+        'pdf' => 'https://www.arandadeduero.es/wp-content/uploads/2026/10/Tenerías.-Resumen-reunión-07-07-2026-1.pdf',
     ),
     array(
         'nombre' => 'Zona Centro',
         'fecha' => '14 de julio de 2026',
-        'pdf' => 'https://www.arandadeduero.es/wp-content/uploads/2026/08/09.-Zona-Centro.-Resumen-reunión-14-07-2026.pdf',
+        'pdf' => 'https://www.arandadeduero.es/wp-content/uploads/2026/10/Zona-Centro.-Resumen-reunión-14-07-2026.pdf',
     ),
     array(
         'nombre' => 'Santa Catalina',
         'fecha' => '21 de julio de 2026',
-        'pdf' => 'https://www.arandadeduero.es/wp-content/uploads/2026/08/10.-Santa-Catalina.-Resumen-reunión-21-07-2026.pdf',
+        'pdf' => 'https://www.arandadeduero.es/wp-content/uploads/2026/10/Santa-Catalina.-Resumen-reunión-21-07-2026-1.pdf',
     ),
     array(
         'nombre' => 'Ferial-Bañuelos',
         'fecha' => '4 de agosto de 2026',
-        'pdf' => 'https://www.arandadeduero.es/wp-content/uploads/2026/08/11.-Ferial-Bañuelos.-Resumen-reunión-04-08-2026.pdf',
+        'pdf' => 'https://www.arandadeduero.es/wp-content/uploads/2026/10/Ferial-Bañuelos.-Resumen-reunión-04-08-2026-1.pdf',
     ),
     array(
         'nombre' => 'Las Casitas',
         'fecha' => '4 de agosto de 2026',
-        'pdf' => 'https://www.arandadeduero.es/wp-content/uploads/2026/08/12.-Las-Casitas.-Resumen-reunión-11-08-2026.pdf',
+        'pdf' => 'https://www.arandadeduero.es/wp-content/uploads/2026/10/Las-Casitas.-Resumen-reunión-11-08-2026-1.pdf',
     ),
 );
 ?>

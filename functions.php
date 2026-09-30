@@ -90,6 +90,9 @@ if (! function_exists('aranda_de_duero_setup')) :
         // Add theme support for selective refresh for widgets.
         add_theme_support('customize-selective-refresh-widgets');
 
+        // Load the theme's own stylesheets inside the block editor (see add_editor_style() calls below).
+        add_theme_support('editor-styles');
+
         /**
          * Add support for core custom logo.
          *

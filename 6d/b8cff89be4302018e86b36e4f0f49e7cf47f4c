@@ -1,0 +1,83 @@
+page-notas-de-prensa.php
+  s_0ea6a7ec9df8b3::t_50d5397fd22808 17
+page-tramite.php
+  s_0ea6a7ec9df8b3::t_50d5397fd22808 11
+taxonomy-tema-participacion-ciudadana.php
+  s_0ea6a7ec9df8b3::t_50d5397fd22808 19
+taxonomy-tema-cultura-y-ocio.php
+  s_0ea6a7ec9df8b3::t_50d5397fd22808 1-83
+inc/template-tags.php
+  s_0ea6a7ec9df8b3::t_cae34173e66638 188-225
+taxonomy-concejalia-cultura-y-educacion.php
+  s_0ea6a7ec9df8b3::t_50d5397fd22808 19
+taxonomy-tema-concursos.php
+  s_0ea6a7ec9df8b3::t_50d5397fd22808 14
+page-multimedia.php
+  s_0ea6a7ec9df8b3::t_50d5397fd22808 13
+taxonomy-tema-educacion.php
+  s_0ea6a7ec9df8b3::t_50d5397fd22808 19
+page-news.php
+  s_0ea6a7ec9df8b3::t_50d5397fd22808 20
+404.php
+  s_0ea6a7ec9df8b3::t_50d5397fd22808 13
+page-subvenciones.php
+  s_0ea6a7ec9df8b3::t_50d5397fd22808 16
+taxonomy-tema-ayudas-y-subvenciones.php
+  s_0ea6a7ec9df8b3::t_50d5397fd22808 14
+taxonomy-concejalia-urbanismo-y-vivienda.php
+  s_0ea6a7ec9df8b3::t_50d5397fd22808 19
+taxonomy-tema-salud.php
+  s_0ea6a7ec9df8b3::t_50d5397fd22808 19
+taxonomy-tema-tributos.php
+  s_0ea6a7ec9df8b3::t_50d5397fd22808 14
+taxonomy-tema-seguridad-ciudadana.php
+  s_0ea6a7ec9df8b3::t_50d5397fd22808 19
+taxonomy-tema-servicios-sociales.php
+  s_0ea6a7ec9df8b3::t_50d5397fd22808 19
+page-legales.php
+  s_0ea6a7ec9df8b3::t_50d5397fd22808 13
+taxonomy-tema-anuncios.php
+  s_0ea6a7ec9df8b3::t_50d5397fd22808 19
+page-exp-plaza-de-toros.php
+  s_0ea6a7ec9df8b3::t_50d5397fd22808 16
+taxonomy-tema-urbanismo-e-infraestructuras.php
+  s_0ea6a7ec9df8b3::t_50d5397fd22808 19
+taxonomy-tema-consumo-y-comercio.php
+  s_0ea6a7ec9df8b3::t_50d5397fd22808 19
+page-bandos.php
+  s_0ea6a7ec9df8b3::t_50d5397fd22808 17
+page-ayuntamiento.php
+  s_0ea6a7ec9df8b3::t_5dc41b37644f40 14
+page-barrios-propuestas-respuestas.php
+  s_0ea6a7ec9df8b3::t_313ef529954b67 78
+page-sinsidebars.php
+  s_0ea6a7ec9df8b3::t_50d5397fd22808 13
+page.php
+  s_0ea6a7ec9df8b3::t_7d40d30b9b6b28 18
+page-agenda.php
+  s_0ea6a7ec9df8b3::t_50d5397fd22808 13
+taxonomy-tema-oposiciones-y-empleo.php
+  s_0ea6a7ec9df8b3::t_50d5397fd22808 14
+taxonomy-tema-movilidad-y-transportes.php
+  s_0ea6a7ec9df8b3::t_50d5397fd22808 19
+taxonomy-tema-oficina-desarrollo-local.php
+  s_0ea6a7ec9df8b3::t_50d5397fd22808 19
+taxonomy-concejalia-juventud.php
+  s_0ea6a7ec9df8b3::t_50d5397fd22808 19
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "6db8cff89be4302018e86b36e4f0f49e7cf47f4c",
+  "prompts": {},
+  "sessions": {
+    "s_0ea6a7ec9df8b3": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "592c1094-2653-493f-9bda-b8cd15851fad",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": "Guillermo López <willyaranda@gmail.com>"
+    }
+  }
+}

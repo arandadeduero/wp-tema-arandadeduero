@@ -1,0 +1,26 @@
+readme.txt
+  s_0ea6a7ec9df8b3::t_6360c611612ee0 3,6-8,13
+style.css
+  s_0ea6a7ec9df8b3::t_9e35285295d9bf 8-9
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "f6f3356b3cb901d5129e65b8af1683bf0e9ee679",
+  "prompts": {},
+  "humans": {
+    "h_3aa52f59e1a7c5": {
+      "author": "Guillermo López <willyaranda@gmail.com>"
+    }
+  },
+  "sessions": {
+    "s_0ea6a7ec9df8b3": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "592c1094-2653-493f-9bda-b8cd15851fad",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": "Guillermo López <willyaranda@gmail.com>"
+    }
+  }
+}

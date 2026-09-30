@@ -25,7 +25,7 @@ get_header();
 	
 						<table class="table table-responsive-md table-striped">
                                     <thead>
-                                        <transliterator_create>
+                                        <tr>
                                             <th><?php _e('Fecha');?></th>
                                             <th><?php _e('Descripción');?></th>
                                         </tr>

@@ -1,0 +1,261 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Parameter \\#2 \\$instance of function the_widget expects array, string given\\.$#"
+			count: 1
+			path: "404.php"
+
+		-
+			message: "#^Unreachable statement \\- code above always terminates\\.$#"
+			count: 1
+			path: archive.php
+
+		-
+			message: "#^While loop condition is always true\\.$#"
+			count: 1
+			path: archive.php
+
+		-
+			message: "#^Function get_post_thumbnail_id invoked with 2 parameters, 0\\-1 required\\.$#"
+			count: 1
+			path: functions.php
+
+		-
+			message: "#^Parameter \\#3 \\$args of class WP_Customize_Color_Control constructor expects array\\{instance_number\\?\\: int, manager\\?\\: WP_Customize_Manager, id\\?\\: string, settings\\?\\: array, setting\\?\\: string, capability\\?\\: string, priority\\?\\: int, section\\?\\: string, \\.\\.\\.\\}, array\\{label\\: 'Color de fondo de…', section\\: 'aranda_de_duero…', settings\\: 'aranda_de_duero…'\\} given\\.$#"
+			count: 1
+			path: functions.php
+
+		-
+			message: "#^Parameter \\#3 \\$args of class WP_Customize_Color_Control constructor expects array\\{instance_number\\?\\: int, manager\\?\\: WP_Customize_Manager, id\\?\\: string, settings\\?\\: array, setting\\?\\: string, capability\\?\\: string, priority\\?\\: int, section\\?\\: string, \\.\\.\\.\\}, array\\{label\\: 'Color de fondo', section\\: 'aranda_de_duero…', settings\\: 'aranda_de_duero…'\\} given\\.$#"
+			count: 1
+			path: functions.php
+
+		-
+			message: "#^Parameter \\#3 \\$args of class WP_Customize_Color_Control constructor expects array\\{instance_number\\?\\: int, manager\\?\\: WP_Customize_Manager, id\\?\\: string, settings\\?\\: array, setting\\?\\: string, capability\\?\\: string, priority\\?\\: int, section\\?\\: string, \\.\\.\\.\\}, array\\{label\\: 'Color de los enlaces', section\\: 'aranda_de_duero…', settings\\: 'aranda_de_duero…'\\} given\\.$#"
+			count: 1
+			path: functions.php
+
+		-
+			message: "#^Parameter \\#3 \\$args of class WP_Customize_Color_Control constructor expects array\\{instance_number\\?\\: int, manager\\?\\: WP_Customize_Manager, id\\?\\: string, settings\\?\\: array, setting\\?\\: string, capability\\?\\: string, priority\\?\\: int, section\\?\\: string, \\.\\.\\.\\}, array\\{label\\: 'Color de los…', section\\: 'aranda_de_duero…', settings\\: 'aranda_de_duero…'\\} given\\.$#"
+			count: 1
+			path: functions.php
+
+		-
+			message: "#^Parameter \\#3 \\$args of class WP_Customize_Color_Control constructor expects array\\{instance_number\\?\\: int, manager\\?\\: WP_Customize_Manager, id\\?\\: string, settings\\?\\: array, setting\\?\\: string, capability\\?\\: string, priority\\?\\: int, section\\?\\: string, \\.\\.\\.\\}, array\\{label\\: 'Color de texto de…', section\\: 'aranda_de_duero…', settings\\: 'aranda_de_duero…'\\} given\\.$#"
+			count: 1
+			path: functions.php
+
+		-
+			message: "#^Parameter \\#3 \\$args of class WP_Customize_Color_Control constructor expects array\\{instance_number\\?\\: int, manager\\?\\: WP_Customize_Manager, id\\?\\: string, settings\\?\\: array, setting\\?\\: string, capability\\?\\: string, priority\\?\\: int, section\\?\\: string, \\.\\.\\.\\}, array\\{label\\: 'Color del texto', section\\: 'aranda_de_duero…', settings\\: 'aranda_de_duero…'\\} given\\.$#"
+			count: 1
+			path: functions.php
+
+		-
+			message: "#^Unreachable statement \\- code above always terminates\\.$#"
+			count: 1
+			path: functions.php
+
+		-
+			message: "#^While loop condition is always true\\.$#"
+			count: 1
+			path: functions.php
+
+		-
+			message: "#^Parameter \\#1 \\$args of function wp_nav_menu expects array\\{menu\\?\\: int\\|string\\|WP_Term, menu_class\\?\\: string, menu_id\\?\\: string, container\\?\\: string, container_class\\?\\: string, container_id\\?\\: string, container_aria_label\\?\\: string, fallback_cb\\?\\: \\(callable\\(\\)\\: mixed\\)\\|false, \\.\\.\\.\\}, array\\{theme_location\\: 'menu\\-1', menu_id\\: 'primary\\-menu', container\\: false, fallback_cb\\: false\\} given\\.$#"
+			count: 1
+			path: header.php
+
+		-
+			message: "#^Parameter \\#1 \\$args of function wp_nav_menu expects array\\{menu\\?\\: int\\|string\\|WP_Term, menu_class\\?\\: string, menu_id\\?\\: string, container\\?\\: string, container_class\\?\\: string, container_id\\?\\: string, container_aria_label\\?\\: string, fallback_cb\\?\\: \\(callable\\(\\)\\: mixed\\)\\|false, \\.\\.\\.\\}, array\\{theme_location\\: 'top', menu_id\\: 'secondary\\-menu', container\\: false, fallback_cb\\: false\\} given\\.$#"
+			count: 1
+			path: header.php
+
+		-
+			message: "#^Property WP_Customize_Manager\\:\\:\\$selective_refresh \\(WP_Customize_Selective_Refresh\\) in isset\\(\\) is not nullable\\.$#"
+			count: 1
+			path: inc/customizer.php
+
+		-
+			message: "#^Parameter \\#1 \\$author_id of function get_author_posts_url expects int, string given\\.$#"
+			count: 1
+			path: inc/template-tags.php
+
+		-
+			message: "#^Comparison operation \"\\>\" between int\\<1, max\\> and 0 is always true\\.$#"
+			count: 2
+			path: page-home.php
+
+		-
+			message: "#^Unreachable statement \\- code above always terminates\\.$#"
+			count: 1
+			path: page-news.php
+
+		-
+			message: "#^While loop condition is always true\\.$#"
+			count: 1
+			path: page-news.php
+
+		-
+			message: "#^Unreachable statement \\- code above always terminates\\.$#"
+			count: 1
+			path: page-tramite.php
+
+		-
+			message: "#^While loop condition is always true\\.$#"
+			count: 1
+			path: page-tramite.php
+
+		-
+			message: "#^Function aranda_de_duero_the_header_image not found\\.$#"
+			count: 1
+			path: page-villa.php
+
+		-
+			message: "#^Function aranda_de_duero_the_header_image not found\\.$#"
+			count: 1
+			path: page.php
+
+		-
+			message: "#^Unreachable statement \\- code above always terminates\\.$#"
+			count: 1
+			path: taxonomy-concejalia-cultura-y-educacion.php
+
+		-
+			message: "#^While loop condition is always true\\.$#"
+			count: 1
+			path: taxonomy-concejalia-cultura-y-educacion.php
+
+		-
+			message: "#^Unreachable statement \\- code above always terminates\\.$#"
+			count: 1
+			path: taxonomy-concejalia-juventud.php
+
+		-
+			message: "#^While loop condition is always true\\.$#"
+			count: 1
+			path: taxonomy-concejalia-juventud.php
+
+		-
+			message: "#^Unreachable statement \\- code above always terminates\\.$#"
+			count: 1
+			path: taxonomy-concejalia-urbanismo-y-vivienda.php
+
+		-
+			message: "#^While loop condition is always true\\.$#"
+			count: 1
+			path: taxonomy-concejalia-urbanismo-y-vivienda.php
+
+		-
+			message: "#^Unreachable statement \\- code above always terminates\\.$#"
+			count: 1
+			path: taxonomy-tema-anuncios.php
+
+		-
+			message: "#^While loop condition is always true\\.$#"
+			count: 1
+			path: taxonomy-tema-anuncios.php
+
+		-
+			message: "#^Unreachable statement \\- code above always terminates\\.$#"
+			count: 1
+			path: taxonomy-tema-consumo-y-comercio.php
+
+		-
+			message: "#^While loop condition is always true\\.$#"
+			count: 1
+			path: taxonomy-tema-consumo-y-comercio.php
+
+		-
+			message: "#^Unreachable statement \\- code above always terminates\\.$#"
+			count: 1
+			path: taxonomy-tema-cultura-y-ocio.php
+
+		-
+			message: "#^While loop condition is always true\\.$#"
+			count: 1
+			path: taxonomy-tema-cultura-y-ocio.php
+
+		-
+			message: "#^Unreachable statement \\- code above always terminates\\.$#"
+			count: 1
+			path: taxonomy-tema-educacion.php
+
+		-
+			message: "#^While loop condition is always true\\.$#"
+			count: 1
+			path: taxonomy-tema-educacion.php
+
+		-
+			message: "#^Unreachable statement \\- code above always terminates\\.$#"
+			count: 1
+			path: taxonomy-tema-movilidad-y-transportes.php
+
+		-
+			message: "#^While loop condition is always true\\.$#"
+			count: 1
+			path: taxonomy-tema-movilidad-y-transportes.php
+
+		-
+			message: "#^Unreachable statement \\- code above always terminates\\.$#"
+			count: 1
+			path: taxonomy-tema-oficina-desarrollo-local.php
+
+		-
+			message: "#^While loop condition is always true\\.$#"
+			count: 1
+			path: taxonomy-tema-oficina-desarrollo-local.php
+
+		-
+			message: "#^Unreachable statement \\- code above always terminates\\.$#"
+			count: 1
+			path: taxonomy-tema-participacion-ciudadana.php
+
+		-
+			message: "#^While loop condition is always true\\.$#"
+			count: 1
+			path: taxonomy-tema-participacion-ciudadana.php
+
+		-
+			message: "#^Unreachable statement \\- code above always terminates\\.$#"
+			count: 1
+			path: taxonomy-tema-salud.php
+
+		-
+			message: "#^While loop condition is always true\\.$#"
+			count: 1
+			path: taxonomy-tema-salud.php
+
+		-
+			message: "#^Unreachable statement \\- code above always terminates\\.$#"
+			count: 1
+			path: taxonomy-tema-seguridad-ciudadana.php
+
+		-
+			message: "#^While loop condition is always true\\.$#"
+			count: 1
+			path: taxonomy-tema-seguridad-ciudadana.php
+
+		-
+			message: "#^Unreachable statement \\- code above always terminates\\.$#"
+			count: 1
+			path: taxonomy-tema-servicios-sociales.php
+
+		-
+			message: "#^While loop condition is always true\\.$#"
+			count: 1
+			path: taxonomy-tema-servicios-sociales.php
+
+		-
+			message: "#^Unreachable statement \\- code above always terminates\\.$#"
+			count: 1
+			path: taxonomy-tema-urbanismo-e-infraestructuras.php
+
+		-
+			message: "#^While loop condition is always true\\.$#"
+			count: 1
+			path: taxonomy-tema-urbanismo-e-infraestructuras.php
+
+		-
+			message: "#^Variable \\$post might not be defined\\.$#"
+			count: 2
+			path: template-parts/content-tramite.php

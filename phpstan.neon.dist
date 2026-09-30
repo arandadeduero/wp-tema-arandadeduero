@@ -1,0 +1,17 @@
+includes:
+    - vendor/szepeviktor/phpstan-wordpress/extension.neon
+    - phpstan-baseline.neon
+
+parameters:
+    level: 5
+    paths:
+        - .
+    excludePaths:
+        - vendor/*
+        - node_modules/*
+        - languages/*
+        - dist/*
+    stubFiles:
+        - phpstan-stubs/acf.stub.php
+    parallel:
+        maximumNumberOfProcesses: 1

@@ -1,0 +1,67 @@
+name: Tests
+
+on: [push, pull_request]
+
+jobs:
+  php-syntax:
+    name: PHP syntax (parallel-lint)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          coverage: none
+      - uses: ramsey/composer-install@v3
+      - run: composer run lint:php
+
+  phpstan:
+    name: PHP static analysis (phpstan)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          coverage: none
+      - uses: ramsey/composer-install@v3
+      - run: composer run phpstan
+
+  phpcs:
+    name: WordPress coding standards (phpcs)
+    runs-on: ubuntu-latest
+    # Informational only: this theme predates WPCS adoption and has a large
+    # pre-existing backlog (mostly tabs-vs-spaces). Not blocking merges yet.
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v5
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          coverage: none
+      - uses: ramsey/composer-install@v3
+      - run: composer run lint:wpcs
+
+  js:
+    name: JavaScript (eslint)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+      - run: npm ci
+      - run: npm run lint:js
+
+  css:
+    name: CSS (stylelint)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+      - run: npm ci
+      - run: npm run lint:css

@@ -2,8 +2,8 @@
 <ruleset name="Aranda de Duero Theme Coding Standards">
 	<!-- See https://github.com/squizlabs/PHP_CodeSniffer/wiki/Annotated-ruleset.xml -->
 	<!-- See https://github.com/WordPress/WordPress-Coding-Standards -->
-	<!-- See https://github.com/WPTRT/WPThemeReview -->
 	<!-- See https://github.com/PHPCompatibility/PHPCompatibilityWP -->
+	<!-- Note: WPTRT/WPThemeReview is not used — it has not been updated for WPCS 3.x. -->
 
 	<!-- Set a description for this ruleset. -->
 	<description>Modern WordPress theme coding standards for Aranda de Duero.</description>
@@ -49,9 +49,6 @@
 		<exclude name="WordPress.NamingConventions.PrefixAllGlobals.ShortPrefixPassed"/>
 	</rule>
 
-	<!-- Include WP Theme Review standards -->
-	<rule ref="WPThemeReview"/>
-
 	<!--
 	#############################################################################
 	SNIFF SPECIFIC CONFIGURATION
@@ -61,7 +58,9 @@
 	<!-- Verify that the text_domain is set correctly. -->
 	<rule ref="WordPress.WP.I18n">
 		<properties>
-			<property name="text_domain" type="array" value="aranda-de-duero"/>
+			<property name="text_domain" type="array">
+				<element value="aranda-de-duero"/>
+			</property>
 		</properties>
 	</rule>
 
@@ -87,7 +86,9 @@
 	<!-- Verify that all globals in the global namespace are prefixed. -->
 	<rule ref="WordPress.NamingConventions.PrefixAllGlobals">
 		<properties>
-			<property name="prefixes" type="array" value="aranda_de_duero" />
+			<property name="prefixes" type="array">
+				<element value="aranda_de_duero"/>
+			</property>
 		</properties>
 	</rule>
 

@@ -1,0 +1,7 @@
+# Vendor/bundled scripts — not our source, not worth linting
+js/*.min.js
+js/bootstrap.bundle.min.js
+
+node_modules/
+vendor/
+dist/

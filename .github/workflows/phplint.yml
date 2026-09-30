@@ -1,9 +1,0 @@
-name: PHP Linting
-on: [push, pull_request]
-jobs:
-  phplint:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v5
-      - name: Check PHP syntax errors
-        uses: overtrue/phplint@9.6.2

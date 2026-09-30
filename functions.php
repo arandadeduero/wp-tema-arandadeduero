@@ -10,9 +10,29 @@
 
 
 if (! defined('_S_VERSION')) {
-    // Replace the version number of the theme on each release.
+    // Fallback version, only used if an asset file can't be found on disk.
     define('_S_VERSION', '1.0.0');
 }
+
+if (! function_exists('aranda_de_duero_asset_version')) :
+    /**
+     * Cache-busting version string for a theme asset, based on the file's
+     * own last-modified time instead of a single hardcoded version number
+     * that's easy to forget to bump after editing a file — browsers and
+     * CDNs would otherwise keep serving a stale cached copy after a change.
+     *
+     * @param string $relative_path Path relative to $base_dir, e.g. '/css/aranda-de-duero.css'.
+     * @param string|null $base_dir Defaults to get_template_directory().
+     * @return string
+     */
+    function aranda_de_duero_asset_version($relative_path, $base_dir = null)
+    {
+        $base_dir = $base_dir ? $base_dir : get_template_directory();
+        $file = $base_dir . $relative_path;
+
+        return file_exists($file) ? (string) filemtime($file) : _S_VERSION;
+    }
+endif;
 
 if (! function_exists('aranda_de_duero_setup')) :
     /**
@@ -186,7 +206,7 @@ function aranda_de_duero_scripts()
         'aranda-de-duero-style',
         get_stylesheet_uri(),
         [],
-        _S_VERSION,
+        aranda_de_duero_asset_version('/style.css', get_stylesheet_directory()),
         'all'
     );
 
@@ -195,7 +215,7 @@ function aranda_de_duero_scripts()
         'aranda-de-duero-custom-style',
         get_template_directory_uri() . '/css/aranda-de-duero.css',
         [],
-        _S_VERSION,
+        aranda_de_duero_asset_version('/css/aranda-de-duero.css'),
         'all'
     );
 
@@ -204,7 +224,7 @@ function aranda_de_duero_scripts()
         'aranda-de-duero-ajax-load-more',
         get_template_directory_uri() . '/css/ajax-load-more.css',
         [],
-        _S_VERSION,
+        aranda_de_duero_asset_version('/css/ajax-load-more.css'),
         'all'
     );
 
@@ -216,7 +236,7 @@ function aranda_de_duero_scripts()
         'aranda-de-duero-navigation',
         get_template_directory_uri() . '/js/navigation.js',
         [],
-        _S_VERSION,
+        aranda_de_duero_asset_version('/js/navigation.js'),
         [
             'in_footer' => true,
             'strategy' => 'defer'
@@ -228,7 +248,7 @@ function aranda_de_duero_scripts()
         'aranda-de-duero-script',
         get_template_directory_uri() . '/js/aranda-de-duero.js',
         [],
-        _S_VERSION,
+        aranda_de_duero_asset_version('/js/aranda-de-duero.js'),
         [
             'in_footer' => true,
             'strategy' => 'defer'

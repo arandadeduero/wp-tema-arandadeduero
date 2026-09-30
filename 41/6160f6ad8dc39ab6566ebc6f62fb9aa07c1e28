@@ -1,0 +1,44 @@
+css/aranda-de-duero.css
+  s_0ea6a7ec9df8b3::t_a8541632561333 1679-1680
+functions.php
+  s_0ea6a7ec9df8b3::t_bb1cf08c47f718 808
+  s_0ea6a7ec9df8b3::t_7838c54614393f 357,359
+  s_0ea6a7ec9df8b3::t_b1f656fea18ecc 352,354
+page-bandos.php
+  s_0ea6a7ec9df8b3::t_55c0e63c58e2e9 36
+  s_0ea6a7ec9df8b3::t_bb1cf08c47f718 37
+phpstan.neon.dist
+  s_0ea6a7ec9df8b3::t_7adfe013b66d6e 16
+inc/icons.php
+  s_0ea6a7ec9df8b3::t_17d87a9015a20d 14-32
+  s_0ea6a7ec9df8b3::t_273130a7e1b47b 1-13,33-105
+page-notas-de-prensa.php
+  s_0ea6a7ec9df8b3::t_41d2aeab812542 36
+  s_0ea6a7ec9df8b3::t_bb1cf08c47f718 37
+phpstan-stubs/wp-svg-icons.stub.php
+  s_0ea6a7ec9df8b3::t_a449bf18171c05 1-10,12-19,21-28,30-34
+  s_0ea6a7ec9df8b3::t_6d3f358745730d 11,20,29
+page-subvenciones.php
+  s_0ea6a7ec9df8b3::t_bb1cf08c47f718 36
+  s_0ea6a7ec9df8b3::t_0591c9701cdb83 35
+header.php
+  s_0ea6a7ec9df8b3::t_bb1cf08c47f718 59
+footer.php
+  s_0ea6a7ec9df8b3::t_bb1cf08c47f718 35,98,103,107,111,127,134,141,148
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "416160f6ad8dc39ab6566ebc6f62fb9aa07c1e28",
+  "prompts": {},
+  "sessions": {
+    "s_0ea6a7ec9df8b3": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "592c1094-2653-493f-9bda-b8cd15851fad",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": "Guillermo López <willyaranda@gmail.com>"
+    }
+  }
+}

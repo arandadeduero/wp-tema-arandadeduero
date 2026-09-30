@@ -98,7 +98,7 @@ $query = aranda_de_duero_content(
                         if (get_the_post_thumbnail_url(get_the_ID(), 'large')) {
                         ?>
                             <div class="col-12">
-                                <div class="p-1 mb-3 <?php $count == 0 ? print_r('first-news') : ''; ?>">
+                                <div class="home-main-news-image p-1 mb-3 <?php $count == 0 ? print_r('first-news') : ''; ?>">
                                     <img class="d-block mx-auto" src="<?php echo get_the_post_thumbnail_url(get_the_ID(), $image_type); ?>" alt="<?php the_title(); ?>">
                                 </div>
                             </div>

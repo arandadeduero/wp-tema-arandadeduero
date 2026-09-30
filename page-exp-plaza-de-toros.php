@@ -112,17 +112,6 @@ if (get_field('cabecera_de_pagina')) {
                 <div class="card h-100 shadow-sm border-primary position-relative">
                     <div class="card-body p-4">
                         <h3 class="h6 card-title mb-2">
-                            <a href="https://www.arandadeduero.es/wp-content/uploads/2026/06/pdt-NdP1-Informe-Juri%CC%81dico.pdf" class="stretched-link text-primary text-decoration-none" target="_blank" rel="noopener">⚖️ Informe Jurídico inicial</a>
-                        </h3>
-                        <p class="card-text text-muted small mb-0">Informe realizado por la secretaría municipal a instancias del alcalde, Antonio Linaje.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="card h-100 shadow-sm border-primary position-relative">
-                    <div class="card-body p-4">
-                        <h3 class="h6 card-title mb-2">
                             <a href="https://www.arandadeduero.es/wp-content/uploads/2026/09/pdt-20260302-IJ-Relación-de-las-deficiencias-jurídicas-observadas.pdf" class="stretched-link text-primary text-decoration-none" target="_blank" rel="noopener">⚖️ Relación de las deficiencias jurídicas observadas (02/03/2026)</a>
                         </h3>
                         <p class=" card-text text-muted small mb-0">Informe jurídico sobre las deficiencias jurídicas observadas en el expediente.</p>

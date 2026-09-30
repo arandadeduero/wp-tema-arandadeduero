@@ -1,0 +1,28 @@
+page-barrios-propuestas-respuestas.php
+  s_0ea6a7ec9df8b3::t_bc3bda957be9ed 80
+  s_0ea6a7ec9df8b3::t_4a296920c265eb 70
+  s_0ea6a7ec9df8b3::t_6368c24ad45a4d 65
+  s_0ea6a7ec9df8b3::t_acf40611c32c84 75
+  s_0ea6a7ec9df8b3::t_b6da49cbe5b208 1-64,66-69,71-74,76-79,81-144
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "c8e2b8860ab9e8e2ebe525fbb641db46b0009894",
+  "prompts": {},
+  "humans": {
+    "h_3aa52f59e1a7c5": {
+      "author": "Guillermo López <willyaranda@gmail.com>"
+    }
+  },
+  "sessions": {
+    "s_0ea6a7ec9df8b3": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "592c1094-2653-493f-9bda-b8cd15851fad",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": "Guillermo López <willyaranda@gmail.com>"
+    }
+  }
+}

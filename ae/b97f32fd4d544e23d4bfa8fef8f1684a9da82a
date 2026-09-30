@@ -1,0 +1,14 @@
+page-barrios-propuestas-respuestas.php
+  h_3aa52f59e1a7c5 25,45,50,55,60,65,70,75,80
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "aeb97f32fd4d544e23d4bfa8fef8f1684a9da82a",
+  "prompts": {},
+  "humans": {
+    "h_3aa52f59e1a7c5": {
+      "author": "Guillermo López <willyaranda@gmail.com>"
+    }
+  }
+}

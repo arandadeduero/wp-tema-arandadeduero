@@ -69,9 +69,15 @@ $sidebar = isset($sidebar_by_term[$term->slug]) ? $sidebar_by_term[$term->slug] 
                             <?php while ($query->have_posts()) : $query->the_post(); ?>
                                 <div class="col-12">
                                     <div class="noticia-listada d-flex mb-4">
-                                        <?php if (get_the_post_thumbnail_url(get_the_ID(), 'medium') != '') : ?>
+                                        <?php if (has_post_thumbnail()) : ?>
                                             <div class="noticia-listada-imagen mr-3">
-                                                <img loading="lazy" decoding="async" class="img-thumbnail" title="<?php the_title(); ?>" alt="<?php the_title(); ?>" src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'medium'); ?>">
+                                                <?php the_post_thumbnail('medium', array(
+                                                    'class' => 'img-thumbnail',
+                                                    'title' => get_the_title(),
+                                                    'alt' => get_the_title(),
+                                                    'loading' => 'lazy',
+                                                    'decoding' => 'async',
+                                                )); ?>
                                             </div>
                                         <?php endif; ?>
                                         <div class="noticia-listada-texto">

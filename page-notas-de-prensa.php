@@ -61,14 +61,17 @@ aranda_de_duero_the_header_image('');
                             <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
                                 <div class="nota-de-prensa-card p-3 rounded h-100 border" style="border-color: <?php echo get_theme_mod('aranda_de_duero_main_section_text_color', '#007bff'); ?>;">
                                     <div class="nota-de-prensa-card-content d-flex flex-column justify-content-between h-100">
-                                        <?php
-                                        $thumbnail_url = get_the_post_thumbnail_url(get_the_ID(), 'medium');
-                                        if (!$thumbnail_url) {
-                                            $thumbnail_url = 'https://www.arandadeduero.es/wp-content/uploads/2025/11/Copia-de-Banner-ayuntamiento-5-300x107.png';
-                                        }
-                                        ?>
                                         <div class="nota-de-prensa-card-image mb-3">
-                                            <img loading="lazy" decoding="async" class="img-fluid rounded" src="<?php echo $thumbnail_url; ?>" alt="<?php the_title(); ?>">
+                                            <?php if (has_post_thumbnail()) : ?>
+                                                <?php the_post_thumbnail('medium', array(
+                                                    'class' => 'img-fluid rounded',
+                                                    'alt' => get_the_title(),
+                                                    'loading' => 'lazy',
+                                                    'decoding' => 'async',
+                                                )); ?>
+                                            <?php else : ?>
+                                                <img loading="lazy" decoding="async" class="img-fluid rounded" src="https://www.arandadeduero.es/wp-content/uploads/2025/11/Copia-de-Banner-ayuntamiento-5-300x107.png" alt="<?php the_title(); ?>">
+                                            <?php endif; ?>
                                         </div>
 
                                         <div class="nota-de-prensa-card-description">

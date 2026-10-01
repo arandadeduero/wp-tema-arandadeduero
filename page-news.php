@@ -47,11 +47,16 @@ aranda_de_duero_the_header_image('');
                             <div class="home-main-news p-3 rounded h-100">
                                 <div class="row">
                                     <?php
-                                    if (get_the_post_thumbnail_url(get_the_ID(), 'large')) {
+                                    if (has_post_thumbnail()) {
                                     ?>
                                         <div class="col-12">
                                             <div class="home-main-news-image mb-3">
-                                                <img loading="lazy" decoding="async" class="img-fluid" src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'large'); ?>" alt="<?php the_title(); ?>">
+                                                <?php the_post_thumbnail('large', array(
+                                                    'class' => 'img-fluid',
+                                                    'alt' => get_the_title(),
+                                                    'loading' => 'lazy',
+                                                    'decoding' => 'async',
+                                                )); ?>
                                             </div>
                                         </div>
                                         <div class="col-12">

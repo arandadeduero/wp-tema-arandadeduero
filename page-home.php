@@ -95,11 +95,16 @@ $query = aranda_de_duero_content(
                 <div class="events-agenda-card p-3 h-100">
                     <div class="row p-2">
                         <?php
-                        if (get_the_post_thumbnail_url(get_the_ID(), 'large')) {
+                        if (has_post_thumbnail()) {
                         ?>
                             <div class="col-12">
                                 <div class="home-main-news-image p-1 mb-3 <?php $count == 0 ? print_r('first-news') : ''; ?>">
-                                    <img loading="lazy" decoding="async" class="d-block mx-auto" src="<?php echo get_the_post_thumbnail_url(get_the_ID(), $image_type); ?>" alt="<?php the_title(); ?>">
+                                    <?php the_post_thumbnail($image_type, array(
+                                        'class' => 'd-block mx-auto',
+                                        'alt' => get_the_title(),
+                                        'loading' => 'lazy',
+                                        'decoding' => 'async',
+                                    )); ?>
                                 </div>
                             </div>
                             <div class="col-12 p-3">

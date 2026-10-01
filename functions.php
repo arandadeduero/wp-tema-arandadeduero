@@ -333,6 +333,11 @@ require get_template_directory() . '/inc/template-functions.php';
 require get_template_directory() . '/inc/customizer.php';
 
 /**
+ * Open Graph / Twitter Card meta tags.
+ */
+require get_template_directory() . '/inc/social-meta.php';
+
+/**
  * Load Jetpack compatibility file.
  */
 if ( defined( 'JETPACK__VERSION' ) ) {
@@ -455,6 +460,22 @@ function aranda_de_duero_customizer_settings( $wp_customize ) {
 				'section'   => 'aranda_de_duero_options',
 				'label'     => 'Imagen por defecto para las cabeceras de página',
 				'mime_type' => 'image',
+			)
+		)
+	);
+
+	// add a setting for the default social sharing (Open Graph) image
+	$wp_customize->add_setting( 'aranda_de_duero_social_share_image' );
+	// Add a control for the default social sharing (Open Graph) image
+	$wp_customize->add_control(
+		new WP_Customize_Media_Control(
+			$wp_customize,
+			'aranda_de_duero_social_share_image',
+			array(
+				'section'     => 'aranda_de_duero_options',
+				'label'       => 'Imagen por defecto para compartir en redes sociales',
+				'description' => 'Se usa cuando una página o noticia no tiene imagen destacada. Tamaño recomendado: 1200x630 px.',
+				'mime_type'   => 'image',
 			)
 		)
 	);

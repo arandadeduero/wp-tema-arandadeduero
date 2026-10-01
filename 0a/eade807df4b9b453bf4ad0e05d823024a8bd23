@@ -1,0 +1,187 @@
+template-parts/content-search.php
+  s_0ea6a7ec9df8b3::t_28c0c60aa8bd61 29,31
+inc/icons.php
+  s_0ea6a7ec9df8b3::t_28c0c60aa8bd61 14-26,28-29,32-36,38-44,46-99,101-104,106
+page-ayuntamiento.php
+  s_0ea6a7ec9df8b3::t_28c0c60aa8bd61 14,20,27-28
+single-tramite.php
+  s_0ea6a7ec9df8b3::t_28c0c60aa8bd61 14-19,21-23,25,28-29,31-33
+header.php
+  s_0ea6a7ec9df8b3::t_28c0c60aa8bd61 15,17,27,42-53,57,61,68-77
+  s_0ea6a7ec9df8b3::t_b1b257e88b050f 63-64
+  s_0ea6a7ec9df8b3::t_7d1039ff6eefea 65-66
+404.php
+  s_0ea6a7ec9df8b3::t_28c0c60aa8bd61 13,17-19,21-30,32-46,48-60,62-75,77-91,93-110,112-118,120-137,139,141-143
+page-barrios-propuestas-respuestas.php
+  s_0ea6a7ec9df8b3::t_28c0c60aa8bd61 17-76,83-95,97-108,110-127
+page-multimedia.php
+  s_0ea6a7ec9df8b3::t_28c0c60aa8bd61 13,19
+single-mc-events.php
+  s_0ea6a7ec9df8b3::t_e47ea99877c44d 31-32
+  s_0ea6a7ec9df8b3::t_28c0c60aa8bd61 16,25,29-30
+page-home.php
+  s_0ea6a7ec9df8b3::t_b86758403b3dc1 36-37,41
+  s_0ea6a7ec9df8b3::t_22cb236c9c2656 176
+  s_0ea6a7ec9df8b3::t_4585aa834c53e8 177
+  s_0ea6a7ec9df8b3::t_7ef91b7092b76b 143,148
+  s_0ea6a7ec9df8b3::t_4131019038253d 241
+  s_0ea6a7ec9df8b3::t_28c0c60aa8bd61 14-24,29-35,38-40,42-47,52-55,60-82,84,86-87,89,91-94,97-103,105-119,121-124,126-127,129-133,135,137-142,144-147,149-150,152-159,161-165,167-169,171-175,178-182,184,186-189,191-197,199-213,215-220,222-226,228-234,236-238,240,242-261
+  s_0ea6a7ec9df8b3::t_6eba647d1399ea 28
+  s_0ea6a7ec9df8b3::t_57deb4d6fcfb02 104
+  s_0ea6a7ec9df8b3::t_23300eafffcdcc 85,90,96
+  s_0ea6a7ec9df8b3::t_f50d181016a7ea 120,125,128,134
+  s_0ea6a7ec9df8b3::t_15941abd3b0cce 160
+  s_0ea6a7ec9df8b3::t_411fa054d9d9c8 239
+phpstan-stubs/wp-svg-icons.stub.php
+  s_0ea6a7ec9df8b3::t_28c0c60aa8bd61 10,14,18,22,26,30
+comments.php
+  s_0ea6a7ec9df8b3::t_28c0c60aa8bd61 19,25-47,49,51-60,62-63,65-70,72,74-75
+page.php
+  s_0ea6a7ec9df8b3::t_28c0c60aa8bd61 17,29,32,35
+taxonomy-concejalia.php
+  s_0ea6a7ec9df8b3::t_28c0c60aa8bd61 21-52,55-64,69-70,75-81
+  s_0ea6a7ec9df8b3::t_4c6ac0d78c2d99 16-18
+  s_0ea6a7ec9df8b3::t_bd82bed9dcdeb7 65-68,71-74
+  s_0ea6a7ec9df8b3::t_81163aa2fa9ad3 53-54
+page-agenda.php
+  s_0ea6a7ec9df8b3::t_28c0c60aa8bd61 13,19
+phpcs.xml.dist
+  s_0ea6a7ec9df8b3::t_655cf2b3aef48e 98-106,113-126
+  s_0ea6a7ec9df8b3::t_e9e7fa1351f192 39-41
+  s_0ea6a7ec9df8b3::t_bf3fa39212eda9 53-61
+page-webmap.php
+  s_0ea6a7ec9df8b3::t_28c0c60aa8bd61 16,24-25,39-40
+inc/block-patterns.php
+  s_0ea6a7ec9df8b3::t_28c0c60aa8bd61 17-21,23-29,31,33-37,39,41-47,52-53,58-59,61-67,71,73,77-79,81
+phpstan-stubs/acf.stub.php
+  s_0ea6a7ec9df8b3::t_28c0c60aa8bd61 11-13,16
+page-bandos.php
+  s_0ea6a7ec9df8b3::t_b060daccb01d96 126
+  s_0ea6a7ec9df8b3::t_b50dad4fbd28f4 40-41,44
+  s_0ea6a7ec9df8b3::t_e355cfabd29733 27-30,33
+  s_0ea6a7ec9df8b3::t_50c06102616f36 89,96
+  s_0ea6a7ec9df8b3::t_d03521341367e2 109-112,115-118
+  s_0ea6a7ec9df8b3::t_7df079fbf107c0 68
+  s_0ea6a7ec9df8b3::t_28c0c60aa8bd61 17,20-26,31-32,34-39,42-43,45-67,69-88,90-95,97-108,113-114,119-125,127-133
+footer.php
+  s_0ea6a7ec9df8b3::t_42791a62b0852e 225,231,237,243
+  s_0ea6a7ec9df8b3::t_8fb36d49e9b20b 202-205
+  s_0ea6a7ec9df8b3::t_28c0c60aa8bd61 16-23,25-29,31-35,37-48,52-68,70-79,81-84,86-100,102-107,109-121,123-134,136-147,149-160,162-171,176-181,186-191,196-201,206-211,213-224,226-230,232-236,238-242,244-251
+  s_0ea6a7ec9df8b3::t_f3b9eb5670ab77 135
+  s_0ea6a7ec9df8b3::t_d5f7925202b9dd 182-185
+  s_0ea6a7ec9df8b3::t_1cdaa0d718429c 36
+  s_0ea6a7ec9df8b3::t_1b6ac900e9db37 108
+  s_0ea6a7ec9df8b3::t_3261081fe17ea1 148
+  s_0ea6a7ec9df8b3::t_7e8125bd150d4d 172-175
+  s_0ea6a7ec9df8b3::t_380245e2d4c93d 192-195
+  s_0ea6a7ec9df8b3::t_2363eeb5855b60 80,85
+  s_0ea6a7ec9df8b3::t_78b59c42d7de90 122
+index.php
+  s_0ea6a7ec9df8b3::t_28c0c60aa8bd61 18-21,23-24,26-32,34-36,38-43,45,47,49,51,53-54,56-62
+page-exp-plaza-de-toros.php
+  s_0ea6a7ec9df8b3::t_28c0c60aa8bd61 16,21-198
+page-news.php
+  s_0ea6a7ec9df8b3::t_16567d6d98cd61 110
+  s_0ea6a7ec9df8b3::t_c1aaa085ee4c09 73,76,79
+  s_0ea6a7ec9df8b3::t_200527237c3e5c 89,94
+  s_0ea6a7ec9df8b3::t_e2d7af386717f7 126,132
+  s_0ea6a7ec9df8b3::t_72a126872531dc 103
+  s_0ea6a7ec9df8b3::t_28c0c60aa8bd61 20,23-32,34,36,38-44,46-72,74-75,77-78,80-88,90-93,95-102,104-109,111-113,115,118-125,127-131,133-137,139-140,142
+  s_0ea6a7ec9df8b3::t_41b866ef1bb91e 45
+archive.php
+  s_0ea6a7ec9df8b3::t_28c0c60aa8bd61 14-27,29-53,56
+functions.php
+  s_0ea6a7ec9df8b3::t_8c83f6ce4b23c4 555-558
+  s_0ea6a7ec9df8b3::t_0d4d9a2db39454 12,14
+  s_0ea6a7ec9df8b3::t_fb09eb1ced4e70 688
+  s_0ea6a7ec9df8b3::t_729dfe6725b65f 586-605,607
+  s_0ea6a7ec9df8b3::t_cffbe659a11e62 701
+  s_0ea6a7ec9df8b3::t_86abddd5467747 270,279
+  s_0ea6a7ec9df8b3::t_044cf0d8b9271b 679,681
+  s_0ea6a7ec9df8b3::t_28c0c60aa8bd61 13,17-31,33,36-137,139,148-149,151,158-172,175-183,185,199-257,259,271-277,291-300,338-339,347-473,479-493,499-500,502,507-510,513-526,528-530,532-534,536,548-554,559-584,608-624,627-643,650-652,663-678,680,682-687,689-700,702-708,710-712,714-733,736-746,754-755,758-762,770-774,781-788
+  s_0ea6a7ec9df8b3::t_371c64cb49f831 173-174
+  s_0ea6a7ec9df8b3::t_79a8993520a037 757
+  s_0ea6a7ec9df8b3::t_875b901d0d24f4 511-512,527,531
+  s_0ea6a7ec9df8b3::t_00c56a46567d53 649,654
+  s_0ea6a7ec9df8b3::t_07683ba1cb5587 290,302
+  s_0ea6a7ec9df8b3::t_9844693f556dff 474-478,494-498,734-735
+  s_0ea6a7ec9df8b3::t_56eb2b88bb308d 775-780
+  s_0ea6a7ec9df8b3::t_255eba6ad5aeec 756
+  s_0ea6a7ec9df8b3::t_56d5e907efb51e 32
+  s_0ea6a7ec9df8b3::t_40530d9595a214 709,713
+inc/jetpack.php
+  s_0ea6a7ec9df8b3::t_28c0c60aa8bd61 20-28,30-31,33-51,59-66
+page-sinsidebars.php
+  s_0ea6a7ec9df8b3::t_28c0c60aa8bd61 13,16-19,21-23,25,27-30,32-33,35-38
+page-notas-de-prensa.php
+  s_0ea6a7ec9df8b3::t_28c0c60aa8bd61 17,20-26,31-32,34-39,42-43,45-67,69-88,90-95,97-108,113-114,119-125,127-133
+  s_0ea6a7ec9df8b3::t_f4831fc7d15fc6 68
+  s_0ea6a7ec9df8b3::t_cfa13b42ffbdff 89,96
+  s_0ea6a7ec9df8b3::t_4fdc2fc531395a 27-30,33
+  s_0ea6a7ec9df8b3::t_f9a970917923db 109-112,115-118
+  s_0ea6a7ec9df8b3::t_5b2f707d3982f8 126
+  s_0ea6a7ec9df8b3::t_3a01df7ff83b3d 40-41,44
+inc/customizer.php
+  s_0ea6a7ec9df8b3::t_28c0c60aa8bd61 16-18,20-35,45,54,61
+page-tramite.php
+  s_0ea6a7ec9df8b3::t_8e7014bd64171e 42-44
+  s_0ea6a7ec9df8b3::t_e1b717fe081b26 54
+  s_0ea6a7ec9df8b3::t_28c0c60aa8bd61 11,14-41,45-53,55-65
+single.php
+  s_0ea6a7ec9df8b3::t_28c0c60aa8bd61 15-20,22-24,26,28-29,32-33,37-38,40-42
+  s_0ea6a7ec9df8b3::t_97b7f2b6c838d9 30-31
+taxonomy-tema.php
+  s_0ea6a7ec9df8b3::t_78f88d109b6ae2 52-53
+  s_0ea6a7ec9df8b3::t_28c0c60aa8bd61 28,32-33,35-36,41-51,54-94,97-106,111-112,117-124
+  s_0ea6a7ec9df8b3::t_b192db68c1371b 95-96
+  s_0ea6a7ec9df8b3::t_a62c131be48b36 107-110,113-116
+  s_0ea6a7ec9df8b3::t_dd1eb21f8a1564 24-26,29,38
+template-parts/content-post.php
+  s_0ea6a7ec9df8b3::t_28c0c60aa8bd61 14,16-22,24-27,29-39,41-56,58-65,67-69
+inc/template-tags.php
+  s_0ea6a7ec9df8b3::t_28c0c60aa8bd61 12-29,31-33,36-48,50-64,66-104,107-129,132-149,151-174,177-182,184-186,194,196-197,199-211,214-250,253
+  s_0ea6a7ec9df8b3::t_1f9392e21a690e 183,187-193,195,198
+  s_0ea6a7ec9df8b3::t_9844693f556dff 251-252
+  s_0ea6a7ec9df8b3::t_6598602a437ffa 30
+  s_0ea6a7ec9df8b3::t_a3d78f3c8536be 150
+page-subvenciones.php
+  s_0ea6a7ec9df8b3::t_e2f33f8b3d296e 26-29,32
+  s_0ea6a7ec9df8b3::t_33ac0dee3810f4 89,96
+  s_0ea6a7ec9df8b3::t_4d77f342071913 109-112,115-118
+  s_0ea6a7ec9df8b3::t_1daffb892ccaf3 40-41,44
+  s_0ea6a7ec9df8b3::t_1ad29045456894 126
+  s_0ea6a7ec9df8b3::t_5529edc09415d7 68
+  s_0ea6a7ec9df8b3::t_28c0c60aa8bd61 16,19-25,30-31,33-39,42-43,45-67,69-88,90-95,97-108,113-114,119-125,127-133
+page-villa.php
+  s_0ea6a7ec9df8b3::t_28c0c60aa8bd61 14,18-23,25-27,29,31-34,36-37,39-40,42
+search.php
+  s_0ea6a7ec9df8b3::t_1de738a2b76bf8 38-43
+  s_0ea6a7ec9df8b3::t_28c0c60aa8bd61 12-17,24
+inc/custom-header.php
+  s_0ea6a7ec9df8b3::t_28c0c60aa8bd61 7,20-33,38-44,46-52,54-77
+template-parts/content-tramite.php
+  s_0ea6a7ec9df8b3::t_28c0c60aa8bd61 14,34,40,44-46,48-49,55,58
+  s_0ea6a7ec9df8b3::t_12ddc7fb61c3de 39,43,47,53,57,63-64,67-68,71-72,75-76,79,100-101,104-105
+inc/template-functions.php
+  s_0ea6a7ec9df8b3::t_28c0c60aa8bd61 17-20,22-31,33-39,41-43,45,53-55
+page-legales.php
+  s_0ea6a7ec9df8b3::t_28c0c60aa8bd61 13
+taxonomy-seccion.php
+  s_0ea6a7ec9df8b3::t_28c0c60aa8bd61 14-40
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "0aeade807df4b9b453bf4ad0e05d823024a8bd23",
+  "prompts": {},
+  "sessions": {
+    "s_0ea6a7ec9df8b3": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "592c1094-2653-493f-9bda-b8cd15851fad",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": "Guillermo López <willyaranda@gmail.com>"
+    }
+  }
+}

@@ -1,0 +1,31 @@
+taxonomy-concejalia.php
+  s_0ea6a7ec9df8b3::t_df4380d38e82f9 33,35-41
+page-news.php
+  s_0ea6a7ec9df8b3::t_fcb87030a095b9 50,54-59
+taxonomy-tema.php
+  s_0ea6a7ec9df8b3::t_98abc38ac0d5c9 72,74-80
+page-subvenciones.php
+  s_0ea6a7ec9df8b3::t_b369688588db3b 65-74
+page-notas-de-prensa.php
+  s_0ea6a7ec9df8b3::t_7446ddb222f1c5 65-74
+page-home.php
+  s_0ea6a7ec9df8b3::t_406942dfdb6996 98,102-107
+page-bandos.php
+  s_0ea6a7ec9df8b3::t_72a02b6199f303 65-74
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "dc1177e2c28cb0e440b04c424351c1b6cb8507ad",
+  "prompts": {},
+  "sessions": {
+    "s_0ea6a7ec9df8b3": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "592c1094-2653-493f-9bda-b8cd15851fad",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": "Guillermo López <willyaranda@gmail.com>"
+    }
+  }
+}

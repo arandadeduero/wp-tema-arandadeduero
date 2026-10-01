@@ -7,28 +7,25 @@
  */
 
 /**
- * @param string $slug
+ * @param string               $slug
  * @param array<string, mixed> $args
  * @return bool
  */
-function wp_register_icon_collection($slug, $args = array())
-{
+function wp_register_icon_collection( $slug, $args = array() ) {
 }
 
 /**
- * @param string $name
+ * @param string               $name
  * @param array<string, mixed> $args
  * @return bool
  */
-function wp_register_icon($name, $args = array())
-{
+function wp_register_icon( $name, $args = array() ) {
 }
 
 /**
- * @param string $name
+ * @param string               $name
  * @param array<string, mixed> $args
  * @return string
  */
-function wp_get_icon($name, $args = array())
-{
+function wp_get_icon( $name, $args = array() ) {
 }

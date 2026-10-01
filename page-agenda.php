@@ -10,13 +10,13 @@
  */
 
 get_header();
-aranda_de_duero_the_header_image('');
+aranda_de_duero_the_header_image( '' );
 ?>
 
 	<div class="container mt-4">
 		<div class="row">
 			<div class="col-lg-3 pt-4">
-				<?php dynamic_sidebar('Actualidad');?>
+				<?php dynamic_sidebar( 'Actualidad' ); ?>
 			</div>
 			<div class="col-lg-9">
 				<main id="primary" class="site-main">

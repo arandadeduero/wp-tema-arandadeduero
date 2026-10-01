@@ -14,35 +14,35 @@ defined( 'ABSPATH' ) || exit;
  * @return array
  */
 function aranda_de_duero_body_classes( $classes ) {
-    // Adds a class of hfeed to non-singular pages.
-    if ( ! is_singular() ) {
-        $classes[] = 'hfeed';
-    }
+	// Adds a class of hfeed to non-singular pages.
+	if ( ! is_singular() ) {
+		$classes[] = 'hfeed';
+	}
 
-    // Adds a class of no-sidebar when no sidebar is active for the current context.
-    $sidebar_ids = array(
-        'sidebar-1',
-        'sidebar-ayuntamiento',
-        'sidebar-villa',
-        'sidebar-noticias',
-        'sidebar-tramites',
-        'sidebar-actualidad',
-        'sidebar-servicios',
-    );
+	// Adds a class of no-sidebar when no sidebar is active for the current context.
+	$sidebar_ids = array(
+		'sidebar-1',
+		'sidebar-ayuntamiento',
+		'sidebar-villa',
+		'sidebar-noticias',
+		'sidebar-tramites',
+		'sidebar-actualidad',
+		'sidebar-servicios',
+	);
 
-    $any_active = false;
-    foreach ( $sidebar_ids as $sidebar_id ) {
-        if ( is_active_sidebar( $sidebar_id ) ) {
-            $any_active = true;
-            break;
-        }
-    }
+	$any_active = false;
+	foreach ( $sidebar_ids as $sidebar_id ) {
+		if ( is_active_sidebar( $sidebar_id ) ) {
+			$any_active = true;
+			break;
+		}
+	}
 
-    if ( ! $any_active ) {
-        $classes[] = 'no-sidebar';
-    }
+	if ( ! $any_active ) {
+		$classes[] = 'no-sidebar';
+	}
 
-    return $classes;
+	return $classes;
 }
 add_filter( 'body_class', 'aranda_de_duero_body_classes' );
 
@@ -50,8 +50,8 @@ add_filter( 'body_class', 'aranda_de_duero_body_classes' );
  * Add a pingback url auto-discovery header for single posts, pages, or attachments.
  */
 function aranda_de_duero_pingback_header() {
-    if ( is_singular() && pings_open() ) {
-        printf( '<link rel="pingback" href="%s">', esc_url( get_bloginfo( 'pingback_url' ) ) );
-    }
+	if ( is_singular() && pings_open() ) {
+		printf( '<link rel="pingback" href="%s">', esc_url( get_bloginfo( 'pingback_url' ) ) );
+	}
 }
 add_action( 'wp_head', 'aranda_de_duero_pingback_header' );

@@ -30,9 +30,6 @@ jobs:
   phpcs:
     name: WordPress coding standards (phpcs)
     runs-on: ubuntu-latest
-    # Informational only: this theme predates WPCS adoption and has a large
-    # pre-existing backlog (mostly tabs-vs-spaces). Not blocking merges yet.
-    continue-on-error: true
     steps:
       - uses: actions/checkout@v7
       - uses: shivammathur/setup-php@v2

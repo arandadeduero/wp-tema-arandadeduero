@@ -12,9 +12,9 @@
 <html <?php language_attributes(); ?>>
 
 <head>
-	<meta charset="<?php bloginfo('charset'); ?>">
+	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-	<meta name="description" content="<?php echo esc_attr(get_bloginfo('description')); ?>">
+	<meta name="description" content="<?php echo esc_attr( get_bloginfo( 'description' ) ); ?>">
 	<meta name="theme-color" content="#0083c1">
 	<meta name="format-detection" content="telephone=no">
 
@@ -24,7 +24,7 @@
 <body <?php body_class(); ?>>
 	<?php wp_body_open(); ?>
 
-	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e('Skip to content', 'aranda-de-duero'); ?></a>
+	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'aranda-de-duero' ); ?></a>
 
 	<div id="page" class="site">
 		<div class="site-header-wrapper">
@@ -39,31 +39,42 @@
 
 				<!-- Navigation -->
 				<div class="header-nav">
-					<?php if (has_nav_menu('top')) : ?>
-						<nav class="menu-top" aria-label="<?php esc_attr_e('Secondary Menu', 'aranda-de-duero'); ?>">
-							<?php wp_nav_menu(array(
-								'theme_location' => 'top',
-								'menu_id'        => 'secondary-menu',
-								'container'      => false,
-								'fallback_cb'    => false,
-							)); ?>
+					<?php if ( has_nav_menu( 'top' ) ) : ?>
+						<nav class="menu-top" aria-label="<?php esc_attr_e( 'Secondary Menu', 'aranda-de-duero' ); ?>">
+							<?php
+							wp_nav_menu(
+								array(
+									'theme_location' => 'top',
+									'menu_id'        => 'secondary-menu',
+									'container'      => false,
+									'fallback_cb'    => false,
+								)
+							);
+							?>
 						</nav>
 					<?php endif; ?>
 
-					<nav id="site-navigation" class="main-navigation" aria-label="<?php esc_attr_e('Primary Menu', 'aranda-de-duero'); ?>">
+					<nav id="site-navigation" class="main-navigation" aria-label="<?php esc_attr_e( 'Primary Menu', 'aranda-de-duero' ); ?>">
 						<button class="menu-toggle"
 							aria-controls="primary-menu"
 							aria-expanded="false"
-							aria-label="<?php esc_attr_e('Toggle navigation menu', 'aranda-de-duero'); ?>"
+							aria-label="<?php esc_attr_e( 'Toggle navigation menu', 'aranda-de-duero' ); ?>"
 							type="button">
-							<?php echo aranda_de_duero_icon('aranda-de-duero/bars'); ?>
+							<?php
+						// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- aranda_de_duero_icon() returns SVG markup already sanitized by the WP 7.1 SVG Icon API (see inc/icons.php).
+							echo aranda_de_duero_icon( 'aranda-de-duero/bars' );
+							?>
 						</button>
-						<?php wp_nav_menu(array(
-							'theme_location' => 'menu-1',
-							'menu_id'        => 'primary-menu',
-							'container'      => false,
-							'fallback_cb'    => false,
-						)); ?>
+						<?php
+						wp_nav_menu(
+							array(
+								'theme_location' => 'menu-1',
+								'menu_id'        => 'primary-menu',
+								'container'      => false,
+								'fallback_cb'    => false,
+							)
+						);
+						?>
 					</nav>
 				</div><!-- .header-nav -->
 

@@ -36,6 +36,9 @@
 	<exclude-pattern>/node_modules/*</exclude-pattern>
 	<exclude-pattern>/languages/*</exclude-pattern>
 	<exclude-pattern>*.min.php</exclude-pattern>
+	<!-- PHPStan-only type stubs: deliberately redeclare third-party/WP-core
+	     function names and aren't part of the theme's runtime code. -->
+	<exclude-pattern>/phpstan-stubs/*</exclude-pattern>
 
 	<!--
 	#############################################################################
@@ -47,6 +50,15 @@
 	<rule ref="WordPress">
 		<!-- This rule does not apply since the prefix should be unique to this theme. -->
 		<exclude name="WordPress.NamingConventions.PrefixAllGlobals.ShortPrefixPassed"/>
+		<!--
+		Full PHPDoc completeness (file/function comments, inline-comment
+		punctuation) has never been this codebase's convention, and
+		retrofitting it across ~70 files now is disproportionate to the
+		value for a small municipal theme. Security, correctness and
+		WP-specific sniffs stay on; this only drops doc-formatting nitpicks.
+		-->
+		<exclude name="Squiz.Commenting"/>
+		<exclude name="Generic.Commenting.DocComment.MissingShort"/>
 	</rule>
 
 	<!--
@@ -83,13 +95,35 @@
 		</properties>
 	</rule>
 
-	<!-- Verify that all globals in the global namespace are prefixed. -->
+	<!--
+	Verify that all globals in the global namespace are prefixed.
+	Scoped out of page/archive templates: this sniff also flags ordinary
+	top-level $variables (loop counters, $query, $args...), which is the
+	normal and expected way to write a WordPress template — there's
+	nothing "global" about them in the sense this sniff is meant to guard
+	against (naming collisions between plugins/themes). It still applies
+	to functions.php and inc/, where real global functions/constants live.
+	-->
 	<rule ref="WordPress.NamingConventions.PrefixAllGlobals">
 		<properties>
 			<property name="prefixes" type="array">
 				<element value="aranda_de_duero"/>
 			</property>
 		</properties>
+		<exclude-pattern>*/page-*.php</exclude-pattern>
+		<exclude-pattern>*/page.php</exclude-pattern>
+		<exclude-pattern>*/taxonomy-*.php</exclude-pattern>
+		<exclude-pattern>*/single-*.php</exclude-pattern>
+		<exclude-pattern>*/single.php</exclude-pattern>
+		<exclude-pattern>*/archive.php</exclude-pattern>
+		<exclude-pattern>*/search.php</exclude-pattern>
+		<exclude-pattern>*/searchform.php</exclude-pattern>
+		<exclude-pattern>*/comments.php</exclude-pattern>
+		<exclude-pattern>*/index.php</exclude-pattern>
+		<exclude-pattern>*/404.php</exclude-pattern>
+		<exclude-pattern>*/header.php</exclude-pattern>
+		<exclude-pattern>*/footer.php</exclude-pattern>
+		<exclude-pattern>*/template-parts/*</exclude-pattern>
 	</rule>
 
 	<!--

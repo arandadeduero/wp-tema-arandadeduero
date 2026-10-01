@@ -26,9 +26,9 @@ defined( 'ABSPATH' ) || exit;
 	<div class="row">
 		<div class="col-12">
 			<div class="entry-summary">
-				<?php 
+				<?php
 					the_excerpt();
-				 ?>
+				?>
 			</div>
 		</div><!-- .entry-summary -->
 	</div>

@@ -8,11 +8,10 @@
 
 /**
  * @param string $selector
- * @param mixed $post_id
- * @param bool $format_value
- * @param mixed $default_value
+ * @param mixed  $post_id
+ * @param bool   $format_value
+ * @param mixed  $default_value
  * @return mixed
  */
-function get_field($selector, $post_id = false, $format_value = true, $default_value = null)
-{
+function get_field( $selector, $post_id = false, $format_value = true, $default_value = null ) {
 }

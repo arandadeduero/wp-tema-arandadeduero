@@ -11,21 +11,21 @@
 
 get_header();
 
-aranda_de_duero_the_header_image('Cabecera página ayuntamiento');
+aranda_de_duero_the_header_image( 'Cabecera página ayuntamiento' );
 ?>
 
 	<div class="container mt-4">
 		<div class="row">
 			<div class="col-lg-3 pt-4">
-				<?php dynamic_sidebar('Ayuntamiento');?>
+				<?php dynamic_sidebar( 'Ayuntamiento' ); ?>
 			</div>
 			<div class="col-lg-9">
 				<main id="primary" class="site-main">
 
 					<?php
 					while ( have_posts() ) :
-						
-						
+
+
 						the_post();
 
 						get_template_part( 'template-parts/content', 'page-notitle' );

@@ -13,7 +13,7 @@
  */
 
 
-// Nuevo 
+// Nuevo
 get_header();
 ?>
 
@@ -21,8 +21,8 @@ get_header();
 		<div class="row">
 			<div class="col-lg-12 pt-4">
 				<main id="primary" class="site-main">
-               <?php 
-                	wp_nav_menu(
+				<?php
+					wp_nav_menu(
 						array(
 							'theme_location' => 'menu-1',
 							'menu_id'        => '',
@@ -36,9 +36,9 @@ get_header();
 						)
 					);
 
+
+					?>
 					
-               ?>
-                    
 				</main><!-- #main -->
 			</div>
 			

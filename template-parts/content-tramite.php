@@ -11,7 +11,7 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
 		<?php
-		
+
 			the_title( '<h1 class="entry-title h4"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h1>' );
 
 		if ( 'post' === get_post_type() ) :
@@ -31,51 +31,52 @@
 		<!-- Taxonomias  -->
 		<?php
 			$concejalias = wp_get_post_terms( $post->ID, 'concejalia' );
-			$categorias = wp_get_post_terms( $post->ID, 'categoria_tramite' );
+			$categorias  = wp_get_post_terms( $post->ID, 'categoria_tramite' );
 		?>
 		<table class="table table-responsive-md table-striped">
 			<tbody>
 				<tr>
-					<td><strong><?php _e('Fecha');?></strong></td>
-					<td> <?php echo get_the_date();?></td>
+					<td><strong><?php esc_html_e( 'Fecha', 'aranda-de-duero' ); ?></strong></td>
+					<td> <?php echo get_the_date(); ?></td>
 				</tr>
 				<tr>
-					<td><strong><?php _e('Concejalía')?>: </strong></td>
-					<td><?php 
-						foreach ( $concejalias as $concejalia ) {
-								echo $concejalia->name;
-							}
-						?>
-					</td>
-				</tr>
-				<tr>
-					<td><strong><?php _e('Categoría')?></strong></td>
+					<td><strong><?php esc_html_e( 'Concejalía', 'aranda-de-duero' ); ?>: </strong></td>
 					<td>
-						<?php 
+					<?php
+					foreach ( $concejalias as $concejalia ) {
+							echo esc_html( $concejalia->name );
+					}
+					?>
+					</td>
+				</tr>
+				<tr>
+					<td><strong><?php esc_html_e( 'Categoría', 'aranda-de-duero' ); ?></strong></td>
+					<td>
+						<?php
 						foreach ( $categorias as $categoria ) {
-								echo $categoria->name;
-							}
+								echo esc_html( $categoria->name );
+						}
 						?>
 					</td>
 				</tr>
 				<tr>
-					<td><strong><?php _e('Dirigido a');?> </strong></td>
-					<td><?php echo get_field('tramite_dirigido');?></td>
+					<td><strong><?php esc_html_e( 'Dirigido a', 'aranda-de-duero' ); ?> </strong></td>
+					<td><?php echo esc_html( get_field( 'tramite_dirigido' ) ); ?></td>
 				</tr>
 				<tr>
-					<td><strong><?php _e('Gestor');?></strong></td>
-					<td><?php echo get_field('tramite_gestor');?></td>
+					<td><strong><?php esc_html_e( 'Gestor', 'aranda-de-duero' ); ?></strong></td>
+					<td><?php echo esc_html( get_field( 'tramite_gestor' ) ); ?></td>
 				</tr>
 				<tr>
-					<td><strong><?php _e('Normativa');?></strong></td>
-					<td><?php echo get_field('tramite_normativa');?></td>
+					<td><strong><?php esc_html_e( 'Normativa', 'aranda-de-duero' ); ?></strong></td>
+					<td><?php echo esc_html( get_field( 'tramite_normativa' ) ); ?></td>
 				</tr>
 				<tr>
-					<td><strong><?php _e('Forma de pago');?> </strong></td>
-					<td><?php echo get_field('tramite_pago');?></td>
+					<td><strong><?php esc_html_e( 'Forma de pago', 'aranda-de-duero' ); ?> </strong></td>
+					<td><?php echo esc_html( get_field( 'tramite_pago' ) ); ?></td>
 				</tr>
 				<tr>
-					<td><strong><?php _e('Descripción');?> </strong></td>
+					<td><strong><?php esc_html_e( 'Descripción', 'aranda-de-duero' ); ?> </strong></td>
 					<td>
 						<?php
 						the_content(
@@ -96,12 +97,12 @@
 					</td>
 				</tr>
 				<tr>
-					<td><strong><?php _e('Procedimiento');?> </strong></td>
-					<td><?php echo get_field('tramite_procedimiento');?></td>
+					<td><strong><?php esc_html_e( 'Procedimiento', 'aranda-de-duero' ); ?> </strong></td>
+					<td><?php echo esc_html( get_field( 'tramite_procedimiento' ) ); ?></td>
 				</tr>
 				<tr>
-					<td><strong><?php _e('Fichero adjunto');?></strong></td>
-					<td><a class="text-dark" href="<?php echo get_field('tramite_fichero');?>" target="_blank"><?php _e('Descargar');?></a></td>
+					<td><strong><?php esc_html_e( 'Fichero adjunto', 'aranda-de-duero' ); ?></strong></td>
+					<td><a class="text-dark" href="<?php echo esc_url( get_field( 'tramite_fichero' ) ); ?>" target="_blank"><?php esc_html_e( 'Descargar', 'aranda-de-duero' ); ?></a></td>
 				</tr>
 			</tbody>
 		</table>

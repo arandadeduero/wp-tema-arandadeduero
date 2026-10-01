@@ -10,7 +10,7 @@
  */
 
 get_header();
-aranda_de_duero_the_header_image('');
+aranda_de_duero_the_header_image( '' );
 ?>
 
 	<div class="container">

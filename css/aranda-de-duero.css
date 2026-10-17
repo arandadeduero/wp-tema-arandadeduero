@@ -122,7 +122,8 @@ input[type='submit']:hover {
 .current-menu-parent,
 .current-menu-item:hover,
 .current-menu-parent:hover {
-    background: var(--color-primary) !important;
+    /* Texto blanco: sobre #0083c1 da 4,18:1; con el azul accesible, 5,18:1 */
+    background: var(--color-primary-accessible) !important;
 }
 
 .current-menu-item > a,
@@ -479,8 +480,13 @@ footer i {
 }
 
 .home-main-news .home-main-news-button a.btn-primary {
-    background-color: #0083c1;
-    border-color: #0083c1;
+    background-color: var(--color-primary-accessible);
+    border-color: var(--color-primary-accessible);
+}
+
+/* My Calendar pinta sus botones («Mes», «Hoy»…) con --primary-dark, que aquí era el azul de marca sobre blanco (4,18:1). */
+body .mc-main {
+    --primary-dark: var(--color-primary-accessible);
 }
 
 .home-more-news {

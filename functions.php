@@ -619,7 +619,7 @@ function aranda_de_duero_customize_css() {
 			color: <?php echo esc_attr( get_theme_mod( 'aranda_de_duero_header_text_color', '#000000' ) ); ?> !important;
 		}
 
-		.post a:not(h1 a, h2 a, h3 a, h4 a, h5 a, h6 a) {
+		.post a:not(h1 a, h2 a, h3 a, h4 a, h5 a, h6 a, .wp-element-button, .wp-block-button__link, .btn) {
 			color: <?php echo esc_attr( get_theme_mod( 'aranda_de_duero_link_color', '#000000' ) ); ?> !important;
 		}
 	</style>

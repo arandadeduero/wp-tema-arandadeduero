@@ -210,3 +210,22 @@ function aranda_de_duero_drop_google_fonts_hint( $urls, $relation_type ) {
 	);
 }
 add_filter( 'wp_resource_hints', 'aranda_de_duero_drop_google_fonts_hint', 10, 2 );
+
+/**
+ * Whether the current request renders Ajax Load More content.
+ *
+ * The "Especiales" section lives in page-home.php, so that's the front page and any page
+ * using the "Pagina de Inicio" template. A page whose content has an [ajax_load_more]
+ * shortcode (added by an editor) also needs the stylesheet.
+ *
+ * @return bool
+ */
+function aranda_de_duero_needs_ajax_load_more_assets() {
+	if ( is_front_page() || is_page_template( 'page-home.php' ) ) {
+		return true;
+	}
+
+	$post = get_post();
+
+	return $post instanceof WP_Post && has_shortcode( $post->post_content, 'ajax_load_more' );
+}

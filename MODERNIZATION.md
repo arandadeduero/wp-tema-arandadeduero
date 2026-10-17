@@ -42,6 +42,10 @@ una consulta SQL por cada uno para obtener su `occur_id`, en cada visita.
 - **Una sola consulta** para todos los `occur_id`, en lugar de una por evento.
 - **Solo contenido publicado** (`post_status => publish`): como la caché se sirve a todos los visitantes,
   no puede depender de quién la rellene (WP_Query añade los eventos privados a quien puede verlos).
+- **«Especiales» solo en la home:** la sección (Ajax Load More) estaba en `footer.php` y salía en todas las páginas,
+  disparando una llamada a `admin-ajax.php` en cada carga. Ahora vive al final de `page-home.php`, y
+  `css/ajax-load-more.css` solo se carga en la home, en las páginas con la plantilla «Pagina de Inicio» o con un
+  shortcode `[ajax_load_more]` en el contenido (`aranda_de_duero_needs_ajax_load_more_assets()`).
 - **Sin `COUNT` de paginación:** `aranda_de_duero_content()` acepta `$paginated = false`; la usan la
   agenda y las 9 noticias de la home, que no paginan.
 - **Límite conocido:** un cambio en My Calendar que no pase por `save_post` tarda hasta 10 minutos en verse.

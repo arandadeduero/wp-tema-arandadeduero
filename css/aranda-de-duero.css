@@ -2580,3 +2580,49 @@ button.poster-dialog-button {
         grid-column: 1;
     }
 }
+
+/* Agenda (page-agenda.php): título y presentación sobre el calendario. */
+.agenda-intro {
+    margin-bottom: var(--spacing-xl);
+}
+
+.agenda-intro .entry-title {
+    margin: 0 0 var(--spacing-sm);
+    font-size: clamp(1.75rem, 3.2vw, 2.5rem);
+    line-height: 1.2;
+}
+
+.agenda-lead {
+    max-width: 60rem;
+    margin: 0 0 var(--spacing-lg);
+    font-size: 1.125rem;
+    line-height: 1.6;
+}
+
+.agenda-tips {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--spacing-md);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.agenda-tips li {
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-left: 4px solid var(--color-primary);
+    border-radius: var(--border-radius-lg);
+    background: var(--color-primary-light);
+    line-height: 1.5;
+}
+
+.agenda-tips strong {
+    display: block;
+    color: var(--color-primary-accessible);
+}
+
+@media (width <= 767px) {
+    .agenda-tips {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}

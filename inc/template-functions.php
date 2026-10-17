@@ -156,3 +156,25 @@ function aranda_de_duero_contact_info() {
 function aranda_de_duero_whistleblower_url() {
 	return esc_url_raw( (string) get_theme_mod( 'aranda_de_duero_whistleblower_url', '' ) );
 }
+
+/**
+ * Spanish for the My Calendar strings the plugin still ships in English.
+ *
+ * Only strings with no translation yet are touched, so a future translation from the plugin wins.
+ *
+ * @param string $translation Translated text.
+ * @param string $text        Original text.
+ * @return string
+ */
+function aranda_de_duero_my_calendar_strings( $translation, $text ) {
+	$overrides = array(
+		'Clear Filters' => 'Quitar filtros',
+	);
+
+	if ( $translation === $text && isset( $overrides[ $text ] ) ) {
+		return $overrides[ $text ];
+	}
+
+	return $translation;
+}
+add_filter( 'gettext_my-calendar', 'aranda_de_duero_my_calendar_strings', 10, 2 );

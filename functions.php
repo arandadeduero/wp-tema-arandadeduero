@@ -602,6 +602,14 @@ function aranda_de_duero_preload_font() {
 add_action( 'wp_head', 'aranda_de_duero_preload_font', 2 );
 
 /**
+ * Remove legacy <head> output nobody needs: generator version (leaks the WordPress
+ * version), Windows Live Writer manifest and Really Simple Discovery link.
+ */
+remove_action( 'wp_head', 'wp_generator' );
+remove_action( 'wp_head', 'wlwmanifest_link' );
+remove_action( 'wp_head', 'rsd_link' );
+
+/**
  * Output custom inline JavaScript for theme features.
  *
  * Includes:

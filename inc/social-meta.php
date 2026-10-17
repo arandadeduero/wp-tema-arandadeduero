@@ -35,6 +35,7 @@ function aranda_de_duero_social_image() {
 				'url'    => $src[0],
 				'width'  => $src[1],
 				'height' => $src[2],
+				'alt'    => trim( (string) get_post_meta( get_post_thumbnail_id(), '_wp_attachment_image_alt', true ) ),
 			);
 		}
 	}

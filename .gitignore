@@ -61,3 +61,4 @@ style-rtl.css.map
 # Dist folder
 dist/
 build/
+.phpunit.result.cache

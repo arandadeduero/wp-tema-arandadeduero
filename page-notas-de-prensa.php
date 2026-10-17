@@ -74,14 +74,14 @@ aranda_de_duero_the_header_image( '' );
 													'medium',
 													array(
 														'class' => 'img-fluid rounded',
-														'alt' => get_the_title(),
+														'alt' => '',
 														'loading' => 'lazy',
 														'decoding' => 'async',
 													)
 												);
 												?>
 											<?php else : ?>
-												<img loading="lazy" decoding="async" class="img-fluid rounded" src="<?php echo esc_url( content_url( '/uploads/2025/11/Copia-de-Banner-ayuntamiento-5-300x107.png' ) ); ?>" alt="<?php the_title(); ?>">
+												<img loading="lazy" decoding="async" class="img-fluid rounded" src="<?php echo esc_url( content_url( '/uploads/2025/11/Copia-de-Banner-ayuntamiento-5-300x107.png' ) ); ?>" alt="">
 											<?php endif; ?>
 										</div>
 

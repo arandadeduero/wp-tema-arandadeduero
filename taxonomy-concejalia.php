@@ -40,8 +40,7 @@ $query = aranda_de_duero_concejalias( $current_term->slug );
 												'medium',
 												array(
 													'class' => 'img-thumbnail',
-													'title' => get_the_title(),
-													'alt' => get_the_title(),
+													'alt' => '',
 													'loading' => 'lazy',
 													'decoding' => 'async',
 												)

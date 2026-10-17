@@ -82,8 +82,7 @@ $sidebar = isset( $sidebar_by_term[ $current_term->slug ] ) ? $sidebar_by_term[ 
 													'medium',
 													array(
 														'class' => 'img-thumbnail',
-														'title' => get_the_title(),
-														'alt' => get_the_title(),
+														'alt' => '',
 														'loading' => 'lazy',
 														'decoding' => 'async',
 													)

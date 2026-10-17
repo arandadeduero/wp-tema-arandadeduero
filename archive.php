@@ -39,7 +39,7 @@ get_header();
 										<li>
 											<div>                                            
 												<p><?php echo get_the_date(); ?></p>
-												<a href="<?php the_permalink(); ?>" target="_blank"><p><?php the_title(); ?></p></a>
+												<a href="<?php the_permalink(); ?>" target="_blank" rel="noopener"><p><?php the_title(); ?></p><?php aranda_de_duero_the_new_tab_notice(); ?></a>
 											</div>
 										</li>
 									<?php endwhile; ?>

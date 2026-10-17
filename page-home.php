@@ -107,7 +107,7 @@ $query = aranda_de_duero_content(
 										$image_type,
 										array(
 											'class'    => 'd-block mx-auto',
-											'alt'      => get_the_title(),
+											'alt'      => '',
 											'loading'  => ( 0 === $count ) ? 'eager' : 'lazy',
 											'fetchpriority' => ( 0 === $count ) ? 'high' : 'auto',
 											'decoding' => 'async',

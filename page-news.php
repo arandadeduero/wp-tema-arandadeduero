@@ -59,7 +59,7 @@ aranda_de_duero_the_header_image( '' );
 													'large',
 													array(
 														'class' => 'img-fluid',
-														'alt' => get_the_title(),
+														'alt' => '',
 														'loading' => 'lazy',
 														'decoding' => 'async',
 													)

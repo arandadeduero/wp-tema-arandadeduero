@@ -20,7 +20,7 @@
 				<!-- Column 1: About Municipality -->
 				<div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
 					<div class="footer-about">
-						<h4 class="text-white mb-3">Ilustre Ayuntamiento de Aranda de Duero</h4>
+						<h2 class="h4 text-white mb-3">Ilustre Ayuntamiento de Aranda de Duero</h2>
 						<p class="text-white-50 mb-3">
 							Trabajando cada día por y para la ciudadanía de Aranda de Duero.
 							Gobierno municipal comprometido con la transparencia y la participación ciudadana.
@@ -33,7 +33,7 @@
 
 				<!-- Column 2: Quick Links -->
 				<div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
-					<h5 class="text-white mb-3">Servicios</h5>
+					<h3 class="h5 text-white mb-3">Servicios</h3>
 					<ul class="list-unstyled footer-links">
 						<li class="mb-2">
 							<a href="https://sede.arandadeduero.es/sta/CarpetaPublic/doEvent?APP_CODE=STA&PAGE_CODE=CATALOGO">
@@ -65,7 +65,7 @@
 
 				<!-- Column 3: Contact -->
 				<div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
-					<h5 class="text-white mb-3">Contacto</h5>
+					<h3 class="h5 text-white mb-3">Contacto</h3>
 					<ul class="list-unstyled text-white-50 footer-contact-item">
 						<li class="footer-contact-row">
 							<?php
@@ -124,7 +124,7 @@
 
 				<!-- Column 4: Social Media -->
 				<div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
-					<h5 class="text-white mb-3">Síguenos</h5>
+					<h3 class="h5 text-white mb-3">Síguenos</h3>
 					<p class="text-white-50 mb-3">Mantente conectado con nosotros en las redes sociales</p>
 					<div class="footer-social d-flex gap-2 mb-4">
 						<a href="https://www.facebook.com/aytoarandadeduero/"
@@ -201,6 +201,15 @@
 								Accesibilidad
 							</a>
 						</li>
+						<?php $aranda_whistleblower_url = aranda_de_duero_whistleblower_url(); ?>
+						<?php if ( '' !== $aranda_whistleblower_url ) : ?>
+							<li class="list-inline-item mx-2 text-white-50">•</li>
+							<li class="list-inline-item">
+								<a href="<?php echo esc_url( $aranda_whistleblower_url ); ?>">
+									Canal de información
+								</a>
+							</li>
+						<?php endif; ?>
 						<li class="list-inline-item mx-2 text-white-50">•</li>
 						<li class="list-inline-item">
 							<a href="<?php echo esc_url( aranda_de_duero_get_page_permalink_by_title( 'Web Map' ) ); ?>">

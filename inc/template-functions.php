@@ -107,3 +107,34 @@ function aranda_de_duero_hide_events_widgets( $instance, $widget ) {
 	return apply_filters( 'aranda_de_duero_show_events_widgets', false ) ? $instance : false;
 }
 add_filter( 'widget_display_callback', 'aranda_de_duero_hide_events_widgets', 10, 2 );
+
+/**
+ * Give menu links without a URL an href so keyboard users can reach them.
+ *
+ * A custom-link menu item with an empty URL (such as a section header that only opens
+ * a submenu) prints an <a> with no href, which browsers don't make focusable. Other
+ * header items already use "#", so this just makes the rest consistent.
+ *
+ * @param array<string, string> $atts Link attributes.
+ * @return array<string, string>
+ */
+function aranda_de_duero_menu_link_href( $atts ) {
+	if ( empty( $atts['href'] ) ) {
+		$atts['href'] = '#';
+	}
+
+	return $atts;
+}
+add_filter( 'nav_menu_link_attributes', 'aranda_de_duero_menu_link_href' );
+
+/**
+ * URL of the internal reporting channel (Ley 2/2023), or '' if none is configured.
+ *
+ * The link in the footer only appears once an editor sets the URL in the Customizer, so
+ * the site never points to a page that doesn't exist yet.
+ *
+ * @return string
+ */
+function aranda_de_duero_whistleblower_url() {
+	return esc_url_raw( (string) get_theme_mod( 'aranda_de_duero_whistleblower_url', '' ) );
+}

@@ -531,6 +531,24 @@ function aranda_de_duero_customizer_settings( $wp_customize ) {
 		)
 	);
 
+	// Internal reporting channel (Ley 2/2023): shows a footer link once filled in.
+	$wp_customize->add_setting(
+		'aranda_de_duero_whistleblower_url',
+		array(
+			'default'           => '',
+			'sanitize_callback' => 'esc_url_raw',
+		)
+	);
+	$wp_customize->add_control(
+		'aranda_de_duero_whistleblower_url',
+		array(
+			'type'        => 'url',
+			'label'       => 'Canal interno de información (URL)',
+			'description' => 'Ley 2/2023, de protección del informante. Si se rellena, aparece un enlace «Canal de información» en el pie de todas las páginas. Déjalo vacío hasta que el canal exista.',
+			'section'     => 'aranda_de_duero_options',
+		)
+	);
+
 	// CheckBox Banner Plenos
 	$wp_customize->add_setting(
 		'aranda_de_duero_show_banner',

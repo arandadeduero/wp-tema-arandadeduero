@@ -1,0 +1,157 @@
+# Mejoras inspiradas en otros ayuntamientos
+
+Lista de cosas que se pueden implementar en arandadeduero.es, sacada de comparar el portal con el de otros
+ayuntamientos y con la normativa. **Es una lista viva:** cada vez que se implemente algo, se actualiza su fila
+(estado, commit y PR) y se añade una línea al [registro](#registro-de-implementaciones).
+
+- **Fecha del estudio:** 2026-10-17
+- **Commit de partida (`main`):** `0aa94fa` (merge del PR #20)
+- **Cómo se hizo:** cinco análisis en paralelo (grandes ciudades, Miranda de Ebro y homólogos de Castilla y León,
+  portales renovados desde octubre de 2024, obligaciones legales, y servicios al vecino), cruzados con la
+  estructura real de arandadeduero.es.
+
+## Cómo fiarse de esta lista
+
+- Las páginas se leyeron a través de un resumidor, **no se vio el HTML**: los nombres exactos de menú y el orden
+  de los bloques son aproximados.
+- Varios ejemplos son «solo búsqueda» (se vieron en resultados de búsqueda, sin abrir la página).
+- **«No consta» no significa «no existe»**: lo que se dice que falta en Aranda se comprobó en la home y en la
+  estructura de menús, no dentro de la sede electrónica ni de los subdominios externos.
+- Las obligaciones legales son orientativas, no asesoramiento jurídico: confirmar con el secretario y con el
+  delegado de protección de datos. Algunos artículos no se pudieron cotejar con el texto literal (se indica).
+- **Dato retirado:** la «Ley 7/2025» de datos abiertos que se mencionó al encargar el estudio **no apareció en
+  ninguna fuente**; no darla por buena.
+
+## Correcciones tras comprobar la web (2026-10-17)
+
+Al auditar la web de Aranda se vio que **varias cosas que los estudios daban por ausentes ya existen**:
+
+- **Cita previa:** existe (`https://citaprevia.arandadeduero.es/`), pero solo como tarjeta dentro de «Especiales»
+  (se carga por JavaScript, así que no salía al leer el HTML de la home).
+- **La sede electrónica** (`sede.arandadeduero.es`) ya tiene carpeta ciudadana (datos personales, padrón,
+  expedientes, notificaciones, recibos, multas), pasarela de pagos, calendario fiscal, tablón de edictos, perfil del
+  contratante, quejas y sugerencias y validación de documentos.
+- **El portal de transparencia** (`transparencia.arandadeduero.es`) existe, con siete secciones, y está enlazado
+  desde la cabecera.
+- **Conclusión:** el problema de muchas filas de los bloques B y C **no es que falte el servicio, sino que no se
+  encuentra desde arandadeduero.es**. La solución suele ser visibilidad y enlaces directos, no construir nada.
+
+## Cómo usar este fichero
+
+1. Elegir una fila pendiente (☐).
+2. Implementarla en una rama, con su PR (el flujo habitual: commit, PR, comprobaciones de CI, merge).
+3. Actualizar la fila: `☐` → `✅`, y rellenar **Commit / PR** con el hash corto y el número de PR.
+4. Añadir una línea al [registro](#registro-de-implementaciones) con la fecha y una nota de cómo se verificó.
+5. Si algo se descarta, marcarlo `✖` y anotar el motivo. `◐` significa hecho solo en parte (lo del tema); el resto lo
+   tiene que hacer el ayuntamiento.
+
+Leyenda de esfuerzo: **B** bajo · **M** medio · **A** alto.
+Columna **Tema**: si se puede hacer desde el tema (✔) o depende de contenido, configuración o un contrato (✘).
+
+---
+
+## A. Cumplimiento (comprobar primero)
+
+Son obligaciones según el análisis normativo, **no carencias confirmadas**: hay que comprobar primero qué falta.
+
+| # | Mejora | Estado | Commit / PR | Esf. | Tema | De dónde se copia / fuente |
+|---|---|---|---|---|---|---|
+| A1 | **Canal interno de información (informante)** visible en la home. Aranda supera los 10.000 hab.; según el análisis el plazo ya venció. Debe haber responsable del sistema y procedimiento | ◐ tema hecho: campo en el Personalizador y enlace condicional en el pie. **Falta crear el canal** y pegar su URL | PR #21 · `0fcf29f` | B | ✔ el enlace; ✘ el canal | Ley 2/2023, arts. 13, 14 y DT 2.ª (art. a confirmar): [BOE-A-2023-4513](https://www.boe.es/buscar/act.php?id=BOE-A-2023-4513) · guía FAMP: [A4.pdf](https://famp.es/export/sites/famp/.galleries/documentos-general/A4.pdf) · ejemplo con «Canal de denuncias» en el pie: Burgos, https://www.aytoburgos.es/ · **Cómo lo publican otros (enlaces verificados el 2026-10-17, patrón de dos niveles: página informativa en el portal + plataforma del canal):** Burgos: [página](https://www.aytoburgos.es/canaldenuncias) → [canal seguro](https://canaldenuncias.aytoburgos.es) · Valladolid: [página](https://www.valladolid.es/es/ayuntamiento/atencion-ciudadana/canal-interno-informacion) → [canal en línea](https://canalinternoinformacion.valladolid.es/) · Segovia: [página](https://segovia.es/sistema-interno-de-informacion-del-ayuntamiento-de-segovia) → [plataforma externa](https://canal-etico.online/app/sessions/comunicar?=ayuntamientodesegovia) · Pamplona: [página](https://www.pamplona.es/canal-interno-de-denuncias) → [formulario propio](https://www.pamplona.es/denuncias/nueva) y [consulta de denuncias](https://www.pamplona.es/denuncias/buscar) |
+| A2 | **Banner de cookies:** «Rechazar» al mismo nivel que «Aceptar» y política de cookies completa. En una captura solo se vio «Aceptar» y un enlace «ajustes» (no se vio el banner abierto) | ☐ **Verificado:** el banner solo tiene «Aceptar» y «ajustes», el panel no tiene «Rechazar todo», y se pide `stats.wp.com` (Jetpack Stats) antes del consentimiento. Es configuración del plugin. Detalle en `docs/cumplimiento-bloque-a.md` | | B | ✘ (plugin de cookies) | Guía de cookies de la AEPD: [guia-cookies.pdf](https://www.aepd.es/sites/default/files/2020-07/guia-cookies.pdf) · [nota AEPD sobre la actualización](https://www.aepd.es/prensa-y-comunicacion/notas-de-prensa/aepd-actualiza-guia-cookies-para-adaptarla-a-nuevas-directrices-cepd) |
+| A3 | **Declaración de accesibilidad** fechada, con mecanismo de queja, y un test WCAG 2.1 AA de las páginas clave. La página `/politica-de-accesibilidad/` existe; no se revisó su contenido | ◐ tema hecho (home: `<main>`, `<h1>`, encabezados, contraste, menú). **Falta redactar la declaración**: el texto actual cita WCAG 2.0, una web de 2021 y no tiene fecha ni mecanismo de queja | PR #21 · `0fcf29f` | M | ✔ / ✘ | RD 1112/2018: [BOE-A-2018-12699](https://www.boe.es/buscar/act.php?id=BOE-A-2018-12699) · informe del Observatorio 2023: [PDF](https://administracionelectronica.gob.es/pae_Home/dam/jcr:7229a2ac-6a4a-4d90-96f3-918db692c216/2023_Informe_seguimiento_simplificado_sitios_web_EELL.pdf) |
+| A4 | **Registro de actividades de tratamiento** publicado y enlazado desde privacidad o transparencia | ☐ **Verificado:** la privacidad tiene responsable y DPD, pero no menciona el registro de actividades, la base jurídica, la conservación ni las cesiones | | B | ✘ | Ley 19/2013, art. 6 bis (a confirmar): [BOE-A-2013-12887](https://www.boe.es/buscar/act.php?id=BOE-A-2013-12887) |
+| A5 | **Transparencia dentro del propio sitio** (resumen con enlaces profundos al portal externo) y repaso de publicidad activa | ☐ El portal existe (7 secciones) y está enlazado desde la cabecera. Revisar su contenido (agenda, bienes, enlaces legales propios) | | B | ✔ el resumen | Ley 19/2013 arts. 5-8 (mismo BOE de arriba) · Ley 3/2015 de CyL: [BOE ELI](https://www.boe.es/eli/es-cl/l/2015/03/04/3/con) · LBRL art. 75 (retribuciones y declaraciones): [BOE-A-1985-5392](https://www.boe.es/buscar/act.php?id=BOE-A-1985-5392) · índice ITA: [transparencia.org.es](https://transparencia.org.es/en/?p=1324) · ejemplo: Miranda de Ebro, https://www.mirandadeebro.es/ |
+| A6 | **Sede electrónica, perfil del contratante y ENS:** comprobar contenido mínimo, tablón de edictos electrónico, política de seguridad y declaración de conformidad | ☐ **La sede ya incluye** tablón de edictos, quejas y sugerencias, perfil del contratante, validación de documentos y más. Falta comprobar la política de seguridad/ENS y la información de identificación | | M | ✘ | RD 203/2021: [BOE-A-2021-5032](https://www.boe.es/buscar/act.php?id=BOE-A-2021-5032) · LCSP art. 63: [BOE-A-2017-12902](https://www.boe.es/buscar/act.php?id=BOE-A-2017-12902) · ENS RD 311/2022: [BOE-A-2022-7191](https://www.boe.es/buscar/act.php?id=BOE-A-2022-7191) |
+| A7 | **Datos abiertos:** catálogo mínimo (agenda, plenos, presupuesto en CSV), idealmente federado en datos.gob.es. Alcance exacto para un ayuntamiento: no verificado | ☐ No hay portal de datos abiertos. Alcance legal para un ayuntamiento: no verificado | | M | ✔ la página | Ley 37/2007 y Directiva (UE) 2019/1024: [datos.gob.es](https://datos.gob.es/es/blog/las-claves-de-la-ley-sobre-reutilizacion-de-la-informacion-del-sector-publico-en-espana) · ejemplos: Zaragoza, https://www.zaragoza.es/sede/portal/gobierno-abierto/ · Segovia, https://www.segovia.es/ (`opendata.segovia.es`) |
+
+## B. Home y navegación (esfuerzo bajo, impacto alto)
+
+| # | Mejora | Estado | Commit / PR | Esf. | Tema | De dónde se copia / fuente |
+|---|---|---|---|---|---|---|
+| B1 | **Bloque «Accesos frecuentes»** en la home: cita previa, sede, pago de impuestos, padrón, empleo público, quejas, farmacias de guardia, transporte | ☐ **Matiz:** en «Especiales» ya hay tarjetas de cita previa, calendario fiscal, ordenanzas, Unidades DIR3 y el catastro; el patrón sería sacar las más usadas a la parte alta de la home | | B | ✔ | Aranjuez (rediseño 16-01-2026, ~18.000 €): https://www.aranjuez.es · [noticia](https://www.aranjuez.es/la-web-del-ayuntamiento-de-aranjuez-se-renueva-mas-clara-accesible-y-eficiente/) · Burgos, https://www.aytoburgos.es/ · Colmenar Viejo, https://www.colmenarviejo.com · «A un click» de Bilbao, https://www.bilbao.eus/ |
+| B2 | **Buscador visible «¿Qué necesitas?»** que devuelva también trámites (hoy el catálogo está en la sede externa) | ☐ | | B-M | ✔ | Benidorm: https://benidorm.org/es · [noticia](https://benidorm.org/es/noticias/el-ayuntamiento-de-benidorm-estrena-una-nueva-web-municipal-mas-rapida-accesible-y-facil-de-utilizar) · Burgos (buscador de trámites en la home) |
+| B3 | **Franja de avisos** (cortes de tráfico, agua, obras, bandos) con tipo de contenido propio y **caducidad automática** | ☐ | | B-M | ✔ | Segovia («Cortes de Agua» y «Cortes de Tráfico» en la home), https://www.segovia.es/ · Bilbao (avisos de tráfico), https://www.bilbao.eus/ · Benidorm |
+| B4 | **Cita previa** (y empleo público) como entrada del menú principal o botón destacado | ✅ **hecho en escritorio por el ayuntamiento** (2026-10-17, menú secundario, primer elemento, sin código). **No llega al móvil:** ver B8 | cambio de datos en WordPress, sin commit | B | ✔ el enlace; ✘ el sistema | Miranda de Ebro: https://www.mirandadeebro.es/ (sistema externo: https://esii-orion.com/orion-reservation/) · Soria: https://www.soria.es · [noticia de su rediseño, 16-10-2026](https://www.soria.es/noticia/el-ayuntamiento-de-soria-estrena-una-web-mas-accesible-intuitiva-y-adaptada-a-dispositivos-moviles-para-acercar-la-informacion-municipal-a-la-ciudadania/) |
+| B5 | **Horario, teléfono y dirección** del ayuntamiento a la vista en la home | ☐ | | B | ✔ | Valencia: https://www.valencia.es/ |
+| B6 | **Sustituir el slider de GIFs por tarjetas estáticas** con imagen y texto (más ligeras y accesibles). *Ya hecho aparte:* se difirió la carga de las imágenes del slider para bajar el LCP (PR #16, merge `36bf8b1`) | ☐ | | B | ✔ | Soria y Benidorm (arriba) |
+| B7 | **Canal de WhatsApp** (y Telegram) del ayuntamiento con enlace en la home; coste cero | ☐ | | B | ✔ el botón; ✘ el canal | Pamplona: https://www.pamplona.es/en/node/62797 · Getxo: https://www.getxo.eus/es/ · La Solana: [noticia](https://elfocodeciudadreal.com/el-ayuntamiento-presenta-una-web-mas-moderna-accesible-y-segura/) |
+| B8 | **Enlaces del menú secundario también en móvil** (Cita previa, Portal de transparencia, Perfil del contratante, Sede electrónica). A ≤ 767 px el plugin Mobile Menu oculta toda la cabecera del tema y su panel solo usa el menú principal (36 elementos), así que en el móvil esos cuatro enlaces no se alcanzan; el pie solo tiene «Sede electrónica». Opción de tema: repetir ese mismo menú de WordPress como una franja compacta bajo la barra móvil (una sola fuente de datos) | ☐ | | B | ✔ | Comprobado en producción a 390 px (CSS dinámico del plugin: `@media (max-width:767px)` → `.site-header, .main-navigation… { display: none !important }`) |
+
+## C. Servicios al vecino (esfuerzo medio)
+
+| # | Mejora | Estado | Commit / PR | Esf. | Tema | De dónde se copia / fuente |
+|---|---|---|---|---|---|---|
+| C1 | **Incidencias con mapa y foto** (baches, farolas). En Santa Eulària, 6.942 en 2025 con un 75 % resueltas. Mínimo viable: formulario con ubicación; mejor, un servicio externo | ☐ | | M | ✘ (contrato) / ✔ el formulario | Santa Eulària des Riu: [La Voz de Ibiza](https://lavozdeibiza.com/actualidad/las-quejas-de-los-vecinos-de-santa-eularia-en-numeros-asi-funciona-el-whatsapp-municipal/?swcfpc=1) · Nules: [esmartcity, 28-06-2024](https://www.esmartcity.es/2024/06/28/ayuntamiento-nules-incorpora-app-comunicar-incidencias-via-publica) · Getxo («Avisos, Quejas y Sugerencias»): https://www.getxo.eus/es/ |
+| C2 | **Página «Pagos y recibos»** que agrupe recibos, multas, autoliquidaciones y calendario del contribuyente, con enlace directo al pago | ☐ **Corrección:** recibos, multas, pasarela de pagos y calendario fiscal **ya existen en la sede**, y hay una tarjeta «Calendario fiscal 2026» en «Especiales». Falta visibilidad: una página que los junte con enlaces directos | | B | ✔ | Madrid: https://www.madrid.es/ · Valencia: https://www.valencia.es/ · Miranda de Ebro (panel de servicios) |
+| C3 | **Página propia de «Trámites»** en WordPress, separada de «Servicios», que enlace al catálogo de la sede | ☐ **Corrección:** el catálogo de trámites de la sede ya existe y se enlaza desde el menú («Trámites»). La mejora es una página propia que lo explique por situaciones, no el catálogo | | M | ✔ | Colmenar Viejo (menú: Ayuntamiento, Servicios, Trámites, Transparencia, Comunicación): https://www.colmenarviejo.com |
+| C4 | **Farmacias de guardia y servicios cotidianos** (OMIC, objetos perdidos, transporte, calidad del aire). Fuente de las farmacias: pedirla al colegio de farmacéuticos | ☐ | | B | ✔ | Aranjuez («Accesos frecuentes») · Colmenar Viejo (tarjetas de servicios cotidianos) |
+| C5 | **Plenos con índice por puntos del orden del día** (YouTube con capítulos y una página con los puntos y sus tiempos) | ☐ | | B | ✔ | Producto VideoActa (solo documentación): [PDF](https://almeria.es/Servicios/Fiestas/HistoricoFiestas.nsf/anexos/2017102685EF6/$file/Presentacion%20VideoActa%20AMBISER.pdf) · ningún ayuntamiento mediano verificado |
+| C6 | **Agenda con filtros y exportación/suscripción iCal** (My Calendar, ya instalado, lo permite) | ☐ | | B | ✔ / config. | No se verificó en ningún portal; mejora derivada de lo que ya hay |
+| C7 | **Mapa de equipamientos** (colegios, centros de salud, instalaciones deportivas) con Leaflet/OSM y un tipo de contenido geolocalizado | ☐ | | M | ✔ | Getxo («Mapa Callejero Municipal»), https://www.getxo.eus/es/ · Zaragoza (catálogo de mapas): https://www.zaragoza.es/sede/portal/gobierno-abierto/ |
+| C8 | **Residuos:** calendario de recogida, mapa de puntos limpios y guía «qué va dónde» propia (`dondelotiro.com` está cerrado) | ☐ | | M | ✔ | Zaragoza (puntos limpios como dato abierto): https://www.zaragoza.es/sede/servicio/catalogo/2480 |
+
+## D. Estructura de contenidos
+
+| # | Mejora | Estado | Commit / PR | Esf. | Tema | De dónde se copia / fuente |
+|---|---|---|---|---|---|---|
+| D1 | **Menú por colectivos («Para ti»):** familias, mayores, jóvenes, empresas, nuevos vecinos, como segunda vía de navegación | ☐ | | B-M | ✔ | Valladolid («Para ti»): https://www.valladolid.es/ · Vitoria-Gasteiz («Personas»): https://www.vitoria-gasteiz.org/ · Madrid (perfiles ciudadanos): https://www.madrid.es/ |
+| D2 | **«Mi ciudad» con tarjetas y filtro por categoría** en vez de un tema por concejalía | ☐ | | M | ✔ | Soria (sección «Ciudad»): https://www.soria.es |
+| D3 | **Páginas de barrio** («Mi barrio») con servicios, noticias y contacto por zona | ☐ | | M | ✔ | Bilbao: https://www.bilbao.eus/ · Madrid y Barcelona (distritos) · Murcia (pedanías) |
+| D4 | **Lectura fácil** para servicios sociales y trámites principales (valorarlo con una asociación local) | ☐ | | M | ✘ (contenido) | Madrid: [diario.madrid.es, 15-09-2025](https://diario.madrid.es/blog/2025/09/15/los-servicios-sociales-a-un-clic-mas-accesibles-para-todos/) |
+| D5 | **Inglés (y turismo):** selector de idioma o traducción básica; el valor real está en turismo | ☐ | | M | ✔ | Barcelona (3 idiomas), Bilbao (3), Burgos (ES/EN), Vitoria (4) |
+| D6 | **Medir qué parte de los accesos es móvil** y diseñar la home con ese dato | ☐ | | B | ✘ (analítica) | Benidorm lo usó para justificar su rediseño (casi 2 de cada 3 accesos son móviles) |
+| D7 | **Preguntas frecuentes** ordenadas, base de un futuro asistente (solo después de ordenar el contenido) | ☐ | | M | ✔ | Soria y Benidorm lo planean · Valladolid «Ana» (fase inicial, solo informa): [esmartcity, 22-07-2024](https://www.esmartcity.es/2024/07/22/web-ayuntamiento-valladolid-incorpora-asistente-virtual-inteligente) |
+
+## E. Errores propios ya detectados
+
+| # | Qué | Estado | Commit / PR | Notas |
+|---|---|---|---|---|
+| E1 | Listado de eventos de My Calendar en la barra lateral «Ayuntamiento» (debe verse solo en la home) | ✅ hecho, **pendiente de desplegar y verificar** | PR #20 · `b7bc67c` · merge `0aa94fa` | Tras desplegar, comprobar `/preguntas-mas-frecuentes/`, `/telefonos-de-interes/`, `/fondos-nextgenerationeu-prtr/` y `/agua-y-abastecimiento/` |
+| E2 | «Educación» del menú enlaza a `/concejalia/cultura/` | ☐ | | Se corrige en *Apariencia → Menús* (dato de WordPress, no del tema) |
+| E3 | «Deportes» enlaza a `http://www.arandactiva.com/` (sin HTTPS) | ☐ | | Idem; comprobar si la web destino admite HTTPS |
+| E4 | Los menús de la cabecera y de la barra lateral «Ayuntamiento» son distintos (etiquetas, orden y entradas) | ☐ | | Son dos menús de WordPress distintos (`menu-1` y `menu-ayuntamiento`). Opciones: igualarlos en el panel, o generar la barra lateral desde el menú principal |
+| E5 | La home no tenía `<main>`, el enlace «saltar al contenido» no tenía destino y el único `<h1>` era el día de la agenda | ✅ hecho, **pendiente de desplegar y verificar** | PR #21 · `0fcf29f` | Dentro del bloque A3 |
+| E6 | El azul de marca `#0083c1` no llega a 4,5:1 ni sobre blanco (4,19:1); 20 nodos con contraste insuficiente en la home | ✅ hecho, **pendiente de desplegar y verificar** | PR #21 · `0fcf29f` | Variable `--color-primary-accessible` (`#0073ad`) en `css/aranda-de-duero.css` |
+
+---
+
+## Qué no merece la pena ahora
+
+- **Plataforma Decidim propia / presupuestos participativos digitales:** coste alto de mantenimiento y dinamización. Bastan encuestas y un buzón de sugerencias.
+- **Chatbot con IA que haga trámites:** Valladolid, siendo grande, lo lanzó en fase inicial y sin trámites.
+- **Visores presupuestarios a medida:** el de Burriana ya no funciona.
+- **Carpeta ciudadana propia:** pertenece a la sede electrónica; solo enlazarla.
+- **App móvil propia:** mejor un servicio externo. Bandomovil publica tarifas solo hasta 10.000 habitantes; habría que pedir presupuesto para ~33.000.
+- **European Accessibility Act (Directiva 2019/882):** probablemente no aplica a la web del ayuntamiento, que se rige por el RD 1112/2018 (alcance exacto: no verificado).
+
+## Qué se consultó (y qué no cargó)
+
+| Estudio | Portales abiertos |
+|---|---|
+| Grandes ciudades | Zaragoza (https://www.zaragoza.es/sede/), Madrid, Barcelona, Valencia, Bilbao. No se visitó Sevilla |
+| Miranda de Ebro y Castilla y León | Miranda de Ebro (https://www.mirandadeebro.es/), Burgos, Valladolid, Segovia, Vitoria-Gasteiz. **No cargaron:** Palencia, Soria (`aytosoria.es`) y Ponferrada (error de certificado). No se probaron León, Ávila ni Logroño |
+| Rediseños desde oct-2024 | Soria (16-10-2026), Alcalá de Henares (18-09-2026, la home dio error de certificado), Muro (16-09-2026), Benidorm (27-07-2026), Aranjuez (16-01-2026), Colmenar Viejo (07-04-2025), Murcia (28-02-2025, fecha exacta sin comprobar), La Solana y Amurrio (solo la noticia). **Descartados por no ser recientes:** Orihuela, Rota, Vitoria-Gasteiz (2023), València, Alicante «ALI» (enero de 2024) y Valladolid «Ana» (julio de 2024) |
+| Servicios al vecino | Santa Eulària des Riu, Nules, Getxo, Las Rozas, Rivas, Pamplona, Palencia, Zaragoza, Málaga, Sagunto, Burriana |
+
+**Hallazgo principal:** ninguno de los rediseños recientes que se pudieron demostrar reorganiza la web por «eventos vitales» ni por carpeta ciudadana. Todos repiten lo mismo: diseño pensado para móvil, buscador visible, accesos frecuentes, avisos destacados y cita previa en el menú.
+
+## No verificado
+
+- Nombres exactos de menú y orden de bloques de Zaragoza, Madrid y Barcelona.
+- Cómo resuelven calendario de recogida, autobús en tiempo real, ORA, farmacias de guardia, calidad del aire, iCal y lengua de signos los ayuntamientos medianos.
+- La plataforma de casi todos los portales renovados; el proveedor de la app de Nules; la tecnología de «Zeugaz» (Getxo).
+- Si Aranda tiene ya cita previa, quejas, 010 o pago de tributos dentro de su sede externa.
+- Si Aranda entra en la muestra del índice ITA o del Observatorio de Accesibilidad, y con qué puntuación.
+- Las multas del canal de informante salen de fuentes secundarias y el régimen para administraciones públicas es distinto: **no usar esas cifras**.
+
+---
+
+## Registro de implementaciones
+
+Una línea por cada mejora implementada, la más reciente arriba.
+
+| Fecha | Mejora | Commit / PR | Cómo se verificó |
+|---|---|---|---|
+| 2026-10-17 | **Bloque A (tema):** A1 canal de información (campo en el Personalizador y enlace condicional), A3 accesibilidad de la home (E5, E6): `<main>`, `<h1>`, encabezados, contraste del azul y menú sin `href` | PR #21 · `0fcf29f` | Lighthouse sobre una copia de la home: accesibilidad 92 → 100, SEO 92 → 100, 6 auditorías fallidas → 1; estilos calculados idénticos salvo el azul; 53 tests; **falta repetir la auditoría en producción tras desplegar** |
+| 2026-10-17 | B4: «Cita previa» como primer elemento del menú secundario (cambio hecho por el ayuntamiento en *Apariencia → Menús*) | sin commit | Comprobado en producción: enlace a `citaprevia.arandadeduero.es` visible en escritorio; **oculto en móvil** (≤ 767 px), ver B8 |
+| 2026-10-17 | E1: ocultar el listado de eventos de las barras laterales | PR #20 · `b7bc67c` · merge `0aa94fa` | CI en verde y 49 tests; **falta verificar en producción tras el despliegue** |

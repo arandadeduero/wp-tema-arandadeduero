@@ -1,0 +1,24 @@
+tests/PerformanceTest.php
+  s_1b2194bed91d73::t_e6e44de44c1eb0 1-56
+functions.php
+  s_1b2194bed91d73::t_e6e44de44c1eb0 341-344
+  s_1b2194bed91d73::t_74e22f8f4620f1 340
+inc/performance.php
+  s_1b2194bed91d73::t_e6e44de44c1eb0 1-106
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "6fcf7822f2941ee6847fcbd1355f5b7949a9e847",
+  "prompts": {},
+  "sessions": {
+    "s_1b2194bed91d73": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "f868d310-8e5d-4fb7-86c8-3a94409426ab",
+        "model": "claude-sonnet-5-5"
+      },
+      "human_author": "Guillermo López <willyaranda@gmail.com>"
+    }
+  }
+}

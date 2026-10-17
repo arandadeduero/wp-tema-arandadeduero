@@ -6,32 +6,7 @@ parameters:
 			path: "404.php"
 
 		-
-			message: "#^Unreachable statement \\- code above always terminates\\.$#"
-			count: 1
-			path: archive.php
-
-		-
-			message: "#^While loop condition is always true\\.$#"
-			count: 1
-			path: archive.php
-
-		-
-			message: "#^Function get_post_thumbnail_id invoked with 2 parameters, 0\\-1 required\\.$#"
-			count: 1
-			path: functions.php
-
-		-
 			message: "#^Parameter \\#3 \\$args of class WP_Customize_Color_Control constructor expects array\\{instance_number\\?\\: int, manager\\?\\: WP_Customize_Manager, id\\?\\: string, settings\\?\\: array, setting\\?\\: string, capability\\?\\: string, priority\\?\\: int, section\\?\\: string, \\.\\.\\.\\}, array\\{label\\: 'Color de fondo'\\|'Color de fondo de…'\\|'Color de los…'\\|'Color de los enlaces'\\|'Color de texto de…'\\|'Color del texto', section\\: 'aranda_de_duero…', settings\\: 'aranda_de_duero…'\\} given\\.$#"
-			count: 1
-			path: functions.php
-
-		-
-			message: "#^Unreachable statement \\- code above always terminates\\.$#"
-			count: 1
-			path: functions.php
-
-		-
-			message: "#^While loop condition is always true\\.$#"
 			count: 1
 			path: functions.php
 
@@ -59,26 +34,6 @@ parameters:
 			message: "#^Comparison operation \"\\>\" between int\\<1, max\\> and 0 is always true\\.$#"
 			count: 2
 			path: page-home.php
-
-		-
-			message: "#^Unreachable statement \\- code above always terminates\\.$#"
-			count: 1
-			path: page-news.php
-
-		-
-			message: "#^While loop condition is always true\\.$#"
-			count: 1
-			path: page-news.php
-
-		-
-			message: "#^Unreachable statement \\- code above always terminates\\.$#"
-			count: 1
-			path: page-tramite.php
-
-		-
-			message: "#^While loop condition is always true\\.$#"
-			count: 1
-			path: page-tramite.php
 
 		-
 			message: "#^Unreachable statement \\- code above always terminates\\.$#"

@@ -338,6 +338,16 @@ require get_template_directory() . '/inc/customizer.php';
 require get_template_directory() . '/inc/social-meta.php';
 
 /**
+ * Upcoming events (My Calendar), cached.
+ */
+require get_template_directory() . '/inc/events.php';
+
+/**
+ * Colour contrast helpers and Customizer validation.
+ */
+require get_template_directory() . '/inc/color-contrast.php';
+
+/**
  * JSON-LD structured data.
  */
 require get_template_directory() . '/inc/structured-data.php';
@@ -416,8 +426,10 @@ function aranda_de_duero_customizer_settings( $wp_customize ) {
 		$wp_customize->add_setting(
 			$setting_id,
 			array(
-				'default'   => $setting_args['default'],
-				'transport' => 'refresh',
+				'default'           => $setting_args['default'],
+				'transport'         => 'refresh',
+				'sanitize_callback' => 'sanitize_hex_color',
+				'validate_callback' => 'aranda_de_duero_validate_color_contrast',
 			)
 		);
 		$wp_customize->add_control(
@@ -646,7 +658,19 @@ function aranda_de_duero_customize_js() {
 }
 add_action( 'wp_footer', 'aranda_de_duero_customize_js' );
 
-function aranda_de_duero_content( $type, $order = null, $order_way = null, $limit = null ) {
+/**
+ * Query a post type for the theme's listings.
+ *
+ * @param string      $type       Post type.
+ * @param string|null $order      Field to order by.
+ * @param string|null $order_way  ASC or DESC.
+ * @param int|string|null $limit   Posts per page.
+ * @param bool        $paginated  Pass false when the result isn't paginated, which skips
+ *                                the extra SELECT FOUND_ROWS()/COUNT query.
+ * @param array<string, mixed> $extra_args Extra WP_Query arguments, e.g. post_status.
+ * @return WP_Query
+ */
+function aranda_de_duero_content( $type, $order = null, $order_way = null, $limit = null, $paginated = true, $extra_args = array() ) {
 	$paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
 	$args  = array(
 		'post_type'      => $type,
@@ -654,8 +678,9 @@ function aranda_de_duero_content( $type, $order = null, $order_way = null, $limi
 		'orderby'        => $order,
 		'posts_per_page' => $limit,
 		'paged'          => $paged,
+		'no_found_rows'  => ! $paginated,
 	);
-	return new WP_Query( $args );
+	return new WP_Query( array_merge( $args, $extra_args ) );
 }
 
 /**
@@ -727,98 +752,6 @@ function aranda_de_duero_register_editor_stylesheet() {
 }
 add_action( 'admin_init', 'aranda_de_duero_register_editor_stylesheet' );
 
-
-/**
- * Get upcoming events from My Calendar plugin
- *
- * @param int $limit Maximum number of events to return (default: 50)
- * @return array Array of upcoming events sorted by date
- */
-function aranda_de_duero_get_upcoming_events( $limit = 50 ) {
-	global $wpdb;
-
-	// Query events from My Calendar
-	$query = aranda_de_duero_content(
-		'mc-events',
-		'',
-		'',
-		$limit
-	);
-
-	if ( ! $query->have_posts() ) {
-		return array();
-	}
-
-	$upcoming_events = array();
-	$current_year    = (int) current_time( 'Y' );
-	$next_year       = $current_year + 1;
-	$today           = strtotime( current_time( 'Y-m-d' ) );
-
-	// Loop through all events and filter/extract data
-	while ( $query->have_posts() ) {
-		$query->the_post();
-
-		// Get event metadata
-		$event_data = get_post_meta( get_the_ID(), '_mc_event_data', false );
-
-		// Skip if event data is empty
-		if ( empty( $event_data ) || empty( $event_data[0] ) ) {
-			continue;
-		}
-
-		$date_start = $event_data[0]['event_begin'];
-		$date_end   = $event_data[0]['event_end'];
-
-		$date_start_timestamp = strtotime( $date_start );
-		$date_end_timestamp   = strtotime( $date_end );
-
-		$event_year = (int) wp_date( 'Y', $date_start_timestamp );
-
-		// Filter: Only show active upcoming events from current/next year
-		if ( ( $event_year === $current_year || $event_year === $next_year ) &&
-			$today <= $date_end_timestamp
-		) {
-
-			// Get event occurrence ID for proper linking
-			$event_id = get_post_meta( get_the_ID(), '_mc_event_id', false );
-			$occur_id = '';
-
-			if ( ! empty( $event_id ) ) {
-				// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching -- My Calendar doesn't expose an API for this lookup; results are only used once per request within the loop above, so there's nothing worth caching.
-				$result   = $wpdb->get_col(
-					$wpdb->prepare(
-						"SELECT occur_id FROM {$wpdb->prefix}my_calendar_events WHERE occur_event_id = %d",
-						$event_id[0]
-					)
-				);
-				$occur_id = ! empty( $result ) ? $result[0] : '';
-			}
-
-			// Build event array
-			$event = array(
-				'id'         => get_the_ID(),
-				'date_start' => $date_start,
-				'date_end'   => $date_end,
-				'title'      => get_the_title(),
-				'thumbnail'  => wp_get_attachment_url( get_post_thumbnail_id( get_the_ID(), 'thumbnail' ) ),
-				'link'       => $occur_id ? get_permalink( get_the_ID() ) . '?mc_id=' . $occur_id : get_permalink( get_the_ID() ),
-			);
-
-			$upcoming_events[] = $event;
-		}//end if
-	}//end while
-
-	// Reset post data
-	wp_reset_postdata();
-
-	// Sort events by start date (earliest first)
-	if ( ! empty( $upcoming_events ) ) {
-		$dates = array_column( $upcoming_events, 'date_start' );
-		array_multisort( $dates, SORT_ASC, $upcoming_events );
-	}
-
-	return $upcoming_events;
-}
 
 /**
  * Check if a post is older than 2 years

@@ -52,7 +52,8 @@ $query = aranda_de_duero_content(
 	'post',
 	'publish_date',
 	'DESC',
-	'9'
+	'9',
+	false
 );
 
 ?>

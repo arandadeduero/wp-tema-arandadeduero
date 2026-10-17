@@ -169,6 +169,20 @@ header#masthead {
     gap: var(--spacing-2xl);
 }
 
+/*
+ * En pantallas grandes el logo y los menús van dentro del mismo ancho que el contenido (1320 px, el .container de
+ * Bootstrap a partir de 1400 px) en vez de pegados a los bordes de la ventana. El fondo sigue a todo el ancho.
+ * Solo por encima de 1344 px: la cabecera necesita unos 1290 px para el logo y los seis elementos del menú, así que
+ * por debajo se mantiene a todo el ancho, como hasta ahora, y no se parte.
+ */
+@media (width >= 1344px) {
+    header#masthead {
+        max-width: 1320px;
+        margin-inline: auto;
+        padding-inline: var(--spacing-md); /* los 12 px de gutter del .container */
+    }
+}
+
 /* Secondary Menu */
 #secondary-menu {
     display: flex;

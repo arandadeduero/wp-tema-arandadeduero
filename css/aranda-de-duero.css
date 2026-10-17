@@ -307,6 +307,33 @@ header#masthead {
     outline-offset: 2px;
 }
 
+/* En móvil la barra se compacta para que los tres botones quepan en una sola línea (desde unos 350 px; por debajo pasan a dos). */
+@media (width <= 767px) {
+    .top-bar {
+        font-size: 0.8125rem;
+    }
+
+    .top-bar-inner {
+        gap: var(--spacing-xs);
+        padding-block: var(--spacing-xs);
+    }
+
+    .top-bar-info {
+        gap: var(--spacing-xs) var(--spacing-md);
+    }
+
+    .top-bar-buttons {
+        gap: 0.2rem;
+        width: 100%;
+    }
+
+    .top-bar .top-bar-button {
+        padding-inline: 0.4rem;
+        font-size: 0.75rem;
+        white-space: nowrap;
+    }
+}
+
 @media (width <= 768px) {
     .menu-toggle {
         border-radius: var(--border-radius-lg);
@@ -384,7 +411,7 @@ header .custom-logo-link {
 }
 
 /*
- * Tabletas y portátiles pequeños (768-1199 px; por debajo el plugin Mobile Menu sustituye la cabecera): el logo y el
+ * Tabletas y portátiles pequeños (768-1199 px; por debajo manda el menú móvil propio): el logo y el
  * menú no caben en la misma línea. El logo queda arriba, centrado, y el menú debajo a todo el ancho. Si una fila no
  * basta, los elementos pasan a la siguiente fila enteros, sin partir ninguna etiqueta.
  */
@@ -444,27 +471,12 @@ header .custom-logo-link {
 }
 
 /*
- * Menú móvil propio (≤ 767 px), en lugar del del plugin Mobile Menu. El plugin oculta .site-header, .site-branding y
- * .main-navigation con `display: none !important` y pinta su propia barra y panel; aquí se recuperan con selectores
- * más específicos (también con !important) y se oculta lo suyo. Si se desactiva el plugin, este bloque sigue valiendo.
- * Logo y botón en una fila; el menú es un panel apilado debajo, con submenús en acordeón (js/navigation.js).
+ * Menú móvil propio (≤ 767 px): logo y botón en una fila; el menú es un panel apilado debajo, con submenús en acordeón
+ * (js/navigation.js). Los selectores llevan `body` para ganar a las reglas de escritorio sin recurrir a !important.
  */
 @media (width <= 767px) {
-    body .mob-menu-header-holder,
-    body .mobmenu,
-    body .mobmenu-panel,
-    body .mobmenu-overlay,
-    body .mob_menu {
-        display: none !important;
-    }
-
-    /* El plugin reserva 50 px arriba para su barra fija. */
-    html body[class*='mob-menu'] {
-        padding-top: 0;
-    }
-
     body header#masthead.site-header {
-        display: flex !important;
+        display: flex;
         flex-wrap: wrap;
         align-items: center;
         gap: 0;
@@ -472,7 +484,7 @@ header .custom-logo-link {
     }
 
     body .site-branding {
-        display: block !important;
+        display: block;
         flex: 1 1 auto;
         max-width: 200px;
     }
@@ -480,7 +492,7 @@ header .custom-logo-link {
     /* El contenedor y la navegación no pintan caja: el botón y la lista son hijos directos del flex de la cabecera. */
     body .header-nav,
     body .main-navigation {
-        display: contents !important;
+        display: contents;
     }
 
     body .menu-toggle {
@@ -2230,30 +2242,6 @@ textarea:focus {
 
 .old-post-disclaimer .old-post-disclaimer-icon {
     color: #856404;
-}
-
-/*
- * Mobile Menu plugin: its generated CSS (uploads/dynamic-mobmenu.css) sets `font-family: Roboto`
- * and loads after this file, so the selectors are prefixed with `body` to win on specificity.
- * Keeps the mobile menu in the theme typeface and lets us drop the Google Fonts request.
- */
-body .mob-menu-logo-holder > .headertext span,
-body .mobmenu input.mob-menu-search-field,
-body .left-menu-icon-text,
-body .right-menu-icon-text,
-body #mobmenuleft .mob-expand-submenu,
-body #mobmenuleft > .widgettitle,
-body #mobmenuleft li a,
-body #mobmenuleft li a:visited,
-body #mobmenuleft .mobmenu-content h2,
-body #mobmenuleft .mobmenu-content h3,
-body #mobmenuright li a,
-body #mobmenuright li a:visited,
-body #mobmenuright .mobmenu-content h2,
-body #mobmenuright .mobmenu-content h3,
-body .mobmenu-left-panel .mobmenu-display-name,
-body .mobmenu-content .mobmenu-tabs-header li {
-    font-family: var(--font-family-base);
 }
 
 /* Página «Expediente plaza de toros» */

@@ -98,21 +98,6 @@
 
 				<!-- Navigation -->
 				<div class="header-nav">
-					<?php if ( has_nav_menu( 'top' ) ) : ?>
-						<nav class="menu-top" aria-label="<?php esc_attr_e( 'Secondary Menu', 'aranda-de-duero' ); ?>">
-							<?php
-							wp_nav_menu(
-								array(
-									'theme_location' => 'top',
-									'menu_id'        => 'secondary-menu',
-									'container'      => false,
-									'fallback_cb'    => false,
-								)
-							);
-							?>
-						</nav>
-					<?php endif; ?>
-
 					<nav id="site-navigation" class="main-navigation" aria-label="<?php esc_attr_e( 'Primary Menu', 'aranda-de-duero' ); ?>">
 						<button class="menu-toggle"
 							aria-controls="primary-menu"

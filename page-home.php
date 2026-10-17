@@ -16,7 +16,8 @@ get_header();
 			<div class="home-video-wrapper mb-4">
 				<div class="home-video ">
 					<?php
-					echo do_shortcode( '[smartslider3 slider="2"]' );
+					// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- shortcode output from Smart Slider, post-processed by a string filter that only rewrites <img> attributes.
+					echo aranda_de_duero_defer_slider_images( do_shortcode( '[smartslider3 slider="2"]' ) );
 					?>
 				</div>
 			</div>

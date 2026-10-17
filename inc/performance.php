@@ -104,3 +104,57 @@ function aranda_de_duero_drop_font_awesome_hint( $urls, $relation_type ) {
 	);
 }
 add_filter( 'wp_resource_hints', 'aranda_de_duero_drop_font_awesome_hint', 10, 2 );
+
+/**
+ * Transparent 1x1 GIF used as a stand-in until a deferred slide image loads.
+ */
+const ARANDA_DE_DUERO_PLACEHOLDER_GIF = 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==';
+
+/**
+ * Defer the download of every home-slider image except the first.
+ *
+ * Smart Slider prints one <img> per slide and fetches all of them up front,
+ * though only the first is visible. On the home page that is six full-size
+ * animated GIFs (~3.5 MB) fighting the first one, which is the LCP element.
+ *
+ * The first image is made eager (the plugin prints it as lazy); the rest are
+ * swapped for a 1x1 placeholder and restored once the page has loaded (or after
+ * 5 s). It deliberately does NOT use fetchpriority="high": measured on a 4G
+ * profile it delayed the first paint by ~650 ms because the 254 KB image then
+ * competed with the render-blocking stylesheets. If the
+ * plugin's markup doesn't match the expected pattern, the HTML is returned
+ * untouched, so a plugin update can't break the slider through this filter.
+ *
+ * @param string $html Output of the [smartslider3] shortcode.
+ * @return string
+ */
+function aranda_de_duero_defer_slider_images( $html ) {
+	// A <picture> that holds only an <img> (no <source> to rewrite) inside a slide background.
+	$pattern = '#(<div class="n2-ss-slide-background-image"[^>]*>\s*<picture[^>]*>\s*)<img\s([^>]*?)src="([^"]+)"([^>]*)>#';
+	$index   = 0;
+
+	$result = preg_replace_callback(
+		$pattern,
+		function ( $match ) use ( &$index ) {
+			$before = $match[1];
+			$attrs  = $match[2] . $match[4];
+
+			if ( 0 === $index++ ) {
+				$attrs = preg_replace( '#\sloading="[^"]*"#', '', ' ' . $attrs );
+				return $before . '<img loading="eager" ' . trim( $attrs ) . ' src="' . $match[3] . '">';
+			}
+
+			return $before . '<img ' . $match[2] . 'src="' . ARANDA_DE_DUERO_PLACEHOLDER_GIF . '" data-aranda-src="' . $match[3] . '"' . $match[4] . '>';
+		},
+		$html
+	);
+
+	// Nothing matched, or only one slide: keep the original markup exactly as it was.
+	if ( null === $result || $index < 2 ) {
+		return $html;
+	}
+
+	$script = '<script>(function(){var d=!1;function r(){if(d)return;d=!0;document.querySelectorAll("img[data-aranda-src]").forEach(function(i){i.src=i.getAttribute("data-aranda-src");i.removeAttribute("data-aranda-src")})}if("complete"===document.readyState){r()}else{window.addEventListener("load",r);setTimeout(r,5000)}})();</script>';
+
+	return $result . $script;
+}

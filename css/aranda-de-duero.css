@@ -383,6 +383,50 @@ header .custom-logo-link {
     }
 }
 
+/*
+ * Tabletas y portátiles pequeños (768-1199 px; por debajo el plugin Mobile Menu sustituye la cabecera): el logo y el
+ * menú no caben en la misma línea. El logo queda arriba, centrado, y el menú debajo a todo el ancho. Si una fila no
+ * basta, los elementos pasan a la siguiente fila enteros, sin partir ninguna etiqueta.
+ */
+@media (width >= 768px) and (width < 1200px) {
+    header#masthead {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: var(--spacing-sm) var(--spacing-xl);
+        padding-inline: var(--spacing-xl);
+    }
+
+    .site-branding {
+        max-width: 260px;
+    }
+
+    .header-nav {
+        flex: 1 1 100%;
+    }
+
+    .main-navigation ul#primary-menu {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    #primary-menu > li {
+        padding: var(--spacing-sm) var(--spacing-md);
+        font-size: 1.0625rem;
+    }
+
+    #primary-menu > li > a {
+        white-space: nowrap;
+    }
+}
+
+/* Por debajo de 900 px el menú se compacta un poco más para que, con la lupa, siga en una sola fila. */
+@media (width >= 768px) and (width < 900px) {
+    #primary-menu > li {
+        padding-inline: var(--spacing-sm);
+        font-size: 1rem;
+    }
+}
+
 #primary-menu > li:not(.sub-menu):hover {
     text-underline-offset: 100%;
     text-decoration: underline;

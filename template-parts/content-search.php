@@ -14,7 +14,7 @@ defined( 'ABSPATH' ) || exit;
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
 		<?php
-		the_title( sprintf( '<h4 class="entry-title text-blue"><a style="color:#1A7ED6 !important;" href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h4>' );
+		the_title( sprintf( '<h4 class="entry-title text-blue"><a class="search-result-title-link" href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h4>' );
 		?>
 
 		<?php if ( 'post' === get_post_type() ) : ?>

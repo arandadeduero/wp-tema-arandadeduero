@@ -47,7 +47,7 @@ if ( ! function_exists( 'aranda_de_duero_register_block_patterns' ) ) :
 				'content'     => '<!-- wp:html -->
 <div class="alert alert-info mb-4" role="alert">
     <div class="d-flex">
-        <div class="mr-3" style="color: #0c5460;">' . $icon . '</div>
+        <div class="mr-3 alert-info-icon">' . $icon . '</div>
         <div>
             <h5 class="alert-heading">' . esc_html__( 'Título del aviso', 'aranda-de-duero' ) . '</h5>
             <p class="mb-0">' . esc_html__( 'Texto explicativo del aviso. Sustituye este párrafo por el contenido real.', 'aranda-de-duero' ) . '</p>

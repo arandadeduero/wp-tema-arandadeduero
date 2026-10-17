@@ -35,7 +35,7 @@ aranda_de_duero_the_header_image( '' );
 			<div class="col-lg-9 pt-4">
 				<main id="primary" class="site-main">
 					<?php if ( $query->have_posts() ) : ?> 
-						<div style="overflow-x:auto;">
+						<div class="tramites-table-scroll">
 								<table id="tableTramites" class="table table-responsive-md table-striped">
 									<thead>
 										<tr>

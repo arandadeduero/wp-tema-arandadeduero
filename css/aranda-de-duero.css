@@ -71,6 +71,49 @@
     font-family: var(--font-family-base);
 }
 
+/*
+ * Colores del Personalizador. Los valores llegan como variables `--aranda-*` en :root
+ * (aranda_de_duero_customize_css() en functions.php e inc/custom-header.php): son lo único que se imprime en
+ * la página; las reglas viven aquí. Llevan !important como el \3c style> que sustituyen.
+ */
+body {
+    color: var(--aranda-text-color, #000) !important;
+    background-color: var(--aranda-background-color, #fff) !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a,
+h6 a {
+    color: var(--aranda-header-text-color, #000) !important;
+}
+
+.post a:not(h1 a, h2 a, h3 a, h4 a, h5 a, h6 a, .wp-element-button, .wp-block-button__link, .btn) {
+    color: var(--aranda-link-color, #000) !important;
+}
+
+/* Título y descripción del sitio ocultos desde «Imagen de cabecera» (clase del filtro body_class). */
+.header-text-hidden .site-title,
+.header-text-hidden .site-description {
+    position: absolute;
+    /* stylelint-disable-next-line property-no-deprecated -- mismo recorte que imprimía el \3c style> de WordPress */
+    clip: rect(1px, 1px, 1px, 1px);
+}
+
+/* Color propio del título y la descripción del sitio. */
+.has-custom-header-text-color .site-title a,
+.has-custom-header-text-color .site-description {
+    color: var(--aranda-site-title-color);
+}
+
 .search-icon::before {
     content: '';
 }
@@ -736,6 +779,10 @@ body .mc-main {
     color: #000;
 }
 
+.tramites-table-scroll {
+    overflow-x: auto;
+}
+
 /** FIN Trámites **/
 
 /* Villa de Aranda  */
@@ -1010,6 +1057,11 @@ footer.search-entry-footer {
     color: var(--color-primary-accessible) !important;
 }
 
+/* El título lleva .text-blue en el <h4>, pero el enlace llevaba su propio azul. */
+.entry-title .search-result-title-link {
+    color: #1a7ed6 !important;
+}
+
 /** FIN Página de buscador */
 
 /** Página multimedia */
@@ -1149,6 +1201,36 @@ footer.search-entry-footer {
 .banner-streaming-text {
     color: #b50101;
     text-decoration: underline;
+}
+
+/* Color de texto de las secciones principales del home (Personalizador). `body` + clase para no perder frente a otros !important. */
+body .main-section-text-link {
+    color: var(--aranda-main-section-text-color, #000) !important;
+}
+
+/* Las clases de .border de Bootstrap llevan !important, así que este color solo se ve si ese !important desaparece. */
+.nota-de-prensa-card,
+.bando-card,
+.subvencion-card {
+    border-color: var(--aranda-main-section-text-color, #000);
+}
+
+/* Banner de las Fiestas Patronales */
+a.fiestas-banner-link,
+a.fiestas-banner-link:hover {
+    background-color: #b50101;
+    border-radius: 4px;
+    text-decoration: none;
+}
+
+/* Cartel de evento sin imagen */
+.event-poster-placeholder {
+    min-height: 200px;
+}
+
+/* Icono de los avisos informativos (Bandos, Notas de prensa, Subvenciones y el patrón «Aviso informativo») */
+.alert-info-icon {
+    color: #0c5460;
 }
 
 .home-main-news-button .btn-primary {
@@ -1864,6 +1946,10 @@ textarea:focus {
     margin-right: 0.75rem;
 }
 
+.old-post-disclaimer .old-post-disclaimer-icon {
+    color: #856404;
+}
+
 /*
  * Mobile Menu plugin: its generated CSS (uploads/dynamic-mobmenu.css) sets `font-family: Roboto`
  * and loads after this file, so the selectors are prefixed with `body` to win on specificity.
@@ -1931,4 +2017,24 @@ body .mobmenu-content .mobmenu-tabs-header li {
         background: var(--color-primary-accessible);
         color: var(--color-white);
     }
+}
+
+/* Página «Expediente plaza de toros» */
+.expediente-intro-text {
+    line-height: 1.7;
+}
+
+.card .expediente-card-img {
+    height: 220px;
+    object-fit: cover;
+}
+
+.card .expediente-card-img-pending {
+    opacity: 0.4;
+    filter: grayscale(1);
+}
+
+/* `border-dashed` no existe en Bootstrap; `.card` lleva su `border-style` en la misma especificidad y carga después. */
+.card.border-dashed {
+    border-style: dashed;
 }

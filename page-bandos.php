@@ -23,7 +23,7 @@ aranda_de_duero_the_header_image( '' );
 				<!-- Explicación sobre Bandos -->
 				<div class="alert alert-info mb-4" role="alert">
 					<div class="d-flex">
-						<div class="mr-3" style="color: #0c5460;">
+						<div class="mr-3 alert-info-icon">
 							<?php
 							// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- aranda_de_duero_icon() returns SVG markup already sanitized by the WP 7.1 SVG Icon API (see inc/icons.php).
 							echo aranda_de_duero_icon( 'aranda-de-duero/circle-question', array( 'size' => 32 ) );
@@ -65,7 +65,7 @@ aranda_de_duero_the_header_image( '' );
 							$query->the_post();
 							?>
 							<div class="col-lg-3 col-md-6 col-sm-12 mb-4">
-								<div class="bando-card p-3 rounded h-100 border" style="border-color: <?php echo esc_attr( get_theme_mod( 'aranda_de_duero_main_section_text_color', '#007bff' ) ); ?>;">
+								<div class="bando-card p-3 rounded h-100 border">
 									<div class="bando-card-content d-flex flex-column justify-content-between h-100">
 										<div class="bando-card-image mb-3">
 											<?php if ( has_post_thumbnail() ) : ?>
@@ -86,7 +86,7 @@ aranda_de_duero_the_header_image( '' );
 										</div>
 
 										<div class="bando-card-description">
-											<a href="<?php the_permalink( get_the_ID() ); ?>" style="color:<?php echo esc_attr( get_theme_mod( 'aranda_de_duero_main_section_text_color' ) ); ?>!important;">
+											<a href="<?php the_permalink( get_the_ID() ); ?>" class="main-section-text-link">
 												<h3 class="h6 mb-2 font-weight-bold"><?php the_title(); ?></h3>
 											</a>
 											<small class="text-muted d-block mb-2"><?php echo get_the_date(); ?></small>

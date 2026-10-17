@@ -51,28 +51,35 @@ if ( ! function_exists( 'aranda_de_duero_header_style' ) ) :
 			return;
 		}
 
-		// If we get this far, we have custom styles. Let's do this.
+		// Hidden text: nothing to print, the `header-text-hidden` body class does it (css/aranda-de-duero.css).
+		if ( ! display_header_text() ) {
+			return;
+		}
+
+		// Custom colour: only the value is printed; the rule that uses it is in css/aranda-de-duero.css.
 		?>
 		<style>
-		<?php
-		// Has the text been hidden?
-		if ( ! display_header_text() ) :
-			?>
-			.site-title,
-			.site-description {
-				position: absolute;
-				clip: rect(1px, 1px, 1px, 1px);
-				}
-			<?php
-			// If the user has set a custom color for the text use that.
-		else :
-			?>
-			.site-title a,
-			.site-description {
-				color: #<?php echo esc_attr( $header_text_color ); ?>;
+			:root {
+				--aranda-site-title-color: #<?php echo esc_attr( $header_text_color ); ?>;
 			}
-		<?php endif; ?>
 		</style>
 		<?php
 	}
 endif;
+
+/**
+ * Tells the stylesheet whether the site title/description are hidden or have a custom colour.
+ *
+ * @param string[] $classes Body classes.
+ * @return string[]
+ */
+function aranda_de_duero_header_text_body_classes( $classes ) {
+	if ( get_theme_support( 'custom-header', 'default-text-color' ) === get_header_textcolor() ) {
+		return $classes;
+	}
+
+	$classes[] = display_header_text() ? 'has-custom-header-text-color' : 'header-text-hidden';
+
+	return $classes;
+}
+add_filter( 'body_class', 'aranda_de_duero_header_text_body_classes' );

@@ -305,6 +305,11 @@ add_action( 'wp_enqueue_scripts', 'aranda_de_duero_bootstrap_js' );
 
 
 /**
+ * Customizer colours exposed as CSS custom properties.
+ */
+require get_template_directory() . '/inc/customizer-css.php';
+
+/**
  * Implement the Custom Header feature.
  */
 require get_template_directory() . '/inc/custom-header.php';
@@ -594,33 +599,15 @@ function aranda_de_duero_customizer_settings( $wp_customize ) {
 add_action( 'customize_register', 'aranda_de_duero_customizer_settings' );
 
 /**
- * Replies on frontend customizer options
+ * Prints the customizer colours as CSS custom properties on :root.
  */
 function aranda_de_duero_customize_css() {
 	?>
 	<style>
-		body {
-			color: <?php echo esc_attr( get_theme_mod( 'aranda_de_duero_text_color', '#000000' ) ); ?> !important;
-			background-color: <?php echo esc_attr( get_theme_mod( 'aranda_de_duero_background_color', '#ffffff' ) ); ?> !important;
-		}
-
-		h1,
-		h2,
-		h3,
-		h4,
-		h5,
-		h6,
-		h1 a,
-		h2 a,
-		h3 a,
-		h4 a,
-		h5 a,
-		h6 a {
-			color: <?php echo esc_attr( get_theme_mod( 'aranda_de_duero_header_text_color', '#000000' ) ); ?> !important;
-		}
-
-		.post a:not(h1 a, h2 a, h3 a, h4 a, h5 a, h6 a, .wp-element-button, .wp-block-button__link, .btn) {
-			color: <?php echo esc_attr( get_theme_mod( 'aranda_de_duero_link_color', '#000000' ) ); ?> !important;
+		:root {
+		<?php foreach ( aranda_de_duero_customizer_css_variables() as $property => $value ) : ?>
+			<?php echo esc_attr( $property ); ?>: <?php echo esc_attr( $value ); ?>;
+		<?php endforeach; ?>
 		}
 	</style>
 	<?php
@@ -804,7 +791,7 @@ if ( ! function_exists( 'aranda_de_duero_old_post_disclaimer' ) ) {
 		if ( aranda_de_duero_is_post_old() ) {
 			?>
 			<div class="old-post-disclaimer alert alert-warning d-flex align-items-center mt-3 mb-3" role="alert">
-				<span class="mr-3" style="color: #856404;">
+				<span class="mr-3 old-post-disclaimer-icon">
 					<?php
 					// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- aranda_de_duero_icon() returns SVG markup already sanitized by the WP 7.1 SVG Icon API (see inc/icons.php).
 					echo aranda_de_duero_icon( 'aranda-de-duero/triangle-exclamation', array( 'size' => 21 ) );

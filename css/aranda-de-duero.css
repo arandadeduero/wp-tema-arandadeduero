@@ -2317,7 +2317,7 @@ textarea:focus {
 
 @media (width >= 768px) {
     .single-mc-events .single-event .details.has-image {
-        grid-template-columns: minmax(240px, 400px) minmax(0, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr)); /* cartel y datos al 50 % */
     }
 
     .single-mc-events .single-event .details.has-image > * {
@@ -2403,20 +2403,60 @@ textarea:focus {
     content: '🗓️ ' / '';
 }
 
-/* Solo lo ven los editores: el aviso de «Editar» de My Calendar, discreto en vez de la franja verde. */
+/*
+ * Solo lo ven los editores: el botón «Editar» de My Calendar abre un menú «Editar / Borrar». El plugin lo coloca con
+ * `bottom: 0` y un `left` en línea (por eso el !important) y lo montaba encima de «Ver calendario completo»; aquí
+ * se abre justo debajo del botón.
+ */
 .single-mc-events .single-event .mc_edit_links {
-    margin: 0;
-    padding: 0;
-    background: none;
-    font-size: 0.875rem;
-}
-
-.single-mc-events .single-event .mc_edit_links ul {
+    position: relative;
+    width: fit-content;
     margin: 0;
     padding: 0;
     border: 0;
     background: none;
+    font-size: 0.875rem;
+}
+
+.single-mc-events .single-event .mc_edit_links .mc-toggle-button {
+    padding: 0.25rem 0.75rem;
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    background: var(--color-white);
+    color: var(--color-text);
+}
+
+.single-mc-events .single-event .mc_edit_links .mc-toggle-button[aria-expanded='true'] {
+    border-color: var(--color-primary-accessible);
+    background: var(--color-primary-accessible);
+    color: var(--color-white);
+}
+
+.single-mc-events .single-event .mc_edit_links ul {
+    top: 100%;
+    bottom: auto;
+    left: 0 !important;
+    right: auto;
+    z-index: 20;
+    min-width: 8rem;
+    margin: 0.25rem 0 0;
+    padding: 0.25rem 0;
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-lg);
+    background: var(--color-white);
+    box-shadow: 0 4px 12px rgb(0 0 0 / 15%);
     list-style: none;
+}
+
+.single-mc-events .single-event .mc_edit_links ul a {
+    display: block;
+    padding: 0.375rem 0.875rem;
+    text-decoration: none;
+}
+
+.single-mc-events .single-event .mc_edit_links ul a:hover,
+.single-mc-events .single-event .mc_edit_links ul a:focus-visible {
+    background: var(--color-primary-light);
 }
 
 .single-mc-events .single-event .view-full {

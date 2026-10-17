@@ -138,3 +138,43 @@ add_filter( 'nav_menu_link_attributes', 'aranda_de_duero_menu_link_href' );
 function aranda_de_duero_whistleblower_url() {
 	return esc_url_raw( (string) get_theme_mod( 'aranda_de_duero_whistleblower_url', '' ) );
 }
+
+/**
+ * Top-level links of the secondary ("top") menu, as plain data.
+ *
+ * On phones (<= 767 px) the Mobile Menu plugin hides the theme header and shows its own bar, whose panel only
+ * lists the primary menu, so these links (cita previa, transparencia, perfil del contratante, sede) were not
+ * reachable. header.php prints them again from here, so editors keep managing them in Appearance > Menus.
+ *
+ * Only links with a real URL are kept: the menu also gets a search form injected by the Ivory Search plugin,
+ * which would duplicate field ids if printed twice.
+ *
+ * @return array<int, array{title: string, url: string, new_tab: bool}>
+ */
+function aranda_de_duero_quick_links() {
+	$locations = get_nav_menu_locations();
+	if ( empty( $locations['top'] ) ) {
+		return array();
+	}
+
+	$items = wp_get_nav_menu_items( $locations['top'] );
+	if ( ! is_array( $items ) ) {
+		return array();
+	}
+
+	$links = array();
+	foreach ( $items as $item ) {
+		$url = trim( (string) $item->url );
+		if ( 0 !== (int) $item->menu_item_parent || '' === $url || '#' === $url ) {
+			continue;
+		}
+
+		$links[] = array(
+			'title'   => wp_strip_all_tags( (string) $item->title ),
+			'url'     => $url,
+			'new_tab' => '_blank' === $item->target,
+		);
+	}
+
+	return apply_filters( 'aranda_de_duero_quick_links', $links );
+}

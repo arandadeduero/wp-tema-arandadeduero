@@ -124,8 +124,10 @@ h6 a {
 }
 
 /* Site Branding */
+
+/* El logo cede espacio al menú en pantallas medianas: 22 vw, entre 240 y 330 px. */
 .site-branding {
-    max-width: 350px;
+    max-width: clamp(240px, 22vw, 330px);
 }
 
 .site-branding img {
@@ -364,6 +366,21 @@ header .custom-logo-link {
     color: var(--color-text);
     text-decoration: none;
     transition: color var(--transition-base);
+}
+
+/*
+ * Desde 1200 px el menú principal cabe en una fila: menos aire entre elementos y sin partir las etiquetas en dos
+ * líneas («Mi Ayuntamiento», «Área ciudadana»…). Por debajo se mantiene el comportamiento anterior.
+ */
+@media (width >= 1200px) {
+    #primary-menu > li {
+        padding-inline: 0.875rem;
+        font-size: 1.0625rem;
+    }
+
+    #primary-menu > li > a {
+        white-space: nowrap;
+    }
 }
 
 #primary-menu > li:not(.sub-menu):hover {

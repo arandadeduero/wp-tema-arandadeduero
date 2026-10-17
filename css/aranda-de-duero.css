@@ -32,6 +32,9 @@
     --color-primary: #0083c1;
     --color-primary-dark: #006399;
     --color-primary-light: #e9f4f9;
+
+    /* Azul de marca para texto: #0083c1 no llega a 4,5:1 ni sobre blanco (4,19); este da >= 4,6 sobre los fondos del sitio. */
+    --color-primary-accessible: #0073ad;
     --color-text: #000;
     --color-text-light: #666;
     --color-border: #ccc;
@@ -524,7 +527,7 @@ footer i {
     height: 100px;
     text-align: center;
     padding: 5px;
-    background: #0083c1;
+    background: var(--color-primary-accessible);
     display: grid;
 }
 
@@ -998,7 +1001,7 @@ footer.search-entry-footer {
 }
 
 .text-blue {
-    color: #0083c1 !important;
+    color: var(--color-primary-accessible) !important;
 }
 
 /** FIN Página de buscador */
@@ -1151,12 +1154,22 @@ footer.search-entry-footer {
     letter-spacing: 1px;
 }
 
+/* Ahora son h2/h3 con las clases .h4/.h6 de Bootstrap (que cargan después y pisarían a las reglas de arriba), así que se refuerzan. */
+h2.agenda-title {
+    font-weight: 400;
+}
+
 /* Event text styling */
 .event-name {
     color: #069;
     font-size: 0.95rem;
     font-weight: 600;
     margin-bottom: 8px;
+}
+
+h3.event-name {
+    font-size: 0.95rem;
+    font-weight: 600;
 }
 
 .event-meta {
@@ -1439,6 +1452,7 @@ footer.search-entry-footer {
     padding: 4rem 0 2rem;
 }
 
+.footer-about h2,
 .footer-about h4 {
     color: white;
     margin-bottom: 1rem;
@@ -1467,6 +1481,7 @@ footer.search-entry-footer {
     font-size: 2.5rem;
 }
 
+.footer-main h3,
 .footer-main h5 {
     color: white;
     margin-bottom: 1rem;

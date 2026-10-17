@@ -10,6 +10,8 @@
 
 get_header();
 ?>
+<main id="primary" class="site-main">
+<h1 class="screen-reader-text"><?php echo esc_html( get_bloginfo( 'name' ) ); ?></h1>
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-12 px-0">
@@ -74,7 +76,7 @@ $query = aranda_de_duero_content(
 					</div>
 				</div>
 			<?php endif; ?>
-			<h4 class="text-blue font-weight-normal text-uppercase">Últimas noticias</h4>
+			<h2 class="h4 text-blue font-weight-normal text-uppercase">Últimas noticias</h2>
 			<?php $count = 0; ?>
 			<?php
 			while ( $query->have_posts() ) :
@@ -121,7 +123,7 @@ $query = aranda_de_duero_content(
 							<div class="col-12 p-3">
 								<div class="home-main-news-description">
 									<a href="<?php the_permalink( get_the_ID() ); ?>" style="color:<?php echo esc_attr( get_theme_mod( 'aranda_de_duero_main_section_text_color' ) ); ?>!important;">
-										<h2 class="h6 mb-0 font-weight-normal"><?php the_title(); ?></h2>
+										<h3 class="h6 mb-0 font-weight-normal"><?php the_title(); ?></h3>
 									</a>
 								</div>
 								<?php
@@ -144,7 +146,7 @@ $query = aranda_de_duero_content(
 							<div class="col-12">
 								<div class="home-main-news-description">
 									<a href="<?php the_permalink( get_the_ID() ); ?>" style="color:<?php echo esc_attr( get_theme_mod( 'aranda_de_duero_main_section_text_color' ) ); ?>!important;">
-										<h2 class="h6 mb-0 font-weight-normal"><?php the_title(); ?></h2>
+										<h3 class="h6 mb-0 font-weight-normal"><?php the_title(); ?></h3>
 									</a>
 								</div>
 								<div class="home-main-news-button my-3">
@@ -197,7 +199,7 @@ $query = aranda_de_duero_content(
 		?>
 		<div class="container py-5">
 			<div class="events-agenda-card p-4">
-				<h4 class="agenda-title text-blue mb-4">AGENDA DE EVENTOS</h4>
+				<h2 class="h4 agenda-title text-blue mb-4">AGENDA DE EVENTOS</h2>
 
 				<div class="row no-gutters bg-white shadow-sm">
 					<!-- Event Poster (First Event) -->
@@ -218,7 +220,7 @@ $query = aranda_de_duero_content(
 					<!-- Current Date Display -->
 					<div class="col-md-2 border-right p-3 d-flex flex-column align-items-center justify-content-center text-center">
 						<span class="text-muted text-uppercase small"><?php echo esc_html( date_i18n( 'l' ) ); ?></span>
-						<h1 class="display-3 font-weight-bold mb-0"><?php echo esc_html( date_i18n( 'd' ) ); ?></h1>
+						<div class="display-3 font-weight-bold mb-0"><?php echo esc_html( date_i18n( 'd' ) ); ?></div>
 						<span class="h5 text-uppercase"><?php echo esc_html( date_i18n( 'F' ) ); ?></span>
 					</div>
 
@@ -242,11 +244,11 @@ $query = aranda_de_duero_content(
 									$is_last  = ( count( $events_to_show ) - 1 === $event_idx );
 									?>
 									<div class="event-item p-3 <?php echo ( ! $is_last && 0 === $row ) ? 'border-bottom' : ''; ?>">
-										<h6 class="event-name">
+										<h3 class="h6 event-name">
 											<a href="<?php echo esc_url( $event['link'] ); ?>" class="text-dark text-decoration-none">
 												<?php echo esc_html( $event['title'] ); ?>
 											</a>
-										</h6>
+										</h3>
 										<div class="event-meta small text-muted">
 											<span>📅 <?php echo esc_html( date_i18n( 'd-m-Y', $event_dt ) ); ?></span>
 										</div>
@@ -301,6 +303,7 @@ $query = aranda_de_duero_content(
 		</div>
 	</div>
 </section>
+</main><!-- #primary -->
 
 <?php
 

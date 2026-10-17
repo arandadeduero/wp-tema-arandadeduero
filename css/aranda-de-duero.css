@@ -1385,6 +1385,10 @@ footer.search-entry-footer {
 }
 
 #moreEspecial {
+    /* el icono es un <svg> y `img, picture, svg { display: block }` lo mandaba debajo del texto */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 50px;
     font-weight: 600;
     border-width: 2px;
@@ -1472,7 +1476,11 @@ footer.search-entry-footer {
     padding-bottom: 0.5rem;
 }
 
-.footer-links {
+.footer-links,
+.footer-contact-item {
+    /* style.css (Underscores) da `ul { margin-left: 3em }` y Bootstrap solo anula el padding */
+    margin-left: 0;
+    padding-left: 0;
     list-style: none;
 }
 
@@ -1481,9 +1489,18 @@ footer.search-entry-footer {
 }
 
 .footer-links a {
+    display: inline-flex;
+    gap: 0.5rem;
     color: rgb(255 255 255 / 70%);
     text-decoration: none;
     transition: all 0.3s;
+}
+
+/* La flecha va fuera del texto: si el enlace ocupa dos líneas, la segunda queda alineada con la primera. */
+.footer-links a::before {
+    content: '→';
+    content: '→' / '';
+    flex: none;
 }
 
 /* ========================================================================
@@ -1637,10 +1654,22 @@ textarea:focus {
     color: #0083c1;
 }
 
+.footer-contact-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+}
+
+/* `img, picture, svg { display: block }` más arriba los dejaba encima del texto. */
 .footer-contact-icon {
+    flex: none;
+    width: 1rem;
+    height: 1rem;
+
+    /* centra el icono con la primera línea (line-height 2 en .footer-contact-item) */
+    margin-top: 0.5rem;
     color: #0083c1;
-    width: 20px;
-    margin-right: 0.5rem;
 }
 
 .footer-contact-item {

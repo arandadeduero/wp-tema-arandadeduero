@@ -438,6 +438,11 @@ header .custom-logo-link {
     color: var(--color-primary);
 }
 
+/* Botón de submenú que añade js/navigation.js: solo se ve en el menú móvil. */
+.submenu-toggle {
+    display: none;
+}
+
 /*
  * Menú móvil propio (≤ 767 px), en lugar del del plugin Mobile Menu. El plugin oculta .site-header, .site-branding y
  * .main-navigation con `display: none !important` y pinta su propia barra y panel; aquí se recuperan con selectores
@@ -562,6 +567,7 @@ header .custom-logo-link {
     }
 
     .submenu-toggle {
+        display: block;
         position: absolute;
         top: 0;
         right: 0;
@@ -601,6 +607,7 @@ header .custom-logo-link {
     }
 
     body #primary-menu .sub-menu {
+        float: none; /* style.css lo flota a la izquierda: el elemento siguiente quedaba encima y se comía los toques */
         position: static;
         width: 100%;
         margin: 0;

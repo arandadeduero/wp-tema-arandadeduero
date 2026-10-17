@@ -67,7 +67,7 @@
         button.className = 'submenu-toggle';
         button.setAttribute('aria-expanded', 'false');
         button.setAttribute('aria-label', labelTemplate.replace('%s', link.textContent.trim()));
-        button.addEventListener('click', () => {
+        const toggleSubmenu = () => {
             const open = !item.classList.contains('is-open');
             // Accordion: only one submenu open at a time.
             Array.from(item.parentNode.children).forEach((sibling) => {
@@ -77,7 +77,18 @@
             });
             item.classList.toggle('is-open', open);
             button.setAttribute('aria-expanded', String(open));
-        });
+        };
+        button.addEventListener('click', toggleSubmenu);
+
+        // A parent whose link is only "#" has no page: on phones its label opens the submenu too.
+        const href = link.getAttribute('href');
+        if (!href || href === '#') {
+            link.addEventListener('click', (e) => {
+                if (!phone.matches) return;
+                e.preventDefault();
+                toggleSubmenu();
+            });
+        }
         link.after(button);
     });
     menu.classList.add('has-submenu-toggles');

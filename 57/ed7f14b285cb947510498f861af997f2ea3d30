@@ -1,0 +1,29 @@
+tests/PerformanceTest.php
+  s_1b2194bed91d73::t_10e80c4795c9fa 56-89
+css/fonts/README.md
+  s_1b2194bed91d73::t_f4f4bd6ae8cf00 3,5-7,9
+  s_1b2194bed91d73::t_10e80c4795c9fa 1-2,4,8
+css/aranda-de-duero.css
+  s_1b2194bed91d73::t_07bc3f35dee414 1809-1832
+MODERNIZATION.md
+  s_1b2194bed91d73::t_d287dea86e1833 17-20
+inc/performance.php
+  s_1b2194bed91d73::t_10e80c4795c9fa 161-167,169,175,177-212
+  s_1b2194bed91d73::t_d287dea86e1833 168,170-174,176
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "57ed7f14b285cb947510498f861af997f2ea3d30",
+  "prompts": {},
+  "sessions": {
+    "s_1b2194bed91d73": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "f868d310-8e5d-4fb7-86c8-3a94409426ab",
+        "model": "claude-sonnet-5-5"
+      },
+      "human_author": "Guillermo López <willyaranda@gmail.com>"
+    }
+  }
+}

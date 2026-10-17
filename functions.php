@@ -252,6 +252,29 @@ function aranda_de_duero_scripts() {
 		)
 	);
 
+	// Event poster: pop-up preview with a download button, only on a single event.
+	if ( is_singular( 'mc-events' ) ) {
+		wp_enqueue_script(
+			'aranda-de-duero-event-poster',
+			get_template_directory_uri() . '/js/event-poster.js',
+			array(),
+			aranda_de_duero_asset_version( '/js/event-poster.js' ),
+			array(
+				'in_footer' => true,
+				'strategy'  => 'defer',
+			)
+		);
+		wp_localize_script(
+			'aranda-de-duero-event-poster',
+			'arandaEventPoster',
+			array(
+				'zoom'     => __( 'Ampliar el cartel', 'aranda-de-duero' ),
+				'download' => __( 'Descargar imagen', 'aranda-de-duero' ),
+				'close'    => __( 'Cerrar', 'aranda-de-duero' ),
+			)
+		);
+	}
+
 	// Comment reply for threaded comments
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );

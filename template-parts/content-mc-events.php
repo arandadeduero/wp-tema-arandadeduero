@@ -11,10 +11,29 @@ defined( 'ABSPATH' ) || exit;
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<?php
+// Original size of the poster, for the pop-up preview and the download (js/event-poster.js).
+$aranda_poster_url = is_singular() && has_post_thumbnail() ? wp_get_attachment_url( get_post_thumbnail_id() ) : '';
+?>
+<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>
+	<?php
+	if ( $aranda_poster_url ) :
+		?>
+		data-poster-full="<?php echo esc_url( $aranda_poster_url ); ?>"<?php endif; ?>>
 	<header class="entry-header">
 		<?php
 		if ( is_singular() ) :
+			$aranda_event_categories = get_the_terms( get_the_ID(), 'mc-event-category' );
+			?>
+			<p class="event-kicker">
+				<a class="event-back-link" href="<?php echo esc_url( home_url( '/agenda/' ) ); ?>"><?php esc_html_e( 'Agenda', 'aranda-de-duero' ); ?></a>
+				<?php if ( is_array( $aranda_event_categories ) ) : ?>
+					<?php foreach ( $aranda_event_categories as $aranda_event_category ) : ?>
+						<span class="event-category"><?php echo esc_html( $aranda_event_category->name ); ?></span>
+					<?php endforeach; ?>
+				<?php endif; ?>
+			</p>
+			<?php
 			the_title( '<h1 class="entry-title">', '</h1>' );
 		else :
 			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
@@ -57,7 +76,4 @@ defined( 'ABSPATH' ) || exit;
 		?>
 	</div><!-- .entry-content -->
 
-	<footer class="entry-footer">
-		<?php aranda_de_duero_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
 </article><!-- #post-<?php the_ID(); ?> -->

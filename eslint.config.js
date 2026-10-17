@@ -5,7 +5,7 @@ const prettierConfig = require('eslint-config-prettier');
 
 module.exports = [
     {
-        ignores: ['js/*.min.js', 'js/bootstrap.bundle.min.js', 'node_modules/**', 'vendor/**', 'dist/**'],
+        ignores: ['js/*.min.js', 'node_modules/**', 'vendor/**', 'dist/**'],
     },
     js.configs.recommended,
     {

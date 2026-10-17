@@ -226,6 +226,85 @@ header#masthead {
     }
 }
 
+/*
+ * Barra superior con teléfono, horario y cita previa. Fondo en el azul accesible (#0073ad, 5,3:1 con texto blanco; el
+ * azul de marca #0083c1 solo da 4,19:1). Va a todo el ancho, con el contenido alineado al mismo ancho que la cabecera.
+ */
+.top-bar {
+    background: var(--color-primary-accessible);
+    color: #fff;
+    font-size: 0.875rem;
+}
+
+.top-bar-inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-xs) var(--spacing-2xl);
+    max-width: 1320px;
+    margin-inline: auto;
+    padding: var(--spacing-xs) var(--spacing-md);
+}
+
+.top-bar-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xs) var(--spacing-xl);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.top-bar-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.top-bar a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.top-bar a:hover,
+.top-bar a:focus-visible {
+    text-decoration: underline;
+}
+
+.top-bar-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xs) var(--spacing-sm);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+/* Accesos como botones: blanco con texto azul accesible (5,3:1); al pasar el ratón, el revés. */
+.top-bar .top-bar-button {
+    padding: 0.125rem var(--spacing-md);
+    border: 1px solid #fff;
+    border-radius: 999px;
+    background: #fff;
+    color: var(--color-primary-accessible);
+    font-weight: 600;
+    line-height: 1.5;
+    text-decoration: none;
+}
+
+.top-bar .top-bar-button:hover,
+.top-bar .top-bar-button:focus-visible {
+    background: transparent;
+    color: #fff;
+    text-decoration: none;
+}
+
+.top-bar .top-bar-button:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 2px;
+}
+
 /* Secondary Menu */
 #secondary-menu {
     display: flex;
@@ -1986,51 +2065,6 @@ body #mobmenuright .mobmenu-content h3,
 body .mobmenu-left-panel .mobmenu-display-name,
 body .mobmenu-content .mobmenu-tabs-header li {
     font-family: var(--font-family-base);
-}
-
-/*
- * Enlaces del menú secundario en móvil. A <= 767 px el plugin Mobile Menu oculta toda la cabecera del tema y su
- * panel solo lista el menú principal; esta franja repite Cita previa, Transparencia, Perfil del contratante y Sede.
- */
-.mobile-quick-links {
-    display: none;
-}
-
-@media (width <= 767px) {
-    .mobile-quick-links {
-        display: block;
-        padding: 0.75rem 1rem;
-        background: var(--color-primary-light);
-    }
-
-    .mobile-quick-links ul {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.5rem;
-        margin: 0;
-        padding: 0;
-        list-style: none;
-    }
-
-    .mobile-quick-links a {
-        display: inline-flex;
-        align-items: center;
-        min-height: 44px; /* zona táctil mínima */
-        padding: 0.5rem 0.9rem;
-        border: 1px solid var(--color-primary-accessible);
-        border-radius: 999px;
-        background: var(--color-white);
-        color: var(--color-primary-accessible);
-        font-size: 0.95rem;
-        font-weight: 500;
-        text-decoration: none;
-    }
-
-    .mobile-quick-links a:hover,
-    .mobile-quick-links a:focus-visible {
-        background: var(--color-primary-accessible);
-        color: var(--color-white);
-    }
 }
 
 /* Página «Expediente plaza de toros» */

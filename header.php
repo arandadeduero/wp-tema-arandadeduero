@@ -27,6 +27,65 @@
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'aranda-de-duero' ); ?></a>
 
 	<div id="page" class="site">
+		<?php $aranda_contact = aranda_de_duero_contact_info(); ?>
+		<?php
+		$aranda_top_buttons = array(
+			array(
+				'label'   => __( 'Cita previa', 'aranda-de-duero' ),
+				'url'     => $aranda_contact['appointment_url'],
+				'new_tab' => false,
+			),
+			array(
+				'label'   => __( 'Portal de transparencia', 'aranda-de-duero' ),
+				'url'     => $aranda_contact['transparency_url'],
+				'new_tab' => true,
+			),
+			array(
+				'label'   => __( 'Sede electrónica', 'aranda-de-duero' ),
+				'url'     => $aranda_contact['sede_url'],
+				'new_tab' => true,
+			),
+		);
+		?>
+		<div class="top-bar">
+			<div class="top-bar-inner">
+				<ul class="top-bar-info">
+					<li class="top-bar-item">
+						<?php
+						// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- aranda_de_duero_icon() returns SVG markup already sanitized by the WP 7.1 SVG Icon API (see inc/icons.php).
+						echo aranda_de_duero_icon( 'aranda-de-duero/phone-flip', array( 'size' => 14 ) );
+						?>
+						<a href="<?php echo esc_url( $aranda_contact['phone_href'] ); ?>"><?php echo esc_html( $aranda_contact['phone'] ); ?></a>
+					</li>
+					<li class="top-bar-item">
+						<?php
+						// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- aranda_de_duero_icon() returns SVG markup already sanitized by the WP 7.1 SVG Icon API (see inc/icons.php).
+						echo aranda_de_duero_icon( 'aranda-de-duero/clock', array( 'size' => 14 ) );
+						?>
+						<span><?php echo esc_html( $aranda_contact['hours'] ); ?></span>
+					</li>
+				</ul>
+				<ul class="top-bar-buttons">
+					<?php foreach ( $aranda_top_buttons as $aranda_button ) : ?>
+						<li>
+							<a class="top-bar-button" href="<?php echo esc_url( $aranda_button['url'] ); ?>"
+							<?php
+							if ( $aranda_button['new_tab'] ) :
+								?>
+								target="_blank" rel="noopener"<?php endif; ?>>
+								<?php echo esc_html( $aranda_button['label'] ); ?>
+								<?php
+								if ( $aranda_button['new_tab'] ) {
+									aranda_de_duero_the_new_tab_notice();
+								}
+								?>
+							</a>
+						</li>
+					<?php endforeach; ?>
+				</ul>
+			</div>
+		</div><!-- .top-bar -->
+
 		<div class="site-header-wrapper">
 
 			<!-- Main Header -->
@@ -80,30 +139,5 @@
 
 			</header><!-- #masthead -->
 		</div><!-- .site-header-wrapper -->
-
-		<?php $aranda_quick_links = aranda_de_duero_quick_links(); ?>
-		<?php if ( $aranda_quick_links ) : ?>
-			<!-- Secondary menu again for phones, where Mobile Menu hides the header above (see css/aranda-de-duero.css) -->
-			<nav class="mobile-quick-links" aria-label="<?php esc_attr_e( 'Accesos rápidos', 'aranda-de-duero' ); ?>">
-				<ul>
-					<?php foreach ( $aranda_quick_links as $aranda_link ) : ?>
-						<li>
-							<a href="<?php echo esc_url( $aranda_link['url'] ); ?>"
-							<?php
-							if ( $aranda_link['new_tab'] ) :
-								?>
-								target="_blank" rel="noopener"<?php endif; ?>>
-								<?php echo esc_html( $aranda_link['title'] ); ?>
-								<?php
-								if ( $aranda_link['new_tab'] ) {
-									aranda_de_duero_the_new_tab_notice();
-								}
-								?>
-							</a>
-						</li>
-					<?php endforeach; ?>
-				</ul>
-			</nav>
-		<?php endif; ?>
 
 		<div id="content" class="site-content">

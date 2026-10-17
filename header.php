@@ -140,29 +140,4 @@
 			</header><!-- #masthead -->
 		</div><!-- .site-header-wrapper -->
 
-		<?php $aranda_quick_links = aranda_de_duero_quick_links(); ?>
-		<?php if ( $aranda_quick_links ) : ?>
-			<!-- Secondary menu again for phones, where Mobile Menu hides the header above (see css/aranda-de-duero.css) -->
-			<nav class="mobile-quick-links" aria-label="<?php esc_attr_e( 'Accesos rápidos', 'aranda-de-duero' ); ?>">
-				<ul>
-					<?php foreach ( $aranda_quick_links as $aranda_link ) : ?>
-						<li>
-							<a href="<?php echo esc_url( $aranda_link['url'] ); ?>"
-							<?php
-							if ( $aranda_link['new_tab'] ) :
-								?>
-								target="_blank" rel="noopener"<?php endif; ?>>
-								<?php echo esc_html( $aranda_link['title'] ); ?>
-								<?php
-								if ( $aranda_link['new_tab'] ) {
-									aranda_de_duero_the_new_tab_notice();
-								}
-								?>
-							</a>
-						</li>
-					<?php endforeach; ?>
-				</ul>
-			</nav>
-		<?php endif; ?>
-
 		<div id="content" class="site-content">

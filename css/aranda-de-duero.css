@@ -2067,51 +2067,6 @@ body .mobmenu-content .mobmenu-tabs-header li {
     font-family: var(--font-family-base);
 }
 
-/*
- * Enlaces del menú secundario en móvil. A <= 767 px el plugin Mobile Menu oculta toda la cabecera del tema y su
- * panel solo lista el menú principal; esta franja repite Cita previa, Transparencia, Perfil del contratante y Sede.
- */
-.mobile-quick-links {
-    display: none;
-}
-
-@media (width <= 767px) {
-    .mobile-quick-links {
-        display: block;
-        padding: 0.75rem 1rem;
-        background: var(--color-primary-light);
-    }
-
-    .mobile-quick-links ul {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.5rem;
-        margin: 0;
-        padding: 0;
-        list-style: none;
-    }
-
-    .mobile-quick-links a {
-        display: inline-flex;
-        align-items: center;
-        min-height: 44px; /* zona táctil mínima */
-        padding: 0.5rem 0.9rem;
-        border: 1px solid var(--color-primary-accessible);
-        border-radius: 999px;
-        background: var(--color-white);
-        color: var(--color-primary-accessible);
-        font-size: 0.95rem;
-        font-weight: 500;
-        text-decoration: none;
-    }
-
-    .mobile-quick-links a:hover,
-    .mobile-quick-links a:focus-visible {
-        background: var(--color-primary-accessible);
-        color: var(--color-white);
-    }
-}
-
 /* Página «Expediente plaza de toros» */
 .expediente-intro-text {
     line-height: 1.7;

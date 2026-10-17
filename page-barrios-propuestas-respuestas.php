@@ -118,7 +118,7 @@ aranda_de_duero_the_header_image();
 						<div class="card-body p-4">
 							<h3 class="h5 fw-bold mb-2">📍 <?php echo esc_html( $barrio['nombre'] ); ?></h3>
 							<p class="card-text text-muted small mb-3">Reunión realizada el <?php echo esc_html( $barrio['fecha'] ); ?>.</p>
-							<a href="<?php echo esc_url( $barrio['pdf'] ); ?>" class="stretched-link text-decoration-none text-blue fw-semibold" target="_blank" rel="noopener">➔ Enlace al resumen</a>
+							<a href="<?php echo esc_url( $barrio['pdf'] ); ?>" class="stretched-link text-decoration-none text-blue fw-semibold" target="_blank" rel="noopener">➔ Enlace al resumen<?php aranda_de_duero_the_new_tab_notice(); ?></a>
 						</div>
 					</div>
 				</div>

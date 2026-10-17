@@ -102,7 +102,7 @@
 				</tr>
 				<tr>
 					<td><strong><?php esc_html_e( 'Fichero adjunto', 'aranda-de-duero' ); ?></strong></td>
-					<td><a class="text-dark" href="<?php echo esc_url( get_field( 'tramite_fichero' ) ); ?>" target="_blank"><?php esc_html_e( 'Descargar', 'aranda-de-duero' ); ?></a></td>
+					<td><a class="text-dark" href="<?php echo esc_url( get_field( 'tramite_fichero' ) ); ?>" target="_blank" rel="noopener"><?php esc_html_e( 'Descargar', 'aranda-de-duero' ); ?><?php aranda_de_duero_the_new_tab_notice(); ?></a></td>
 				</tr>
 			</tbody>
 		</table>

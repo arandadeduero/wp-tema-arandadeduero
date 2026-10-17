@@ -55,3 +55,19 @@ function aranda_de_duero_pingback_header() {
 	}
 }
 add_action( 'wp_head', 'aranda_de_duero_pingback_header' );
+
+/**
+ * Text announced to screen readers for links that open in a new tab.
+ *
+ * @return string
+ */
+function aranda_de_duero_new_tab_text() {
+	return __( '(se abre en una nueva pestaña)', 'aranda-de-duero' );
+}
+
+/**
+ * Print a visually hidden notice for links that open in a new tab (WCAG 3.2.5 / G201).
+ */
+function aranda_de_duero_the_new_tab_notice() {
+	echo '<span class="screen-reader-text"> ' . esc_html( aranda_de_duero_new_tab_text() ) . '</span>';
+}

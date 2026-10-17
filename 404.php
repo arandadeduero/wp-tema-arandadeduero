@@ -40,7 +40,7 @@ aranda_de_duero_the_header_image( '' );
 								</p>
 								<a href="https://turismo.arandadeduero.es/" target="_blank" rel="noopener noreferrer"
 									class="btn btn-outline-primary btn-sm">
-									Ver más
+									Ver más<?php aranda_de_duero_the_new_tab_notice(); ?>
 								</a>
 							</div>
 						</div>

@@ -237,11 +237,8 @@ if ( ! function_exists( 'aranda_de_duero_post_thumbnail' ) ) :
 				the_post_thumbnail(
 					'post-thumbnail',
 					array(
-						'alt' => the_title_attribute(
-							array(
-								'echo' => false,
-							)
-						),
+						// Decorative: the anchor is aria-hidden and the title is already in the heading link.
+						'alt' => '',
 					)
 				);
 				?>

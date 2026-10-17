@@ -30,7 +30,7 @@
 		<div class="site-header-wrapper">
 
 			<!-- Main Header -->
-			<header id="masthead" class="site-header" role="banner">
+			<header id="masthead" class="site-header">
 
 				<!-- Site Branding (desktop) -->
 				<div class="site-branding">

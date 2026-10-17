@@ -40,7 +40,7 @@ if ( '1' === get_theme_mod( 'aranda_de_duero_show_banner' ) && '' !== get_theme_
 						<div class="ml-3"><small class="banner_streaming_color font-weight-bold">En directo - <?php echo esc_html( get_theme_mod( 'aranda_de_duero_show_banner_text' ) ); ?></small><br><span class="font-weight-bold">PLENO DEL AYUNTAMIENTO DE ARANDA DE DUERO</span></div>
 					</div>
 					<div id="banner_right" class="d-flex align-items-center justify-content-end pr-5">
-						<div><span style="color: #b50101; text-decoration: underline;">Síguelo a través de Youtube </span> </div>
+						<div><span class="banner-streaming-text">Síguelo a través de Youtube </span> </div>
 						<div class="ml-3 pr-4"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/playIcon.png"></div>
 					</div>
 				</div>
@@ -70,7 +70,7 @@ $query = aranda_de_duero_content(
 				?>
 				<div class="row mb-4">
 					<div class="col-12">
-						<a href="https://fiestas.arandadeduero.dev/" class="d-block p-3 text-center text-white font-weight-bold text-uppercase" style="background-color: #b50101; border-radius: 4px; text-decoration: none;">
+						<a href="https://fiestas.arandadeduero.dev/" class="d-block p-3 text-center text-white font-weight-bold text-uppercase fiestas-banner-link">
 							Visita aquí el programa de las Fiestas Patronales
 						</a>
 					</div>
@@ -122,7 +122,7 @@ $query = aranda_de_duero_content(
 							</div>
 							<div class="col-12 p-3">
 								<div class="home-main-news-description">
-									<a href="<?php the_permalink( get_the_ID() ); ?>" style="color:<?php echo esc_attr( get_theme_mod( 'aranda_de_duero_main_section_text_color' ) ); ?>!important;">
+									<a href="<?php the_permalink( get_the_ID() ); ?>" class="main-section-text-link">
 										<h3 class="h6 mb-0 font-weight-normal"><?php the_title(); ?></h3>
 									</a>
 								</div>
@@ -145,7 +145,7 @@ $query = aranda_de_duero_content(
 							?>
 							<div class="col-12">
 								<div class="home-main-news-description">
-									<a href="<?php the_permalink( get_the_ID() ); ?>" style="color:<?php echo esc_attr( get_theme_mod( 'aranda_de_duero_main_section_text_color' ) ); ?>!important;">
+									<a href="<?php the_permalink( get_the_ID() ); ?>" class="main-section-text-link">
 										<h3 class="h6 mb-0 font-weight-normal"><?php the_title(); ?></h3>
 									</a>
 								</div>
@@ -210,7 +210,7 @@ $query = aranda_de_duero_content(
 							</a>
 						<?php else : ?>
 							<a href="<?php echo esc_url( $first_event['link'] ); ?>" title="<?php echo esc_attr( $first_event['title'] ); ?>" class="text-decoration-none">
-								<div class="bg-light d-flex align-items-center justify-content-center" style="min-height: 200px;">
+								<div class="bg-light d-flex align-items-center justify-content-center event-poster-placeholder">
 									<span class="text-muted"><?php esc_html_e( 'Sin imagen', 'aranda-de-duero' ); ?></span>
 								</div>
 							</a>

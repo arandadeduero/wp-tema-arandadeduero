@@ -70,13 +70,13 @@ aranda_de_duero_the_header_image( '' );
 										<div class="col-12">
 											<div class="home-main-news-content px-2 d-flex flex-column justify-content-between">
 												<div class="home-main-news-description">
-													<a href="<?php the_permalink( get_the_ID() ); ?>" style="color:<?php echo esc_attr( get_theme_mod( 'aranda_de_duero_main_section_text_color' ) ); ?>!important;">
+													<a href="<?php the_permalink( get_the_ID() ); ?>" class="main-section-text-link">
 														<h2 class="h6 mb-0 font-weight-bold"><?php the_title(); ?></h2>
 													</a>
 													<p class="small mt-3 w-100 pr-2"><?php echo esc_html( wp_strip_all_tags( get_the_excerpt(), true ) ); ?></p>
 												</div>
 												<div class="home-main-news-button my-3">
-													<a href="<?php the_permalink( get_the_ID() ); ?>" class="btn btn-primary" role="button" style="color:white !important;"><?php esc_html_e( 'Ver más', 'aranda-de-duero' ); ?></a>
+													<a href="<?php the_permalink( get_the_ID() ); ?>" class="btn btn-primary" role="button"><?php esc_html_e( 'Ver más', 'aranda-de-duero' ); ?></a>
 												</div>
 											</div>
 										</div>
@@ -86,12 +86,12 @@ aranda_de_duero_the_header_image( '' );
 										<div class="col-12">
 											<div class="home-main-news-content px-2 d-flex flex-column justify-content-between">
 												<div class="home-main-news-description">
-													<a href="<?php the_permalink( get_the_ID() ); ?>" style="color:<?php echo esc_attr( get_theme_mod( 'aranda_de_duero_main_section_text_color' ) ); ?>!important;">
+													<a href="<?php the_permalink( get_the_ID() ); ?>" class="main-section-text-link">
 														<h2 class="h5 mb-0 font-weight-bold"><?php the_title(); ?></h2>
 													</a>
 												</div>
 												<div class="home-main-news-button my-3">
-													<a href="<?php the_permalink( get_the_ID() ); ?>" class="btn btn-primary" role="button" style="color:white !important;"><?php esc_html_e( 'Ver más', 'aranda-de-duero' ); ?></a>
+													<a href="<?php the_permalink( get_the_ID() ); ?>" class="btn btn-primary" role="button"><?php esc_html_e( 'Ver más', 'aranda-de-duero' ); ?></a>
 												</div>
 											</div>
 										</div>

@@ -2391,6 +2391,34 @@ textarea:focus {
     color: var(--color-white);
 }
 
+.single-mc-events .single-event .sharing .mc-icon {
+    display: none;
+}
+
+.single-mc-events .single-event .sharing .ical a::before {
+    content: '📥 ' / '';
+}
+
+.single-mc-events .single-event .sharing .gcal a::before {
+    content: '🗓️ ' / '';
+}
+
+/* Solo lo ven los editores: el aviso de «Editar» de My Calendar, discreto en vez de la franja verde. */
+.single-mc-events .single-event .mc_edit_links {
+    margin: 0;
+    padding: 0;
+    background: none;
+    font-size: 0.875rem;
+}
+
+.single-mc-events .single-event .mc_edit_links ul {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: none;
+    list-style: none;
+}
+
 .single-mc-events .single-event .view-full {
     margin: 0;
     text-align: start;

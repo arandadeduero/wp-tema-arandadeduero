@@ -43,12 +43,27 @@ Lighthouse sobre la web real, escritorio:
 | `/agenda/` | 94 | 100 | Menú activo, botones «Mes» y «Hoy» del calendario |
 | `/preguntas-mas-frecuentes/` | 95 | 100 | Menú activo y orden de encabezados del contenido |
 
-Lo anterior, salvo el último punto, se corrige en el PR #22. **Pendiente:** repetir la auditoría en estas páginas tras
-desplegarlo. Dos cosas se vieron y **no** se tocan: el orden de encabezados de `/preguntas-mas-frecuentes/` es
-contenido (el editor usa `h1` y luego `h3`), y un enlace de evento sin texto en la agenda no se pudo reproducir
-(33 enlaces, ninguno vacío al volver a mirar). Un CLS de 0,889 en la categoría «navegación para agentes» tampoco se
-reproduce en una traza normal (0,05, que es bueno).
+Los contrastes se corrigieron en el PR #22. **Resultado tras desplegarlo** (misma auditoría, 2026-10-17):
 
+| Página | Accesibilidad | Qué queda |
+|---|---|---|
+| Home | **100** | Solo el error de consola de `stats.wp.com` |
+| `/noticias/` | **100** | Idem |
+| Una noticia | **100** | Idem, y el CLS de abajo |
+| `/agenda/` | 97 | Un enlace de evento sin nombre (causa y arreglo en el PR #23) |
+| `/preguntas-mas-frecuentes/` | 99 | Orden de encabezados del contenido: el editor usa `h1` y luego `h3`; el tema no puede corregirlo |
+
+**Enlace sin nombre en `/agenda/`.** Una regla del tema ocultaba (`display: none`) el `<div>` del título de los eventos
+de los días del mes siguiente, pero ese `div` va dentro del enlace: quedaba un `<a>` de 2 px, sin texto visible ni nombre
+accesible, y alcanzable con el tabulador. Lighthouse lo detectó en tres auditorías. Una comprobación anterior dijo que no
+se reproducía: era un error de esa comprobación, que usaba `textContent` (cuenta el texto aunque esté oculto). El PR #23
+oculta el evento entero; medido en la página publicada, los enlaces de evento visibles pasan de 33 a 32 y los que no tienen
+texto visible, de 1 a 0.
+
+**Punto abierto: CLS alto en las noticias.** En la categoría «navegación para agentes» de Lighthouse, la página de noticia
+da un CLS de 0,889 y 0,825 (en las dos auditorías; sumando las capas internas de la página: solo en la principal es 0,328).
+Una traza de rendimiento normal da 0,05, que es bueno. **No se ha identificado la causa** y no se debe dar por descartado:
+queda pendiente de investigar con la propia página en esas condiciones.
 ---
 
 ## A1 · Canal interno de información (Ley 2/2023)

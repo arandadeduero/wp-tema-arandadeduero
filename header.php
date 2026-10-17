@@ -27,6 +27,29 @@
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'aranda-de-duero' ); ?></a>
 
 	<div id="page" class="site">
+		<?php $aranda_contact = aranda_de_duero_contact_info(); ?>
+		<div class="top-bar">
+			<div class="top-bar-inner">
+				<ul class="top-bar-info">
+					<li class="top-bar-item">
+						<?php
+						// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- aranda_de_duero_icon() returns SVG markup already sanitized by the WP 7.1 SVG Icon API (see inc/icons.php).
+						echo aranda_de_duero_icon( 'aranda-de-duero/phone-flip', array( 'size' => 14 ) );
+						?>
+						<a href="<?php echo esc_url( $aranda_contact['phone_href'] ); ?>"><?php echo esc_html( $aranda_contact['phone'] ); ?></a>
+					</li>
+					<li class="top-bar-item">
+						<?php
+						// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- aranda_de_duero_icon() returns SVG markup already sanitized by the WP 7.1 SVG Icon API (see inc/icons.php).
+						echo aranda_de_duero_icon( 'aranda-de-duero/clock', array( 'size' => 14 ) );
+						?>
+						<span><?php echo esc_html( $aranda_contact['hours'] ); ?></span>
+					</li>
+				</ul>
+				<a class="top-bar-appointment" href="<?php echo esc_url( $aranda_contact['appointment_url'] ); ?>"><?php esc_html_e( 'Cita previa', 'aranda-de-duero' ); ?></a>
+			</div>
+		</div><!-- .top-bar -->
+
 		<div class="site-header-wrapper">
 
 			<!-- Main Header -->

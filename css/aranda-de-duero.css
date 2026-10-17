@@ -226,6 +226,56 @@ header#masthead {
     }
 }
 
+/*
+ * Barra superior con teléfono, horario y cita previa. Fondo en el azul accesible (#0073ad, 5,3:1 con texto blanco; el
+ * azul de marca #0083c1 solo da 4,19:1). Va a todo el ancho, con el contenido alineado al mismo ancho que la cabecera.
+ */
+.top-bar {
+    background: var(--color-primary-accessible);
+    color: #fff;
+    font-size: 0.875rem;
+}
+
+.top-bar-inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-xs) var(--spacing-2xl);
+    max-width: 1320px;
+    margin-inline: auto;
+    padding: var(--spacing-xs) var(--spacing-md);
+}
+
+.top-bar-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xs) var(--spacing-xl);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.top-bar-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.top-bar a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.top-bar a:hover,
+.top-bar a:focus-visible {
+    text-decoration: underline;
+}
+
+.top-bar-appointment {
+    font-weight: 600;
+}
+
 /* Secondary Menu */
 #secondary-menu {
     display: flex;

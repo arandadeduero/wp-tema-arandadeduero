@@ -10,6 +10,7 @@
  * @package Aranda_de_Duero
  */
 
+$aranda_contact = aranda_de_duero_contact_info();
 ?>
 
 <footer id="colophon" class="site-footer">
@@ -91,7 +92,7 @@
 								)
 							);
 							?>
-							<span><a href="tel:947500100">947 500 100</a></span>
+							<span><a href="<?php echo esc_url( $aranda_contact['phone_href'] ); ?>"><?php echo esc_html( $aranda_contact['phone'] ); ?></a></span>
 						</li>
 						<li class="footer-contact-row">
 							<?php
@@ -117,7 +118,7 @@
 								)
 							);
 							?>
-							<span>Lun - Vie: 8:30 - 14:30</span>
+							<span><?php echo esc_html( $aranda_contact['hours'] ); ?></span>
 						</li>
 					</ul>
 				</div>

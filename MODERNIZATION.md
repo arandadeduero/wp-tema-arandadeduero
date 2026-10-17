@@ -14,10 +14,8 @@ historial de git.
 
 - Bootstrap 5.3.2 autoalojado en `css/` y `js/`, sin CDN, para no enviar IPs de visitantes a terceros (RGPD).
 - Fuente Outfit autoalojada (`css/fonts/`) y precargada.
-- Menú móvil (plugin Mobile Menu): su CSS dinámico fija `font-family: Roboto`; el tema lo sobrescribe con Outfit
-  (final de `css/aranda-de-duero.css`) y retira la petición a Google Fonts (`inc/performance.php`, filtro
-  `aranda_de_duero_dequeue_google_roboto`). Si el plugin añade reglas nuevas con Roboto, hay que incluirlas en el override
-  o ajustar la tipografía en los ajustes del plugin.
+- Menú móvil propio del tema (≤ 767 px, `js/navigation.js` y bloque «Menú móvil propio» de `css/aranda-de-duero.css`); ya no
+  se usa el plugin Mobile Menu ni su Roboto de Google Fonts.
 - Iconos: Font Awesome Free 6.5.1 convertido a SVG y registrado con la API de iconos de WordPress 7.1
   (`inc/icons.php`); ya no se carga la webfont completa.
 - Variables CSS en `css/aranda-de-duero.css`; Stylelint con `npm run lint:css`.

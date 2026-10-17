@@ -25,7 +25,7 @@ function aranda_de_duero_has_external_og_tags() {
  * Falls back in order: featured image, ACF page header image, the
  * dedicated social-share Customizer image, the default header image.
  *
- * @return array{url: string, width: int, height: int}|null
+ * @return array{url: string, width: int, height: int, alt?: string}|null
  */
 function aranda_de_duero_social_image() {
 	if ( is_singular() && has_post_thumbnail() ) {
@@ -78,6 +78,29 @@ function aranda_de_duero_social_image() {
 }
 
 /**
+ * Canonical URL for term archives; core only outputs rel=canonical for singular
+ * views and the front page.
+ */
+function aranda_de_duero_archive_canonical() {
+	if ( ! is_category() && ! is_tag() && ! is_tax() ) {
+		return;
+	}
+
+	$link = get_term_link( get_queried_object() );
+	if ( is_wp_error( $link ) ) {
+		return;
+	}
+
+	$paged = (int) get_query_var( 'paged' );
+	if ( $paged > 1 ) {
+		$link = get_pagenum_link( $paged, false );
+	}
+
+	printf( '<link rel="canonical" href="%s" />' . "\n", esc_url( $link ) );
+}
+add_action( 'wp_head', 'aranda_de_duero_archive_canonical', 1 );
+
+/**
  * Output Open Graph and Twitter Card meta tags in wp_head.
  */
 function aranda_de_duero_social_meta_tags() {
@@ -116,6 +139,13 @@ function aranda_de_duero_social_meta_tags() {
 	<meta property="og:description" content="<?php echo esc_attr( wp_strip_all_tags( $description ) ); ?>" />
 	<meta property="og:url" content="<?php echo esc_url( $url ); ?>" />
 	<meta property="og:site_name" content="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" />
+	<?php if ( is_singular( 'post' ) ) : ?>
+		<meta property="article:published_time" content="<?php echo esc_attr( get_the_date( 'c' ) ); ?>" />
+		<meta property="article:modified_time" content="<?php echo esc_attr( get_the_modified_date( 'c' ) ); ?>" />
+		<?php foreach ( array_slice( (array) get_the_category(), 0, 1 ) as $category ) : ?>
+			<meta property="article:section" content="<?php echo esc_attr( $category->name ); ?>" />
+		<?php endforeach; ?>
+	<?php endif; ?>
 	<?php if ( $image ) : ?>
 		<meta property="og:image" content="<?php echo esc_url( $image['url'] ); ?>" />
 		<?php if ( ! empty( $image['width'] ) ) : ?>
@@ -124,7 +154,12 @@ function aranda_de_duero_social_meta_tags() {
 		<?php if ( ! empty( $image['height'] ) ) : ?>
 			<meta property="og:image:height" content="<?php echo esc_attr( (string) $image['height'] ); ?>" />
 		<?php endif; ?>
+		<?php if ( ! empty( $image['alt'] ) ) : ?>
+			<meta property="og:image:alt" content="<?php echo esc_attr( $image['alt'] ); ?>" />
+			<meta name="twitter:image:alt" content="<?php echo esc_attr( $image['alt'] ); ?>" />
+		<?php endif; ?>
 	<?php endif; ?>
+	<meta name="twitter:site" content="@aytoaranda" />
 	<meta name="twitter:card" content="<?php echo esc_attr( $image ? 'summary_large_image' : 'summary' ); ?>" />
 	<meta name="twitter:title" content="<?php echo esc_attr( wp_strip_all_tags( $title ) ); ?>" />
 	<meta name="twitter:description" content="<?php echo esc_attr( wp_strip_all_tags( $description ) ); ?>" />

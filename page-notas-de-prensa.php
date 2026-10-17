@@ -81,7 +81,7 @@ aranda_de_duero_the_header_image( '' );
 												);
 												?>
 											<?php else : ?>
-												<img loading="lazy" decoding="async" class="img-fluid rounded" src="https://www.arandadeduero.es/wp-content/uploads/2025/11/Copia-de-Banner-ayuntamiento-5-300x107.png" alt="<?php the_title(); ?>">
+												<img loading="lazy" decoding="async" class="img-fluid rounded" src="<?php echo esc_url( content_url( '/uploads/2025/11/Copia-de-Banner-ayuntamiento-5-300x107.png' ) ); ?>" alt="<?php the_title(); ?>">
 											<?php endif; ?>
 										</div>
 

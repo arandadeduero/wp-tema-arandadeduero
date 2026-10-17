@@ -338,6 +338,16 @@ require get_template_directory() . '/inc/customizer.php';
 require get_template_directory() . '/inc/social-meta.php';
 
 /**
+ * JSON-LD structured data.
+ */
+require get_template_directory() . '/inc/structured-data.php';
+
+/**
+ * Speculation Rules (prefetch/prerender of internal links).
+ */
+require get_template_directory() . '/inc/speculation-rules.php';
+
+/**
  * Load Jetpack compatibility file.
  */
 if ( defined( 'JETPACK__VERSION' ) ) {
@@ -345,6 +355,20 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 }
 
 
+
+/**
+ * Keep the stored custom script unless the current user may post unfiltered HTML.
+ *
+ * @param string $value Submitted script.
+ * @return string
+ */
+function aranda_de_duero_sanitize_custom_script( $value ) {
+	if ( current_user_can( 'unfiltered_html' ) ) {
+		return (string) $value;
+	}
+
+	return (string) get_theme_mod( 'aranda_de_duero_custom_script', '' );
+}
 
 /**
  * Customizer options
@@ -409,7 +433,15 @@ function aranda_de_duero_customizer_settings( $wp_customize ) {
 		);
 	}
 
-	$wp_customize->add_setting( 'aranda_de_duero_custom_script' );
+	// Raw JS runs on every page, so only users allowed to post unfiltered HTML
+	// (not e.g. a multisite site admin) may edit it, and anyone else keeps the stored value.
+	$wp_customize->add_setting(
+		'aranda_de_duero_custom_script',
+		array(
+			'capability'        => 'unfiltered_html',
+			'sanitize_callback' => 'aranda_de_duero_sanitize_custom_script',
+		)
+	);
 	$wp_customize->add_control(
 		'aranda_de_duero_custom_script',
 		array(
@@ -420,7 +452,7 @@ function aranda_de_duero_customizer_settings( $wp_customize ) {
 		)
 	);
 	// add a setting for front page video
-	$wp_customize->add_setting( 'aranda_de_duero_front_page_video' );
+	$wp_customize->add_setting( 'aranda_de_duero_front_page_video', array( 'sanitize_callback' => 'absint' ) );
 	// Add a control for front page vídeo
 	$wp_customize->add_control(
 		new WP_Customize_Media_Control(
@@ -435,7 +467,7 @@ function aranda_de_duero_customizer_settings( $wp_customize ) {
 	);
 
 	// add a setting for Default list image
-	$wp_customize->add_setting( 'aranda_de_duero_default_list_image' );
+	$wp_customize->add_setting( 'aranda_de_duero_default_list_image', array( 'sanitize_callback' => 'absint' ) );
 	// Add a control for Default list image
 	$wp_customize->add_control(
 		new WP_Customize_Media_Control(
@@ -450,7 +482,7 @@ function aranda_de_duero_customizer_settings( $wp_customize ) {
 	);
 
 	// add a setting for Default header image
-	$wp_customize->add_setting( 'aranda_de_duero_default_header_image' );
+	$wp_customize->add_setting( 'aranda_de_duero_default_header_image', array( 'sanitize_callback' => 'absint' ) );
 	// Add a control for Default header image
 	$wp_customize->add_control(
 		new WP_Customize_Media_Control(
@@ -465,7 +497,7 @@ function aranda_de_duero_customizer_settings( $wp_customize ) {
 	);
 
 	// add a setting for the default social sharing (Open Graph) image
-	$wp_customize->add_setting( 'aranda_de_duero_social_share_image' );
+	$wp_customize->add_setting( 'aranda_de_duero_social_share_image', array( 'sanitize_callback' => 'absint' ) );
 	// Add a control for the default social sharing (Open Graph) image
 	$wp_customize->add_control(
 		new WP_Customize_Media_Control(
@@ -484,7 +516,8 @@ function aranda_de_duero_customizer_settings( $wp_customize ) {
 	$wp_customize->add_setting(
 		'aranda_de_duero_show_banner',
 		array(
-			'default' => '',
+			'default'           => '',
+			'sanitize_callback' => 'rest_sanitize_boolean',
 		)
 	);
 
@@ -504,7 +537,8 @@ function aranda_de_duero_customizer_settings( $wp_customize ) {
 	$wp_customize->add_setting(
 		'aranda_de_duero_show_banner_text',
 		array(
-			'default' => '',
+			'default'           => '',
+			'sanitize_callback' => 'sanitize_text_field',
 		)
 	);
 
@@ -555,6 +589,17 @@ function aranda_de_duero_customize_css() {
 	<?php
 }
 add_action( 'wp_head', 'aranda_de_duero_customize_css' );
+
+/**
+ * Preload the main web font so text doesn't wait for the CSS to be parsed first.
+ */
+function aranda_de_duero_preload_font() {
+	printf(
+		'<link rel="preload" href="%s" as="font" type="font/woff2" crossorigin>' . "\n",
+		esc_url( get_template_directory_uri() . '/css/fonts/outfit-variable-latin.woff2' )
+	);
+}
+add_action( 'wp_head', 'aranda_de_duero_preload_font', 2 );
 
 /**
  * Output custom inline JavaScript for theme features.

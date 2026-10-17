@@ -1,0 +1,27 @@
+functions.php
+  s_1b2194bed91d73::t_5b563cde903dd2 218-227
+inc/performance.php
+  s_1b2194bed91d73::t_5b563cde903dd2 213-231
+tests/AjaxLoadMoreAssetsTest.php
+  s_1b2194bed91d73::t_7baa1766f5a169 1-64
+MODERNIZATION.md
+  s_1b2194bed91d73::t_6146af61502768 45-48
+page-home.php
+  s_1b2194bed91d73::t_5b563cde903dd2 268-304
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "ec8b901543eee2db2af81bc0d6666534caf8f350",
+  "prompts": {},
+  "sessions": {
+    "s_1b2194bed91d73": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "f868d310-8e5d-4fb7-86c8-3a94409426ab",
+        "model": "claude-sonnet-5-5"
+      },
+      "human_author": "Guillermo López <willyaranda@gmail.com>"
+    }
+  }
+}

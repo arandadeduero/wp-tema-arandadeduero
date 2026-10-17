@@ -1,0 +1,26 @@
+header.php
+  s_1b2194bed91d73::t_040eb6c717b19a 91-95
+  s_1b2194bed91d73::t_37f330235a164e 84-90,96-108
+inc/template-functions.php
+  s_1b2194bed91d73::t_37f330235a164e 141-180
+css/aranda-de-duero.css
+  s_1b2194bed91d73::t_37f330235a164e 1890-1934
+tests/QuickLinksTest.php
+  s_1b2194bed91d73::t_040eb6c717b19a 1-88
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "0931e5f111ec883a264d64e2559224b1079f9d8f",
+  "prompts": {},
+  "sessions": {
+    "s_1b2194bed91d73": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "f868d310-8e5d-4fb7-86c8-3a94409426ab",
+        "model": "claude-sonnet-5-5"
+      },
+      "human_author": "Guillermo López <willyaranda@gmail.com>"
+    }
+  }
+}

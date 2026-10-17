@@ -215,14 +215,16 @@ function aranda_de_duero_scripts() {
 		'all'
 	);
 
-	// AJAX Load More specific styles
-	wp_enqueue_style(
-		'aranda-de-duero-ajax-load-more',
-		get_template_directory_uri() . '/css/ajax-load-more.css',
-		array(),
-		aranda_de_duero_asset_version( '/css/ajax-load-more.css' ),
-		'all'
-	);
+	// AJAX Load More specific styles: only where the "Especiales" section (home) or an ALM shortcode is.
+	if ( aranda_de_duero_needs_ajax_load_more_assets() ) {
+		wp_enqueue_style(
+			'aranda-de-duero-ajax-load-more',
+			get_template_directory_uri() . '/css/ajax-load-more.css',
+			array(),
+			aranda_de_duero_asset_version( '/css/ajax-load-more.css' ),
+			'all'
+		);
+	}
 
 	// RTL support
 	wp_style_add_data( 'aranda-de-duero-style', 'rtl', 'replace' );

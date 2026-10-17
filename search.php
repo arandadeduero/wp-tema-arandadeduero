@@ -9,13 +9,11 @@
 
 get_header();
 
-$allsearch     = new WP_Query(
-	array(
-		's'              => get_search_query(),
-		'posts_per_page' => 0,
-	)
-);
-$total_results = $allsearch->found_posts;
+global $wp_query;
+
+// The main query already counted every match; running the search a second time
+// just to read the total doubled the (slow) LIKE scan over all posts.
+$total_results = (int) $wp_query->found_posts;
 ?>
 
 <div class="container mt-4">

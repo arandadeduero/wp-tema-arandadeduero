@@ -1,0 +1,26 @@
+js/event-poster.js
+  s_e9446e370cbe94::t_596eea5f64782d 1-43,65-95
+  s_e9446e370cbe94::t_ad3f1f92d4df9e 44-64
+css/aranda-de-duero.css
+  s_e9446e370cbe94::t_596eea5f64782d 2341-2402
+template-parts/content-mc-events.php
+  s_e9446e370cbe94::t_596eea5f64782d 14-22
+functions.php
+  s_e9446e370cbe94::t_596eea5f64782d 255-277
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "2ba5cf38508dc7aca3b4d313a429a5f7cd0cfa06",
+  "prompts": {},
+  "sessions": {
+    "s_e9446e370cbe94": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "1f562e24-39c2-46c2-bbfd-3ce887649604",
+        "model": "claude-sonnet-5-5"
+      },
+      "human_author": "Guillermo López <willyaranda@gmail.com>"
+    }
+  }
+}

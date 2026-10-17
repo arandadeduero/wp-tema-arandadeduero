@@ -1,0 +1,20 @@
+search.php
+  s_1b2194bed91d73::t_011180fb491682 12-13
+  s_1b2194bed91d73::t_12de0f26b8dc38 14-16
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "c1678ea59d145c1623f651019c00734e16ecc3be",
+  "prompts": {},
+  "sessions": {
+    "s_1b2194bed91d73": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "f868d310-8e5d-4fb7-86c8-3a94409426ab",
+        "model": "claude-sonnet-5-5"
+      },
+      "human_author": "Guillermo López <willyaranda@gmail.com>"
+    }
+  }
+}

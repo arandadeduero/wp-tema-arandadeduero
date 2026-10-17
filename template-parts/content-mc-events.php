@@ -15,6 +15,17 @@ defined( 'ABSPATH' ) || exit;
 	<header class="entry-header">
 		<?php
 		if ( is_singular() ) :
+			$aranda_event_categories = get_the_terms( get_the_ID(), 'mc-event-category' );
+			?>
+			<p class="event-kicker">
+				<a class="event-back-link" href="<?php echo esc_url( home_url( '/agenda/' ) ); ?>"><?php esc_html_e( 'Agenda', 'aranda-de-duero' ); ?></a>
+				<?php if ( is_array( $aranda_event_categories ) ) : ?>
+					<?php foreach ( $aranda_event_categories as $aranda_event_category ) : ?>
+						<span class="event-category"><?php echo esc_html( $aranda_event_category->name ); ?></span>
+					<?php endforeach; ?>
+				<?php endif; ?>
+			</p>
+			<?php
 			the_title( '<h1 class="entry-title">', '</h1>' );
 		else :
 			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );

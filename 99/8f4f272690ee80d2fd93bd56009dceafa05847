@@ -1,0 +1,21 @@
+MODERNIZATION.md
+  s_1b2194bed91d73::t_b9d7345a55ee4a 27-62,74
+README.md
+  s_1b2194bed91d73::t_b9d7345a55ee4a 20-21
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "998f4f272690ee80d2fd93bd56009dceafa05847",
+  "prompts": {},
+  "sessions": {
+    "s_1b2194bed91d73": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "f868d310-8e5d-4fb7-86c8-3a94409426ab",
+        "model": "claude-sonnet-5-5"
+      },
+      "human_author": "Guillermo López <willyaranda@gmail.com>"
+    }
+  }
+}

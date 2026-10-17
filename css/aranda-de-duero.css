@@ -272,8 +272,28 @@ header#masthead {
     text-decoration: underline;
 }
 
-.top-bar-appointment {
+/* Cita previa como botón: blanco con texto azul accesible (5,3:1); al pasar el ratón, el revés. */
+.top-bar .top-bar-appointment {
+    padding: 0.125rem var(--spacing-md);
+    border: 1px solid #fff;
+    border-radius: 999px;
+    background: #fff;
+    color: var(--color-primary-accessible);
     font-weight: 600;
+    line-height: 1.5;
+    text-decoration: none;
+}
+
+.top-bar .top-bar-appointment:hover,
+.top-bar .top-bar-appointment:focus-visible {
+    background: transparent;
+    color: #fff;
+    text-decoration: none;
+}
+
+.top-bar .top-bar-appointment:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 2px;
 }
 
 /* Secondary Menu */

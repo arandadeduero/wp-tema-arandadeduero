@@ -81,22 +81,23 @@ el procedimiento de gestión. Después, pegar su URL en el Personalizador.
 
 ## A2 · Banner de cookies
 
-**Es configuración del plugin «GDPR Cookie Compliance»; el tema no puede cambiarlo.** Hallazgos verificados en un
-navegador, sin interactuar:
+**Es configuración del plugin «GDPR Cookie Compliance»; el tema no puede cambiarlo.** Estado verificado en un navegador,
+sin interactuar, en dos momentos del 2026-10-17:
 
-| Observación | Detalle |
-|---|---|
-| Primera capa | Solo hay un botón **«Aceptar»** y un enlace/botón «ajustes». **No hay «Rechazar»** |
-| Panel de ajustes | Botones «Activar todo» y «Guardar ajustes». No hay «Rechazar todo» |
-| Antes de aceptar | No hay cookies instaladas, pero **se pide `stats.wp.com/e-202642.js` (Jetpack Stats), un tercero**, antes de cualquier consentimiento |
-| Política de cookies | No se encontró una página propia: solo el panel del plugin y menciones en el aviso legal y la política de privacidad |
+| Observación | Primera comprobación | Después (el ayuntamiento lo cambió) |
+|---|---|---|
+| Primera capa | Solo «Aceptar» y «ajustes». **Sin «Rechazar»** | «Aceptar», «Rechazar» y «ajustes» |
+| Panel de ajustes | «Activar todo» y «Guardar ajustes» | Añade **«Rechazar todo»** y una pestaña «Política de cookies» |
+| Política de cookies | Sin página propia ni enlace | El texto del banner enlaza a «política de cookies» (`/politica-privacidad/`) |
+| Antes de aceptar | Sin cookies, pero **se pide `stats.wp.com/e-202642.js` (Jetpack Stats), un tercero** | **Igual: sigue pidiéndose antes de cualquier consentimiento** (sin cookies instaladas) |
 
-La guía de cookies de la AEPD pide que rechazar sea tan fácil como aceptar y esté al mismo nivel
-([guía](https://www.aepd.es/sites/default/files/2020-07/guia-cookies.pdf)). **Qué revisar en los ajustes del plugin**
-(los nombres exactos de las opciones no se pudieron verificar): un botón de rechazo en la primera capa, un
-«Rechazar todo» en el panel, el bloqueo de scripts de terceros hasta que haya consentimiento, y una página de
-política de cookies con su enlace. Para Jetpack Stats: desactivarlo en los ajustes de Jetpack o bloquearlo por
-categoría hasta el consentimiento.
+Queda un punto: **Jetpack Stats se carga antes del consentimiento**. La guía de cookies de la AEPD
+([guía](https://www.aepd.es/sites/default/files/2020-07/guia-cookies.pdf)) trata distinto lo que no usa cookies, y si
+una analítica de terceros puede cargar sin consentimiento depende de cómo esté configurada: **confirmarlo con el
+delegado de protección de datos**. Opciones: desactivar las estadísticas en los ajustes de Jetpack, o bloquear ese
+script por categoría en el plugin de cookies hasta que haya consentimiento (los nombres exactos de las opciones no se
+pudieron verificar). La «política de cookies» enlazada apunta a la página general de privacidad, no a una propia;
+revisar que describa las cookies reales del sitio.
 
 ## A3 · Declaración de accesibilidad
 

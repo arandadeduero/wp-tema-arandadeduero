@@ -37,27 +37,27 @@
 					<ul class="list-unstyled footer-links">
 						<li class="mb-2">
 							<a href="https://sede.arandadeduero.es/sta/CarpetaPublic/doEvent?APP_CODE=STA&PAGE_CODE=CATALOGO">
-								→ Trámites online
+								Trámites online
 							</a>
 						</li>
 						<li class="mb-2">
 							<a href="<?php echo esc_url( aranda_de_duero_get_page_permalink_by_title( 'Agenda' ) ); ?>">
-								→ Agenda municipal
+								Agenda municipal
 							</a>
 						</li>
 						<li class="mb-2">
 							<a href="<?php echo esc_url( aranda_de_duero_get_page_permalink_by_title( 'Ayudas' ) ); ?>">
-								→ Ayudas y subvenciones
+								Ayudas y subvenciones
 							</a>
 						</li>
 						<li class="mb-2">
 							<a href="https://sede.arandadeduero.es/sta/CarpetaPublic/doEvent?APP_CODE=STA&PAGE_CODE=PTS2_TABLON">
-								→ Ofertas de empleo
+								Ofertas de empleo
 							</a>
 						</li>
 						<li class="mb-2">
 							<a href="https://sede.arandadeduero.es/">
-								→ Sede electrónica
+								Sede electrónica
 							</a>
 						</li>
 					</ul>
@@ -67,7 +67,7 @@
 				<div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
 					<h5 class="text-white mb-3">Contacto</h5>
 					<ul class="list-unstyled text-white-50 footer-contact-item">
-						<li class="mb-2">
+						<li class="footer-contact-row">
 							<?php
 							// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- aranda_de_duero_icon() returns SVG markup already sanitized by the WP 7.1 SVG Icon API (see inc/icons.php).
 							echo aranda_de_duero_icon(
@@ -78,10 +78,9 @@
 								)
 							);
 							?>
-							Plaza Mayor, 1<br>
-							<span class="ms-4">09400 Aranda de Duero, Burgos</span>
+							<span>Plaza Mayor, 1<br>09400 Aranda de Duero, Burgos</span>
 						</li>
-						<li class="mb-2">
+						<li class="footer-contact-row">
 							<?php
 							// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- aranda_de_duero_icon() returns SVG markup already sanitized by the WP 7.1 SVG Icon API (see inc/icons.php).
 							echo aranda_de_duero_icon(
@@ -92,9 +91,9 @@
 								)
 							);
 							?>
-							<a href="tel:947500100">947 500 100</a>
+							<span><a href="tel:947500100">947 500 100</a></span>
 						</li>
-						<li class="mb-2">
+						<li class="footer-contact-row">
 							<?php
 							// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- aranda_de_duero_icon() returns SVG markup already sanitized by the WP 7.1 SVG Icon API (see inc/icons.php).
 							echo aranda_de_duero_icon(
@@ -105,9 +104,9 @@
 								)
 							);
 							?>
-							<a href="mailto:atencionpublico@arandadeduero.es">atencionpublico@arandadeduero.es</a>
+							<span><a href="mailto:atencionpublico@arandadeduero.es">atencionpublico@arandadeduero.es</a></span>
 						</li>
-						<li class="mb-2">
+						<li class="footer-contact-row">
 							<?php
 							// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- aranda_de_duero_icon() returns SVG markup already sanitized by the WP 7.1 SVG Icon API (see inc/icons.php).
 							echo aranda_de_duero_icon(
@@ -118,7 +117,7 @@
 								)
 							);
 							?>
-							Lun - Vie: 8:30 - 14:30
+							<span>Lun - Vie: 8:30 - 14:30</span>
 						</li>
 					</ul>
 				</div>

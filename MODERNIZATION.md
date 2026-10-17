@@ -21,7 +21,7 @@ historial de git.
 - Iconos: Font Awesome Free 6.5.1 convertido a SVG y registrado con la API de iconos de WordPress 7.1
   (`inc/icons.php`); ya no se carga la webfont completa.
 - Variables CSS en `css/aranda-de-duero.css`; Stylelint con `npm run lint:css`.
-- Los colores del Customizer se aplican con un `<style>` en `wp_head`.
+- **Regla: no CSS inline.** Todo el CSS va en `css/aranda-de-duero.css`: nada de `style=""` en las plantillas ni de `<style>` en el HTML. Los colores del Customizer y de la cabecera solo imprimen variables `--aranda-*` en `:root` (`inc/customizer-css.php`, `inc/custom-header.php`) y las reglas están en el fichero. Bootstrap carga después: refuerza el selector en vez de recurrir a `style=`.
 
 ## PHP
 

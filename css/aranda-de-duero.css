@@ -438,6 +438,196 @@ header .custom-logo-link {
     color: var(--color-primary);
 }
 
+/* Botón de submenú que añade js/navigation.js: solo se ve en el menú móvil. */
+.submenu-toggle {
+    display: none;
+}
+
+/*
+ * Menú móvil propio (≤ 767 px), en lugar del del plugin Mobile Menu. El plugin oculta .site-header, .site-branding y
+ * .main-navigation con `display: none !important` y pinta su propia barra y panel; aquí se recuperan con selectores
+ * más específicos (también con !important) y se oculta lo suyo. Si se desactiva el plugin, este bloque sigue valiendo.
+ * Logo y botón en una fila; el menú es un panel apilado debajo, con submenús en acordeón (js/navigation.js).
+ */
+@media (width <= 767px) {
+    body .mob-menu-header-holder,
+    body .mobmenu,
+    body .mobmenu-panel,
+    body .mobmenu-overlay,
+    body .mob_menu {
+        display: none !important;
+    }
+
+    /* El plugin reserva 50 px arriba para su barra fija. */
+    html body[class*='mob-menu'] {
+        padding-top: 0;
+    }
+
+    body header#masthead.site-header {
+        display: flex !important;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0;
+        padding: var(--spacing-sm) var(--spacing-md);
+    }
+
+    body .site-branding {
+        display: block !important;
+        flex: 1 1 auto;
+        max-width: 200px;
+    }
+
+    /* El contenedor y la navegación no pintan caja: el botón y la lista son hijos directos del flex de la cabecera. */
+    body .header-nav,
+    body .main-navigation {
+        display: contents !important;
+    }
+
+    body .menu-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 2.75rem;
+        height: 2.75rem;
+        margin-left: auto;
+        padding: 0;
+        position: relative;
+        border: 1px solid var(--color-border);
+        border-radius: var(--border-radius-lg);
+        background: var(--color-white);
+        color: var(--color-text);
+        cursor: pointer;
+    }
+
+    body .menu-toggle svg {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+
+    /* Abierto: la raya del icono se sustituye por una cruz dibujada con CSS. */
+    body .menu-toggle[aria-expanded='true'] svg {
+        display: none;
+    }
+
+    body .menu-toggle[aria-expanded='true']::before,
+    body .menu-toggle[aria-expanded='true']::after {
+        content: '';
+        position: absolute;
+        width: 1.5rem;
+        height: 2px;
+        border-radius: 1px;
+        background: currentcolor;
+        transform: rotate(45deg);
+    }
+
+    body .menu-toggle[aria-expanded='true']::after {
+        transform: rotate(-45deg);
+    }
+
+    body #primary-menu {
+        display: none;
+        order: 3;
+        flex: 0 0 100%;
+        margin: var(--spacing-sm) 0 0;
+        padding: 0;
+        border-top: 1px solid var(--color-border);
+        list-style: none;
+    }
+
+    body .main-navigation.toggled #primary-menu {
+        display: block;
+    }
+
+    body #primary-menu > li,
+    body #primary-menu .sub-menu li {
+        display: block;
+        position: relative;
+        margin: 0;
+        padding: 0;
+        border-bottom: 1px solid var(--color-border);
+        font-size: 1.0625rem;
+        text-decoration: none;
+    }
+
+    body #primary-menu li > a {
+        display: flex;
+        align-items: center;
+        min-height: 3rem; /* zona táctil */
+        padding: var(--spacing-sm) var(--spacing-md);
+        color: var(--color-text);
+        text-decoration: none;
+    }
+
+    body #primary-menu > li:hover {
+        text-decoration: none;
+    }
+
+    body #primary-menu > li.menu-item-has-children > a {
+        padding-right: 3.5rem; /* sitio para el botón del submenú */
+    }
+
+    .submenu-toggle {
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 3rem;
+        height: 3rem;
+        padding: 0;
+        border: 0;
+        background: none;
+        color: var(--color-text);
+        cursor: pointer;
+    }
+
+    /* Flecha dibujada con CSS: apunta abajo y gira al abrir. */
+    .submenu-toggle::before {
+        content: '';
+        display: block;
+        width: 0.5rem;
+        height: 0.5rem;
+        margin: 0 auto;
+        border-right: 2px solid currentcolor;
+        border-bottom: 2px solid currentcolor;
+        transform: translateY(-2px) rotate(45deg);
+        transition: transform var(--transition-fast);
+    }
+
+    .submenu-toggle[aria-expanded='true']::before {
+        transform: translateY(2px) rotate(-135deg);
+    }
+
+    /* Submenús: ocultos hasta pulsar su botón (solo si el JS lo ha añadido, para no esconderlos sin él). */
+    body #primary-menu.has-submenu-toggles .sub-menu {
+        display: none;
+    }
+
+    body #primary-menu.has-submenu-toggles .is-open > .sub-menu {
+        display: block;
+    }
+
+    body #primary-menu .sub-menu {
+        float: none; /* style.css lo flota a la izquierda: el elemento siguiente quedaba encima y se comía los toques */
+        position: static;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        box-shadow: none;
+        background: var(--color-primary-light);
+        list-style: none;
+    }
+
+    body #primary-menu .sub-menu li:last-child {
+        border-bottom: 0;
+    }
+
+    body #primary-menu .sub-menu li > a {
+        width: 100%; /* style.css fija 200 px en los submenús de escritorio */
+        padding-left: var(--spacing-xl);
+        font-size: 1rem;
+    }
+}
+
 /* Submenus */
 .sub-menu {
     list-style: none;

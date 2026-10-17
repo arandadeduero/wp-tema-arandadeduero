@@ -98,7 +98,11 @@
 
 				<!-- Navigation -->
 				<div class="header-nav">
-					<nav id="site-navigation" class="main-navigation" aria-label="<?php esc_attr_e( 'Primary Menu', 'aranda-de-duero' ); ?>">
+					<?php
+					/* translators: %s: name of a menu item that has a submenu. */
+					$aranda_submenu_label = __( 'Mostrar submenú de %s', 'aranda-de-duero' );
+					?>
+					<nav id="site-navigation" class="main-navigation" aria-label="<?php esc_attr_e( 'Primary Menu', 'aranda-de-duero' ); ?>" data-submenu-label="<?php echo esc_attr( $aranda_submenu_label ); ?>">
 						<button class="menu-toggle"
 							aria-controls="primary-menu"
 							aria-expanded="false"

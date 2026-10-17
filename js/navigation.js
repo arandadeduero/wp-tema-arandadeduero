@@ -44,6 +44,68 @@
     // Ensure menu has correct class
     menu.classList.add('nav-menu');
 
+    // Phone layout (the same breakpoint as the CSS): the menu is a stacked panel with accordion submenus.
+    const phone = window.matchMedia('(max-width: 767px)');
+    const closeMenu = () => {
+        nav.classList.remove('toggled');
+        toggle.setAttribute('aria-expanded', 'false');
+        menu.querySelectorAll('.is-open').forEach((item) => {
+            item.classList.remove('is-open');
+            const button = item.querySelector(':scope > .submenu-toggle');
+            if (button) button.setAttribute('aria-expanded', 'false');
+        });
+    };
+
+    // One button per item with children, so the link itself still goes to its page.
+    const labelTemplate = nav.dataset.submenuLabel || '%s';
+    menu.querySelectorAll('.menu-item-has-children').forEach((item) => {
+        const link = item.querySelector(':scope > a');
+        if (!link) return;
+
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'submenu-toggle';
+        button.setAttribute('aria-expanded', 'false');
+        button.setAttribute('aria-label', labelTemplate.replace('%s', link.textContent.trim()));
+        const toggleSubmenu = () => {
+            const open = !item.classList.contains('is-open');
+            // Accordion: only one submenu open at a time.
+            Array.from(item.parentNode.children).forEach((sibling) => {
+                sibling.classList.remove('is-open');
+                const other = sibling.querySelector(':scope > .submenu-toggle');
+                if (other) other.setAttribute('aria-expanded', 'false');
+            });
+            item.classList.toggle('is-open', open);
+            button.setAttribute('aria-expanded', String(open));
+        };
+        button.addEventListener('click', toggleSubmenu);
+
+        // A parent whose link is only "#" has no page: on phones its label opens the submenu too.
+        const href = link.getAttribute('href');
+        if (!href || href === '#') {
+            link.addEventListener('click', (e) => {
+                if (!phone.matches) return;
+                e.preventDefault();
+                toggleSubmenu();
+            });
+        }
+        link.after(button);
+    });
+    menu.classList.add('has-submenu-toggles');
+
+    // Escape closes the panel and gives the focus back to the button.
+    nav.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && nav.classList.contains('toggled')) {
+            closeMenu();
+            toggle.focus();
+        }
+    });
+
+    // Back to desktop: forget the panel state.
+    phone.addEventListener('change', (e) => {
+        if (!e.matches) closeMenu();
+    });
+
     // Handle menu toggle button click
     toggle.addEventListener('click', () => {
         nav.classList.toggle('toggled');
@@ -92,6 +154,8 @@
         }
 
         if (event.type === 'touchstart') {
+            // On phones the link navigates and the submenu button opens the submenu.
+            if (window.matchMedia('(max-width: 767px)').matches) return;
             event.preventDefault();
             const menuItem = this.parentNode;
             const siblings = Array.from(menuItem.parentNode.children);

@@ -17,6 +17,8 @@ JavaScript sin jQuery e iconos SVG mediante la API de iconos de WordPress 7.1.
   Se desactivan si hay Yoast, Rank Math, AIOSEO o SEOPress. Ver `inc/social-meta.php` y `inc/structured-data.php`.
 - **Rendimiento:** versión de assets por `filemtime()`, scripts con `defer`, precarga de la fuente,
   Speculation Rules en modo `prerender` (`inc/speculation-rules.php`).
+- **Consultas:** la agenda de eventos se cachea en un transient y se invalida al editar eventos (`inc/events.php`).
+- **Accesibilidad:** el Customizer rechaza combinaciones de color por debajo de 4,5:1 (`inc/color-contrast.php`).
 - **Seguridad:** el JavaScript personalizado del Customizer exige `unfiltered_html`;
   todos los ajustes del Customizer tienen `sanitize_callback`.
 - **Patrones de bloques** en `inc/block-patterns.php` y paleta/tipografía en `theme.json`.

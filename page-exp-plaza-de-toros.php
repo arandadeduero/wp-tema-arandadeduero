@@ -44,10 +44,10 @@ aranda_de_duero_the_header_image( '' );
 
 			<div class="col">
 				<div class="card h-100 shadow-sm position-relative">
-					<img loading="lazy" decoding="async" src="https://www.arandadeduero.es/wp-content/uploads/2026/06/pdt-chata.jpg" class="card-img-top" style="height:220px;object-fit:cover" alt="Plaza de toros La Chata">
+					<img loading="lazy" decoding="async" src="<?php echo esc_url( content_url( '/uploads/2026/06/pdt-chata.jpg' ) ); ?>" class="card-img-top" style="height:220px;object-fit:cover" alt="Plaza de toros La Chata">
 					<div class="card-body p-4">
 						<h3 class="h5 fw-bold mb-2">
-							<a href="https://www.arandadeduero.es/wp-content/uploads/2026/06/pdt-NdP-1-origen-plaza-de-toros-Aranda.pdf" class="stretched-link text-decoration-none" target="_blank" rel="noopener">Nota de prensa 1 - Sobre la desafectación y enajenación</a>
+							<a href="<?php echo esc_url( content_url( '/uploads/2026/06/pdt-NdP-1-origen-plaza-de-toros-Aranda.pdf' ) ); ?>" class="stretched-link text-decoration-none" target="_blank" rel="noopener">Nota de prensa 1 - Sobre la desafectación y enajenación</a>
 						</h3>
 						<p class="card-text text-secondary mb-0">Descripción breve sobre el proceso inicial de desafectación y enajenación.</p>
 					</div>
@@ -56,10 +56,10 @@ aranda_de_duero_the_header_image( '' );
 
 			<div class="col">
 				<div class="card h-100 shadow-sm position-relative">
-					<img loading="lazy" decoding="async" src="https://www.arandadeduero.es/wp-content/uploads/2026/07/pdt-firmas.jpg" class="card-img-top" style="height:220px;object-fit:cover" alt="Firmas del expediente">
+					<img loading="lazy" decoding="async" src="<?php echo esc_url( content_url( '/uploads/2026/07/pdt-firmas.jpg' ) ); ?>" class="card-img-top" style="height:220px;object-fit:cover" alt="Firmas del expediente">
 					<div class="card-body p-4">
 						<h3 class="h5 fw-bold mb-2">
-							<a href="https://www.arandadeduero.es/wp-content/uploads/2026/07/pdt-NdP-Plaza-de-Toros-2.pdf" class="stretched-link text-decoration-none" target="_blank" rel="noopener">Nota de prensa 2 - Sobre la valoración económica, la falta de fiscalización y firma de un gobierno en funciones</a>
+							<a href="<?php echo esc_url( content_url( '/uploads/2026/07/pdt-NdP-Plaza-de-Toros-2.pdf' ) ); ?>" class="stretched-link text-decoration-none" target="_blank" rel="noopener">Nota de prensa 2 - Sobre la valoración económica, la falta de fiscalización y firma de un gobierno en funciones</a>
 						</h3>
 						<p class="card-text text-secondary mb-0">Se exponen las irregularidades administrativas, urbanísticas y económicas cometidas entre 2002 y 2003 en la venta de la antigua plaza de toros. Entre ellas destacan la infravaloración del suelo, la falta de fiscalización previa y la firma final en funciones sin cobrar el importe total ni exigir garantías.</p>
 					</div>
@@ -68,10 +68,10 @@ aranda_de_duero_the_header_image( '' );
 
 			<div class="col">
 				<div class="card h-100 shadow-sm position-relative">
-					<img loading="lazy" decoding="async" src="https://www.arandadeduero.es/wp-content/uploads/2026/09/pdt-nueva.jpg" class="card-img-top" style="height:220px;object-fit:cover" alt="Plaza de toros La Chata">
+					<img loading="lazy" decoding="async" src="<?php echo esc_url( content_url( '/uploads/2026/09/pdt-nueva.jpg' ) ); ?>" class="card-img-top" style="height:220px;object-fit:cover" alt="Plaza de toros La Chata">
 					<div class="card-body p-4">
 						<h3 class="h5 fw-bold mb-2">
-							<a href="https://www.arandadeduero.es/wp-content/uploads/2026/09/pdt-NdP-3-construccion-licencias-incumplimientos.pdf" class="stretched-link text-decoration-none" target="_blank" rel="noopener">Nota de prensa 3 - Sobre la construcción, licencias e incumplimientos</a>
+							<a href="<?php echo esc_url( content_url( '/uploads/2026/09/pdt-NdP-3-construccion-licencias-incumplimientos.pdf' ) ); ?>" class="stretched-link text-decoration-none" target="_blank" rel="noopener">Nota de prensa 3 - Sobre la construcción, licencias e incumplimientos</a>
 						</h3>
 						<p class="card-text text-secondary mb-0">Descripción detallada sobre la construcción, las licencias y los incumplimientos.</p>
 					</div>
@@ -80,7 +80,7 @@ aranda_de_duero_the_header_image( '' );
 
 			<div class="col">
 				<div class="card h-100 border-dashed bg-light" style="border-style:dashed">
-					<img loading="lazy" decoding="async" src="https://www.arandadeduero.es/wp-content/uploads/2026/07/pdt-firmas.jpg" class="card-img-top" style="height:220px;object-fit:cover;opacity:.4;filter:grayscale(1)" alt="">
+					<img loading="lazy" decoding="async" src="<?php echo esc_url( content_url( '/uploads/2026/07/pdt-firmas.jpg' ) ); ?>" class="card-img-top" style="height:220px;object-fit:cover;opacity:.4;filter:grayscale(1)" alt="">
 					<div class="card-body p-4">
 						<span class="badge bg-secondary mb-2">Próximamente</span>
 						<h3 class="h5 fw-bold text-muted mb-2">Nota de prensa 4</h3>
@@ -102,7 +102,7 @@ aranda_de_duero_the_header_image( '' );
 				<div class="card h-100 shadow-sm border-primary position-relative">
 					<div class="card-body p-4">
 						<h3 class="h6 card-title mb-2">
-							<a href="https://www.arandadeduero.es/wp-content/uploads/2026/09/pdt-20260302-IJ-Relación-de-las-deficiencias-jurídicas-observadas.pdf" class="stretched-link text-primary text-decoration-none" target="_blank" rel="noopener">⚖️ Relación de las deficiencias jurídicas observadas (02/03/2026)</a>
+							<a href="<?php echo esc_url( content_url( '/uploads/2026/09/pdt-20260302-IJ-Relación-de-las-deficiencias-jurídicas-observadas.pdf' ) ); ?>" class="stretched-link text-primary text-decoration-none" target="_blank" rel="noopener">⚖️ Relación de las deficiencias jurídicas observadas (02/03/2026)</a>
 						</h3>
 						<p class=" card-text text-muted small mb-0">Informe jurídico sobre las deficiencias jurídicas observadas en el expediente.</p>
 					</div>
@@ -113,7 +113,7 @@ aranda_de_duero_the_header_image( '' );
 				<div class="card h-100 shadow-sm border-primary position-relative">
 					<div class="card-body p-4">
 						<h3 class="h6 card-title mb-2">
-							<a href="https://www.arandadeduero.es/wp-content/uploads/2026/09/pdt-20260305-IJ-Informe-Jurídico-sobre-el-cumplimiento-del-contrato-de-enajenación-de-los-terrenos-de-Plaza-de-Toros.pdf" class="stretched-link text-primary text-decoration-none" target="_blank" rel="noopener">⚖️ Informe sobre el cumplimiento del contrato de enajenación (05/03/2026)</a>
+							<a href="<?php echo esc_url( content_url( '/uploads/2026/09/pdt-20260305-IJ-Informe-Jurídico-sobre-el-cumplimiento-del-contrato-de-enajenación-de-los-terrenos-de-Plaza-de-Toros.pdf' ) ); ?>" class="stretched-link text-primary text-decoration-none" target="_blank" rel="noopener">⚖️ Informe sobre el cumplimiento del contrato de enajenación (05/03/2026)</a>
 						</h3>
 						<p class="card-text text-muted small mb-0">Informe jurídico sobre el cumplimiento del contrato de enajenación de los terrenos de la Plaza de Toros.</p>
 					</div>
@@ -124,7 +124,7 @@ aranda_de_duero_the_header_image( '' );
 				<div class="card h-100 shadow-sm border-primary position-relative">
 					<div class="card-body p-4">
 						<h3 class="h6 card-title mb-2">
-							<a href="https://www.arandadeduero.es/wp-content/uploads/2026/09/pdt-20260806-IJ-Informe-Jurídico-sobre-procedimiento-de-enajenación-de-la-Plaza-de-toros-Informe-jurídico.pdf" class="stretched-link text-primary text-decoration-none" target="_blank" rel="noopener">⚖️ Informe sobre el procedimiento de enajenación (06/08/2026)</a>
+							<a href="<?php echo esc_url( content_url( '/uploads/2026/09/pdt-20260806-IJ-Informe-Jurídico-sobre-procedimiento-de-enajenación-de-la-Plaza-de-toros-Informe-jurídico.pdf' ) ); ?>" class="stretched-link text-primary text-decoration-none" target="_blank" rel="noopener">⚖️ Informe sobre el procedimiento de enajenación (06/08/2026)</a>
 						</h3>
 						<p class="card-text text-muted small mb-0">Informe jurídico sobre el procedimiento de enajenación de la Plaza de Toros.</p>
 					</div>
@@ -135,7 +135,7 @@ aranda_de_duero_the_header_image( '' );
 				<div class="card h-100 shadow-sm border-primary position-relative">
 					<div class="card-body p-4">
 						<h3 class="h6 card-title mb-2">
-							<a href="https://www.arandadeduero.es/wp-content/uploads/2026/09/pdt-20260814-IJ-Informe-descripción-deficiencias-de-tramitación-expediente-Plaza-de-Toros.pdf" class="stretched-link text-primary text-decoration-none" target="_blank" rel="noopener">⚖️ Descripción de las deficiencias de tramitación del expediente (14/08/2026)</a>
+							<a href="<?php echo esc_url( content_url( '/uploads/2026/09/pdt-20260814-IJ-Informe-descripción-deficiencias-de-tramitación-expediente-Plaza-de-Toros.pdf' ) ); ?>" class="stretched-link text-primary text-decoration-none" target="_blank" rel="noopener">⚖️ Descripción de las deficiencias de tramitación del expediente (14/08/2026)</a>
 						</h3>
 						<p class="card-text text-muted small mb-0">Informe jurídico que describe las deficiencias de tramitación del expediente de la Plaza de Toros.</p>
 					</div>
@@ -154,28 +154,28 @@ aranda_de_duero_the_header_image( '' );
 			<div class="col">
 				<div class="card h-100 shadow-sm position-relative">
 					<div class="card-body p-3">
-						<a href="https://www.arandadeduero.es/wp-content/uploads/2026/06/pdt-Doc-Anexa-7-Dictamen-C-O.pdf" class="stretched-link text-decoration-none" target="_blank" rel="noopener">📄 Documento 7 - Dictamen de la comisión de obras</a>
+						<a href="<?php echo esc_url( content_url( '/uploads/2026/06/pdt-Doc-Anexa-7-Dictamen-C-O.pdf' ) ); ?>" class="stretched-link text-decoration-none" target="_blank" rel="noopener">📄 Documento 7 - Dictamen de la comisión de obras</a>
 					</div>
 				</div>
 			</div>
 			<div class="col">
 				<div class="card h-100 shadow-sm position-relative">
 					<div class="card-body p-3">
-						<a href="https://www.arandadeduero.es/wp-content/uploads/2026/06/pdt-Doc-Anexa-9-Asunto-Cambio-de-calificación.pdf" class="stretched-link text-decoration-none" target="_blank" rel="noopener">📄 Documento 9 - Propuesta política de cambio de calificación</a>
+						<a href="<?php echo esc_url( content_url( '/uploads/2026/06/pdt-Doc-Anexa-9-Asunto-Cambio-de-calificación.pdf' ) ); ?>" class="stretched-link text-decoration-none" target="_blank" rel="noopener">📄 Documento 9 - Propuesta política de cambio de calificación</a>
 					</div>
 				</div>
 			</div>
 			<div class="col">
 				<div class="card h-100 shadow-sm position-relative">
 					<div class="card-body p-3">
-						<a href="https://www.arandadeduero.es/wp-content/uploads/2026/09/pdt-20250730-Providencia.pdf" class="stretched-link text-decoration-none" target="_blank" rel="noopener">📄 Providencia (30/07/2025)</a>
+						<a href="<?php echo esc_url( content_url( '/uploads/2026/09/pdt-20250730-Providencia.pdf' ) ); ?>" class="stretched-link text-decoration-none" target="_blank" rel="noopener">📄 Providencia (30/07/2025)</a>
 					</div>
 				</div>
 			</div>
 			<div class="col">
 				<div class="card h-100 shadow-sm position-relative">
 					<div class="card-body p-3">
-						<a href="https://www.arandadeduero.es/wp-content/uploads/2026/09/pdt-20250819-IT-festejos.pdf" class="stretched-link text-decoration-none" target="_blank" rel="noopener">📄 Informe Técnico sobre festejos (19/08/2025)</a>
+						<a href="<?php echo esc_url( content_url( '/uploads/2026/09/pdt-20250819-IT-festejos.pdf' ) ); ?>" class="stretched-link text-decoration-none" target="_blank" rel="noopener">📄 Informe Técnico sobre festejos (19/08/2025)</a>
 					</div>
 				</div>
 			</div>
@@ -190,7 +190,7 @@ aranda_de_duero_the_header_image( '' );
 		<div class="card shadow-sm border-primary position-relative">
 			<div class="card-body text-center p-4">
 				<h3 class="h5 card-title mb-2">
-					<a href="https://www.arandadeduero.es/wp-content/uploads/2026/06/pdt-expediente-glosario.pdf" class="stretched-link text-primary text-decoration-none" target="_blank" rel="noopener">📖 Acceso al Glosario Técnico</a>
+					<a href="<?php echo esc_url( content_url( '/uploads/2026/06/pdt-expediente-glosario.pdf' ) ); ?>" class="stretched-link text-primary text-decoration-none" target="_blank" rel="noopener">📖 Acceso al Glosario Técnico</a>
 				</h3>
 				<p class="card-text text-muted mb-0">Haz clic aquí para descargar el documento completo.</p>
 			</div>

@@ -11,7 +11,15 @@ defined( 'ABSPATH' ) || exit;
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<?php
+// Original size of the poster, for the pop-up preview and the download (js/event-poster.js).
+$aranda_poster_url = is_singular() && has_post_thumbnail() ? wp_get_attachment_url( get_post_thumbnail_id() ) : '';
+?>
+<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>
+	<?php
+	if ( $aranda_poster_url ) :
+		?>
+		data-poster-full="<?php echo esc_url( $aranda_poster_url ); ?>"<?php endif; ?>>
 	<header class="entry-header">
 		<?php
 		if ( is_singular() ) :

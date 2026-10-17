@@ -2338,6 +2338,68 @@ textarea:focus {
     box-shadow: 0 4px 16px rgb(0 0 0 / 15%);
 }
 
+/* Cartel ampliable (js/event-poster.js): cursor de lupa y ventana nativa <dialog> con el cartel y sus botones. */
+.single-mc-events .single-event .mc-image.is-zoomable {
+    cursor: zoom-in;
+}
+
+.single-mc-events .single-event .mc-image.is-zoomable:focus-visible {
+    outline: 3px solid var(--color-primary-accessible);
+    outline-offset: 3px;
+}
+
+.poster-dialog {
+    max-width: min(96vw, 1000px);
+    max-height: 96vh;
+    margin: auto;
+    padding: var(--spacing-md);
+    border: 0;
+    border-radius: var(--border-radius-lg);
+    background: var(--color-white);
+}
+
+.poster-dialog::backdrop {
+    background: rgb(0 0 0 / 80%);
+}
+
+.poster-dialog-image {
+    display: block;
+    max-width: 100%;
+    max-height: calc(96vh - 5.5rem);
+    margin-inline: auto;
+    object-fit: contain;
+}
+
+.poster-dialog-bar {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-md);
+}
+
+.poster-dialog-button {
+    padding: 0.375rem 1rem;
+    border: 1px solid var(--color-primary-accessible);
+    border-radius: 999px;
+    background: var(--color-primary-accessible);
+    color: var(--color-white);
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+button.poster-dialog-button {
+    background: var(--color-white);
+    color: var(--color-primary-accessible);
+}
+
+.poster-dialog-button:hover,
+.poster-dialog-button:focus-visible {
+    background: var(--color-primary-light);
+    color: var(--color-primary-accessible);
+}
+
 .single-mc-events .single-event .time-block {
     padding: var(--spacing-md) var(--spacing-lg);
     border-left: 4px solid var(--color-primary);

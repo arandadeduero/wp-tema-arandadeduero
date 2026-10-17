@@ -1,0 +1,22 @@
+page-ayuntamiento.php
+  s_e9446e370cbe94::t_ce96938ad00f31 24,26-29,31-33,35-40,42
+  s_e9446e370cbe94::t_dae48f4edc2e84 18,20-22,44-52
+css/aranda-de-duero.css
+  s_e9446e370cbe94::t_ce96938ad00f31 2629-2639
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "9192a0c3df63fdaaa598d8e3fff87c22e5a9901b",
+  "prompts": {},
+  "sessions": {
+    "s_e9446e370cbe94": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "1f562e24-39c2-46c2-bbfd-3ce887649604",
+        "model": "claude-sonnet-5-5"
+      },
+      "human_author": "Guillermo López <willyaranda@gmail.com>"
+    }
+  }
+}

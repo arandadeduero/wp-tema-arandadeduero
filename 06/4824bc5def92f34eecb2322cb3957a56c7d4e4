@@ -1,0 +1,21 @@
+MEJORAS-OTROS-AYUNTAMIENTOS.md
+  s_1b2194bed91d73::t_17e345e66aaf93 60,78,116,158-160
+docs/cumplimiento-bloque-a.md
+  s_1b2194bed91d73::t_17e345e66aaf93 84-85,87-100
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "064824bc5def92f34eecb2322cb3957a56c7d4e4",
+  "prompts": {},
+  "sessions": {
+    "s_1b2194bed91d73": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "f868d310-8e5d-4fb7-86c8-3a94409426ab",
+        "model": "claude-sonnet-5-5"
+      },
+      "human_author": "Guillermo López <willyaranda@gmail.com>"
+    }
+  }
+}

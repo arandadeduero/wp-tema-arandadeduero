@@ -31,8 +31,23 @@ El azul de marca `#0083c1` **no llega al 4,5:1 exigible ni sobre fondo blanco** 
 se corrigen oscureciendo su fondo; esa parte no se pudo medir en la copia, porque el contenido de «Especiales» se
 carga por AJAX.
 
-> **Pendiente de verificar tras desplegar:** repetir la auditoría sobre la web real, en la home y en una página
-> interior. Aquí se verificó sobre una copia de la home, no sobre la web en producción.
+## Verificación en producción (2026-10-17, tras desplegar el PR #21)
+
+Lighthouse sobre la web real, escritorio:
+
+| Página | Accesibilidad | SEO | Qué falla |
+|---|---|---|---|
+| Home | **100** | **100** | Solo el error de consola de `stats.wp.com` (ver A2). Confirma también que las 11 tarjetas de «Especiales», que en la copia no se pudieron medir, ya cumplen el contraste |
+| `/noticias/` | 97 | 100 | Texto blanco sobre el azul de marca en el menú activo y en los botones «Ver más» |
+| Una noticia | 97 | 100 | Botones de descarga con el texto azul sobre gris oscuro (2,43:1) |
+| `/agenda/` | 94 | 100 | Menú activo, botones «Mes» y «Hoy» del calendario |
+| `/preguntas-mas-frecuentes/` | 95 | 100 | Menú activo y orden de encabezados del contenido |
+
+Lo anterior, salvo el último punto, se corrige en el PR #22. **Pendiente:** repetir la auditoría en estas páginas tras
+desplegarlo. Dos cosas se vieron y **no** se tocan: el orden de encabezados de `/preguntas-mas-frecuentes/` es
+contenido (el editor usa `h1` y luego `h3`), y un enlace de evento sin texto en la agenda no se pudo reproducir
+(33 enlaces, ninguno vacío al volver a mirar). Un CLS de 0,889 en la categoría «navegación para agentes» tampoco se
+reproduce en una traza normal (0,05, que es bueno).
 
 ---
 

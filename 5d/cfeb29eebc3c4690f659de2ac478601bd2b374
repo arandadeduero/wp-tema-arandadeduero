@@ -1,0 +1,49 @@
+tests/CustomizerCssTest.php
+  s_e9446e370cbe94::t_14e7e0cf481a91 1-64
+inc/custom-header.php
+  s_e9446e370cbe94::t_942307c4a6fede 54-59,62-63,69-85
+page-tramite.php
+  s_e9446e370cbe94::t_a496c5adfad10b 38
+functions.php
+  s_e9446e370cbe94::t_b80359f6c4b5bd 308-311
+  s_e9446e370cbe94::t_942307c4a6fede 602,607-610
+  s_e9446e370cbe94::t_a496c5adfad10b 794
+  s_e9446e370cbe94::t_eeb29f674409fe 307
+page-subvenciones.php
+  s_e9446e370cbe94::t_a496c5adfad10b 25,68,89
+page-news.php
+  s_e9446e370cbe94::t_a496c5adfad10b 73,79,89,94
+inc/customizer-css.php
+  s_e9446e370cbe94::t_b80359f6c4b5bd 1-27
+page-home.php
+  s_e9446e370cbe94::t_a496c5adfad10b 43,73,125,148,213
+page-notas-de-prensa.php
+  s_e9446e370cbe94::t_a496c5adfad10b 26,68,89
+template-parts/content-search.php
+  s_e9446e370cbe94::t_a496c5adfad10b 17
+css/aranda-de-duero.css
+  s_e9446e370cbe94::t_0516f3ba6c518f 74-76,78-106,108-116,782-785,1060-1064,1206-1235,1949-1952,2021-2040
+  s_e9446e370cbe94::t_ce5e0bff54f263 77,107
+inc/block-patterns.php
+  s_e9446e370cbe94::t_a496c5adfad10b 50
+page-exp-plaza-de-toros.php
+  s_e9446e370cbe94::t_a496c5adfad10b 29,32,47,59,71,82-83
+page-bandos.php
+  s_e9446e370cbe94::t_a496c5adfad10b 26,68,89
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "5dcfeb29eebc3c4690f659de2ac478601bd2b374",
+  "prompts": {},
+  "sessions": {
+    "s_e9446e370cbe94": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "1f562e24-39c2-46c2-bbfd-3ce887649604",
+        "model": "claude-sonnet-5-5"
+      },
+      "human_author": "Guillermo López <willyaranda@gmail.com>"
+    }
+  }
+}

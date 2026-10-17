@@ -2626,3 +2626,14 @@ button.poster-dialog-button {
         grid-template-columns: minmax(0, 1fr);
     }
 }
+
+/* Título visible de las páginas con plantilla propia (page-ayuntamiento.php). */
+.page-heading {
+    margin-bottom: var(--spacing-xl);
+}
+
+.page-heading .entry-title {
+    margin: 0;
+    font-size: clamp(1.75rem, 3.2vw, 2.5rem);
+    line-height: 1.2;
+}

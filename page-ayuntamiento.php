@@ -15,33 +15,41 @@ aranda_de_duero_the_header_image( 'Cabecera página ayuntamiento' );
 ?>
 
 	<div class="container mt-4">
-		<div class="row">
-			<div class="col-lg-3 pt-4">
-				<?php dynamic_sidebar( 'Ayuntamiento' ); ?>
-			</div>
-			<div class="col-lg-9">
-				<main id="primary" class="site-main">
+		<main id="primary" class="site-main">
 
-					<?php
-					while ( have_posts() ) :
+			<?php
+			while ( have_posts() ) :
+				the_post();
 
+				?>
 
-						the_post();
+				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+					<header class="page-heading">
+						<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+					</header><!-- .page-heading -->
 
-						get_template_part( 'template-parts/content', 'page-notitle' );
+					<div class="entry-content">
+						<?php the_content(); ?>
+					</div><!-- .entry-content -->
 
-						// If comments are open or we have at least one comment, load up the comment template.
-						if ( comments_open() || get_comments_number() ) :
-							comments_template();
-						endif;
+					<?php if ( get_edit_post_link() ) : ?>
+						<footer class="entry-footer">
+							<?php edit_post_link( esc_html__( 'Edit', 'aranda-de-duero' ), '<span class="edit-link">', '</span>' ); ?>
+						</footer><!-- .entry-footer -->
+					<?php endif; ?>
+				</article><!-- #post-<?php the_ID(); ?> -->
 
-					endwhile; // End of the loop.
-					?>
+				<?php
 
-				</main><!-- #main -->
-			</div>
-			
-		</div>
+				// If comments are open or we have at least one comment, load up the comment template.
+				if ( comments_open() || get_comments_number() ) :
+					comments_template();
+				endif;
+
+			endwhile; // End of the loop.
+			?>
+
+		</main><!-- #main -->
 	</div>
 
 <?php

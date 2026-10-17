@@ -130,14 +130,16 @@ add_filter( 'nav_menu_link_attributes', 'aranda_de_duero_menu_link_href' );
 /**
  * Contact data shown in the top bar of the header and in the footer, so both always agree.
  *
- * @return array{phone: string, phone_href: string, hours: string, appointment_url: string}
+ * @return array{phone: string, phone_href: string, hours: string, appointment_url: string, transparency_url: string, sede_url: string}
  */
 function aranda_de_duero_contact_info() {
 	$info = array(
-		'phone'           => '947 500 100',
-		'phone_href'      => 'tel:947500100',
-		'hours'           => 'Lun - Vie: 8:30 - 14:30',
-		'appointment_url' => 'https://citaprevia.arandadeduero.es/',
+		'phone'            => '947 500 100',
+		'phone_href'       => 'tel:947500100',
+		'hours'            => 'Lun - Vie: 8:30 - 14:30',
+		'appointment_url'  => 'https://citaprevia.arandadeduero.es/',
+		'transparency_url' => 'https://transparencia.arandadeduero.es/',
+		'sede_url'         => 'https://sede.arandadeduero.es/',
 	);
 
 	return apply_filters( 'aranda_de_duero_contact_info', $info );

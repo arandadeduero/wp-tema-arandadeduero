@@ -17,6 +17,8 @@ class ContactInfoTest extends TestCase {
 		$this->assertSame( '947 500 100', $info['phone'] );
 		$this->assertSame( 'tel:947500100', $info['phone_href'] );
 		$this->assertSame( 'https://citaprevia.arandadeduero.es/', $info['appointment_url'] );
+		$this->assertSame( 'https://transparencia.arandadeduero.es/', $info['transparency_url'] );
+		$this->assertSame( 'https://sede.arandadeduero.es/', $info['sede_url'] );
 		$this->assertNotSame( '', $info['hours'] );
 	}
 

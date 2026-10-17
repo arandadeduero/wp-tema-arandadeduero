@@ -28,6 +28,25 @@
 
 	<div id="page" class="site">
 		<?php $aranda_contact = aranda_de_duero_contact_info(); ?>
+		<?php
+		$aranda_top_buttons = array(
+			array(
+				'label'   => __( 'Cita previa', 'aranda-de-duero' ),
+				'url'     => $aranda_contact['appointment_url'],
+				'new_tab' => false,
+			),
+			array(
+				'label'   => __( 'Portal de transparencia', 'aranda-de-duero' ),
+				'url'     => $aranda_contact['transparency_url'],
+				'new_tab' => true,
+			),
+			array(
+				'label'   => __( 'Sede electrónica', 'aranda-de-duero' ),
+				'url'     => $aranda_contact['sede_url'],
+				'new_tab' => true,
+			),
+		);
+		?>
 		<div class="top-bar">
 			<div class="top-bar-inner">
 				<ul class="top-bar-info">
@@ -46,7 +65,24 @@
 						<span><?php echo esc_html( $aranda_contact['hours'] ); ?></span>
 					</li>
 				</ul>
-				<a class="top-bar-appointment" href="<?php echo esc_url( $aranda_contact['appointment_url'] ); ?>"><?php esc_html_e( 'Cita previa', 'aranda-de-duero' ); ?></a>
+				<ul class="top-bar-buttons">
+					<?php foreach ( $aranda_top_buttons as $aranda_button ) : ?>
+						<li>
+							<a class="top-bar-button" href="<?php echo esc_url( $aranda_button['url'] ); ?>"
+							<?php
+							if ( $aranda_button['new_tab'] ) :
+								?>
+								target="_blank" rel="noopener"<?php endif; ?>>
+								<?php echo esc_html( $aranda_button['label'] ); ?>
+								<?php
+								if ( $aranda_button['new_tab'] ) {
+									aranda_de_duero_the_new_tab_notice();
+								}
+								?>
+							</a>
+						</li>
+					<?php endforeach; ?>
+				</ul>
 			</div>
 		</div><!-- .top-bar -->
 

@@ -338,6 +338,11 @@ require get_template_directory() . '/inc/customizer.php';
 require get_template_directory() . '/inc/social-meta.php';
 
 /**
+ * Front-end performance and privacy tweaks (emoji, Font Awesome plugin).
+ */
+require get_template_directory() . '/inc/performance.php';
+
+/**
  * Upcoming events (My Calendar), cached.
  */
 require get_template_directory() . '/inc/events.php';

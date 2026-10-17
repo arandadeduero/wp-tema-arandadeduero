@@ -110,8 +110,9 @@ Son obligaciones según el análisis normativo, **no carencias confirmadas**: ha
 | E2 | «Educación» del menú enlaza a `/concejalia/cultura/` | ☐ | | Se corrige en *Apariencia → Menús* (dato de WordPress, no del tema) |
 | E3 | «Deportes» enlaza a `http://www.arandactiva.com/` (sin HTTPS) | ☐ | | Idem; comprobar si la web destino admite HTTPS |
 | E4 | Los menús de la cabecera y de la barra lateral «Ayuntamiento» son distintos (etiquetas, orden y entradas) | ☐ | | Son dos menús de WordPress distintos (`menu-1` y `menu-ayuntamiento`). Opciones: igualarlos en el panel, o generar la barra lateral desde el menú principal |
-| E5 | La home no tenía `<main>`, el enlace «saltar al contenido» no tenía destino y el único `<h1>` era el día de la agenda | ✅ hecho, **pendiente de desplegar y verificar** | PR #21 · `0fcf29f` | Dentro del bloque A3 |
-| E6 | El azul de marca `#0083c1` no llega a 4,5:1 ni sobre blanco (4,19:1); 20 nodos con contraste insuficiente en la home | ✅ hecho, **pendiente de desplegar y verificar** | PR #21 · `0fcf29f` | Variable `--color-primary-accessible` (`#0073ad`) en `css/aranda-de-duero.css` |
+| E5 | La home no tenía `<main>`, el enlace «saltar al contenido» no tenía destino y el único `<h1>` era el día de la agenda | ✅ hecho y **verificado en producción** (2026-10-17: home 100/100) | PR #21 · `0fcf29f` | Dentro del bloque A3 |
+| E6 | El azul de marca `#0083c1` no llega a 4,5:1 ni sobre blanco (4,19:1); 20 nodos con contraste insuficiente en la home | ✅ hecho y **verificado en producción** (2026-10-17: home 100/100) | PR #21 · `0fcf29f` | Variable `--color-primary-accessible` (`#0073ad`) en `css/aranda-de-duero.css` |
+| E7 | Más contraste en páginas interiores: menú activo y botones «Ver más» (blanco sobre `#0083c1`, 4,19:1), botones del calendario y botones de descarga del editor (**2,43:1**, texto azul sobre gris oscuro) | ✅ hecho, **pendiente de desplegar y verificar** | PR #22 · `f9f6159` | Medido inyectando las reglas en las páginas publicadas (5,18:1 y 12,02:1). Repetir Lighthouse tras desplegar |
 
 ---
 
@@ -152,6 +153,7 @@ Una línea por cada mejora implementada, la más reciente arriba.
 
 | Fecha | Mejora | Commit / PR | Cómo se verificó |
 |---|---|---|---|
-| 2026-10-17 | **Bloque A (tema):** A1 canal de información (campo en el Personalizador y enlace condicional), A3 accesibilidad de la home (E5, E6): `<main>`, `<h1>`, encabezados, contraste del azul y menú sin `href` | PR #21 · `0fcf29f` | Lighthouse sobre una copia de la home: accesibilidad 92 → 100, SEO 92 → 100, 6 auditorías fallidas → 1; estilos calculados idénticos salvo el azul; 53 tests; **falta repetir la auditoría en producción tras desplegar** |
+| 2026-10-17 | **Accesibilidad de páginas interiores (E7):** contraste del menú activo, botones «Ver más», calendario y botones de descarga | PR #22 · `f9f6159` | Contraste de cada elemento medido en las páginas publicadas tras inyectar las reglas (de 4,19:1 y 2,43:1 a 5,18:1 y 12,02:1); 53 tests; **falta repetir Lighthouse tras desplegar** |
+| 2026-10-17 | **Bloque A (tema):** A1 canal de información (campo en el Personalizador y enlace condicional), A3 accesibilidad de la home (E5, E6): `<main>`, `<h1>`, encabezados, contraste del azul y menú sin `href` | PR #21 · `0fcf29f` | Lighthouse sobre una copia de la home: accesibilidad 92 → 100, SEO 92 → 100, 6 auditorías fallidas → 1; estilos calculados idénticos salvo el azul; 53 tests; **verificado en producción tras desplegar: home 100/100 en accesibilidad y SEO** |
 | 2026-10-17 | B4: «Cita previa» como primer elemento del menú secundario (cambio hecho por el ayuntamiento en *Apariencia → Menús*) | sin commit | Comprobado en producción: enlace a `citaprevia.arandadeduero.es` visible en escritorio; **oculto en móvil** (≤ 767 px), ver B8 |
 | 2026-10-17 | E1: ocultar el listado de eventos de las barras laterales | PR #20 · `b7bc67c` · merge `0aa94fa` | CI en verde y 49 tests; **falta verificar en producción tras el despliegue** |

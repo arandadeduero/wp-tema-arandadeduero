@@ -1,0 +1,25 @@
+inc/performance.php
+  s_1b2194bed91d73::t_0a68f3020f3549 107-119,125-143,145-160
+  s_1b2194bed91d73::t_3be136a96fbf9f 120-124,144
+page-home.php
+  s_1b2194bed91d73::t_0a68f3020f3549 19-20
+tests/SliderDeferTest.php
+  s_1b2194bed91d73::t_9e2a4590b66f2d 1-25,27-28,30,33-79
+  s_1b2194bed91d73::t_3be136a96fbf9f 26,29,31-32
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "1a009f74cb4577c69ed9dda7fe45bca1a2de4ddc",
+  "prompts": {},
+  "sessions": {
+    "s_1b2194bed91d73": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "f868d310-8e5d-4fb7-86c8-3a94409426ab",
+        "model": "claude-sonnet-5-5"
+      },
+      "human_author": "Guillermo López <willyaranda@gmail.com>"
+    }
+  }
+}

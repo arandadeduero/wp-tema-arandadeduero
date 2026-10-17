@@ -11,6 +11,7 @@ parameters:
         - node_modules/*
         - languages/*
         - dist/*
+        - tests/*
     stubFiles:
         - phpstan-stubs/acf.stub.php
         - phpstan-stubs/wp-svg-icons.stub.php

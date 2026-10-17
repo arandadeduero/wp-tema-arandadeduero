@@ -435,7 +435,6 @@ jobs:
 1. **BUILD_SETUP.md** (this file) - Build system setup
 2. **DEVELOPMENT.md** - Complete development guide
 3. **MODERNIZATION.md** - Architecture & decisions
-4. **MODERNIZATION_COMPLETE.md** - Summary of all changes
 
 ### In Code:
 

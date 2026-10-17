@@ -280,30 +280,6 @@ function aranda_de_duero_bootstrap_css() {
 add_action( 'wp_enqueue_scripts', 'aranda_de_duero_bootstrap_css' );
 
 /**
- * Enqueue Bootstrap 5 JavaScript Bundle.
- *
- * Loads Bootstrap 5 with bundled Popper.js (no jQuery required).
- * Self-hosted to avoid sending visitor IP addresses to third-party CDNs (GDPR).
- *
- * @since 1.0.0
- * @return void
- */
-function aranda_de_duero_bootstrap_js() {
-	wp_enqueue_script(
-		'bootstrap_js',
-		get_template_directory_uri() . '/js/bootstrap.bundle.min.js',
-		array(),
-		'5.3.2',
-		array(
-			'in_footer' => true,
-			'strategy'  => 'defer',
-		)
-	);
-}
-add_action( 'wp_enqueue_scripts', 'aranda_de_duero_bootstrap_js' );
-
-
-/**
  * Customizer colours exposed as CSS custom properties.
  */
 require get_template_directory() . '/inc/customizer-css.php';

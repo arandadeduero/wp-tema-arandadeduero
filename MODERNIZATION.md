@@ -7,12 +7,12 @@ historial de git.
 ## JavaScript
 
 - Sin jQuery: todo es JavaScript moderno (`const`/`let`, funciones flecha, `querySelector`).
-- Scripts del tema y Bootstrap se cargan con `defer` y en el pie (`functions.php`).
+- Los scripts del tema se cargan con `defer` y en el pie (`functions.php`).
 - ESLint con `--max-warnings 0` (`npm run lint:js`).
 
 ## CSS y dependencias
 
-- Bootstrap 5.3.2 autoalojado en `css/` y `js/`, sin CDN, para no enviar IPs de visitantes a terceros (RGPD).
+- Bootstrap 5.3.2 (solo CSS) autoalojado en `css/`, sin CDN, para no enviar IPs de visitantes a terceros (RGPD). El JavaScript de Bootstrap (81 KB, 24 KB gzip) se quitó: ni el tema ni los plugins activos lo usan (sin `data-bs-*` ni llamadas a `bootstrap.*`).
 - Fuente Outfit autoalojada (`css/fonts/`) y precargada.
 - Menú móvil propio del tema (≤ 767 px, `js/navigation.js` y bloque «Menú móvil propio» de `css/aranda-de-duero.css`); ya no
   se usa el plugin Mobile Menu ni su Roboto de Google Fonts.
@@ -76,7 +76,7 @@ caché de eventos y contraste de color. La CI los ejecuta junto con phpcs, phpst
 
 ## Pendiente
 
-- Purgar Bootstrap (≈233 KB de CSS y 80 KB de JS cargados en todas las páginas).
+- Purgar el CSS de Bootstrap (≈233 KB, 31 KB gzip; en 9 páginas medidas solo se usa ~12 % de las reglas).
 - Tema de bloques e Interactivity API para el menú.
 - El ajuste del Customizer «Vídeo para la página de inicio» ya no se usa en ninguna plantilla
   (la home usa Smart Slider): retirarlo o volver a mostrarlo.

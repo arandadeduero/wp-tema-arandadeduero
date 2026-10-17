@@ -158,3 +158,55 @@ function aranda_de_duero_defer_slider_images( $html ) {
 
 	return $result . $script;
 }
+
+/**
+ * Handle under which the Mobile Menu plugin enqueues Roboto from Google Fonts.
+ */
+const ARANDA_DE_DUERO_MOBMENU_GOOGLE_FONT = 'mm-google-webfont-roboto';
+
+/**
+ * Dequeue Mobile Menu's Google Fonts request.
+ *
+ * The plugin's generated CSS asks for `font-family: Roboto`, but the theme
+ * overrides every one of those rules with its own typeface (see the Mobile Menu
+ * section of css/aranda-de-duero.css), so the request is a third-party download
+ * of a font nothing uses.
+ *
+ * Return false from the `aranda_de_duero_dequeue_google_roboto` filter to
+ * restore it, e.g. if the plugin gains a Roboto rule the override doesn't cover.
+ */
+function aranda_de_duero_dequeue_google_roboto() {
+	if ( ! apply_filters( 'aranda_de_duero_dequeue_google_roboto', true ) ) {
+		return;
+	}
+
+	wp_dequeue_style( ARANDA_DE_DUERO_MOBMENU_GOOGLE_FONT );
+	wp_deregister_style( ARANDA_DE_DUERO_MOBMENU_GOOGLE_FONT );
+}
+// Late, and again right before printing, in case the plugin enqueues after wp_enqueue_scripts.
+add_action( 'wp_enqueue_scripts', 'aranda_de_duero_dequeue_google_roboto', 100 );
+add_action( 'wp_print_styles', 'aranda_de_duero_dequeue_google_roboto', 100 );
+
+/**
+ * Drop the dns-prefetch hint for fonts.googleapis.com when its CSS is gone.
+ *
+ * @param array<int, mixed> $urls          URLs to print for resource hints.
+ * @param string            $relation_type The relation type the URLs are printed for.
+ * @return array<int, mixed>
+ */
+function aranda_de_duero_drop_google_fonts_hint( $urls, $relation_type ) {
+	if ( 'dns-prefetch' !== $relation_type || ! apply_filters( 'aranda_de_duero_dequeue_google_roboto', true ) ) {
+		return $urls;
+	}
+
+	return array_values(
+		array_filter(
+			(array) $urls,
+			function ( $url ) {
+				$host = is_array( $url ) ? ( $url['href'] ?? '' ) : (string) $url;
+				return false === strpos( $host, 'fonts.googleapis.com' );
+			}
+		)
+	);
+}
+add_filter( 'wp_resource_hints', 'aranda_de_duero_drop_google_fonts_hint', 10, 2 );

@@ -53,4 +53,38 @@ class PerformanceTest extends TestCase {
 
 		$this->assertSame( $urls, aranda_de_duero_drop_font_awesome_hint( $urls, 'preconnect' ) );
 	}
+
+	public function test_google_roboto_is_dequeued() {
+		\WP_Mock::onFilter( 'aranda_de_duero_dequeue_google_roboto' )->with( true )->reply( true );
+		\WP_Mock::userFunction( 'wp_dequeue_style' )->once()->with( 'mm-google-webfont-roboto' );
+		\WP_Mock::userFunction( 'wp_deregister_style' )->once()->with( 'mm-google-webfont-roboto' );
+
+		aranda_de_duero_dequeue_google_roboto();
+		$this->assertTrue( true );
+	}
+
+	public function test_google_roboto_is_kept_when_the_filter_says_so() {
+		\WP_Mock::onFilter( 'aranda_de_duero_dequeue_google_roboto' )->with( true )->reply( false );
+		\WP_Mock::userFunction( 'wp_dequeue_style' )->never();
+
+		aranda_de_duero_dequeue_google_roboto();
+		$this->assertTrue( true );
+	}
+
+	public function test_google_fonts_hint_is_dropped_but_others_stay() {
+		\WP_Mock::onFilter( 'aranda_de_duero_dequeue_google_roboto' )->with( true )->reply( true );
+
+		$urls = array( '//fonts.googleapis.com', '//www.googletagmanager.com', array( 'href' => '//fonts.googleapis.com' ) );
+
+		$this->assertSame(
+			array( '//www.googletagmanager.com' ),
+			aranda_de_duero_drop_google_fonts_hint( $urls, 'dns-prefetch' )
+		);
+	}
+
+	public function test_google_fonts_hint_untouched_for_other_relations() {
+		$urls = array( '//fonts.googleapis.com' );
+
+		$this->assertSame( $urls, aranda_de_duero_drop_google_fonts_hint( $urls, 'preconnect' ) );
+	}
 }

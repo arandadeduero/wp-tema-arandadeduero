@@ -1806,3 +1806,27 @@ textarea:focus {
     flex-shrink: 0;
     margin-right: 0.75rem;
 }
+
+/*
+ * Mobile Menu plugin: its generated CSS (uploads/dynamic-mobmenu.css) sets `font-family: Roboto`
+ * and loads after this file, so the selectors are prefixed with `body` to win on specificity.
+ * Keeps the mobile menu in the theme typeface and lets us drop the Google Fonts request.
+ */
+body .mob-menu-logo-holder > .headertext span,
+body .mobmenu input.mob-menu-search-field,
+body .left-menu-icon-text,
+body .right-menu-icon-text,
+body #mobmenuleft .mob-expand-submenu,
+body #mobmenuleft > .widgettitle,
+body #mobmenuleft li a,
+body #mobmenuleft li a:visited,
+body #mobmenuleft .mobmenu-content h2,
+body #mobmenuleft .mobmenu-content h3,
+body #mobmenuright li a,
+body #mobmenuright li a:visited,
+body #mobmenuright .mobmenu-content h2,
+body #mobmenuright .mobmenu-content h3,
+body .mobmenu-left-panel .mobmenu-display-name,
+body .mobmenu-content .mobmenu-tabs-header li {
+    font-family: var(--font-family-base);
+}

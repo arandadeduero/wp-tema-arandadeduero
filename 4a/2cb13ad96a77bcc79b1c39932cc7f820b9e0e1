@@ -1,0 +1,49 @@
+page-subvenciones.php
+  s_1b2194bed91d73::t_ccae76eaf53c33 84
+  s_1b2194bed91d73::t_d2298e6a3e3f14 77
+page-bandos.php
+  s_1b2194bed91d73::t_ccae76eaf53c33 84
+  s_1b2194bed91d73::t_9a26cd254cea24 77
+404.php
+  s_1b2194bed91d73::t_220d7b38f3c182 43
+archive.php
+  s_1b2194bed91d73::t_4a623e2c2c81bd 42
+header.php
+  s_1b2194bed91d73::t_87d6716a90da91 33
+inc/template-functions.php
+  s_1b2194bed91d73::t_ab50446a613ff7 58-73
+inc/template-tags.php
+  s_1b2194bed91d73::t_06b9f6affd0aa5 240-241
+page-barrios-propuestas-respuestas.php
+  s_1b2194bed91d73::t_bd4ac92e6d6376 121
+page-exp-plaza-de-toros.php
+  s_1b2194bed91d73::t_5ca5c8c5222308 50,62,74,105,116,127,138,157,164,171,178,193
+page-home.php
+  s_1b2194bed91d73::t_5ee645b3055443 110
+page-news.php
+  s_1b2194bed91d73::t_cc500366b2735e 62
+page-notas-de-prensa.php
+  s_1b2194bed91d73::t_bf9f4fec1c4bf8 77,84
+taxonomy-concejalia.php
+  s_1b2194bed91d73::t_f1692bad924219 43
+taxonomy-tema.php
+  s_1b2194bed91d73::t_927ed24ff19dfa 85
+template-parts/content-tramite.php
+  s_1b2194bed91d73::t_f46e1c22f9a34d 105
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "4a2cb13ad96a77bcc79b1c39932cc7f820b9e0e1",
+  "prompts": {},
+  "sessions": {
+    "s_1b2194bed91d73": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "f868d310-8e5d-4fb7-86c8-3a94409426ab",
+        "model": "claude-sonnet-5-5"
+      },
+      "human_author": "Guillermo López <willyaranda@gmail.com>"
+    }
+  }
+}

@@ -1,0 +1,21 @@
+inc/template-functions.php
+  s_1b2194bed91d73::t_4a281ee7875a93 74-109
+tests/EventsWidgetsTest.php
+  s_1b2194bed91d73::t_4a281ee7875a93 1-53
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "b7bc67c2a0ffe478c3b02526b60bee792206b059",
+  "prompts": {},
+  "sessions": {
+    "s_1b2194bed91d73": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "f868d310-8e5d-4fb7-86c8-3a94409426ab",
+        "model": "claude-sonnet-5-5"
+      },
+      "human_author": "Guillermo López <willyaranda@gmail.com>"
+    }
+  }
+}

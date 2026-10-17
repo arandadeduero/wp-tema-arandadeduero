@@ -1,0 +1,37 @@
+docs/cumplimiento-bloque-a.md
+  s_1b2194bed91d73::t_792d816b2bac6d 1-155
+css/aranda-de-duero.css
+  s_1b2194bed91d73::t_58c86f2da8e63f 35
+  s_1b2194bed91d73::t_787aa4ad5e6089 1157-1161,1170-1173
+  s_1b2194bed91d73::t_9b559fce2dbe0a 36-37,530,1004,1455,1484
+  s_1b2194bed91d73::t_492be1f650f2d3 1174
+tests/ComplianceTest.php
+  s_1b2194bed91d73::t_58c86f2da8e63f 1-40
+functions.php
+  s_1b2194bed91d73::t_9b559fce2dbe0a 534-551
+MEJORAS-OTROS-AYUNTAMIENTOS.md
+  s_1b2194bed91d73::t_ae037b84699804 25-38,45-46,59-65,71,74,84-85,112-113
+  s_1b2194bed91d73::t_3cd3004518333c 1-24,39-44,47-58,66-70,72-73,75-83,86-111,114-154
+page-home.php
+  s_1b2194bed91d73::t_c733cc06d9678f 13-14,79,126,149,202,223,247,251,306
+inc/template-functions.php
+  s_1b2194bed91d73::t_9b559fce2dbe0a 110-140
+footer.php
+  s_1b2194bed91d73::t_c733cc06d9678f 23,36,68,127,204-212
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "0fcf29fbbf07a18f0900a66aa6cca8e2fda85977",
+  "prompts": {},
+  "sessions": {
+    "s_1b2194bed91d73": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "f868d310-8e5d-4fb7-86c8-3a94409426ab",
+        "model": "unknown"
+      },
+      "human_author": "Guillermo López <willyaranda@gmail.com>"
+    }
+  }
+}

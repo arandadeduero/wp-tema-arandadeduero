@@ -16,11 +16,6 @@ parameters:
 			path: header.php
 
 		-
-			message: "#^Parameter \\#1 \\$args of function wp_nav_menu expects array\\{menu\\?\\: int\\|string\\|WP_Term, menu_class\\?\\: string, menu_id\\?\\: string, container\\?\\: string, container_class\\?\\: string, container_id\\?\\: string, container_aria_label\\?\\: string, fallback_cb\\?\\: \\(callable\\(\\)\\: mixed\\)\\|false, \\.\\.\\.\\}, array\\{theme_location\\: 'top', menu_id\\: 'secondary\\-menu', container\\: false, fallback_cb\\: false\\} given\\.$#"
-			count: 1
-			path: header.php
-
-		-
 			message: "#^Property WP_Customize_Manager\\:\\:\\$selective_refresh \\(WP_Customize_Selective_Refresh\\) in isset\\(\\) is not nullable\\.$#"
 			count: 1
 			path: inc/customizer.php

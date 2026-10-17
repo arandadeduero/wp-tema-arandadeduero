@@ -1,0 +1,36 @@
+page-home.php
+  s_1b2194bed91d73::t_4a9ce8a0c46a6f 55-56
+functions.php
+  s_1b2194bed91d73::t_1616e02cd15772 670,673,683
+  s_1b2194bed91d73::t_4a9ce8a0c46a6f 340-349,661-666,668-669,671-672,681
+  s_1b2194bed91d73::t_0c7bc0a25bb2ed 429-432
+  s_1b2194bed91d73::t_716ff4ae283d7f 667
+tests/EventsCacheTest.php
+  s_1b2194bed91d73::t_f7d3eb2055f700 1-64
+theme.json
+  s_1b2194bed91d73::t_0f02a3fad5b867 39-65,73-97,102-137,150,160-206
+inc/color-contrast.php
+  s_1b2194bed91d73::t_a7785eca78023e 1-152
+tests/ColorContrastTest.php
+  s_1b2194bed91d73::t_f7d3eb2055f700 1-142
+inc/events.php
+  s_1b2194bed91d73::t_94c6f8990a097b 1-93,97-152,154-157,159-177
+  s_1b2194bed91d73::t_58daed7723b51f 153,158
+  s_1b2194bed91d73::t_1616e02cd15772 94-96
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "0328d55b5f732a3b569a6bacbdf8fd95a61588cf",
+  "prompts": {},
+  "sessions": {
+    "s_1b2194bed91d73": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "f868d310-8e5d-4fb7-86c8-3a94409426ab",
+        "model": "claude-sonnet-5-5"
+      },
+      "human_author": "Guillermo López <willyaranda@gmail.com>"
+    }
+  }
+}

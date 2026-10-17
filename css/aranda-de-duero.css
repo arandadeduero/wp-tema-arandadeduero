@@ -1040,7 +1040,14 @@ footer.search-entry-footer {
 /** FIN Página Web Map */
 
 /* Calendario Agenda */
-.mc-main .nextmonth div {
+
+/*
+ * Los días del mes siguiente no muestran eventos. Antes solo se ocultaba el <div> del título, que va dentro del
+ * enlace: quedaba un <a> de 2 px sin texto visible ni nombre accesible, pero alcanzable con el tabulador.
+ * Se oculta el evento entero.
+ */
+.mc-main .nextmonth div,
+.mc-main .nextmonth article {
     display: none;
 }
 

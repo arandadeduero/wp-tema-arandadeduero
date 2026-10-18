@@ -357,6 +357,11 @@ require get_template_directory() . '/inc/especiales.php';
 require get_template_directory() . '/inc/services.php';
 
 /**
+ * «¿Qué necesitas?»: service finder for the search box and the search results.
+ */
+require get_template_directory() . '/inc/search.php';
+
+/**
  * Colour contrast helpers and Customizer validation.
  */
 require get_template_directory() . '/inc/color-contrast.php';

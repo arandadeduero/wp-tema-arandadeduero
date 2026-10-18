@@ -18,6 +18,19 @@
         return;
     }
 
+    // Only the first image is eager; once the page has loaded, fetch the rest (each GIF is ~1 MB) so a slide
+    // is never blank when it comes into view. Native lazy loading alone would wait until it is almost visible.
+    const preload = () => {
+        track.querySelectorAll('img[loading="lazy"]').forEach((image) => {
+            image.loading = 'eager';
+        });
+    };
+    if (document.readyState === 'complete') {
+        preload();
+    } else {
+        window.addEventListener('load', preload);
+    }
+
     const labels = window.arandaCarousel || {};
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
     const pauseButton = root.querySelector('.home-carousel-pause');

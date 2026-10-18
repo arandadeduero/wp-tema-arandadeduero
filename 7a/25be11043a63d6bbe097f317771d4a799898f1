@@ -1,0 +1,36 @@
+css/aranda-de-duero.css
+  s_e9446e370cbe94::t_ebadbf2492ff08 3536,3561-3562
+  s_e9446e370cbe94::t_81e5d9b34caf4b 3563-3564
+inc/structured-data.php
+  s_e9446e370cbe94::t_ebadbf2492ff08 23
+inc/search.php
+  s_e9446e370cbe94::t_ebadbf2492ff08 102-103
+tests/SearchTest.php
+  s_e9446e370cbe94::t_ebadbf2492ff08 135-150
+tests/StructuredDataTest.php
+  s_e9446e370cbe94::t_ebadbf2492ff08 38
+inc/icons.php
+  s_e9446e370cbe94::t_ebadbf2492ff08 95-98
+page-enlaces.php
+  s_e9446e370cbe94::t_ebadbf2492ff08 29
+footer.php
+  s_e9446e370cbe94::t_ebadbf2492ff08 161-170
+MEJORAS-OTROS-AYUNTAMIENTOS.md
+  s_e9446e370cbe94::t_6d314248b558f0 127
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "7a25be11043a63d6bbe097f317771d4a799898f1",
+  "prompts": {},
+  "sessions": {
+    "s_e9446e370cbe94": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "1f562e24-39c2-46c2-bbfd-3ce887649604",
+        "model": "claude-sonnet-5-5"
+      },
+      "human_author": "Guillermo López <willyaranda@gmail.com>"
+    }
+  }
+}

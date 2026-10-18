@@ -75,6 +75,39 @@ class ColorSourcesTest extends TestCase {
 		}
 	}
 
+	public function test_the_block_editor_palette_is_the_one_of_the_css() {
+		$root    = $this->root_variables();
+		$theme   = json_decode( $this->css( 'theme.json' ), true );
+		$palette = array();
+		foreach ( $theme['settings']['color']['palette'] as $preset ) {
+			$palette[ $preset['slug'] ] = $this->full_hex( $preset['color'] );
+		}
+
+		$expected = array(
+			'primary'            => '--color-primary',
+			'primary-accessible' => '--color-primary-accessible',
+			'secondary'          => '--color-primary-light',
+			'dark'               => '--color-gray-90',
+			'gray'               => '--color-gray-75',
+			'light'              => '--color-white',
+			'accent'             => '--color-red',
+			'amber'              => '--color-amber',
+			'brown'              => '--color-brown',
+			'sky'                => '--color-sky',
+		);
+		$this->assertSame( array_keys( $expected ), array_keys( $palette ) );
+		foreach ( $expected as $slug => $variable ) {
+			$this->assertSame( $this->full_hex( $root[ $variable ] ), $palette[ $slug ], $slug . ' de theme.json no coincide con ' . $variable );
+		}
+	}
+
+	public function test_the_stylesheets_are_not_empty_and_keep_the_theme_header() {
+		$this->assertStringContainsString( 'Theme Name: Aranda de Duero', $this->css( 'style.css' ) );
+		$this->assertGreaterThan( 10000, strlen( $this->css( 'style.css' ) ) );
+		$this->assertGreaterThan( 10000, strlen( $this->css( 'style-rtl.css' ) ) );
+		$this->assertGreaterThan( 50000, strlen( $this->css( 'css/aranda-de-duero.css' ) ) );
+	}
+
 	public function test_the_palette_names_are_unique() {
 		preg_match( '/:root\s*\{(.*?)\n\}/s', $this->css( 'css/aranda-de-duero.css' ), $block );
 		preg_match_all( '/^\s*(--[\w-]+)\s*:/m', $block[1], $names );

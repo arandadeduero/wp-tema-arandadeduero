@@ -22,10 +22,12 @@ Para trabajar con Claude Code en este repositorio. El detalle está en [DEVELOPM
 - **Ningún CSS inline** (ni `style=""` ni `<style>`): todo en `css/aranda-de-duero.css`. Bootstrap carga después: reforzar
   el selector antes que usar `!important`.
 - **Ningún JavaScript de terceros ni jQuery**, y **ningún recurso de terceros** en el navegador (RGPD).
-- **Ningún color escrito a mano.** Todo color es una variable de la paleta del `:root` de `css/aranda-de-duero.css` (`var(--color-primary)`, `var(--gray-100)`…);
-  `stylelint` falla con cualquier hex, `rgb()`/`hsl()` o color con nombre fuera de ella. Si hace falta un color nuevo, primero reutilizar uno
-  existente; si no, añadirlo a la paleta con un nombre con sentido y usarlo. En PHP, los pocos valores que no pueden leer una variable
-  (`aranda_de_duero_brand_color()`, los valores por defecto del Personalizador) están en `inc/customizer-css.php` y los vigila `tests/ColorSourcesTest.php`.
+- **Ningún color escrito a mano, y solo los de la paleta corporativa.** Todo color es una variable del `:root` de `css/aranda-de-duero.css`: azul `#0083c1` (Pantone 7460C),
+  azul claro `#e9f4f9`, rojo `#ce0e2d` (186C), ámbar `#f5a800` (130C), marrón `#a4541c` (160C), celeste `#3cb4e5` (298C), negro 75 % `#646464` y 90 % `#3c3c3c`, más negro, blanco
+  y sus transparencias (`--color-black-10`…). Solo hay dos excepciones, por accesibilidad: `--color-primary-accessible` `#0073ad` (texto, enlaces y botones con texto blanco, porque
+  `#0083c1` da 4,19:1) y su hover `--color-primary-dark`. `stylelint` falla con cualquier hex, `rgb()`/`hsl()` o color con nombre fuera de la paleta. **No inventar tonos**: si hace falta
+  uno que no está, preguntar. En PHP, los pocos valores que no pueden leer una variable (`aranda_de_duero_brand_color()`, los valores por defecto del Personalizador) están en
+  `inc/customizer-css.php`; `theme.json` usa la misma paleta; `tests/ColorSourcesTest.php` vigila que todo coincida.
 - **Tipografía: solo Outfit.**
 - Compatible con **PHP 7.4** (el del servidor).
 - Antes de un PR: `composer run lint:php`, `lint:wpcs`, `phpstan`, `test`, `npm run lint:js`, `npm run lint:css`.

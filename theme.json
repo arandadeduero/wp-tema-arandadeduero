@@ -6,28 +6,53 @@
 			"palette": [
 				{
 					"slug": "primary",
-					"color": "#005B99",
-					"name": "Primary"
+					"color": "#0083c1",
+					"name": "Azul corporativo (Pantone 7460C)"
+				},
+				{
+					"slug": "primary-accessible",
+					"color": "#0073ad",
+					"name": "Azul para texto y botones (accesible)"
 				},
 				{
 					"slug": "secondary",
-					"color": "#e8f0f7",
-					"name": "Secondary"
+					"color": "#e9f4f9",
+					"name": "Azul claro (Pantone 7460C al 8 %)"
 				},
 				{
 					"slug": "dark",
-					"color": "#222222",
-					"name": "Dark"
+					"color": "#3c3c3c",
+					"name": "Negro 90 %"
+				},
+				{
+					"slug": "gray",
+					"color": "#646464",
+					"name": "Negro 75 %"
 				},
 				{
 					"slug": "light",
 					"color": "#ffffff",
-					"name": "Light"
+					"name": "Blanco"
 				},
 				{
 					"slug": "accent",
-					"color": "#b50101",
-					"name": "Accent"
+					"color": "#ce0e2d",
+					"name": "Rojo (Pantone 186C)"
+				},
+				{
+					"slug": "amber",
+					"color": "#f5a800",
+					"name": "Ámbar (Pantone 130C)"
+				},
+				{
+					"slug": "brown",
+					"color": "#a4541c",
+					"name": "Marrón (Pantone 160C)"
+				},
+				{
+					"slug": "sky",
+					"color": "#3cb4e5",
+					"name": "Celeste (Pantone 298C)"
 				}
 			],
 			"custom": true,
@@ -143,8 +168,8 @@
 	},
 	"styles": {
 		"color": {
-			"background": "#ffffff",
-			"text": "#222222"
+			"background": "var(--wp--preset--color--light)",
+			"text": "var(--wp--preset--color--dark)"
 		},
 		"typography": {
 			"fontFamily": "var(--wp--preset--font-family--outfit)",
@@ -154,7 +179,7 @@
 		"elements": {
 			"link": {
 				"color": {
-					"text": "var(--wp--preset--color--primary)"
+					"text": "var(--wp--preset--color--primary-accessible)"
 				}
 			},
 			"h1": {
@@ -179,7 +204,7 @@
 					"radius": "3px"
 				},
 				"color": {
-					"background": "var(--wp--preset--color--primary)",
+					"background": "var(--wp--preset--color--primary-accessible)",
 					"text": "var(--wp--preset--color--light)"
 				},
 				"typography": {

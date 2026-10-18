@@ -25,26 +25,17 @@
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
-    "@wordpress/scripts": "^36.1.0",
     "archiver": "^8.0.0",
-    "autoprefixer": "^10.6.1",
-    "browser-sync": "^3.0.1",
-    "cssnano": "^9.9.0",
     "eslint": "^10.13.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.7",
     "globals": "^17.13.0",
-    "postcss": "^8.5.30",
-    "postcss-cli": "^12.0.0",
     "prettier": "^3.9.10",
     "stylelint": "^17.16.0",
     "stylelint-config-standard": "^40.0.0",
-    "stylelint-prettier": "^5.0.3",
-    "terser": "^5.26.0"
+    "stylelint-prettier": "^5.0.3"
   },
   "scripts": {
-    "start": "npm run watch",
-    "watch": "browser-sync start --server --files '*.php, js/*.js, css/*.css, style.css'",
     "watch:js": "eslint js --fix --quiet || true",
     "build": "npm run build:js && npm run lint",
     "build:js": "eslint js --max-warnings 0",
@@ -56,16 +47,10 @@
     "format": "npm run format:js && npm run format:css",
     "format:js": "prettier --write 'js/**/*.js'",
     "format:css": "prettier --write 'css/**/*.css'",
-    "compile:rtl": "rtlcss style.css style-rtl.css",
     "clean": "rm -rf node_modules dist *.css.map",
     "release": "npm run build && node scripts/build-release.js",
     "test": "npm run lint"
   },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not dead"
-  ],
   "prettier": {
     "printWidth": 100,
     "tabWidth": 4,

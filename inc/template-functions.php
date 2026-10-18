@@ -100,7 +100,7 @@ function aranda_de_duero_events_list_widgets() {
  * @return array<string, mixed>|false False stops the widget from being printed.
  */
 function aranda_de_duero_hide_events_widgets( $instance, $widget ) {
-	if ( ! $widget instanceof WP_Widget || ! in_array( $widget->id_base, aranda_de_duero_events_list_widgets(), true ) ) {
+	if ( ! in_array( $widget->id_base, aranda_de_duero_events_list_widgets(), true ) ) {
 		return $instance;
 	}
 

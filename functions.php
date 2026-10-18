@@ -285,7 +285,7 @@ function aranda_de_duero_bootstrap_css() {
 		'bootstrap_css',
 		get_template_directory_uri() . '/css/bootstrap.min.css',
 		array(),
-		'5.3.2',
+		'5.3.8',
 		'all'
 	);
 }

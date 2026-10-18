@@ -12,7 +12,7 @@ historial de git.
 
 ## CSS y dependencias
 
-- Bootstrap 5.3.2 (solo CSS) autoalojado en `css/`, sin CDN, para no enviar IPs de visitantes a terceros (RGPD). El JavaScript de Bootstrap (81 KB, 24 KB gzip) se quitó: ni el tema ni los plugins activos lo usan (sin `data-bs-*` ni llamadas a `bootstrap.*`).
+- Bootstrap 5.3.8 (solo CSS) autoalojado en `css/`, sin CDN, para no enviar IPs de visitantes a terceros (RGPD). El JavaScript de Bootstrap (81 KB, 24 KB gzip) se quitó: ni el tema ni los plugins activos lo usan (sin `data-bs-*` ni llamadas a `bootstrap.*`).
 - Fuente Outfit autoalojada (`css/fonts/`) y precargada.
 - Menú móvil propio del tema (≤ 767 px, `js/navigation.js` y bloque «Menú móvil propio» de `css/aranda-de-duero.css`); ya no
   se usa el plugin Mobile Menu ni su Roboto de Google Fonts.

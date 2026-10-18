@@ -28,6 +28,7 @@ siguen lo que la propia sede dice de cada servicio. Se editan en `aranda_de_duer
 
 ## Buscador «¿Qué necesitas?»
 El campo de la home y de los resultados de búsqueda, y el bloque «Servicios y trámites» que sale encima de los resultados, leen de las mismas
-listas (`inc/services.php`) más otras páginas de la sede (`aranda_de_duero_service_directory()` en `inc/search.php`). Cada servicio puede
+listas (`inc/services.php`) más otras páginas de la sede (`aranda_de_duero_service_directory()` en `inc/search.php`). El buscador también incluye 26 páginas de la sede, las secciones y portales del sitio (agenda, bandos, subvenciones, turismo…) y los
+«Especiales» de la portada (se leen del tipo de contenido en cada búsqueda: lo que se destaque allí se encuentra solo). Cada servicio puede
 llevar `keywords` (sinónimos sin acentos: «oposiciones» para empleo público) para que se encuentre con más palabras. Para añadir un servicio
 al buscador basta con añadirlo a una de esas listas.

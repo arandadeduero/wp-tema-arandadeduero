@@ -6,7 +6,8 @@ defined( 'ABSPATH' ) || exit;
  *
  * The site search only looks at the WordPress content (news, pages…); the services people actually look for (certificado de
  * padrón, pagar un recibo, empleo público…) live in the electronic office. This matches the query against the curated service
- * lists of inc/services.php plus a few more office pages, so those appear first and the visitor lands on the service itself.
+ * lists of inc/services.php, more pages of the office and of this site, and the «Especiales» of the home page, so those appear
+ * first and the visitor lands on the service itself.
  *
  * @package Aranda_de_Duero
  */
@@ -21,71 +22,113 @@ function aranda_de_duero_catalog_url() {
 }
 
 /**
- * Other pages of the electronic office and the transparency portal that people look for, only searchable (not shown as shortcuts).
+ * One searchable entry.
+ *
+ * @param string $title    Title.
+ * @param string $text     One-line description.
+ * @param string $url      Address.
+ * @param string $keywords Synonyms, without accents.
+ * @param bool   $new_tab  Open in a new tab (pages outside this site).
+ * @return array{title: string, text: string, url: string, new_tab: bool, keywords: string}
+ */
+function aranda_de_duero_directory_entry( $title, $text, $url, $keywords, $new_tab = true ) {
+	return array(
+		'title'    => $title,
+		'text'     => $text,
+		'url'      => $url,
+		'new_tab'  => $new_tab,
+		'keywords' => $keywords,
+	);
+}
+
+/**
+ * Other pages of the electronic office, the transparency portal and the sections of this site that people look for. They are only
+ * searchable: the shortcuts of the home page live in inc/services.php.
+ *
+ * The titles are the ones the electronic office itself uses; the descriptions say no more than the title does.
  *
  * @return array<int, array{title: string, text: string, url: string, new_tab: bool, keywords: string}>
  */
 function aranda_de_duero_service_directory() {
 	$info = aranda_de_duero_contact_info();
+	$e    = static function ( $page, $code ) {
+		return aranda_de_duero_sede_url( '/sta/' . $page . '?APP_CODE=STA&PAGE_CODE=' . $code );
+	};
+	$pub  = 'CarpetaPublic/doEvent';
+	$priv = 'CarpetaPrivate/Login';
 
 	return array(
-		array(
-			'title'    => __( 'Sesiones de pleno', 'aranda-de-duero' ),
-			'text'     => __( 'Sesiones del pleno del Ayuntamiento.', 'aranda-de-duero' ),
-			'url'      => aranda_de_duero_sede_url( '/sta/CarpetaPublic/doEvent?APP_CODE=STA&PAGE_CODE=PTS2_PLENO' ),
-			'new_tab'  => true,
-			'keywords' => 'pleno plenos sesion sesiones acta actas',
-		),
-		array(
-			'title'    => __( 'Sesiones de junta de gobierno local', 'aranda-de-duero' ),
-			'text'     => __( 'Sesiones de la junta de gobierno local.', 'aranda-de-duero' ),
-			'url'      => aranda_de_duero_sede_url( '/sta/CarpetaPublic/doEvent?APP_CODE=STA&PAGE_CODE=PTS2_JUNTA' ),
-			'new_tab'  => true,
-			'keywords' => 'junta gobierno sesion sesiones acta actas',
-		),
-		array(
-			'title'    => __( 'Perfil de contratante', 'aranda-de-duero' ),
-			'text'     => __( 'Contratos y licitaciones del Ayuntamiento.', 'aranda-de-duero' ),
-			'url'      => aranda_de_duero_sede_url( '/sta/CarpetaPublic/doEvent?APP_CODE=STA&PAGE_CODE=PTS2_PERFIL_CONTRATANTE' ),
-			'new_tab'  => true,
-			'keywords' => 'contrato contratos contratacion licitacion licitaciones proveedor',
-		),
-		array(
-			'title'    => __( 'Validación de documentos', 'aranda-de-duero' ),
-			'text'     => __( 'Valida y comprueba documentos emitidos por el Ayuntamiento.', 'aranda-de-duero' ),
-			'url'      => aranda_de_duero_sede_url( '/sta/CarpetaPublic/doEvent?APP_CODE=STA&PAGE_CODE=VALDOCS' ),
-			'new_tab'  => true,
-			'keywords' => 'validar comprobar verificar documento documentos csv',
-		),
-		array(
-			'title'    => __( 'Oficinas de asistencia en materia de registro', 'aranda-de-duero' ),
-			'text'     => __( 'Dónde presentar documentos en persona.', 'aranda-de-duero' ),
-			'url'      => aranda_de_duero_sede_url( '/sta/CarpetaPublic/doEvent?APP_CODE=STA&PAGE_CODE=PTS2_OFIASIREG' ),
-			'new_tab'  => true,
-			'keywords' => 'registro oficina oficinas presentar documentos entrada',
-		),
-		array(
-			'title'    => __( 'Documentación para un expediente en trámite', 'aranda-de-duero' ),
-			'text'     => __( 'Presenta documentación a expedientes en trámite.', 'aranda-de-duero' ),
-			'url'      => aranda_de_duero_sede_url( '/sta/CarpetaPublic/doEvent?APP_CODE=STA&PAGE_CODE=CATALOGO&DETALLE=6269004131670985405225' ),
-			'new_tab'  => true,
-			'keywords' => 'expediente expedientes documentacion presentar aportar',
-		),
-		array(
-			'title'    => __( 'Cartas de servicios', 'aranda-de-duero' ),
-			'text'     => __( 'Compromisos de calidad de los servicios municipales.', 'aranda-de-duero' ),
-			'url'      => aranda_de_duero_sede_url( '/sta/CarpetaPublic/doEvent?APP_CODE=STA&PAGE_CODE=PTS2_CARTASERVICIOS' ),
-			'new_tab'  => true,
-			'keywords' => 'carta cartas servicios calidad',
-		),
-		array(
-			'title'    => __( 'Portal de transparencia', 'aranda-de-duero' ),
-			'text'     => __( 'Información pública del Ayuntamiento.', 'aranda-de-duero' ),
-			'url'      => $info['transparency_url'],
-			'new_tab'  => true,
-			'keywords' => 'transparencia retribuciones presupuesto organigrama subvenciones informacion publica',
-		),
+		// Your own data in the electronic office (they ask you to identify yourself there).
+		aranda_de_duero_directory_entry( __( 'Expedientes', 'aranda-de-duero' ), __( 'Consulta tus expedientes.', 'aranda-de-duero' ), $e( $priv, 'EXPEDIENTES_FULL' ), 'expediente expedientes tramitacion seguimiento estado' ),
+		aranda_de_duero_directory_entry( __( 'Datos personales', 'aranda-de-duero' ), __( 'Consulta y modifica tus datos personales.', 'aranda-de-duero' ), $e( $priv, 'DATOS_PERSONALES' ), 'datos personales perfil direccion correo modificar' ),
+		aranda_de_duero_directory_entry( __( 'Anotaciones en el registro', 'aranda-de-duero' ), __( 'Consulta tus anotaciones de registro.', 'aranda-de-duero' ), $e( $priv, 'ANOTACIONES' ), 'registro anotaciones entrada salida presentado' ),
+		aranda_de_duero_directory_entry( __( 'Documentos', 'aranda-de-duero' ), __( 'Consulta los documentos que hayas generado.', 'aranda-de-duero' ), $e( $priv, 'BUZONDOC' ), 'documento documentos buzon' ),
+		aranda_de_duero_directory_entry( __( 'Descarga de documentos', 'aranda-de-duero' ), __( 'Descarga documentos desde la sede electrónica.', 'aranda-de-duero' ), $e( $priv, 'SOL_DOC' ), 'descargar descarga documentos' ),
+		aranda_de_duero_directory_entry( __( 'Documentos habitualmente solicitados', 'aranda-de-duero' ), __( 'Presenta los documentos que se piden con más frecuencia.', 'aranda-de-duero' ), $e( $priv, 'SINGLE_REUSE' ), 'documentos presentar solicitados habituales dni' ),
+		aranda_de_duero_directory_entry( __( 'Suscripción o baja de notificaciones electrónicas', 'aranda-de-duero' ), __( 'Suscríbete o date de baja de las notificaciones electrónicas.', 'aranda-de-duero' ), $e( 'CarpetaPrivate/doEvent', 'SINGLE_SUSCR' ), 'notificaciones notificacion suscripcion suscribirse baja alta' ),
+		aranda_de_duero_directory_entry( __( 'Portafirmas', 'aranda-de-duero' ), __( 'Firma de documentos.', 'aranda-de-duero' ), $e( 'CarpetaPrivate/Certificate', 'PORTAFIRMAS' ), 'firma firmar documentos certificado' ),
+
+		// Public pages of the electronic office.
+		aranda_de_duero_directory_entry( __( 'Trámites destacados', 'aranda-de-duero' ), __( 'Los trámites destacados de la sede electrónica.', 'aranda-de-duero' ), $e( $pub, 'PTS2_TRAMDESTACADOS' ), 'tramites destacados habituales frecuentes' ),
+		aranda_de_duero_directory_entry( __( 'Sesiones de pleno', 'aranda-de-duero' ), __( 'Sesiones del pleno del Ayuntamiento.', 'aranda-de-duero' ), $e( $pub, 'PTS2_PLENO' ), 'pleno plenos sesion sesiones acta actas' ),
+		aranda_de_duero_directory_entry( __( 'Sesiones de junta de gobierno local', 'aranda-de-duero' ), __( 'Sesiones de la junta de gobierno local.', 'aranda-de-duero' ), $e( $pub, 'PTS2_JUNTA' ), 'junta gobierno sesion sesiones acta actas' ),
+		aranda_de_duero_directory_entry( __( 'Perfil de contratante', 'aranda-de-duero' ), __( 'Contratos y licitaciones del Ayuntamiento.', 'aranda-de-duero' ), $e( $pub, 'PTS2_PERFIL_CONTRATANTE' ), 'contrato contratos contratacion licitacion licitaciones proveedor' ),
+		aranda_de_duero_directory_entry( __( 'Factura electrónica', 'aranda-de-duero' ), __( 'Presentación de facturas electrónicas al Ayuntamiento.', 'aranda-de-duero' ), 'https://face.gob.es', 'factura facturas facturacion proveedor proveedores face' ),
+		aranda_de_duero_directory_entry( __( 'Validación de documentos', 'aranda-de-duero' ), __( 'Valida y comprueba documentos emitidos por el Ayuntamiento.', 'aranda-de-duero' ), $e( $pub, 'VALDOCS' ), 'validar comprobar verificar documento documentos csv' ),
+		aranda_de_duero_directory_entry( __( 'Oficinas de asistencia en materia de registro', 'aranda-de-duero' ), __( 'Dónde presentar documentos en persona.', 'aranda-de-duero' ), $e( $pub, 'PTS2_OFIASIREG' ), 'registro oficina oficinas presentar documentos entrada' ),
+		aranda_de_duero_directory_entry( __( 'Documentación para un expediente en trámite', 'aranda-de-duero' ), __( 'Presenta documentación a expedientes en trámite.', 'aranda-de-duero' ), $e( $pub, 'CATALOGO&DETALLE=6269004131670985405225' ), 'expediente expedientes documentacion presentar aportar' ),
+		aranda_de_duero_directory_entry( __( 'Calendario y cómputo de plazos', 'aranda-de-duero' ), __( 'Días hábiles y cómputo de plazos en la sede electrónica.', 'aranda-de-duero' ), $e( $pub, 'PTS2_CALENHABTXT' ), 'plazo plazos dias habiles inhabiles festivos computo' ),
+		aranda_de_duero_directory_entry( __( 'Fecha y hora oficial', 'aranda-de-duero' ), __( 'Fecha y hora oficial de la sede electrónica.', 'aranda-de-duero' ), $e( $pub, 'PTS2_FECHAHORA' ), 'fecha hora oficial reloj' ),
+		aranda_de_duero_directory_entry( __( 'Certificados electrónicos', 'aranda-de-duero' ), __( 'Información sobre certificados electrónicos.', 'aranda-de-duero' ), $e( $pub, 'PTS2_CERTIFICADOS' ), 'certificado certificados electronico electronicos firma identificacion' ),
+		aranda_de_duero_directory_entry( __( 'Sistemas de identificación', 'aranda-de-duero' ), __( 'Cómo identificarte en la sede electrónica.', 'aranda-de-duero' ), $e( $pub, 'PTS2_FIRMASELEC' ), 'identificacion identificarse acceso clave certificado' ),
+		aranda_de_duero_directory_entry( __( 'Sistemas de firma', 'aranda-de-duero' ), __( 'Sistemas de firma admitidos en la sede electrónica.', 'aranda-de-duero' ), $e( $pub, 'PTS2_FIRMA' ), 'firma firmar sistemas' ),
+		aranda_de_duero_directory_entry( __( 'Relación de servicios electrónicos', 'aranda-de-duero' ), __( 'Los servicios electrónicos del Ayuntamiento.', 'aranda-de-duero' ), $e( $pub, 'PTS2_CARTA' ), 'servicios electronicos relacion lista' ),
+		aranda_de_duero_directory_entry( __( 'Cartas de servicios', 'aranda-de-duero' ), __( 'Compromisos de calidad de los servicios municipales.', 'aranda-de-duero' ), $e( $pub, 'PTS2_CARTASERVICIOS' ), 'carta cartas servicios calidad' ),
+		aranda_de_duero_directory_entry( __( 'Normativa de administración electrónica', 'aranda-de-duero' ), __( 'Normativa y ordenanza de administración electrónica.', 'aranda-de-duero' ), $e( $pub, 'PTS2_NORMATIVA' ), 'normativa ordenanza administracion electronica' ),
+		aranda_de_duero_directory_entry( __( 'Interrupciones del servicio', 'aranda-de-duero' ), __( 'Avisos de interrupciones del servicio de la sede.', 'aranda-de-duero' ), $e( $pub, 'PTS2_INTERRSERV' ), 'interrupcion interrupciones caida mantenimiento no funciona' ),
+		aranda_de_duero_directory_entry( __( 'Preguntas frecuentes de la sede', 'aranda-de-duero' ), __( 'Preguntas frecuentes sobre la sede electrónica.', 'aranda-de-duero' ), $e( $pub, 'PTS2_FAQS' ), 'preguntas frecuentes faq dudas ayuda' ),
+		aranda_de_duero_directory_entry( __( 'Ayuda de la sede', 'aranda-de-duero' ), __( 'Ayuda para usar la sede electrónica.', 'aranda-de-duero' ), $e( $pub, 'PTS2_AYUDA' ), 'ayuda soporte problema dudas' ),
+
+		// Other portals and sections of this site.
+		aranda_de_duero_directory_entry( __( 'Portal de transparencia', 'aranda-de-duero' ), __( 'Información pública del Ayuntamiento.', 'aranda-de-duero' ), $info['transparency_url'], 'transparencia retribuciones presupuesto organigrama subvenciones informacion publica' ),
+		aranda_de_duero_directory_entry( __( 'Turismo', 'aranda-de-duero' ), __( 'Web de turismo de Aranda de Duero.', 'aranda-de-duero' ), 'https://turismo.arandadeduero.es/', 'turismo visitar visita monumentos bodegas ruta rutas' ),
+		aranda_de_duero_directory_entry( __( 'Participación ciudadana', 'aranda-de-duero' ), __( 'Web de las asociaciones y la participación ciudadana.', 'aranda-de-duero' ), 'https://asociaciones.arandadeduero.es/', 'participacion ciudadana asociaciones asociacion', true ),
+		aranda_de_duero_directory_entry( __( 'Agenda de eventos', 'aranda-de-duero' ), __( 'Los actos y actividades que se celebran en Aranda de Duero.', 'aranda-de-duero' ), home_url( '/agenda/' ), 'agenda eventos actos actividades fiestas conciertos cultura', false ),
+		aranda_de_duero_directory_entry( __( 'Bandos', 'aranda-de-duero' ), __( 'Bandos municipales.', 'aranda-de-duero' ), home_url( '/bandos/' ), 'bando bandos aviso avisos', false ),
+		aranda_de_duero_directory_entry( __( 'Notas de prensa', 'aranda-de-duero' ), __( 'Comunicados oficiales del Ayuntamiento.', 'aranda-de-duero' ), home_url( '/notas-de-prensa/' ), 'nota notas prensa comunicado comunicados', false ),
+		aranda_de_duero_directory_entry( __( 'Ayudas y subvenciones', 'aranda-de-duero' ), __( 'Ayudas para autónomos, emprendedores, comercios y empresas.', 'aranda-de-duero' ), home_url( '/subvenciones/' ), 'ayuda ayudas subvencion subvenciones empresa empresas autonomo autonomos comercio emprendedor abre aranda', false ),
+		aranda_de_duero_directory_entry( __( 'Teléfonos de interés', 'aranda-de-duero' ), __( 'Teléfonos de interés de Aranda de Duero.', 'aranda-de-duero' ), home_url( '/telefonos-de-interes/' ), 'telefono telefonos llamar emergencias contacto', false ),
+		aranda_de_duero_directory_entry( __( 'Preguntas frecuentes', 'aranda-de-duero' ), __( 'Preguntas frecuentes sobre el Ayuntamiento.', 'aranda-de-duero' ), home_url( '/preguntas-mas-frecuentes/' ), 'preguntas frecuentes faq dudas', false ),
+		aranda_de_duero_directory_entry( __( 'Enlaces de interés', 'aranda-de-duero' ), __( 'Redes sociales y perfiles del Ayuntamiento.', 'aranda-de-duero' ), home_url( '/enlaces-de-interes/' ), 'enlaces redes sociales instagram facebook twitter tiktok youtube', false ),
 	);
+}
+
+/**
+ * The «Especiales» of the home page as searchable entries: whatever the Ayuntamiento highlights there (PGOU, catastro, calendario
+ * fiscal, PMUS…) is found by its title without being copied anywhere.
+ *
+ * @return array<int, array{title: string, text: string, url: string, new_tab: bool, keywords: string}>
+ */
+function aranda_de_duero_search_especiales() {
+	if ( ! function_exists( 'aranda_de_duero_home_especiales' ) ) {
+		return array();
+	}
+
+	$site_host = wp_parse_url( home_url(), PHP_URL_HOST );
+	$entries   = array();
+
+	foreach ( aranda_de_duero_home_especiales() as $item ) {
+		$host      = wp_parse_url( $item['url'], PHP_URL_HOST );
+		$entries[] = aranda_de_duero_directory_entry(
+			$item['title'],
+			__( 'Destacado en la portada.', 'aranda-de-duero' ),
+			$item['url'],
+			'',
+			is_string( $host ) && $host !== $site_host
+		);
+	}
+
+	return $entries;
 }
 
 /**
@@ -99,7 +142,24 @@ function aranda_de_duero_search_normalize( $text ) {
 }
 
 /**
- * Services that match a search: every word typed must appear (as part of a word) in the title, the description or the
+ * Whether some word starts with the term («cita» matches «cita previa» but not «solicitados»).
+ *
+ * @param string[] $words Normalized words.
+ * @param string   $term  Normalized term.
+ * @return bool
+ */
+function aranda_de_duero_search_has_word( array $words, $term ) {
+	foreach ( $words as $word ) {
+		if ( 0 === strpos( $word, $term ) ) {
+			return true;
+		}
+	}
+
+	return false;
+}
+
+/**
+ * Services that match a search: every word typed must start a word in the title, the description or the
  * keywords of the service, so «padrón» finds «Certificado de padrón» and «pagar multa» finds «Multas».
  *
  * @param string $query Search typed by the visitor.
@@ -117,35 +177,49 @@ function aranda_de_duero_search_services( $query, $limit = 6 ) {
 		$pool = array_merge( $pool, $group['items'] );
 	}
 	$pool = array_merge( $pool, aranda_de_duero_service_directory() );
+	$pool = array_merge( $pool, aranda_de_duero_search_especiales() );
 
 	$found = array();
 	$seen  = array();
-	foreach ( $pool as $service ) {
+	foreach ( $pool as $index => $service ) {
 		if ( isset( $seen[ $service['url'] ] ) ) {
 			continue;
 		}
 
-		$haystack = aranda_de_duero_search_normalize( $service['title'] . ' ' . $service['text'] . ' ' . ( isset( $service['keywords'] ) ? $service['keywords'] : '' ) );
+		$words = preg_split( '/[^a-z0-9]+/', aranda_de_duero_search_normalize( $service['title'] . ' ' . $service['text'] . ' ' . ( isset( $service['keywords'] ) ? $service['keywords'] : '' ) ), -1, PREG_SPLIT_NO_EMPTY );
 		foreach ( $terms as $term ) {
-			if ( false === strpos( $haystack, $term ) ) {
+			if ( ! aranda_de_duero_search_has_word( $words, $term ) ) {
 				continue 2;
 			}
 		}
 
+		// Matches in the title come first; the rest keep the order of the lists.
+		$title_words = preg_split( '/[^a-z0-9]+/', aranda_de_duero_search_normalize( $service['title'] ), -1, PREG_SPLIT_NO_EMPTY );
+		$in_title    = 0;
+		foreach ( $terms as $term ) {
+			$in_title += aranda_de_duero_search_has_word( $title_words, $term ) ? 0 : 1;
+		}
+
 		$seen[ $service['url'] ] = true;
 		$found[]                 = array(
-			'title'   => $service['title'],
-			'text'    => $service['text'],
-			'url'     => $service['url'],
-			'new_tab' => $service['new_tab'],
+			'rank'    => array( $in_title, $index ),
+			'service' => array(
+				'title'   => $service['title'],
+				'text'    => $service['text'],
+				'url'     => $service['url'],
+				'new_tab' => $service['new_tab'],
+			),
 		);
-
-		if ( count( $found ) >= $limit ) {
-			break;
-		}
 	}
 
-	return $found;
+	usort(
+		$found,
+		static function ( $a, $b ) {
+			return $a['rank'] <=> $b['rank'];
+		}
+	);
+
+	return array_slice( array_column( $found, 'service' ), 0, $limit );
 }
 
 /**

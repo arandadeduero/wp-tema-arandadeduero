@@ -20,7 +20,7 @@
 
     const setVar = (name, value) => root.style.setProperty(name, `${value}px`);
 
-    // The bar sticks too except on small screens, where it scrolls away to leave room for the content.
+    // The bar adds to the offset only while it sticks.
     const measure = () => {
         // Rounded down: the next bar then goes half a pixel under this one instead of leaving a gap where the page shows through.
         const barHeight =

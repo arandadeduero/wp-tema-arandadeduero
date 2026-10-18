@@ -276,8 +276,7 @@ header#masthead {
 }
 
 /*
- * Cabecera fija: la barra superior y el menú principal se quedan arriba al desplazarse (en pantallas pequeñas la barra se va y
- * solo queda el menú). js/sticky-header.js mide las alturas y las deja en --sticky-bar y --sticky-offset; los valores de aquí son
+ * Cabecera fija: la barra superior y el menú principal se quedan arriba al desplazarse. js/sticky-header.js mide las alturas y las deja en --sticky-bar y --sticky-offset; los valores de aquí son
  * los de reserva por si el script no ha cargado.
  */
 html {
@@ -299,17 +298,9 @@ html {
 }
 
 @media (width <= 767px) {
-    .top-bar {
-        position: static;
-    }
-
-    .site-header-wrapper {
-        top: 0;
-    }
-
     /* El panel del menú móvil se desplaza por dentro si no cabe en la pantalla, porque la cabecera ya no se mueve. */
     body .main-navigation.toggled #primary-menu {
-        max-height: calc(100dvh - 6rem);
+        max-height: calc(100dvh - var(--sticky-bar, 0px) - 6.5rem);
         overflow-y: auto;
         overscroll-behavior: contain;
     }
@@ -2993,12 +2984,16 @@ a.service-card:focus-visible .service-card-title {
 }
 
 .home-buscador.is-compact .home-buscador-title,
-.home-buscador.is-compact .search-suggestions {
+.home-buscador.is-compact .search-suggestions:not(.search-explore) {
     display: none;
 }
 
 .home-buscador.is-compact .search-box {
     margin: 0 auto;
+}
+
+.home-buscador.is-compact .search-explore {
+    margin-top: var(--spacing-xs);
 }
 
 .search-catalog,

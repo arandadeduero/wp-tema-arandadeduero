@@ -2918,3 +2918,239 @@ button.poster-dialog-button {
     font-size: 0.875rem;
     font-weight: 600;
 }
+
+/*
+ * Página de enlaces (page-enlaces.php), sustituye a la hecha con Elementor y conserva su aspecto y sus medidas: logotipo,
+ * bloque azul claro con botones blancos y una tarjeta de color por servicio, en la tipografía del tema (Outfit).
+ * Los !important: el Personalizador fija el color de los títulos con !important.
+ */
+.page-enlaces .enlaces-logo {
+    padding: var(--spacing-2xl) var(--spacing-md) var(--spacing-xl);
+    text-align: center;
+}
+
+.page-enlaces .enlaces-marca {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-xs);
+    text-decoration: none;
+}
+
+.page-enlaces .enlaces-marca img {
+    width: 110px;
+    height: auto;
+}
+
+.page-enlaces .enlaces-marca-linea {
+    color: #6b6b6b;
+    font-size: 1.25rem;
+    line-height: 1.1;
+}
+
+.page-enlaces .enlaces-marca-nombre {
+    color: #333;
+    font-size: 2.25rem;
+    font-weight: 600;
+    line-height: 1.1;
+}
+
+/* Bloque azul: #41b6e6 al 50 % sobre blanco. Relleno de 30 px; botones al 60 % del ancho útil, de 70 px de alto y 20 px de separación. */
+.page-enlaces .enlaces-destacados {
+    padding: 30px 40px;
+    background: #a0daf2;
+}
+
+.page-enlaces .enlaces-grupo {
+    margin-bottom: 20px;
+}
+
+.page-enlaces .enlaces-titulo {
+    margin: 0 0 20px;
+    padding: 10px 0;
+    color: #7a7a7a !important;
+    font-size: 27px;
+    font-weight: 400;
+    line-height: 1.6;
+    text-align: center;
+}
+
+.page-enlaces .enlaces-titulo strong,
+.page-enlaces .enlaces-titulo span {
+    display: block;
+}
+
+.page-enlaces .enlaces-titulo strong {
+    font-weight: 700;
+}
+
+.page-enlaces .enlaces-boton {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 3px;
+    background: var(--color-white);
+    box-shadow: 0 0 14px 6px rgb(0 0 0 / 8%);
+    color: #28424c;
+    font-size: 20px;
+    line-height: 30px;
+    text-align: start;
+    text-decoration: none;
+    transition:
+        background-color 0.3s,
+        color 0.3s,
+        box-shadow 0.3s;
+}
+
+.page-enlaces .enlaces-destacados .enlaces-boton {
+    width: 60%;
+    margin-inline: auto;
+}
+
+.page-enlaces .enlaces-boton::before {
+    content: '';
+    flex: none;
+    width: 1.75rem;
+    height: 1.75rem;
+    background-color: var(--enlaces-color, #41b6e6);
+    mask: var(
+            --enlace-icono,
+            url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14M13 6l6 6-6 6'/%3E%3C/svg%3E")
+        )
+        center / contain no-repeat;
+    transition: background-color 0.3s;
+}
+
+.page-enlaces .enlaces-boton:hover,
+.page-enlaces .enlaces-boton:focus-visible {
+    background: #a1561c;
+    box-shadow: 0 0 21px 7px rgb(0 0 0 / 10%);
+    color: var(--color-white);
+}
+
+.page-enlaces .enlaces-boton:hover::before,
+.page-enlaces .enlaces-boton:focus-visible::before {
+    background-color: var(--color-white);
+}
+
+/* Tarjetas de color: tres por fila sin hueco (10 px de relleno en cada una = 20 px entre tarjetas); 118 px entre filas. */
+.page-enlaces .enlaces-servicios {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(2rem, 8vw, 118px) 20px;
+    max-width: 90rem;
+    margin: 0 auto;
+    padding: clamp(2rem, 5.4vw, 59px) clamp(1rem, 6.3vw, 69px);
+}
+
+.page-enlaces .enlaces-tarjeta {
+    padding: 20px 10px;
+    border-radius: 25px;
+    background: var(--enlaces-color);
+    text-align: center;
+}
+
+.page-enlaces .enlaces-tarjeta-icono {
+    display: block;
+    width: 126px;
+    height: 126px;
+    margin: 0 auto 26px;
+}
+
+.page-enlaces .enlaces-tarjeta h2 {
+    margin: 0 0 20px;
+    color: var(--color-white) !important;
+    font-size: 27px;
+    font-weight: 700;
+    line-height: 1.6;
+    text-transform: uppercase;
+}
+
+.page-enlaces .enlaces-tarjeta .enlaces-boton {
+    border-radius: 25px;
+}
+
+.page-enlaces .enlaces-tarjeta--policia,
+.page-enlaces .enlaces-tarjeta--proteccion-civil {
+    --enlaces-color: #0086bf;
+}
+
+.page-enlaces .enlaces-tarjeta--bomberos {
+    --enlaces-color: #c8102e;
+}
+
+.page-enlaces .enlaces-tarjeta--ceas,
+.page-enlaces .enlaces-tarjeta--biblioteca {
+    --enlaces-color: #f2a900;
+}
+
+.page-enlaces .enlaces-tarjeta--deportes {
+    --enlaces-color: #f3c368;
+}
+
+/* Los botones de una tarjeta llevan el icono en el color de la tarjeta (el hover los pone en blanco). */
+.page-enlaces .enlaces-tarjeta .enlaces-boton::before {
+    background-color: var(--enlaces-color);
+}
+
+.page-enlaces .enlaces-tarjeta .enlaces-boton:hover::before,
+.page-enlaces .enlaces-tarjeta .enlaces-boton:focus-visible::before {
+    background-color: var(--color-white);
+}
+
+@media (width <= 999px) {
+    .page-enlaces .enlaces-servicios {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (width <= 767px) {
+    .page-enlaces .enlaces-destacados {
+        padding-inline: var(--spacing-md);
+    }
+
+    .page-enlaces .enlaces-destacados .enlaces-boton {
+        width: 100%;
+    }
+}
+
+@media (width <= 639px) {
+    .page-enlaces .enlaces-servicios {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .page-enlaces .enlaces-marca-nombre {
+        font-size: 1.875rem;
+    }
+}
+
+/* Iconos por dirección: instagram, facebook, tiktok, x, youtube; la web propia y Linktree llevan los suyos. */
+.page-enlaces .enlaces-boton--web {
+    --enlace-icono: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round'%3E%3Ccircle cx='12' cy='12' r='9'/%3E%3Cpath d='M3 12h18M12 3c3.5 3.2 3.5 14.8 0 18M12 3c-3.5 3.2-3.5 14.8 0 18'/%3E%3C/svg%3E");
+}
+
+.page-enlaces .enlaces-boton[href*='linktr.ee'] {
+    --enlace-icono: url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 576 512%22%3E%3Cpath fill=%22%23000%22 d=%22M542.22 32.05c-54.8 3.11-163.72 14.43-230.96 55.59-4.64 2.84-7.27 7.89-7.27 13.17v363.87c0 11.55 12.63 18.85 23.28 13.49 69.18-34.82 169.23-44.32 218.7-46.92 16.89-.89 30.02-14.43 30.02-30.66V62.75c.01-17.71-15.35-31.74-33.77-30.7zM264.73 87.64C197.5 46.48 88.58 35.17 33.78 32.05 15.36 31.01 0 45.04 0 62.75V400.6c0 16.24 13.13 29.78 30.02 30.66 49.49 2.6 149.59 12.11 218.77 46.95 10.62 5.35 23.21-1.94 23.21-13.46V100.63c0-5.29-2.62-10.14-7.27-12.99z%22/%3E%3C/svg%3E');
+}
+
+.page-enlaces .enlaces-boton[href*='instagram.com'] {
+    --enlace-icono: url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 448 512%22%3E%3Cpath fill=%22%2341b6e6%22 d=%22M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z%22/%3E%3C/svg%3E');
+}
+
+.page-enlaces .enlaces-boton[href*='facebook.com'] {
+    --enlace-icono: url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 512 512%22%3E%3Cpath fill=%22%2341b6e6%22 d=%22M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z%22/%3E%3C/svg%3E');
+}
+
+.page-enlaces .enlaces-boton[href*='tiktok.com'] {
+    --enlace-icono: url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 448 512%22%3E%3Cpath fill=%22%2341b6e6%22 d=%22M448,209.91a210.06,210.06,0,0,1-122.77-39.25V349.38A162.55,162.55,0,1,1,185,188.31V278.2a74.62,74.62,0,1,0,52.23,71.18V0l88,0a121.18,121.18,0,0,0,1.86,22.17h0A122.18,122.18,0,0,0,381,102.39a121.43,121.43,0,0,0,67,20.14Z%22/%3E%3C/svg%3E');
+}
+
+.page-enlaces .enlaces-boton[href*='x.com'] {
+    --enlace-icono: url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 448 512%22%3E%3Cpath fill=%22%2341b6e6%22 d=%22M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm297.1 84L257.3 234.6 379.4 396H283.8L209 298.1 123.3 396H75.8l111-126.9L69.7 116h98l67.7 89.5L313.6 116h47.5zM323.3 367.6L153.4 142.9H125.1L296.9 367.6h26.3z%22/%3E%3C/svg%3E');
+}
+
+.page-enlaces .enlaces-boton[href*='youtube.com'] {
+    --enlace-icono: url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 576 512%22%3E%3Cpath fill=%22%2341b6e6%22 d=%22M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z%22/%3E%3C/svg%3E');
+}

@@ -136,7 +136,8 @@ function aranda_de_duero_home_slides() {
 /**
  * Markup of the carousel for a list of slides ('' when there are none).
  *
- * The first image loads eagerly (it is the LCP element); the rest use native lazy loading.
+ * The first image loads eagerly and with a high fetch priority (it is the LCP element on wide screens); the rest use
+ * native lazy loading.
  *
  * @param array<int, array{image_id: int, title: string, url: string}> $slides Slides.
  * @return string
@@ -151,18 +152,18 @@ function aranda_de_duero_home_carousel_html( array $slides ) {
 	$html .= '<div class="home-carousel-track" tabindex="0">';
 
 	foreach ( array_values( $slides ) as $index => $slide ) {
-		$image = wp_get_attachment_image(
-			$slide['image_id'],
-			'full',
-			false,
-			array(
-				'class'    => 'home-carousel-image',
-				'sizes'    => '100vw',
-				'loading'  => 0 === $index ? 'eager' : 'lazy',
-				'decoding' => 'async',
-				'alt'      => $slide['title'],
-			)
+		$attributes = array(
+			'class'    => 'home-carousel-image',
+			'sizes'    => '100vw',
+			'loading'  => 0 === $index ? 'eager' : 'lazy',
+			'decoding' => 'async',
+			'alt'      => $slide['title'],
 		);
+		if ( 0 === $index ) {
+			$attributes['fetchpriority'] = 'high';
+		}
+
+		$image = wp_get_attachment_image( $slide['image_id'], 'full', false, $attributes );
 		if ( '' === $image ) {
 			continue;
 		}

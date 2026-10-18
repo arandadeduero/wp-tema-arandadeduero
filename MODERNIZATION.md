@@ -92,7 +92,7 @@ cinco tamaños y estilos para los bloques botón, cita y separador. El `@font-fa
 
 ## Tests
 
-`composer run test` (62 tests, PHPUnit 9 + WP_Mock, sin WordPress): metadatos sociales, datos estructurados, caché de
+`composer run test` (63 tests, PHPUnit 9 + WP_Mock, sin WordPress): metadatos sociales, datos estructurados, caché de
 eventos, contraste de color, carrusel, «Especiales», widgets de eventos, cadenas de My Calendar, contacto, avisos de
 cumplimiento, variables del Personalizador y rendimiento. La CI los ejecuta junto con phpcs, phpstan 2, parallel-lint,
 ESLint y Stylelint. PHPUnit sigue en la 9 porque `10up/wp_mock` no soporta la 10+.
@@ -124,4 +124,10 @@ ESLint y Stylelint. PHPUnit sigue en la 9 porque `10up/wp_mock` no soporta la 10
   se usa en ninguna plantilla: retirarlo o volver a mostrarlo.
 - Quitar del todo Smart Slider cuando la portada ya tenga sus diapositivas (la rama de reserva de `page-home.php` y
   `aranda_de_duero_defer_slider_images()`).
+- **LCP de la home en escritorio (medido el 2026-10-18, Fast 4G):** la imagen de LCP es la primera diapositiva (GIF de 305 KB) y
+  tarda ~1,9 s en bajar porque compite con la imagen de la primera noticia (352 KB, `loading="eager"` +
+  `fetchpriority="high"` en `page-home.php`), que se pide a la vez. En móvil esa noticia **es** el LCP. Con la noticia en
+  `lazy` el LCP de escritorio baja de 2,17 a 1,66 s, pero el de móvil sube de 2,50 a 2,87 s; una precarga con
+  `media="(max-width: 767px)"` no llegó a usarse en la prueba. Además el `sizes` de esa imagen (`640px`) no coincide con su
+  tamaño real (≈ 90 % del contenedor, recortada a 225 px de alto). Lo que más pesa sigue siendo el tamaño de los GIF.
 - Cabeceras de caché del navegador para estáticos (`Cache-Control`/`Expires`, en el `.htaccess`): el tema no puede ponerlas.

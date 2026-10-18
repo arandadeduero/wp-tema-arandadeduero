@@ -1,405 +1,107 @@
-# Development Guide - Aranda de Duero Theme
+# Desarrollo
 
-This guide explains how to use the modern development tools and build system for the Aranda de Duero WordPress theme.
+Cómo trabajar en el tema: herramientas, comprobaciones, reglas de código y flujo de PR. Para publicar una versión,
+[RELEASE.md](RELEASE.md). Para las decisiones técnicas, [MODERNIZATION.md](MODERNIZATION.md).
 
-## Prerequisites
+## Puesta en marcha
 
--   **Node.js**: 18.0.0 or higher
--   **npm**: 9.0.0 or higher
--   **PHP**: 7.4 or higher
--   **Composer**: Latest version
-
-## Project Setup
-
-### 1. Install Node Dependencies
-
-```bash
-npm install
+```sh
+composer install   # phpcs (WPCS + PHPCompatibility), phpstan, parallel-lint, PHPUnit + WP_Mock
+npm install        # eslint, stylelint, prettier, browser-sync
 ```
 
-This installs all development tools:
--   **eslint**: JavaScript linting
--   **prettier**: Code formatter
--   **stylelint**: CSS linting
--   **postcss**: CSS processing
--   **autoprefixer**: Browser vendor prefixes
--   **cssnano**: CSS minification
--   **browser-sync**: Local development server with live reload
--   **@wordpress/scripts**: WordPress development utilities
+Requisitos: PHP 8.2 o superior **para las herramientas** (la CI usa 8.2; el código del tema debe seguir funcionando
+en PHP 7.4, que es el del servidor), Node 20 o superior y Composer.
 
-### 2. Install PHP Dependencies
+**No hay paso de compilación.** Lo que hay en `css/` y `js/` es exactamente lo que se sirve: no hay SCSS, ni
+minificación, ni Autoprefixer en el flujo. `postcss.config.js` queda de herencia y ningún script lo usa.
 
-```bash
-composer install
+## Comandos
+
+| Comando | Qué hace |
+| --- | --- |
+| `composer run lint:wpcs` | Estándares de WordPress (phpcs). Solo deben quedar los avisos conocidos de `tax_query` |
+| `composer run lint:php` | Errores de sintaxis PHP (parallel-lint) |
+| `composer run phpstan` | Análisis estático, nivel 5 (`phpstan.neon.dist`; la línea base está en `phpstan-baseline.neon`) |
+| `composer run test` | Tests unitarios (PHPUnit + WP_Mock, sin WordPress) |
+| `npm run lint:js` | ESLint sobre `js/` |
+| `npm run lint:css` | Stylelint sobre `css/` |
+| `npm run fix:css` | Stylelint con `--fix` |
+| `npm run format` | Prettier sobre `js/` y `css/` |
+| `npm run lint` | `lint:js`, `lint:css` y `lint:php` |
+| `npm run release` | Lint y paquete del tema (ver [RELEASE.md](RELEASE.md)) |
+| `npm start` | browser-sync con recarga en vivo (solo sirve ficheros estáticos; no ejecuta PHP) |
+
+Compatibilidad con PHP 7.4 (no la ejecuta la CI; hacerlo antes de un PR que toque PHP):
+
+```sh
+./vendor/bin/phpcs -p --standard=PHPCompatibilityWP --runtime-set testVersion 7.4 --extensions=php \
+  --ignore='vendor/*,node_modules/*,dist/*,tests/*' .
 ```
 
-This installs:
-
--   **WordPress Coding Standards (WPCS)**: PHP code quality rules
--   **PHPStan**: PHP static analyzer
--   **PHP Parallel Lint**: Fast PHP syntax checker
-
-## Available npm Scripts
-
-### Development Workflow
-
-**Start development server with watch mode:**
-
-```bash
-npm start
-```
-
-- Watches all source files (`.js`, `.php`, `.css`)
-- Runs ESLint and Stylelint on changes
-- Launches browser-sync for live reload
-
-**Watch files without starting browser-sync:**
-
-```bash
-npm run watch
-```
-
--   Monitors CSS and JavaScript files
--   Compiles and lints automatically
--   No browser-sync server
-
-### Production Build
-
-**Create minified production-ready assets:**
-
-```bash
-npm run build
-```
-
--   Minifies JavaScript
--   Optimizes CSS with autoprefixer + cssnano
--   Generates RTL stylesheet
-
-### Code Quality
-
-**Run all linters:**
-
-```bash
-npm run lint
-```
-
-**Lint JavaScript only:**
-
-```bash
-npm run lint:js
-```
-
--   Uses ESLint with WordPress plugin
--   Checks for jQuery references (should be 0)
-
-**Lint CSS only:**
-
-```bash
-npm run lint:style
-```
-
--   Uses Stylelint with CSS support
--   Enforces consistent formatting
-
-**Lint PHP files:**
-
-```bash
-npm run lint:php
-```
-
--   Uses PHP CodeSniffer with WordPress Coding Standards
--   Enforces WPCS naming conventions (uses `aranda_de_duero_` prefix)
-
-**Run PHPStan static analysis:**
-
-```bash
-npm run phpstan
-```
-
--   Performs static PHP code analysis
--   Catches potential type/logic errors
-
-### Code Formatting
-
-**Auto-fix linting issues:**
-
-```bash
-npm run format
-```
-
--   Fixes ESLint issues (where possible)
--   Fixes Stylelint issues
--   Reformats code with Prettier
-
-**Format with Prettier only:**
-
-```bash
-npm run format:prettier
-```
-
--   Applies consistent code style:
-    -   4-space indentation
-    -   100 character line width
-    -   Single quotes for strings
-    -   Trailing commas in multi-line arrays/objects
-
-### Build Utilities
-
-**Extract theme translation strings:**
-
-```bash
-npm run compile:rtl
-```
-
--   Generates RTL version of stylesheet
--   Useful for testing RTL language support
-
-**Clean build artifacts:**
-
-```bash
-npm run clean
-```
-
--   Removes compiled CSS and minified assets
-
-## File Organization
-
-```
-├── js/                          # JavaScript source files
-│   ├── aranda-de-duero.js      # Main theme functionality
-│   ├── customizer.js           # Theme Customizer integration
-│   └── navigation.js           # Navigation menu handler
-│
-├── css/                         # CSS source files
-│   └── aranda-de-duero.css     # Main stylesheet (1,693 lines)
-│
-├── template-parts/             # Reusable template components
-├── inc/                        # PHP includes
-│   ├── custom-header.php
-│   ├── customizer.php
-│   ├── jetpack.php
-│   ├── template-functions.php
-│   └── template-tags.php
-│
-├── package.json                # Node.js dependencies & scripts
-├── composer.json               # PHP dependencies & scripts
-├── phpcs.xml.dist              # PHP CodeSniffer configuration
-├── .eslintrc.json              # ESLint JavaScript linting rules
-├── .prettierrc                 # Prettier code formatting config
-├── .stylelintrc.json           # Stylelint CSS linting rules
-├── postcss.config.js           # PostCSS processing (autoprefixer, cssnano)
-├── .browserslistrc             # Target browsers for autoprefixer
-├── .npmrc                      # npm configuration
-└── .prettierignore             # Prettier exclusion patterns
-```
-
-## Configuration Files Explained
-
-### .eslintrc.json
-
-Enforces JavaScript code quality:
-
--   ES2021 JavaScript syntax
--   WordPress-specific globals: `wp`, `wpData`, `ArandaTheme`, `NavigationMenu`
--   Prefers `const`/`let` over `var`
--   Requires semicolons
--   Enforces strict equality (`===`)
--   4-space indentation
-
-### .prettierrc
-
-Ensures consistent code formatting:
-
--   4-space indentation (tabs)
--   100 character line width
--   Single quotes for strings
--   Trailing commas in ES5 objects/arrays
--   Proper arrow parentheses
-
-### .stylelintrc.json
-
-Validates CSS quality:
-
--   CSS syntax support
--   Consistent selector naming
--   Proper selector formatting
--   Media query organization
--   Integrates with Prettier for consistent formatting
-
-### postcss.config.js
-
-Processes compiled CSS:
-
--   **Autoprefixer**: Adds vendor prefixes for browser compatibility
--   **CSSnano**: Minifies CSS with intelligent compression
--   Supports all browsers with >1% market share (last 2 versions)
-
-### composer.json
-
-PHP development tools:
-
--   WordPress Coding Standards (WPCS 3.0.0)
--   PHPStan for static analysis
--   PHP Parallel Lint for syntax checking
-
-## Modern JavaScript Features
-
-All JavaScript files use modern ES6+ syntax:
-
--   Arrow functions: `() => {}`
--   `const`/`let` declarations (no `var`)
--   Template literals: `` `hello ${name}` ``
--   Destructuring: `const { name, age } = person`
--   IIFE module pattern for scope isolation
--   DOM utility helpers for vanilla JavaScript
-
-### No jQuery!
-
-The theme is 100% jQuery-free. All DOM manipulation uses vanilla JavaScript:
-
-```js
-// Before (jQuery)
-$('.element').addClass('active');
-
-// After (Vanilla)
-document.querySelector('.element').classList.add('active');
-```
-
-## CSS Features
-
-The stylesheet uses modern CSS features:
-
--   **CSS Custom Properties (Variables)**: 50+ theme variables
--   **CSS Grid & Flexbox**: Modern layout techniques
--   **Reduced Motion**: Respects `prefers-reduced-motion` setting
--   **Dark Mode**: `prefers-color-scheme` media query support
--   **Print Styles**: Optimized for printing
-
-### CSS Variables
-
-```css
-:root {
-    --color-primary: #0073aa;
-    --color-text: #333;
-    --spacing-base: 1rem;
-    --transition-default: 0.3s ease;
-}
-```
-
-## Development Workflow Examples
-
-### Example 1: Adding a New Feature
-
-```bash
-# Start watch mode
-npm start
-
-# Edit your files (js, css, php)
-# Files are automatically compiled and linted
-
-# When ready, run build for production
-npm run build
-
-# Lint everything before committing
-npm run lint
-npm run lint:php
-```
-
-### Example 2: Fixing Linting Issues
-
-```bash
-# See all linting problems
-npm run lint
-npm run lint:php
-
-# Auto-fix what's fixable
-npm run format
-
-# Manually fix remaining issues
-# (errors that can't auto-fix will be reported)
-```
-
-### Example 3: Testing on Different Browsers
-
-```bash
-# Browser-sync serves the site locally and syncs across devices/browsers
-npm start
-
-# Visits automatically open at http://localhost:3000/
-# Manual testing on other devices: http://[your-ip]:3000/
-```
-
-## Common Issues & Solutions
-
-### "npm: command not found"
-
--   Install Node.js from https://nodejs.org/
--   Ensure version 18+ is installed: `node --version`
-
-### CSS compilation errors
-
--   Check for invalid CSS syntax
--   Run `npm run lint:style` to check CSS
--   Look for unexpanded variables or missing semicolons
-
-### ESLint errors about WordPress globals
-
--   Add global declarations in `.eslintrc.json` under `globals`
--   Use `/* global MyNamespace */` at file start
--   Ensure prefix matches `aranda_de_duero` convention
-
-### Browser-sync not working
-
--   Ensure port 3000 is available
--   Check firewall settings
--   Verify `browser-sync` is installed: `npm list browser-sync`
-
-### PHP linter fails
-
--   Check prefix: all globals must start with `aranda_de_duero_`
--   Run `npm run lint:php` to see specific issues
--   Verify PHP 7.4+ syntax (no older PHP 5.x features)
-
-## CI/CD Integration
-
-These npm scripts are designed for automation:
-
-### GitHub Actions Example
-
-```yaml
-- name: Install dependencies
-  run: npm ci
-
-- name: Run linters
-  run: npm run lint
-
-- name: Check formatting
-  run: npx prettier --check . --ignore-path .prettierignore
-
-- name: Build production assets
-  run: npm run build
-```
-
-## Performance Notes
-
--   **JavaScript**: Reduced from 87KB (jQuery) to modular vanilla JS
--   **CSS**: Optimized with 50+ variables for easy theming
--   **Build Time**: ~2 seconds for development, ~5 seconds for production
--   **Live Reload**: Instant with browser-sync during `npm start`
-
-## Further Reading
-
--   [ESLint Documentation](https://eslint.org/)
--   [Prettier Documentation](https://prettier.io/)
--   [WordPress Coding Standards](https://developer.wordpress.org/coding-standards/wordpress-coding-standards/)
--   [PostCSS Documentation](https://postcss.org/)
--   [Stylelint Documentation](https://stylelint.io/)
-
-## Support
-
-For issues or questions:
-
-1. Check the relevant configuration file
-2. Review error messages from `npm run lint`
-3. Consult the WordPress Coding Standards guide
-4. Check the MODERNIZATION.md for architecture details
+## Antes de abrir un PR
+
+Todo en verde: `composer run lint:php`, `lint:wpcs`, `phpstan`, `test`, `npm run lint:js`, `npm run lint:css`, y la
+compatibilidad con PHP 7.4 si se tocó PHP. La CI (`.github/workflows/tests.yml`) ejecuta los seis primeros en cada
+push y en cada PR, con permisos de solo lectura (`permissions: contents: read`).
+
+- `phpcbf` reformatea los arrays y puede romper parches hechos por sustitución de texto: después de editar con un
+  script, comprobar con `grep` o con un test que el cambio está.
+- Stylelint exige una línea en blanco antes de los comentarios dentro de una regla. Si falla, no encadenar
+  `git add && git commit` detrás: se llegó a subir CSS roto así.
+- Los tests están en `tests/` (62 en total): metadatos sociales, datos estructurados, caché de eventos, contraste, carrusel,
+  «Especiales», widgets de eventos, cadenas de My Calendar, avisos de cumplimiento, rendimiento y diferido del slider.
+
+## Reglas del código
+
+- **Sin CSS inline.** Todo el CSS va en `css/aranda-de-duero.css`: ni `style=""` en las plantillas ni `<style>` en el
+  HTML. Los valores dinámicos (colores del Personalizador) salen como variables `--aranda-*` en `:root`. Bootstrap
+  carga **después** del CSS del tema: si una regla pierde contra él, reforzar el selector (`h2.clase`,
+  `.padre .clase`), y `!important` solo donde el inline original lo llevaba.
+- **Sin JavaScript de terceros ni jQuery.** `js/` son cinco ficheros propios, con `defer` y en el pie. De Bootstrap
+  solo se carga el CSS.
+- **Sin recursos de terceros** (CDN, fuentes de Google, emojis de WordPress): todo autoalojado, para no enviar la IP
+  de los visitantes (RGPD). La fuente es Outfit (`css/fonts/`); no usar otra.
+- Prefijo `aranda_de_duero_` para funciones, filtros y hooks; textos con el dominio `aranda-de-duero`.
+- Todo el contenido de un listado repetido (por ejemplo la cajita de presentación de Agenda, Bandos, Subvenciones
+  y Notas de prensa) va en una pieza común de `template-parts/`, no copiado en cada plantilla.
+- Hay que mantener el aspecto al refactorizar: comparar estilos calculados antes y después, y comprobar en la web
+  real, no solo en una copia local.
+
+## Verificar sin WordPress local
+
+No hay entorno de pruebas ni WordPress en local. Se verifica con:
+
+1. Tests unitarios (PHPUnit + WP_Mock).
+2. Una copia del HTML real de producción servida en local con el CSS nuevo (`python3 -m http.server`), que sirve para
+   comparar maquetación, pero **no carga las fuentes de producción** (CORS): la tipografía de reserva engaña.
+3. Inyectar CSS en la página publicada con las herramientas del navegador.
+4. Tras desplegar: Lighthouse sobre la web real y medición del LCP (red Fast 4G, CPU ×4).
+
+Producción **bloquea IPs tras ráfagas de peticiones** (503 durante una hora): pocas peticiones, espaciadas y nunca en
+paralelo. Y la caché de página (Cache Enabler) devuelve la versión anterior hasta que se vacía: para ver código
+recién desplegado, añadir un parámetro a la URL (`/?sin-cache=x`) o enviar `Accept: text/html` si se usa `curl`.
+
+## Dependencias y seguridad
+
+- **Dependabot** (`.github/dependabot.yml`): cada lunes abre, por ecosistema (GitHub Actions, composer y npm), **un PR
+  con todas las minor y patch** y **otro aparte con las major**. Composer usa `versioning-strategy: increase` porque
+  no hay `composer.lock` en el repositorio. Quedan ignoradas las major de `phpunit/phpunit` (10up/wp_mock exige
+  PHPUnit 9.6) y de `squizlabs/php_codesniffer` (WPCS exige phpcs 3); quitar esas líneas cuando se puedan subir.
+- **Seguridad de GitHub** (activada el 2026-10-18): alertas y actualizaciones de seguridad de Dependabot, secret
+  scanning con push protection, informe privado de vulnerabilidades y CodeQL con la configuración por defecto
+  (Actions y JavaScript; CodeQL no analiza PHP). No se pudieron activar los patrones genéricos de secretos ni las
+  comprobaciones de validez: parecen depender del plan de la organización.
+- Para subir a mano dentro de rangos: `npm install paquete@x.y.z` y `composer update paquete`. `npm update` a secas
+  reescribe medio `package-lock.json`; evitarlo.
+
+## Flujo de trabajo
+
+1. Rama desde `main`: `git checkout -b nombre-descriptivo`.
+2. Commit y push; PR con `gh pr create`. El mensaje de commit y el cuerpo del PR acaban con
+   `Co-Authored-By: Claude <modelo> <noreply@anthropic.com>` cuando ha intervenido Claude.
+3. **No hay despliegue automático.** Cada PR se sube a producción a mano (ver [RELEASE.md](RELEASE.md)); solo se
+   mergea cuando está desplegado **y comprobado en la web real**.
+4. Tras el merge: volver a `main`, `git pull` y borrar la rama.
+5. Si la mejora sale de [MEJORAS-OTROS-AYUNTAMIENTOS.md](MEJORAS-OTROS-AYUNTAMIENTOS.md), actualizar su fila y el
+   registro en el mismo PR.

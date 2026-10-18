@@ -1,14 +1,17 @@
 # Aranda de Duero — tema de WordPress
 
 Tema del sitio web del [Ayuntamiento de Aranda de Duero](https://www.arandadeduero.es/).
-Tema clásico (PHP) basado en [Underscores](https://underscores.me/), con Bootstrap 5 autoalojado,
-JavaScript sin jQuery e iconos SVG mediante la API de iconos de WordPress 7.1.
+Tema clásico (PHP) basado en [Underscores](https://underscores.me/), con el CSS de Bootstrap 5 autoalojado (sin su
+JavaScript), JavaScript propio sin jQuery, fuente Outfit local e iconos SVG mediante la API de iconos de WordPress 7.1.
+Sin recursos de terceros en el navegador del visitante (RGPD).
 
 ## Requisitos
 
 - WordPress 7.1 o superior (los iconos usan `wp_get_icon()`; en versiones anteriores no se muestran)
 - PHP 7.4 o superior
 - Plugins que usan las plantillas: Advanced Custom Fields y My Calendar
+- Ya **no hacen falta** (el tema los sustituye y se pueden desactivar): Elementor, Smart Slider, Ajax Load More,
+  Mobile Menu y el plugin de Font Awesome
 
 ## Qué incluye
 
@@ -21,6 +24,13 @@ JavaScript sin jQuery e iconos SVG mediante la API de iconos de WordPress 7.1.
 - **Accesibilidad:** el Customizer rechaza combinaciones de color por debajo de 4,5:1 (`inc/color-contrast.php`).
 - **Seguridad:** el JavaScript personalizado del Customizer exige `unfiltered_html`;
   todos los ajustes del Customizer tienen `sanitize_callback`.
+- **Portada propia:** carrusel (`inc/home-carousel.php`, tipo de contenido `portada_slide`), «Especiales»
+  (`inc/especiales.php`), agenda y noticias, sin plugins ni peticiones AJAX.
+- **Cabecera y menú propios:** barra superior con teléfono, horario y accesos (cita previa, transparencia, sede) y menú
+  móvil del tema (`js/navigation.js`).
+- **Páginas con plantilla propia:** Agenda, Ayuntamiento, Bandos, Subvenciones y Notas de prensa comparten la cajita de
+  presentación (`template-parts/page-intro.php`); `page-enlaces.php` es la página de enlaces «link en la bio»
+  (ver [docs/pagina-enlaces.md](docs/pagina-enlaces.md)).
 - **Patrones de bloques** en `inc/block-patterns.php` y paleta/tipografía en `theme.json`.
 
 ## Desarrollo
@@ -37,16 +47,20 @@ npm install        # herramientas JS/CSS
 | `composer run phpstan` | Análisis estático |
 | `composer run test` | Tests unitarios (PHPUnit + WP_Mock, sin necesidad de WordPress) |
 | `npm run lint` | ESLint, Stylelint y sintaxis PHP |
-| `npm run release` | Compila y empaqueta el tema en `dist/` |
+| `npm run release` | Lint y paquete del tema: `aranda-de-duero-2.0.0.zip` en la raíz |
 
-La CI (`.github/workflows/tests.yml`) ejecuta todos los linters y los tests en cada push.
+La CI (`.github/workflows/tests.yml`) ejecuta los linters y los tests en cada push. **No hay despliegue automático**:
+el tema se sube a mano (ver [RELEASE.md](RELEASE.md)). Dependabot abre cada lunes un PR con las actualizaciones minor y
+patch y otro con las major; CodeQL, el análisis de secretos y las alertas de seguridad están activados en GitHub.
 
 ## Documentación
 
-- [DEVELOPMENT.md](DEVELOPMENT.md): flujo de trabajo y herramientas
-- [BUILD_SETUP.md](BUILD_SETUP.md): configuración del sistema de build
+- [DEVELOPMENT.md](DEVELOPMENT.md): herramientas, comprobaciones, reglas del código y flujo de PR
 - [RELEASE.md](RELEASE.md): cómo generar y desplegar una versión
 - [MODERNIZATION.md](MODERNIZATION.md): decisiones técnicas y estado de la modernización
+- [MEJORAS-OTROS-AYUNTAMIENTOS.md](MEJORAS-OTROS-AYUNTAMIENTOS.md): lista viva de mejoras, con su estado, PR y fuente
+- [docs/](docs/): informe de cumplimiento (bloque A) y página de enlaces
+- [CLAUDE.md](CLAUDE.md): reglas del proyecto para trabajar con Claude Code
 
 ## Licencia
 

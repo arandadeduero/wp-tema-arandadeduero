@@ -11,7 +11,6 @@
 
 const fs = require('fs');
 const path = require('path');
-const archiver = require('archiver');
 
 // Theme information
 const THEME_NAME = 'aranda-de-duero';
@@ -20,69 +19,17 @@ const DIST_DIR = path.join(__dirname, '..', 'dist');
 const RELEASE_DIR = path.join(DIST_DIR, THEME_NAME);
 const OUTPUT_ZIP = path.join(__dirname, '..', `${THEME_NAME}-${THEME_VERSION}.zip`);
 
-// Files and directories to include in the release
+const ROOT = path.join(__dirname, '..');
+
+// Files in the theme root that WordPress reads. Every *.php there is part of the theme (templates, functions.php,
+// taxonomies...), so the list is read from disk: a new template can't be left out of the package by forgetting it here.
 const FILES_TO_INCLUDE = [
-    '404.php',
-    'archive.php',
-    'comments.php',
-    'footer.php',
-    'functions.php',
-    'header.php',
-    'index.php',
-    'page.php',
-    'search.php',
-    'searchform.php',
-    'sidebar.php',
-    'single.php',
+    ...fs.readdirSync(ROOT).filter((file) => file.endsWith('.php')),
     'style.css',
     'style-rtl.css',
-];
-
-// Pages and custom post types
-const TEMPLATE_PAGES = [
-    'page-agenda.php',
-    'page-ayuntamiento.php',
-    'page-bandos.php',
-    'page-home.php',
-    'page-legales.php',
-    'page-multimedia.php',
-    'page-news.php',
-    'page-sinsidebars.php',
-    'page-tramite.php',
-    'page-villa.php',
-    'page-webmap.php',
-];
-
-// Taxonomies
-const TAXONOMY_TEMPLATES = [
-    'taxonomy-concejalia-cultura-y-educacion.php',
-    'taxonomy-concejalia-juventud.php',
-    'taxonomy-concejalia-urbanismo-y-vivienda.php',
-    'taxonomy-concejalia.php',
-    'taxonomy-seccion.php',
-    'taxonomy-tema-anuncios.php',
-    'taxonomy-tema-ayudas-y-subvenciones.php',
-    'taxonomy-tema-concursos.php',
-    'taxonomy-tema-consumo-y-comercio.php',
-    'taxonomy-tema-cultura-y-ocio.php',
-    'taxonomy-tema-educacion.php',
-    'taxonomy-tema-empleo.php',
-    'taxonomy-tema-movilidad-y-transportes.php',
-    'taxonomy-tema-oficina-desarrollo-local.php',
-    'taxonomy-tema-oposiciones-y-empleo.php',
-    'taxonomy-tema-participacion-ciudadana.php',
-    'taxonomy-tema-salud.php',
-    'taxonomy-tema-seguridad-ciudadana.php',
-    'taxonomy-tema-servicios-sociales.php',
-    'taxonomy-tema-tributos.php',
-    'taxonomy-tema-urbanismo-e-infraestructuras.php',
-    'taxonomy-tema.php',
-];
-
-// Custom post types
-const CUSTOM_POST_TEMPLATES = [
-    'single-mc-events.php',
-    'single-tramite.php',
+    'theme.json',
+    'readme.txt',
+    'screenshot.png',
 ];
 
 const DIRECTORIES_TO_INCLUDE = [
@@ -165,10 +112,13 @@ function copyDir(src, dest, excludePatterns = []) {
 }
 
 // Create archive
-function createArchive() {
+async function createArchive() {
+    // archiver 8 is ESM-only; a dynamic import() works from this CommonJS script.
+    const { ZipArchive } = await import('archiver');
+
     return new Promise((resolve, reject) => {
         const output = fs.createWriteStream(OUTPUT_ZIP);
-        const archive = archiver('zip', {
+        const archive = new ZipArchive({
             zlib: { level: 9 }, // Maximum compression
         });
 
@@ -200,27 +150,6 @@ function createArchive() {
         console.log('📝 Adding files to archive...');
 
         FILES_TO_INCLUDE.forEach((file) => {
-            const srcPath = path.join(__dirname, '..', file);
-            if (fs.existsSync(srcPath)) {
-                archive.file(srcPath, { name: path.join(THEME_NAME, file) });
-            }
-        });
-
-        TEMPLATE_PAGES.forEach((file) => {
-            const srcPath = path.join(__dirname, '..', file);
-            if (fs.existsSync(srcPath)) {
-                archive.file(srcPath, { name: path.join(THEME_NAME, file) });
-            }
-        });
-
-        TAXONOMY_TEMPLATES.forEach((file) => {
-            const srcPath = path.join(__dirname, '..', file);
-            if (fs.existsSync(srcPath)) {
-                archive.file(srcPath, { name: path.join(THEME_NAME, file) });
-            }
-        });
-
-        CUSTOM_POST_TEMPLATES.forEach((file) => {
             const srcPath = path.join(__dirname, '..', file);
             if (fs.existsSync(srcPath)) {
                 archive.file(srcPath, { name: path.join(THEME_NAME, file) });

@@ -1,0 +1,30 @@
+.github/dependabot.yml
+  s_e9446e370cbe94::t_e47fa2a8d2311b 1,12,14-15,24-25,30-31,33-35,37-38,50-51
+  s_e9446e370cbe94::t_b372042addd9c2 8,11,13,21,26,28-29,32,36,44,48-49
+composer.json
+  s_e9446e370cbe94::t_80ac66bde704cf 25
+  s_e9446e370cbe94::t_93ac4936afb9ea 27,29
+  s_e9446e370cbe94::t_b372042addd9c2 23,26
+inc/template-functions.php
+  s_e9446e370cbe94::t_80ac66bde704cf 103
+package.json
+  s_e9446e370cbe94::t_08ebb20cb6fc7c 32-33,35,37
+package-lock.json
+  s_e9446e370cbe94::t_d1803d2e6ab084 17-18,20,22,1965-1975,9050-9052,9056-9060,10093-10095,10375-10377,10382,14702-14704,15631-15633,15651,18863-18865,18869
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "a63199b9df99329af03348e05892aa5e78faaae9",
+  "prompts": {},
+  "sessions": {
+    "s_e9446e370cbe94": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "1f562e24-39c2-46c2-bbfd-3ce887649604",
+        "model": "claude-sonnet-5-5"
+      },
+      "human_author": "Guillermo López <willyaranda@gmail.com>"
+    }
+  }
+}

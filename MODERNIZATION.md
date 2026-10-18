@@ -42,9 +42,9 @@ una consulta SQL por cada uno para obtener su `occur_id`, en cada visita.
   no puede depender de quién la rellene (WP_Query añade los eventos privados a quien puede verlos).
 - **«Especiales» solo en la home y sin Ajax Load More:** la sección salía en todas las páginas (con una llamada a
   `admin-ajax.php` en cada carga); luego pasó al final de `page-home.php` y ahora la pinta el propio tema
-  (`inc/especiales.php`) desde el tipo `especial`: imagen destacada, título y el campo ACF `especiales_enlace`. Las
-  fichas con `mostrar_en_home` distinto de 0 salen directamente y el resto detrás de un `<details>` «Más especiales».
-  Ya no hay JS, ni llamada AJAX, ni `css/ajax-load-more.css`; el plugin Ajax Load More puede desactivarse.
+  (`inc/especiales.php`) desde el tipo `especial`: imagen destacada, título y el campo ACF `especiales_enlace`. Salen
+  todas (hasta 24), sin paginación ni «cargar más»; el campo `mostrar_en_home` ya no se usa. Ya no hay JS, ni llamada
+  AJAX, ni `css/ajax-load-more.css`; el plugin Ajax Load More puede desactivarse.
 - **Sin `COUNT` de paginación:** `aranda_de_duero_content()` acepta `$paginated = false`; la usan la
   agenda y las 9 noticias de la home, que no paginan.
 - **Límite conocido:** un cambio en My Calendar que no pase por `save_post` tarda hasta 10 minutos en verse.

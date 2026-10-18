@@ -1783,52 +1783,6 @@ h3.event-name {
     border-radius: 2px;
 }
 
-/* «Más especiales»: <details> nativo con el botón como <summary>. */
-.especiales-mas {
-    text-align: center;
-}
-
-.especiales-mas > summary {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: var(--spacing-sm);
-    border-width: 2px;
-    border-radius: 50px;
-    font-weight: 600;
-    list-style: none;
-    cursor: pointer;
-    transition: all 0.3s;
-}
-
-.especiales-mas > summary::-webkit-details-marker {
-    display: none;
-}
-
-.especiales-mas > summary::after {
-    content: '';
-    width: 0.5rem;
-    height: 0.5rem;
-    border-right: 2px solid currentcolor;
-    border-bottom: 2px solid currentcolor;
-    transform: translateY(-2px) rotate(45deg);
-    transition: transform var(--transition-fast);
-}
-
-.especiales-mas[open] > summary::after {
-    transform: translateY(2px) rotate(-135deg);
-}
-
-.especiales-mas > summary:hover {
-    background: var(--color-primary-accessible);
-    color: var(--color-white);
-    box-shadow: 0 5px 15px rgb(0 131 193 / 30%);
-}
-
-.especiales-mas > .row {
-    text-align: start;
-}
-
 .home-especial-title a {
     color: #fefefe;
     text-decoration: none;

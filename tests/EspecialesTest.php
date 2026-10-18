@@ -16,11 +16,6 @@ class EspecialesTest extends TestCase {
 				return $text;
 			}
 		);
-		\WP_Mock::userFunction( 'esc_html__' )->andReturnUsing(
-			function ( $text ) {
-				return $text;
-			}
-		);
 		\WP_Mock::userFunction( 'wp_get_attachment_image' )->andReturnUsing(
 			function ( $id, $size, $icon, $attr ) {
 				return '<img data-id="' . $id . '" loading="' . $attr['loading'] . '">';
@@ -28,35 +23,30 @@ class EspecialesTest extends TestCase {
 		);
 	}
 
-	private function item( $title, $featured, $image = 5 ) {
+	private function item( $title, $image = 5 ) {
 		return array(
 			'title'    => $title,
 			'url'      => 'https://example.test/' . $title,
 			'image_id' => $image,
-			'featured' => $featured,
 		);
 	}
 
-	public function test_featured_cards_are_shown_and_the_rest_wait_inside_details() {
+	public function test_every_special_is_printed_with_no_button_or_pagination() {
 		$this->mocks();
 
-		$html = aranda_de_duero_home_especiales_html( array( $this->item( 'a', true ), $this->item( 'b', false ) ) );
+		$html = aranda_de_duero_home_especiales_html( array( $this->item( 'a' ), $this->item( 'b' ), $this->item( 'c' ) ) );
 
-		$this->assertStringContainsString( '<details class="especiales-mas', $html );
-		$this->assertLessThan( strpos( $html, '<details' ), strpos( $html, '>a</a>' ) );
-		$this->assertGreaterThan( strpos( $html, '<details' ), strpos( $html, '>b</a>' ) );
-	}
-
-	public function test_without_hidden_cards_there_is_no_button() {
-		$this->mocks();
-
-		$this->assertStringNotContainsString( '<details', aranda_de_duero_home_especiales_html( array( $this->item( 'a', true ) ) ) );
+		$this->assertStringContainsString( '>a</a>', $html );
+		$this->assertStringContainsString( '>b</a>', $html );
+		$this->assertStringContainsString( '>c</a>', $html );
+		$this->assertStringNotContainsString( '<details', $html );
+		$this->assertStringNotContainsString( '<button', $html );
 	}
 
 	public function test_each_card_has_a_single_link_and_a_decorative_image() {
 		$this->mocks();
 
-		$html = aranda_de_duero_especial_card_html( $this->item( 'a', true ) );
+		$html = aranda_de_duero_especial_card_html( $this->item( 'a' ) );
 
 		$this->assertSame( 1, substr_count( $html, '<a ' ) );
 		$this->assertStringContainsString( 'class="bold stretched-link" href="https://example.test/a"', $html );
@@ -67,7 +57,7 @@ class EspecialesTest extends TestCase {
 
 		$items = array();
 		for ( $i = 0; $i < 8; $i++ ) {
-			$items[] = $this->item( 'n' . $i, true, 10 + $i );
+			$items[] = $this->item( 'n' . $i, 10 + $i );
 		}
 
 		$html = aranda_de_duero_home_especiales_html( $items );
@@ -80,7 +70,7 @@ class EspecialesTest extends TestCase {
 	public function test_a_card_without_image_still_renders() {
 		$this->mocks();
 
-		$html = aranda_de_duero_especial_card_html( $this->item( 'a', true, 0 ) );
+		$html = aranda_de_duero_especial_card_html( $this->item( 'a', 0 ) );
 
 		$this->assertStringNotContainsString( 'home-especial-image', $html );
 		$this->assertStringContainsString( '>a</a>', $html );

@@ -5,8 +5,7 @@ defined( 'ABSPATH' ) || exit;
  * "Especiales" section of the home page, rendered by the theme (replaces Ajax Load More).
  *
  * The cards come straight from the `especial` post type: featured image, title and the ACF field
- * `especiales_enlace` (falls back to the entry's own URL). The ACF number `mostrar_en_home` decides whether a
- * card is shown at once (anything but 0) or tucked away behind "Más especiales" (0 or empty).
+ * `especiales_enlace` (falls back to the entry's own URL). All of them are printed: no pagination, no "load more".
  *
  * @package Aranda_de_Duero
  */
@@ -14,7 +13,7 @@ defined( 'ABSPATH' ) || exit;
 /**
  * Specials in the order of the home page: newest first, at most 24.
  *
- * @return array<int, array{title: string, url: string, image_id: int, featured: bool}>
+ * @return array<int, array{title: string, url: string, image_id: int}>
  */
 function aranda_de_duero_home_especiales() {
 	$posts = get_posts(
@@ -36,7 +35,6 @@ function aranda_de_duero_home_especiales() {
 			'title'    => (string) $post->post_title,
 			'url'      => '' !== $link ? $link : (string) get_permalink( $post->ID ),
 			'image_id' => (int) get_post_thumbnail_id( $post->ID ),
-			'featured' => 0 !== (int) get_post_meta( $post->ID, 'mostrar_en_home', true ),
 		);
 	}
 
@@ -46,8 +44,8 @@ function aranda_de_duero_home_especiales() {
 /**
  * Markup of one card. The whole card is a link (one accessible link: the title).
  *
- * @param array{title: string, url: string, image_id: int, featured: bool} $item Special.
- * @param bool                                                              $lazy Lazy-load the image.
+ * @param array{title: string, url: string, image_id: int} $item Special.
+ * @param bool                                              $lazy Lazy-load the image.
  * @return string
  */
 function aranda_de_duero_especial_card_html( array $item, $lazy = true ) {
@@ -72,29 +70,18 @@ function aranda_de_duero_especial_card_html( array $item, $lazy = true ) {
 }
 
 /**
- * The whole section content: visible cards, then a <details> with the rest.
+ * The whole section content: every card in one grid.
  *
- * @param array<int, array{title: string, url: string, image_id: int, featured: bool}> $items Specials.
+ * @param array<int, array{title: string, url: string, image_id: int}> $items Specials.
  * @return string
  */
 function aranda_de_duero_home_especiales_html( array $items ) {
-	$shown  = '';
-	$hidden = '';
+	$html = '';
 
-	foreach ( $items as $index => $item ) {
-		if ( $item['featured'] ) {
-			// The first row is above the fold on large screens; the rest wait for scrolling.
-			$shown .= aranda_de_duero_especial_card_html( $item, $index >= 6 );
-		} else {
-			$hidden .= aranda_de_duero_especial_card_html( $item, true );
-		}
+	foreach ( array_values( $items ) as $index => $item ) {
+		// The first row is above the fold on large screens; the rest wait for scrolling.
+		$html .= aranda_de_duero_especial_card_html( $item, $index >= 6 );
 	}
 
-	$html = '<div class="row">' . $shown . '</div>';
-
-	if ( '' !== $hidden ) {
-		$html .= '<details class="especiales-mas mt-4"><summary class="btn btn-outline-primary btn-lg px-5">' . esc_html__( 'Más especiales', 'aranda-de-duero' ) . '</summary><div class="row mt-4">' . $hidden . '</div></details>';
-	}
-
-	return $html;
+	return '<div class="row">' . $html . '</div>';
 }

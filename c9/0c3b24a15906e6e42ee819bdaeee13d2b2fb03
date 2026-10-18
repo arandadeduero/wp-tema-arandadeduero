@@ -1,0 +1,23 @@
+MODERNIZATION.md
+  s_e9446e370cbe94::t_95ae3a7a8c17f7 45-47
+tests/EspecialesTest.php
+  s_e9446e370cbe94::t_95ae3a7a8c17f7 26,34,37,39-43,49,60,73
+inc/especiales.php
+  s_e9446e370cbe94::t_95ae3a7a8c17f7 8,16,47-48,73,75,79,81-83,86
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "c90c3b24a15906e6e42ee819bdaeee13d2b2fb03",
+  "prompts": {},
+  "sessions": {
+    "s_e9446e370cbe94": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "1f562e24-39c2-46c2-bbfd-3ce887649604",
+        "model": "claude-sonnet-5-5"
+      },
+      "human_author": "Guillermo López <willyaranda@gmail.com>"
+    }
+  }
+}

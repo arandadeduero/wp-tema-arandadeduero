@@ -1,0 +1,35 @@
+inc/especiales.php
+  s_e9446e370cbe94::t_e76cf9edd6acf5 1-100
+functions.php
+  s_e9446e370cbe94::t_e76cf9edd6acf5 349-352
+  s_e9446e370cbe94::t_f9e09054c3a2d3 353
+RELEASE.md
+  s_e9446e370cbe94::t_7d6c2c7c61419a 83
+MODERNIZATION.md
+  s_e9446e370cbe94::t_b45177078ac752 43-47
+page-home.php
+  s_e9446e370cbe94::t_e76cf9edd6acf5 289-292
+css/aranda-de-duero.css
+  s_e9446e370cbe94::t_1e34306895c3ba 885,1786-1791,1795-1796,1799-1800,1804-1824,1828-1835
+  s_e9446e370cbe94::t_7ac4e795cde97c 1836
+README.md
+  s_e9446e370cbe94::t_b45177078ac752 11
+tests/EspecialesTest.php
+  s_e9446e370cbe94::t_7d6c2c7c61419a 1-88
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "d43873636f86ff16bb15f3b64bc21454f37d9cd5",
+  "prompts": {},
+  "sessions": {
+    "s_e9446e370cbe94": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "1f562e24-39c2-46c2-bbfd-3ce887649604",
+        "model": "claude-sonnet-5-5"
+      },
+      "human_author": "Guillermo López <willyaranda@gmail.com>"
+    }
+  }
+}

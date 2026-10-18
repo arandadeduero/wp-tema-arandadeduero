@@ -49,8 +49,8 @@ historial de git.
   existía ya en la sede electrónica; aquí solo se hace encontrable. Los enlaces y descripciones salen de la propia sede
   (lista editable en `inc/services.php`, con los filtros `aranda_de_duero_quick_access` y `aranda_de_duero_payment_services`).
   Ver [docs/pagos-y-recibos.md](docs/pagos-y-recibos.md).
-- **Buscador «¿Qué necesitas?»** (`inc/search.php`, `template-parts/search-box.php`, `search.php`): campo visible en la home y en los
-  resultados, y un bloque «Servicios y trámites» encima de los resultados con los servicios de la sede, del portal y de «Especiales» que coinciden con lo escrito
+- **Buscador «¿Qué necesitas?»** (`inc/search.php`, `template-parts/search-box.php`, `search.php`): campo visible en la home, sobre una
+  franja del azul de marca a todo el ancho con el título y el campo centrados (`.home-buscador`), y en los resultados, y un bloque «Servicios y trámites» encima de los resultados con los servicios de la sede, del portal y de «Especiales» que coinciden con lo escrito
   (sin acentos, todas las palabras al inicio de palabra, con sinónimos y con los aciertos en el título primero), más un enlace al catálogo de trámites. La búsqueda de WordPress solo mira noticias y
   páginas y no encontraba, por ejemplo, el certificado de padrón. La página de resultados ya no usa los textos en inglés de Underscores.
   La búsqueda de WordPress sigue tardando ≈ 4 s (medido el 2026-10-18): no se ha tocado.

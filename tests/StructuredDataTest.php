@@ -35,6 +35,7 @@ class StructuredDataTest extends TestCase {
 		$this->assertSame( array( 'GovernmentOrganization', 'WebSite' ), $this->types( $graph ) );
 		$this->assertSame( 'https://example.test/#organization', $graph[0]['@id'] );
 		$this->assertContains( 'https://www.facebook.com/aytoarandadeduero/', $graph[0]['sameAs'] );
+		$this->assertContains( 'https://www.flickr.com/photos/ayuntamientoarandadeduero/', $graph[0]['sameAs'] );
 	}
 
 	public function test_post_adds_news_article_and_breadcrumbs() {

@@ -3533,7 +3533,7 @@ a.service-card:focus-visible .service-card-title {
     }
 }
 
-/* Iconos por dirección: instagram, facebook, tiktok, x, youtube; la web propia y Linktree llevan los suyos. */
+/* Iconos por dirección: instagram, facebook, tiktok, x, youtube, flickr; la web propia y Linktree llevan los suyos. */
 .page-enlaces .enlaces-boton--web {
     --enlace-icono: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round'%3E%3Ccircle cx='12' cy='12' r='9'/%3E%3Cpath d='M3 12h18M12 3c3.5 3.2 3.5 14.8 0 18M12 3c-3.5 3.2-3.5 14.8 0 18'/%3E%3C/svg%3E");
 }
@@ -3556,6 +3556,10 @@ a.service-card:focus-visible .service-card-title {
 
 .page-enlaces .enlaces-boton[href*='x.com'] {
     --enlace-icono: url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 448 512%22%3E%3Cpath fill=%22%2341b6e6%22 d=%22M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm297.1 84L257.3 234.6 379.4 396H283.8L209 298.1 123.3 396H75.8l111-126.9L69.7 116h98l67.7 89.5L313.6 116h47.5zM323.3 367.6L153.4 142.9H125.1L296.9 367.6h26.3z%22/%3E%3C/svg%3E');
+}
+
+.page-enlaces .enlaces-boton[href*='flickr.com'] {
+    --enlace-icono: url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 448 512%22%3E%3Cpath fill=%22%2341b6e6%22 d=%22M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zM144.5 319c-35.1 0-63.5-28.4-63.5-63.5s28.4-63.5 63.5-63.5 63.5 28.4 63.5 63.5-28.4 63.5-63.5 63.5zm159 0c-35.1 0-63.5-28.4-63.5-63.5s28.4-63.5 63.5-63.5 63.5 28.4 63.5 63.5-28.4 63.5-63.5 63.5z%22/%3E%3C/svg%3E');
 }
 
 .page-enlaces .enlaces-boton[href*='youtube.com'] {

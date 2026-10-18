@@ -1,0 +1,26 @@
+page-home.php
+  s_e9446e370cbe94::t_c9ac014ae1db9d 71-79
+tests/AudiencesTest.php
+  s_e9446e370cbe94::t_c9ac014ae1db9d 151,153,155,157,159,163
+  s_e9446e370cbe94::t_23c2b3f2f0e4d7 152,154,156,158,160-162
+inc/audiences.php
+  s_e9446e370cbe94::t_c9ac014ae1db9d 138-161
+MEJORAS-OTROS-AYUNTAMIENTOS.md
+  s_e9446e370cbe94::t_d231a6316c23b0 97,169
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "055aacb0d90054c14c82bd0f99c99c5407eb086c",
+  "prompts": {},
+  "sessions": {
+    "s_e9446e370cbe94": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "1f562e24-39c2-46c2-bbfd-3ce887649604",
+        "model": "claude-sonnet-5-5"
+      },
+      "human_author": "Guillermo López <willyaranda@gmail.com>"
+    }
+  }
+}

@@ -158,6 +158,16 @@ $aranda_contact = aranda_de_duero_contact_info();
 							echo aranda_de_duero_icon( 'aranda-de-duero/instagram', array( 'size' => 18 ) );
 							?>
 						</a>
+						<a href="https://www.flickr.com/photos/ayuntamientoarandadeduero/"
+							rel="external noopener"
+							target="_blank"
+							class="social-icon"
+							aria-label="Flickr">
+							<?php
+							// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- aranda_de_duero_icon() returns SVG markup already sanitized by the WP 7.1 SVG Icon API (see inc/icons.php).
+							echo aranda_de_duero_icon( 'aranda-de-duero/flickr', array( 'size' => 18 ) );
+							?>
+						</a>
 						<a href="https://www.youtube.com/@SMArandaDeDuero"
 							rel="external noopener"
 							target="_blank"

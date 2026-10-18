@@ -26,6 +26,7 @@ $aranda_enlaces = array(
 				array( 'Facebook', 'https://www.facebook.com/aytoarandadeduero' ),
 				array( 'Tiktok', 'https://www.tiktok.com/@aytoarandadeduero' ),
 				array( 'Twitter', 'https://x.com/aytoaranda' ),
+				array( 'Flickr', 'https://www.flickr.com/photos/ayuntamientoarandadeduero/' ),
 			),
 		),
 		array(

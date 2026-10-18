@@ -132,6 +132,22 @@ class SearchTest extends TestCase {
 		$this->assertContains( 'Teléfonos de interés', $this->titles( aranda_de_duero_search_services( 'telefono' ) ) );
 	}
 
+	public function test_the_photos_of_the_council_are_found_and_open_in_a_new_tab() {
+		$this->mocks();
+
+		foreach ( array( 'fotos', 'fotografias', 'flickr', 'album' ) as $query ) {
+			$found = array_filter(
+				aranda_de_duero_search_services( $query ),
+				function ( $service ) {
+					return 'Fotografías del Ayuntamiento' === $service['title'];
+				}
+			);
+			$this->assertCount( 1, $found, $query );
+			$this->assertSame( 'https://www.flickr.com/photos/ayuntamientoarandadeduero/', array_values( $found )[0]['url'], $query );
+			$this->assertTrue( array_values( $found )[0]['new_tab'], $query );
+		}
+	}
+
 	public function test_internal_sections_open_in_the_same_tab_and_other_sites_in_a_new_one() {
 		$this->mocks();
 

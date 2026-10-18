@@ -20,6 +20,7 @@ function aranda_de_duero_social_profiles() {
 			'https://twitter.com/aytoaranda',
 			'https://www.instagram.com/ayuntamientoarandadeduero/',
 			'https://www.youtube.com/@SMArandaDeDuero',
+			'https://www.flickr.com/photos/ayuntamientoarandadeduero/',
 		)
 	);
 }

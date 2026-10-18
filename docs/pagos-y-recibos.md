@@ -31,4 +31,5 @@ El campo de la home y de los resultados de búsqueda, y el bloque «Servicios y 
 listas (`inc/services.php`) más otras páginas de la sede (`aranda_de_duero_service_directory()` en `inc/search.php`). El buscador también incluye 26 páginas de la sede, las secciones y portales del sitio (agenda, bandos, subvenciones, turismo…) y los
 «Especiales» de la portada (se leen del tipo de contenido en cada búsqueda: lo que se destaque allí se encuentra solo). Cada servicio puede
 llevar `keywords` (sinónimos sin acentos: «oposiciones» para empleo público) para que se encuentre con más palabras. Para añadir un servicio
-al buscador basta con añadirlo a una de esas listas.
+al buscador basta con añadirlo a una de esas listas: las sugerencias que salen al escribir (`js/search-suggest.js`) leen **la misma lista**, incluida
+en la página, y filtran en el navegador sin pedir nada al servidor.

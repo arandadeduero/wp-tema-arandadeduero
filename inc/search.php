@@ -142,6 +142,100 @@ function aranda_de_duero_search_normalize( $text ) {
 }
 
 /**
+ * Words of a text: lower case, no accents, letters and digits only.
+ *
+ * @param string $text Text.
+ * @return string[]
+ */
+function aranda_de_duero_search_words( $text ) {
+	$words = preg_split( '/[^a-z0-9]+/', aranda_de_duero_search_normalize( (string) $text ), -1, PREG_SPLIT_NO_EMPTY );
+
+	return false === $words ? array() : $words;
+}
+
+/**
+ * Everything the finder can offer, without repeated addresses: the shortcuts of the home page, the payment services, the
+ * other pages of the office and of this site, and the «Especiales» of the home page.
+ *
+ * @return array<int, array{title: string, text: string, url: string, new_tab: bool, keywords?: string}>
+ */
+function aranda_de_duero_search_pool() {
+	$pool = aranda_de_duero_quick_access();
+	foreach ( aranda_de_duero_payment_services() as $group ) {
+		$pool = array_merge( $pool, $group['items'] );
+	}
+	$pool = array_merge( $pool, aranda_de_duero_service_directory(), aranda_de_duero_search_especiales() );
+
+	$unique = array();
+	foreach ( $pool as $service ) {
+		if ( ! isset( $unique[ $service['url'] ] ) ) {
+			$unique[ $service['url'] ] = $service;
+		}
+	}
+
+	return array_values( $unique );
+}
+
+/**
+ * The same pool prepared for the browser (js/search-suggest.js), which suggests services while the visitor types without
+ * asking the server anything: `w` are the words it matches against (title, description and synonyms) and `t` those of the title.
+ *
+ * @return array<int, array{n: string, d: string, u: string, b: int, w: string, t: string}>
+ */
+function aranda_de_duero_search_index() {
+	$index = array();
+	foreach ( aranda_de_duero_search_pool() as $service ) {
+		$text    = $service['title'] . ' ' . $service['text'] . ' ' . ( isset( $service['keywords'] ) ? $service['keywords'] : '' );
+		$index[] = array(
+			'n' => $service['title'],
+			'd' => $service['text'],
+			'u' => $service['url'],
+			'b' => $service['new_tab'] ? 1 : 0,
+			'w' => implode( ' ', array_unique( aranda_de_duero_search_words( $text ) ) ),
+			't' => implode( ' ', aranda_de_duero_search_words( $service['title'] ) ),
+		);
+	}
+
+	return $index;
+}
+
+/**
+ * Load the script that suggests services while typing, with its data (once per page).
+ */
+function aranda_de_duero_enqueue_search_suggest() {
+	if ( wp_script_is( 'aranda-de-duero-search-suggest', 'enqueued' ) ) {
+		return;
+	}
+
+	wp_enqueue_script(
+		'aranda-de-duero-search-suggest',
+		get_template_directory_uri() . '/js/search-suggest.js',
+		array(),
+		aranda_de_duero_asset_version( '/js/search-suggest.js' ),
+		array(
+			'in_footer' => true,
+			'strategy'  => 'defer',
+		)
+	);
+	wp_localize_script(
+		'aranda-de-duero-search-suggest',
+		'arandaSearch',
+		array(
+			'items' => aranda_de_duero_search_index(),
+			'i18n'  => array(
+				/* translators: %s: what the visitor typed. */
+				'all'     => __( 'Buscar «%s» en noticias y páginas', 'aranda-de-duero' ),
+				'one'     => __( '1 sugerencia disponible', 'aranda-de-duero' ),
+				/* translators: %d: number of suggestions. */
+				'many'    => __( '%d sugerencias disponibles', 'aranda-de-duero' ),
+				'newTab'  => aranda_de_duero_new_tab_text(),
+				'listing' => __( 'Servicios y trámites sugeridos', 'aranda-de-duero' ),
+			),
+		)
+	);
+}
+
+/**
  * Whether some word starts with the term («cita» matches «cita previa» but not «solicitados»).
  *
  * @param string[] $words Normalized words.
@@ -167,26 +261,16 @@ function aranda_de_duero_search_has_word( array $words, $term ) {
  * @return array<int, array{title: string, text: string, url: string, new_tab: bool}>
  */
 function aranda_de_duero_search_services( $query, $limit = 6 ) {
-	$terms = preg_split( '/[^a-z0-9]+/', aranda_de_duero_search_normalize( (string) $query ), -1, PREG_SPLIT_NO_EMPTY );
-	if ( false === $terms || array() === $terms ) {
+	$terms = aranda_de_duero_search_words( $query );
+	if ( array() === $terms ) {
 		return array();
 	}
 
-	$pool = aranda_de_duero_quick_access();
-	foreach ( aranda_de_duero_payment_services() as $group ) {
-		$pool = array_merge( $pool, $group['items'] );
-	}
-	$pool = array_merge( $pool, aranda_de_duero_service_directory() );
-	$pool = array_merge( $pool, aranda_de_duero_search_especiales() );
+	$pool = aranda_de_duero_search_pool();
 
 	$found = array();
-	$seen  = array();
 	foreach ( $pool as $index => $service ) {
-		if ( isset( $seen[ $service['url'] ] ) ) {
-			continue;
-		}
-
-		$words = preg_split( '/[^a-z0-9]+/', aranda_de_duero_search_normalize( $service['title'] . ' ' . $service['text'] . ' ' . ( isset( $service['keywords'] ) ? $service['keywords'] : '' ) ), -1, PREG_SPLIT_NO_EMPTY );
+		$words = aranda_de_duero_search_words( $service['title'] . ' ' . $service['text'] . ' ' . ( isset( $service['keywords'] ) ? $service['keywords'] : '' ) );
 		foreach ( $terms as $term ) {
 			if ( ! aranda_de_duero_search_has_word( $words, $term ) ) {
 				continue 2;
@@ -194,14 +278,13 @@ function aranda_de_duero_search_services( $query, $limit = 6 ) {
 		}
 
 		// Matches in the title come first; the rest keep the order of the lists.
-		$title_words = preg_split( '/[^a-z0-9]+/', aranda_de_duero_search_normalize( $service['title'] ), -1, PREG_SPLIT_NO_EMPTY );
+		$title_words = aranda_de_duero_search_words( $service['title'] );
 		$in_title    = 0;
 		foreach ( $terms as $term ) {
 			$in_title += aranda_de_duero_search_has_word( $title_words, $term ) ? 0 : 1;
 		}
 
-		$seen[ $service['url'] ] = true;
-		$found[]                 = array(
+		$found[] = array(
 			'rank'    => array( $in_title, $index ),
 			'service' => array(
 				'title'   => $service['title'],

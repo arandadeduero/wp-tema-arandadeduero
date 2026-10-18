@@ -49,7 +49,7 @@ push y en cada PR, con permisos de solo lectura (`permissions: contents: read`).
   script, comprobar con `grep` o con un test que el cambio está.
 - Stylelint exige una línea en blanco antes de los comentarios dentro de una regla. Si falla, no encadenar
   `git add && git commit` detrás: se llegó a subir CSS roto así.
-- Los tests están en `tests/` (87 en total): metadatos sociales, datos estructurados, caché de eventos, contraste, carrusel,
+- Los tests están en `tests/` (90 en total): metadatos sociales, datos estructurados, caché de eventos, contraste, carrusel,
   «Especiales», accesos frecuentes, pagos, buscador de servicios, widgets de eventos, cadenas de My Calendar, avisos de cumplimiento, rendimiento y diferido del slider.
 
 ## Reglas del código
@@ -58,7 +58,7 @@ push y en cada PR, con permisos de solo lectura (`permissions: contents: read`).
   HTML. Los valores dinámicos (colores del Personalizador) salen como variables `--aranda-*` en `:root`. Bootstrap
   carga **después** del CSS del tema: si una regla pierde contra él, reforzar el selector (`h2.clase`,
   `.padre .clase`), y `!important` solo donde el inline original lo llevaba.
-- **Sin JavaScript de terceros ni jQuery.** `js/` son cinco ficheros propios, con `defer` y en el pie. De Bootstrap
+- **Sin JavaScript de terceros ni jQuery.** `js/` son seis ficheros propios, con `defer` y en el pie. De Bootstrap
   solo se carga el CSS.
 - **Sin recursos de terceros** (CDN, fuentes de Google, emojis de WordPress): todo autoalojado, para no enviar la IP
   de los visitantes (RGPD). La fuente es Outfit (`css/fonts/`); no usar otra.

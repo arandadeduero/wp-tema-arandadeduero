@@ -198,6 +198,41 @@ class SearchTest extends TestCase {
 		}
 	}
 
+	public function test_the_index_for_the_browser_has_the_words_to_match_against() {
+		$this->mocks();
+
+		$index = aranda_de_duero_search_index();
+		$entry = array_values( array_filter( $index, static fn( $e ) => 'Certificado de padrón' === $e['n'] ) )[0];
+
+		$this->assertSame( array( 'n', 'd', 'u', 'b', 'w', 't' ), array_keys( $entry ) );
+		$this->assertSame( 'certificado de padron', $entry['t'] );
+		$this->assertContains( 'empadronamiento', explode( ' ', $entry['w'] ) );
+		$this->assertSame( 1, $entry['b'] );
+	}
+
+	public function test_the_index_words_have_no_accents_or_repeats() {
+		$this->mocks();
+
+		foreach ( aranda_de_duero_search_index() as $entry ) {
+			$words = explode( ' ', $entry['w'] );
+			$this->assertSame( $words, array_values( array_unique( $words ) ), $entry['n'] );
+			$this->assertSame( 1, preg_match( '/^[a-z0-9 ]+$/', $entry['w'] ), $entry['n'] );
+		}
+	}
+
+	public function test_the_index_and_the_server_search_offer_the_same_services() {
+		$this->mocks();
+
+		$index = array_column( aranda_de_duero_search_index(), 'u' );
+
+		foreach ( array( 'padron', 'pagar', 'ayuda', 'firma' ) as $query ) {
+			foreach ( aranda_de_duero_search_services( $query, 50 ) as $service ) {
+				$this->assertContains( $service['url'], $index, $query );
+			}
+		}
+		$this->assertSame( $index, array_values( array_unique( $index ) ) );
+	}
+
 	public function test_the_catalogue_link_points_to_the_electronic_office() {
 		$this->mocks();
 

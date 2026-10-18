@@ -158,3 +158,29 @@ function aranda_de_duero_defer_slider_images( $html ) {
 
 	return $result . $script;
 }
+
+/**
+ * Whether the current page has a PDF embed that WordPress shows after the page loads.
+ *
+ * The File block prints its PDF viewer (`<object hidden style="height:600px">`) hidden, and its Interactivity API script
+ * removes `hidden` once the browser is known to preview PDFs. Everything below the block then jumps down by the height of
+ * the viewer, about 600 px, a fraction of a second after the first paint (the layout shift measured in E9).
+ *
+ * @return bool
+ */
+function aranda_de_duero_has_pdf_embed() {
+	return is_singular() && has_block( 'core/file' );
+}
+
+/**
+ * Tell the stylesheet, before the first paint, that the browser previews PDFs (the same test the File block makes), so it can
+ * keep the room of the embed while it is still hidden and nothing moves when WordPress shows it.
+ */
+function aranda_de_duero_pdf_preview_flag() {
+	if ( ! aranda_de_duero_has_pdf_embed() ) {
+		return;
+	}
+
+	wp_print_inline_script_tag( "document.documentElement.classList.toggle('has-pdf-preview',!!navigator.pdfViewerEnabled);" );
+}
+add_action( 'wp_head', 'aranda_de_duero_pdf_preview_flag', 3 );

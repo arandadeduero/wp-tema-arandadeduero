@@ -286,29 +286,10 @@ $query = aranda_de_duero_content(
 			</div>
 		</div>
 
-		<div class="row">
-			<?php
-			echo do_shortcode( '[ajax_load_more id="9318154416" container_type="div" css_classes="row" post_type="especial" posts_per_page="18" orderby="meta_value_num" custom_args="limit:24" scroll_distance="-50" button_label="Cargar más especiales"]' );
-			?>
-		</div>
-
-		<div class="row mt-4">
-			<div class="col-12 text-center">
-				<button id="moreEspecial" class="btn btn-outline-primary btn-lg px-5">
-					Más especiales
-					<?php
-					// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- aranda_de_duero_icon() returns SVG markup already sanitized by the WP 7.1 SVG Icon API (see inc/icons.php).
-					echo aranda_de_duero_icon(
-						'aranda-de-duero/arrow-right',
-						array(
-							'size'  => 16,
-							'class' => 'ms-2',
-						)
-					);
-					?>
-				</button>
-			</div>
-		</div>
+		<?php
+		// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- built by aranda_de_duero_home_especiales_html(), which escapes every value.
+		echo aranda_de_duero_home_especiales_html( aranda_de_duero_home_especiales() );
+		?>
 	</div>
 </section>
 </main><!-- #primary -->

@@ -214,17 +214,6 @@ function aranda_de_duero_scripts() {
 		'all'
 	);
 
-	// AJAX Load More specific styles: only where the "Especiales" section (home) or an ALM shortcode is.
-	if ( aranda_de_duero_needs_ajax_load_more_assets() ) {
-		wp_enqueue_style(
-			'aranda-de-duero-ajax-load-more',
-			get_template_directory_uri() . '/css/ajax-load-more.css',
-			array(),
-			aranda_de_duero_asset_version( '/css/ajax-load-more.css' ),
-			'all'
-		);
-	}
-
 	// RTL support
 	wp_style_add_data( 'aranda-de-duero-style', 'rtl', 'replace' );
 
@@ -356,6 +345,11 @@ require get_template_directory() . '/inc/events.php';
  * Home carousel (replaces Smart Slider).
  */
 require get_template_directory() . '/inc/home-carousel.php';
+
+/**
+ * "Especiales" section of the home (replaces Ajax Load More).
+ */
+require get_template_directory() . '/inc/especiales.php';
 
 /**
  * Colour contrast helpers and Customizer validation.
@@ -762,7 +756,6 @@ function aranda_de_duero_concejalias( $slug ) {
  */
 function aranda_de_duero_register_editor_stylesheet() {
 	add_editor_style( 'css/aranda-de-duero.css' );
-	add_editor_style( 'css/ajax-load-more.css' );
 	add_editor_style( 'css/bootstrap.min.css' );
 }
 add_action( 'admin_init', 'aranda_de_duero_register_editor_stylesheet' );

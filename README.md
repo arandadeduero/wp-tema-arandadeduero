@@ -8,7 +8,7 @@ JavaScript sin jQuery e iconos SVG mediante la API de iconos de WordPress 7.1.
 
 - WordPress 7.1 o superior (los iconos usan `wp_get_icon()`; en versiones anteriores no se muestran)
 - PHP 7.4 o superior
-- Plugins que usan las plantillas: Advanced Custom Fields, My Calendar, Smart Slider 3, Ajax Load More
+- Plugins que usan las plantillas: Advanced Custom Fields y My Calendar
 
 ## Qué incluye
 

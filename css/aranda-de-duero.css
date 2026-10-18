@@ -2683,6 +2683,70 @@ a.service-card:focus-visible .service-card-title {
     margin-top: var(--spacing-lg);
 }
 
+/* Buscador «¿Qué necesitas?» (template-parts/search-box.php): portada y resultados de búsqueda. */
+.search-box {
+    display: flex;
+    max-width: 48rem;
+    margin: var(--spacing-lg) 0 var(--spacing-md);
+}
+
+.search-box .search-box-field {
+    flex: 1 1 auto;
+    min-width: 0;
+    padding: var(--spacing-md) var(--spacing-lg);
+    border: 2px solid var(--color-primary-accessible);
+    border-right: 0;
+    border-radius: var(--border-radius-lg) 0 0 var(--border-radius-lg);
+    background: #fff;
+    color: #000;
+    font-size: 1.125rem;
+}
+
+.search-box .search-box-button {
+    flex: 0 0 auto;
+    padding: var(--spacing-md) var(--spacing-2xl);
+    border: 2px solid var(--color-primary-accessible);
+    border-radius: 0 var(--border-radius-lg) var(--border-radius-lg) 0;
+    background: var(--color-primary-accessible);
+    color: #fff;
+    font-size: 1.125rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.search-box .search-box-button:hover {
+    border-color: var(--color-primary-dark);
+    background: var(--color-primary-dark);
+}
+
+.search-box .search-box-field:focus-visible,
+.search-box .search-box-button:focus-visible {
+    outline: 3px solid #000;
+    outline-offset: 2px;
+}
+
+.search-suggestions {
+    margin: 0 0 var(--spacing-xl);
+}
+
+.search-suggestions a {
+    margin-left: var(--spacing-sm);
+    color: var(--color-primary-accessible);
+    text-decoration: underline;
+}
+
+.search-catalog,
+.search-empty {
+    margin: 0 0 var(--spacing-xl);
+}
+
+@media (width <= 575px) {
+    .search-box .search-box-button {
+        padding-right: var(--spacing-lg);
+        padding-left: var(--spacing-lg);
+    }
+}
+
 /* Título visible de las páginas con plantilla propia (page-ayuntamiento.php). */
 .page-heading {
     margin-bottom: var(--spacing-xl);

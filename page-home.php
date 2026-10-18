@@ -57,6 +57,19 @@ if ( '1' === get_theme_mod( 'aranda_de_duero_show_banner' ) && '' !== get_theme_
 		</div>
 	</div>
 <?php endif; ?>
+<!-- ¿Qué necesitas? -->
+<section class="home-buscador" aria-labelledby="home-buscador-title">
+	<div class="container mt-4">
+		<h2 id="home-buscador-title" class="h4 text-blue font-weight-normal text-uppercase"><?php esc_html_e( '¿Qué necesitas?', 'aranda-de-duero' ); ?></h2>
+		<?php get_template_part( 'template-parts/search-box', null, array( 'id' => 'home-search' ) ); ?>
+		<p class="search-suggestions">
+			<?php esc_html_e( 'Prueba con:', 'aranda-de-duero' ); ?>
+			<?php foreach ( aranda_de_duero_search_suggestions() as $aranda_term ) : ?>
+				<a href="<?php echo esc_url( home_url( '/?s=' . rawurlencode( $aranda_term ) ) ); ?>"><?php echo esc_html( $aranda_term ); ?></a>
+			<?php endforeach; ?>
+		</p>
+	</div>
+</section>
 <!-- Accesos frecuentes -->
 <section class="home-accesos" aria-labelledby="home-accesos-title">
 	<div class="container mt-4">

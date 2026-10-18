@@ -25,3 +25,9 @@ siguen lo que la propia sede dice de cada servicio. Se editan en `aranda_de_duer
 - Los enlaces que piden identificación (`CarpetaPrivate/Login`) los gestiona la sede; el tema no sabe si el visitante tiene sesión.
 - Si la sede cambia sus direcciones, solo hay que actualizar `inc/services.php`.
 - El aspecto (tarjetas blancas con borde azul) está en el bloque «Tarjetas de servicio» de `css/aranda-de-duero.css`.
+
+## Buscador «¿Qué necesitas?»
+El campo de la home y de los resultados de búsqueda, y el bloque «Servicios y trámites» que sale encima de los resultados, leen de las mismas
+listas (`inc/services.php`) más otras páginas de la sede (`aranda_de_duero_service_directory()` en `inc/search.php`). Cada servicio puede
+llevar `keywords` (sinónimos sin acentos: «oposiciones» para empleo público) para que se encuentre con más palabras. Para añadir un servicio
+al buscador basta con añadirlo a una de esas listas.

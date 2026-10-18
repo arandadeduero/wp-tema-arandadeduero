@@ -2793,6 +2793,64 @@ a.service-card:focus-visible .service-card-title {
     text-decoration: underline;
 }
 
+/* Franja del buscador de la portada: destaca «¿Qué necesitas?» sobre el fondo de marca, centrado. */
+.home-buscador {
+    --buscador-boton: #00364f;
+
+    margin-top: var(--spacing-xl);
+    padding: var(--spacing-2xl) 0;
+    background: var(--color-primary-accessible);
+    color: #fff;
+    text-align: center;
+}
+
+/* !important: los colores de encabezado del Personalizador (inc/customizer-css.php) también lo llevan y darían texto oscuro sobre el azul. */
+.home-buscador .home-buscador-title {
+    margin: 0;
+    color: #fff !important;
+    font-size: clamp(1.5rem, 4vw, 2.25rem);
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+.home-buscador .search-box {
+    margin: var(--spacing-lg) auto var(--spacing-md);
+    box-shadow: 0 4px 14px rgb(0 0 0 / 25%);
+}
+
+.home-buscador .search-box .search-box-field {
+    border-color: #fff;
+    font-size: 1.25rem;
+}
+
+/* Borde blanco: el botón oscuro solo daría 2,47:1 contra la franja y los controles piden 3:1. */
+.home-buscador .search-box .search-box-button {
+    border-color: #fff;
+    background: var(--buscador-boton);
+    font-size: 1.25rem;
+}
+
+.home-buscador .search-box .search-box-button:hover {
+    background: #000;
+}
+
+.home-buscador .search-box .search-box-field:focus-visible,
+.home-buscador .search-box .search-box-button:focus-visible {
+    outline-color: #fff;
+}
+
+.home-buscador .search-suggestions {
+    margin: 0;
+}
+
+.home-buscador .search-suggestions a {
+    color: #fff;
+}
+
+.home-buscador .search-suggest {
+    text-align: left;
+}
+
 .search-catalog,
 .search-empty {
     margin: 0 0 var(--spacing-xl);

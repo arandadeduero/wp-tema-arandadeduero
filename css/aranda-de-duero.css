@@ -2531,22 +2531,22 @@ button.poster-dialog-button {
 }
 
 /* Evento anterior / siguiente: dos tarjetas. */
-.single-mc-events .post-navigation {
+:is(.single-mc-events, .single-post) .post-navigation {
     margin-top: var(--spacing-2xl);
 }
 
-.single-mc-events .post-navigation .nav-links {
+:is(.single-mc-events, .single-post) .post-navigation .nav-links {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: var(--spacing-md);
 }
 
-.single-mc-events .post-navigation .nav-next {
+:is(.single-mc-events, .single-post) .post-navigation .nav-next {
     grid-column: 2;
     text-align: end;
 }
 
-.single-mc-events .post-navigation a {
+:is(.single-mc-events, .single-post) .post-navigation a {
     display: block;
     height: 100%;
     padding: var(--spacing-md) var(--spacing-lg);
@@ -2558,12 +2558,12 @@ button.poster-dialog-button {
     transition: background-color var(--transition-fast);
 }
 
-.single-mc-events .post-navigation a:hover,
-.single-mc-events .post-navigation a:focus-visible {
+:is(.single-mc-events, .single-post) .post-navigation a:hover,
+:is(.single-mc-events, .single-post) .post-navigation a:focus-visible {
     background: var(--color-primary-light);
 }
 
-.single-mc-events .post-navigation .mc-event-date {
+:is(.single-mc-events, .single-post) .post-navigation .mc-event-date {
     display: block;
     margin-top: 0.25rem;
     color: var(--color-primary-accessible);
@@ -2572,11 +2572,11 @@ button.poster-dialog-button {
 }
 
 @media (width <= 575px) {
-    .single-mc-events .post-navigation .nav-links {
+    :is(.single-mc-events, .single-post) .post-navigation .nav-links {
         grid-template-columns: minmax(0, 1fr);
     }
 
-    .single-mc-events .post-navigation .nav-next {
+    :is(.single-mc-events, .single-post) .post-navigation .nav-next {
         grid-column: 1;
     }
 }
@@ -2782,4 +2782,18 @@ button.poster-dialog-button {
     padding: var(--spacing-xl);
     border-radius: var(--border-radius-lg);
     background: var(--color-primary-light);
+}
+
+/* Noticia (single.php): ancho completo, título como el del resto de páginas. */
+.single-post .entry-header .entry-title {
+    margin: 0 0 var(--spacing-md);
+    font-size: clamp(1.75rem, 3.2vw, 2.5rem);
+    line-height: 1.2;
+}
+
+.single-post .nav-subtitle {
+    display: block;
+    color: var(--color-primary-accessible);
+    font-size: 0.875rem;
+    font-weight: 600;
 }

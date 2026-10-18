@@ -2755,6 +2755,7 @@ button.poster-dialog-button {
     .home-carousel-track {
         scroll-behavior: smooth;
     }
+}
 
 /*
  * Iconos Font Awesome incrustados en el contenido de entradas y páginas (el editor los guarda como <svg class="svg-inline--fa">).

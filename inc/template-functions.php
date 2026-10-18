@@ -136,7 +136,7 @@ function aranda_de_duero_contact_info() {
 	$info = array(
 		'phone'            => '947 500 100',
 		'phone_href'       => 'tel:947500100',
-		'hours'            => 'Lun - Vie: 8:30 - 14:30',
+		'hours'            => 'Lunes a Viernes: 8:30 - 14:30',
 		'appointment_url'  => 'https://citaprevia.arandadeduero.es/',
 		'transparency_url' => 'https://transparencia.arandadeduero.es/',
 		'sede_url'         => 'https://sede.arandadeduero.es/',

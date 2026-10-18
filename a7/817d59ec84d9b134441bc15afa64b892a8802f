@@ -1,0 +1,42 @@
+css/aranda-de-duero.css
+  s_e9446e370cbe94::t_f047807bc72927 2642,2645-2646,2655
+  s_e9446e370cbe94::t_906ba05561e323 2622-2641,2643-2644,2647-2653,2656-2669,2672-2685
+  s_e9446e370cbe94::t_e492f99df77cd3 2654,2670-2671
+page-home.php
+  s_e9446e370cbe94::t_70c504de961563 60-66
+functions.php
+  s_e9446e370cbe94::t_70c504de961563 355-358
+  s_e9446e370cbe94::t_617bcb90809516 354
+page-pagos.php
+  s_e9446e370cbe94::t_70c504de961563 1-71
+template-parts/service-cards.php
+  s_e9446e370cbe94::t_70c504de961563 1-38
+inc/services.php
+  s_e9446e370cbe94::t_70c504de961563 1-194
+tests/ServicesTest.php
+  s_e9446e370cbe94::t_e492f99df77cd3 1-99
+DEVELOPMENT.md
+  s_e9446e370cbe94::t_c33f7d71f2c965 52-53
+MEJORAS-OTROS-AYUNTAMIENTOS.md
+  s_e9446e370cbe94::t_284868afaa8b2f 71,85,161
+MODERNIZATION.md
+  s_e9446e370cbe94::t_25818003bc7f7f 47-51,100-101
+docs/pagos-y-recibos.md
+  s_e9446e370cbe94::t_23b313a408132f 1-27
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "a7817d59ec84d9b134441bc15afa64b892a8802f",
+  "prompts": {},
+  "sessions": {
+    "s_e9446e370cbe94": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "1f562e24-39c2-46c2-bbfd-3ce887649604",
+        "model": "claude-sonnet-5-5"
+      },
+      "human_author": "Guillermo López <willyaranda@gmail.com>"
+    }
+  }
+}

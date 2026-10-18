@@ -1,0 +1,30 @@
+page-subvenciones.php
+  s_e9446e370cbe94::t_86523a96c253d3 22-39
+page-notas-de-prensa.php
+  s_e9446e370cbe94::t_86523a96c253d3 23-39
+css/aranda-de-duero.css
+  s_e9446e370cbe94::t_86523a96c253d3 2568-2569,2573,2579-2587,2594,2603,2611,2617
+page-bandos.php
+  s_e9446e370cbe94::t_86523a96c253d3 23-39
+template-parts/page-intro.php
+  s_e9446e370cbe94::t_ffe36a3d2e9ed2 1-13,15-35
+  s_e9446e370cbe94::t_9afbb10c4ef297 14
+page-agenda.php
+  s_e9446e370cbe94::t_86523a96c253d3 25-29,31,33,37-46
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "671cdb49d90f02e8911783864c11abd0e93dab2c",
+  "prompts": {},
+  "sessions": {
+    "s_e9446e370cbe94": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "1f562e24-39c2-46c2-bbfd-3ce887649604",
+        "model": "claude-sonnet-5-5"
+      },
+      "human_author": "Guillermo López <willyaranda@gmail.com>"
+    }
+  }
+}

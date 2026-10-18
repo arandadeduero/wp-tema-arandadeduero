@@ -2742,6 +2742,24 @@ button.poster-dialog-button {
 }
 
 /*
+ * En móvil la tira solo mide ~105 px de alto: tres botones de 44 px se pisaban (Lighthouse: «los objetivos táctiles
+ * no tienen tamaño suficiente»). Flechas más pequeñas a los lados y la pausa abajo, en el centro.
+ */
+@media (width <= 767px) {
+    .home-carousel-button {
+        width: 2rem;
+        height: 2rem;
+    }
+
+    .home-carousel-pause {
+        right: auto;
+        bottom: var(--spacing-xs);
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+/*
  * Iconos Font Awesome incrustados en el contenido de entradas y páginas (el editor los guarda como <svg class="svg-inline--fa">).
  * Su tamaño lo daba el CSS del plugin Font Awesome, que ya no se carga; sin esta regla salen a todo el ancho de la columna.
  */

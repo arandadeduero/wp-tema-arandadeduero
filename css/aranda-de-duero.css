@@ -2725,6 +2725,64 @@ a.service-card:focus-visible .service-card-title {
     outline-offset: 2px;
 }
 
+/* Sugerencias mientras se escribe (js/search-suggest.js). */
+.search-box {
+    position: relative;
+}
+
+.search-suggest {
+    position: absolute;
+    z-index: 30;
+    top: 100%;
+    right: 0;
+    left: 0;
+    margin: 2px 0 0;
+    padding: 0;
+    overflow: hidden;
+    border: 2px solid var(--color-primary-accessible);
+    border-radius: var(--border-radius-lg);
+    background: #fff;
+    box-shadow: 0 6px 18px rgb(0 0 0 / 20%);
+    list-style: none;
+}
+
+.search-suggest li {
+    margin: 0;
+}
+
+.search-suggest a.search-suggest-item {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: var(--spacing-md) var(--spacing-lg);
+    color: #000;
+    text-decoration: none;
+}
+
+.search-suggest a.search-suggest-item:hover,
+.search-suggest a.search-suggest-item.is-active {
+    background: var(--color-primary-light);
+}
+
+.search-suggest a.search-suggest-item:focus-visible {
+    outline: 3px solid #000;
+    outline-offset: -3px;
+}
+
+.search-suggest-title {
+    color: var(--color-primary-accessible);
+    font-weight: 700;
+}
+
+.search-suggest-text {
+    font-size: 0.9375rem;
+}
+
+.search-suggest a.search-suggest-all {
+    border-top: 1px solid #c9dfeb;
+    font-weight: 600;
+}
+
 .search-suggestions {
     margin: 0 0 var(--spacing-xl);
 }

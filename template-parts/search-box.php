@@ -16,6 +16,8 @@ $aranda_box = wp_parse_args(
 		'value' => '',
 	)
 );
+
+aranda_de_duero_enqueue_search_suggest();
 ?>
 <form role="search" method="get" class="search-box" action="<?php echo esc_url( home_url( '/' ) ); ?>">
 	<label class="screen-reader-text" for="<?php echo esc_attr( $aranda_box['id'] ); ?>"><?php esc_html_e( 'Busca un trámite, un servicio o una noticia', 'aranda-de-duero' ); ?></label>

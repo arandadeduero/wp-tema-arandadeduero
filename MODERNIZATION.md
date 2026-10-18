@@ -7,7 +7,7 @@ historial de git.
 ## JavaScript
 
 - Sin jQuery ni JavaScript de terceros: todo es JavaScript moderno (`const`/`let`, funciones flecha, `querySelector`) y
-  son cinco ficheros propios en `js/`: `navigation.js` (menú móvil), `home-carousel.js` (carrusel de la portada),
+  son seis ficheros propios en `js/`: `navigation.js` (menú móvil), `home-carousel.js` (carrusel de la portada), `search-suggest.js` (sugerencias del buscador),
   `event-poster.js` (cartel del evento, solo en `single-mc-events`), `aranda-de-duero.js` y `customizer.js`.
 - Los scripts del tema se cargan con `defer` y en el pie (`functions.php`).
 - ESLint con `--max-warnings 0` (`npm run lint:js`).
@@ -54,6 +54,10 @@ historial de git.
   (sin acentos, todas las palabras al inicio de palabra, con sinónimos y con los aciertos en el título primero), más un enlace al catálogo de trámites. La búsqueda de WordPress solo mira noticias y
   páginas y no encontraba, por ejemplo, el certificado de padrón. La página de resultados ya no usa los textos en inglés de Underscores.
   La búsqueda de WordPress sigue tardando ≈ 4 s (medido el 2026-10-18): no se ha tocado.
+  **Sugerencias al escribir** (`js/search-suggest.js`): la lista de servicios (unas 55 entradas, ≈ 3,5 KB comprimidos) viaja con la página
+  (`wp_localize_script`, `aranda_de_duero_search_index()`) y el navegador la filtra con el mismo criterio que el servidor, de modo que las
+  sugerencias salen al instante y **sin ninguna petición** (no es AJAX a propósito: cada petición pasaría por WordPress, ≈ 4 s). Patrón ARIA
+  «combobox con listbox»: flechas, Enter, Escape, y aviso al lector de pantalla. Sin JavaScript el buscador es un formulario normal.
 - **Página de enlaces** (`page-enlaces.php`): plantilla sin cabecera con todo el contenido dentro; sustituye a la página
   de Elementor, que era la única que usaba ese plugin. Ver [docs/pagina-enlaces.md](docs/pagina-enlaces.md).
 - Los iconos de Font Awesome que el editor guarda dentro de entradas y páginas (`svg-inline--fa`) llevan tamaño propio.
@@ -102,7 +106,7 @@ cinco tamaños y estilos para los bloques botón, cita y separador. El `@font-fa
 
 ## Tests
 
-`composer run test` (87 tests, PHPUnit 9 + WP_Mock, sin WordPress): metadatos sociales, datos estructurados, caché de
+`composer run test` (90 tests, PHPUnit 9 + WP_Mock, sin WordPress): metadatos sociales, datos estructurados, caché de
 eventos, contraste de color, carrusel, «Especiales», accesos frecuentes, pagos, buscador de servicios, widgets de eventos, cadenas de My Calendar, contacto, avisos de
 cumplimiento, variables del Personalizador y rendimiento. La CI los ejecuta junto con phpcs, phpstan 2, parallel-lint,
 ESLint y Stylelint. PHPUnit sigue en la 9 porque `10up/wp_mock` no soporta la 10+.

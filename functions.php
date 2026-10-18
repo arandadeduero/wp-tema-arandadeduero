@@ -229,6 +229,18 @@ function aranda_de_duero_scripts() {
 		)
 	);
 
+	// Fixed header: measures the bars and shrinks the «¿Qué necesitas?» band of the home page while it is stuck.
+	wp_enqueue_script(
+		'aranda-de-duero-sticky-header',
+		get_template_directory_uri() . '/js/sticky-header.js',
+		array(),
+		aranda_de_duero_asset_version( '/js/sticky-header.js' ),
+		array(
+			'in_footer' => true,
+			'strategy'  => 'defer',
+		)
+	);
+
 	// Main theme script - deferred for non-critical path
 	wp_enqueue_script(
 		'aranda-de-duero-script',

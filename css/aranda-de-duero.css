@@ -276,6 +276,37 @@ header#masthead {
 }
 
 /*
+ * Cabecera fija: la barra superior y el menú principal se quedan arriba al desplazarse. js/sticky-header.js mide las alturas y las deja en --sticky-bar y --sticky-offset; los valores de aquí son
+ * los de reserva por si el script no ha cargado.
+ */
+html {
+    scroll-padding-top: var(--sticky-offset, 8.5rem);
+}
+
+.top-bar {
+    position: sticky;
+    z-index: 1031;
+    top: 0;
+}
+
+.site-header-wrapper {
+    position: sticky;
+    z-index: 1030;
+    top: var(--sticky-bar, 2.0625rem);
+    background: var(--color-bg);
+    box-shadow: 0 2px 6px var(--color-black-10);
+}
+
+@media (width <= 767px) {
+    /* El panel del menú móvil se desplaza por dentro si no cabe en la pantalla, porque la cabecera ya no se mueve. */
+    body .main-navigation.toggled #primary-menu {
+        max-height: calc(100dvh - var(--sticky-bar, 0px) - 6.5rem);
+        overflow-y: auto;
+        overscroll-behavior: contain;
+    }
+}
+
+/*
  * Barra superior con teléfono, horario y cita previa. Fondo en el azul accesible (#0073ad, 5,3:1 con texto blanco; el
  * azul de marca #0083c1 solo da 4,19:1). Va a todo el ancho, con el contenido alineado al mismo ancho que la cabecera.
  */
@@ -2877,10 +2908,18 @@ a.service-card:focus-visible .service-card-title {
 }
 
 /* Franja del buscador de la portada: destaca «¿Qué necesitas?» sobre el fondo de marca, centrado. */
+
+/* El hueco sobre la franja es un elemento vacío: su borde inferior marca dónde estaría la franja sin fijarse (js/sticky-header.js). */
+.home-buscador-sentinel {
+    height: var(--spacing-xl);
+}
+
 .home-buscador {
     --buscador-boton: var(--color-gray-90);
 
-    margin-top: var(--spacing-xl);
+    position: sticky;
+    z-index: 1020;
+    top: var(--sticky-offset, 8.5rem);
     padding: var(--spacing-2xl) 0;
     background: var(--color-primary-accessible);
     color: var(--color-white);
@@ -2932,6 +2971,29 @@ a.service-card:focus-visible .service-card-title {
 
 .home-buscador .search-suggest {
     text-align: left;
+}
+
+/*
+ * Franja fijada: solo queda el campo de búsqueda. Lo que deja de ocupar se devuelve como borde inferior transparente (la
+ * variable la calcula js/sticky-header.js) para que el contenido de debajo no salte; un margen se fundiría con el del siguiente.
+ */
+.home-buscador.is-compact {
+    padding: var(--spacing-sm) 0;
+    border-bottom: var(--buscador-delta, 0) solid transparent;
+    background-clip: padding-box;
+}
+
+.home-buscador.is-compact .home-buscador-title,
+.home-buscador.is-compact .search-suggestions:not(.search-explore) {
+    display: none;
+}
+
+.home-buscador.is-compact .search-box {
+    margin: 0 auto;
+}
+
+.home-buscador.is-compact .search-explore {
+    margin-top: var(--spacing-xs);
 }
 
 .search-catalog,

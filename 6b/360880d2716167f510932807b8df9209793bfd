@@ -1,0 +1,23 @@
+css/aranda-de-duero.css
+  s_e9446e370cbe94::t_efe32d2e562e2b 2534,2538,2544,2549,2561-2562,2566,2575,2579,2786-2799
+single.php
+  s_e9446e370cbe94::t_efe32d2e562e2b 14-15,17-19,21,23-28,30-31,33
+template-parts/content-post.php
+  s_e9446e370cbe94::t_efe32d2e562e2b 19
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "6b360880d2716167f510932807b8df9209793bfd",
+  "prompts": {},
+  "sessions": {
+    "s_e9446e370cbe94": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "1f562e24-39c2-46c2-bbfd-3ce887649604",
+        "model": "claude-sonnet-5-5"
+      },
+      "human_author": "Guillermo López <willyaranda@gmail.com>"
+    }
+  }
+}

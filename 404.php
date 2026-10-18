@@ -34,7 +34,7 @@ aranda_de_duero_the_header_image( '' );
 						<div class="col-md-4 mb-4">
 							<div class="suggestion-card h-100">
 								<div class="suggestion-card-icon">🏛️</div>
-								<h3>Descubre Aranda</h3>
+								<h2 class="h3">Descubre Aranda</h2>
 								<p>
 									Te invitamos a conocer nuestra histórica villa del Duero, sus bodegas subterráneas y su rica gastronomía.
 								</p>
@@ -48,7 +48,7 @@ aranda_de_duero_the_header_image( '' );
 						<div class="col-md-4 mb-4">
 							<div class="suggestion-card h-100">
 								<div class="suggestion-card-icon">📅</div>
-								<h3>Agenda Cultural</h3>
+								<h2 class="h3">Agenda Cultural</h2>
 								<p>
 									Consulta los eventos, conciertos, exposiciones y actividades que tenemos preparadas.
 								</p>
@@ -62,7 +62,7 @@ aranda_de_duero_the_header_image( '' );
 						<div class="col-md-4 mb-4">
 							<div class="suggestion-card h-100">
 								<div class="suggestion-card-icon">📰</div>
-								<h3>Últimas Noticias</h3>
+								<h2 class="h3">Últimas Noticias</h2>
 								<p>
 									Mantente informado sobre las novedades y actualidad de nuestro municipio.
 								</p>
@@ -79,7 +79,7 @@ aranda_de_duero_the_header_image( '' );
 						<div class="row align-items-center">
 							<div class="col-md-4 text-center mb-4 mb-md-0">
 								<div class="search-section-icon">🔍</div>
-								<h3>Busca lo que necesites</h3>
+								<h2 class="h3">Busca lo que necesites</h2>
 							</div>
 							<div class="col-md-8">
 								<p class="mb-3">
@@ -92,7 +92,7 @@ aranda_de_duero_the_header_image( '' );
 
 					<!-- Fun Facts about Aranda -->
 					<div class="aranda-facts mb-5">
-						<h3>💡 ¿Sabías que...?</h3>
+						<h2 class="h3">💡 ¿Sabías que...?</h2>
 						<div class="row">
 							<div class="col-md-6 mb-3">
 								<p>
@@ -111,7 +111,7 @@ aranda_de_duero_the_header_image( '' );
 
 					<!-- Recent Posts Widget -->
 					<div class="recent-content mb-4">
-						<h3 class="mb-4">Contenidos recientes que podrían interesarte</h3>
+						<h2 class="h3 mb-4">Contenidos recientes que podrían interesarte</h2>
 						<div>
 							<?php the_widget( 'WP_Widget_Recent_Posts', 'number=5' ); ?>
 						</div>
@@ -119,7 +119,7 @@ aranda_de_duero_the_header_image( '' );
 
 					<!-- Quick Links -->
 					<div class="quick-links">
-						<h3 class="mb-4">Accesos rápidos</h3>
+						<h2 class="h3 mb-4">Accesos rápidos</h2>
 						<div class="row">
 							<div class="col-md-6 mb-3">
 								<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="quick-link-card">

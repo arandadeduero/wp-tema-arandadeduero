@@ -7,14 +7,16 @@ Cómo trabajar en el tema: herramientas, comprobaciones, reglas de código y flu
 
 ```sh
 composer install   # phpcs (WPCS + PHPCompatibility), phpstan, parallel-lint, PHPUnit + WP_Mock
-npm install        # eslint, stylelint, prettier, browser-sync
+npm install        # eslint, stylelint, prettier y archiver (el paquete de release)
 ```
 
 Requisitos: PHP 8.2 o superior **para las herramientas** (la CI usa 8.2; el código del tema debe seguir funcionando
 en PHP 7.4, que es el del servidor), Node 20 o superior y Composer.
 
 **No hay paso de compilación.** Lo que hay en `css/` y `js/` es exactamente lo que se sirve: no hay SCSS, ni
-minificación, ni Autoprefixer en el flujo. `postcss.config.js` queda de herencia y ningún script lo usa.
+minificación, ni Autoprefixer en el flujo. Por eso **no hay** PostCSS, cssnano, terser, browser-sync ni `@wordpress/scripts`: se quitaron el
+2026-10-18 porque nada los usaba (eran 1.145 paquetes, casi todas las alertas de seguridad de Dependabot y ninguno llegaba a producción). Si algún día
+se minifica o se quiere recarga en vivo, se vuelven a añadir entonces.
 
 ## Comandos
 
@@ -30,7 +32,6 @@ minificación, ni Autoprefixer en el flujo. `postcss.config.js` queda de herenci
 | `npm run format` | Prettier sobre `js/` y `css/` |
 | `npm run lint` | `lint:js`, `lint:css` y `lint:php` |
 | `npm run release` | Lint y paquete del tema (ver [RELEASE.md](RELEASE.md)) |
-| `npm start` | browser-sync con recarga en vivo (solo sirve ficheros estáticos; no ejecuta PHP) |
 
 Compatibilidad con PHP 7.4 (no la ejecuta la CI; hacerlo antes de un PR que toque PHP):
 
@@ -38,6 +39,24 @@ Compatibilidad con PHP 7.4 (no la ejecuta la CI; hacerlo antes de un PR que toqu
 ./vendor/bin/phpcs -p --standard=PHPCompatibilityWP --runtime-set testVersion 7.4 --extensions=php \
   --ignore='vendor/*,node_modules/*,dist/*,tests/*' .
 ```
+
+## Qué hace cada dependencia
+
+Cada paquete tiene un motivo; si deja de tenerlo, se quita (mirar antes con `git grep` si algún script, configuración o la CI lo usa).
+
+| Paquete | Para qué |
+| --- | --- |
+| `eslint`, `@eslint/js`, `globals`, `eslint-config-prettier`, `eslint-plugin-prettier` | `npm run lint:js` (`eslint.config.js`) |
+| `stylelint`, `stylelint-config-standard`, `stylelint-prettier` | `npm run lint:css` (`.stylelintrc.json`) |
+| `prettier` | `npm run format` y las reglas de formato de ESLint y Stylelint |
+| `archiver` | `scripts/build-release.js` (el zip) |
+| composer: `phpcs` + `wpcs` + `phpcompatibility-wp` + `dealerdirect` | `lint:wpcs` (`phpcs.xml.dist`, incluye PHP 7.4) |
+| composer: `phpstan` + `phpstan-wordpress` | `phpstan` |
+| composer: `phpunit` + `wp_mock` | `test` |
+| composer: `parallel-lint` | `lint:php` |
+
+Las vulnerabilidades que `npm audit` aún señala (8, altas) vienen de dentro de `stylelint` (`braces`, `micromatch`, `picomatch`): sin parche
+publicado, solo afectan a una herramienta que lee nuestro propio CSS y no llegan a producción (`npm audit --omit=dev`: 0).
 
 ## Antes de abrir un PR
 

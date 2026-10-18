@@ -124,6 +124,9 @@ ESLint y Stylelint. PHPUnit sigue en la 9 porque `10up/wp_mock` no soporta la 10
   (`actions/missing-workflow-permissions`) que se cerraron con `permissions: contents: read` en la CI.
 - **Paquete de release** (`scripts/build-release.js`): la lista de ficheros se lee del disco, de modo que una plantilla
   nueva no se queda fuera. Ver [RELEASE.md](RELEASE.md).
+- **Dependencias de desarrollo mínimas** (2026-10-18): se quitaron `@wordpress/scripts`, `browser-sync`, PostCSS, cssnano, autoprefixer, `postcss-cli` y
+  terser (1.145 paquetes, nada los usaba), junto con el script `compile:rtl` (dependía de `rtlcss`, que solo estaba de rebote) y `npm start`. Las
+  alertas de seguridad de Dependabot pasan de 17 a las pocas que quedan dentro de `stylelint`. Ver [DEVELOPMENT.md](DEVELOPMENT.md).
 - Bootstrap se actualiza sustituyendo `css/bootstrap.min.css` (fichero oficial de `npm pack bootstrap@x.y.z`, carpeta
   `dist/css`) **y** el número de versión de `aranda_de_duero_bootstrap_css()` en `functions.php`.
 

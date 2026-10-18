@@ -22,29 +22,28 @@ aranda_de_duero_the_header_image( '' );
 				?>
 
 				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-					<header class="agenda-intro">
-						<h1 class="entry-title"><?php the_title(); ?></h1>
-						<p class="agenda-lead">
-							<?php
+					<?php
+					get_template_part(
+						'template-parts/page-intro',
+						null,
+						array(
 							/**
-							 * Filters the introduction shown above the agenda calendar.
-							 *
-							 * @param string $text Plain text.
+							 * 'lead' goes through the `aranda_de_duero_agenda_intro` filter (plain text).
 							 */
-							echo esc_html(
+							'lead' => array(
 								apply_filters(
 									'aranda_de_duero_agenda_intro',
 									__( 'Los actos y actividades que se celebran en Aranda de Duero: culturales, deportivos, festivos y municipales. Consulta qué hay hoy, esta semana o este mes.', 'aranda-de-duero' )
-								)
-							);
-							?>
-						</p>
-						<ul class="agenda-tips">
-							<li><strong><?php esc_html_e( 'Cambia la vista', 'aranda-de-duero' ); ?></strong> <?php esc_html_e( 'a mes, semana o día, o salta a otra fecha con los selectores.', 'aranda-de-duero' ); ?></li>
-							<li><strong><?php esc_html_e( 'Pulsa un evento', 'aranda-de-duero' ); ?></strong> <?php esc_html_e( 'para ver su cartel, la hora y los detalles.', 'aranda-de-duero' ); ?></li>
-							<li><strong><?php esc_html_e( 'Añádelo a tu calendario', 'aranda-de-duero' ); ?></strong> <?php esc_html_e( 'con los botones iCal y Google de cada evento.', 'aranda-de-duero' ); ?></li>
-						</ul>
-					</header><!-- .agenda-intro -->
+								),
+							),
+							'tips' => array(
+								array( __( 'Cambia la vista', 'aranda-de-duero' ), __( 'a mes, semana o día, o salta a otra fecha con los selectores.', 'aranda-de-duero' ) ),
+								array( __( 'Pulsa un evento', 'aranda-de-duero' ), __( 'para ver su cartel, la hora y los detalles.', 'aranda-de-duero' ) ),
+								array( __( 'Añádelo a tu calendario', 'aranda-de-duero' ), __( 'con los botones iCal y Google de cada evento.', 'aranda-de-duero' ) ),
+							),
+						)
+					);
+					?>
 
 					<div class="entry-content">
 						<?php the_content(); ?>

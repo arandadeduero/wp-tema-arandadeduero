@@ -183,9 +183,10 @@ button,
 input[type='button'],
 input[type='reset'],
 input[type='submit'] {
-    border: 1px solid var(--color-primary);
+    /* Texto blanco: sobre #0083c1 da 4,18:1; con el azul accesible, 5,18:1. */
+    border: 1px solid var(--color-primary-accessible);
     border-radius: var(--border-radius);
-    background: var(--color-primary);
+    background: var(--color-primary-accessible);
     color: var(--color-white);
     line-height: var(--line-height-base);
     padding: var(--spacing-xs) var(--spacing-md);
@@ -1677,7 +1678,7 @@ h3.event-name {
     margin-bottom: 1rem;
 }
 
-.error-404 .suggestion-card h3 {
+.error-404 .suggestion-card h2.h3 {
     font-size: 1.25rem;
     font-weight: 600;
     color: var(--color-primary);
@@ -1709,7 +1710,7 @@ h3.event-name {
     font-size: 4rem;
 }
 
-.error-404 .search-section h3 {
+.error-404 .search-section h2.h3 {
     font-size: 1.5rem;
     font-weight: 600;
     color: var(--color-gray-90);
@@ -1728,7 +1729,7 @@ h3.event-name {
     box-shadow: 0 3px 15px var(--color-black-5);
 }
 
-.error-404 .aranda-facts h3 {
+.error-404 .aranda-facts h2.h3 {
     color: var(--color-primary);
     font-weight: 600;
     margin-bottom: 1.5rem;
@@ -1739,7 +1740,7 @@ h3.event-name {
     line-height: 1.7;
 }
 
-.error-404 .recent-content h3 {
+.error-404 .recent-content h2.h3 {
     font-weight: 600;
     color: var(--color-gray-90);
 }
@@ -1751,7 +1752,7 @@ h3.event-name {
     box-shadow: 0 3px 15px var(--color-black-5);
 }
 
-.error-404 .quick-links h3 {
+.error-404 .quick-links h2.h3 {
     font-weight: 600;
     color: var(--color-gray-90);
 }

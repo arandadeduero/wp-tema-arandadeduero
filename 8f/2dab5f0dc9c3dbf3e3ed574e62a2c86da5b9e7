@@ -1,0 +1,35 @@
+images/enlaces/ceas.svg
+  s_e9446e370cbe94::t_fa594e00918837 1
+page-enlaces.php
+  s_e9446e370cbe94::t_6089245f0d8875 5-7,9-12,17-21,23-91,94-95,97-103,119-124,128-151,154-168
+  s_e9446e370cbe94::t_4ccd06e0fa5596 22,92,96
+  s_e9446e370cbe94::t_fdf58079d678d7 93
+css/aranda-de-duero.css
+  s_e9446e370cbe94::t_4ccd06e0fa5596 2923-2925,2928,2932-2937,2940-2941,2945-2958,2960-2961,2966-2968,2972-2973,2976-2979,2983,2986-2987,2993,3002,3005-3007,3016-3017,3023-3024,3028-3132,3136,3140,3144,3148
+images/enlaces/biblioteca.svg
+  s_e9446e370cbe94::t_fa594e00918837 1
+images/enlaces/deportes.svg
+  s_e9446e370cbe94::t_fa594e00918837 1
+images/enlaces/bomberos.svg
+  s_e9446e370cbe94::t_fa594e00918837 1
+images/enlaces/policia.svg
+  s_e9446e370cbe94::t_fa594e00918837 1
+docs/pagina-enlaces.md
+  s_e9446e370cbe94::t_ab5bf88449976d 3-21
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "8f2dab5f0dc9c3dbf3e3ed574e62a2c86da5b9e7",
+  "prompts": {},
+  "sessions": {
+    "s_e9446e370cbe94": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "1f562e24-39c2-46c2-bbfd-3ce887649604",
+        "model": "claude-sonnet-5-5"
+      },
+      "human_author": "Guillermo López <willyaranda@gmail.com>"
+    }
+  }
+}

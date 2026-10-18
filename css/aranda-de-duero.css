@@ -53,6 +53,10 @@
     --color-primary-accessible: #0073ad;
     --color-primary-dark: #006399;
 
+    /* Los mismos dos tonos como lista de canales, para las variables --bs-*-rgb de Bootstrap */
+    --color-primary-accessible-rgb: 0, 115, 173;
+    --color-primary-dark-rgb: 0, 99, 153;
+
     /* Usos */
     --color-text: #000;
     --color-bg: #fff;
@@ -1620,10 +1624,33 @@ h3.event-name {
     background-color: var(--color-amber) !important; /* The gold/yellow highlight on day 22 */
 }
 
-/* Button override to match screenshot */
-.btn-outline-primary {
-    color: var(--color-primary-accessible);
-    border-color: var(--color-primary-accessible);
+/*
+ * El azul por defecto de Bootstrap (#0d6efd) no es de la paleta: se sustituye por el azul accesible. Bootstrap carga después del
+ * tema y define sus variables en :root, así que se duplica el selector para ganarle sin !important.
+ */
+:root:root {
+    --bs-primary: var(--color-primary-accessible);
+    --bs-primary-rgb: var(--color-primary-accessible-rgb);
+    --bs-link-color: var(--color-primary-accessible);
+    --bs-link-color-rgb: var(--color-primary-accessible-rgb);
+    --bs-link-hover-color: var(--color-primary-dark);
+    --bs-link-hover-color-rgb: var(--color-primary-dark-rgb);
+}
+
+/* Botón con borde: las variables del botón de Bootstrap se redefinen con el azul accesible. */
+.btn.btn-outline-primary {
+    --bs-btn-color: var(--color-primary-accessible);
+    --bs-btn-border-color: var(--color-primary-accessible);
+    --bs-btn-hover-color: var(--color-white);
+    --bs-btn-hover-bg: var(--color-primary-dark);
+    --bs-btn-hover-border-color: var(--color-primary-dark);
+    --bs-btn-focus-shadow-rgb: var(--color-primary-accessible-rgb);
+    --bs-btn-active-color: var(--color-white);
+    --bs-btn-active-bg: var(--color-primary-dark);
+    --bs-btn-active-border-color: var(--color-primary-dark);
+    --bs-btn-disabled-color: var(--color-primary-accessible);
+    --bs-btn-disabled-border-color: var(--color-primary-accessible);
+
     font-weight: 500;
     border-radius: 4px;
 }

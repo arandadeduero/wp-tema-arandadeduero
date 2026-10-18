@@ -178,3 +178,15 @@ function aranda_de_duero_my_calendar_strings( $translation, $text ) {
 	return $translation;
 }
 add_filter( 'gettext_my-calendar', 'aranda_de_duero_my_calendar_strings', 10, 2 );
+
+/**
+ * Twelve entries per page in archives (three cards per row), instead of the global reading setting.
+ *
+ * @param WP_Query $query The query being built.
+ */
+function aranda_de_duero_archive_page_size( $query ) {
+	if ( ! is_admin() && $query->is_main_query() && $query->is_archive() ) {
+		$query->set( 'posts_per_page', 12 );
+	}
+}
+add_action( 'pre_get_posts', 'aranda_de_duero_archive_page_size' );

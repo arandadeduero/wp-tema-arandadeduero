@@ -58,6 +58,10 @@ historial de git.
   (`wp_localize_script`, `aranda_de_duero_search_index()`) y el navegador la filtra con el mismo criterio que el servidor, de modo que las
   sugerencias salen al instante y **sin ninguna petición** (no es AJAX a propósito: cada petición pasaría por WordPress, ≈ 4 s). Patrón ARIA
   «combobox con listbox»: flechas, Enter, Escape, y aviso al lector de pantalla. Sin JavaScript el buscador es un formulario normal.
+- **Trámites por situaciones** (`inc/situations.php`, `page-tramites-situaciones.php`): siete situaciones («me empadrono», «me caso», «negocio»,
+  «obras», «impuestos», «empleo o ayudas», «presentar un documento o una queja») que agrupan los **17 trámites permanentes con página propia en el
+  portal** (`/tramite/<slug>/`) y los servicios de la sede. Las convocatorias anuales (ayudas a asociaciones, a estudiantes…) no se fijan porque
+  cambian de dirección cada año. Los mismos trámites alimentan el buscador (`aranda_de_duero_portal_procedures()`).
 - **Página de enlaces** (`page-enlaces.php`): plantilla sin cabecera con todo el contenido dentro; sustituye a la página
   de Elementor, que era la única que usaba ese plugin. Ver [docs/pagina-enlaces.md](docs/pagina-enlaces.md).
 - Los iconos de Font Awesome que el editor guarda dentro de entradas y páginas (`svg-inline--fa`) llevan tamaño propio.
@@ -106,7 +110,7 @@ cinco tamaños y estilos para los bloques botón, cita y separador. El `@font-fa
 
 ## Tests
 
-`composer run test` (90 tests, PHPUnit 9 + WP_Mock, sin WordPress): metadatos sociales, datos estructurados, caché de
+`composer run test` (99 tests, PHPUnit 9 + WP_Mock, sin WordPress): metadatos sociales, datos estructurados, caché de
 eventos, contraste de color, carrusel, «Especiales», accesos frecuentes, pagos, buscador de servicios, widgets de eventos, cadenas de My Calendar, contacto, avisos de
 cumplimiento, variables del Personalizador y rendimiento. La CI los ejecuta junto con phpcs, phpstan 2, parallel-lint,
 ESLint y Stylelint. PHPUnit sigue en la 9 porque `10up/wp_mock` no soporta la 10+.

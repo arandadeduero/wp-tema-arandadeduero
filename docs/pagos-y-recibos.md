@@ -26,6 +26,13 @@ siguen lo que la propia sede dice de cada servicio. Se editan en `aranda_de_duer
 - Si la sede cambia sus direcciones, solo hay que actualizar `inc/services.php`.
 - El aspecto (tarjetas blancas con borde azul) está en el bloque «Tarjetas de servicio» de `css/aranda-de-duero.css`.
 
+## Trámites por situaciones
+Plantilla `page-tramites-situaciones.php` (datos en `inc/situations.php`). **Hay que crear la página en WordPress:** título «Trámites por
+situaciones», dirección (slug) `tramites-por-situaciones` y plantilla **«Plantilla Trámites por situaciones»**. Mientras no exista, el buscador no
+la ofrece. Cada situación agrupa trámites del portal (`/tramite/<slug>/`) y servicios de la sede. Para añadir un trámite: añadirlo a
+`aranda_de_duero_portal_procedures()` (con su dirección exacta) y a la situación que corresponda. **Las direcciones están escritas a mano**: si
+alguien renombra un trámite en WordPress, su tarjeta dará 404; hay que revisarlas de vez en cuando (ver la memoria del proyecto).
+
 ## Buscador «¿Qué necesitas?»
 El campo de la home y de los resultados de búsqueda, y el bloque «Servicios y trámites» que sale encima de los resultados, leen de las mismas
 listas (`inc/services.php`) más otras páginas de la sede (`aranda_de_duero_service_directory()` en `inc/search.php`). El buscador también incluye 26 páginas de la sede, las secciones y portales del sitio (agenda, bandos, subvenciones, turismo…) y los

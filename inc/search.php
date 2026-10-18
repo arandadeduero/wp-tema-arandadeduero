@@ -57,7 +57,7 @@ function aranda_de_duero_service_directory() {
 	$pub  = 'CarpetaPublic/doEvent';
 	$priv = 'CarpetaPrivate/Login';
 
-	return array(
+	$entries = array(
 		// Your own data in the electronic office (they ask you to identify yourself there).
 		aranda_de_duero_directory_entry( __( 'Expedientes', 'aranda-de-duero' ), __( 'Consulta tus expedientes.', 'aranda-de-duero' ), $e( $priv, 'EXPEDIENTES_FULL' ), 'expediente expedientes tramitacion seguimiento estado' ),
 		aranda_de_duero_directory_entry( __( 'Datos personales', 'aranda-de-duero' ), __( 'Consulta y modifica tus datos personales.', 'aranda-de-duero' ), $e( $priv, 'DATOS_PERSONALES' ), 'datos personales perfil direccion correo modificar' ),
@@ -101,6 +101,15 @@ function aranda_de_duero_service_directory() {
 		aranda_de_duero_directory_entry( __( 'Preguntas frecuentes', 'aranda-de-duero' ), __( 'Preguntas frecuentes sobre el Ayuntamiento.', 'aranda-de-duero' ), home_url( '/preguntas-mas-frecuentes/' ), 'preguntas frecuentes faq dudas', false ),
 		aranda_de_duero_directory_entry( __( 'Enlaces de interés', 'aranda-de-duero' ), __( 'Redes sociales y perfiles del Ayuntamiento.', 'aranda-de-duero' ), home_url( '/enlaces-de-interes/' ), 'enlaces redes sociales instagram facebook twitter tiktok youtube', false ),
 	);
+
+	$entries[] = aranda_de_duero_directory_entry( __( 'Trámites del portal', 'aranda-de-duero' ), __( 'Todos los trámites con página propia en este portal.', 'aranda-de-duero' ), home_url( '/tramites/' ), 'tramites tramite solicitudes modelos documentacion', false );
+
+	$situations = aranda_de_duero_situations_url();
+	if ( '' !== $situations ) {
+		$entries[] = aranda_de_duero_directory_entry( __( 'Trámites por situaciones', 'aranda-de-duero' ), __( 'Los trámites agrupados según lo que necesitas hacer.', 'aranda-de-duero' ), $situations, 'tramites situaciones empadronarme casarme negocio obras impuestos empleo', false );
+	}
+
+	return array_merge( $entries, array_values( aranda_de_duero_portal_procedures() ) );
 }
 
 /**

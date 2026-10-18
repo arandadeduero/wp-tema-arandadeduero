@@ -109,6 +109,11 @@ function aranda_de_duero_service_directory() {
 		$entries[] = aranda_de_duero_directory_entry( __( 'Trámites por situaciones', 'aranda-de-duero' ), __( 'Los trámites agrupados según lo que necesitas hacer.', 'aranda-de-duero' ), $situations, 'tramites situaciones empadronarme casarme negocio obras impuestos empleo', false );
 	}
 
+	$audiences = aranda_de_duero_audiences_url();
+	if ( '' !== $audiences ) {
+		$entries[] = aranda_de_duero_directory_entry( __( 'Para ti', 'aranda-de-duero' ), __( 'Los servicios agrupados para familias, mayores, jóvenes, empresas, nuevos vecinos y asociaciones.', 'aranda-de-duero' ), $audiences, 'para ti familias familia mayores jovenes juventud empresas comercios autonomos nuevos vecinos asociaciones colectivos', false );
+	}
+
 	return array_merge( $entries, array_values( aranda_de_duero_portal_procedures() ) );
 }
 

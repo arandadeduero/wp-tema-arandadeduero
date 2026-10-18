@@ -68,6 +68,15 @@ if ( '1' === get_theme_mod( 'aranda_de_duero_show_banner' ) && '' !== get_theme_
 				<a href="<?php echo esc_url( home_url( '/?s=' . rawurlencode( $aranda_term ) ) ); ?>"><?php echo esc_html( $aranda_term ); ?></a>
 			<?php endforeach; ?>
 		</p>
+		<?php $aranda_explore = aranda_de_duero_explore_links(); ?>
+		<?php if ( array() !== $aranda_explore ) : ?>
+			<p class="search-suggestions">
+				<?php esc_html_e( 'O explora:', 'aranda-de-duero' ); ?>
+				<?php foreach ( $aranda_explore as $aranda_link ) : ?>
+					<a href="<?php echo esc_url( $aranda_link['url'] ); ?>"><?php echo esc_html( $aranda_link['title'] ); ?></a>
+				<?php endforeach; ?>
+			</p>
+		<?php endif; ?>
 	</div>
 </section>
 <!-- Accesos frecuentes -->

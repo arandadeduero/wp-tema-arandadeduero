@@ -5,6 +5,7 @@ require_once dirname( __DIR__ ) . '/inc/template-functions.php';
 require_once dirname( __DIR__ ) . '/inc/services.php';
 require_once dirname( __DIR__ ) . '/inc/search.php';
 require_once dirname( __DIR__ ) . '/inc/situations.php';
+require_once dirname( __DIR__ ) . '/inc/audiences.php';
 
 if ( ! class_exists( 'WP_Post' ) ) {
 	class WP_Post {

@@ -367,6 +367,11 @@ require get_template_directory() . '/inc/search.php';
 require get_template_directory() . '/inc/situations.php';
 
 /**
+ * «Para ti»: services grouped by who is asking (families, older people, young people, businesses…).
+ */
+require get_template_directory() . '/inc/audiences.php';
+
+/**
  * Colour contrast helpers and Customizer validation.
  */
 require get_template_directory() . '/inc/color-contrast.php';

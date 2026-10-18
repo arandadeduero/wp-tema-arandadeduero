@@ -2,6 +2,10 @@ name: Tests
 
 on: [push, pull_request]
 
+# Los jobs solo leen el código: el token no necesita más (CodeQL: actions/missing-workflow-permissions).
+permissions:
+  contents: read
+
 jobs:
   php-syntax:
     name: PHP syntax (parallel-lint)

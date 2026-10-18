@@ -362,6 +362,11 @@ require get_template_directory() . '/inc/services.php';
 require get_template_directory() . '/inc/search.php';
 
 /**
+ * «Trámites por situaciones»: procedures grouped by what the visitor is going through.
+ */
+require get_template_directory() . '/inc/situations.php';
+
+/**
  * Colour contrast helpers and Customizer validation.
  */
 require get_template_directory() . '/inc/color-contrast.php';

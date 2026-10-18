@@ -1,0 +1,26 @@
+inc/home-carousel.php
+  s_e9446e370cbe94::t_2efc3b45bddc0d 139-140,155-160,162-166
+tests/HomeCarouselTest.php
+  s_e9446e370cbe94::t_9ef708cb26178f 31-32,56-67
+  s_e9446e370cbe94::t_5d007e23fcde6d 68-69
+DEVELOPMENT.md
+  s_e9446e370cbe94::t_e986f668ea552f 52
+MODERNIZATION.md
+  s_e9446e370cbe94::t_13d93478869e90 95,127-132
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "5c3e73fa27e3dc8e6c45d421bc9a1aba55eebaf7",
+  "prompts": {},
+  "sessions": {
+    "s_e9446e370cbe94": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "1f562e24-39c2-46c2-bbfd-3ce887649604",
+        "model": "claude-sonnet-5-5"
+      },
+      "human_author": "Guillermo López <willyaranda@gmail.com>"
+    }
+  }
+}

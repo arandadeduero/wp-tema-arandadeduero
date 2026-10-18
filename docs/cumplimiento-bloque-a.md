@@ -31,6 +31,8 @@ El azul de marca `#0083c1` **no llega al 4,5:1 exigible ni sobre fondo blanco** 
 se corrigen oscureciendo su fondo; esa parte no se pudo medir en la copia, porque el contenido de «Especiales» se
 carga por AJAX.
 
+> *Nota del 2026-10-18:* «Especiales» ya no se carga por AJAX: lo pinta el propio tema (PR #44), así que aparece en el HTML estático.
+
 ## Verificación en producción (2026-10-17, tras desplegar el PR #21)
 
 Lighthouse sobre la web real, escritorio:

@@ -1,394 +1,76 @@
-# Release & Deployment Guide
+# Publicar una versión del tema
 
-How to build and deploy the Aranda de Duero WordPress theme to your server.
+No hay despliegue automático: el paquete se genera con `npm run release` y se sube a mano a producción
+(www.arandadeduero.es). Las comprobaciones de GitHub validan el código; no despliegan nada.
 
-## Quick Release Build
+## 1. Generar el paquete
 
-```bash
+```sh
 npm run release
 ```
 
-This command will:
-
-1. ✅ Build all assets (SCSS → CSS, minify JavaScript)
-2. ✅ Run all linters and syntax checks
-3. ✅ Create a clean WordPress theme package
-4. ✅ Compress everything into a ZIP file
-5. ✅ Output: `dist/aranda-de-duero-2.0.0.zip`
-
-The ZIP file contains **only** the necessary WordPress theme files, excluding:
-
--   Development dependencies (node_modules, vendor)
--   Source files (SCSS, source maps)
--   Configuration files (.eslintrc.json, .prettierrc, etc.)
--   Development documentation (BUILD_SETUP.md, DEVELOPMENT.md)
--   Git files (.git, .github)
-
-## Files Included in Release
-
-### Core WordPress Files
-
-```
-aranda-de-duero/
-├── 404.php                    # 404 page template
-├── archive.php                # Archive page template
-├── comments.php               # Comments template
-├── footer.php                 # Footer template
-├── functions.php              # Theme functions
-├── header.php                 # Header template
-├── index.php                  # Main template (required)
-├── page.php                   # Page template
-├── search.php                 # Search template
-├── searchform.php             # Search form
-├── sidebar.php                # Sidebar template
-├── single.php                 # Single post template
-├── style.css                  # Main stylesheet (required)
-├── style-rtl.css              # RTL stylesheet
-```
-
-### Custom Templates (Pages)
-
-```
-├── page-agenda.php
-├── page-ayuntamiento.php
-├── page-bandos.php
-├── page-home.php
-├── page-legales.php
-├── page-multimedia.php
-├── page-news.php
-├── page-sinsidebars.php
-├── page-tramite.php
-├── page-villa.php
-├── page-webmap.php
-```
-
-### Custom Post Type Templates
-
-```
-├── single-mc-events.php
-├── single-tramite.php
-```
-
-### Taxonomy Templates
-
-```
-├── taxonomy-concejalia-*.php  (3 files)
-├── taxonomy-tema-*.php         (15 files)
-```
-
-### Assets
-
-```
-├── css/
-│   └── aranda-de-duero.css     # Compiled & minified (production-ready)
-├── js/
-│   ├── aranda-de-duero.js      # Minified (production-ready)
-│   ├── customizer.js           # Minified
-│   ├── navigation.js           # Minified
-│   └── (no jQuery!)
-├── images/                     # Theme images
-└── languages/                  # Translation files
-```
-
-### Supporting Files
-
-```
-├── inc/                        # PHP includes
-│   ├── custom-header.php
-│   ├── customizer.php
-│   ├── jetpack.php
-│   ├── template-functions.php
-│   └── template-tags.php
-├── template-parts/             # Reusable components (8 files)
-├── LICENSE                     # GPL 2.0 license
-└── README.md                   # Theme documentation
-```
-
-## Installation Steps
-
-### Option 1: Using WordPress Admin (Recommended for Non-Developers)
-
-1. Download the ZIP file: `dist/aranda-de-duero-2.0.0.zip`
-2. Go to **Appearance → Themes** in WordPress Admin
-3. Click **Add New Theme**
-4. Click **Upload Theme**
-5. Select the ZIP file and click **Install Now**
-6. Click **Activate** to use the theme
+1. Ejecuta `npm run build`: ESLint con `--max-warnings 0`, Stylelint y la sintaxis PHP (`lint:php`). Si algo falla,
+   no se crea el paquete.
+2. Ejecuta `scripts/build-release.js`, que empaqueta el tema en **`aranda-de-duero-2.0.0.zip`, en la raíz del
+   repositorio** (el nombre sale de `THEME_VERSION` en ese script; ver «Versión» más abajo).
 
-### Option 2: Using FTP/SFTP
+No hay compilación ni minificación: se empaquetan los ficheros tal cual están.
 
-1. Build the release: `npm run release`
-2. Download `dist/aranda-de-duero-2.0.0.zip`
-3. Extract the ZIP file
-4. Upload the `aranda-de-duero/` folder to `/wp-content/themes/` on your server
-5. Go to **Appearance → Themes** and activate the theme
+**Qué lleva el zip** (87 ficheros a 2026-10-18):
 
-### Option 3: Using WP-CLI (Advanced)
+- Todos los `*.php` de la raíz (plantillas, `functions.php`, taxonomías…). La lista **se lee del disco**: una plantilla
+  nueva entra sola, no hay que añadirla a ningún sitio.
+- `style.css`, `style-rtl.css`, `theme.json`, `readme.txt`, `screenshot.png`, `LICENSE` y `README.md`.
+- Los directorios `css/` (incluidas las fuentes Outfit), `inc/`, `images/`, `js/`, `languages/` y `template-parts/`.
 
-```bash
-# Download and activate in one command
-wp theme install /path/to/dist/aranda-de-duero-2.0.0.zip --activate
-```
+**Qué no lleva:** `node_modules`, `vendor`, `tests`, `docs`, `scripts`, `.github`, la configuración de las
+herramientas ni los documentos de desarrollo.
 
-## Pre-Release Checklist
+> Hasta el 2026-10-18 este script estaba **roto** (`archiver is not a function`: Dependabot había subido `archiver` a
+> la v8, que solo es ESM) y además tenía la lista de ficheros escrita a mano, sin `page-enlaces.php`,
+> `page-subvenciones.php`, `page-notas-de-prensa.php`, `page-barrios-propuestas-respuestas.php`,
+> `page-exp-plaza-de-toros.php` ni `theme.json`. Se arregló en el PR de la documentación; si vuelve a fallar tras una
+> actualización de `archiver`, lo primero es mirar su API.
 
-Before building a release, verify everything:
+`bin/build-zip.sh` hace un `git archive` de **todo** el repositorio (con tests y documentación): sirve para guardar una
+copia del código, no para subir a producción.
 
-```bash
-# 1. Check code quality
-npm run lint
-npm run lint:php
+## 2. Desplegar
 
-# 2. Verify build succeeds
-npm run build
+**Siempre el tema completo, nunca archivo a archivo.** `functions.php` hace `require` de `inc/*.php`, y
+`footer.php` y `page-home.php` dependen uno del otro: una subida parcial ya provocó un error 500 en producción.
 
-# 3. Test in development
-npm start
-# Visit http://localhost:3000 and test functionality
+Dos maneras equivalentes:
 
-# 4. Run the release build
-npm run release
-```
+- **Desde WordPress:** *Apariencia → Temas → Añadir nuevo → Subir tema*, con el zip, y reemplazar el tema actual.
+- **Por SFTP:** descomprimir y subir la carpeta `aranda-de-duero/` a `/wp-content/themes/`, sobrescribiendo.
 
-## Release Build Process
+**Un despliegue copia ficheros, no borra los que ya no existen en el repositorio.** Si se elimina algo (por ejemplo
+`css/webfonts/`), seguirá en el servidor hasta que se borre a mano. No molesta mientras nada lo pida.
 
-### What `npm run release` Does
+## 3. Después de desplegar
 
-1. **Builds Assets**
+1. **Vaciar la caché de Cache Enabler.** Si no, los navegadores siguen recibiendo la página anterior aunque el
+   código esté subido (la respuesta lleva `x-cache-handler: cache-enabler-engine` y `Vary: accept`).
+2. **Esperar unos 30 s:** el servidor (PHP 7.4) puede seguir sirviendo los `.php` anteriores por la caché de opcache.
+3. **Comprobar en la web real**, no en la copia local:
+   - Ver lo que ven los visitantes: un navegador, o `curl` con `-H 'Accept: text/html'`. Para comprobar solo que el
+     código nuevo funciona, cargar la página con un parámetro (`/?sin-cache=x`), que la caché no usa.
+   - Cambios visibles: capturas en móvil y escritorio, y Lighthouse (accesibilidad y SEO deberían seguir en 100 en
+     la home, noticias, noticia y agenda).
+   - Cambios de rendimiento: LCP con red Fast 4G y CPU ×4, sin caché.
+4. Pocas peticiones y espaciadas: producción **bloquea la IP** tras una ráfaga (503 durante una hora).
+5. Solo entonces, mergear el PR y borrar la rama.
 
-    ```bash
-    npm run build
-    ```
+## Versión
 
-    - Compiles SCSS → CSS (with compression)
-    - Runs ESLint checks
-    - Processes CSS with autoprefixer
-    - Minifies with PostCSS
+`THEME_VERSION` está en `scripts/build-release.js` (2.0.0) y `style.css` dice `Version: 1.0.0`: no coinciden y
+ninguna de las dos se usa para nada más que el nombre del zip y la ficha del tema. Los CSS y JS se versionan solos por
+fecha de modificación (`aranda_de_duero_asset_version()`, con `filemtime()`), salvo Bootstrap, cuya versión está
+escrita en `aranda_de_duero_bootstrap_css()` en `functions.php`: **subirla cuando se cambie `css/bootstrap.min.css`** para
+que los navegadores no sirvan la copia vieja.
 
-2. **Runs Linters**
+## Si algo sale mal
 
-    - ESLint (JavaScript)
-    - Stylelint (CSS/SCSS)
-    - PHP CodeSniffer (PHP files)
-    - PHPStan (static analysis)
-
-3. **Creates Release Package** (using archiver)
-
-    - Creates `dist/aranda-de-duero/` directory
-    - Copies only necessary WordPress files
-    - Excludes development files
-    - Creates ZIP archive: `dist/aranda-de-duero-2.0.0.zip`
-
-4. **Cleans Up**
-    - Removes temporary dist directory
-    - Keeps only the final ZIP file
-
-## File Size Comparison
-
-### Source Working Directory
-
--   With node_modules: ~750 MB
--   With vendor: ~25 MB
--   Development files: ~5 MB
--   **Total**: ~780 MB
-
-### Release ZIP Package
-
--   All necessary files: ~2-3 MB
--   **Reduction**: 99.6% smaller! 🚀
-
-## Versioning & Release Naming
-
-The ZIP filename follows semantic versioning:
-
-```
-aranda-de-duero-{MAJOR}.{MINOR}.{PATCH}.zip
-```
-
-Examples:
-
--   `aranda-de-duero-2.0.0.zip` - Major version update
--   `aranda-de-duero-2.1.0.zip` - Minor feature update
--   `aranda-de-duero-2.0.1.zip` - Bug fix
-
-Update the version in `package.json` before building:
-
-```json
-{
-    "version": "2.1.0"
-}
-```
-
-## Deployment Best Practices
-
-### 1. Test Before Uploading
-
-```bash
-npm run build && npm start
-# Thoroughly test all features at http://localhost:3000
-```
-
-### 2. Backup Existing Theme
-
-If updating an existing theme, always keep a backup of the previous version.
-
-### 3. Check WordPress Requirements
-
--   Minimum PHP: 7.4+ (see `composer.json`)
--   Minimum WordPress: 5.0 (see `phpcs.xml.dist`)
-
-### 4. Verify After Upload
-
-After uploading:
-
-1. ✅ Theme appears in **Appearance → Themes**
-2. ✅ No PHP errors in WordPress debug log
-3. ✅ All CSS/JS files load correctly
-4. ✅ Navigation and menus work
-5. ✅ Pages and posts display correctly
-6. ✅ Responsive design works on mobile
-
-### 5. Enable Debug Logs (Development)
-
-Add to `wp-config.php`:
-
-```php
-define('WP_DEBUG', true);
-define('WP_DEBUG_LOG', true);
-define('WP_DEBUG_DISPLAY', false);
-```
-
-Check logs at `wp-content/debug.log`
-
-## Rollback Procedure
-
-If something goes wrong after upload:
-
-1. In WordPress Admin: Go to **Appearance → Themes**
-2. Activate a different theme (WordPress provides a default)
-3. Investigate the issue in the theme files
-4. Upload the previous version again
-
-Or via WP-CLI:
-
-```bash
-wp theme activate twentytwentythree
-# Switch to previous version
-wp theme activate aranda-de-duero
-```
-
-## CI/CD Integration
-
-### Automated Releases with GitHub Actions
-
-Create `.github/workflows/release.yml`:
-
-```yaml
-name: Release Theme
-
-on:
-    push:
-        tags:
-            - 'v*'
-
-jobs:
-    release:
-        runs-on: ubuntu-latest
-        steps:
-            - uses: actions/checkout@v3
-            - uses: actions/setup-node@v3
-              with:
-                  node-version: '18'
-
-            - name: Install dependencies
-              run: npm ci
-
-            - name: Build release
-              run: npm run release
-
-            - name: Create Release
-              uses: softprops/action-gh-release@v1
-              with:
-                  files: dist/*.zip
-```
-
-Usage:
-
-```bash
-git tag v2.0.0
-git push origin v2.0.0
-# GitHub Actions automatically builds and creates release
-```
-
-## Troubleshooting
-
-### Release Build Fails
-
-```bash
-# Ensure all dependencies are installed
-npm install
-composer install
-
-# Run linters to find issues
-npm run lint
-npm run lint:php
-
-# Try build again
-npm run release
-```
-
-### ZIP File Won't Upload
-
--   File size too large? Check your server limits
--   Extension issues? Ensure `.zip` extension is allowed
--   Permissions? Verify directory permissions on server
-
-### Theme Not Appearing After Upload
-
-```bash
-# Verify theme directory permissions
-chmod 755 /wp-content/themes/aranda-de-duero
-
-# Verify all files copied correctly
-ls -la /wp-content/themes/aranda-de-duero/
-
-# Check theme header in style.css
-head -10 /wp-content/themes/aranda-de-duero/style.css
-```
-
-### Missing CSS/JS After Upload
-
--   Check browser console for 404 errors
--   Verify CSS/JS file paths are correct
--   Ensure file permissions: `chmod 644 css/*.css js/*.js`
-
-## Support
-
-For questions about deployment:
-
-1. Check this guide thoroughly
-2. Review error logs: `wp-content/debug.log`
-3. Check WordPress system requirements
-4. Review the DEVELOPMENT.md guide
-
----
-
-## Quick Reference Commands
-
-```bash
-# Development workflow
-npm start                 # Watch mode with live reload
-
-# Building
-npm run build            # Build for production
-npm run release          # Create distribution ZIP
-
-# Linting
-npm run lint             # Check all code quality
-npm run lint:php         # Check PHP files only
-
-# Cleanup
-npm run clean            # Remove build artifacts
-```
-
-**Ready to deploy?** Run `npm run release` and upload the ZIP file! 🚀
+Volver a subir el zip anterior (conservar el último que funcionó) y vaciar la caché. No hay entorno de pruebas
+previo: cada despliegue va directo a producción.

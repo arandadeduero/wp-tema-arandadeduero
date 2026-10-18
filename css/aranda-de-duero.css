@@ -2637,3 +2637,122 @@ button.poster-dialog-button {
     font-size: clamp(1.75rem, 3.2vw, 2.5rem);
     line-height: 1.2;
 }
+
+/* Carrusel de la portada (inc/home-carousel.php + js/home-carousel.js): tira con scroll-snap y tres botones. */
+.home-carousel {
+    position: relative;
+}
+
+.home-carousel-track {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    overscroll-behavior-x: contain;
+}
+
+.home-carousel-track::-webkit-scrollbar {
+    display: none;
+}
+
+.home-carousel-track:focus-visible {
+    outline: 3px solid var(--color-primary-accessible);
+    outline-offset: -3px;
+}
+
+.home-carousel-slide {
+    flex: 0 0 100%;
+    scroll-snap-align: start;
+}
+
+.home-carousel-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 494px; /* como el Smart Slider: proporción 3,72:1 hasta 494 px de alto */
+    aspect-ratio: 3.72 / 1;
+    object-fit: cover;
+}
+
+.home-carousel-button {
+    position: absolute;
+    top: 50%;
+    width: 2.75rem;
+    height: 2.75rem;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: rgb(0 0 0 / 45%);
+    color: var(--color-white);
+    cursor: pointer;
+    transform: translateY(-50%);
+}
+
+.home-carousel-button:hover,
+.home-carousel-button:focus-visible {
+    background: rgb(0 0 0 / 70%);
+}
+
+.home-carousel-button:focus-visible {
+    outline: 2px solid var(--color-white);
+    outline-offset: 2px;
+}
+
+.home-carousel-prev {
+    left: var(--spacing-md);
+}
+
+.home-carousel-next {
+    right: var(--spacing-md);
+}
+
+.home-carousel-prev::before,
+.home-carousel-next::before {
+    content: '';
+    display: block;
+    width: 0.7rem;
+    height: 0.7rem;
+    margin: auto;
+    border-top: 2px solid currentcolor;
+    border-right: 2px solid currentcolor;
+}
+
+.home-carousel-prev::before {
+    transform: translateX(2px) rotate(-135deg);
+}
+
+.home-carousel-next::before {
+    transform: translateX(-2px) rotate(45deg);
+}
+
+.home-carousel-pause {
+    top: auto;
+    right: var(--spacing-md);
+    bottom: var(--spacing-md);
+    transform: none;
+}
+
+.home-carousel-pause::before {
+    content: '';
+    display: block;
+    width: 0.65rem;
+    height: 0.9rem;
+    margin: auto;
+    border-right: 3px solid currentcolor;
+    border-left: 3px solid currentcolor;
+}
+
+.home-carousel-pause.is-paused::before {
+    width: 0;
+    height: 0;
+    border: 0.5rem solid transparent;
+    border-left: 0.85rem solid currentcolor;
+    border-right: 0;
+    margin-left: 0.9rem;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .home-carousel-track {
+        scroll-behavior: smooth;
+    }
+}

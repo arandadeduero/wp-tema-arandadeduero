@@ -18,8 +18,16 @@ get_header();
 			<div class="home-video-wrapper mb-4">
 				<div class="home-video ">
 					<?php
-					// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- shortcode output from Smart Slider, post-processed by a string filter that only rewrites <img> attributes.
-					echo aranda_de_duero_defer_slider_images( do_shortcode( '[smartslider3 slider="2"]' ) );
+					$aranda_carousel = aranda_de_duero_home_carousel_html( aranda_de_duero_home_slides() );
+					if ( '' !== $aranda_carousel ) {
+						aranda_de_duero_enqueue_home_carousel();
+						// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- built by aranda_de_duero_home_carousel_html(), which escapes every value.
+						echo $aranda_carousel;
+					} else {
+						// Until the first slide exists in «Portada», keep the Smart Slider.
+						// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- shortcode output from Smart Slider, post-processed by a string filter that only rewrites <img> attributes.
+						echo aranda_de_duero_defer_slider_images( do_shortcode( '[smartslider3 slider="2"]' ) );
+					}
 					?>
 				</div>
 			</div>

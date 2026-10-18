@@ -353,6 +353,11 @@ require get_template_directory() . '/inc/performance.php';
 require get_template_directory() . '/inc/events.php';
 
 /**
+ * Home carousel (replaces Smart Slider).
+ */
+require get_template_directory() . '/inc/home-carousel.php';
+
+/**
  * Colour contrast helpers and Customizer validation.
  */
 require get_template_directory() . '/inc/color-contrast.php';

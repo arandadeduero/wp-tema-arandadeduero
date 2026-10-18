@@ -28,7 +28,8 @@ class HomeCarouselTest extends TestCase {
 		);
 		\WP_Mock::userFunction( 'wp_get_attachment_image' )->andReturnUsing(
 			function ( $id, $size, $icon, $attr ) {
-				return '<img data-id="' . $id . '" loading="' . $attr['loading'] . '" alt="' . $attr['alt'] . '">';
+				$priority = isset( $attr['fetchpriority'] ) ? ' fetchpriority="' . $attr['fetchpriority'] . '"' : '';
+				return '<img data-id="' . $id . '" loading="' . $attr['loading'] . '"' . $priority . ' alt="' . $attr['alt'] . '">';
 			}
 		);
 	}
@@ -50,6 +51,20 @@ class HomeCarouselTest extends TestCase {
 		$this->assertStringContainsString( 'data-id="1" loading="eager"', $html );
 		$this->assertStringContainsString( 'data-id="2" loading="lazy"', $html );
 		$this->assertSame( 2, substr_count( $html, 'class="home-carousel-slide"' ) );
+	}
+
+	public function test_only_the_first_image_has_high_fetch_priority() {
+		$this->mocks();
+
+		$html = aranda_de_duero_home_carousel_html(
+			array(
+				array( 'image_id' => 1, 'title' => 'Uno', 'url' => '' ),
+				array( 'image_id' => 2, 'title' => 'Dos', 'url' => '' ),
+			)
+		);
+
+		$this->assertStringContainsString( 'data-id="1" loading="eager" fetchpriority="high"', $html );
+		$this->assertSame( 1, substr_count( $html, 'fetchpriority' ) );
 	}
 
 	public function test_a_slide_with_url_wraps_the_image_in_a_link() {

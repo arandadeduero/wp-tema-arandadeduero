@@ -1,0 +1,36 @@
+tests/SearchTest.php
+  s_e9446e370cbe94::t_70edd92435a92a 61-76
+  s_e9446e370cbe94::t_e919b6856d1b9a 77-84
+  s_e9446e370cbe94::t_8b9fbc08c9f6ec 6,11,28-40,108-174
+  s_e9446e370cbe94::t_56510ed8223faf 175
+inc/search.php
+  s_e9446e370cbe94::t_e919b6856d1b9a 184,196-202,205-211,213,215-218,220,222
+  s_e9446e370cbe94::t_f81b4461a0dfaf 9-10,25-48,56,61,70-71,76,91-102,106-131,180
+  s_e9446e370cbe94::t_6ca84470545703 54-55,57-58,62,64-69,72-75,77-90
+  s_e9446e370cbe94::t_70edd92435a92a 63,132,145-162,189,191
+  s_e9446e370cbe94::t_59bf5c36ebf35c 133
+DEVELOPMENT.md
+  s_e9446e370cbe94::t_ac630e9e686370 52
+MEJORAS-OTROS-AYUNTAMIENTOS.md
+  s_e9446e370cbe94::t_916a227df9e4df 72,161
+MODERNIZATION.md
+  s_e9446e370cbe94::t_161a677469280b 53-54,105
+docs/pagos-y-recibos.md
+  s_e9446e370cbe94::t_e6da55bbfde0b2 31-32
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "c64e062ba67a1be96daa98a16c7ea991a28da788",
+  "prompts": {},
+  "sessions": {
+    "s_e9446e370cbe94": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "1f562e24-39c2-46c2-bbfd-3ce887649604",
+        "model": "claude-sonnet-5-5"
+      },
+      "human_author": "Guillermo López <willyaranda@gmail.com>"
+    }
+  }
+}

@@ -1,0 +1,36 @@
+inc/search.php
+  s_e9446e370cbe94::t_93f49363e24b43 144-237,264-265,269,273,281,287
+css/aranda-de-duero.css
+  s_e9446e370cbe94::t_9c903f2b6230e4 2728-2785
+js/search-suggest.js
+  s_e9446e370cbe94::t_9c903f2b6230e4 1-144,149-167,171-210
+  s_e9446e370cbe94::t_5f4d2b2e5407c0 145-148,168-170
+template-parts/search-box.php
+  s_e9446e370cbe94::t_9c903f2b6230e4 19-20
+tests/SearchTest.php
+  s_e9446e370cbe94::t_5f4d2b2e5407c0 201-235
+DEVELOPMENT.md
+  s_e9446e370cbe94::t_1a4bdd82e509d9 52,61
+MEJORAS-OTROS-AYUNTAMIENTOS.md
+  s_e9446e370cbe94::t_95ab6e5ca514fd 161-162
+MODERNIZATION.md
+  s_e9446e370cbe94::t_bde1f0fae2714e 10,57-60,109
+docs/pagos-y-recibos.md
+  s_e9446e370cbe94::t_d76d5caf69eed3 34-35
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "1bf513c6e0bceb6c42491c49a45f48cf5a511ff1",
+  "prompts": {},
+  "sessions": {
+    "s_e9446e370cbe94": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "1f562e24-39c2-46c2-bbfd-3ce887649604",
+        "model": "claude-sonnet-5-5"
+      },
+      "human_author": "Guillermo López <willyaranda@gmail.com>"
+    }
+  }
+}

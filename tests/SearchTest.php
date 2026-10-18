@@ -5,6 +5,8 @@ require_once dirname( __DIR__ ) . '/inc/template-functions.php';
 require_once dirname( __DIR__ ) . '/inc/services.php';
 require_once dirname( __DIR__ ) . '/inc/especiales.php';
 require_once dirname( __DIR__ ) . '/inc/search.php';
+require_once dirname( __DIR__ ) . '/inc/situations.php';
+require_once dirname( __DIR__ ) . '/inc/audiences.php';
 
 class SearchTest extends TestCase {
 

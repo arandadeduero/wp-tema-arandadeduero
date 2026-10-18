@@ -1348,9 +1348,9 @@ footer.search-entry-footer {
     color: var(--color-primary-accessible) !important;
 }
 
-/* El título lleva .text-blue en el <h4>, pero el enlace llevaba su propio azul. */
+/* El título lleva .text-blue en el <h3>, pero el enlace llevaba su propio azul (#1a7ed6, 4,2:1 sobre blanco: no llegaba a 4,5:1). */
 .entry-title .search-result-title-link {
-    color: #1a7ed6 !important;
+    color: var(--color-primary-accessible) !important;
 }
 
 /** FIN Página de buscador */
@@ -2854,6 +2854,10 @@ a.service-card:focus-visible .service-card-title {
 .search-catalog,
 .search-empty {
     margin: 0 0 var(--spacing-xl);
+}
+
+.search-catalog a {
+    color: var(--color-primary-accessible);
 }
 
 @media (width <= 575px) {

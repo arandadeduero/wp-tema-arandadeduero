@@ -2909,9 +2909,12 @@ a.service-card:focus-visible .service-card-title {
 
 /* Franja del buscador de la portada: destaca «¿Qué necesitas?» sobre el fondo de marca, centrado. */
 
-/* El hueco sobre la franja es un elemento vacío: su borde inferior marca dónde estaría la franja sin fijarse (js/sticky-header.js). */
+/*
+ * Elemento vacío justo encima de la franja: su borde inferior marca dónde estaría la franja sin fijarse (js/sticky-header.js).
+ * No deja hueco blanco: la franja azul va pegada al carrusel.
+ */
 .home-buscador-sentinel {
-    height: var(--spacing-xl);
+    height: 0;
 }
 
 .home-buscador {

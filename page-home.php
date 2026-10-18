@@ -15,7 +15,7 @@ get_header();
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-12 px-0">
-			<div class="home-video-wrapper mb-4">
+			<div class="home-video-wrapper">
 				<div class="home-video ">
 					<?php
 					$aranda_carousel = aranda_de_duero_home_carousel_html( aranda_de_duero_home_slides() );

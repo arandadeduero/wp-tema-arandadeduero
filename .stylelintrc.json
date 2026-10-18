@@ -7,7 +7,20 @@
         "selector-class-pattern": null,
         "selector-id-pattern": null,
         "no-duplicate-selectors": null,
-        "declaration-block-single-line-max-declarations": 2
+        "declaration-block-single-line-max-declarations": 2,
+        "color-no-hex": true,
+        "color-named": "never",
+        "function-disallowed-list": [
+            "rgb",
+            "rgba",
+            "hsl",
+            "hsla",
+            "hwb",
+            "lab",
+            "lch",
+            "oklab",
+            "oklch"
+        ]
     },
     "ignoreFiles": ["node_modules/**", "vendor/**", "dist/**"]
 }

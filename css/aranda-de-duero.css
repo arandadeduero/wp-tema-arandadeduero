@@ -28,6 +28,9 @@
 }
 
 :root {
+    /* La paleta es el único sitio donde se escriben colores: el resto del CSS usa var(--…) (.stylelintrc.json lo exige). */
+    /* stylelint-disable color-no-hex, color-named, function-disallowed-list */
+
     /* Color Palette */
     --color-primary: #0083c1;
     --color-primary-dark: #006399;
@@ -40,6 +43,100 @@
     --color-border: #ccc;
     --color-white: #fff;
     --color-bg: #fff;
+
+    /*
+     * Paleta ampliada. Estos valores estaban escritos a mano por todo el CSS (y en style.css); ahora se cambian aquí.
+     * Los nombres con el código hexadecimal (--gray-f5f5f5) son grises sueltos casi iguales entre sí: candidatos a unificar.
+     */
+
+    /* Neutros */
+    --color-black: #000;
+    --gray-100: #f8f9fa;
+    --gray-200: #e9ecef;
+    --gray-600: #6c757d;
+    --gray-700: #495057;
+    --gray-fefefe: #fefefe;
+    --gray-f5f5f5: #f5f5f5;
+    --gray-f1f1f1: #f1f1f1;
+    --gray-efefef: #efefef;
+    --gray-eeeeee: #eee;
+    --gray-e6e6e6: #e6e6e6;
+    --gray-e0e0e0: #e0e0e0;
+    --gray-d0d0d0: #d0d0d0;
+    --gray-bbbbbb: #bbb;
+    --gray-aaaaaa: #aaa;
+    --gray-7a7a7a: #7a7a7a;
+    --gray-6b6b6b: #6b6b6b;
+    --gray-555555: #555;
+    --gray-404040: #404040;
+    --gray-333333: #333;
+    --gray-111111: #111;
+    --color-text-meta: #5f6b73;
+
+    /* Variantes de la marca */
+    --color-primary-deep: #005a87;
+    --color-primary-link: #069;
+    --color-primary-sky: #08c;
+    --color-primary-tint: #eaf6fa;
+    --color-primary-border: #c9dfeb;
+    --color-search-button: #00364f;
+    --color-navy: #1a1a2e;
+    --color-navy-deep: #0f0f1e;
+
+    /* Enlaces heredados */
+    --color-link-deep: #0056b3;
+    --color-bootstrap-blue: #007bff;
+    --color-link-meta: #06c;
+    --color-link-meta-hover: #0052a3;
+    --color-base-link: #4169e1;
+    --color-base-link-visited: #800080;
+    --color-base-link-hover: #191970;
+
+    /* Avisos y énfasis */
+    --color-warning-text: #856404;
+    --color-warning-bg: #fff3cd;
+    --color-warning-border: #ffeeba;
+    --color-warning: #fc6;
+    --color-info-text: #0c5460;
+    --color-accent: #b50101;
+    --color-highlight: yellow;
+    --color-mark: #fff9c0;
+    --color-wp-blue: #21759b;
+
+    /* Página de enlaces */
+    --color-service-blue: #0086bf;
+    --color-service-red: #c8102e;
+    --color-service-yellow: #f2a900;
+    --color-service-sand: #f3c368;
+    --color-links-sky: #a0daf2;
+    --color-links-text: #28424c;
+    --color-links-icon: #41b6e6;
+    --color-links-hover: #a1561c;
+
+    /* Transparencias */
+    --color-black-5: rgb(0 0 0 / 5%);
+    --color-black-8: rgb(0 0 0 / 8%);
+    --color-black-10: rgb(0 0 0 / 10%);
+    --color-black-12: rgb(0 0 0 / 12%);
+    --color-black-15: rgb(0 0 0 / 15%);
+    --color-black-18: rgb(0 0 0 / 18%);
+    --color-black-19: rgb(0 0 0 / 19%);
+    --color-black-20: rgb(0 0 0 / 20%);
+    --color-black-25: rgb(0 0 0 / 25%);
+    --color-black-30: rgb(0 0 0 / 30%);
+    --color-black-45: rgb(0 0 0 / 45%);
+    --color-black-60: rgb(0 0 0 / 60%);
+    --color-black-70: rgb(0 0 0 / 70%);
+    --color-black-80: rgb(0 0 0 / 80%);
+    --color-white-10: rgb(255 255 255 / 10%);
+    --color-white-15: rgb(255 255 255 / 15%);
+    --color-white-70: rgb(255 255 255 / 70%);
+    --color-primary-10: rgb(0 131 193 / 10%);
+    --color-primary-15: rgb(0 131 193 / 15%);
+    --color-primary-40: rgb(0 131 193 / 40%);
+    --color-blue-10: rgb(0 105 179 / 10%);
+
+    /* stylelint-enable color-no-hex, color-named, function-disallowed-list */
 
     /* Typography */
     --font-family-base: 'Outfit', -apple-system, blinkmacsystemfont, 'Segoe UI', sans-serif;
@@ -77,8 +174,8 @@
  * la página; las reglas viven aquí. Llevan !important como el \3c style> que sustituyen.
  */
 body {
-    color: var(--aranda-text-color, #000) !important;
-    background-color: var(--aranda-background-color, #fff) !important;
+    color: var(--aranda-text-color, var(--color-text)) !important;
+    background-color: var(--aranda-background-color, var(--color-white)) !important;
 }
 
 h1,
@@ -93,11 +190,11 @@ h3 a,
 h4 a,
 h5 a,
 h6 a {
-    color: var(--aranda-header-text-color, #000) !important;
+    color: var(--aranda-header-text-color, var(--color-text)) !important;
 }
 
 .post a:not(h1 a, h2 a, h3 a, h4 a, h5 a, h6 a, .wp-element-button, .wp-block-button__link, .btn) {
-    color: var(--aranda-link-color, #000) !important;
+    color: var(--aranda-link-color, var(--color-text)) !important;
 }
 
 /* Título y descripción del sitio ocultos desde «Imagen de cabecera» (clase del filtro body_class). */
@@ -159,7 +256,7 @@ input[type='submit']:hover {
     background: var(--color-primary-dark);
     border-color: var(--color-primary-dark);
     transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgb(0 0 0 / 15%);
+    box-shadow: 0 4px 8px var(--color-black-15);
 }
 
 /* Menu - Current Item States */
@@ -234,7 +331,7 @@ header#masthead {
  */
 .top-bar {
     background: var(--color-primary-accessible);
-    color: #fff;
+    color: var(--color-white);
     font-size: 0.875rem;
 }
 
@@ -265,7 +362,7 @@ header#masthead {
 }
 
 .top-bar a {
-    color: #fff;
+    color: var(--color-white);
     text-decoration: none;
 }
 
@@ -286,9 +383,9 @@ header#masthead {
 /* Accesos como botones: blanco con texto azul accesible (5,3:1); al pasar el ratón, el revés. */
 .top-bar .top-bar-button {
     padding: 0.125rem var(--spacing-md);
-    border: 1px solid #fff;
+    border: 1px solid var(--color-white);
     border-radius: 999px;
-    background: #fff;
+    background: var(--color-white);
     color: var(--color-primary-accessible);
     font-weight: 600;
     line-height: 1.5;
@@ -298,12 +395,12 @@ header#masthead {
 .top-bar .top-bar-button:hover,
 .top-bar .top-bar-button:focus-visible {
     background: transparent;
-    color: #fff;
+    color: var(--color-white);
     text-decoration: none;
 }
 
 .top-bar .top-bar-button:focus-visible {
-    outline: 2px solid #fff;
+    outline: 2px solid var(--color-white);
     outline-offset: 2px;
 }
 
@@ -728,7 +825,7 @@ header .custom-logo-link {
 }
 
 .banner_streaming_color {
-    color: #b50101;
+    color: var(--color-accent);
 }
 
 #banner_right {
@@ -743,7 +840,7 @@ header .custom-logo-link {
 /* Footer */
 
 footer {
-    background-color: #e9f4f9;
+    background-color: var(--color-primary-light);
 }
 
 .footer img {
@@ -752,7 +849,7 @@ footer {
 }
 
 footer i {
-    color: #495057;
+    color: var(--gray-700);
     margin-top: 5px;
 }
 
@@ -795,7 +892,7 @@ footer i {
 /** HOME */
 .home-main-section.rounded {
     border-radius: 0.5em !important;
-    border: 2px solid #0083c1;
+    border: 2px solid var(--color-primary);
 }
 
 .home-main-section.rounded a {
@@ -812,7 +909,7 @@ footer i {
 }
 
 .home-main-news {
-    background-color: #e9f4f9;
+    background-color: var(--color-primary-light);
     text-align: left;
 }
 
@@ -828,17 +925,17 @@ body .mc-main {
 
 .home-more-news {
     border-radius: 10px !important;
-    border: 2px solid #0083c1;
+    border: 2px solid var(--color-primary);
 }
 
 .home-more-news a {
     text-decoration: none;
-    color: black;
+    color: var(--color-text);
 }
 
 .home-more-events a {
     text-decoration: none;
-    color: black;
+    color: var(--color-text);
 }
 
 .home-main-news .home-main-news-description p {
@@ -851,17 +948,17 @@ body .mc-main {
 
 .category-principal-sections-section {
     box-shadow:
-        0 4px 8px 0 rgb(0 0 0 / 20%),
-        0 6px 20px 0 rgb(0 0 0 / 19%);
+        0 4px 8px 0 var(--color-black-20),
+        0 6px 20px 0 var(--color-black-19);
 }
 
 .category-principal-sections-title {
-    background-color: #efefef;
+    background-color: var(--gray-efefef);
 }
 
 .category-principal-sections-title a:visited {
     text-decoration: none;
-    color: black;
+    color: var(--color-text);
 }
 
 .home-especial-title {
@@ -897,13 +994,13 @@ body .mc-main {
 }
 
 .more-especial {
-    color: #000 !important;
+    color: var(--color-text) !important;
     text-decoration: none !important;
     border-radius: 0.5em !important;
-    border: 2px solid #0083c1 !important;
+    border: 2px solid var(--color-primary) !important;
     font-size: 18px !important;
     padding: 0.5rem !important;
-    background-color: white !important;
+    background-color: var(--color-white) !important;
     cursor: pointer;
 }
 
@@ -921,7 +1018,7 @@ body .mc-main {
 
 .home-more-events {
     border-radius: 0.5em !important;
-    border: 2px solid #0083c1;
+    border: 2px solid var(--color-primary);
 }
 
 .home-evento-fecha {
@@ -931,7 +1028,7 @@ body .mc-main {
 }
 
 .home-evento-fecha .home-evento-fecha-clock {
-    color: #0083c1;
+    color: var(--color-primary);
     font-size: 16px;
     margin-left: 5px;
     margin-top: 5px;
@@ -942,7 +1039,7 @@ body .mc-main {
     content: '';
     width: 1px;
     display: block;
-    background: #000;
+    background: var(--color-black);
     margin-left: 11px;
 }
 
@@ -1028,21 +1125,21 @@ body .mc-main {
     font-family: Outfit, sans-serif;
     padding: 0.375rem 0.75rem;
     margin: 0;
-    border-bottom: #ccc 1px solid;
+    border-bottom: var(--color-border) 1px solid;
 }
 
 #menu-ayuntamiento > li:hover {
-    background: #e9f4f9;
+    background: var(--color-primary-light);
 }
 
 #menu-ayuntamiento > li a,
 #menu-ayuntamiento > li a:hover {
     text-decoration: none;
-    color: #000;
+    color: var(--color-text);
 }
 
 #menu-ayuntamiento > li:first-child {
-    border-top: 1px solid #ccc;
+    border-top: 1px solid var(--color-border);
 }
 
 /** Trámites **/
@@ -1057,17 +1154,17 @@ body .mc-main {
     font-family: Outfit, sans-serif;
     padding: 0.375rem 0.75rem;
     margin: 0;
-    border-bottom: #ccc 1px solid;
+    border-bottom: var(--color-border) 1px solid;
 }
 
 #menu-tramites > li:hover {
-    background: #e9f4f9;
+    background: var(--color-primary-light);
 }
 
 #menu-tramites > li a,
 #menu-tramites > li a:hover {
     text-decoration: none;
-    color: #000;
+    color: var(--color-text);
 }
 
 .tramites-table-scroll {
@@ -1088,21 +1185,21 @@ body .mc-main {
     font-family: Outfit, sans-serif;
     padding: 0.375rem 0.75rem;
     margin: 0;
-    border-bottom: #ccc 1px solid;
+    border-bottom: var(--color-border) 1px solid;
 }
 
 #menu-la-villa-de-aranda > li:hover {
-    background: #e9f4f9;
+    background: var(--color-primary-light);
 }
 
 #menu-la-villa-de-aranda > li a,
 #menu-la-villa-de-aranda > li a:hover {
     text-decoration: none;
-    color: #000;
+    color: var(--color-text);
 }
 
 #menu-la-villa-de-aranda > li:first-child {
-    border-top: 1px solid #ccc;
+    border-top: 1px solid var(--color-border);
 }
 
 /* Menú noticias  */
@@ -1117,17 +1214,17 @@ body .mc-main {
     font-family: Outfit, sans-serif;
     padding: 0.375rem 0.75rem;
     margin: 0;
-    border-bottom: #ccc 1px solid;
+    border-bottom: var(--color-border) 1px solid;
 }
 
 #menu-noticias > li:hover {
-    background: #e9f4f9;
+    background: var(--color-primary-light);
 }
 
 #menu-noticias > li a,
 #menu-noticias > li a:hover {
     text-decoration: none;
-    color: #000;
+    color: var(--color-text);
 }
 
 #wprmenu_menu_ul {
@@ -1149,7 +1246,7 @@ body .mc-main {
 }
 
 .himno-imagen {
-    box-shadow: 0 0 20px 0 #6c757d;
+    box-shadow: 0 0 20px 0 var(--gray-600);
     border-radius: 4px;
 }
 
@@ -1163,12 +1260,12 @@ body .mc-main {
 
 /** Página de noticia */
 .single-post .nav-links .btn-primary {
-    background-color: #0083c1;
-    border-color: #0083c1;
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
 }
 
 .cabecera_pagina {
-    border-bottom: 4px solid #0083c1;
+    border-bottom: 4px solid var(--color-primary);
     max-height: 192px;
     object-fit: cover;
     object-position: center;
@@ -1176,9 +1273,9 @@ body .mc-main {
 
 .btn-news {
     text-decoration: none;
-    color: black;
+    color: var(--color-text);
     border-radius: 10px;
-    border: 2px solid #0083c1;
+    border: 2px solid var(--color-primary);
 }
 
 /** FIN Página de noticia */
@@ -1195,21 +1292,21 @@ body .mc-main {
     font-family: Outfit, sans-serif;
     padding: 0.375rem 0.75rem;
     margin: 0;
-    border-bottom: #ccc 1px solid;
+    border-bottom: var(--color-border) 1px solid;
 }
 
 #menu-actualidad > li:hover {
-    background: #e9f4f9;
+    background: var(--color-primary-light);
 }
 
 #menu-actualidad > li a,
 #menu-actualidad > li a:hover {
     text-decoration: none;
-    color: #000;
+    color: var(--color-text);
 }
 
 #menu-actualidad > li:first-child {
-    border-top: 1px solid #ccc;
+    border-top: 1px solid var(--color-border);
 }
 
 /** FIN Widget Actualidad */
@@ -1226,21 +1323,21 @@ body .mc-main {
     font-family: Outfit, sans-serif;
     padding: 0.375rem 0.75rem;
     margin: 0;
-    border-bottom: #ccc 1px solid;
+    border-bottom: var(--color-border) 1px solid;
 }
 
 #menu-area-ciudadana > li:hover {
-    background: #e9f4f9;
+    background: var(--color-primary-light);
 }
 
 #menu-area-ciudadana > li a,
 #menu-area-ciudadana > li a:hover {
     text-decoration: none;
-    color: #000;
+    color: var(--color-text);
 }
 
 #menu-area-ciudadana > li:first-child {
-    border-top: 1px solid #ccc;
+    border-top: 1px solid var(--color-border);
 }
 
 /* FIN Widget Área Ciudadana */
@@ -1257,21 +1354,21 @@ body .mc-main {
     font-family: Outfit, sans-serif;
     padding: 0.375rem 0.75rem;
     margin: 0;
-    border-bottom: #ccc 1px solid;
+    border-bottom: var(--color-border) 1px solid;
 }
 
 #menu-servicios-municipales > li:hover {
-    background: #e9f4f9;
+    background: var(--color-primary-light);
 }
 
 #menu-servicios-municipales > li a,
 #menu-servicios-municipales > li a:hover {
     text-decoration: none;
-    color: #000;
+    color: var(--color-text);
 }
 
 #menu-servicios-municipales > li:first-child {
-    border-top: 1px solid #ccc;
+    border-top: 1px solid var(--color-border);
 }
 
 /* FIN Widget Servicios Municipales */
@@ -1288,17 +1385,17 @@ body .mc-main {
     font-family: Outfit, sans-serif;
     padding: 0.375rem 0.75rem;
     margin: 0;
-    border-bottom: #ccc 1px solid;
+    border-bottom: var(--color-border) 1px solid;
 }
 
 .page-template-page-agenda-php .upcoming-events > li:hover {
-    background: #e9f4f9;
+    background: var(--color-primary-light);
 }
 
 .page-template-page-agenda-php .upcoming-events > li a,
 #menu-actualidad > li a:hover {
     text-decoration: none;
-    color: #000;
+    color: var(--color-text);
 }
 
 .single-mc-events .upcoming-events {
@@ -1312,17 +1409,17 @@ body .mc-main {
     font-family: Outfit, sans-serif;
     padding: 0.375rem 0.75rem;
     margin: 0;
-    border-bottom: #ccc 1px solid;
+    border-bottom: var(--color-border) 1px solid;
 }
 
 .single-mc-events .upcoming-events > li:hover {
-    background: #e9f4f9;
+    background: var(--color-primary-light);
 }
 
 .single-mc-events .upcoming-events > li a,
 #menu-actualidad > li a:hover {
     text-decoration: none;
-    color: #000;
+    color: var(--color-text);
 }
 
 .end-time.dtend {
@@ -1333,11 +1430,11 @@ body .mc-main {
 
 /** Página de buscador */
 footer.search-entry-footer {
-    background-color: white;
+    background-color: var(--color-white);
 }
 
 .search-result {
-    background-color: yellow;
+    background-color: var(--color-highlight);
 }
 
 .search-results .entry-summary {
@@ -1368,15 +1465,15 @@ footer.search-entry-footer {
 
 /** Págia Web Map **/
 .wsp-container a {
-    color: #007bff;
+    color: var(--color-bootstrap-blue);
 }
 
 .wsp-container a:visited {
-    color: #007bff;
+    color: var(--color-bootstrap-blue);
 }
 
 .wsp-container a:hover {
-    color: #007bff;
+    color: var(--color-bootstrap-blue);
     text-decoration: none;
 }
 
@@ -1406,12 +1503,12 @@ footer.search-entry-footer {
 }
 
 .my-calendar-header a {
-    color: #000;
+    color: var(--color-text);
 }
 
 .mc-main .mc_general .event-title,
 .mc-main .mc_general .event-title a {
-    background: rgb(0 105 179 / 10%) !important;
+    background: var(--color-blue-10) !important;
 }
 
 /* Página Web Map */
@@ -1424,24 +1521,24 @@ footer.search-entry-footer {
 }
 
 .page-template-page-webmap #primary .sub-menu li:hover {
-    background-color: white !important;
+    background-color: var(--color-white) !important;
 }
 
 .page-template-page-webmap #primary .sub-menu li a {
-    color: #0056b3 !important;
+    color: var(--color-link-deep) !important;
 }
 
 .page-template-page-webmap #primary .sub-menu li a:hover {
-    color: #0056b3 !important;
+    color: var(--color-link-deep) !important;
     text-decoration: none;
 }
 
 .page-template-page-webmap #primary .menu-item a {
-    color: #0056b3 !important;
+    color: var(--color-link-deep) !important;
 }
 
 .page-template-page-webmap #primary .menu-item a:hover {
-    color: #0056b3 !important;
+    color: var(--color-link-deep) !important;
     text-decoration: none;
 }
 
@@ -1490,26 +1587,26 @@ footer.search-entry-footer {
 }
 
 .banner-streaming-text {
-    color: #b50101;
+    color: var(--color-accent);
     text-decoration: underline;
 }
 
 /* Color de texto de las secciones principales del home (Personalizador). `body` + clase para no perder frente a otros !important. */
 body .main-section-text-link {
-    color: var(--aranda-main-section-text-color, #000) !important;
+    color: var(--aranda-main-section-text-color, var(--color-text)) !important;
 }
 
 /* Las clases de .border de Bootstrap llevan !important, así que este color solo se ve si ese !important desaparece. */
 .nota-de-prensa-card,
 .bando-card,
 .subvencion-card {
-    border-color: var(--aranda-main-section-text-color, #000);
+    border-color: var(--aranda-main-section-text-color, var(--color-black));
 }
 
 /* Banner de las Fiestas Patronales */
 a.fiestas-banner-link,
 a.fiestas-banner-link:hover {
-    background-color: #b50101;
+    background-color: var(--color-accent);
     border-radius: 4px;
     text-decoration: none;
 }
@@ -1521,21 +1618,21 @@ a.fiestas-banner-link:hover {
 
 /* Icono de los avisos informativos (Bandos, Notas de prensa, Subvenciones y el patrón «Aviso informativo») */
 .alert-info-icon {
-    color: #0c5460;
+    color: var(--color-info-text);
 }
 
 .home-main-news-button .btn-primary {
-    color: white !important;
+    color: var(--color-white) !important;
 }
 
 /* Container styling */
 .events-agenda-card {
-    background-color: #eaf6fa; /* The light blue background from the image */
+    background-color: var(--color-primary-tint); /* The light blue background from the image */
     border-radius: 50px;
 }
 
 .agenda-title {
-    color: #08c;
+    color: var(--color-primary-sky);
     font-weight: 400;
     letter-spacing: 1px;
 }
@@ -1547,7 +1644,7 @@ h2.agenda-title {
 
 /* Event text styling */
 .event-name {
-    color: #069;
+    color: var(--color-primary-link);
     font-size: 0.95rem;
     font-weight: 600;
     margin-bottom: 8px;
@@ -1574,13 +1671,13 @@ h3.event-name {
 }
 
 .bg-warning {
-    background-color: #fc6 !important; /* The gold/yellow highlight on day 22 */
+    background-color: var(--color-warning) !important; /* The gold/yellow highlight on day 22 */
 }
 
 /* Button override to match screenshot */
 .btn-outline-primary {
-    color: #069;
-    border-color: #069;
+    color: var(--color-primary-link);
+    border-color: var(--color-primary-link);
     font-weight: 500;
     border-radius: 4px;
 }
@@ -1593,7 +1690,7 @@ h3.event-name {
 .error-404 .error-hero-number {
     font-size: 8rem;
     font-weight: 900;
-    background: linear-gradient(135deg, #0083c1 0%, #005a87 100%);
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-deep) 100%);
     color: transparent;
     background-clip: text;
     line-height: 1;
@@ -1603,27 +1700,27 @@ h3.event-name {
     margin-top: 1.5rem;
     font-size: 2rem;
     font-weight: 700;
-    color: #1a1a2e;
+    color: var(--color-navy);
 }
 
 .error-404 .error-hero .lead {
-    color: #666;
+    color: var(--color-text-light);
     max-width: 600px;
     margin: 1rem auto 0;
     line-height: 1.8;
 }
 
 .error-404 .suggestion-card {
-    background: white;
+    background: var(--color-white);
     border-radius: 15px;
     padding: 2rem;
-    box-shadow: 0 5px 20px rgb(0 0 0 / 8%);
+    box-shadow: 0 5px 20px var(--color-black-8);
     transition: transform 0.3s;
 }
 
 .error-404 .suggestion-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgb(0 131 193 / 15%) !important;
+    box-shadow: 0 10px 30px var(--color-primary-15) !important;
 }
 
 .error-404 .suggestion-card-icon {
@@ -1634,12 +1731,12 @@ h3.event-name {
 .error-404 .suggestion-card h3 {
     font-size: 1.25rem;
     font-weight: 600;
-    color: #0083c1;
+    color: var(--color-primary);
     margin-bottom: 1rem;
 }
 
 .error-404 .suggestion-card p {
-    color: #666;
+    color: var(--color-text-light);
     line-height: 1.6;
     margin-bottom: 1.5rem;
 }
@@ -1649,7 +1746,7 @@ h3.event-name {
 }
 
 .error-404 .search-section {
-    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    background: linear-gradient(135deg, var(--gray-100) 0%, var(--gray-200) 100%);
     border-radius: 15px;
     padding: 3rem 2rem;
     margin-bottom: 3rem;
@@ -1662,63 +1759,63 @@ h3.event-name {
 .error-404 .search-section h3 {
     font-size: 1.5rem;
     font-weight: 600;
-    color: #1a1a2e;
+    color: var(--color-navy);
     margin-top: 1rem;
 }
 
 .error-404 .search-section p {
-    color: #666;
+    color: var(--color-text-light);
 }
 
 .error-404 .aranda-facts {
-    background: white;
-    border-left: 4px solid #0083c1;
+    background: var(--color-white);
+    border-left: 4px solid var(--color-primary);
     padding: 2rem;
     border-radius: 8px;
-    box-shadow: 0 3px 15px rgb(0 0 0 / 5%);
+    box-shadow: 0 3px 15px var(--color-black-5);
 }
 
 .error-404 .aranda-facts h3 {
-    color: #0083c1;
+    color: var(--color-primary);
     font-weight: 600;
     margin-bottom: 1.5rem;
 }
 
 .error-404 .aranda-facts p {
-    color: #666;
+    color: var(--color-text-light);
     line-height: 1.7;
 }
 
 .error-404 .recent-content h3 {
     font-weight: 600;
-    color: #1a1a2e;
+    color: var(--color-navy);
 }
 
 .error-404 .recent-content > div {
-    background: white;
+    background: var(--color-white);
     padding: 2rem;
     border-radius: 15px;
-    box-shadow: 0 3px 15px rgb(0 0 0 / 5%);
+    box-shadow: 0 3px 15px var(--color-black-5);
 }
 
 .error-404 .quick-links h3 {
     font-weight: 600;
-    color: #1a1a2e;
+    color: var(--color-navy);
 }
 
 .error-404 .quick-link-card {
-    background: white;
+    background: var(--color-white);
     padding: 1.5rem;
     border-radius: 10px;
     text-decoration: none;
-    border: 2px solid #e9ecef;
+    border: 2px solid var(--gray-200);
     transition: all 0.3s;
     display: block;
 }
 
 .error-404 .quick-link-card:hover {
-    border-color: #0083c1 !important;
-    background: #f8f9fa !important;
+    border-color: var(--color-primary) !important;
+    background: var(--gray-100) !important;
     transform: translateX(5px);
 }
 
@@ -1728,7 +1825,7 @@ h3.event-name {
 }
 
 .error-404 .quick-link-card-text {
-    color: #1a1a2e;
+    color: var(--color-navy);
     font-weight: 500;
 }
 
@@ -1739,7 +1836,7 @@ h3.event-name {
 
 .error-404 .widget ul li {
     padding: 0.5rem 0;
-    border-bottom: 1px solid #e9ecef;
+    border-bottom: 1px solid var(--gray-200);
 }
 
 .error-404 .widget ul li:last-child {
@@ -1747,25 +1844,25 @@ h3.event-name {
 }
 
 .error-404 .widget ul li a {
-    color: #666;
+    color: var(--color-text-light);
     text-decoration: none;
     transition: color 0.3s;
 }
 
 .error-404 .widget ul li a:hover {
-    color: #0083c1;
+    color: var(--color-primary);
     padding-left: 5px;
 }
 
 /* Footer Styles */
 .home-especial-section {
-    background: linear-gradient(to bottom, #fff 0%, #f8f9fa 100%);
+    background: linear-gradient(to bottom, var(--color-white) 0%, var(--gray-100) 100%);
     padding: 2rem 0;
 }
 
 .home-especial-section .section-title {
     font-weight: 700;
-    color: #0083c1;
+    color: var(--color-primary);
     font-size: 2rem;
     position: relative;
     display: inline-block;
@@ -1779,12 +1876,12 @@ h3.event-name {
     transform: translateX(-50%);
     width: 60px;
     height: 4px;
-    background: #0083c1;
+    background: var(--color-primary);
     border-radius: 2px;
 }
 
 .home-especial-title a {
-    color: #fefefe;
+    color: var(--gray-fefefe);
     text-decoration: none;
 }
 
@@ -1794,47 +1891,47 @@ h3.event-name {
 }
 
 .footer-cta {
-    background: linear-gradient(135deg, #0083c1 0%, #005a87 100%);
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-deep) 100%);
     padding: 3rem 0;
 }
 
 .footer-cta h3 {
-    color: white;
+    color: var(--color-white);
     margin-bottom: 0.5rem;
     font-weight: 600;
 }
 
 .footer-cta p {
-    color: white;
+    color: var(--color-white);
     opacity: 0.95;
 }
 
 .footer-cta .btn-light {
     border-radius: 50px;
     font-weight: 600;
-    box-shadow: 0 4px 15px rgb(0 0 0 / 20%);
+    box-shadow: 0 4px 15px var(--color-black-20);
 }
 
 .footer-cta .btn-light:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgb(0 0 0 / 30%) !important;
+    box-shadow: 0 6px 20px var(--color-black-30) !important;
 }
 
 .footer-main {
-    background: #1a1a2e;
+    background: var(--color-navy);
     padding: 4rem 0 2rem;
 }
 
 .footer-about h2,
 .footer-about h4 {
-    color: white;
+    color: var(--color-white);
     margin-bottom: 1rem;
     font-weight: 600;
     font-size: 1.25rem;
 }
 
 .footer-about p {
-    color: rgb(255 255 255 / 70%);
+    color: var(--color-white-70);
     margin-bottom: 1rem;
     line-height: 1.7;
 }
@@ -1842,7 +1939,7 @@ h3.event-name {
 .footer-seal {
     width: 80px;
     height: 80px;
-    background: rgb(255 255 255 / 10%);
+    background: var(--color-white-10);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -1856,10 +1953,10 @@ h3.event-name {
 
 .footer-main h3,
 .footer-main h5 {
-    color: white;
+    color: var(--color-white);
     margin-bottom: 1rem;
     font-weight: 600;
-    border-bottom: 2px solid #0083c1;
+    border-bottom: 2px solid var(--color-primary);
     display: inline-block;
     padding-bottom: 0.5rem;
 }
@@ -1879,7 +1976,7 @@ h3.event-name {
 .footer-links a {
     display: inline-flex;
     gap: 0.5rem;
-    color: rgb(255 255 255 / 70%);
+    color: var(--color-white-70);
     text-decoration: none;
     transition: all 0.3s;
 }
@@ -1965,7 +2062,7 @@ input:not([type='checkbox'], [type='radio']):focus,
 textarea:focus {
     outline: none;
     border-color: var(--color-primary);
-    box-shadow: 0 0 0 3px rgb(0 131 193 / 10%);
+    box-shadow: 0 0 0 3px var(--color-primary-10);
 }
 
 /* CSS Grid support detection */
@@ -2024,22 +2121,22 @@ textarea:focus {
 }
 
 .footer-links a:hover {
-    color: #0083c1 !important;
+    color: var(--color-primary) !important;
     padding-left: 5px;
 }
 
 .site-footer .text-white-50 {
-    color: rgb(255 255 255 / 70%);
+    color: var(--color-white-70);
 }
 
 .site-footer .text-white-50 a {
-    color: rgb(255 255 255 / 70%);
+    color: var(--color-white-70);
     text-decoration: none;
     transition: color 0.3s;
 }
 
 .site-footer .text-white-50 a:hover {
-    color: #0083c1;
+    color: var(--color-primary);
 }
 
 .footer-contact-row {
@@ -2057,7 +2154,7 @@ textarea:focus {
 
     /* centra el icono con la primera línea (line-height 2 en .footer-contact-item) */
     margin-top: 0.5rem;
-    color: #0083c1;
+    color: var(--color-primary);
 }
 
 .footer-contact-item {
@@ -2078,7 +2175,7 @@ textarea:focus {
 .social-icon {
     width: 45px;
     height: 45px;
-    background: rgb(255 255 255 / 10%);
+    background: var(--color-white-10);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -2088,14 +2185,14 @@ textarea:focus {
 }
 
 .social-icon:hover {
-    background: #0083c1 !important;
+    background: var(--color-primary) !important;
     transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgb(0 131 193 / 40%);
+    box-shadow: 0 5px 15px var(--color-primary-40);
 }
 
 .social-icon i,
 .social-icon svg {
-    color: white;
+    color: var(--color-white);
 }
 
 .footer-badges {
@@ -2103,26 +2200,26 @@ textarea:focus {
 }
 
 .footer-badges p {
-    color: rgb(255 255 255 / 70%);
+    color: var(--color-white-70);
     font-size: 0.875rem;
     margin-bottom: 0.5rem;
 }
 
 .footer-badges .badge {
-    background: rgb(255 255 255 / 15%);
+    background: var(--color-white-15);
     padding: 0.4rem 0.8rem;
     border-radius: 20px;
-    color: white;
+    color: var(--color-white);
     font-weight: normal;
 }
 
 .footer-bottom {
-    background: #0f0f1e;
+    background: var(--color-navy-deep);
     padding: 1.5rem 0;
 }
 
 .footer-bottom p {
-    color: rgb(255 255 255 / 70%);
+    color: var(--color-white-70);
 }
 
 .footer-legal-links {
@@ -2132,18 +2229,18 @@ textarea:focus {
 }
 
 .footer-legal-links .list-inline-item {
-    color: rgb(255 255 255 / 70%);
+    color: var(--color-white-70);
 }
 
 .footer-legal-links a {
-    color: rgb(255 255 255 / 70%);
+    color: var(--color-white-70);
     text-decoration: none;
     font-size: 0.875rem;
     transition: color 0.3s;
 }
 
 .footer-legal-links a:hover {
-    color: #0083c1 !important;
+    color: var(--color-primary) !important;
 }
 
 @media (width <= 768px) {
@@ -2181,42 +2278,42 @@ textarea:focus {
     align-items: center;
     gap: 6px;
     padding: 6px 14px;
-    background-color: #f5f5f5;
+    background-color: var(--gray-f5f5f5);
     border-radius: 20px;
     font-size: 0.9em;
-    color: #555;
-    border: 1px solid #e0e0e0;
+    color: var(--gray-555555);
+    border: 1px solid var(--gray-e0e0e0);
     transition: all 0.3s ease;
 }
 
 .entry-meta .posted-on:hover,
 .entry-meta .byline:hover,
 .entry-meta .categories-link:hover {
-    background-color: #eee;
-    border-color: #d0d0d0;
+    background-color: var(--gray-eeeeee);
+    border-color: var(--gray-d0d0d0);
     transform: translateY(-1px);
 }
 
 .entry-meta a {
-    color: #06c;
+    color: var(--color-link-meta);
     text-decoration: none;
 }
 
 .entry-meta a:hover {
     text-decoration: underline;
-    color: #0052a3;
+    color: var(--color-link-meta-hover);
 }
 
 /* Old post disclaimer styling */
 .old-post-disclaimer {
-    background-color: #fff3cd;
-    border: 1px solid #ffeeba;
+    background-color: var(--color-warning-bg);
+    border: 1px solid var(--color-warning-border);
     border-radius: 0.375rem;
     padding: 0.75rem 1.25rem;
 }
 
 .old-post-disclaimer strong {
-    color: #856404;
+    color: var(--color-warning-text);
 }
 
 .old-post-disclaimer i {
@@ -2225,7 +2322,7 @@ textarea:focus {
 }
 
 .old-post-disclaimer .old-post-disclaimer-icon {
-    color: #856404;
+    color: var(--color-warning-text);
 }
 
 /* Página «Expediente plaza de toros» */
@@ -2319,7 +2416,7 @@ textarea:focus {
     width: 100%;
     height: auto;
     border-radius: var(--border-radius-lg);
-    box-shadow: 0 4px 16px rgb(0 0 0 / 15%);
+    box-shadow: 0 4px 16px var(--color-black-15);
 }
 
 /* Cartel ampliable (js/event-poster.js): cursor de lupa y ventana nativa <dialog> con el cartel y sus botones. */
@@ -2343,7 +2440,7 @@ textarea:focus {
 }
 
 .poster-dialog::backdrop {
-    background: rgb(0 0 0 / 80%);
+    background: var(--color-black-80);
 }
 
 .poster-dialog-image {
@@ -2490,7 +2587,7 @@ button.poster-dialog-button {
     border: 1px solid var(--color-border);
     border-radius: var(--border-radius-lg);
     background: var(--color-white);
-    box-shadow: 0 4px 12px rgb(0 0 0 / 15%);
+    box-shadow: 0 4px 12px var(--color-black-15);
     list-style: none;
 }
 
@@ -2639,12 +2736,12 @@ a.service-card {
     gap: var(--spacing-xs);
     height: 100%;
     padding: var(--spacing-md) var(--spacing-lg);
-    border: 1px solid #c9dfeb;
+    border: 1px solid var(--color-primary-border);
     border-left: 4px solid var(--color-primary);
     border-radius: var(--border-radius-lg);
-    background: #fff;
-    box-shadow: 0 1px 3px rgb(0 0 0 / 10%);
-    color: #000;
+    background: var(--color-white);
+    box-shadow: 0 1px 3px var(--color-black-10);
+    color: var(--color-text);
     line-height: 1.5;
     text-decoration: none;
 }
@@ -2652,8 +2749,8 @@ a.service-card {
 a.service-card:hover,
 a.service-card:focus-visible {
     border-left-color: var(--color-primary-dark);
-    box-shadow: 0 2px 8px rgb(0 0 0 / 18%);
-    color: #000;
+    box-shadow: 0 2px 8px var(--color-black-18);
+    color: var(--color-text);
     text-decoration: none;
 }
 
@@ -2697,8 +2794,8 @@ a.service-card:focus-visible .service-card-title {
     border: 2px solid var(--color-primary-accessible);
     border-right: 0;
     border-radius: var(--border-radius-lg) 0 0 var(--border-radius-lg);
-    background: #fff;
-    color: #000;
+    background: var(--color-white);
+    color: var(--color-text);
     font-size: 1.125rem;
 }
 
@@ -2708,7 +2805,7 @@ a.service-card:focus-visible .service-card-title {
     border: 2px solid var(--color-primary-accessible);
     border-radius: 0 var(--border-radius-lg) var(--border-radius-lg) 0;
     background: var(--color-primary-accessible);
-    color: #fff;
+    color: var(--color-white);
     font-size: 1.125rem;
     font-weight: 600;
     cursor: pointer;
@@ -2721,7 +2818,7 @@ a.service-card:focus-visible .service-card-title {
 
 .search-box .search-box-field:focus-visible,
 .search-box .search-box-button:focus-visible {
-    outline: 3px solid #000;
+    outline: 3px solid var(--color-black);
     outline-offset: 2px;
 }
 
@@ -2741,8 +2838,8 @@ a.service-card:focus-visible .service-card-title {
     overflow: hidden;
     border: 2px solid var(--color-primary-accessible);
     border-radius: var(--border-radius-lg);
-    background: #fff;
-    box-shadow: 0 6px 18px rgb(0 0 0 / 20%);
+    background: var(--color-white);
+    box-shadow: 0 6px 18px var(--color-black-20);
     list-style: none;
 }
 
@@ -2755,7 +2852,7 @@ a.service-card:focus-visible .service-card-title {
     flex-direction: column;
     gap: 2px;
     padding: var(--spacing-md) var(--spacing-lg);
-    color: #000;
+    color: var(--color-text);
     text-decoration: none;
 }
 
@@ -2765,7 +2862,7 @@ a.service-card:focus-visible .service-card-title {
 }
 
 .search-suggest a.search-suggest-item:focus-visible {
-    outline: 3px solid #000;
+    outline: 3px solid var(--color-black);
     outline-offset: -3px;
 }
 
@@ -2779,7 +2876,7 @@ a.service-card:focus-visible .service-card-title {
 }
 
 .search-suggest a.search-suggest-all {
-    border-top: 1px solid #c9dfeb;
+    border-top: 1px solid var(--color-primary-border);
     font-weight: 600;
 }
 
@@ -2795,19 +2892,19 @@ a.service-card:focus-visible .service-card-title {
 
 /* Franja del buscador de la portada: destaca «¿Qué necesitas?» sobre el fondo de marca, centrado. */
 .home-buscador {
-    --buscador-boton: #00364f;
+    --buscador-boton: var(--color-search-button);
 
     margin-top: var(--spacing-xl);
     padding: var(--spacing-2xl) 0;
     background: var(--color-primary-accessible);
-    color: #fff;
+    color: var(--color-white);
     text-align: center;
 }
 
 /* !important: los colores de encabezado del Personalizador (inc/customizer-css.php) también lo llevan y darían texto oscuro sobre el azul. */
 .home-buscador .home-buscador-title {
     margin: 0;
-    color: #fff !important;
+    color: var(--color-white) !important;
     font-size: clamp(1.5rem, 4vw, 2.25rem);
     font-weight: 600;
     line-height: 1.2;
@@ -2815,28 +2912,28 @@ a.service-card:focus-visible .service-card-title {
 
 .home-buscador .search-box {
     margin: var(--spacing-lg) auto var(--spacing-md);
-    box-shadow: 0 4px 14px rgb(0 0 0 / 25%);
+    box-shadow: 0 4px 14px var(--color-black-25);
 }
 
 .home-buscador .search-box .search-box-field {
-    border-color: #fff;
+    border-color: var(--color-white);
     font-size: 1.25rem;
 }
 
 /* Borde blanco: el botón oscuro solo daría 2,47:1 contra la franja y los controles piden 3:1. */
 .home-buscador .search-box .search-box-button {
-    border-color: #fff;
+    border-color: var(--color-white);
     background: var(--buscador-boton);
     font-size: 1.25rem;
 }
 
 .home-buscador .search-box .search-box-button:hover {
-    background: #000;
+    background: var(--color-black);
 }
 
 .home-buscador .search-box .search-box-field:focus-visible,
 .home-buscador .search-box .search-box-button:focus-visible {
-    outline-color: #fff;
+    outline-color: var(--color-white);
 }
 
 .home-buscador .search-suggestions {
@@ -2844,7 +2941,7 @@ a.service-card:focus-visible .service-card-title {
 }
 
 .home-buscador .search-suggestions a {
-    color: #fff;
+    color: var(--color-white);
 }
 
 .home-buscador .search-suggest {
@@ -2922,7 +3019,7 @@ a.service-card:focus-visible .service-card-title {
     padding: 0;
     border: 0;
     border-radius: 50%;
-    background: rgb(0 0 0 / 45%);
+    background: var(--color-black-45);
     color: var(--color-white);
     cursor: pointer;
     transform: translateY(-50%);
@@ -2930,7 +3027,7 @@ a.service-card:focus-visible .service-card-title {
 
 .home-carousel-button:hover,
 .home-carousel-button:focus-visible {
-    background: rgb(0 0 0 / 70%);
+    background: var(--color-black-70);
 }
 
 .home-carousel-button:focus-visible {
@@ -3056,7 +3153,7 @@ a.service-card:focus-visible .service-card-title {
 
 .archive-count {
     margin: var(--spacing-sm) 0 0;
-    color: var(--color-text-muted, #5f6b73);
+    color: var(--color-text-meta);
     font-size: 0.9375rem;
 }
 
@@ -3076,7 +3173,7 @@ a.service-card:focus-visible .service-card-title {
 .archive-card:hover,
 .archive-card:focus-within {
     border-color: var(--color-primary);
-    box-shadow: 0 4px 14px rgb(0 0 0 / 12%);
+    box-shadow: 0 4px 14px var(--color-black-12);
 }
 
 .archive-card-image img {
@@ -3094,7 +3191,7 @@ a.service-card:focus-visible .service-card-title {
 }
 
 .archive-card-date {
-    color: var(--color-text-muted, #5f6b73);
+    color: var(--color-text-meta);
     font-size: 0.875rem;
 }
 
@@ -3199,13 +3296,13 @@ a.service-card:focus-visible .service-card-title {
 }
 
 .page-enlaces .enlaces-marca-linea {
-    color: #6b6b6b;
+    color: var(--gray-6b6b6b);
     font-size: 1.25rem;
     line-height: 1.1;
 }
 
 .page-enlaces .enlaces-marca-nombre {
-    color: #333;
+    color: var(--gray-333333);
     font-size: 2.25rem;
     font-weight: 600;
     line-height: 1.1;
@@ -3214,7 +3311,7 @@ a.service-card:focus-visible .service-card-title {
 /* Bloque azul: #41b6e6 al 50 % sobre blanco. Relleno de 30 px; botones al 60 % del ancho útil, de 70 px de alto y 20 px de separación. */
 .page-enlaces .enlaces-destacados {
     padding: 30px 40px;
-    background: #a0daf2;
+    background: var(--color-links-sky);
 }
 
 .page-enlaces .enlaces-grupo {
@@ -3224,7 +3321,7 @@ a.service-card:focus-visible .service-card-title {
 .page-enlaces .enlaces-titulo {
     margin: 0 0 20px;
     padding: 10px 0;
-    color: #7a7a7a !important;
+    color: var(--gray-7a7a7a) !important;
     font-size: 27px;
     font-weight: 400;
     line-height: 1.6;
@@ -3248,8 +3345,8 @@ a.service-card:focus-visible .service-card-title {
     padding: 20px;
     border-radius: 3px;
     background: var(--color-white);
-    box-shadow: 0 0 14px 6px rgb(0 0 0 / 8%);
-    color: #28424c;
+    box-shadow: 0 0 14px 6px var(--color-black-8);
+    color: var(--color-links-text);
     font-size: 20px;
     line-height: 30px;
     text-align: start;
@@ -3270,7 +3367,7 @@ a.service-card:focus-visible .service-card-title {
     flex: none;
     width: 1.75rem;
     height: 1.75rem;
-    background-color: var(--enlaces-color, #41b6e6);
+    background-color: var(--enlaces-color, var(--color-links-icon));
     mask: var(
             --enlace-icono,
             url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14M13 6l6 6-6 6'/%3E%3C/svg%3E")
@@ -3281,8 +3378,8 @@ a.service-card:focus-visible .service-card-title {
 
 .page-enlaces .enlaces-boton:hover,
 .page-enlaces .enlaces-boton:focus-visible {
-    background: #a1561c;
-    box-shadow: 0 0 21px 7px rgb(0 0 0 / 10%);
+    background: var(--color-links-hover);
+    box-shadow: 0 0 21px 7px var(--color-black-10);
     color: var(--color-white);
 }
 
@@ -3330,20 +3427,20 @@ a.service-card:focus-visible .service-card-title {
 
 .page-enlaces .enlaces-tarjeta--policia,
 .page-enlaces .enlaces-tarjeta--proteccion-civil {
-    --enlaces-color: #0086bf;
+    --enlaces-color: var(--color-service-blue);
 }
 
 .page-enlaces .enlaces-tarjeta--bomberos {
-    --enlaces-color: #c8102e;
+    --enlaces-color: var(--color-service-red);
 }
 
 .page-enlaces .enlaces-tarjeta--ceas,
 .page-enlaces .enlaces-tarjeta--biblioteca {
-    --enlaces-color: #f2a900;
+    --enlaces-color: var(--color-service-yellow);
 }
 
 .page-enlaces .enlaces-tarjeta--deportes {
-    --enlaces-color: #f3c368;
+    --enlaces-color: var(--color-service-sand);
 }
 
 /* Los botones de una tarjeta llevan el icono en el color de la tarjeta (el hover los pone en blanco). */

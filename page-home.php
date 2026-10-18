@@ -58,6 +58,7 @@ if ( '1' === get_theme_mod( 'aranda_de_duero_show_banner' ) && '' !== get_theme_
 	</div>
 <?php endif; ?>
 <!-- ¿Qué necesitas? -->
+<div class="home-buscador-sentinel" aria-hidden="true"></div>
 <section class="home-buscador" aria-labelledby="home-buscador-title">
 	<div class="container">
 		<h2 id="home-buscador-title" class="home-buscador-title"><?php esc_html_e( '¿Qué necesitas?', 'aranda-de-duero' ); ?></h2>

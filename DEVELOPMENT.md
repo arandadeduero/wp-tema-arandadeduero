@@ -83,7 +83,7 @@ push y en cada PR, con permisos de solo lectura (`permissions: contents: read`).
   negro y blanco) más dos tonos de accesibilidad (`--color-primary-accessible`, `--color-primary-dark`); `theme.json` usa los mismos y un test comprueba que coinciden. Para añadir uno: reutilizar un token existente o añadirlo a la paleta con un nombre con
   sentido. `style.css` y `style-rtl.css` usan las mismas variables (se definen en el CSS del tema). Las imágenes SVG embebidas como máscara y los `.svg` de
   `images/` llevan colores propios: no pueden leer variables.
-- **Sin JavaScript de terceros ni jQuery.** `js/` son seis ficheros propios, con `defer` y en el pie. De Bootstrap
+- **Sin JavaScript de terceros ni jQuery.** `js/` son siete ficheros propios, con `defer` y en el pie. De Bootstrap
   solo se carga el CSS.
 - **Sin recursos de terceros** (CDN, fuentes de Google, emojis de WordPress): todo autoalojado, para no enviar la IP
   de los visitantes (RGPD). La fuente es Outfit (`css/fonts/`); no usar otra.

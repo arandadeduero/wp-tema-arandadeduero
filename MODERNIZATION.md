@@ -7,7 +7,7 @@ historial de git.
 ## JavaScript
 
 - Sin jQuery ni JavaScript de terceros: todo es JavaScript moderno (`const`/`let`, funciones flecha, `querySelector`) y
-  son seis ficheros propios en `js/`: `navigation.js` (menú móvil), `home-carousel.js` (carrusel de la portada), `search-suggest.js` (sugerencias del buscador),
+  son siete ficheros propios en `js/`: `navigation.js` (menú móvil), `sticky-header.js` (cabecera fija), `home-carousel.js` (carrusel de la portada), `search-suggest.js` (sugerencias del buscador),
   `event-poster.js` (cartel del evento, solo en `single-mc-events`), `aranda-de-duero.js` y `customizer.js`.
 - Los scripts del tema se cargan con `defer` y en el pie (`functions.php`).
 - ESLint con `--max-warnings 0` (`npm run lint:js`).

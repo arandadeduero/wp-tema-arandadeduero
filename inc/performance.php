@@ -158,22 +158,3 @@ function aranda_de_duero_defer_slider_images( $html ) {
 
 	return $result . $script;
 }
-
-/**
- * Whether the current request renders Ajax Load More content.
- *
- * The "Especiales" section lives in page-home.php, so that's the front page and any page
- * using the "Pagina de Inicio" template. A page whose content has an [ajax_load_more]
- * shortcode (added by an editor) also needs the stylesheet.
- *
- * @return bool
- */
-function aranda_de_duero_needs_ajax_load_more_assets() {
-	if ( is_front_page() || is_page_template( 'page-home.php' ) ) {
-		return true;
-	}
-
-	$post = get_post();
-
-	return $post instanceof WP_Post && has_shortcode( $post->post_content, 'ajax_load_more' );
-}

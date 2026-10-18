@@ -882,6 +882,7 @@ body .mc-main {
 }
 
 .home-especial-wrapper {
+    position: relative;
     margin-right: 3.5px !important;
     margin-left: 3.5px !important;
     padding: 1px !important;
@@ -904,10 +905,6 @@ body .mc-main {
     padding: 0.5rem !important;
     background-color: white !important;
     cursor: pointer;
-}
-
-.alm-btn-wrap {
-    display: none !important;
 }
 
 .home-more-news a:hover {
@@ -1786,22 +1783,9 @@ h3.event-name {
     border-radius: 2px;
 }
 
-#moreEspecial {
-    /* el icono es un <svg> y `img, picture, svg { display: block }` lo mandaba debajo del texto */
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50px;
-    font-weight: 600;
-    border-width: 2px;
-    transition: all 0.3s;
-}
-
-#moreEspecial:hover {
-    background: #0083c1 !important;
-    color: white !important;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgb(0 131 193 / 30%);
+.home-especial-title a {
+    color: #fefefe;
+    text-decoration: none;
 }
 
 /* Footer Main */

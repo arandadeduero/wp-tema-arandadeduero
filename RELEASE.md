@@ -80,8 +80,7 @@ aranda-de-duero/
 
 ```
 ├── css/
-│   ├── aranda-de-duero.css     # Compiled & minified (production-ready)
-│   └── ajax-load-more.css
+│   └── aranda-de-duero.css     # Compiled & minified (production-ready)
 ├── js/
 │   ├── aranda-de-duero.js      # Minified (production-ready)
 │   ├── customizer.js           # Minified

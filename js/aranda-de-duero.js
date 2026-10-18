@@ -68,33 +68,6 @@ const ArandaTheme = (() => {
         });
     };
 
-    const setupEspecialToggle = () => {
-        const btn = DOM.query('#moreEspecial');
-        if (!btn) return;
-
-        btn.addEventListener('click', (e) => {
-            e.preventDefault();
-            const target = DOM.query('.especial');
-            if (!target) return;
-
-            target.classList.toggle('hide');
-            target.classList.toggle('nohide');
-        });
-    };
-
-    const setupAjaxLoadMore = () => {
-        const container = DOM.query('#ajax-load-more');
-        if (!container) return;
-
-        const observer = new MutationObserver(() => {
-            DOM.queryAll('.alm-reveal').forEach((el) => {
-                el.classList.add('row');
-            });
-        });
-
-        observer.observe(container, { subtree: true, childList: true });
-    };
-
     const setupEventDescriptions = () => {
         DOM.queryAll('.home-evento-descripcion').forEach((el) => {
             const fechaEl = el.querySelector('.home-evento-fecha');
@@ -137,8 +110,6 @@ const ArandaTheme = (() => {
     // Initialize all modules
     const init = () => {
         setupCategoryToggle();
-        setupEspecialToggle();
-        setupAjaxLoadMore();
         setupEventDescriptions();
         setupSearchMenu();
         setupStreamingBanner();

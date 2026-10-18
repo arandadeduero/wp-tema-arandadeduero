@@ -57,6 +57,13 @@ if ( '1' === get_theme_mod( 'aranda_de_duero_show_banner' ) && '' !== get_theme_
 		</div>
 	</div>
 <?php endif; ?>
+<!-- Accesos frecuentes -->
+<section class="home-accesos" aria-labelledby="home-accesos-title">
+	<div class="container mt-4">
+		<h2 id="home-accesos-title" class="h4 text-blue font-weight-normal text-uppercase"><?php esc_html_e( 'Accesos frecuentes', 'aranda-de-duero' ); ?></h2>
+		<?php get_template_part( 'template-parts/service-cards', null, array( 'items' => aranda_de_duero_quick_access() ) ); ?>
+	</div>
+</section>
 <!-- Secciones principales -->
 <?php
 $query = aranda_de_duero_content(

@@ -2920,8 +2920,8 @@ button.poster-dialog-button {
 }
 
 /*
- * Página de enlaces (page-enlaces.php), sustituye a la hecha con Elementor: logotipo, bloque azul claro con botones
- * blancos y una tarjeta de color por servicio. El icono de cada botón se elige por su dirección (más abajo).
+ * Página de enlaces (page-enlaces.php), sustituye a la hecha con Elementor y conserva su aspecto y sus medidas: logotipo,
+ * bloque azul claro con botones blancos y una tarjeta de color por servicio, en la tipografía del tema (Outfit).
  * Los !important: el Personalizador fija el color de los títulos con !important.
  */
 .page-enlaces .enlaces-logo {
@@ -2955,48 +2955,58 @@ button.poster-dialog-button {
     line-height: 1.1;
 }
 
+/* Bloque azul: #41b6e6 al 50 % sobre blanco. Relleno de 30 px; botones al 60 % del ancho útil, de 70 px de alto y 20 px de separación. */
 .page-enlaces .enlaces-destacados {
-    padding: var(--spacing-2xl) var(--spacing-md);
+    padding: 30px 40px;
     background: #a0daf2;
-    text-align: center;
-}
-
-.page-enlaces .enlaces-title {
-    margin: 0 0 var(--spacing-lg);
-    color: #6e6e6e !important;
-    font-size: 1.75rem;
-    font-weight: 700;
 }
 
 .page-enlaces .enlaces-grupo {
-    max-width: 42rem;
-    margin: 0 auto var(--spacing-2xl);
+    margin-bottom: 20px;
 }
 
-.page-enlaces .enlaces-grupo h2 {
-    margin: 0 0 var(--spacing-xl);
-    color: #6e6e6e !important;
-    font-size: 1.75rem;
+.page-enlaces .enlaces-titulo {
+    margin: 0 0 20px;
+    padding: 10px 0;
+    color: #7a7a7a !important;
+    font-size: 27px;
     font-weight: 400;
+    line-height: 1.6;
+    text-align: center;
+}
+
+.page-enlaces .enlaces-titulo strong,
+.page-enlaces .enlaces-titulo span {
+    display: block;
+}
+
+.page-enlaces .enlaces-titulo strong {
+    font-weight: 700;
 }
 
 .page-enlaces .enlaces-boton {
     display: flex;
     align-items: center;
-    gap: var(--spacing-xl);
-    margin-bottom: var(--spacing-lg);
-    padding: var(--spacing-lg) var(--spacing-xl);
+    gap: 1.5rem;
+    margin-bottom: 20px;
+    padding: 20px;
     border-radius: 3px;
     background: var(--color-white);
     box-shadow: 0 0 14px 6px rgb(0 0 0 / 8%);
     color: #28424c;
-    font-size: 1.25rem;
+    font-size: 20px;
+    line-height: 30px;
     text-align: start;
     text-decoration: none;
     transition:
         background-color 0.3s,
         color 0.3s,
         box-shadow 0.3s;
+}
+
+.page-enlaces .enlaces-destacados .enlaces-boton {
+    width: 60%;
+    margin-inline: auto;
 }
 
 .page-enlaces .enlaces-boton::before {
@@ -3025,18 +3035,18 @@ button.poster-dialog-button {
     background-color: var(--color-white);
 }
 
-/* Tarjetas de color por servicio */
+/* Tarjetas de color: tres por fila sin hueco (10 px de relleno en cada una = 20 px entre tarjetas); 118 px entre filas. */
 .page-enlaces .enlaces-servicios {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: var(--spacing-2xl);
-    max-width: 78rem;
-    margin: var(--spacing-2xl) auto;
-    padding: 0 var(--spacing-md);
+    gap: clamp(2rem, 8vw, 118px) 20px;
+    max-width: 90rem;
+    margin: 0 auto;
+    padding: clamp(2rem, 5.4vw, 59px) clamp(1rem, 6.3vw, 69px);
 }
 
 .page-enlaces .enlaces-tarjeta {
-    padding: var(--spacing-lg) var(--spacing-lg) var(--spacing-xl);
+    padding: 20px 10px;
     border-radius: 25px;
     background: var(--enlaces-color);
     text-align: center;
@@ -3046,14 +3056,15 @@ button.poster-dialog-button {
     display: block;
     width: 126px;
     height: 126px;
-    margin: 0 auto var(--spacing-lg);
+    margin: 0 auto 26px;
 }
 
 .page-enlaces .enlaces-tarjeta h2 {
-    margin: 0 0 var(--spacing-lg);
+    margin: 0 0 20px;
     color: var(--color-white) !important;
-    font-size: 1.75rem;
+    font-size: 27px;
     font-weight: 700;
+    line-height: 1.6;
     text-transform: uppercase;
 }
 
@@ -3089,24 +3100,19 @@ button.poster-dialog-button {
     background-color: var(--color-white);
 }
 
-.page-enlaces .enlaces-pie {
-    padding: var(--spacing-xl) var(--spacing-md) var(--spacing-2xl);
-    text-align: center;
-}
-
-.page-enlaces .enlaces-pie p {
-    max-width: 62rem;
-    margin: 0 auto;
-    line-height: 1.7;
-}
-
-.page-enlaces .enlaces-pie a {
-    color: inherit;
-}
-
 @media (width <= 999px) {
     .page-enlaces .enlaces-servicios {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (width <= 767px) {
+    .page-enlaces .enlaces-destacados {
+        padding-inline: var(--spacing-md);
+    }
+
+    .page-enlaces .enlaces-destacados .enlaces-boton {
+        width: 100%;
     }
 }
 
@@ -3126,7 +3132,7 @@ button.poster-dialog-button {
 }
 
 .page-enlaces .enlaces-boton[href*='linktr.ee'] {
-    --enlace-icono: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linejoin='round'%3E%3Cpath d='M2 5c3.5-1.2 7-1 10 1.2 3-2.2 6.5-2.4 10-1.2v14c-3.500-1.200-7-1-10 1.200-3-2.200-6.500-2.400-10-1.200zM12 6.200v14'/%3E%3C/svg%3E");
+    --enlace-icono: url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 576 512%22%3E%3Cpath fill=%22%23000%22 d=%22M542.22 32.05c-54.8 3.11-163.72 14.43-230.96 55.59-4.64 2.84-7.27 7.89-7.27 13.17v363.87c0 11.55 12.63 18.85 23.28 13.49 69.18-34.82 169.23-44.32 218.7-46.92 16.89-.89 30.02-14.43 30.02-30.66V62.75c.01-17.71-15.35-31.74-33.77-30.7zM264.73 87.64C197.5 46.48 88.58 35.17 33.78 32.05 15.36 31.01 0 45.04 0 62.75V400.6c0 16.24 13.13 29.78 30.02 30.66 49.49 2.6 149.59 12.11 218.77 46.95 10.62 5.35 23.21-1.94 23.21-13.46V100.63c0-5.29-2.62-10.14-7.27-12.99z%22/%3E%3C/svg%3E');
 }
 
 .page-enlaces .enlaces-boton[href*='instagram.com'] {

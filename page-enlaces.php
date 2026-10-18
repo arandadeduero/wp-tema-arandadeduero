@@ -4,9 +4,11 @@
  *
  * Página de enlaces al estilo «link en la bio»: logotipo, redes del Ayuntamiento y de «Aranda ME GUSTA» en botones
  * blancos sobre fondo azul claro y, debajo, una tarjeta de color por servicio (Policía Local, Bomberos, CEAS,
- * Deportes, Biblioteca y Protección Civil). No usa la cabecera ni el pie del sitio: cierra el documento ella misma.
+ * Deportes, Biblioteca y Protección Civil). No usa la cabecera del sitio; sí su pie (get_footer()), que carga el aviso
+ * de cookies y la analítica por wp_footer().
  *
  * Todo el contenido está aquí, en `$aranda_enlaces`: para añadir, quitar o corregir un enlace basta con editar esa lista.
+ * Mismo contenido y mismas medidas que la página antigua de Elementor (incluidos dos enlaces marcados «REVISAR»).
  * El icono de cada botón se elige solo por la dirección (css/aranda-de-duero.css, «Página de enlaces»).
  *
  * Sustituye a la página hecha con Elementor «Enlaces de interés».
@@ -17,29 +19,30 @@
 $aranda_enlaces = array(
 	'destacados' => array(
 		array(
-			'titulo'   => 'Ayuntamiento Aranda de Duero:',
-			'enlaces'  => array(
+			'titulo'  => 'Ayuntamiento Aranda de Duero:',
+			'enlaces' => array(
 				array( 'Página Web', home_url( '/' ), 'enlaces-boton--web' ),
 				array( 'Instagram', 'https://www.instagram.com/ayuntamientoarandadeduero/' ),
 				array( 'Facebook', 'https://www.facebook.com/aytoarandadeduero' ),
-				array( 'TikTok', 'https://www.tiktok.com/@aytoarandadeduero' ),
+				array( 'Tiktok', 'https://www.tiktok.com/@aytoarandadeduero' ),
 				array( 'Twitter', 'https://x.com/aytoaranda' ),
 			),
 		),
 		array(
-			'titulo'   => 'Aranda ME GUSTA:',
-			'enlaces'  => array(
+			'titulo'  => 'Aranda ME GUSTA:',
+			'enlaces' => array(
 				array( 'Instagram', 'https://www.instagram.com/arandamegusta' ),
-				// Facebook: la página antigua enlazaba a una búsqueda (facebook.com/search/top); falta la dirección del perfil.
+				// REVISAR: este Facebook apunta a una búsqueda (facebook.com/search/top), no a un perfil. Así estaba en la página antigua.
+				array( 'Facebook', 'https://www.facebook.com/search/top' ),
 				array( 'Twitter', 'https://x.com/ArandaMeGusta' ),
-				array( 'YouTube', 'https://www.youtube.com/@SMArandaDeDuero' ),
+				array( 'Youtube', 'https://www.youtube.com/@SMArandaDeDuero' ),
 			),
 		),
 	),
 	'servicios'  => array(
 		array(
 			'clave'   => 'policia',
-			'titulo'  => 'Policía Local',
+			'titulo'  => 'POLICÍA LOCAL',
 			'enlaces' => array(
 				array( 'Instagram', 'https://www.instagram.com/policialocalad/' ),
 				array( 'Twitter', 'https://x.com/PoliciaLocalAD' ),
@@ -47,7 +50,7 @@ $aranda_enlaces = array(
 		),
 		array(
 			'clave'   => 'bomberos',
-			'titulo'  => 'Bomberos',
+			'titulo'  => 'BOMBEROS',
 			'enlaces' => array(
 				array( 'Instagram', 'https://www.instagram.com/bomberosaranda/' ),
 			),
@@ -61,27 +64,29 @@ $aranda_enlaces = array(
 		),
 		array(
 			'clave'   => 'deportes',
-			'titulo'  => 'Deportes',
+			'titulo'  => 'DEPORTES',
 			'enlaces' => array(
 				array( 'Instagram', 'https://www.instagram.com/concejaliadeportes_aranda/' ),
 				array( 'Facebook', 'https://www.facebook.com/p/Arandactiva-100071367133529/' ),
-				array( 'TikTok', 'https://www.tiktok.com/@concejalia.deportes' ),
+				array( 'Tiktok', 'https://www.tiktok.com/@concejalia.deportes' ),
 			),
 		),
 		array(
 			'clave'   => 'biblioteca',
-			'titulo'  => 'Biblioteca',
+			'titulo'  => 'BIBLIOTECA',
 			'enlaces' => array(
 				array( 'Instagram', 'https://www.instagram.com/biblio.aranda/' ),
 				array( 'Facebook', 'https://www.facebook.com/BiblioAranda' ),
-				array( 'Biblioaranda', 'https://linktr.ee/biblioaranda' ),
+				array( 'Biblioaranda', 'http://www.linktr.ee/biblioaranda' ),
 			),
 		),
 		array(
 			'clave'   => 'proteccion-civil',
-			'titulo'  => 'Protección Civil',
-			// Instagram: la página antigua enlazaba a facebook.com/BiblioAranda (la Biblioteca); falta su dirección propia.
-			'enlaces' => array(),
+			'titulo'  => 'PROTECCIÓN CIVIL',
+			'enlaces' => array(
+				// REVISAR: en la página antigua este «Instagram» enlazaba a la Facebook de la Biblioteca. Poner el Instagram de Protección Civil.
+				array( 'Instagram', 'https://www.facebook.com/BiblioAranda' ),
+			),
 		),
 	),
 );
@@ -100,7 +105,6 @@ $aranda_boton = static function ( array $enlace ) {
 	<?php
 };
 
-$aranda_contacto = aranda_de_duero_contact_info();
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
@@ -125,12 +129,14 @@ $aranda_contacto = aranda_de_duero_contact_info();
 		</header>
 
 		<main id="primary" class="site-main enlaces-main">
-			<section class="enlaces-destacados" aria-labelledby="enlaces-titulo">
-				<h1 id="enlaces-titulo" class="enlaces-title"><?php echo esc_html( get_the_title( get_queried_object_id() ) ); ?></h1>
-
-				<?php foreach ( $aranda_enlaces['destacados'] as $aranda_grupo ) : ?>
+			<section class="enlaces-destacados">
+				<?php foreach ( $aranda_enlaces['destacados'] as $aranda_indice => $aranda_grupo ) : ?>
 					<div class="enlaces-grupo">
-						<h2><?php echo esc_html( $aranda_grupo['titulo'] ); ?></h2>
+						<?php $aranda_etiqueta = 0 === $aranda_indice ? 'h1' : 'h2'; ?>
+						<<?php echo tag_escape( $aranda_etiqueta ); ?> class="enlaces-titulo">
+							<strong><?php echo esc_html( get_the_title( get_queried_object_id() ) ); ?></strong>
+							<span><?php echo esc_html( $aranda_grupo['titulo'] ); ?></span>
+						</<?php echo tag_escape( $aranda_etiqueta ); ?>>
 						<?php foreach ( $aranda_grupo['enlaces'] as $aranda_enlace ) : ?>
 							<?php $aranda_boton( $aranda_enlace ); ?>
 						<?php endforeach; ?>
@@ -151,18 +157,6 @@ $aranda_contacto = aranda_de_duero_contact_info();
 			</section>
 		</main>
 
-		<footer class="enlaces-pie">
-			<p>
-				&copy; Ilustre Ayuntamiento de Aranda de Duero | Plaza Mayor, 1 | 09400 Aranda de Duero | Burgos |
-				Tlfno. <?php echo esc_html( $aranda_contacto['phone'] ); ?> |
-				<a href="<?php echo esc_url( aranda_de_duero_get_page_permalink_by_title( 'Web Map' ) ); ?>">Mapa Web</a> |
-				<a href="<?php echo esc_url( aranda_de_duero_get_page_permalink_by_title( 'Aviso legal' ) ); ?>">Aviso Legal</a> |
-				<a href="<?php echo esc_url( aranda_de_duero_get_page_permalink_by_title( 'Política de Accesibilidad' ) ); ?>">Política de Accesibilidad</a>
-			</p>
-		</footer>
-	</div><!-- #page -->
-
-	<?php wp_footer(); ?>
-</body>
-
-</html>
+<?php
+// footer.php prints the site footer (with the cookie banner and analytics through wp_footer), closes #page and the document.
+get_footer();

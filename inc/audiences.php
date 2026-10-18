@@ -135,3 +135,27 @@ function aranda_de_duero_audiences() {
 	 */
 	return apply_filters( 'aranda_de_duero_audiences', $groups );
 }
+
+/**
+ * The ways to explore the services besides searching, linked from the home page: only the pages that exist and are published.
+ *
+ * @return array<int, array{title: string, url: string}>
+ */
+function aranda_de_duero_explore_links() {
+	$candidates = array(
+		array( __( 'Para ti', 'aranda-de-duero' ), aranda_de_duero_audiences_url() ),
+		array( __( 'Trámites por situaciones', 'aranda-de-duero' ), aranda_de_duero_situations_url() ),
+	);
+
+	$links = array();
+	foreach ( $candidates as $candidate ) {
+		if ( '' !== $candidate[1] ) {
+			$links[] = array(
+				'title' => $candidate[0],
+				'url'   => $candidate[1],
+			);
+		}
+	}
+
+	return $links;
+}

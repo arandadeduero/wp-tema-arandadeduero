@@ -148,4 +148,17 @@ class AudiencesTest extends TestCase {
 
 		$this->assertSame( '', aranda_de_duero_audiences_url() );
 	}
+
+	public function test_the_home_links_to_nothing_while_no_page_is_published() {
+		$this->mocks();
+
+		$this->assertSame( array(), aranda_de_duero_explore_links() );
+	}
+
+	public function test_the_home_links_to_the_published_page() {
+		$this->mocks( new WP_Post() );
+
+		$titles = array_column( aranda_de_duero_explore_links(), 'title' );
+		$this->assertContains( 'Para ti', $titles );
+	}
 }

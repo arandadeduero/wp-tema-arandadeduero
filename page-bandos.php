@@ -20,21 +20,23 @@ aranda_de_duero_the_header_image( '' );
 	<div class="row">
 		<div class="col pt-4">
 			<main id="primary" class="site-main">
-				<!-- Explicación sobre Bandos -->
-				<div class="alert alert-info mb-4" role="alert">
-					<div class="d-flex">
-						<div class="mr-3 alert-info-icon">
-							<?php
-							// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- aranda_de_duero_icon() returns SVG markup already sanitized by the WP 7.1 SVG Icon API (see inc/icons.php).
-							echo aranda_de_duero_icon( 'aranda-de-duero/circle-question', array( 'size' => 32 ) );
-							?>
-						</div>
-						<div>
-							<h5 class="alert-heading"><?php esc_html_e( '¿Qué es un Bando Municipal?', 'aranda-de-duero' ); ?></h5>
-							<p class="mb-0">Un bando municipal es una disposición administrativa solemne emitida por el alcalde o alcaldesa de un ayuntamiento en España, destinada a regular la convivencia, recordar obligaciones o anunciar asuntos de interés general. Es de obligado cumplimiento para los vecinos y regula aspectos como seguridad, limpieza o eventos locales.</p>
-						</div>
-					</div>
-				</div>
+				<?php
+				get_template_part(
+					'template-parts/page-intro',
+					null,
+					array(
+						'heading' => __( '¿Qué es un Bando Municipal?', 'aranda-de-duero' ),
+						'lead'    => array(
+							__( 'Un bando municipal es una disposición administrativa solemne emitida por el alcalde o alcaldesa de un ayuntamiento en España, destinada a regular la convivencia, recordar obligaciones o anunciar asuntos de interés general. Es de obligado cumplimiento para los vecinos y regula aspectos como seguridad, limpieza o eventos locales.', 'aranda-de-duero' ),
+						),
+						'tips'    => array(
+							array( __( 'Lee el bando completo', 'aranda-de-duero' ), __( 'pulsando su tarjeta o el enlace «Leer bando».', 'aranda-de-duero' ) ),
+							array( __( 'Los más recientes, primero', 'aranda-de-duero' ), __( 'los bandos están ordenados por su fecha de publicación.', 'aranda-de-duero' ) ),
+							array( __( 'Busca los anteriores', 'aranda-de-duero' ), __( 'con los enlaces del final de la lista, que muestra 12 bandos por página.', 'aranda-de-duero' ) ),
+						),
+					)
+				);
+				?>
 
 				<?php
 				$current_page = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;

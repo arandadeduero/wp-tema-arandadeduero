@@ -2565,25 +2565,33 @@ button.poster-dialog-button {
     }
 }
 
-/* Agenda (page-agenda.php): título y presentación sobre el calendario. */
-.agenda-intro {
+/* Título, presentación y tres consejos sobre el contenido (template-parts/page-intro.php: Agenda, Bandos, Subvenciones y Notas de prensa). */
+.page-intro {
     margin-bottom: var(--spacing-xl);
 }
 
-.agenda-intro .entry-title {
+.page-intro .entry-title {
     margin: 0 0 var(--spacing-sm);
     font-size: clamp(1.75rem, 3.2vw, 2.5rem);
     line-height: 1.2;
 }
 
-.agenda-lead {
+.page-intro-heading {
+    max-width: 60rem;
+    margin: 0 0 var(--spacing-sm);
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.page-intro-lead {
     max-width: 60rem;
     margin: 0 0 var(--spacing-lg);
     font-size: 1.125rem;
     line-height: 1.6;
 }
 
-.agenda-tips {
+.page-intro-tips {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: var(--spacing-md);
@@ -2592,7 +2600,7 @@ button.poster-dialog-button {
     list-style: none;
 }
 
-.agenda-tips li {
+.page-intro-tips li {
     padding: var(--spacing-md) var(--spacing-lg);
     border-left: 4px solid var(--color-primary);
     border-radius: var(--border-radius-lg);
@@ -2600,13 +2608,13 @@ button.poster-dialog-button {
     line-height: 1.5;
 }
 
-.agenda-tips strong {
+.page-intro-tips strong {
     display: block;
     color: var(--color-primary-accessible);
 }
 
 @media (width <= 767px) {
-    .agenda-tips {
+    .page-intro-tips {
         grid-template-columns: minmax(0, 1fr);
     }
 }

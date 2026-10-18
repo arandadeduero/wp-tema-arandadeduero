@@ -1907,7 +1907,7 @@ h3.event-name {
     flex: none;
 }
 
-/* ========================================================================
+/* =================================================================
    Modern CSS Utilities & Accessibility Enhancements
    ======================================================================== */
 
@@ -2755,4 +2755,15 @@ button.poster-dialog-button {
     .home-carousel-track {
         scroll-behavior: smooth;
     }
+
+/*
+ * Iconos Font Awesome incrustados en el contenido de entradas y páginas (el editor los guarda como <svg class="svg-inline--fa">).
+ * Su tamaño lo daba el CSS del plugin Font Awesome, que ya no se carga; sin esta regla salen a todo el ancho de la columna.
+ */
+.svg-inline--fa {
+    display: inline-block;
+    width: auto;
+    height: 1em;
+    overflow: visible;
+    vertical-align: -0.125em;
 }

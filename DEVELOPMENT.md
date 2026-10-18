@@ -49,8 +49,8 @@ push y en cada PR, con permisos de solo lectura (`permissions: contents: read`).
   script, comprobar con `grep` o con un test que el cambio está.
 - Stylelint exige una línea en blanco antes de los comentarios dentro de una regla. Si falla, no encadenar
   `git add && git commit` detrás: se llegó a subir CSS roto así.
-- Los tests están en `tests/` (63 en total): metadatos sociales, datos estructurados, caché de eventos, contraste, carrusel,
-  «Especiales», widgets de eventos, cadenas de My Calendar, avisos de cumplimiento, rendimiento y diferido del slider.
+- Los tests están en `tests/` (69 en total): metadatos sociales, datos estructurados, caché de eventos, contraste, carrusel,
+  «Especiales», accesos frecuentes y pagos, widgets de eventos, cadenas de My Calendar, avisos de cumplimiento, rendimiento y diferido del slider.
 
 ## Reglas del código
 

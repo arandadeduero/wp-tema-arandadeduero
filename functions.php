@@ -352,6 +352,11 @@ require get_template_directory() . '/inc/home-carousel.php';
 require get_template_directory() . '/inc/especiales.php';
 
 /**
+ * Service shortcuts: «Accesos frecuentes» (home) and «Pagos y recibos».
+ */
+require get_template_directory() . '/inc/services.php';
+
+/**
  * Colour contrast helpers and Customizer validation.
  */
 require get_template_directory() . '/inc/color-contrast.php';

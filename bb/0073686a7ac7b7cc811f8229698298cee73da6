@@ -1,0 +1,39 @@
+functions.php
+  s_e9446e370cbe94::t_2f702b11465553 365-368
+  s_e9446e370cbe94::t_7ab3b477966749 364
+inc/search.php
+  s_e9446e370cbe94::t_2f702b11465553 60,104-112
+page-tramites-situaciones.php
+  s_e9446e370cbe94::t_2f702b11465553 1-77
+tests/SituationsTest.php
+  s_e9446e370cbe94::t_aced196a838793 1-147
+inc/situations.php
+  s_e9446e370cbe94::t_2f702b11465553 166-187
+  s_e9446e370cbe94::t_dea80e29960a6c 28-30,35
+  s_e9446e370cbe94::t_7486ca10a5d7c8 1-27,31-34,36-124,135-165
+  s_e9446e370cbe94::t_aced196a838793 125-134
+DEVELOPMENT.md
+  s_e9446e370cbe94::t_30784756ab8208 52
+MEJORAS-OTROS-AYUNTAMIENTOS.md
+  s_e9446e370cbe94::t_efb622aa886b11 86,161-162
+MODERNIZATION.md
+  s_e9446e370cbe94::t_bdfd23c48cbb65 61-64,113
+docs/pagos-y-recibos.md
+  s_e9446e370cbe94::t_5bea5a552e5929 29-35
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "bb0073686a7ac7b7cc811f8229698298cee73da6",
+  "prompts": {},
+  "sessions": {
+    "s_e9446e370cbe94": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "1f562e24-39c2-46c2-bbfd-3ce887649604",
+        "model": "claude-sonnet-5-5"
+      },
+      "human_author": "Guillermo López <willyaranda@gmail.com>"
+    }
+  }
+}

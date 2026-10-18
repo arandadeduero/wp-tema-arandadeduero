@@ -1,0 +1,23 @@
+page-home.php
+  s_e9446e370cbe94::t_d158a8e4e338c2 140-143,145,149,165,168
+css/aranda-de-duero.css
+  s_e9446e370cbe94::t_d158a8e4e338c2 1054-1061
+MEJORAS-OTROS-AYUNTAMIENTOS.md
+  s_e9446e370cbe94::t_74c53f8737a687 128
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "9bc9c9ed457de63cc8c59c04fa6f0bb850c212f6",
+  "prompts": {},
+  "sessions": {
+    "s_e9446e370cbe94": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "1f562e24-39c2-46c2-bbfd-3ce887649604",
+        "model": "claude-sonnet-5-5"
+      },
+      "human_author": "Guillermo López <willyaranda@gmail.com>"
+    }
+  }
+}

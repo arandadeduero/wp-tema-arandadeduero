@@ -14,7 +14,3 @@ Los enlaces están en la lista `$aranda_enlaces` del principio de `page-enlaces.
 `array( 'Instagram', 'https://…' )`. El icono se elige solo por la dirección (`instagram.com`, `facebook.com`, `tiktok.com`,
 `x.com`, `youtube.com`; `linktr.ee` lleva un libro y «Página Web» un globo). Los colores y el aspecto están en el bloque
 «Página de enlaces» de `css/aranda-de-duero.css`; los iconos grandes de las tarjetas, en `images/enlaces/*.svg`.
-
-## Dos enlaces de la página original que están mal (copiados tal cual, marcados `REVISAR` en `page-enlaces.php`)
-- *Aranda ME GUSTA → Facebook* apunta a `facebook.com/search/top` (una búsqueda, no un perfil).
-- *Protección Civil → «Instagram»* apunta a `facebook.com/BiblioAranda` (la Biblioteca).

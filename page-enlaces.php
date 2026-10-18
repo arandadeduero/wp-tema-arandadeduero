@@ -8,7 +8,7 @@
  * de cookies y la analítica por wp_footer().
  *
  * Todo el contenido está aquí, en `$aranda_enlaces`: para añadir, quitar o corregir un enlace basta con editar esa lista.
- * Mismo contenido y mismas medidas que la página antigua de Elementor (incluidos dos enlaces marcados «REVISAR»).
+ * Mismo contenido y mismas medidas que la página antigua de Elementor.
  * El icono de cada botón se elige solo por la dirección (css/aranda-de-duero.css, «Página de enlaces»).
  *
  * Sustituye a la página hecha con Elementor «Enlaces de interés».
@@ -32,8 +32,7 @@ $aranda_enlaces = array(
 			'titulo'  => 'Aranda ME GUSTA:',
 			'enlaces' => array(
 				array( 'Instagram', 'https://www.instagram.com/arandamegusta' ),
-				// REVISAR: este Facebook apunta a una búsqueda (facebook.com/search/top), no a un perfil. Así estaba en la página antigua.
-				array( 'Facebook', 'https://www.facebook.com/search/top' ),
+				array( 'Facebook', 'https://www.facebook.com/ArandaMeGusta/' ),
 				array( 'Twitter', 'https://x.com/ArandaMeGusta' ),
 				array( 'Youtube', 'https://www.youtube.com/@SMArandaDeDuero' ),
 			),
@@ -84,8 +83,7 @@ $aranda_enlaces = array(
 			'clave'   => 'proteccion-civil',
 			'titulo'  => 'PROTECCIÓN CIVIL',
 			'enlaces' => array(
-				// REVISAR: en la página antigua este «Instagram» enlazaba a la Facebook de la Biblioteca. Poner el Instagram de Protección Civil.
-				array( 'Instagram', 'https://www.facebook.com/BiblioAranda' ),
+				array( 'Instagram', 'https://www.instagram.com/protearanda' ),
 			),
 		),
 	),

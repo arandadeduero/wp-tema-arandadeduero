@@ -103,5 +103,7 @@ recién desplegado, añadir un parámetro a la URL (`/?sin-cache=x`) o enviar `A
 3. **No hay despliegue automático.** Cada PR se sube a producción a mano (ver [RELEASE.md](RELEASE.md)); solo se
    mergea cuando está desplegado **y comprobado en la web real**.
 4. Tras el merge: volver a `main`, `git pull` y borrar la rama.
+   **Si el cambio es solo de documentación** (`.md` y similares que no llegan a producción), se puede saltar la CI y el despliegue: commit con
+   `[skip ci]` y `gh pr merge N --merge --delete-branch --body "[skip ci]"`. Los workflows (`.github/`), los scripts y cualquier código siguen el flujo normal.
 5. Si la mejora sale de [MEJORAS-OTROS-AYUNTAMIENTOS.md](MEJORAS-OTROS-AYUNTAMIENTOS.md), actualizar su fila y el
    registro en el mismo PR.

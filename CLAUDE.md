@@ -9,6 +9,9 @@ Para trabajar con Claude Code en este repositorio. El detalle está en [DEVELOPM
 - **No hay despliegue automático.** El usuario sube el tema a mano (`npm run release`, siempre **el tema completo**) y vacía
   la caché de Cache Enabler. Al abrir un PR, recordárselo. **Solo se mergea cuando dice que está desplegado y se ha
   comprobado en la web real**; «comprueba y mergea» autoriza el merge si la comprobación sale bien.
+- **Excepción: PR solo de documentación.** Si todos los ficheros son `.md` o no cambian la web (nada de `.php`, `.js`, `.css`, `theme.json`,
+  `composer.json`, `package.json`, `scripts/` ni `.github/`), se hace commit con `[skip ci]`, PR y merge al momento
+  (`gh pr merge N --merge --delete-branch --body "[skip ci]"`), sin esperar a la CI ni al despliegue. Comprobar antes con `git diff --name-only main`.
 - Commits y cuerpo de los PR acaban con `Co-Authored-By: Claude <modelo usado> <noreply@anthropic.com>`.
 - Informes honestos: separar lo **verificado** de lo **no verificado** y decir qué método se usó. No dar nada por hecho
   sin una comprobación independiente (un `grep`, un test, una medición en la web publicada).

@@ -53,4 +53,33 @@ class PerformanceTest extends TestCase {
 
 		$this->assertSame( $urls, aranda_de_duero_drop_font_awesome_hint( $urls, 'preconnect' ) );
 	}
+
+	public function test_the_pdf_flag_is_only_printed_on_a_single_page_with_a_file_block() {
+		\WP_Mock::userFunction( 'is_singular' )->andReturn( true );
+		\WP_Mock::userFunction( 'has_block' )->with( 'core/file' )->andReturn( true );
+		\WP_Mock::userFunction( 'wp_print_inline_script_tag' )->once()->with( \Mockery::pattern( '/pdfViewerEnabled/' ) );
+
+		aranda_de_duero_pdf_preview_flag();
+
+		$this->assertTrue( aranda_de_duero_has_pdf_embed() );
+	}
+
+	public function test_the_pdf_flag_is_not_printed_without_a_file_block() {
+		\WP_Mock::userFunction( 'is_singular' )->andReturn( true );
+		\WP_Mock::userFunction( 'has_block' )->andReturn( false );
+		\WP_Mock::userFunction( 'wp_print_inline_script_tag' )->never();
+
+		aranda_de_duero_pdf_preview_flag();
+
+		$this->assertFalse( aranda_de_duero_has_pdf_embed() );
+	}
+
+	public function test_the_pdf_flag_is_not_printed_outside_single_pages() {
+		\WP_Mock::userFunction( 'is_singular' )->andReturn( false );
+		\WP_Mock::userFunction( 'wp_print_inline_script_tag' )->never();
+
+		aranda_de_duero_pdf_preview_flag();
+
+		$this->assertFalse( aranda_de_duero_has_pdf_embed() );
+	}
 }

@@ -77,6 +77,12 @@ push y en cada PR, con permisos de solo lectura (`permissions: contents: read`).
   HTML. Los valores dinámicos (colores del Personalizador) salen como variables `--aranda-*` en `:root`. Bootstrap
   carga **después** del CSS del tema: si una regla pierde contra él, reforzar el selector (`h2.clase`,
   `.padre .clase`), y `!important` solo donde el inline original lo llevaba.
+- **Ningún color escrito a mano.** Los colores son variables de la paleta (`:root` de `css/aranda-de-duero.css`) y el CSS usa `var(--…)`.
+  `.stylelintrc.json` (`color-no-hex`, `color-named`, `function-disallowed-list`) hace fallar la CI con un hex, un `rgb()`/`hsl()` o un color con nombre
+  fuera de esa paleta (`transparent` y `currentcolor` sí valen). **La paleta es la corporativa** (azul `#0083c1`, azul claro `#e9f4f9`, rojo, ámbar, marrón, celeste, negro 75 % y 90 %,
+  negro y blanco) más dos tonos de accesibilidad (`--color-primary-accessible`, `--color-primary-dark`); `theme.json` usa los mismos y un test comprueba que coinciden. Para añadir uno: reutilizar un token existente o añadirlo a la paleta con un nombre con
+  sentido. `style.css` y `style-rtl.css` usan las mismas variables (se definen en el CSS del tema). Las imágenes SVG embebidas como máscara y los `.svg` de
+  `images/` llevan colores propios: no pueden leer variables.
 - **Sin JavaScript de terceros ni jQuery.** `js/` son seis ficheros propios, con `defer` y en el pie. De Bootstrap
   solo se carga el CSS.
 - **Sin recursos de terceros** (CDN, fuentes de Google, emojis de WordPress): todo autoalojado, para no enviar la IP

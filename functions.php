@@ -419,30 +419,31 @@ function aranda_de_duero_customizer_settings( $wp_customize ) {
 	);
 	// Color controls: all share the same setting/control shape, differing
 	// only in slug, label and default value.
+	$color_defaults = aranda_de_duero_customizer_color_defaults();
 	$color_settings = array(
 		'aranda_de_duero_background_color' => array(
 			'label'   => 'Color de fondo',
-			'default' => '#ffffff',
+			'default' => $color_defaults['aranda_de_duero_background_color'],
 		),
 		'aranda_de_duero_header_text_color' => array(
 			'label'   => 'Color de los encabezados',
-			'default' => '#000000',
+			'default' => $color_defaults['aranda_de_duero_header_text_color'],
 		),
 		'aranda_de_duero_text_color' => array(
 			'label'   => 'Color del texto',
-			'default' => '#000000',
+			'default' => $color_defaults['aranda_de_duero_text_color'],
 		),
 		'aranda_de_duero_link_color' => array(
 			'label'   => 'Color de los enlaces',
-			'default' => '#000000',
+			'default' => $color_defaults['aranda_de_duero_link_color'],
 		),
 		'aranda_de_duero_main_section_background' => array(
 			'label'   => 'Color de fondo de las secciones principales en el home',
-			'default' => '#000000',
+			'default' => $color_defaults['aranda_de_duero_main_section_background'],
 		),
 		'aranda_de_duero_main_section_text_color' => array(
 			'label'   => 'Color de texto de las secciones principales en el home',
-			'default' => '#000000',
+			'default' => $color_defaults['aranda_de_duero_main_section_text_color'],
 		),
 	);
 

@@ -27,6 +27,16 @@ historial de git.
 - Iconos: Font Awesome Free 6.5.1 convertido a SVG y registrado con la API de iconos de WordPress 7.1
   (`inc/icons.php`); ya no se carga la webfont completa.
 - Variables CSS en `css/aranda-de-duero.css`; Stylelint con `npm run lint:css`.
+- **Paleta de colores corporativa y como variables** (2026-10-18). Primero, los 71 colores distintos que había escritos a mano (216 usos en el CSS del tema y 29 en `style.css`) pasaron a variables del
+  `:root` sin cambiar ningún valor (equivalencia comprobada y 0 diferencias en 4.554 elementos de 10 páginas reales). Después se unificaron en la **paleta corporativa** del Ayuntamiento: azul
+  `#0083c1` (Pantone 7460C) y su 8 % `#e9f4f9`, rojo `#ce0e2d` (186C), ámbar `#f5a800` (130C), marrón `#a4541c` (160C), celeste `#3cb4e5` (298C), negro 75 % `#646464` y 90 % `#3c3c3c`, negro y blanco.
+  De 62 colores opacos se pasó a **12** (esos 10 más dos tonos de accesibilidad: `--color-primary-accessible` `#0073ad`, el azul para texto, enlaces y botones con texto blanco, y su hover
+  `--color-primary-dark` `#006399`). Los grises claros (bordes, fondos) son transparencias del negro (`--color-black-10`, `-20`…), y los avisos usan transparencias del ámbar. Una regla de stylelint impide
+  escribir colores a mano en adelante, y `tests/ColorSourcesTest.php` comprueba que ninguna variable de color se use sin estar definida, que PHP, `theme.json` y el CSS coincidan y que `style.css` no
+  esté vacío. `theme.json` usa la misma paleta (el azul accesible en enlaces y botones).
+  Unificar **sí cambió el aspecto** (532 de 4.754 elementos medidos): sobre todo los títulos y botones de la página de enlaces (celeste oficial, texto gris 90 %), las tarjetas de enlaces (Deportes pasa de
+  beige a marrón), el pie de página (de azul marino a gris 90 % con barra inferior negra), los grises de la 404 y los azules de enlaces y títulos, que pasan al azul accesible. Se corrigieron dos
+  regresiones de contraste que esto introdujo (texto del pie al 50 % y títulos blancos sobre el ámbar, que ya fallaban antes).
 - **Regla: no CSS inline.** Todo el CSS va en `css/aranda-de-duero.css`: nada de `style=""` en las plantillas ni de `<style>` en el HTML. Los colores del Customizer y de la cabecera solo imprimen variables `--aranda-*` en `:root` (`inc/customizer-css.php`, `inc/custom-header.php`) y las reglas están en el fichero. Bootstrap carga después: refuerza el selector en vez de recurrir a `style=`.
 
 ## Portada, listados y páginas

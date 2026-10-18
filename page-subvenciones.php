@@ -89,7 +89,7 @@ aranda_de_duero_the_header_image( '' );
 
 										<div class="subvencion-card-description">
 											<a href="<?php the_permalink( get_the_ID() ); ?>" class="main-section-text-link">
-												<h3 class="h6 mb-2 font-weight-bold"><?php the_title(); ?></h3>
+												<h2 class="h6 mb-2 font-weight-bold"><?php the_title(); ?></h2>
 											</a>
 											<small class="text-muted d-block mb-2"><?php echo get_the_date(); ?></small>
 										</div>

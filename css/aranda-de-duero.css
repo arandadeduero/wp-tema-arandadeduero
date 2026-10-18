@@ -1051,6 +1051,14 @@ body .mc-main {
     height: 225px;
 }
 
+/* Última noticia: la imagen a la izquierda ocupa su mitad entera (en pantallas pequeñas va arriba, como antes). */
+@media (width >= 768px) {
+    .home-main-news-image.first-news img {
+        width: 100%;
+        height: 300px;
+    }
+}
+
 .nota-de-prensa-card-image img {
     width: 100%;
     height: 180px;

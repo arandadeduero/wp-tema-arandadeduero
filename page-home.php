@@ -137,12 +137,16 @@ $query = aranda_de_duero_content(
 
 				echo '<div class="' . esc_attr( $col_class ) . '">';
 				?>
+				<?php
+				// The latest news goes first and wide: image on the left and text on the right from tablet width up, stacked below.
+				$aranda_first = ( 0 === $count );
+				?>
 				<div class="events-agenda-card p-3 h-100">
-					<div class="row p-2">
+					<div class="row p-2<?php echo $aranda_first ? ' align-items-center' : ''; ?>">
 						<?php
 						if ( has_post_thumbnail() ) {
 							?>
-							<div class="col-12">
+							<div class="<?php echo $aranda_first ? 'col-12 col-md-6' : 'col-12'; ?>">
 								<div class="home-main-news-image p-1 mb-3 <?php echo ( 0 === $count ) ? 'first-news' : ''; ?>">
 									<?php
 									the_post_thumbnail(
@@ -158,10 +162,10 @@ $query = aranda_de_duero_content(
 									?>
 								</div>
 							</div>
-							<div class="col-12 p-3">
+							<div class="<?php echo $aranda_first ? 'col-12 col-md-6 p-3' : 'col-12 p-3'; ?>">
 								<div class="home-main-news-description">
 									<a href="<?php the_permalink( get_the_ID() ); ?>" class="main-section-text-link">
-										<h3 class="h6 mb-0 font-weight-normal"><?php the_title(); ?></h3>
+										<h3 class="<?php echo $aranda_first ? 'h4 mb-0' : 'h6 mb-0 font-weight-normal'; ?>"><?php the_title(); ?></h3>
 									</a>
 								</div>
 								<?php

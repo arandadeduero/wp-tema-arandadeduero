@@ -1,0 +1,37 @@
+inc/search.php
+  s_e9446e370cbe94::t_0ebf17b0d1292c 112-116
+tests/SearchTest.php
+  s_e9446e370cbe94::t_38678c0a88f6c9 8-9
+tests/AudiencesTest.php
+  s_e9446e370cbe94::t_ec0a0b25ad0dff 1-45,51-69,92-151
+  s_e9446e370cbe94::t_1f67b015bc0079 70-90
+  s_e9446e370cbe94::t_ba37ba098a3f21 46-50,91
+page-para-ti.php
+  s_e9446e370cbe94::t_0ebf17b0d1292c 1-72
+tests/SituationsTest.php
+  s_e9446e370cbe94::t_38678c0a88f6c9 8
+functions.php
+  s_e9446e370cbe94::t_0ebf17b0d1292c 370-373
+  s_e9446e370cbe94::t_34a23d9bb5f266 369
+inc/audiences.php
+  s_e9446e370cbe94::t_2e9be19762a7db 23-29,36-37
+  s_e9446e370cbe94::t_0ebf17b0d1292c 1-22,30-35,38-137
+MEJORAS-OTROS-AYUNTAMIENTOS.md
+  s_e9446e370cbe94::t_c7ad7d23047de3 97,169
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "c0c7112c7096fcd0e5ff6ccd1b555a5997b9975c",
+  "prompts": {},
+  "sessions": {
+    "s_e9446e370cbe94": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "1f562e24-39c2-46c2-bbfd-3ce887649604",
+        "model": "unknown"
+      },
+      "human_author": "Guillermo López <willyaranda@gmail.com>"
+    }
+  }
+}

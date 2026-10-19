@@ -5,6 +5,13 @@ Tema clásico (PHP) basado en [Underscores](https://underscores.me/), con el CSS
 JavaScript), JavaScript propio sin jQuery, fuente Outfit local e iconos SVG mediante la API de iconos de WordPress 7.1.
 Sin recursos de terceros en el navegador del visitante (RGPD).
 
+## Código público
+
+Este tema es software libre (GPL v2 o posterior) y su código es público. Responde a una política del equipo de gobierno: toda
+inversión en programas propios del Ayuntamiento se publica para que pueda ser reutilizada por otras administraciones, en la línea
+de la campaña europea [«Dinero público, código público»](https://publiccode.eu/) de la Free Software Foundation Europe. Se puede
+consultar, usar y adaptar; las propuestas de mejora son bienvenidas como incidencias o *pull requests*.
+
 ## Requisitos
 
 - WordPress 7.1 o superior (los iconos usan `wp_get_icon()`; en versiones anteriores no se muestran)

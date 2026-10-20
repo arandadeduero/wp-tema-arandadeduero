@@ -41,7 +41,7 @@ $sidebar = isset( $sidebar_by_term[ $current_term->slug ] ) ? $sidebar_by_term[ 
 	<div class="container mt-4">
 		<div class="row">
 			<div class="col-lg-3 pt-4">
-				<?php dynamic_sidebar( $sidebar ); ?>
+				<?php 'Servicios' === $sidebar ? aranda_de_duero_the_areas_menu() : dynamic_sidebar( $sidebar ); ?>
 			</div>
 			<div class="col-lg-9 pt-4">
 				<main id="primary" class="site-main">

@@ -408,6 +408,11 @@ require get_template_directory() . '/inc/term-contact.php';
 require get_template_directory() . '/inc/concejalias-directory.php';
 
 /**
+ * Left-hand menu of the concejalía and tema archives: the sub-menu «Áreas y servicios» of the main menu.
+ */
+require get_template_directory() . '/inc/areas-menu.php';
+
+/**
  * Colour contrast helpers and Customizer validation.
  */
 require get_template_directory() . '/inc/color-contrast.php';

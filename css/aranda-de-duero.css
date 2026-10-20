@@ -3057,6 +3057,7 @@ a.service-card:focus-visible .service-card-title {
 }
 
 .home-carousel-slide {
+    position: relative;
     flex: 0 0 100%;
     scroll-snap-align: start;
 }
@@ -3068,6 +3069,30 @@ a.service-card:focus-visible .service-card-title {
     max-height: 494px; /* como el Smart Slider: proporción 3,72:1 hasta 494 px de alto */
     aspect-ratio: 3.72 / 1;
     object-fit: cover;
+}
+
+/*
+ * Vídeo de la diapositiva: encima de su imagen, que se sigue viendo hasta que empieza a reproducirse (js/home-carousel.js).
+ * El selector lleva `.home-carousel` para ganar a `.home-video video { height: 60vh }`, que ya existía.
+ */
+.home-carousel .home-carousel-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.home-carousel .home-carousel-video.is-playing {
+    opacity: 1;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .home-carousel .home-carousel-video {
+        transition: opacity 0.3s;
+    }
 }
 
 .home-carousel-button {

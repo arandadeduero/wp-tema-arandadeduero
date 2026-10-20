@@ -1,0 +1,33 @@
+tests/TermSortTest.php
+  s_e9446e370cbe94::t_b4c065aad0066d 1-33
+css/aranda-de-duero.css
+  s_e9446e370cbe94::t_de6bc0f05353b4 3368-3394,3397-3418,3420-3426
+  s_e9446e370cbe94::t_f40c069993f7fc 3395-3396
+template-parts/concejalia-card.php
+  s_e9446e370cbe94::t_c8b1ee29f03ff6 1-69
+inc/term-index.php
+  s_e9446e370cbe94::t_de6bc0f05353b4 56-74
+  s_e9446e370cbe94::t_d02be9c72e6fbb 55
+template-parts/term-index.php
+  s_e9446e370cbe94::t_de6bc0f05353b4 67-74
+MEJORAS-OTROS-AYUNTAMIENTOS.md
+  s_e9446e370cbe94::t_dfc1a78f904319 178
+docs/taxonomias-y-concejalias.md
+  s_e9446e370cbe94::t_274b41acdaa878 352-359
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "604041839b8a6fe4fe3f5f8826af026e856e112c",
+  "prompts": {},
+  "sessions": {
+    "s_e9446e370cbe94": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "1f562e24-39c2-46c2-bbfd-3ce887649604",
+        "model": "claude-sonnet-5-5"
+      },
+      "human_author": "Guillermo López <willyaranda@gmail.com>"
+    }
+  }
+}

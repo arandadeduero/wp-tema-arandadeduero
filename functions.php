@@ -398,6 +398,11 @@ require get_template_directory() . '/inc/term-index.php';
 require get_template_directory() . '/inc/term-contact.php';
 
 /**
+ * Links from the contact directory (/informacion-de-concejalias/) to the page of each concejalía.
+ */
+require get_template_directory() . '/inc/concejalias-directory.php';
+
+/**
  * Colour contrast helpers and Customizer validation.
  */
 require get_template_directory() . '/inc/color-contrast.php';

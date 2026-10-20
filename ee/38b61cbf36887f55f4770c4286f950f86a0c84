@@ -1,0 +1,23 @@
+MEJORAS-OTROS-AYUNTAMIENTOS.md
+  s_e9446e370cbe94::t_9e79ef9341cfde 177
+inc/concejalias-directory.php
+  s_e9446e370cbe94::t_374b5f6d397463 38
+tests/ConcejaliasDirectoryTest.php
+  s_e9446e370cbe94::t_df2da167aeb51e 27
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "ee38b61cbf36887f55f4770c4286f950f86a0c84",
+  "prompts": {},
+  "sessions": {
+    "s_e9446e370cbe94": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "1f562e24-39c2-46c2-bbfd-3ce887649604",
+        "model": "claude-sonnet-5-5"
+      },
+      "human_author": "Guillermo López <willyaranda@gmail.com>"
+    }
+  }
+}

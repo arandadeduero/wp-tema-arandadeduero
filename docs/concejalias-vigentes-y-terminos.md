@@ -15,19 +15,19 @@ estudio de [estado actual de los contenidos](estado-actual-de-los-contenidos.md)
 | 1 | **Contratación** | Alcalde (A. Linaje) | `contratacion` («Contratación», 0 · sin entradas) | — | Creada el 2026-10-20 (id 683), vacía | Asignarla a las entradas del área. |
 | 2 | **Participación Ciudadana** | Alcalde (A. Linaje) | `participacion-ciudadana` («participación ciudadana», 1 · 2026-09) | — | Existe, casi sin uso | Mantener; empezar a asignarlo a las entradas. |
 | 3 | **Barrios** | Alcalde (A. Linaje) | `barrios` («barrios», 1 · 2026-08) | — | Existe, casi sin uso | Mantener; empezar a asignarlo. Renombrar a «Barrios» (hoy en minúscula). |
-| 4 | **Promoción** | 1er Tte. Alcalde (J. M. Martín) | `promocion` («Promoción», 18 · 2025-03) | `promocion-y-turismo` («Promoción y Turismo», 2 · 2026-04); `promocion-innovacion-y-turismo` («Promoción, Innovación y Turismo», 193 · 2020-11) | Existe, mezclado con Turismo e Innovación | Usar `promocion`; los compuestos pasan a histórico. |
+| 4 | **Promoción** | 1er Tte. Alcalde (J. M. Martín) | `promocion` («Promoción», 18 · 2025-03) | `promocion-y-turismo` («Promoción y Turismo», 2 · 2026-04); `promocion-innovacion-y-turismo` («Promoción y Turismo», 184 · 2020-11) | Existe, mezclado con Turismo e Innovación | Usar `promocion`; los compuestos pasan a histórico. |
 | 5 | **Seguridad Ciudadana** | 1er Tte. Alcalde (J. M. Martín) | — | `seguridad-ciudadana-y-bomberos` («Seguridad Ciudadana y Bomberos», 2 · 2023-10); `proteccion-civil-seguridad-ciudadana-y-bomberos` («Protección Civil, Seguridad Ciudadana y Bomberos», 65 · 2021-03); `proteccion-civil` («Protección Civil», 2 · 2023-10); `policia` («Policía», 7 · 2023-12) | No existe con ese nombre | Crear `seguridad-ciudadana` o renombrar `seguridad-ciudadana-y-bomberos`; decidir si Protección Civil y Policía son concejalías propias. |
 | 6 | **Movilidad** | 1er Tte. Alcalde (J. M. Martín) | `movilidad` («Movilidad», 2 · 2026-05) | `oficina-de-la-movilidad` («Oficina de la Movilidad», 4 · 2016-01) | Existe, poco uso | Mantener `movilidad`; `oficina-de-la-movilidad` (2016) a histórico. |
 | 7 | **Medio Ambiente** | 1er Tte. Alcalde (J. M. Martín) | `medio-ambiente` («Medio Ambiente», 32 · 2026-05) | `medio-ambiente-aseo-urbano-parques-y-jardines` («Medio Ambiente, Aseo Urbano, Parques y Jardines», 115 · 2021-02); `aseo-urbano` («Aseo Urbano», 9 · 2025-01); `parques-y-jardines` («Parques y Jardines», 9 · 2025-01) | Existe, con compuesto antiguo | Usar `medio-ambiente`; el compuesto (2021) a histórico; decidir si Aseo Urbano y Parques y Jardines son áreas o subtemas. |
 | 8 | **Deportes** | 2ª Tte. Alcalde (B. Esteban) | `deportes` («Deportes», 140 · 2026-03) | — | Existe y activo | Mantener. |
 | 9 | **Personal** | 2ª Tte. Alcalde (B. Esteban) | `personal` («Personal», 93 · 2025-07) | — | Existe, activo | Mantener. |
-| 10 | **Turismo** | 3ª Tte. Alcalde (A. Sanz) | `turismo` («Turismo», 241 · 2026-04) | `innovacion-y-turismo` («Innovación y Turismo», 17 · 2025-03); `promocion-y-turismo` («Promoción y Turismo», 2 · 2026-04); `promocion-innovacion-y-turismo` («Promoción, Innovación y Turismo», 193 · 2020-11) | Existe, mezclado | Usar `turismo`; los compuestos a histórico. |
+| 10 | **Turismo** | 3ª Tte. Alcalde (A. Sanz) | `turismo` («Turismo», 241 · 2026-04) | `innovacion-y-turismo` («Turismo», 16 · 2025-03); `promocion-y-turismo` («Promoción y Turismo», 2 · 2026-04); `promocion-innovacion-y-turismo` («Promoción y Turismo», 184 · 2020-11) | Existe, mezclado | Usar `turismo`; los compuestos a histórico. |
 | 11 | **Comercio y Consumo** | 3ª Tte. Alcalde (A. Sanz) | `comercio-y-consumo` («Comercio y Consumo», 59 · 2026-03) | — | Existe y activo | Mantener. |
 | 12 | **Hacienda** | G. López | `hacienda` («hacienda», 1 · 2025-10) | `gestion-tributaria` («Gestión Tributaria», 284 · 2023-02); `recaudacion-y-tesoreria` («Recaudación y Tesorería», 4 · 2023-12); `intervencion` («Intervención», 7 · 2018-11) | Existe, casi sin uso (y con tres términos de departamento) | Usar `hacienda` (renombrar a «Hacienda»); decidir qué hacer con Gestión Tributaria (284 entradas, hasta 2023), Recaudación y Tesorería e Intervención. |
 | 13 | **Nuevas Tecnologías** | G. López | `nuevas-tecnologias` («Nuevas Tecnologías», 0 · sin entradas) | — | Existe, vacío | Mantener o fusionar con Transición Digital e Innovación. |
 | 14 | **Transición Digital** | G. López | `transicion-digital` («Transición Digital», 0 · sin entradas) | — | Creada el 2026-10-20 (id 684), vacía | Asignarla a las entradas del área. |
 | 15 | **Procesos** | G. López | `procesos` («Procesos», 0 · sin entradas) | — | Creada el 2026-10-20 (id 685), vacía | Asignarla a las entradas del área. |
-| 16 | **Innovación** | G. López | — | `innovacion-y-turismo` («Innovación y Turismo», 17 · 2025-03) | No existe sola | Crear `innovacion`; `innovacion-y-turismo` a histórico. |
+| 16 | **Innovación** | G. López | `innovacion` («Innovación», 10 · 2023-05) | — | Creada el 2026-10-20 (id 689) | Asignarla a las entradas de innovación; hay 11 entradas dudosas pendientes del concejal. |
 | 17 | **Comunicación** | G. López | `comunicacion` («Comunicación», 0 · sin entradas) | — | Creada el 2026-10-20 (id 686), vacía | Asignarla a las entradas del área. |
 | 18 | **Urbanismo** | A. M. Hervás | `urbanismo-y-vivienda` («Urbanismo y vivienda», 92 · 2026-03) | — | Existe, activo (en el menú) | Mantener; decidir si «y vivienda» sigue siendo área. |
 | 19 | **Cementerio** | A. M. Hervás | `cementerio` («Cementerio», 0 · sin entradas) | — | Creada el 2026-10-20 (id 687), vacía | Asignarla a las entradas del área. |
@@ -70,3 +70,16 @@ estudio de [estado actual de los contenidos](estado-actual-de-los-contenidos.md)
 5. ¿Sigue activa la concejalía de Hermanamientos (última entrada de 2015)?
 
 Tabla del 2026-10-20: conviene rehacerla cada 3 meses con la página de la corporación y la API, porque las áreas cambian con los gobiernos y las delegaciones.
+
+## Innovación (2026-10-20)
+
+Se creó la concejalía **Innovación** (`innovacion`, id 689; la lleva Guillermo López) y se quitó «Innovación» del nombre de las otras
+dos que lo llevaban, sin cambiar sus direcciones: `promocion-innovacion-y-turismo` pasa a llamarse «Promoción y Turismo» y
+`innovacion-y-turismo`, «Turismo». **Quedan nombres repetidos** con `promocion-y-turismo` y `turismo` (distinta dirección).
+
+Se leyeron las 193 entradas de esos dos términos (la API pública devuelve 178 + 15; las demás cuentas del término serán otros tipos de
+contenido o no publicadas, sin comprobar) y se pasaron a Innovación las **10 claras** (Foro de Innovación 2008, jornada de
+innovación 2015, Ciudad de la Ciencia y la Innovación 2016, Red Innpulso 2017-2018, GESTIDI 2017, jornada de innovación tecnológica
+2018 y «Digitaliza tu Pueblo» 2023), quitándolas del término antiguo. **Quedan 11 dudosas** (emprendimiento con algo de innovación:
+YUZZ, EmprendeGO, aceleradora ArandaEmprende, Red de Emprendimiento e Innovación; y VINTUR, Premio Innova Aquae, taller
+co-creativo, DUSI, ciudad amigable con la edad), que decide el concejal. El resto (172) se queda donde estaba.

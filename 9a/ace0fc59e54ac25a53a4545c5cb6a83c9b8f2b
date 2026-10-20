@@ -1,0 +1,35 @@
+tests/TermIndexTest.php
+  s_e9446e370cbe94::t_c3257bf3cdbfbd 1-28
+functions.php
+  s_e9446e370cbe94::t_1058e562efa2a3 391-394
+  s_e9446e370cbe94::t_1a8a2a49d32fbc 390
+template-parts/term-index.php
+  s_e9446e370cbe94::t_381160cc29643b 1-136
+css/aranda-de-duero.css
+  s_e9446e370cbe94::t_1058e562efa2a3 3345-3363
+inc/term-index.php
+  s_e9446e370cbe94::t_1058e562efa2a3 1-130
+index-terminos.php
+  s_e9446e370cbe94::t_1058e562efa2a3 1-2,4-9,11
+  s_e9446e370cbe94::t_381160cc29643b 3,10
+MEJORAS-OTROS-AYUNTAMIENTOS.md
+  s_e9446e370cbe94::t_529f5e702d4185 176
+docs/taxonomias-y-concejalias.md
+  s_e9446e370cbe94::t_6a13cc65ece251 274-285
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "9aace0fc59e54ac25a53a4545c5cb6a83c9b8f2b",
+  "prompts": {},
+  "sessions": {
+    "s_e9446e370cbe94": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "1f562e24-39c2-46c2-bbfd-3ce887649604",
+        "model": "claude-sonnet-5-5"
+      },
+      "human_author": "Guillermo López <willyaranda@gmail.com>"
+    }
+  }
+}

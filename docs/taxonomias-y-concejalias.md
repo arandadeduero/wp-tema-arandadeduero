@@ -271,3 +271,15 @@ conviene proponerlos y esperar (CLAUDE.md).
 
 Antes de un PR: ejecutar `composer run lint:php`, `lint:wpcs`, `phpstan`, `test` y los linters de JS y CSS (CLAUDE.md), y
 actualizar este documento si cambia alguna referencia de línea.
+
+## Índices `/tema/`, `/concejalia/` y `/tramite/` (PR #97)
+
+Esas tres direcciones eran un 404 (CPT UI no registra archivo para ellas). Ahora responden con 200 y un listado
+(`inc/term-index.php`, `index-terminos.php`, `template-parts/term-index.php`):
+
+- **Visitantes:** los términos con contenido y de nombre no numérico (o los trámites publicados), cada uno enlazado. Sin `index`
+  para buscadores (`noindex`).
+- **Administradores** (`manage_options`): todos, con ID, dirección, número de elementos (el de WordPress, de todos los tipos),
+  fecha de la última entrada, estado (Vigente / Histórico / Sin entradas / nombre numérico) y enlace «Editar».
+- No añade reglas de reescritura (no hace falta vaciar enlaces permanentes): reconoce la petición que WordPress iba a responder
+  con 404 por su ruta y la responde con 200. `/tramites/` (plural) sigue siendo la página de la tabla.

@@ -64,16 +64,19 @@ if ( 'tramite' === $aranda_kind ) {
 
 			<?php if ( empty( $aranda_rows ) ) : ?>
 				<p class="archive-empty"><?php esc_html_e( 'Todavía no hay nada en este apartado.', 'aranda-de-duero' ); ?></p>
+			<?php elseif ( ! $aranda_admin && 'concejalia' === $aranda_kind ) : ?>
+				<ul class="concejalia-grid">
+					<?php
+					foreach ( aranda_de_duero_sort_terms_by_name( $aranda_rows ) as $aranda_row ) {
+						get_template_part( 'template-parts/concejalia-card', null, array( 'term' => $aranda_row ) );
+					}
+					?>
+				</ul>
 			<?php elseif ( ! $aranda_admin ) : ?>
 				<ul class="term-index">
 					<?php foreach ( $aranda_rows as $aranda_row ) : ?>
 						<li>
 							<a href="<?php echo esc_url( 'tramite' === $aranda_kind ? get_permalink( $aranda_row ) : get_term_link( $aranda_row ) ); ?>"><?php echo esc_html( 'tramite' === $aranda_kind ? get_the_title( $aranda_row ) : $aranda_row->name ); ?></a>
-							<?php
-							if ( 'concejalia' === $aranda_kind ) {
-								get_template_part( 'template-parts/term-contact', null, array( 'term' => $aranda_row ) );
-							}
-							?>
 						</li>
 					<?php endforeach; ?>
 				</ul>

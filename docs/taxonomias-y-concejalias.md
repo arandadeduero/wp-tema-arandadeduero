@@ -349,3 +349,11 @@ activo) no se vuelve a registrar, así que el plugin se puede desactivar cuando 
 - **Qué comprobar:** los 10 nombres, su `rest_base`, `hierarchical`, `taxonomies` y los números de elementos por la API REST (antes y después),
   y que `/tramite/`, `/concejalia/` y `/tema/` siguen respondiendo.
 - Si se cambia algo de aquí (por ejemplo, dar archivo a `tramite`), se hace en `inc/content-types.php`, ya sin pantalla de administración.
+
+## Índice público de concejalías en tarjetas (PR #113)
+
+`/concejalia/` (sin sesión) lista las concejalías con contenido como **tarjetas** (`template-parts/concejalia-card.php`, estilos `.concejalia-grid` y
+`.concejalia-card`): nombre (enlace), concejal y, si están rellenos, teléfono, correo y ubicación con iconos. Van en **orden alfabético sin tildes ni
+mayúsculas** (`aranda_de_duero_sort_terms_by_name()`), porque el plugin de orden de términos imponía uno manual que no se veía en ningún sitio. La
+vista de administradores (tabla con ID, recuentos y estado) no cambia. El color de los títulos y sus enlaces lo fija el Personalizador (`h2 a`…), así que el
+nombre de la tarjeta sale oscuro y solo se subraya al pasar el ratón.

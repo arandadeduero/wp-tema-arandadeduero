@@ -3365,10 +3365,65 @@ a.service-card:focus-visible .service-card-title {
     margin: 0;
 }
 
-.term-index .term-contact {
-    margin-top: var(--spacing-xs);
-    padding: var(--spacing-xs) var(--spacing-sm);
+/* Índice público de concejalías: una tarjeta por concejalía (template-parts/concejalia-card.php). */
+.concejalia-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 19rem), 1fr));
+    gap: var(--spacing-lg);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.concejalia-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    border: 1px solid var(--color-black-20);
+    border-top: 4px solid var(--color-primary-accessible);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-lg);
+    background: var(--color-white);
+}
+
+.concejalia-card-title {
+    margin: 0;
+    font-size: 1.25rem;
+    line-height: 1.25;
+}
+
+/* El color de los títulos y de sus enlaces lo fija el Personalizador (h1 a… h6 a): aquí solo el subrayado. */
+.concejalia-card-title a {
+    text-decoration: none;
+}
+
+.concejalia-card-title a:hover,
+.concejalia-card-title a:focus-visible {
+    text-decoration: underline;
+}
+
+.concejalia-card-concejal {
+    margin: 0;
+    font-weight: 600;
+}
+
+.concejalia-card-contact {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+    margin: 0;
+    padding: var(--spacing-sm) 0 0;
+    border-top: 1px solid var(--color-black-10);
+    list-style: none;
+    color: var(--color-gray-75);
     font-size: 0.9375rem;
+    overflow-wrap: anywhere;
+}
+
+.concejalia-card-icon {
+    display: inline-block;
+    margin-inline-end: var(--spacing-xs);
+    color: var(--color-primary-accessible);
 }
 
 /* Índices /tema/, /concejalia/ y /tramite/ (index-terminos.php). */

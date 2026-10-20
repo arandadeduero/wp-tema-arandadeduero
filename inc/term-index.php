@@ -53,6 +53,26 @@ function aranda_de_duero_is_numeric_term_name( $name ) {
 }
 
 /**
+ * Sort terms by name, ignoring case and accents («Educación» between «Deportes» and «Festejos»).
+ *
+ * A term-order plugin may put them in a manual order that nobody sees in the admin; a public index reads better in alphabetical order.
+ *
+ * @param WP_Term[] $terms Terms.
+ * @return WP_Term[]
+ */
+function aranda_de_duero_sort_terms_by_name( $terms ) {
+	$terms = array_values( $terms );
+	usort(
+		$terms,
+		function ( $a, $b ) {
+			return strcmp( strtolower( remove_accents( $a->name ) ), strtolower( remove_accents( $b->name ) ) );
+		}
+	);
+
+	return $terms;
+}
+
+/**
  * Answer an index with its own template and a 200.
  *
  * @param string $template Template WordPress chose.

@@ -61,19 +61,19 @@
 				</tr>
 				<tr>
 					<td><strong><?php esc_html_e( 'Dirigido a', 'aranda-de-duero' ); ?> </strong></td>
-					<td><?php echo esc_html( get_field( 'tramite_dirigido' ) ); ?></td>
+					<td><?php echo esc_html( aranda_de_duero_field( 'tramite_dirigido' ) ); ?></td>
 				</tr>
 				<tr>
 					<td><strong><?php esc_html_e( 'Gestor', 'aranda-de-duero' ); ?></strong></td>
-					<td><?php echo esc_html( get_field( 'tramite_gestor' ) ); ?></td>
+					<td><?php echo esc_html( aranda_de_duero_field( 'tramite_gestor' ) ); ?></td>
 				</tr>
 				<tr>
 					<td><strong><?php esc_html_e( 'Normativa', 'aranda-de-duero' ); ?></strong></td>
-					<td><?php echo esc_html( get_field( 'tramite_normativa' ) ); ?></td>
+					<td><?php echo esc_html( aranda_de_duero_field( 'tramite_normativa' ) ); ?></td>
 				</tr>
 				<tr>
 					<td><strong><?php esc_html_e( 'Forma de pago', 'aranda-de-duero' ); ?> </strong></td>
-					<td><?php echo esc_html( get_field( 'tramite_pago' ) ); ?></td>
+					<td><?php echo esc_html( aranda_de_duero_field( 'tramite_pago' ) ); ?></td>
 				</tr>
 				<tr>
 					<td><strong><?php esc_html_e( 'Descripción', 'aranda-de-duero' ); ?> </strong></td>
@@ -98,11 +98,11 @@
 				</tr>
 				<tr>
 					<td><strong><?php esc_html_e( 'Procedimiento', 'aranda-de-duero' ); ?> </strong></td>
-					<td><?php echo esc_html( get_field( 'tramite_procedimiento' ) ); ?></td>
+					<td><?php echo esc_html( aranda_de_duero_field( 'tramite_procedimiento' ) ); ?></td>
 				</tr>
 				<tr>
 					<td><strong><?php esc_html_e( 'Fichero adjunto', 'aranda-de-duero' ); ?></strong></td>
-					<td><a class="text-dark" href="<?php echo esc_url( get_field( 'tramite_fichero' ) ); ?>" target="_blank" rel="noopener"><?php esc_html_e( 'Descargar', 'aranda-de-duero' ); ?><?php aranda_de_duero_the_new_tab_notice(); ?></a></td>
+					<td><a class="text-dark" href="<?php echo esc_url( aranda_de_duero_field( 'tramite_fichero' ) ); ?>" target="_blank" rel="noopener"><?php esc_html_e( 'Descargar', 'aranda-de-duero' ); ?><?php aranda_de_duero_the_new_tab_notice(); ?></a></td>
 				</tr>
 			</tbody>
 		</table>

@@ -195,7 +195,7 @@ if ( ! function_exists( 'aranda_de_duero_the_header_image' ) ) :
 	function aranda_de_duero_the_header_image( $alt = '', $term_object = null ) {
 		$header_image = wp_get_attachment_url( get_theme_mod( 'aranda_de_duero_default_header_image' ) );
 
-		$field = $term_object ? get_field( 'cabecera_de_pagina', $term_object ) : get_field( 'cabecera_de_pagina' );
+		$field = aranda_de_duero_field( 'cabecera_de_pagina', $term_object ? $term_object : false );
 		if ( $field ) {
 			$header_image = $field;
 		}

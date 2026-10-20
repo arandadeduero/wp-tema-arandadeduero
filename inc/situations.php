@@ -60,9 +60,7 @@ function aranda_de_duero_portal_procedures() {
  * @return string
  */
 function aranda_de_duero_situations_url() {
-	$page = get_page_by_path( 'tramites-por-situaciones' );
-
-	return ( $page instanceof WP_Post && 'publish' === $page->post_status ) ? (string) get_permalink( $page ) : '';
+	return aranda_de_duero_page_url( 'tramites-por-situaciones' );
 }
 
 /**

@@ -283,3 +283,10 @@ Esas tres direcciones eran un 404 (CPT UI no registra archivo para ellas). Ahora
   fecha de la última entrada, estado (Vigente / Histórico / Sin entradas / nombre numérico) y enlace «Editar».
 - No añade reglas de reescritura (no hace falta vaciar enlaces permanentes): reconoce la petición que WordPress iba a responder
   con 404 por su ruta y la responde con 200. `/tramites/` (plural) sigue siendo la página de la tabla.
+
+## Listado de entradas de concejalías y temas (PR #98)
+
+`template-parts/term-posts.php` (concejalías y temas con diseño de tarjetas) pinta ahora el mismo tipo de tarjeta que `/noticias/`
+(`page-news.php`): dos columnas, imagen arriba, **fecha**, título, extracto de 30 palabras y botón «Ver más»; sin imagen, la tarjeta
+va sin ella. Antes era una lista de miniatura de 200 px a la izquierda y título. Reutiliza las clases `home-main-news*`, sin CSS
+nuevo. El diseño de tabla de los temas (tributos, concursos…) no cambia.

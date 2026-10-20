@@ -69,6 +69,11 @@ if ( 'tramite' === $aranda_kind ) {
 					<?php foreach ( $aranda_rows as $aranda_row ) : ?>
 						<li>
 							<a href="<?php echo esc_url( 'tramite' === $aranda_kind ? get_permalink( $aranda_row ) : get_term_link( $aranda_row ) ); ?>"><?php echo esc_html( 'tramite' === $aranda_kind ? get_the_title( $aranda_row ) : $aranda_row->name ); ?></a>
+							<?php
+							if ( 'concejalia' === $aranda_kind ) {
+								get_template_part( 'template-parts/term-contact', null, array( 'term' => $aranda_row ) );
+							}
+							?>
 						</li>
 					<?php endforeach; ?>
 				</ul>
@@ -105,6 +110,9 @@ if ( 'tramite' === $aranda_kind ) {
 								<th><?php esc_html_e( 'Nombre', 'aranda-de-duero' ); ?></th>
 								<th><?php esc_html_e( 'ID', 'aranda-de-duero' ); ?></th>
 								<th><?php esc_html_e( 'Dirección', 'aranda-de-duero' ); ?></th>
+								<?php if ( 'concejalia' === $aranda_kind ) : ?>
+									<th><?php esc_html_e( 'Concejal', 'aranda-de-duero' ); ?></th>
+								<?php endif; ?>
 								<th><?php esc_html_e( 'Elementos', 'aranda-de-duero' ); ?></th>
 								<th><?php esc_html_e( 'Última entrada', 'aranda-de-duero' ); ?></th>
 								<th><?php esc_html_e( 'Estado', 'aranda-de-duero' ); ?></th>
@@ -120,6 +128,9 @@ if ( 'tramite' === $aranda_kind ) {
 									<td><a href="<?php echo esc_url( get_term_link( $aranda_row ) ); ?>"><?php echo esc_html( $aranda_row->name ); ?></a></td>
 									<td><?php echo esc_html( (string) $aranda_row->term_id ); ?></td>
 									<td><code>/<?php echo esc_html( $aranda_kind . '/' . $aranda_row->slug ); ?>/</code></td>
+									<?php if ( 'concejalia' === $aranda_kind ) : ?>
+										<td><?php echo esc_html( (string) get_term_meta( $aranda_row->term_id, 'concejalia_concejal', true ) ); ?></td>
+									<?php endif; ?>
 									<td><?php echo esc_html( (string) $aranda_row->count ); ?></td>
 									<td><?php echo esc_html( $aranda_status['newest'] > 0 ? wp_date( get_option( 'date_format' ), $aranda_status['newest'] ) : '–' ); ?></td>
 									<td><?php echo esc_html( $aranda_status['label'] ); ?></td>

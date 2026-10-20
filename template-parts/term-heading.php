@@ -20,6 +20,7 @@ $aranda_newest = aranda_de_duero_term_newest_timestamp( $aranda_term );
 	<?php if ( '' !== trim( $aranda_term->description ) ) : ?>
 		<div class="archive-description"><?php echo wp_kses_post( wpautop( $aranda_term->description ) ); ?></div>
 	<?php endif; ?>
+	<?php get_template_part( 'template-parts/term-contact', null, array( 'term' => $aranda_term ) ); ?>
 	<?php if ( aranda_de_duero_is_historic( $aranda_newest, time() ) ) : ?>
 		<div class="old-post-disclaimer alert alert-warning d-flex align-items-center mt-3 mb-0" role="note">
 			<span class="mr-3 old-post-disclaimer-icon">

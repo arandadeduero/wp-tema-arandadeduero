@@ -41,7 +41,7 @@ function aranda_de_duero_social_image() {
 	}
 
 	if ( is_singular() ) {
-		$header_image = get_field( 'cabecera_de_pagina' );
+		$header_image = aranda_de_duero_field( 'cabecera_de_pagina' );
 		if ( $header_image ) {
 			return array(
 				'url'    => $header_image,

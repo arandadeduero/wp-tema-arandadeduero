@@ -130,9 +130,8 @@ Para las tres taxonomías hay una dirección canónica (`<link rel="canonical">`
   `/concejalia/<slug>/`) o como «enlaces personalizados» con la dirección escrita. El código no lo distingue y no lo puede
   saber. Ejemplo documentado: «Educación» del menú enlaza a `/concejalia/cultura/` (`MEJORAS-OTROS-AYUNTAMIENTOS.md:110`, fila E2).
 - **Menú «Ayuntamiento» de la barra lateral:** `MEJORAS-OTROS-AYUNTAMIENTOS.md:112` dice que existe otro menú
-  (`menu-ayuntamiento`), distinto del principal, que se muestra en una barra lateral. El tema registra `sidebar-ayuntamiento`
-  (`functions.php:161`) pero **ninguna plantilla la pinta** (VERIFICADO por `grep`; `page-ayuntamiento.php` no tiene
-  `dynamic_sidebar`). Es código muerto o el menú está en otra barra (INFERIDO: en `sidebar-1`, que sí sale en `page.php:23`).
+  (`menu-ayuntamiento`), distinto del principal, que se muestra en una barra lateral. El tema registraba `sidebar-ayuntamiento`
+  pero **ninguna plantilla la pintaba** (VERIFICADO por `grep`); se retiró en el PR #96. Es código muerto o el menú está en otra barra (INFERIDO: en `sidebar-1`, que sí sale en `page.php:23`).
 
 ### Listas de direcciones escritas a mano
 
@@ -194,7 +193,7 @@ administrador pone *widgets* desde *Apariencia → Widgets*. El tema decide **d�
 | Id (nombre) | Registrada en | Quién la pinta | Contexto |
 |---|---|---|---|
 | `sidebar-1` («Sidebar») | `functions.php:160` | `sidebar.php:10-16`, llamada desde `page.php:23` e `index.php:59` | Páginas normales y el índice |
-| `sidebar-ayuntamiento` («Ayuntamiento») | `functions.php:161` | **Nadie** (VERIFICADO por `grep`) | Código muerto, o con widgets que no se ven |
+| `sidebar-ayuntamiento` («Ayuntamiento») | retirada en el PR #96 | Nadie | Era código muerto; si tenía widgets, quedan en «Widgets inactivos» |
 | `sidebar-villa` («Villa») | `functions.php:162` | `page-villa.php:20` (por nombre) | Páginas con la plantilla «Villa de Aranda» |
 | `sidebar-noticias` («Noticias») | `functions.php:163` | `search.php:28` | Resultados de búsqueda |
 | `sidebar-tramites` («Tramites») | `functions.php:164` | `single-tramite.php:16` (por id), `page-tramite.php:33` (por nombre), `taxonomy-tema.php:44` | Fichas de trámite, listado de trámites y los temas de tipo boletín |

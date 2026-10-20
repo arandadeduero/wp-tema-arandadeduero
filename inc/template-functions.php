@@ -22,7 +22,6 @@ function aranda_de_duero_body_classes( $classes ) {
 	// Adds a class of no-sidebar when no sidebar is active for the current context.
 	$sidebar_ids = array(
 		'sidebar-1',
-		'sidebar-ayuntamiento',
 		'sidebar-villa',
 		'sidebar-noticias',
 		'sidebar-tramites',
@@ -190,3 +189,34 @@ function aranda_de_duero_archive_page_size( $query ) {
 	}
 }
 add_action( 'pre_get_posts', 'aranda_de_duero_archive_page_size' );
+
+/**
+ * Permalink of a published page by its slug (path), or '' when there is no such page.
+ *
+ * Pages are found by slug, not by title: an editor can retitle a page without breaking the links that point to it.
+ *
+ * @param string $path Slug or path of the page, as in get_page_by_path().
+ * @return string
+ */
+function aranda_de_duero_page_url( $path ) {
+	$page = get_page_by_path( $path );
+
+	return ( $page instanceof WP_Post && 'publish' === $page->post_status ) ? (string) get_permalink( $page ) : '';
+}
+
+/**
+ * Value of an Advanced Custom Fields field, or '' when the plugin is not active.
+ *
+ * ACF is a plugin: calling get_field() while it is deactivated is a fatal error on every page that reads a field.
+ *
+ * @param string $name   Field name.
+ * @param mixed  $source Post, term or ACF object id; the current post when omitted.
+ * @return mixed
+ */
+function aranda_de_duero_field( $name, $source = false ) {
+	if ( ! function_exists( 'get_field' ) ) {
+		return '';
+	}
+
+	return get_field( $name, $source );
+}

@@ -151,8 +151,6 @@ ESLint y Stylelint. PHPUnit sigue en la 9 porque `10up/wp_mock` no soporta la 10
 
 - Purgar el CSS de Bootstrap (≈233 KB, 31 KB gzip; en 9 páginas medidas solo se usa ~12 % de las reglas).
 - Tema de bloques e Interactivity API para el menú.
-- El ajuste del Customizer «Vídeo para la página de inicio» (`aranda_de_duero_front_page_video`, en `functions.php`) ya no
-  se usa en ninguna plantilla: retirarlo o volver a mostrarlo.
 - Quitar del todo Smart Slider cuando la portada ya tenga sus diapositivas (la rama de reserva de `page-home.php` y
   `aranda_de_duero_defer_slider_images()`).
 - **LCP de la home en escritorio (medido el 2026-10-18, Fast 4G):** la imagen de LCP es la primera diapositiva (GIF de 305 KB) y

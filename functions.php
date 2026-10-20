@@ -158,7 +158,6 @@ function aranda_de_duero_widgets_init() {
 	// All sidebars share the same shape; only the name/id differ.
 	$sidebars = array(
 		'sidebar-1'            => 'Sidebar',
-		'sidebar-ayuntamiento' => 'Ayuntamiento',
 		'sidebar-villa'        => 'Villa',
 		'sidebar-noticias'     => 'Noticias',
 		'sidebar-tramites'     => 'Tramites',
@@ -510,36 +509,6 @@ function aranda_de_duero_customizer_settings( $wp_customize ) {
 			'section' => 'aranda_de_duero_options',
 		)
 	);
-	// add a setting for front page video
-	$wp_customize->add_setting( 'aranda_de_duero_front_page_video', array( 'sanitize_callback' => 'absint' ) );
-	// Add a control for front page vídeo
-	$wp_customize->add_control(
-		new WP_Customize_Media_Control(
-			$wp_customize,
-			'aranda_de_duero_front_page_video',
-			array(
-				'section'   => 'aranda_de_duero_options',
-				'label'     => 'Vídeo para la página de inicio',
-				'mime_type' => 'video',
-			)
-		)
-	);
-
-	// add a setting for Default list image
-	$wp_customize->add_setting( 'aranda_de_duero_default_list_image', array( 'sanitize_callback' => 'absint' ) );
-	// Add a control for Default list image
-	$wp_customize->add_control(
-		new WP_Customize_Media_Control(
-			$wp_customize,
-			'aranda_de_duero_default_list_image',
-			array(
-				'section'   => 'aranda_de_duero_options',
-				'label'     => 'Imagen por defecto para los listados de noticias',
-				'mime_type' => 'image',
-			)
-		)
-	);
-
 	// add a setting for Default header image
 	$wp_customize->add_setting( 'aranda_de_duero_default_header_image', array( 'sanitize_callback' => 'absint' ) );
 	// Add a control for Default header image
@@ -728,27 +697,6 @@ function aranda_de_duero_content( $type, $order = null, $order_way = null, $limi
 		'no_found_rows'  => ! $paginated,
 	);
 	return new WP_Query( array_merge( $args, $extra_args ) );
-}
-
-/**
- * Get the permalink of a published page by its exact title.
- *
- * Replaces the deprecated get_page_by_title() with an equivalent WP_Query lookup.
- *
- * @param string $title Exact page title to search for.
- * @return string Permalink, or an empty string if no matching page is found.
- */
-function aranda_de_duero_get_page_permalink_by_title( $title ) {
-	$query = new WP_Query(
-		array(
-			'post_type'      => 'page',
-			'title'          => $title,
-			'post_status'    => 'publish',
-			'posts_per_page' => 1,
-		)
-	);
-
-	return $query->have_posts() ? get_permalink( $query->posts[0] ) : '';
 }
 
 function aranda_de_duero_temas( $slug ) {

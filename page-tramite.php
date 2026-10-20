@@ -52,7 +52,7 @@ aranda_de_duero_the_header_image( '' );
 											?>
 											<tr>
 													<td><?php echo get_the_date(); ?></td>
-													<td><?php echo esc_html( get_field( 'tramite_gestor' ) ); ?></td>
+													<td><?php echo esc_html( aranda_de_duero_field( 'tramite_gestor' ) ); ?></td>
 													<td><a class="text-dark" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></td>
 											</tr>
 										<?php endwhile; ?>

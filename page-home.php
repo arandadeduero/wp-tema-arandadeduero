@@ -23,8 +23,8 @@ get_header();
 						aranda_de_duero_enqueue_home_carousel();
 						// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- built by aranda_de_duero_home_carousel_html(), which escapes every value.
 						echo $aranda_carousel;
-					} else {
-						// Until the first slide exists in «Portada», keep the Smart Slider.
+					} elseif ( shortcode_exists( 'smartslider3' ) ) {
+						// Until the first slide exists in «Portada», keep the Smart Slider (if the plugin is active).
 						// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- shortcode output from Smart Slider, post-processed by a string filter that only rewrites <img> attributes.
 						echo aranda_de_duero_defer_slider_images( do_shortcode( '[smartslider3 slider="2"]' ) );
 					}
@@ -216,17 +216,20 @@ $query = aranda_de_duero_content(
 		</div>
 
 	</div>
+	<?php $aranda_news_url = aranda_de_duero_page_url( 'noticias' ); ?>
+	<?php if ( '' !== $aranda_news_url ) : ?>
 	<div class="container mt-4">
 		<div class="row justify-content-center">
 			<div class="p-0 col-6 text-center">
 				<div class="home-more-news col-8 p-0 mx-auto">
-					<a href="<?php echo esc_url( aranda_de_duero_get_page_permalink_by_title( 'Noticias' ) ); ?>page/2/" class="home-more-news-button">
+					<a href="<?php echo esc_url( trailingslashit( $aranda_news_url ) . 'page/2/' ); ?>" class="home-more-news-button">
 						<p class="mb-0 py-2"><?php esc_html_e( 'Más actualidad', 'aranda-de-duero' ); ?></p>
 					</a>
 				</div>
 			</div>
 		</div>
 	</div>
+	<?php endif; ?>
 
 	<!-- Fin noticias  -->
 

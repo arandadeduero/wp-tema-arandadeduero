@@ -26,12 +26,14 @@ administrador o la web real (lista completa al final).
   «Expediente Plaza de Toros», el banner de Fiestas… Cambiarlos exige editar el tema y volver a desplegarlo (`npm run release`).
 - **Hay 19 plantillas de página** (`Template Name:`). Casi todas se eligen en *Páginas → editar → Plantilla*. Tres buscan la página
   por su dirección (slug) exacta y otras dependen de títulos o rutas fijas (ver [plantillas](#plantillas-de-página)).
-- **Dependencias ocultas que rompen el sitio:** `get_field()` de ACF se llama **sin comprobar que exista** en cuatro ficheros
-  (`inc/template-tags.php:198`, `inc/social-meta.php:44`, `template-parts/content-tramite.php:64`, `page-tramite.php:54`): con ACF
-  desactivado, esas páginas darían error fatal (INFERIDO: PHP lanza «undefined function»).
-- **Código muerto o sin efecto:** dos ajustes del Personalizador sin lector (`aranda_de_duero_front_page_video`,
-  `aranda_de_duero_default_list_image`), un tercero (`…main_section_background`) que solo valida contraste pero no pinta nada, la
-  barra lateral «Ayuntamiento», la llamada a una barra «Seccion» que no está registrada y `template-parts/content-home.php`.
+- **Dependencias ocultas (corregido en el PR #96):** `get_field()` de ACF se llamaba sin comprobar que existiera. Ahora todo pasa por
+  `aranda_de_duero_field()` (`inc/template-functions.php`), que devuelve vacío si ACF no está activo; la portada solo pinta el
+  Smart Slider de reserva si su shortcode existe (`shortcode_exists`). Probado con un test en un proceso sin ACF; **no** probado con
+  el plugin realmente desactivado en la web.
+- **Código muerto o sin efecto:** retirados en el PR #96 los dos ajustes del Personalizador sin lector
+  (`aranda_de_duero_front_page_video`, `aranda_de_duero_default_list_image`), la barra lateral «Ayuntamiento» y
+  `template-parts/content-home.php`. Quedan un tercer ajuste (`…main_section_background`) que solo valida contraste pero no pinta
+  nada, y la llamada a una barra «Seccion» no registrada (ver C9 de la propuesta).
 
 ## Mapa: elemento → datos → dónde se ve → quién lo edita
 
@@ -194,7 +196,7 @@ Además existen plantillas **automáticas** (no se eligen): `page.php` (páginas
 sin menú → no pinta nada, `fallback_cb => false`) y en el Mapa web. Los **elementos del menú son datos** (Apariencia → Menús), no
 código. Un filtro da `href="#"` a los enlaces vacíos para que sean alcanzables con teclado (`inc/template-functions.php:121-128`).
 
-**Barras laterales.** Siete áreas (`functions.php:159-167`): `sidebar-1` «Sidebar», `sidebar-ayuntamiento` «Ayuntamiento»,
+**Barras laterales.** Siete áreas (`functions.php:159-167`): `sidebar-1` «Sidebar»,
 `sidebar-villa` «Villa», `sidebar-noticias` «Noticias», `sidebar-tramites` «Tramites», `sidebar-actualidad` «Actualidad» y
 `sidebar-servicios` «Servicios». Qué se ve en cada plantilla:
 
@@ -206,7 +208,7 @@ código. Un filtro da `href="#"` a los enlaces vacíos para que sean alcanzables
 | «Tramites» / `sidebar-tramites` | `page-tramite.php:33`, `single-tramite.php:16`, temas de tabla (`taxonomy-tema.php:28-37`) |
 | «Servicios» | `taxonomy-concejalia.php:24` y la de reserva de los temas (`taxonomy-tema.php:38`) |
 | `sidebar-noticias` | `search.php:28` |
-| `sidebar-ayuntamiento` | **En ninguna plantilla** (no hay `dynamic_sidebar` para ella): `page-ayuntamiento.php` no la usa |
+| `sidebar-ayuntamiento` | Retirada en el PR #96: no la pintaba ninguna plantilla |
 | «Seccion» | `taxonomy-seccion.php:17` la llama, pero **no está registrada** en `functions.php:159-167`: no pinta nada |
 
 Las plantillas llaman a veces a la barra por su **nombre** («Villa») y a veces por su **id** (`sidebar-tramites`); INFERIDO: WordPress
@@ -292,15 +294,16 @@ propio (`aranda_de_duero_quick_access`, `…_payment_services`, `…_situations`
   fijados: si alguien cambia el slug en el administrador, la tarjeta da 404 (ya lo avisa [para-ti.md](para-ti.md)).
 - Las entradas que se piden **por título exacto** (`aranda_de_duero_service_by_title`, `inc/situations.php:74-92`) se omiten en
   silencio si el título cambia.
-- **El pie busca páginas por título exacto** (`footer.php:45,50,199,205,211,226`: «Agenda», «Ayudas», «Aviso legal»,
-  «Política de Privacidad», «Política de Accesibilidad», «Web Map»; función `functions.php:736-747`). Si una no existe, el enlace sale
-  con `href=""` y recarga la página. «Ayudas» (pie) no coincide con «Ayudas y subvenciones»/`/subvenciones/` (buscador): **No verificable**
-  si es la misma página.
+- **El pie y el botón «Más actualidad» buscaban páginas por título exacto (corregido en el PR #96):** ahora usan el slug con
+  `aranda_de_duero_page_url()` (`inc/template-functions.php`): `agenda`, `subvenciones`, `aviso-legal`, `politica-privacidad`,
+  `politica-de-accesibilidad`, `web-map` y `noticias`. El enlace «Ayudas y subvenciones» del pie salía vacío (buscaba el título «Ayudas»)
+  y ahora apunta a `/subvenciones/`. Si una página se borra o se despublica, su enlace no se pinta vacío: sale `''`, y el botón de
+  noticias de la portada se oculta.
 - La portada enlaza a «Más actualidad» buscando la página titulada «Noticias» (`page-home.php:223`); sin ella queda `page/2/` relativo.
 - **Banner de Fiestas:** las fechas están fijadas a septiembre de 2026 (`page-home.php:107`); en 2027 no aparecerá hasta que alguien
   lo cambie, y su enlace `https://fiestas.arandadeduero.dev/` es un dominio distinto (`:111`). Hoy (2026-10-20) está inactivo.
 - **Banner de plenos:** las imágenes `webcamIcon.png` y `playIcon.png` salen sin `alt` (`page-home.php:47,52`).
-- `template-parts/content-home.php` no se usa en ningún sitio (búsqueda por nombre sin resultados): código muerto.
+- `template-parts/content-home.php` no se usaba en ningún sitio: borrado en el PR #96.
 
 ## Plugins y dependencias
 

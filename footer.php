@@ -42,12 +42,12 @@ $aranda_contact = aranda_de_duero_contact_info();
 							</a>
 						</li>
 						<li class="mb-2">
-							<a href="<?php echo esc_url( aranda_de_duero_get_page_permalink_by_title( 'Agenda' ) ); ?>">
+							<a href="<?php echo esc_url( aranda_de_duero_page_url( 'agenda' ) ); ?>">
 								Agenda municipal
 							</a>
 						</li>
 						<li class="mb-2">
-							<a href="<?php echo esc_url( aranda_de_duero_get_page_permalink_by_title( 'Ayudas' ) ); ?>">
+							<a href="<?php echo esc_url( aranda_de_duero_page_url( 'subvenciones' ) ); ?>">
 								Ayudas y subvenciones
 							</a>
 						</li>
@@ -196,19 +196,19 @@ $aranda_contact = aranda_de_duero_contact_info();
 				<div class="col-lg-6 text-lg-end">
 					<ul class="list-inline mb-0 footer-legal-links">
 						<li class="list-inline-item">
-							<a href="<?php echo esc_url( aranda_de_duero_get_page_permalink_by_title( 'Aviso legal' ) ); ?>">
+							<a href="<?php echo esc_url( aranda_de_duero_page_url( 'aviso-legal' ) ); ?>">
 								Aviso Legal
 							</a>
 						</li>
 						<li class="list-inline-item mx-2 text-white-50">•</li>
 						<li class="list-inline-item">
-							<a href="<?php echo esc_url( aranda_de_duero_get_page_permalink_by_title( 'Política de Privacidad' ) ); ?>">
+							<a href="<?php echo esc_url( aranda_de_duero_page_url( 'politica-privacidad' ) ); ?>">
 								Privacidad
 							</a>
 						</li>
 						<li class="list-inline-item mx-2 text-white-50">•</li>
 						<li class="list-inline-item">
-							<a href="<?php echo esc_url( aranda_de_duero_get_page_permalink_by_title( 'Política de Accesibilidad' ) ); ?>">
+							<a href="<?php echo esc_url( aranda_de_duero_page_url( 'politica-de-accesibilidad' ) ); ?>">
 								Accesibilidad
 							</a>
 						</li>
@@ -223,7 +223,7 @@ $aranda_contact = aranda_de_duero_contact_info();
 						<?php endif; ?>
 						<li class="list-inline-item mx-2 text-white-50">•</li>
 						<li class="list-inline-item">
-							<a href="<?php echo esc_url( aranda_de_duero_get_page_permalink_by_title( 'Web Map' ) ); ?>">
+							<a href="<?php echo esc_url( aranda_de_duero_page_url( 'web-map' ) ); ?>">
 								Mapa Web
 							</a>
 						</li>

@@ -16,6 +16,7 @@ get_header();
 aranda_de_duero_the_header_image( '' );
 ?>
 
+<main id="primary" class="site-main">
 <div class="container py-5">
 
 	<!-- Cabecera -->
@@ -198,6 +199,7 @@ aranda_de_duero_the_header_image( '' );
 	</section>
 
 </div>
+</main><!-- #main -->
 
 <?php
 

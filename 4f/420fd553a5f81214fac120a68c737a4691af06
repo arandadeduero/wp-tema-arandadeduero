@@ -1,0 +1,32 @@
+inc/areas-menu.php
+  s_e9446e370cbe94::t_3e282b076e3237 1-103
+tests/AreasMenuTest.php
+  s_e9446e370cbe94::t_3e282b076e3237 1-77
+functions.php
+  s_e9446e370cbe94::t_3e282b076e3237 406-409
+  s_e9446e370cbe94::t_c1fbe20cfe1dc2 405
+taxonomy-concejalia.php
+  s_e9446e370cbe94::t_3e282b076e3237 24
+taxonomy-tema.php
+  s_e9446e370cbe94::t_3e282b076e3237 44
+MEJORAS-OTROS-AYUNTAMIENTOS.md
+  s_e9446e370cbe94::t_6803d88af7674b 177
+docs/taxonomias-y-concejalias.md
+  s_e9446e370cbe94::t_6b640b22ba75a3 330-338
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "4f420fd553a5f81214fac120a68c737a4691af06",
+  "prompts": {},
+  "sessions": {
+    "s_e9446e370cbe94": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "1f562e24-39c2-46c2-bbfd-3ce887649604",
+        "model": "claude-sonnet-5-5"
+      },
+      "human_author": "Guillermo López <willyaranda@gmail.com>"
+    }
+  }
+}

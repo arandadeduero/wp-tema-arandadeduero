@@ -35,6 +35,7 @@ aranda_de_duero_the_header_image( '' );
 			</div>
 			<div class="col-lg-9 pt-4">
 				<main id="primary" class="site-main">
+					<h1 class="screen-reader-text"><?php echo esc_html( get_the_title( get_queried_object_id() ) ); ?></h1>
 					<?php if ( $query->have_posts() ) : ?>
 						<div class="tramites-table-scroll">
 								<table id="tableTramites" class="table table-responsive-md table-striped">

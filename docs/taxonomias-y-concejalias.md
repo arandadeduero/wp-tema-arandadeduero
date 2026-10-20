@@ -357,3 +357,10 @@ activo) no se vuelve a registrar, así que el plugin se puede desactivar cuando 
 mayúsculas** (`aranda_de_duero_sort_terms_by_name()`), porque el plugin de orden de términos imponía uno manual que no se veía en ningún sitio. La
 vista de administradores (tabla con ID, recuentos y estado) no cambia. El color de los títulos y sus enlaces lo fija el Personalizador (`h2 a`…), así que el
 nombre de la tarjeta sale oscuro y solo se subraya al pasar el ratón.
+
+## Menú lateral de las páginas «Ayuntamiento» (PR #114)
+
+`page-ayuntamiento.php` (corporación municipal, preguntas frecuentes…) lleva a la izquierda los **hijos del elemento «Ayuntamiento» del menú principal**
+(el que tiene la clase CSS `menu-ayuntamiento`, puesta en *Apariencia → Menús*): corporación municipal, concejalías, teléfonos de interés, agenda
+institucional, comisiones y plenos, imagen institucional e iluminación. Es el mismo mecanismo que el del menú «Áreas y servicios»
+(`aranda_de_duero_get_submenu_html()` en `inc/areas-menu.php`), así que no hay una segunda lista que mantener. Sin esa clase, la página sale a ancho completo.

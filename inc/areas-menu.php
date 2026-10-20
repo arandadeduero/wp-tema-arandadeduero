@@ -90,31 +90,47 @@ function aranda_de_duero_strip_menu_forms( $html ) {
 }
 
 /**
+ * CSS class of the main-menu item «Ayuntamiento», whose children are the left-hand menu of the pages with the Ayuntamiento template.
+ */
+const ARANDA_DE_DUERO_AYUNTAMIENTO_MENU_CLASS = 'menu-ayuntamiento';
+
+/**
+ * Markup of the left-hand list made of the children of the main-menu item that has a given CSS class.
+ *
+ * @param string $css_class CSS class of the main-menu item.
+ * @return string Empty when the menu is not assigned or no item has the class.
+ */
+function aranda_de_duero_get_submenu_html( $css_class ) {
+	if ( ! has_nav_menu( 'menu-1' ) ) {
+		return '';
+	}
+
+	$menu = wp_nav_menu(
+		array(
+			'theme_location'       => 'menu-1',
+			'container_class'      => 'menu-servicios-municipales-container',
+			'menu_id'              => 'menu-servicios-municipales',
+			'fallback_cb'          => false,
+			'echo'                 => false,
+			'aranda_submenu_class' => $css_class,
+		)
+	);
+	$menu = is_string( $menu ) ? aranda_de_duero_strip_menu_forms( $menu ) : '';
+
+	return false !== strpos( $menu, '<li' ) ? '<section class="widget widget_nav_menu">' . $menu . '</section>' : '';
+}
+
+/**
  * Print the left-hand menu «Áreas y servicios» (or the «Servicios» sidebar when the main menu has no such item).
  */
 function aranda_de_duero_the_areas_menu() {
-	$menu = '';
+	$menu = aranda_de_duero_get_submenu_html( ARANDA_DE_DUERO_AREAS_MENU_CLASS );
 
-	if ( has_nav_menu( 'menu-1' ) ) {
-		$menu = wp_nav_menu(
-			array(
-				'theme_location'       => 'menu-1',
-				'container_class'      => 'menu-servicios-municipales-container',
-				'menu_id'              => 'menu-servicios-municipales',
-				'fallback_cb'          => false,
-				'echo'                 => false,
-				'aranda_submenu_class' => ARANDA_DE_DUERO_AREAS_MENU_CLASS,
-			)
-		);
-	}
-
-	$menu = is_string( $menu ) ? aranda_de_duero_strip_menu_forms( $menu ) : '';
-
-	if ( false !== strpos( $menu, '<li' ) ) {
-		// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- markup built by wp_nav_menu().
-		echo '<section class="widget widget_nav_menu">' . $menu . '</section>';
+	if ( '' === $menu ) {
+		dynamic_sidebar( 'Servicios' );
 		return;
 	}
 
-	dynamic_sidebar( 'Servicios' );
+	// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- markup built by wp_nav_menu().
+	echo $menu;
 }

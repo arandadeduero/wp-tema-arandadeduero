@@ -21,121 +21,37 @@ aranda_de_duero_the_header_image( '' );
 ?>
 <div class="container mt-4">
 	<div class="row">
-		<div class="col-lg-9 pt-4">
+		<div class="col pt-4">
 			<main id="primary" class="site-main">
-				<h1 class="screen-reader-text"><?php echo esc_html( get_the_title( get_queried_object_id() ) ); ?></h1>
 				<?php
-				$query = aranda_de_duero_content(
-					'post',
-					'publish_date',
-					'DESC',
-					'9'
+				get_template_part(
+					'template-parts/page-intro',
+					null,
+					array(
+						'heading' => __( 'La actualidad del Ayuntamiento', 'aranda-de-duero' ),
+						'lead'    => array(
+							__( 'Las últimas noticias del Ayuntamiento de Aranda de Duero: actividades, servicios, obras, cultura, deportes y todo lo que ocurre en la ciudad.', 'aranda-de-duero' ),
+						),
+						'tips'    => array(
+							array( __( 'Lee la noticia completa', 'aranda-de-duero' ), __( 'pulsando su tarjeta o el enlace «Leer noticia».', 'aranda-de-duero' ) ),
+							array( __( 'Las más recientes, primero', 'aranda-de-duero' ), __( 'las noticias están ordenadas por su fecha de publicación.', 'aranda-de-duero' ) ),
+							array( __( 'Busca las anteriores', 'aranda-de-duero' ), __( 'con los enlaces del final de la lista, que muestra 12 noticias por página.', 'aranda-de-duero' ) ),
+						),
+					)
 				);
 
+				get_template_part(
+					'template-parts/post-card-list',
+					null,
+					array(
+						'query'       => aranda_de_duero_content( 'post', 'publish_date', 'DESC', 12 ),
+						'read_label'  => __( 'Leer noticia', 'aranda-de-duero' ),
+						'older_label' => __( 'Noticias anteriores', 'aranda-de-duero' ),
+						'newer_label' => __( 'Noticias posteriores', 'aranda-de-duero' ),
+						'empty'       => __( 'No hay noticias disponibles en este momento.', 'aranda-de-duero' ),
+					)
+				);
 				?>
-
-				<?php if ( $query->have_posts() ) : ?>
-
-					<!-- the loop -->
-					<?php $count = 0; ?>
-					<?php
-					while ( $query->have_posts() ) :
-						$query->the_post();
-						?>
-						<?php
-						if ( 0 === $count % 2 ) {
-							echo '<div class="row">';
-						}
-						?>
-						<div class="col-sm-12 col-lg-6 mt-4">
-							<div class="home-main-news p-3 rounded h-100">
-								<div class="row">
-									<?php
-									if ( has_post_thumbnail() ) {
-										?>
-										<div class="col-12">
-											<div class="home-main-news-image mb-3">
-												<?php
-												the_post_thumbnail(
-													'large',
-													array(
-														'class' => 'img-fluid',
-														'alt' => '',
-														'loading' => 'lazy',
-														'decoding' => 'async',
-													)
-												);
-												?>
-											</div>
-										</div>
-										<div class="col-12">
-											<div class="home-main-news-content px-2 d-flex flex-column justify-content-between">
-												<div class="home-main-news-description">
-													<a href="<?php the_permalink( get_the_ID() ); ?>" class="main-section-text-link">
-														<h2 class="h6 mb-0 font-weight-bold"><?php the_title(); ?></h2>
-													</a>
-													<p class="small mt-3 w-100 pr-2"><?php echo esc_html( wp_strip_all_tags( get_the_excerpt(), true ) ); ?></p>
-												</div>
-												<div class="home-main-news-button my-3">
-													<a href="<?php the_permalink( get_the_ID() ); ?>" class="btn btn-primary" role="button"><?php esc_html_e( 'Ver más', 'aranda-de-duero' ); ?></a>
-												</div>
-											</div>
-										</div>
-										<?php
-									} else {
-										?>
-										<div class="col-12">
-											<div class="home-main-news-content px-2 d-flex flex-column justify-content-between">
-												<div class="home-main-news-description">
-													<a href="<?php the_permalink( get_the_ID() ); ?>" class="main-section-text-link">
-														<h2 class="h5 mb-0 font-weight-bold"><?php the_title(); ?></h2>
-													</a>
-												</div>
-												<div class="home-main-news-button my-3">
-													<a href="<?php the_permalink( get_the_ID() ); ?>" class="btn btn-primary" role="button"><?php esc_html_e( 'Ver más', 'aranda-de-duero' ); ?></a>
-												</div>
-											</div>
-										</div>
-									<?php } ?>
-								</div>
-							</div>
-						</div>
-						<?php
-						if ( 1 === $count % 2 ) {
-							echo '</div>';
-						}
-						?>
-						<?php ++$count; ?>
-					<?php endwhile; ?>
-					<?php
-					if ( 0 !== $count % 2 ) {
-						echo '</div>';
-					}
-					?>
-
-					<!-- end of the loop -->
-
-
-					<?php wp_reset_postdata(); ?>
-				<?php endif; ?>
-				<?php
-				if ( $query->max_num_pages > 1 ) { // check if the max number of pages is greater than 1
-					?>
-					<nav class="prev-next-posts d-flex justify-content-between my-5">
-						<div class="prev-posts-link ">
-							<?php
-							// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- get_next_posts_link() returns WP core's own safely-built HTML.
-							echo get_next_posts_link( 'Noticias anteriores', $query->max_num_pages ); // display older posts link
-							?>
-						</div>
-						<div class="next-posts-link">
-							<?php
-							// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- get_previous_posts_link() returns WP core's own safely-built HTML.
-							echo get_previous_posts_link( 'Noticias posteriores' ); // display newer posts link
-							?>
-						</div>
-					</nav>
-				<?php } ?>
 
 			</main><!-- #main -->
 		</div>

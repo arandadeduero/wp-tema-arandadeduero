@@ -25,55 +25,17 @@ $query = aranda_de_duero_concejalias( $current_term->slug );
 			</div>
 			<div class="col-lg-9 pt-4">
 				<main id="primary" class="site-main">
-					<?php if ( $query->have_posts() ) : ?>
-						<!-- the loop -->
-						<?php
-						while ( $query->have_posts() ) :
-							$query->the_post();
-							?>
-							<div class="col-12">
-								<div class="noticia-listada d-flex mb-4">
-									<?php if ( has_post_thumbnail() ) : ?>
-										<div class="noticia-listada-imagen mr-3">
-											<?php
-											the_post_thumbnail(
-												'medium',
-												array(
-													'class' => 'img-thumbnail',
-													'alt' => '',
-													'loading' => 'lazy',
-													'decoding' => 'async',
-												)
-											);
-											?>
-										</div>
-									<?php endif; ?>
-									<div class="noticia-listada-texto">
-										<h2 class="h4"><a class="text-blue" href="<?php the_permalink( get_the_ID() ); ?>"><?php the_title(); ?></a></h2>
-										<p><?php echo esc_html( wp_strip_all_tags( get_the_excerpt(), true ) ); ?></p>
-									</div>
-								</div>
-							</div>
-						<?php endwhile; ?>
-						<!-- end of the loop -->
-						<?php wp_reset_postdata(); ?>
-					<?php endif; ?>
-					<?php if ( $query->max_num_pages > 1 ) : ?>
-						<nav class="prev-next-posts d-flex justify-content-between my-3">
-							<div class="prev-posts-link">
-								<?php
-								// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- get_next_posts_link() returns WP core's own safely-built HTML.
-								echo get_next_posts_link( 'Noticias anteriores', $query->max_num_pages );
-								?>
-							</div>
-							<div class="next-posts-link">
-								<?php
-								// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- get_previous_posts_link() returns WP core's own safely-built HTML.
-								echo get_previous_posts_link( 'Noticias posteriores' );
-								?>
-							</div>
-						</nav>
-					<?php endif; ?>
+					<?php
+					get_template_part(
+						'template-parts/term-heading',
+						null,
+						array(
+							'term'   => $current_term,
+							'kicker' => __( 'Concejalía', 'aranda-de-duero' ),
+						)
+					);
+					get_template_part( 'template-parts/term-posts', null, array( 'query' => $query ) );
+					?>
 				</main><!-- #main -->
 			</div>
 		</div>

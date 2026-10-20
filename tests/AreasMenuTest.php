@@ -79,6 +79,29 @@ class AreasMenuTest extends TestCase {
 		);
 	}
 
+	public function test_the_submenu_is_empty_without_a_menu_in_the_location() {
+		WP_Mock::userFunction( 'has_nav_menu' )->with( 'menu-1' )->andReturn( false );
+
+		$this->assertSame( '', aranda_de_duero_get_submenu_html( ARANDA_DE_DUERO_AYUNTAMIENTO_MENU_CLASS ) );
+	}
+
+	public function test_the_submenu_is_wrapped_as_a_widget_and_has_no_search_box() {
+		WP_Mock::userFunction( 'has_nav_menu' )->with( 'menu-1' )->andReturn( true );
+		WP_Mock::userFunction( 'wp_nav_menu' )->andReturn( '<ul><li><a href="/a/">A</a></li><li class="s"><form role="search"></form></li></ul>' );
+
+		$this->assertSame(
+			'<section class="widget widget_nav_menu"><ul><li><a href="/a/">A</a></li></ul></section>',
+			aranda_de_duero_get_submenu_html( ARANDA_DE_DUERO_AYUNTAMIENTO_MENU_CLASS )
+		);
+	}
+
+	public function test_a_menu_without_items_gives_nothing() {
+		WP_Mock::userFunction( 'has_nav_menu' )->andReturn( true );
+		WP_Mock::userFunction( 'wp_nav_menu' )->andReturn( '<div class="menu"><ul></ul></div>' );
+
+		$this->assertSame( '', aranda_de_duero_get_submenu_html( ARANDA_DE_DUERO_AREAS_MENU_CLASS ) );
+	}
+
 	public function test_without_the_marked_item_nothing_is_left() {
 		$items = array( $this->item( 1, 0 ), $this->item( 2, 1 ) );
 

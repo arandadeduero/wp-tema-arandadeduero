@@ -1612,9 +1612,9 @@ a.fiestas-banner-link:hover {
     color: var(--color-white) !important;
 }
 
-/* Noticia de la portada que es un bando: fondo ámbar y etiqueta, para que se vea que es importante. Texto negro (el azul de los enlaces no llega a 4,5:1 sobre el ámbar). */
+/* Noticia de la portada que es un bando: fondo ámbar suave (al 40 %) y etiqueta, para que se vea que es importante. Texto negro (el azul de los enlaces no llega a 4,5:1 sobre el ámbar). */
 .events-agenda-card.events-agenda-card--bando {
-    background-color: var(--color-amber);
+    background-color: var(--color-amber-40);
 }
 
 .events-agenda-card--bando .text-blue {

@@ -384,6 +384,11 @@ require get_template_directory() . '/inc/situations.php';
 require get_template_directory() . '/inc/audiences.php';
 
 /**
+ * Archives of the "concejalia" and "tema" terms: pagination and notice of historic archives.
+ */
+require get_template_directory() . '/inc/term-archives.php';
+
+/**
  * Colour contrast helpers and Customizer validation.
  */
 require get_template_directory() . '/inc/color-contrast.php';

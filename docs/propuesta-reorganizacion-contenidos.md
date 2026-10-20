@@ -81,11 +81,11 @@ Son defectos del código actual, no decisiones de contenido. Orden sugerido (cad
 
 | # | Cambio | Por qué | Esfuerzo | Riesgo |
 |---|---|---|---|---|
-| C1 | **Poner un título y un mensaje de «sin contenido» en los archivos de concejalía y de tema** | Hoy no tienen `<h1>` (medido) y la de concejalía no pinta nada si está vacía: es un problema de accesibilidad y de claridad | Bajo | Bajo |
+| C1 | ✅ *hecho en el PR #95.* **Poner un título y un mensaje de «sin contenido» en los archivos de concejalía y de tema** | Hoy no tienen `<h1>` (medido) y la de concejalía no pinta nada si está vacía: es un problema de accesibilidad y de claridad | Bajo | Bajo |
 | C2 | **Que el archivo de una concejalía liste también sus trámites y especiales** (y decidir con el ayuntamiento si las actividades antiguas) | Las consultas piden `post_type => 'post'` (`functions.php`), así que `/concejalia/cultura/` omite 1357 actividades y 7 trámites de los 2622 | Medio | Medio: cambia lo que ve el público |
-| C3 | **Aviso automático de «archivo histórico»** (modelo B arriba) | Distingue lo vigente de lo antiguo sin migrar ni borrar | Bajo | Bajo |
+| C3 | ✅ *hecho en el PR #95.* **Aviso automático de «archivo histórico»** (modelo B arriba) | Distingue lo vigente de lo antiguo sin migrar ni borrar | Bajo | Bajo |
 | C4 | **Sacar las listas de slugs de `taxonomy-tema.php` a un solo sitio** y que, si un slug cambia, no cambie el diseño en silencio (idealmente un campo por término en ACF) | Hoy 5 slugs usan la tabla y 2 usan otras barras laterales; si se renombra uno vuelve al diseño de tarjetas sin avisar | Medio | Bajo |
-| C5 | **Corregir la paginación del diseño de tabla** (`the_posts_navigation()` usa la consulta principal, no la de 25 entradas) y la de `page-tramite.php` (24 sin paginar; hoy hay justo 24 trámites) | Con una entrada más, una se queda sin verse | Bajo | Bajo |
+| C5 | ✅ *hecho en el PR #95.* **Corregir la paginación del diseño de tabla** (`the_posts_navigation()` usa la consulta principal, no la de 25 entradas) y la de `page-tramite.php` (24 sin paginar; hoy hay justo 24 trámites) | Con una entrada más, una se queda sin verse | Bajo | Bajo |
 | C6 | **Un test que compruebe que existen las direcciones escritas a mano** (`/tema/…`, `/concejalia/…` de «Para ti», los `/tramite/<slug>/` de «Trámites por situaciones») | Hoy un cambio de nombre en WordPress da un 404 sin aviso | Medio | Bajo (el test no toca la web) |
 | C7 | **Proteger las llamadas a ACF** (`function_exists('get_field')`) y la dependencia de Smart Slider en la portada | Con ACF desactivado habría un error fatal en casi todas las páginas (INFERIDO); la portada pinta `[smartslider3 slider="2"]` si no hay diapositivas | Bajo | Bajo |
 | C8 | **Retirar código muerto:** la barra `sidebar-ayuntamiento`, los ajustes del Personalizador que nadie lee, `template-parts/content-home.php` | Reduce lo que hay que mantener | Bajo | Bajo |

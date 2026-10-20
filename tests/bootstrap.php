@@ -5,6 +5,9 @@
 
 define( 'ABSPATH', dirname( __DIR__ ) . '/' );
 
+// WordPress core constants used by the theme.
+define( 'DAY_IN_SECONDS', 86400 );
+
 require_once dirname( __DIR__ ) . '/vendor/autoload.php';
 
 WP_Mock::bootstrap();

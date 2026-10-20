@@ -2347,6 +2347,7 @@ textarea:focus {
 }
 
 .old-post-disclaimer .old-post-disclaimer-icon {
+    flex-shrink: 0;
     color: var(--color-brown);
 }
 

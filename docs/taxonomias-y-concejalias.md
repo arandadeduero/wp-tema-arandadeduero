@@ -73,9 +73,10 @@ WordPress las preferiría a las genéricas (jerarquía de plantillas). No verifi
   `functions.php:166`).
 - Muestra una tarjeta por entrada: miniatura (si hay), título enlazado y extracto (`taxonomy-concejalia.php:28-60`).
   Paginación con «Noticias anteriores / posteriores» (`:61-76`).
-- **Sin contenido:** no pinta nada en la columna principal (no hay `else`; `:28-60`). **No muestra el nombre ni la
-  descripción de la concejalía en ninguna parte**: ni `<h1>` ni `the_archive_title`. La identidad de la página la da solo la
-  imagen de cabecera (VERIFICADO: no hay título en el fichero).
+- **Antes del PR #95 (ya corregido):** sin contenido no pintaba nada y no mostraba el nombre ni la descripción de la concejalía
+  (ni `<h1>`). **Ahora** pinta `template-parts/term-heading.php` (tipo, `<h1>` con el nombre, descripción y, si la última entrada
+  tiene más de 3 años, un aviso «Archivo histórico») y, sin entradas, «Todavía no hay contenido en este apartado»
+  (`template-parts/term-posts.php`). Los números de línea de arriba son anteriores a ese cambio.
 - **Los trámites no salen aquí**, aunque tengan esa concejalía: la consulta fija `post_type => 'post'`
   (`functions.php:771`). VERIFICADO.
 - WordPress además ejecuta la consulta principal del archivo (que incluye los tipos que tengan esa taxonomía), pero esta
@@ -89,11 +90,10 @@ WordPress las preferiría a las genéricas (jerarquía de plantillas). No verifi
   (`:48-68`); el resto, como tarjetas (`:69-102`).
 - **Barra lateral por slug**, también a mano: `anuncios` → `Actualidad`; `oficina-desarrollo-local` y los cinco de la tabla →
   `Tramites`; el resto → `Servicios` (`:31-38`).
-- **Sin contenido:** en tarjetas, nada; en tabla, la tabla vacía con su cabecera (`:49-67`).
-- **Defecto en el diseño de tabla (VERIFICADO):** cierra con `the_posts_navigation()` (`:68`), que usa la consulta principal
-  de WordPress y no la propia de 25 entradas; la paginación puede no coincidir con lo que se lista. Tampoco llama a
-  `wp_reset_postdata()` en esa rama. INFERIDO: en la práctica solo se nota con más de 25 entradas.
-- Tampoco muestra el nombre del tema (mismo caso que en concejalías).
+- **Corregido en el PR #95:** antes, sin contenido no pintaba nada (o una tabla vacía) y el diseño de tabla cerraba con
+  `the_posts_navigation()`, que cuenta la consulta principal y no la de 25 entradas. Ahora usa la misma cabecera, el mismo
+  mensaje de «sin contenido» y la paginación `aranda_de_duero_query_pagination()` (`inc/term-archives.php`) que las concejalías,
+  y llama a `wp_reset_postdata()`.
 
 ### `taxonomy-seccion.php`
 
@@ -153,9 +153,9 @@ llaman a WordPress, así que tampoco lo comprueban (`tests/AudiencesTest.php`).
 - **Listado:** `page-tramite.php` («Pagina de Trámites») pide los 24 `tramite` más nuevos por ID (`page-tramite.php:20-25`) y
   pinta una tabla Fecha / Gestor / Trámite (`:39-58`). El campo ACF `tramite_gestor` se lee en `:54`. Barra lateral
   `Tramites` (`:33`).
-- **Defecto (VERIFICADO):** la plantilla **no tiene paginación** (no hay enlaces de anterior/siguiente en el fichero), así que
-  solo se ven los 24 últimos. Si hay más trámites publicados, el resto solo se alcanza por buscador o enlace directo.
-  Si `/tramites/` es esta página, esto es lo que ve el visitante (INFERIDO).
+- **Corregido en el PR #95:** antes la plantilla no tenía paginación y solo se veían los 24 últimos. Ahora pide **todos** los
+  trámites (sin límite): una página de WordPress pagina con `page` y no con `paged`, así que enlazar páginas habría sido frágil, y
+  son pocos. Si llegan a ser cientos, habrá que paginar.
 - **Ficha:** `single-tramite.php` (barra lateral `sidebar-tramites`, `:16`) llama a `template-parts/content-tramite.php`.
   Muestra una tabla con: fecha, concejalía, categoría, y los campos ACF `tramite_dirigido`, `tramite_gestor`,
   `tramite_normativa`, `tramite_pago`, `tramite_procedimiento`, `tramite_fichero` (`template-parts/content-tramite.php:64-105`), y el

@@ -154,10 +154,13 @@ function aranda_de_duero_structured_data_graph() {
 		// Breadcrumbs: Inicio > ancestors > current page.
 		if ( is_page() || is_singular( 'post' ) ) {
 			$crumbs = array( array( __( 'Inicio', 'aranda-de-duero' ), $home_url ) );
-			foreach ( array_reverse( get_post_ancestors( $post_id ) ) as $ancestor_id ) {
-				$crumbs[] = array( get_the_title( $ancestor_id ), get_permalink( $ancestor_id ) );
+			// The front page is «Inicio» itself: no second step with the same name and address.
+			if ( ! is_front_page() ) {
+				foreach ( array_reverse( get_post_ancestors( $post_id ) ) as $ancestor_id ) {
+					$crumbs[] = array( get_the_title( $ancestor_id ), get_permalink( $ancestor_id ) );
+				}
+				$crumbs[] = array( get_the_title( $post_id ), $url );
 			}
-			$crumbs[] = array( get_the_title( $post_id ), $url );
 
 			$graph[] = aranda_de_duero_breadcrumb_list( $crumbs );
 		}

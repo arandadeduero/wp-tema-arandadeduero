@@ -57,6 +57,26 @@ class StructuredDataTest extends TestCase {
 		$this->assertSame( 'https://example.test/concejalia/juventud/', $items[1]['item'] );
 	}
 
+	public function test_the_front_page_has_a_single_breadcrumb() {
+		\WP_Mock::userFunction( 'is_singular' )->andReturnUsing(
+			function ( $type = '' ) {
+				return '' === $type;
+			}
+		);
+		\WP_Mock::userFunction( 'is_page' )->andReturn( true );
+		\WP_Mock::userFunction( 'is_front_page' )->andReturn( true );
+		\WP_Mock::userFunction( 'get_the_ID' )->andReturn( 2 );
+		\WP_Mock::userFunction( 'get_permalink' )->andReturn( 'https://example.test/' );
+		\WP_Mock::userFunction( 'get_the_post_thumbnail_url' )->andReturn( '' );
+		\WP_Mock::userFunction( 'get_the_title' )->andReturn( 'Inicio' );
+		\WP_Mock::userFunction( 'get_post_ancestors' )->andReturn( array() );
+
+		$graph = aranda_de_duero_structured_data_graph();
+
+		$this->assertSame( array( 'GovernmentOrganization', 'WebSite', 'WebPage', 'BreadcrumbList' ), $this->types( $graph ) );
+		$this->assertCount( 1, $graph[3]['itemListElement'] );
+	}
+
 	public function test_a_term_without_a_link_adds_no_breadcrumbs() {
 		\WP_Mock::userFunction( 'is_singular' )->andReturn( false );
 		\WP_Mock::userFunction( 'is_tax' )->andReturn( true );
@@ -73,6 +93,7 @@ class StructuredDataTest extends TestCase {
 			}
 		);
 		\WP_Mock::userFunction( 'is_page' )->andReturn( false );
+		\WP_Mock::userFunction( 'is_front_page' )->andReturn( false );
 		\WP_Mock::userFunction( 'get_the_ID' )->andReturn( 5 );
 		\WP_Mock::userFunction( 'get_permalink' )->andReturn( 'https://example.test/noticia/' );
 		\WP_Mock::userFunction( 'get_the_post_thumbnail_url' )->andReturn( 'https://example.test/i.jpg' );

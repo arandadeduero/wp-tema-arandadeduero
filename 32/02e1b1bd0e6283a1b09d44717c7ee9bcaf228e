@@ -1,0 +1,36 @@
+phpstan-baseline.neon
+  s_e9446e370cbe94::t_49b44cec5411ae 33,35-42
+  s_e9446e370cbe94::t_414dc17dad1b13 34
+page-bandos.php
+  s_e9446e370cbe94::t_22372e10f8c0c7 41-53,55,58-68
+page-news.php
+  s_e9446e370cbe94::t_6e87dcb2ad78de 24,27-40,43-53
+template-parts/post-card-list.php
+  s_e9446e370cbe94::t_fdc40f38da75b5 18-29,86
+  s_e9446e370cbe94::t_22372e10f8c0c7 1-17,30,32-85
+  s_e9446e370cbe94::t_1ebb1e19e2d512 31
+css/aranda-de-duero.css
+  s_e9446e370cbe94::t_6e87dcb2ad78de 1062,1589
+page-notas-de-prensa.php
+  s_e9446e370cbe94::t_22372e10f8c0c7 41-53,55,58-68
+page-subvenciones.php
+  s_e9446e370cbe94::t_22372e10f8c0c7 41-53,55,58-68
+MEJORAS-OTROS-AYUNTAMIENTOS.md
+  s_e9446e370cbe94::t_4be22f0a5b7991 178
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "3202e1b1bd0e6283a1b09d44717c7ee9bcaf228e",
+  "prompts": {},
+  "sessions": {
+    "s_e9446e370cbe94": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "1f562e24-39c2-46c2-bbfd-3ce887649604",
+        "model": "claude-sonnet-5-5"
+      },
+      "human_author": "Guillermo López <willyaranda@gmail.com>"
+    }
+  }
+}

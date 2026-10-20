@@ -383,6 +383,11 @@ require get_template_directory() . '/inc/situations.php';
 require get_template_directory() . '/inc/audiences.php';
 
 /**
+ * Content types and taxonomies (registered here instead of by the Custom Post Type UI plugin).
+ */
+require get_template_directory() . '/inc/content-types.php';
+
+/**
  * Archives of the "concejalia" and "tema" terms: pagination and notice of historic archives.
  */
 require get_template_directory() . '/inc/term-archives.php';

@@ -69,6 +69,16 @@ class AreasMenuTest extends TestCase {
 		$this->assertSame( 12, $result[2]->menu_item_parent );
 	}
 
+	public function test_the_search_box_a_plugin_adds_is_removed() {
+		$menu = '<ul><li class="a"><a href="/a/">A</a></li><li class="b"><a href="/b/">B</a></li>'
+			. '<li class="is-search"><a href="#"><svg></svg></a><form role="search"><input type="search"></form><div class="search-close"></div></li></ul>';
+
+		$this->assertSame(
+			'<ul><li class="a"><a href="/a/">A</a></li><li class="b"><a href="/b/">B</a></li></ul>',
+			aranda_de_duero_strip_menu_forms( $menu )
+		);
+	}
+
 	public function test_without_the_marked_item_nothing_is_left() {
 		$items = array( $this->item( 1, 0 ), $this->item( 2, 1 ) );
 

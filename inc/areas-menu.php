@@ -75,6 +75,21 @@ function aranda_de_duero_submenu_objects( $items, $args ) {
 add_filter( 'wp_nav_menu_objects', 'aranda_de_duero_submenu_objects', 10, 2 );
 
 /**
+ * Remove from a menu the items that hold a form.
+ *
+ * A search plugin adds its search box as one more item of the menu assigned to the `menu-1` location, and the left-hand list is
+ * printed from that location: the box would show up under «Todas las concejalías».
+ *
+ * @param string $html Markup of the menu.
+ * @return string
+ */
+function aranda_de_duero_strip_menu_forms( $html ) {
+	$clean = preg_replace( '#<li\b[^>]*>(?:(?!<li\b).)*?<form\b.*?</form>.*?</li>#s', '', $html );
+
+	return null === $clean ? $html : $clean;
+}
+
+/**
  * Print the left-hand menu «Áreas y servicios» (or the «Servicios» sidebar when the main menu has no such item).
  */
 function aranda_de_duero_the_areas_menu() {
@@ -93,7 +108,9 @@ function aranda_de_duero_the_areas_menu() {
 		);
 	}
 
-	if ( is_string( $menu ) && false !== strpos( $menu, '<li' ) ) {
+	$menu = is_string( $menu ) ? aranda_de_duero_strip_menu_forms( $menu ) : '';
+
+	if ( false !== strpos( $menu, '<li' ) ) {
 		// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- markup built by wp_nav_menu().
 		echo '<section class="widget widget_nav_menu">' . $menu . '</section>';
 		return;

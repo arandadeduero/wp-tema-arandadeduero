@@ -14,7 +14,7 @@ Cada diapositiva del carrusel de la portada (*Portada → Diapositivas*) puede l
 - La **imagen destacada se sigue viendo** mientras el vídeo carga, y siempre para quien no pueda reproducirlo (movimiento
   reducido, ahorro de datos, un navegador que no permite reproducir solo). Por eso es obligatoria y conviene que sea un fotograma
   del propio vídeo.
-- Se reproduce **solo, en bucle de una vez y sin sonido**, y el carrusel pasa a la siguiente diapositiva **cuando acaba**
+- Se reproduce **solo, una vez y sin sonido**, y el carrusel pasa a la siguiente diapositiva **cuando acaba**
   (una diapositiva con solo imagen sigue cambiando a los 6 segundos). El botón de pausa del carrusel también lo detiene.
 - **No se descargan todos a la vez:** el primero se pide cuando termina de cargar la página y cada uno de los siguientes, cuando
   empieza a reproducirse el anterior.
@@ -36,12 +36,18 @@ ffmpeg -i original.mp4 -an -c:v libx264 -crf 28 -preset slow -pix_fmt yuv420p -m
   -vf "scale=1392:-2" portada.mp4
 ```
 
-Un `-crf` más alto pesa menos y se ve peor. Conviene que cada vídeo pese pocos MB: los GIF actuales ya son lo más pesado de la
-portada.
+Un `-crf` más alto pesa menos y se ve peor. Conviene que cada vídeo pese pocos MB. Los seis vídeos de la portada pesan entre
+34 y 199 KB, de 5 s y 1392×510 (medido en la web el 2026-10-20), y sus imágenes destacadas son JPG de entre 34 y 307 KB: la portada
+ya no lleva ningún GIF.
 
 ## Comprobado y por comprobar
 
-Comprobado (2026-10-20, con vídeos de prueba y el HTML real de la portada): orden de descarga, avance al terminar, pausa,
-movimiento reducido (con y sin pulsar «play») y ahorro de datos, en Chromium y en WebKit con los perfiles de iPhone 14 y de iPad Pro 11. **Sin comprobar:** un iPhone real
-(modo de bajo consumo, que puede impedir reproducir solo: en ese caso se queda la imagen) y el selector de vídeo en el
-administrador de WordPress.
+**Comprobado en la web publicada (2026-10-20, con los seis vídeos reales):** los vídeos se piden de uno en uno, a unos 5,4 s de
+distancia (el siguiente cuando empieza el anterior), la portada pasa a la siguiente diapositiva al acabar cada uno y recorre las seis,
+el cambio es un fundido y no hay errores de vídeo ni de JavaScript (Chrome de escritorio). También en la web publicada, con WebKit y el
+perfil de iPad Pro 11 y «Reducir movimiento» activado: arranca en pausa, sin pedir ningún vídeo, y al pulsar «play» los reproduce
+en orden. El desplegable de vídeos del administrador funciona (las seis diapositivas lo usan). En una copia local se probaron además
+el ahorro de datos, la diapositiva única y los clics rápidos en las flechas.
+
+**Sin comprobar:** un iPad o un iPhone reales y el modo de bajo consumo, que puede impedir reproducir solo (en ese caso se queda
+la imagen, y «play» no lo cambia si Safari lo rechaza).

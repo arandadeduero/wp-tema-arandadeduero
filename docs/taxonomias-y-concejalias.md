@@ -327,3 +327,19 @@ Seguridad Ciudadana, CEAS → Servicios sociales, Gestión tributaria, Intervenc
 Tecnologías, Obras y urbanismo → Urbanismo y vivienda, OMIC → Comercio y Consumo, Recinto ferial → Promoción, Secretaría → Alcaldía,
 etc. «Electricidad / alumbrado» queda sin enlace (no hay una concejalía clara). Un departamento nuevo en la tabla no se enlaza hasta
 añadirlo a ese mapa. Lo escrito en la tabla no cambia.
+
+## Tipos de contenido y taxonomías registrados por el tema (PR #110)
+
+Los 4 tipos (`seccion-principal`, `actividad`, `especial`, `tramite`) y las 6 taxonomías (`seccion`, `concejalia`, `tema`, `servicio`,
+`categoria_tramite`, `home_section_category`) los registraba el plugin **Custom Post Type UI**. Ahora los registra el tema
+(`inc/content-types.php`), con los **mismos argumentos** que exportó el plugin («Obtener el código», 2026-10-20): mismos slugs, sin archivo
+(`has_archive` falso), mismos campos en la API REST y mismos tipos asociados a cada taxonomía. Las taxonomías se registran en `init`
+con prioridad 9 y los tipos en la 10, para que éstos puedan listarlas. Un tipo o taxonomía que ya esté registrado (el plugin, mientras siga
+activo) no se vuelve a registrar, así que el plugin se puede desactivar cuando se quiera.
+
+- **El contenido no cambia:** entradas, términos, campos de ACF y los metadatos de las concejalías están en la base de datos.
+- **Orden de la puesta en marcha:** desplegar el tema → comprobar → desactivar (no borrar) CPT UI → guardar *Ajustes → Enlaces permanentes*
+  → comprobar de nuevo. Para deshacer basta reactivar el plugin.
+- **Qué comprobar:** los 10 nombres, su `rest_base`, `hierarchical`, `taxonomies` y los números de elementos por la API REST (antes y después),
+  y que `/tramite/`, `/concejalia/` y `/tema/` siguen respondiendo.
+- Si se cambia algo de aquí (por ejemplo, dar archivo a `tramite`), se hace en `inc/content-types.php`, ya sin pantalla de administración.

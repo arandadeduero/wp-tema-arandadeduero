@@ -69,6 +69,20 @@ function aranda_de_duero_term_index_template( $template ) {
 add_filter( 'template_include', 'aranda_de_duero_term_index_template', 99 );
 
 /**
+ * Do not let WordPress guess another address for an index.
+ *
+ * Before answering a 404, WordPress looks for a post whose slug starts with the requested one and redirects to it: /tramite/ went
+ * to the first procedure whose slug begins with «tramite-…», so the index was never reached.
+ *
+ * @param string|null $pre Address WordPress guessed, or null to let it guess.
+ * @return string|false|null
+ */
+function aranda_de_duero_term_index_no_guess( $pre ) {
+	return '' !== aranda_de_duero_current_term_index() ? false : $pre;
+}
+add_filter( 'pre_redirect_guess_404_permalink', 'aranda_de_duero_term_index_no_guess' );
+
+/**
  * Title of the browser tab.
  *
  * @param string $title Title WordPress built.

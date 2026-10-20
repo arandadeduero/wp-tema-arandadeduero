@@ -77,7 +77,8 @@ function aranda_de_duero_directory_link_cell( $content, $table_id ) {
 		return $content;
 	}
 
-	$slug = aranda_de_duero_directory_concejalia_slug( $content );
+	// A cell that already has a link is left as it is (no link inside a link).
+	$slug = false === stripos( $content, '<a ' ) ? aranda_de_duero_directory_concejalia_slug( $content ) : '';
 	if ( '' === $slug ) {
 		return $content;
 	}
@@ -88,6 +89,7 @@ function aranda_de_duero_directory_link_cell( $content, $table_id ) {
 		return $content;
 	}
 
+	// $content is the HTML of the cell as saved in TablePress (already filtered by it for who edited it): escaping it again would show the tags.
 	return sprintf( '<a href="%s">%s</a>', esc_url( $link ), $content );
 }
 add_filter( 'tablepress_cell_content', 'aranda_de_duero_directory_link_cell', 10, 2 );

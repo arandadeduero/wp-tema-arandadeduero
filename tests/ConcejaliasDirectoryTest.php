@@ -40,6 +40,12 @@ class ConcejaliasDirectoryTest extends TestCase {
 		$this->assertSame( '<a href="https://example.org/concejalia/turismo/">Turismo</a>', aranda_de_duero_directory_link_cell( 'Turismo', 2 ) );
 	}
 
+	public function test_a_cell_that_already_has_a_link_is_not_wrapped_again() {
+		$cell = '<a href="https://example.org/">Turismo</a>';
+
+		$this->assertSame( $cell, aranda_de_duero_directory_link_cell( $cell, 2 ) );
+	}
+
 	public function test_other_tables_are_not_touched() {
 		$this->assertSame( 'Turismo', aranda_de_duero_directory_link_cell( 'Turismo', 5 ) );
 	}

@@ -1,0 +1,28 @@
+tests/ConcejaliasDirectoryTest.php
+  s_e9446e370cbe94::t_6bd3ee429e6fcb 1-52
+functions.php
+  s_e9446e370cbe94::t_6bd3ee429e6fcb 401-404
+  s_e9446e370cbe94::t_e3e437ff047b99 400
+inc/concejalias-directory.php
+  s_e9446e370cbe94::t_6bd3ee429e6fcb 1-93
+MEJORAS-OTROS-AYUNTAMIENTOS.md
+  s_e9446e370cbe94::t_25c8b440bbab4d 177
+docs/taxonomias-y-concejalias.md
+  s_e9446e370cbe94::t_091a23d26c88ff 320-329
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "04f935a5840b7ff3315d63c59ddaf705e0d5c3eb",
+  "prompts": {},
+  "sessions": {
+    "s_e9446e370cbe94": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "1f562e24-39c2-46c2-bbfd-3ce887649604",
+        "model": "claude-sonnet-5-5"
+      },
+      "human_author": "Guillermo López <willyaranda@gmail.com>"
+    }
+  }
+}

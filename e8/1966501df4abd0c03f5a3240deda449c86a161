@@ -1,0 +1,26 @@
+inc/structured-data.php
+  s_e9446e370cbe94::t_b6928ef0d0e675 29-50,162-173
+  s_e9446e370cbe94::t_33d947b835c10e 28
+tests/StructuredDataTest.php
+  s_e9446e370cbe94::t_b6928ef0d0e675 42-67
+  s_e9446e370cbe94::t_14c114fca4aafb 32
+  s_e9446e370cbe94::t_59c8c08cba81a7 68
+MEJORAS-OTROS-AYUNTAMIENTOS.md
+  s_e9446e370cbe94::t_0618f19eb9f504 178
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "e81966501df4abd0c03f5a3240deda449c86a161",
+  "prompts": {},
+  "sessions": {
+    "s_e9446e370cbe94": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "1f562e24-39c2-46c2-bbfd-3ce887649604",
+        "model": "claude-sonnet-5-5"
+      },
+      "human_author": "Guillermo López <willyaranda@gmail.com>"
+    }
+  }
+}

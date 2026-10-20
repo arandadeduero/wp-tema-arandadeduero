@@ -1,0 +1,29 @@
+docs/pagos-y-recibos.md
+  s_e9446e370cbe94::t_d32658883c1771 38,43-51
+docs/pagina-enlaces.md
+  s_e9446e370cbe94::t_d32658883c1771 15
+docs/portada-diapositivas-con-video.md
+  s_e9446e370cbe94::t_d32658883c1771 17,39-41,45-53
+docs/para-ti.md
+  s_e9446e370cbe94::t_d32658883c1771 1-32
+MEJORAS-OTROS-AYUNTAMIENTOS.md
+  s_e9446e370cbe94::t_d0c84f0d71bb73 176
+README.md
+  s_e9446e370cbe94::t_977e434ed66611 69
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "e43b94c68dd2f2c830f0f6d60774afad5910abc9",
+  "prompts": {},
+  "sessions": {
+    "s_e9446e370cbe94": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "1f562e24-39c2-46c2-bbfd-3ce887649604",
+        "model": "claude-sonnet-5-5"
+      },
+      "human_author": "Guillermo López <willyaranda@gmail.com>"
+    }
+  }
+}

@@ -1,0 +1,47 @@
+page-home.php
+  s_e9446e370cbe94::t_6d71ff07ac2fce 219-220,225,232
+  s_e9446e370cbe94::t_3141e232a1dacc 26-27
+page-tramite.php
+  s_e9446e370cbe94::t_6d71ff07ac2fce 55
+template-parts/content-tramite.php
+  s_e9446e370cbe94::t_6d71ff07ac2fce 64,68,72,76,101,105
+tests/ThemeGuardsTest.php
+  s_e9446e370cbe94::t_4b221e8cc2d131 1-34,46-51
+  s_e9446e370cbe94::t_9c66279a31779f 35-45
+docs/tipos-de-contenido-y-elementos-propios.md
+  s_e9446e370cbe94::t_a7250ccd6c7366 29-36,199,211,306
+  s_e9446e370cbe94::t_8ee1f14f840b5f 297-301
+inc/situations.php
+  s_e9446e370cbe94::t_3141e232a1dacc 63
+docs/taxonomias-y-concejalias.md
+  s_e9446e370cbe94::t_a7250ccd6c7366 133-134,196
+docs/propuesta-reorganizacion-contenidos.md
+  s_e9446e370cbe94::t_8ee1f14f840b5f 90-91,93
+inc/template-tags.php
+  s_e9446e370cbe94::t_4b221e8cc2d131 198
+MEJORAS-OTROS-AYUNTAMIENTOS.md
+  s_e9446e370cbe94::t_8ee1f14f840b5f 176
+inc/template-functions.php
+  s_e9446e370cbe94::t_3141e232a1dacc 192-212,214-215,217-220,222
+  s_e9446e370cbe94::t_4b7089642d7e11 213,216,221
+footer.php
+  s_e9446e370cbe94::t_3141e232a1dacc 45,50,199,205,211,226
+inc/social-meta.php
+  s_e9446e370cbe94::t_6d71ff07ac2fce 44
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "c46104e4a0e89ff746ae6b8c09c255af1b3d4781",
+  "prompts": {},
+  "sessions": {
+    "s_e9446e370cbe94": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "1f562e24-39c2-46c2-bbfd-3ce887649604",
+        "model": "claude-sonnet-5-5"
+      },
+      "human_author": "Guillermo López <willyaranda@gmail.com>"
+    }
+  }
+}

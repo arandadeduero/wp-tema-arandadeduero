@@ -3045,6 +3045,11 @@ a.service-card:focus-visible .service-card-title {
     scroll-snap-type: x mandatory;
     scrollbar-width: none;
     overscroll-behavior-x: contain;
+    transition: opacity 0.3s ease; /* el cambio de diapositiva es un fundido: js/home-carousel.js (fadeMs) */
+}
+
+.home-carousel-track.is-fading {
+    opacity: 0;
 }
 
 .home-carousel-track::-webkit-scrollbar {
@@ -3170,12 +3175,6 @@ a.service-card:focus-visible .service-card-title {
     border-left: 0.85rem solid currentcolor;
     border-right: 0;
     margin-left: 0.9rem;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-    .home-carousel-track {
-        scroll-behavior: smooth;
-    }
 }
 
 /*

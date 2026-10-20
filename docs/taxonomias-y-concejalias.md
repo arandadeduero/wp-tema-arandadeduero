@@ -318,15 +318,13 @@ registrados por el tema (`inc/term-contact.php`, sin plugin extra; CPT UI sigue 
   hay que contrastarlos con `/corporacion-municipal/` (quién lleva qué) y con `/informacion-de-concejalias/` (correo, dirección y teléfono).
   Origen del primer relleno: esas dos páginas el 2026-10-20.
 
-## El directorio de contacto enlaza a cada concejalía (PR #107)
+## El directorio de contacto enlaza a cada concejalía (PR #107, sustituido por el contenido de la página)
 
-`/informacion-de-concejalias/` es una página normal con una **tabla de TablePress (id 2)** escrita a mano. El tema convierte el
-nombre de cada departamento en un enlace a su concejalía (`inc/concejalias-directory.php`, filtro `tablepress_cell_content`).
-El emparejamiento está en código (`aranda_de_duero_directory_concejalias()`), por el principio del nombre: Bomberos y Policía →
-Seguridad Ciudadana, CEAS → Servicios sociales, Gestión tributaria, Intervención y Tesorería → Hacienda, Informática → Nuevas
-Tecnologías, Obras y urbanismo → Urbanismo y vivienda, OMIC → Comercio y Consumo, Recinto ferial → Promoción, Secretaría → Alcaldía,
-etc. «Electricidad / alumbrado» queda sin enlace (no hay una concejalía clara). Un departamento nuevo en la tabla no se enlaza hasta
-añadirlo a ese mapa. Lo escrito en la tabla no cambia.
+`/informacion-de-concejalias/` tiene ahora una **tabla nativa de WordPress** (bloque `wp:table`) en el contenido de la página, y los enlaces
+a `/concejalia/<slug>/` están escritos en las celdas de la primera columna (22 de 23 filas; «Electricidad / alumbrado» sin enlace). Antes era una
+tabla de TablePress (id 2, que sigue guardada sin usar) y el tema añadía los enlaces con un filtro (`inc/concejalias-directory.php`,
+PR #107), que se ha **eliminado**. Un departamento nuevo se enlaza editando la tabla de la página. Si se cambia el slug de una concejalía hay que
+cambiar el enlace a mano (el menú «Áreas y servicios», en cambio, sigue al término). Se pierden el buscador y la ordenación de TablePress.
 
 ## Menú de la izquierda de concejalías y temas: un solo menú (PR #109)
 

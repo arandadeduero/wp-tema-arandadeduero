@@ -403,11 +403,6 @@ require get_template_directory() . '/inc/term-index.php';
 require get_template_directory() . '/inc/term-contact.php';
 
 /**
- * Links from the contact directory (/informacion-de-concejalias/) to the page of each concejalía.
- */
-require get_template_directory() . '/inc/concejalias-directory.php';
-
-/**
  * Left-hand menu of the concejalía and tema archives: the sub-menu «Áreas y servicios» of the main menu.
  */
 require get_template_directory() . '/inc/areas-menu.php';

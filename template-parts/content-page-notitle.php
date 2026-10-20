@@ -13,7 +13,11 @@ defined( 'ABSPATH' ) || exit;
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header d-none">
-		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+		<?php
+		// In a listing (the archive of a section) the page already has its own <h1>.
+		$aranda_title_tag = is_singular() ? 'h1' : 'h2';
+		the_title( '<' . $aranda_title_tag . ' class="entry-title">', '</' . $aranda_title_tag . '>' );
+		?>
 	</header><!-- .entry-header -->
 
 	<?php aranda_de_duero_post_thumbnail(); ?>

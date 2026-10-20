@@ -23,6 +23,7 @@ aranda_de_duero_the_header_image( '' );
 	<div class="row">
 		<div class="col-lg-9 pt-4">
 			<main id="primary" class="site-main">
+				<h1 class="screen-reader-text"><?php echo esc_html( get_the_title( get_queried_object_id() ) ); ?></h1>
 				<?php
 				$query = aranda_de_duero_content(
 					'post',

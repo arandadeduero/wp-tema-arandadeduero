@@ -1,0 +1,23 @@
+docs/concejalias-vigentes-y-terminos.md
+  s_e9446e370cbe94::t_f67d0c4834488d 1-72
+MEJORAS-OTROS-AYUNTAMIENTOS.md
+  s_e9446e370cbe94::t_2645a00337dd5b 176
+README.md
+  s_e9446e370cbe94::t_58aa9c7b74d7ae 69
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "b040f2f144b4ab2ab0e11b1fad13102d56a48c47",
+  "prompts": {},
+  "sessions": {
+    "s_e9446e370cbe94": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "1f562e24-39c2-46c2-bbfd-3ce887649604",
+        "model": "claude-sonnet-5-5"
+      },
+      "human_author": "Guillermo López <willyaranda@gmail.com>"
+    }
+  }
+}

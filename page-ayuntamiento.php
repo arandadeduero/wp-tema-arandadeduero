@@ -12,9 +12,20 @@
 get_header();
 
 aranda_de_duero_the_header_image( 'Cabecera página ayuntamiento' );
+$aranda_side_menu = aranda_de_duero_get_submenu_html( ARANDA_DE_DUERO_AYUNTAMIENTO_MENU_CLASS );
 ?>
 
 	<div class="container mt-4">
+		<div class="row">
+			<?php if ( '' !== $aranda_side_menu ) : ?>
+				<div class="col-lg-3 pt-4">
+					<?php
+					// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- markup built by wp_nav_menu().
+					echo $aranda_side_menu;
+					?>
+				</div>
+			<?php endif; ?>
+			<div class="<?php echo '' !== $aranda_side_menu ? 'col-lg-9 pt-4' : 'col-12'; ?>">
 		<main id="primary" class="site-main">
 
 			<?php
@@ -50,6 +61,8 @@ aranda_de_duero_the_header_image( 'Cabecera página ayuntamiento' );
 			?>
 
 		</main><!-- #main -->
+			</div>
+		</div>
 	</div>
 
 <?php

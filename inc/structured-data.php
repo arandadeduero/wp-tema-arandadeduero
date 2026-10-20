@@ -26,6 +26,29 @@ function aranda_de_duero_social_profiles() {
 }
 
 /**
+ * A schema.org BreadcrumbList.
+ *
+ * @param array<int, array{0: string, 1: string}> $crumbs Name and address of each step, from «Inicio» to the current page.
+ * @return array<string, mixed>
+ */
+function aranda_de_duero_breadcrumb_list( $crumbs ) {
+	$items = array();
+	foreach ( $crumbs as $i => $crumb ) {
+		$items[] = array(
+			'@type'    => 'ListItem',
+			'position' => $i + 1,
+			'name'     => wp_strip_all_tags( $crumb[0] ),
+			'item'     => $crumb[1],
+		);
+	}
+
+	return array(
+		'@type'           => 'BreadcrumbList',
+		'itemListElement' => $items,
+	);
+}
+
+/**
  * Build the schema.org graph for the current request.
  *
  * @return array<int, array<string, mixed>>
@@ -131,23 +154,26 @@ function aranda_de_duero_structured_data_graph() {
 		// Breadcrumbs: Inicio > ancestors > current page.
 		if ( is_page() || is_singular( 'post' ) ) {
 			$crumbs = array( array( __( 'Inicio', 'aranda-de-duero' ), $home_url ) );
-			foreach ( array_reverse( get_post_ancestors( $post_id ) ) as $ancestor_id ) {
-				$crumbs[] = array( get_the_title( $ancestor_id ), get_permalink( $ancestor_id ) );
+			// The front page is «Inicio» itself: no second step with the same name and address.
+			if ( ! is_front_page() ) {
+				foreach ( array_reverse( get_post_ancestors( $post_id ) ) as $ancestor_id ) {
+					$crumbs[] = array( get_the_title( $ancestor_id ), get_permalink( $ancestor_id ) );
+				}
+				$crumbs[] = array( get_the_title( $post_id ), $url );
 			}
-			$crumbs[] = array( get_the_title( $post_id ), $url );
 
-			$items = array();
-			foreach ( $crumbs as $i => $crumb ) {
-				$items[] = array(
-					'@type'    => 'ListItem',
-					'position' => $i + 1,
-					'name'     => wp_strip_all_tags( $crumb[0] ),
-					'item'     => $crumb[1],
-				);
-			}
-			$graph[] = array(
-				'@type'           => 'BreadcrumbList',
-				'itemListElement' => $items,
+			$graph[] = aranda_de_duero_breadcrumb_list( $crumbs );
+		}
+	} elseif ( is_tax() ) {
+		// Archive of a concejalía, tema, servicio, sección…: Inicio > the term.
+		$term      = get_queried_object();
+		$term_link = is_object( $term ) ? get_term_link( $term ) : '';
+		if ( is_object( $term ) && ! empty( $term->name ) && is_string( $term_link ) && '' !== $term_link ) {
+			$graph[] = aranda_de_duero_breadcrumb_list(
+				array(
+					array( __( 'Inicio', 'aranda-de-duero' ), $home_url ),
+					array( $term->name, $term_link ),
+				)
 			);
 		}
 	}

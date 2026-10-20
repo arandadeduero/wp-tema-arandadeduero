@@ -139,9 +139,10 @@ $query = aranda_de_duero_content(
 				?>
 				<?php
 				// The latest news goes first and wide: image on the left and text on the right from tablet width up, stacked below.
-				$aranda_first = ( 0 === $count );
+				$aranda_first    = ( 0 === $count );
+				$aranda_is_bando = has_category( 'bandos' ); // A bando is something the neighbours must know: it gets its own colour and label.
 				?>
-				<div class="events-agenda-card p-3 h-100">
+				<div class="events-agenda-card p-3 h-100<?php echo $aranda_is_bando ? ' events-agenda-card--bando' : ''; ?>">
 					<div class="row p-2<?php echo $aranda_first ? ' align-items-center' : ''; ?>">
 						<?php
 						if ( has_post_thumbnail() ) {
@@ -163,6 +164,11 @@ $query = aranda_de_duero_content(
 								</div>
 							</div>
 							<div class="<?php echo $aranda_first ? 'col-12 col-md-6 p-3' : 'col-12 p-3'; ?>">
+								<?php
+								if ( $aranda_is_bando ) {
+									get_template_part( 'template-parts/bando-kicker' );
+								}
+								?>
 								<div class="home-main-news-description">
 									<a href="<?php the_permalink( get_the_ID() ); ?>" class="main-section-text-link">
 										<h3 class="<?php echo $aranda_first ? 'h4 mb-0' : 'h6 mb-0 font-weight-normal'; ?>"><?php the_title(); ?></h3>
@@ -186,6 +192,11 @@ $query = aranda_de_duero_content(
 						} else {
 							?>
 							<div class="col-12">
+								<?php
+								if ( $aranda_is_bando ) {
+									get_template_part( 'template-parts/bando-kicker' );
+								}
+								?>
 								<div class="home-main-news-description">
 									<a href="<?php the_permalink( get_the_ID() ); ?>" class="main-section-text-link">
 										<h3 class="h6 mb-0 font-weight-normal"><?php the_title(); ?></h3>

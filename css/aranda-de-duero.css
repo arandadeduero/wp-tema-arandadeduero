@@ -1612,6 +1612,26 @@ a.fiestas-banner-link:hover {
     color: var(--color-white) !important;
 }
 
+/* Noticia de la portada que es un bando: fondo ámbar y etiqueta, para que se vea que es importante. Texto negro (el azul de los enlaces no llega a 4,5:1 sobre el ámbar). */
+.events-agenda-card.events-agenda-card--bando {
+    background-color: var(--color-amber);
+}
+
+.events-agenda-card--bando .text-blue {
+    color: var(--color-black) !important;
+}
+
+.home-news-kicker {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    margin: 0 0 var(--spacing-xs);
+    font-size: 0.875rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
 /* Container styling */
 .events-agenda-card {
     background-color: var(--color-primary-light); /* The light blue background from the image */

@@ -1,0 +1,25 @@
+page-tramite.php
+  s_e9446e370cbe94::t_fe4e3014c84d0c 55
+template-parts/content-tramite.php
+  s_e9446e370cbe94::t_fe4e3014c84d0c 67,71,75,79,104
+MEJORAS-OTROS-AYUNTAMIENTOS.md
+  s_e9446e370cbe94::t_f1f6fa6576b6f9 176
+docs/taxonomias-y-concejalias.md
+  s_e9446e370cbe94::t_cd02facb4976f7 162-165
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "a4ee6b7bcd5e61c041b0343647b85535e8ed0e0f",
+  "prompts": {},
+  "sessions": {
+    "s_e9446e370cbe94": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "1f562e24-39c2-46c2-bbfd-3ce887649604",
+        "model": "claude-sonnet-5-5"
+      },
+      "human_author": "Guillermo López <willyaranda@gmail.com>"
+    }
+  }
+}

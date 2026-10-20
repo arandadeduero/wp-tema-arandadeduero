@@ -388,6 +388,11 @@ require get_template_directory() . '/inc/audiences.php';
 require get_template_directory() . '/inc/term-archives.php';
 
 /**
+ * Index pages /tema/, /concejalia/ and /tramite/ (a list of what exists, more detail for administrators).
+ */
+require get_template_directory() . '/inc/term-index.php';
+
+/**
  * Colour contrast helpers and Customizer validation.
  */
 require get_template_directory() . '/inc/color-contrast.php';

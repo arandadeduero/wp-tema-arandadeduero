@@ -3342,6 +3342,25 @@ a.service-card:focus-visible .service-card-title {
     background: var(--color-primary-light);
 }
 
+/* Índices /tema/, /concejalia/ y /tramite/ (index-terminos.php). */
+.term-index {
+    columns: 3 16rem;
+    column-gap: var(--spacing-xl);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.term-index li {
+    break-inside: avoid;
+    padding: var(--spacing-xs) 0;
+}
+
+.term-index-table code {
+    color: inherit;
+    white-space: nowrap;
+}
+
 /* Noticia (single.php): ancho completo, título como el del resto de páginas. */
 .single-post .entry-header .entry-title {
     margin: 0 0 var(--spacing-md);

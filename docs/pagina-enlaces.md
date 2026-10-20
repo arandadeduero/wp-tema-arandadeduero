@@ -12,7 +12,7 @@ analítica (Site Kit) los cargan `wp_head()` y `wp_footer()`, que la plantilla l
 ## Cómo se cambia un enlace
 Los enlaces están en la lista `$aranda_enlaces` del principio de `page-enlaces.php`: añadir, quitar o corregir una línea
 `array( 'Instagram', 'https://…' )`. El icono se elige solo por la dirección (`instagram.com`, `facebook.com`, `tiktok.com`,
-`x.com`, `youtube.com`; `linktr.ee` lleva un libro y «Página Web» un globo). Los colores y el aspecto están en el bloque
+`x.com`, `youtube.com`, `flickr.com`; `linktr.ee` lleva un libro y «Página Web» un globo). Los colores y el aspecto están en el bloque
 «Página de enlaces» de `css/aranda-de-duero.css`; los iconos grandes de las tarjetas, en `images/enlaces/*.svg`.
 
 ## Notas

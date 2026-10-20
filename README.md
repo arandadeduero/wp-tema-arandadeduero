@@ -66,7 +66,7 @@ patch y otro con las major; CodeQL, el análisis de secretos y las alertas de se
 - [RELEASE.md](RELEASE.md): cómo generar y desplegar una versión
 - [MODERNIZATION.md](MODERNIZATION.md): decisiones técnicas y estado de la modernización
 - [MEJORAS-OTROS-AYUNTAMIENTOS.md](MEJORAS-OTROS-AYUNTAMIENTOS.md): lista viva de mejoras, con su estado, PR y fuente
-- [docs/](docs/): informe de cumplimiento (bloque A) y página de enlaces
+- [docs/](docs/): informe de cumplimiento (bloque A), página de enlaces, pagos y buscador, «Para ti» y portada con vídeo
 - [CLAUDE.md](CLAUDE.md): reglas del proyecto para trabajar con Claude Code
 
 ## Licencia

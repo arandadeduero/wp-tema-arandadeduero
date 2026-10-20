@@ -35,8 +35,17 @@ alguien renombra un trámite en WordPress, su tarjeta dará 404; hay que revisar
 
 ## Buscador «¿Qué necesitas?»
 El campo de la home y de los resultados de búsqueda, y el bloque «Servicios y trámites» que sale encima de los resultados, leen de las mismas
-listas (`inc/services.php`) más otras páginas de la sede (`aranda_de_duero_service_directory()` en `inc/search.php`). El buscador también incluye 26 páginas de la sede, las secciones y portales del sitio (agenda, bandos, subvenciones, turismo…) y los
+listas (`inc/services.php`) más otras páginas de la sede (`aranda_de_duero_service_directory()` en `inc/search.php`). El buscador también incluye las páginas de la sede (las propias de cada persona, que piden identificarse, y las públicas), las secciones y portales del sitio (agenda, bandos, subvenciones, turismo, las fotografías de Flickr…) y los
 «Especiales» de la portada (se leen del tipo de contenido en cada búsqueda: lo que se destaque allí se encuentra solo). Cada servicio puede
 llevar `keywords` (sinónimos sin acentos: «oposiciones» para empleo público) para que se encuentre con más palabras. Para añadir un servicio
 al buscador basta con añadirlo a una de esas listas: las sugerencias que salen al escribir (`js/search-suggest.js`) leen **la misma lista**, incluida
 en la página, y filtran en el navegador sin pedir nada al servidor.
+
+Bajo el campo aparecen dos filas de enlaces: «Prueba con» (búsquedas de ejemplo) y «O explora» (las páginas [«Para ti»](para-ti.md) y «Trámites por
+situaciones», solo si están publicadas).
+
+## Cabecera y buscador fijos (home)
+Al hacer scroll se quedan a la vista la barra azul de contacto, la cabecera con el menú y, en la home, el bloque «¿Qué necesitas?»,
+que se reduce al campo y al botón «Buscar» (con «O explora» debajo). Las posiciones son CSS (`position: sticky`, en
+`css/aranda-de-duero.css`); `js/sticky-header.js` solo mide la altura de las barras, para apilarlas y dejar sitio a los anclajes, y
+decide cuándo el bloque está pegado (clase `is-compact`). En móvil el panel del menú se desplaza dentro de la pantalla en lugar de salirse.

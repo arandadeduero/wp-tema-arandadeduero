@@ -297,3 +297,23 @@ Esas tres direcciones eran un 404 (CPT UI no registra archivo para ellas). Ahora
 (`page-news.php`): dos columnas, imagen arriba, **fecha**, título, extracto de 30 palabras y botón «Ver más»; sin imagen, la tarjeta
 va sin ella. Antes era una lista de miniatura de 200 px a la izquierda y título. Reutiliza las clases `home-main-news*`, sin CSS
 nuevo. El diseño de tabla de los temas (tributos, concursos…) no cambia.
+
+## Ficha de la concejalía: concejal, teléfono, correo y ubicación (PR #106)
+
+La descripción de una concejalía es el campo nativo del término. Los cuatro datos generales son **metadatos del término**
+registrados por el tema (`inc/term-contact.php`, sin plugin extra; CPT UI sigue registrando la taxonomía):
+
+| Campo (meta) | Qué es |
+|---|---|
+| `concejalia_concejal` | Concejal o concejala que lleva el área |
+| `concejalia_telefono` | Uno o varios teléfonos separados por `/` (cada uno es un enlace `tel:`) |
+| `concejalia_email` | Correo (se descarta si no es una dirección válida) |
+| `concejalia_ubicacion` | Dirección o sede |
+
+- Se editan en *Entradas → Concejalías* (al crear y al editar). Un campo vacío no se muestra; sin ningún dato no sale la ficha.
+- Salen en la cabecera de cada concejalía (`template-parts/term-heading.php`) y en el índice público `/concejalia/`
+  (`template-parts/term-index.php`); en la tabla de administradores hay una columna «Concejal». Pieza común: `template-parts/term-contact.php`.
+- Los campos también están en la API REST (`meta`) para rellenarlos en bloque.
+- **Los datos hay que mantenerlos:** el concejal y las delegaciones cambian con los pactos y los cambios de gobierno. Cada cierto tiempo
+  hay que contrastarlos con `/corporacion-municipal/` (quién lleva qué) y con `/informacion-de-concejalias/` (correo, dirección y teléfono).
+  Origen del primer relleno: esas dos páginas el 2026-10-20.

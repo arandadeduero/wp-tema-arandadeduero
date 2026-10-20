@@ -393,6 +393,11 @@ require get_template_directory() . '/inc/term-archives.php';
 require get_template_directory() . '/inc/term-index.php';
 
 /**
+ * General information of a concejalía (concejal, phone, e-mail, location) as term meta.
+ */
+require get_template_directory() . '/inc/term-contact.php';
+
+/**
  * Colour contrast helpers and Customizer validation.
  */
 require get_template_directory() . '/inc/color-contrast.php';

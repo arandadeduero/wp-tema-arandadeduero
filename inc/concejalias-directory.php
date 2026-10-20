@@ -35,7 +35,7 @@ function aranda_de_duero_directory_concejalias() {
 		'Informática'              => 'nuevas-tecnologias',
 		'Intervención'             => 'hacienda',
 		'Juventud'                 => 'juventud',
-		'Medio ambiente'           => 'medio-ambiente-aseo-urbano-parques-y-jardines',
+		'Medio ambiente'           => 'medio-ambiente',
 		'Obras y urbanismo'        => 'urbanismo-y-vivienda',
 		'OMIC'                     => 'comercio-y-consumo',
 		'Policía'                  => 'seguridad-ciudadana',

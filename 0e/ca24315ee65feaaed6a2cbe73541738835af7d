@@ -1,0 +1,36 @@
+inc/home-carousel.php
+  s_e9446e370cbe94::t_e702e60dd46381 21-22,192-193
+  s_e9446e370cbe94::t_254a994203756a 57,66
+  s_e9446e370cbe94::t_c82777f1af685e 8-16,23,72-73,80-89,93-132,155-161,168,194-195,208,237-239
+  s_e9446e370cbe94::t_eeecbe104c26be 240-241
+js/home-carousel.js
+  s_e9446e370cbe94::t_9986beaf3d20c7 23-24,74-78,119-120,126,149-150,201-206
+  s_e9446e370cbe94::t_254a994203756a 2-3,8-13,29-40,49-73,79-99,116-118,121-122,138-148,151-156,168-173,181-200,207
+  s_e9446e370cbe94::t_2c3c0272d4d4da 123
+MEJORAS-OTROS-AYUNTAMIENTOS.md
+  s_e9446e370cbe94::t_c093ddc52cbd7f 76,176
+css/aranda-de-duero.css
+  s_e9446e370cbe94::t_ba3e84f722b222 3060,3079-3087,3089-3092,3094-3096
+  s_e9446e370cbe94::t_b0f9b9349e2b88 3074-3078,3088,3093
+  s_e9446e370cbe94::t_6191a7cc8585f1 3097
+tests/HomeCarouselTest.php
+  s_e9446e370cbe94::t_246c34d18470f7 92-144
+docs/portada-diapositivas-con-video.md
+  s_e9446e370cbe94::t_c093ddc52cbd7f 1-41
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "0eca24315ee65feaaed6a2cbe73541738835af7d",
+  "prompts": {},
+  "sessions": {
+    "s_e9446e370cbe94": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "1f562e24-39c2-46c2-bbfd-3ce887649604",
+        "model": "claude-sonnet-5-5"
+      },
+      "human_author": "Guillermo López <willyaranda@gmail.com>"
+    }
+  }
+}

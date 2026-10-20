@@ -24,6 +24,7 @@ class ConcejaliasDirectoryTest extends TestCase {
 		$this->assertSame( 'seguridad-ciudadana', aranda_de_duero_directory_concejalia_slug( 'Policía / gestión de multas' ) );
 		$this->assertSame( 'servicios-sociales', aranda_de_duero_directory_concejalia_slug( ' CEAS / Servicios sociales (Francesas) ' ) );
 		$this->assertSame( 'cultura', aranda_de_duero_directory_concejalia_slug( '<strong>Cultura</strong>' ) );
+		$this->assertSame( 'medio-ambiente', aranda_de_duero_directory_concejalia_slug( 'Medio ambiente' ) );
 	}
 
 	public function test_a_department_without_concejalia_has_no_slug() {

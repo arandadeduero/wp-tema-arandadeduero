@@ -14,6 +14,9 @@
 
 			the_title( '<h1 class="entry-title h4"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h1>' );
 
+		// Same notice as the news: a procedure published more than 2 years ago may be out of date.
+		aranda_de_duero_old_post_disclaimer();
+
 		if ( 'post' === get_post_type() ) :
 			?>
 			<div class="entry-meta">

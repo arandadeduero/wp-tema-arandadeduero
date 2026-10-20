@@ -156,6 +156,9 @@ llaman a WordPress, así que tampoco lo comprueban (`tests/AudiencesTest.php`).
   trámites (sin límite): una página de WordPress pagina con `page` y no con `paged`, así que enlazar páginas habría sido frágil, y
   son pocos. Si llegan a ser cientos, habrá que paginar.
 - **Ficha:** `single-tramite.php` (barra lateral `sidebar-tramites`, `:16`) llama a `template-parts/content-tramite.php`.
+  Desde el PR #100, si el trámite se publicó hace más de 2 años, la ficha muestra bajo el título el mismo aviso «Contenido antiguo» que
+  las noticias (`aranda_de_duero_old_post_disclaimer()`). Hoy los 24 trámites tienen más de 2 años (el más reciente es de enero de 2024),
+  así que **todos** lo llevan, también los permanentes; la fecha de publicación no distingue un trámite vigente de uno caducado.
   Muestra una tabla con: fecha, concejalía, categoría, y los campos ACF `tramite_dirigido`, `tramite_gestor`,
   `tramite_normativa`, `tramite_pago`, `tramite_procedimiento`, `tramite_fichero` (`template-parts/content-tramite.php:64-105`), y el
   contenido normal como «Descripción» (`:82`).

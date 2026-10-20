@@ -1,0 +1,36 @@
+docs/tipos-de-contenido-y-elementos-propios.md
+  s_e9446e370cbe94::t_10461281985394 29,175,248,281
+  s_e9446e370cbe94::t_910ac1fc478d28 1-28,30-139,141-145,149-154,156-167,169-174,176-247,249-280,282-310,313-393
+  s_e9446e370cbe94::t_c451bd4443d357 140,155,168,311-312
+  s_e9446e370cbe94::t_f8212467c67332 146-148
+docs/estado-actual-de-los-contenidos.md
+  s_e9446e370cbe94::t_250e43f00d2f49 50-51,136,138,144-145
+  s_e9446e370cbe94::t_25546645280d6c 1-49,52-135,137,139-143
+docs/propuesta-reorganizacion-contenidos.md
+  s_e9446e370cbe94::t_4084ea9883c243 166
+  s_e9446e370cbe94::t_19ffedb650cfd1 1-165,167-168
+MEJORAS-OTROS-AYUNTAMIENTOS.md
+  s_e9446e370cbe94::t_4ad7bd61328a84 176
+docs/taxonomias-y-concejalias.md
+  s_e9446e370cbe94::t_098fec5dc043f6 124
+  s_e9446e370cbe94::t_0075ee1d5b6885 1-37,39-41,43-53,55-123,125-147,149-160,162-169,171-176,179-180,184-267,270-274
+  s_e9446e370cbe94::t_c451bd4443d357 38,42,54,148,161,170,177-178,181-183,268-269
+README.md
+  s_e9446e370cbe94::t_4ad7bd61328a84 69
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "d64fe4564ab34301c4f78de278de3b09ee489249",
+  "prompts": {},
+  "sessions": {
+    "s_e9446e370cbe94": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "1f562e24-39c2-46c2-bbfd-3ce887649604",
+        "model": "claude-sonnet-5-5"
+      },
+      "human_author": "Guillermo López <willyaranda@gmail.com>"
+    }
+  }
+}

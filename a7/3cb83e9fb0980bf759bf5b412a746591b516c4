@@ -1,0 +1,26 @@
+docs/portada-diapositivas-con-video.md
+  s_e9446e370cbe94::t_1416b2a68d80aa 22-27,45
+js/home-carousel.js
+  s_e9446e370cbe94::t_5461b504b939d6 6-8,115-119
+  s_e9446e370cbe94::t_efe2c75fffcbe0 14-15,36,39-40,44,106,108,120-125,184
+css/aranda-de-duero.css
+  s_e9446e370cbe94::t_efe2c75fffcbe0 3048-3052
+MEJORAS-OTROS-AYUNTAMIENTOS.md
+  s_e9446e370cbe94::t_1416b2a68d80aa 76,176
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "a73cb83e9fb0980bf759bf5b412a746591b516c4",
+  "prompts": {},
+  "sessions": {
+    "s_e9446e370cbe94": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "1f562e24-39c2-46c2-bbfd-3ce887649604",
+        "model": "claude-sonnet-5-5"
+      },
+      "human_author": "Guillermo López <willyaranda@gmail.com>"
+    }
+  }
+}

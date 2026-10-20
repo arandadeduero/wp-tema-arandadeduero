@@ -3,14 +3,16 @@
  * MP4 videos of the slides.
  *
  * The strip scrolls on its own (touch, trackpad, keyboard with the arrow keys once focused); this only adds the
- * buttons and the automatic change. No autoplay when the visitor prefers reduced motion; it also stops while the
- * pointer or the keyboard focus is inside, and on the pause button.
+ * buttons and the automatic change, which fades out and in instead of sliding. When the visitor prefers reduced
+ * motion the carousel starts paused and changes slide with a plain cut; it also stops while the pointer or the
+ * keyboard focus is inside, and on the pause button.
  *
  * Videos (a muted <video data-src> over the image of a slide, see inc/home-carousel.php) have no src in the HTML.
  * The first one is loaded once the page has loaded (so it never competes with the image that is the LCP) and the
  * next one only when the current one starts to play, so they are never all downloaded at once. A video plays when
  * its slide is the visible one and the carousel is not paused; the carousel moves on when it ends. With reduced
- * motion, a data saver or a browser that refuses to autoplay, the image of the slide stays.
+ * motion, a data saver or a browser that refuses to autoplay, the image of the slide stays until the visitor presses
+ * play: that is a request to see the videos, and a play button that played nothing would be a trap.
  */
 (() => {
     'use strict';
@@ -31,12 +33,15 @@
     const saveData = !!(navigator.connection && navigator.connection.saveData);
     const pauseButton = root.querySelector('.home-carousel-pause');
     const delay = 6000;
+    const fadeMs = 300; // as the opacity transition of .home-carousel-track
     let timer = null;
     let userPaused = reduced.matches;
+    let userPlayed = false;
+    let fading = null;
     let active = 0;
 
     const videos = Array.from(slides).map((slide) => slide.querySelector('video'));
-    const canPlayVideos = () => !reduced.matches && !saveData;
+    const canPlayVideos = () => userPlayed || (!reduced.matches && !saveData);
 
     // Only the first image is eager; once the page has loaded, fetch the rest (each GIF is ~1 MB) so a slide
     // is never blank when it comes into view. Native lazy loading alone would wait until it is almost visible.
@@ -98,14 +103,26 @@
         });
     });
 
+    // Fade out, jump to the slide while nothing is visible, fade in. A swipe still slides: the finger drives it.
     const go = (direction) => {
+        if (fading) return;
         const width = track.clientWidth;
         const atEnd = track.scrollLeft + width >= track.scrollWidth - 2;
         const atStart = track.scrollLeft <= 2;
         let left = track.scrollLeft + direction * width;
         if (direction > 0 && atEnd) left = 0;
         if (direction < 0 && atStart) left = track.scrollWidth;
-        track.scrollTo({ left, behavior: reduced.matches ? 'auto' : 'smooth' });
+        if (reduced.matches) {
+            // The theme switches transitions off for these visitors (css/aranda-de-duero.css): a plain cut, no blank wait.
+            track.scrollTo({ left, behavior: 'instant' });
+            return;
+        }
+        track.classList.add('is-fading');
+        fading = window.setTimeout(() => {
+            track.scrollTo({ left, behavior: 'instant' });
+            track.classList.remove('is-fading');
+            fading = null;
+        }, fadeMs);
     };
 
     const stop = () => {
@@ -164,6 +181,7 @@
     });
     pauseButton.addEventListener('click', () => {
         userPaused = !userPaused;
+        if (!userPaused) userPlayed = true;
         syncPauseButton();
         if (userPaused) {
             const video = videos[active];

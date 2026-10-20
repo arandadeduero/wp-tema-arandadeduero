@@ -19,6 +19,12 @@ Cada diapositiva del carrusel de la portada (*Portada → Diapositivas*) puede l
 - **No se descargan todos a la vez:** el primero se pide cuando termina de cargar la página y cada uno de los siguientes, cuando
   empieza a reproducirse el anterior.
 - Con una sola diapositiva el vídeo se repite y se queda el botón de pausa, sin flechas.
+- **El cambio de diapositiva es un fundido** (se desvanece, cambia y reaparece, 0,3 s cada tramo), no un desplazamiento lateral.
+  Un gesto con el dedo sigue deslizando la tira.
+- **Quien tiene activado «Reducir movimiento»** (en iPhone, iPad, Mac, Windows o Android) ve el carrusel en pausa, con el botón en
+  forma de «play», solo las imágenes y los cambios de diapositiva sin animación. Si pulsa «play», se reproducen los vídeos: es una
+  petición expresa. Para ver los vídeos sin pulsar nada hay que desactivar esa opción en el dispositivo (iOS: Ajustes →
+  Accesibilidad → Movimiento → Reducir movimiento).
 
 ## Cómo preparar el vídeo (lo que decide el peso)
 
@@ -36,6 +42,6 @@ portada.
 ## Comprobado y por comprobar
 
 Comprobado (2026-10-20, con vídeos de prueba y el HTML real de la portada): orden de descarga, avance al terminar, pausa,
-movimiento reducido y ahorro de datos, en Chromium y en WebKit con el perfil de iPhone 14. **Sin comprobar:** un iPhone real
+movimiento reducido (con y sin pulsar «play») y ahorro de datos, en Chromium y en WebKit con los perfiles de iPhone 14 y de iPad Pro 11. **Sin comprobar:** un iPhone real
 (modo de bajo consumo, que puede impedir reproducir solo: en ese caso se queda la imagen) y el selector de vídeo en el
 administrador de WordPress.

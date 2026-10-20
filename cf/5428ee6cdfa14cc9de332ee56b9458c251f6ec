@@ -1,0 +1,36 @@
+docs/taxonomias-y-concejalias.md
+  s_e9446e370cbe94::t_45b50c5d9d3393 300-319
+css/aranda-de-duero.css
+  s_e9446e370cbe94::t_7b65b3db5ebff0 3345-3373
+functions.php
+  s_e9446e370cbe94::t_7b65b3db5ebff0 396-399
+  s_e9446e370cbe94::t_65d57c5e407d0f 395
+MEJORAS-OTROS-AYUNTAMIENTOS.md
+  s_e9446e370cbe94::t_45b50c5d9d3393 177
+template-parts/term-contact.php
+  s_e9446e370cbe94::t_7b65b3db5ebff0 1-42
+template-parts/term-index.php
+  s_e9446e370cbe94::t_7b65b3db5ebff0 72-76,113-115,131-133
+inc/term-contact.php
+  s_e9446e370cbe94::t_7b65b3db5ebff0 1-183
+tests/TermContactTest.php
+  s_e9446e370cbe94::t_9faff563a7f566 1-77
+template-parts/term-heading.php
+  s_e9446e370cbe94::t_7b65b3db5ebff0 23
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "cf5428ee6cdfa14cc9de332ee56b9458c251f6ec",
+  "prompts": {},
+  "sessions": {
+    "s_e9446e370cbe94": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "1f562e24-39c2-46c2-bbfd-3ce887649604",
+        "model": "claude-sonnet-5-5"
+      },
+      "human_author": "Guillermo López <willyaranda@gmail.com>"
+    }
+  }
+}

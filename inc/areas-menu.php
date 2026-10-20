@@ -1,0 +1,103 @@
+<?php
+defined( 'ABSPATH' ) || exit;
+
+/**
+ * Left-hand menu of the concejalía and tema archives: the sub-menu «Áreas y servicios» of the main menu.
+ *
+ * The same list used to be written twice, once in the main menu and once in the «Servicios municipales» menu shown by a widget
+ * of the «Servicios» sidebar, and the two drifted apart. Now the archives print the children of the main-menu item that has the
+ * CSS class below, so the list is edited in one place (Apariencia → Menús). If no item has that class, the widgets of the
+ * «Servicios» sidebar are shown as before.
+ *
+ * @package Aranda_de_Duero
+ */
+
+/**
+ * CSS class (set in Apariencia → Menús, «Clases CSS») of the main-menu item whose children are the list.
+ */
+const ARANDA_DE_DUERO_AREAS_MENU_CLASS = 'menu-areas-y-servicios';
+
+/**
+ * Keep only the descendants of the menu item that has a given class (wp_nav_menu() argument `aranda_submenu_class`).
+ *
+ * @param object[] $items Menu items.
+ * @param object   $args  Arguments of wp_nav_menu().
+ * @return object[]
+ */
+function aranda_de_duero_submenu_objects( $items, $args ) {
+	if ( empty( $args->aranda_submenu_class ) ) {
+		return $items;
+	}
+
+	$root = 0;
+	foreach ( $items as $item ) {
+		if ( in_array( $args->aranda_submenu_class, (array) $item->classes, true ) ) {
+			$root = (int) $item->ID;
+			break;
+		}
+	}
+	if ( 0 === $root ) {
+		return array();
+	}
+
+	$kept   = array( $root => true );
+	$result = array();
+	do {
+		$added = false;
+		foreach ( $items as $item ) {
+			$id = (int) $item->ID;
+			if ( ! isset( $kept[ $id ] ) && isset( $kept[ (int) $item->menu_item_parent ] ) ) {
+				$kept[ $id ] = true;
+				$result[]    = $item;
+				$added       = true;
+			}
+		}
+	} while ( $added );
+
+	// The children of the item become the top level of the list.
+	foreach ( $result as $item ) {
+		if ( (int) $item->menu_item_parent === $root ) {
+			$item->menu_item_parent = 0;
+		}
+	}
+
+	// Keep the order of the menu.
+	$order = array_flip( array_map( 'intval', wp_list_pluck( $items, 'ID' ) ) );
+	usort(
+		$result,
+		function ( $a, $b ) use ( $order ) {
+			return $order[ (int) $a->ID ] - $order[ (int) $b->ID ];
+		}
+	);
+
+	return $result;
+}
+add_filter( 'wp_nav_menu_objects', 'aranda_de_duero_submenu_objects', 10, 2 );
+
+/**
+ * Print the left-hand menu «Áreas y servicios» (or the «Servicios» sidebar when the main menu has no such item).
+ */
+function aranda_de_duero_the_areas_menu() {
+	$menu = '';
+
+	if ( has_nav_menu( 'menu-1' ) ) {
+		$menu = wp_nav_menu(
+			array(
+				'theme_location'       => 'menu-1',
+				'container_class'      => 'menu-servicios-municipales-container',
+				'menu_id'              => 'menu-servicios-municipales',
+				'fallback_cb'          => false,
+				'echo'                 => false,
+				'aranda_submenu_class' => ARANDA_DE_DUERO_AREAS_MENU_CLASS,
+			)
+		);
+	}
+
+	if ( is_string( $menu ) && false !== strpos( $menu, '<li' ) ) {
+		// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- markup built by wp_nav_menu().
+		echo '<section class="widget widget_nav_menu">' . $menu . '</section>';
+		return;
+	}
+
+	dynamic_sidebar( 'Servicios' );
+}

@@ -327,3 +327,12 @@ Seguridad Ciudadana, CEAS → Servicios sociales, Gestión tributaria, Intervenc
 Tecnologías, Obras y urbanismo → Urbanismo y vivienda, OMIC → Comercio y Consumo, Recinto ferial → Promoción, Secretaría → Alcaldía,
 etc. «Electricidad / alumbrado» queda sin enlace (no hay una concejalía clara). Un departamento nuevo en la tabla no se enlaza hasta
 añadirlo a ese mapa. Lo escrito en la tabla no cambia.
+
+## Menú de la izquierda de concejalías y temas: un solo menú (PR #109)
+
+La columna izquierda de `/concejalia/<slug>/` y de la mayoría de `/tema/<slug>/` era la barra «Servicios» con un widget que pintaba el menú
+«Servicios municipales» (id 355): una copia vieja del desplegable «Mi ciudad». Ahora pinta los **hijos del elemento del menú principal que
+tiene la clase CSS `menu-areas-y-servicios`** («Áreas y servicios»), así que la lista se edita **una sola vez**, en *Apariencia → Menús*
+(`inc/areas-menu.php`, `aranda_de_duero_the_areas_menu()`). Sigue usando los estilos de `#menu-servicios-municipales`; la concejalía en la que
+estás sale resaltada. Si ningún elemento tiene esa clase, se pinta la barra «Servicios» como antes. Los temas de tabla (tributos, concursos…)
+y los de «Actualidad» y «Trámites» mantienen su barra propia. El menú 355 y su widget ya no se usan y se pueden borrar.

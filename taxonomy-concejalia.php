@@ -21,7 +21,7 @@ $query = aranda_de_duero_concejalias( $current_term->slug );
 	<div class="container mt-4">
 		<div class="row">
 			<div class="col-lg-3 pt-4">
-				<?php dynamic_sidebar( 'Servicios' ); ?>
+				<?php aranda_de_duero_the_areas_menu(); ?>
 			</div>
 			<div class="col-lg-9 pt-4">
 				<main id="primary" class="site-main">

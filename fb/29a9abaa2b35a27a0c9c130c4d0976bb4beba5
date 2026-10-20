@@ -1,0 +1,31 @@
+MEJORAS-OTROS-AYUNTAMIENTOS.md
+  s_e9446e370cbe94::t_4d63ca2209e711 179
+page-barrios-propuestas-respuestas.php
+  s_e9446e370cbe94::t_8892fdb7cdfd56 81,131
+page-exp-plaza-de-toros.php
+  s_e9446e370cbe94::t_1515aebc2b9202 19,202
+page-news.php
+  s_e9446e370cbe94::t_8ca49b1dfd2355 26
+page-tramite.php
+  s_e9446e370cbe94::t_28688cce345e8b 38
+taxonomy-seccion.php
+  s_e9446e370cbe94::t_11325cf58156df 23-31
+template-parts/content-page-notitle.php
+  s_e9446e370cbe94::t_d1f73981899d65 16-20
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "fb29a9abaa2b35a27a0c9c130c4d0976bb4beba5",
+  "prompts": {},
+  "sessions": {
+    "s_e9446e370cbe94": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "1f562e24-39c2-46c2-bbfd-3ce887649604",
+        "model": "claude-sonnet-5-5"
+      },
+      "human_author": "Guillermo López <willyaranda@gmail.com>"
+    }
+  }
+}

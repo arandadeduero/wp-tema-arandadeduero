@@ -20,14 +20,20 @@ $aranda_privacy_url = aranda_de_duero_page_url( 'politica-privacidad' );
 		</button>
 		<p class="chatbot-kicker"><?php esc_html_e( 'Asistente virtual', 'aranda-de-duero' ); ?></p>
 		<h2 class="chatbot-title" id="chatbot-title"><?php esc_html_e( 'Preguntas sobre el Ayuntamiento', 'aranda-de-duero' ); ?></h2>
+		<p class="chatbot-warning"><strong><?php esc_html_e( 'No escribas información personal', 'aranda-de-duero' ); ?></strong> <?php esc_html_e( '(nombre, DNI, dirección, teléfono, correo, datos de salud…): tu pregunta se transmite a un tercero.', 'aranda-de-duero' ); ?></p>
 		<form class="chatbot-form" data-chatbot-form>
 			<label class="screen-reader-text" for="chatbot-question"><?php esc_html_e( 'Escribe tu pregunta', 'aranda-de-duero' ); ?></label>
 			<textarea class="chatbot-question" id="chatbot-question" rows="4" maxlength="<?php echo esc_attr( (string) ARANDA_DE_DUERO_CHATBOT_MAX_QUESTION ); ?>" placeholder="<?php esc_attr_e( '¿Cómo pido cita previa para el padrón?', 'aranda-de-duero' ); ?>" data-chatbot-question></textarea>
 			<p class="chatbot-counter" data-chatbot-counter>0 / <?php echo esc_html( (string) ARANDA_DE_DUERO_CHATBOT_MAX_QUESTION ); ?></p>
+			<div class="chatbot-consent">
+				<input type="checkbox" id="chatbot-consent" data-chatbot-consent aria-describedby="chatbot-error">
+				<label for="chatbot-consent"><?php esc_html_e( 'Acepto enviar información a terceros fuera del control del Ayuntamiento', 'aranda-de-duero' ); ?></label>
+			</div>
+			<p class="chatbot-error" id="chatbot-error" role="alert" data-chatbot-error hidden><?php esc_html_e( 'Para enviar la pregunta tienes que marcar la casilla.', 'aranda-de-duero' ); ?></p>
 			<button type="submit" class="chatbot-send"><?php esc_html_e( 'Enviar pregunta', 'aranda-de-duero' ); ?></button>
 		</form>
 		<p class="chatbot-notice">
-			<?php esc_html_e( 'Al pulsar «Enviar pregunta» se enviará tu consulta a ChatGPT, un servicio de un tercero (OpenAI), y se abrirá en una pestaña nueva. No escribas datos personales. Verifica la información: puede contener inexactitudes.', 'aranda-de-duero' ); ?>
+			<?php esc_html_e( 'Al pulsar «Enviar pregunta» se enviará tu consulta a ChatGPT, un servicio de un tercero (OpenAI), y se abrirá en una pestaña nueva. Verifica la información: puede contener inexactitudes.', 'aranda-de-duero' ); ?>
 			<?php if ( '' !== $aranda_privacy_url ) : ?>
 				<a href="<?php echo esc_url( $aranda_privacy_url ); ?>"><?php esc_html_e( 'Política de privacidad', 'aranda-de-duero' ); ?></a>
 			<?php endif; ?>

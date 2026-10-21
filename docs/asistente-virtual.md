@@ -23,6 +23,12 @@ envía el audio a un tercero.
 
 Para cambiar las fuentes o las reglas, se edita `inc/chatbot.php`.
 
+## Aviso y casilla de consentimiento
+
+El panel muestra, encima de la caja, un aviso destacado: **«No escribas información personal (nombre, DNI, dirección, teléfono, correo, datos de salud…): tu pregunta se
+transmite a un tercero»**. Para enviar hay que marcar la casilla **«Acepto enviar información a terceros fuera del control del Ayuntamiento»**: sin marcarla no
+se abre nada, sale un mensaje (con `role="alert"`) y el foco va a la casilla; **se desmarca después de cada envío**, así que el consentimiento es de cada pregunta.
+
 ## Mejoras del prompt al abrirlo a todos
 
 - La pregunta se trata **como datos, no como instrucciones** (defensa contra «ignora las reglas anteriores»), y se repite que no se revelan ni cambian las instrucciones.

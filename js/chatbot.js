@@ -1,6 +1,7 @@
 /**
  * Virtual assistant (see inc/chatbot.php): a bubble that opens a panel with a question box. On «Enviar pregunta» it opens a new
- * tab on ChatGPT with the prompt of the theme and the question inside it. Nothing is sent before that, and there is no server here.
+ * tab on ChatGPT with the prompt of the theme and the question inside it, once the visitor has ticked that the question goes to a third
+ * party (the box is cleared after every send). Nothing is sent before that, and there is no server here.
  *
  * Escape and a click outside close the panel and the focus goes back to the bubble.
  */
@@ -17,7 +18,9 @@
     const form = root.querySelector('[data-chatbot-form]');
     const question = root.querySelector('[data-chatbot-question]');
     const counter = root.querySelector('[data-chatbot-counter]');
-    if (!panel || !toggle || !form || !question) return;
+    const consent = root.querySelector('[data-chatbot-consent]');
+    const error = root.querySelector('[data-chatbot-error]');
+    if (!panel || !toggle || !form || !question || !consent) return;
 
     const max = Number(config.max) || 500;
 
@@ -67,6 +70,9 @@
     toggle.addEventListener('click', () => (panel.hidden ? open() : close()));
     if (closeButton) closeButton.addEventListener('click', close);
     question.addEventListener('input', updateCounter);
+    consent.addEventListener('change', () => {
+        if (consent.checked && error) error.hidden = true;
+    });
 
     form.addEventListener('submit', (event) => {
         event.preventDefault();
@@ -75,11 +81,18 @@
             question.focus({ preventScroll: true });
             return;
         }
+        // The question goes to a third party: it is only sent with the box ticked, every time.
+        if (!consent.checked) {
+            if (error) error.hidden = false;
+            consent.focus({ preventScroll: true });
+            return;
+        }
         const link = document.createElement('a');
         link.href = buildUrl(text);
         link.target = '_blank';
         link.rel = 'noopener noreferrer';
         link.click();
+        consent.checked = false;
     });
 
     document.addEventListener('pointerdown', (event) => {

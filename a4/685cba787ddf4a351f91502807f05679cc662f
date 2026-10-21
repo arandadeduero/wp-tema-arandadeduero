@@ -1,0 +1,39 @@
+js/chatbot.js
+  s_e9446e370cbe94::t_77e46a0eb22806 1-80
+css/aranda-de-duero.css
+  s_e9446e370cbe94::t_ffb049d1e65509 3506
+  s_e9446e370cbe94::t_77e46a0eb22806 3386-3505,3507-3513
+inc/icons.php
+  s_e9446e370cbe94::t_77e46a0eb22806 103-111
+tests/ChatbotTest.php
+  s_e9446e370cbe94::t_555c42b86fa0d4 1-56,60-63
+  s_e9446e370cbe94::t_02fa1ef522e83f 57-59
+template-parts/chatbot.php
+  s_e9446e370cbe94::t_77e46a0eb22806 1-40
+inc/chatbot.php
+  s_e9446e370cbe94::t_77e46a0eb22806 1-45,57,59-68,78-170
+  s_e9446e370cbe94::t_555c42b86fa0d4 46-56,58,69-77
+functions.php
+  s_e9446e370cbe94::t_77e46a0eb22806 391-394
+  s_e9446e370cbe94::t_9d7e7380cfc098 390
+MEJORAS-OTROS-AYUNTAMIENTOS.md
+  s_e9446e370cbe94::t_15c84f3f833c7f 178
+docs/asistente-virtual.md
+  s_e9446e370cbe94::t_4cbbdf72afc9ff 1-31
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "a4685cba787ddf4a351f91502807f05679cc662f",
+  "prompts": {},
+  "sessions": {
+    "s_e9446e370cbe94": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "1f562e24-39c2-46c2-bbfd-3ce887649604",
+        "model": "claude-sonnet-5-5"
+      },
+      "human_author": "Guillermo López <willyaranda@gmail.com>"
+    }
+  }
+}

@@ -1,0 +1,33 @@
+template-parts/chatbot.php
+  s_e9446e370cbe94::t_9b707f00304c4d 23,28-32,36
+css/aranda-de-duero.css
+  s_e9446e370cbe94::t_9b707f00304c4d 3481-3514
+js/chatbot.js
+  s_e9446e370cbe94::t_9b707f00304c4d 3-4,21-23,73-75,84-89,95
+docs/asistente-virtual.md
+  s_f2eb1bf4736c75::t_9eb04e5ab79c38 26-31
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "49258caf0f81315a9928f167538f9f6872261ac1",
+  "prompts": {},
+  "sessions": {
+    "s_e9446e370cbe94": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "1f562e24-39c2-46c2-bbfd-3ce887649604",
+        "model": "claude-sonnet-5-5"
+      },
+      "human_author": "Guillermo López <willyaranda@gmail.com>"
+    },
+    "s_f2eb1bf4736c75": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "bd11a60f-11d6-481c-af06-c816344283b5",
+        "model": "unknown"
+      },
+      "human_author": "Guillermo López <willyaranda@gmail.com>"
+    }
+  }
+}

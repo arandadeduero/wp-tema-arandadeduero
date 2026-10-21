@@ -100,6 +100,15 @@ if ( ! function_exists( 'aranda_de_duero_register_icons' ) ) :
 				'label'   => __( 'YouTube', 'aranda-de-duero' ),
 				'content' => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg>',
 			),
+			// Own artwork (simple shapes, no third-party licence): the bubble of the virtual assistant and its close cross.
+			'comment-dots' => array(
+				'label'   => __( 'Asistente virtual', 'aranda-de-duero' ),
+				'content' => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" d="M5 3h14a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-6.6L7 22v-4H5a3 3 0 0 1-3-3V6a3 3 0 0 1 3-3zm3.5 6.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm3.5 0a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm3.5 0a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"/></svg>',
+			),
+			'xmark' => array(
+				'label'   => __( 'Cerrar', 'aranda-de-duero' ),
+				'content' => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" d="M5.7 4.3 12 10.6l6.3-6.3 1.4 1.4-6.3 6.3 6.3 6.3-1.4 1.4-6.3-6.3-6.3 6.3-1.4-1.4 6.3-6.3-6.3-6.3z"/></svg>',
+			),
 		);
 
 		foreach ( $icons as $name => $args ) {

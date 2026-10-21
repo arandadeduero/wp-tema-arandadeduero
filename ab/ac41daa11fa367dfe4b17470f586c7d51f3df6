@@ -1,0 +1,22 @@
+docs/asistente-virtual.md
+  s_f2eb1bf4736c75::t_477c35c430847b 5,32
+inc/chatbot.php
+  s_f2eb1bf4736c75::t_477c35c430847b 137,141-146,163,166
+  s_f2eb1bf4736c75::t_125a9cc0cbf55e 37
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "abac41daa11fa367dfe4b17470f586c7d51f3df6",
+  "prompts": {},
+  "sessions": {
+    "s_f2eb1bf4736c75": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "bd11a60f-11d6-481c-af06-c816344283b5",
+        "model": "claude-sonnet-5-5"
+      },
+      "human_author": "Guillermo López <willyaranda@gmail.com>"
+    }
+  }
+}

@@ -1,0 +1,26 @@
+MEJORAS-OTROS-AYUNTAMIENTOS.md
+  s_f2eb1bf4736c75::t_0a2749b36d3a7f 178
+inc/chatbot.php
+  s_f2eb1bf4736c75::t_0a2749b36d3a7f 12,34-36,41
+docs/asistente-virtual.md
+  s_f2eb1bf4736c75::t_0a2749b36d3a7f 3,37
+tests/ChatbotTest.php
+  s_f2eb1bf4736c75::t_0a2749b36d3a7f 18-20,24-25,30-34
+  s_f2eb1bf4736c75::t_fef989afc7e265 35-36
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "b1f80365687e5e99ad520c23bfedcf7137620bdb",
+  "prompts": {},
+  "sessions": {
+    "s_f2eb1bf4736c75": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "bd11a60f-11d6-481c-af06-c816344283b5",
+        "model": "claude-sonnet-5-5"
+      },
+      "human_author": "Guillermo López <willyaranda@gmail.com>"
+    }
+  }
+}

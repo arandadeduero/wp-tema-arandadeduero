@@ -34,7 +34,7 @@ const ARANDA_DE_DUERO_CHATBOT_DATE_PLACEHOLDER = '{{FECHA}}';
 /**
  * Whether the assistant is shown: only to visitors who are logged in, while it is being tested. To open it to everybody, or to restrict it
  * to administrators: `add_filter( 'aranda_de_duero_chatbot_enabled', '__return_true' );` or
- * `add_filter( 'aranda_de_duero_chatbot_enabled', fn() => current_user_can( 'manage_options' ) );`.
+ * `add_filter( 'aranda_de_duero_chatbot_enabled', fn() => current_user_can( 'activate_plugins' ) );`.
  *
  * @return bool
  */
@@ -134,9 +134,15 @@ function aranda_de_duero_chatbot_prompt() {
 }
 
 /**
- * Post type that keeps the questions that were sent, to see what people ask. Only administrators see it (Preguntas del asistente).
+ * Post type that keeps the questions that were sent, to see what people ask. Only whoever has the permission below sees it (Preguntas del asistente).
  */
 const ARANDA_DE_DUERO_CHATBOT_LOG_TYPE = 'pregunta_asistente';
+
+/**
+ * Permission needed to see and delete the questions. It is not `manage_options`: the account of the site that tests this has no access to the
+ * Settings pages, but it does manage the plugins, which only administrators do. The filter `aranda_de_duero_chatbot_log_capability` changes it.
+ */
+const ARANDA_DE_DUERO_CHATBOT_LOG_CAPABILITY = 'activate_plugins';
 
 /**
  * Days a question is kept; the daily clean-up deletes the older ones.
@@ -154,10 +160,10 @@ const ARANDA_DE_DUERO_CHATBOT_PURGE_EVENT = 'aranda_de_duero_chatbot_purge_event
 const ARANDA_DE_DUERO_CHATBOT_LOG_LIMIT = 20;
 
 /**
- * Register the private post type of the questions: no public address, no REST API, and only administrators can see or delete them.
+ * Register the private post type of the questions: no public address, no REST API, and only who has the permission above can see or delete them.
  */
 function aranda_de_duero_chatbot_register_log_type() {
-	$admin = 'manage_options';
+	$admin = (string) apply_filters( 'aranda_de_duero_chatbot_log_capability', ARANDA_DE_DUERO_CHATBOT_LOG_CAPABILITY );
 
 	register_post_type(
 		ARANDA_DE_DUERO_CHATBOT_LOG_TYPE,

@@ -2,7 +2,7 @@
 
 El panel lo indica con la etiqueta «Versión alfa» (ámbar) y un aviso de que puede fallar.
 
-**Estado:** **solo lo ven los usuarios con sesión iniciada** (prueba, 2026-10-21). Para abrirlo a todos: `add_filter( 'aranda_de_duero_chatbot_enabled', '__return_true' );` (o cambiar el valor por defecto de `aranda_de_duero_chatbot_enabled()`); para limitarlo a administradores, el filtro con `current_user_can( 'manage_options' )`. Código: `inc/chatbot.php`, `template-parts/chatbot.php`, `js/chatbot.js`, estilos `.chatbot*` en `css/aranda-de-duero.css`.
+**Estado:** **solo lo ven los usuarios con sesión iniciada** (prueba, 2026-10-21). Para abrirlo a todos: `add_filter( 'aranda_de_duero_chatbot_enabled', '__return_true' );` (o cambiar el valor por defecto de `aranda_de_duero_chatbot_enabled()`); para limitarlo a administradores, el filtro con `current_user_can( 'activate_plugins' )`. Código: `inc/chatbot.php`, `template-parts/chatbot.php`, `js/chatbot.js`, estilos `.chatbot*` en `css/aranda-de-duero.css`.
 
 ## Cómo funciona
 
@@ -29,7 +29,7 @@ Para cambiar las fuentes o las reglas, se edita `inc/chatbot.php`.
 
 Para depurar qué pide la gente, **cada pregunta que se envía se guarda también en la web** antes de abrir ChatGPT (si el guardado falla, la pregunta sigue su camino):
 
-- **Dónde:** tipo de contenido privado «Preguntas del asistente» (menú del escritorio de WordPress), sin dirección pública ni API REST, y **solo los administradores** (`manage_options`) pueden verlo o borrarlo; no se pueden crear a mano.
+- **Dónde:** tipo de contenido privado «Preguntas del asistente» (menú del escritorio de WordPress), sin dirección pública ni API REST, y solo puede verlo o borrarlo quien tenga el permiso **`activate_plugins`** (los administradores; **no se usa `manage_options`** porque la cuenta que prueba esto no tiene acceso a Ajustes). Se cambia con el filtro `aranda_de_duero_chatbot_log_capability`. No se pueden crear a mano.
 - **Qué se guarda:** la pregunta (máx. 500 caracteres, una línea, sin etiquetas), la **página de origen** (solo si es de esta web), la fecha y el usuario con sesión. **No se guarda la IP.**
 - **Cuánto:** **30 días** (`ARANDA_DE_DUERO_CHATBOT_LOG_DAYS`). Una tarea diaria de WordPress (`aranda_de_duero_chatbot_purge_event`) borra del todo las más antiguas; depende de que la web reciba visitas (WP-Cron).
 - **Cómo llega:** el script envía la pregunta a `POST /wp-json/aranda-de-duero/v1/asistente` con el nonce de REST; solo acepta usuarios que pueden ver el asistente y limita a 20 preguntas por usuario y minuto.

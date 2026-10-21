@@ -1,0 +1,32 @@
+tests/ChatbotTest.php
+  s_f2eb1bf4736c75::t_fffdc6759fded8 76-154
+inc/chatbot.php
+  s_f2eb1bf4736c75::t_bf35a89f8ccb10 13-14,136-314,316,336-337,339,348-389,415-416
+  s_f2eb1bf4736c75::t_fffdc6759fded8 315,317-335,338,340-347
+js/chatbot.js
+  s_f2eb1bf4736c75::t_bf35a89f8ccb10 59-70,102
+template-parts/chatbot.php
+  s_f2eb1bf4736c75::t_bf35a89f8ccb10 39
+tests/bootstrap.php
+  s_f2eb1bf4736c75::t_fffdc6759fded8 10-11
+MEJORAS-OTROS-AYUNTAMIENTOS.md
+  s_f2eb1bf4736c75::t_a9ac32292089fa 178
+docs/asistente-virtual.md
+  s_f2eb1bf4736c75::t_07dee58b0b5029 28-38
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "bbb8911ae2bf043da906b34c4620ece3ec757d23",
+  "prompts": {},
+  "sessions": {
+    "s_f2eb1bf4736c75": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "bd11a60f-11d6-481c-af06-c816344283b5",
+        "model": "claude-sonnet-5-5"
+      },
+      "human_author": "Guillermo López <willyaranda@gmail.com>"
+    }
+  }
+}

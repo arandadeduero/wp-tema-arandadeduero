@@ -1,0 +1,31 @@
+tests/HeaderImageTest.php
+  s_f2eb1bf4736c75::t_7bf9d85f9392c1 1-62
+template-parts/post-card-list.php
+  s_f2eb1bf4736c75::t_7bf9d85f9392c1 49
+inc/template-tags.php
+  s_f2eb1bf4736c75::t_7bf9d85f9392c1 177-226,256-258
+inc/events.php
+  s_f2eb1bf4736c75::t_7bf9d85f9392c1 136-143
+page-home.php
+  s_f2eb1bf4736c75::t_7bf9d85f9392c1 265-282
+tests/bootstrap.php
+  s_f2eb1bf4736c75::t_42b1f26fc2c79f 10
+MEJORAS-OTROS-AYUNTAMIENTOS.md
+  s_f2eb1bf4736c75::t_42b3c090d791d2 178
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "18502e738ac36be80dbc0480202fca0508b201bc",
+  "prompts": {},
+  "sessions": {
+    "s_f2eb1bf4736c75": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "bd11a60f-11d6-481c-af06-c816344283b5",
+        "model": "claude-sonnet-5-5"
+      },
+      "human_author": "Guillermo López <willyaranda@gmail.com>"
+    }
+  }
+}

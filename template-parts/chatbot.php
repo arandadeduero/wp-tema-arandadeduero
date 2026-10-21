@@ -5,6 +5,7 @@
  * @package Aranda_de_Duero
  */
 
+$aranda_privacy_url = aranda_de_duero_page_url( 'politica-privacidad' );
 ?>
 <div class="chatbot" data-chatbot>
 	<div class="chatbot-panel" id="chatbot-panel" role="dialog" aria-labelledby="chatbot-title" hidden data-chatbot-panel>
@@ -25,8 +26,12 @@
 			<p class="chatbot-counter" data-chatbot-counter>0 / <?php echo esc_html( (string) ARANDA_DE_DUERO_CHATBOT_MAX_QUESTION ); ?></p>
 			<button type="submit" class="chatbot-send"><?php esc_html_e( 'Enviar pregunta', 'aranda-de-duero' ); ?></button>
 		</form>
-		<p class="chatbot-notice"><?php esc_html_e( 'Se enviará tu consulta a ChatGPT, un servicio de un tercero, y se abrirá en una pestaña nueva. Verifica la información: puede contener inexactitudes.', 'aranda-de-duero' ); ?></p>
-		<p class="chatbot-test"><?php esc_html_e( 'Prueba: solo lo ven los administradores.', 'aranda-de-duero' ); ?></p>
+		<p class="chatbot-notice">
+			<?php esc_html_e( 'Al pulsar «Enviar pregunta» se enviará tu consulta a ChatGPT, un servicio de un tercero (OpenAI), y se abrirá en una pestaña nueva. No escribas datos personales. Verifica la información: puede contener inexactitudes.', 'aranda-de-duero' ); ?>
+			<?php if ( '' !== $aranda_privacy_url ) : ?>
+				<a href="<?php echo esc_url( $aranda_privacy_url ); ?>"><?php esc_html_e( 'Política de privacidad', 'aranda-de-duero' ); ?></a>
+			<?php endif; ?>
+		</p>
 	</div>
 	<button type="button" class="chatbot-toggle" aria-expanded="false" aria-controls="chatbot-panel" data-chatbot-open>
 		<span aria-hidden="true">

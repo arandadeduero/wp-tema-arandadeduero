@@ -44,9 +44,23 @@
     // One line, no double quotes: the question goes between quotes inside the prompt.
     const clean = (text) => text.replace(/\s+/g, ' ').replace(/"/g, "'").trim().slice(0, max);
 
+    // Today's date, in the visitor's clock, written as «miércoles, 21 de octubre de 2026».
+    const today = () =>
+        new Date().toLocaleDateString('es-ES', {
+            weekday: 'long',
+            day: 'numeric',
+            month: 'long',
+            year: 'numeric',
+        });
+
     const buildUrl = (text) => {
         const url = new URL(config.chatUrl);
-        url.searchParams.set('q', config.prompt.split(config.placeholder).join(text));
+        const prompt = config.prompt
+            .split(config.datePlaceholder)
+            .join(today())
+            .split(config.placeholder)
+            .join(text);
+        url.searchParams.set('q', prompt);
         return url.toString();
     };
 

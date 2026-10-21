@@ -3491,16 +3491,10 @@ a.service-card:focus-visible .service-card-title {
     font-weight: 600;
 }
 
-.chatbot-notice,
-.chatbot-test {
+.chatbot-notice {
     margin: var(--spacing-md) 0 0;
     color: var(--color-gray-75);
     font-size: 0.875rem;
-}
-
-.chatbot-test {
-    margin-block-start: var(--spacing-xs);
-    font-weight: 600;
 }
 
 @media (width <= 575.98px) {

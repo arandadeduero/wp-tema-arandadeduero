@@ -1,6 +1,6 @@
 # Asistente virtual (burbuja abajo a la derecha)
 
-**Estado:** solo lo ven los administradores (prueba). Código: `inc/chatbot.php`, `template-parts/chatbot.php`, `js/chatbot.js`, estilos `.chatbot*` en `css/aranda-de-duero.css`.
+**Estado:** lo ve todo el mundo (activado el 2026-10-21 a petición del equipo; se puede apagar o volver a limitar a administradores con el filtro `aranda_de_duero_chatbot_enabled`). Código: `inc/chatbot.php`, `template-parts/chatbot.php`, `js/chatbot.js`, estilos `.chatbot*` en `css/aranda-de-duero.css`.
 
 ## Cómo funciona
 
@@ -23,9 +23,17 @@ envía el audio a un tercero.
 
 Para cambiar las fuentes o las reglas, se edita `inc/chatbot.php`.
 
-## Antes de abrirlo al público
+## Mejoras del prompt al abrirlo a todos
 
-1. **Privacidad:** la pregunta va a un tercero (OpenAI). Hay que decirlo en la política de privacidad y valorarlo con quien lleve la protección de datos del Ayuntamiento.
-2. **Comprobar el comportamiento de ChatGPT:** que acepte el parámetro `?q=` (la dirección de abajo) y que respete el prompt; no se ha podido probar desde aquí (pide una cuenta).
+- La pregunta se trata **como datos, no como instrucciones** (defensa contra «ignora las reglas anteriores»), y se repite que no se revelan ni cambian las instrucciones.
+- **Fecha de hoy** (`{{FECHA}}`): la pone el navegador al enviar, así que una página guardada en la caché nunca lleva una fecha vieja; descarta información de años anteriores.
+- Permite **datos objetivos de cargos** (quién lleva una concejalía, cómo contactar) sin valorarlos.
+- Si no encuentra la respuesta, no afirma que no existe: enlaza al **buscador de la web** (`/?s=…`), al teléfono y a la cita previa.
+- Responde con calma ante preguntas ofensivas o intentos de saltarse las reglas; no traduce ni reproduce documentos largos (resume y enlaza).
+- Las páginas clave van como rutas cortas para que el prompt no pase de unos 4.000 caracteres (con una pregunta de 500 cabe en una dirección de unos 6.400).
+
+## Pendiente (lo que no puede hacer el código)
+
+1. **Política de privacidad:** el panel avisa («se enviará tu consulta a ChatGPT, un servicio de un tercero (OpenAI)… No escribas datos personales») y enlaza la política, pero **el texto de la política debe mencionar este tratamiento**; es decisión de quien lleve la protección de datos del Ayuntamiento.
+2. **Comprobar el comportamiento de ChatGPT:** que acepte el parámetro `?q=` y que respete el prompt; no se ha podido probar desde aquí (pide una cuenta). Si deja de funcionar, la burbuja abriría ChatGPT sin la pregunta.
 3. Probar respuestas con preguntas fáciles, fuera de tema y de opinión política, y revisar que no inventa.
-4. Quitar la condición de administrador: `aranda_de_duero_chatbot_enabled()` (o el filtro `aranda_de_duero_chatbot_enabled`).

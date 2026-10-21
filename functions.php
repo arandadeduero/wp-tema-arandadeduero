@@ -388,6 +388,11 @@ require get_template_directory() . '/inc/audiences.php';
 require get_template_directory() . '/inc/content-types.php';
 
 /**
+ * Virtual assistant: bubble that sends the question to ChatGPT with a closed prompt (only administrators, for now).
+ */
+require get_template_directory() . '/inc/chatbot.php';
+
+/**
  * Archives of the "concejalia" and "tema" terms: pagination and notice of historic archives.
  */
 require get_template_directory() . '/inc/term-archives.php';

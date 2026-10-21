@@ -46,7 +46,7 @@ endif;
 								);
 								?>
 							<?php else : ?>
-								<img loading="lazy" decoding="async" class="img-fluid rounded" src="<?php echo esc_url( content_url( '/uploads/2025/11/Copia-de-Banner-ayuntamiento-5-300x107.png' ) ); ?>" alt="">
+								<img loading="lazy" decoding="async" class="img-fluid rounded" width="300" height="107" src="<?php echo esc_url( content_url( '/uploads/2025/11/Copia-de-Banner-ayuntamiento-5-300x107.png' ) ); ?>" alt="">
 							<?php endif; ?>
 						</div>
 

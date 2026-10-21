@@ -15,14 +15,23 @@ class ChatbotTest extends TestCase {
 		);
 	}
 
-	public function test_the_assistant_is_shown_to_everybody_by_default() {
+	public function test_a_logged_in_user_sees_the_assistant() {
+		WP_Mock::userFunction( 'is_user_logged_in' )->andReturn( true );
+
 		$this->assertTrue( aranda_de_duero_chatbot_enabled() );
 	}
 
-	public function test_a_filter_can_switch_the_assistant_off() {
-		WP_Mock::onFilter( 'aranda_de_duero_chatbot_enabled' )->with( true )->reply( false );
+	public function test_a_visitor_who_is_not_logged_in_does_not() {
+		WP_Mock::userFunction( 'is_user_logged_in' )->andReturn( false );
 
 		$this->assertFalse( aranda_de_duero_chatbot_enabled() );
+	}
+
+	public function test_a_filter_can_open_it_to_everybody() {
+		WP_Mock::userFunction( 'is_user_logged_in' )->andReturn( false );
+		WP_Mock::onFilter( 'aranda_de_duero_chatbot_enabled' )->with( false )->reply( true );
+
+		$this->assertTrue( aranda_de_duero_chatbot_enabled() );
 	}
 
 	public function test_the_prompt_has_the_question_once_and_names_every_official_website() {

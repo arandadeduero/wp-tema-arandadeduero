@@ -9,8 +9,7 @@ defined( 'ABSPATH' ) || exit;
  * Fiestas assistant of Aldea Pucela, written from scratch). The prompt closes the answer to municipal matters of Aranda de Duero,
  * to the official websites, and asks for neutrality. Nothing is sent until the visitor presses the button, and the panel says so.
  *
- * It is shown to every visitor (aranda_de_duero_chatbot_enabled() can switch it off, or restrict it again to administrators with the
- * `aranda_de_duero_chatbot_enabled` filter). The question goes to a third party (OpenAI) only when the visitor presses the button, and the
+ * For now it is only shown to logged-in users, as a test (aranda_de_duero_chatbot_enabled() and its filter change that). The question goes to a third party (OpenAI) only when the visitor presses the button, and the
  * panel says so and links the privacy policy, which has to mention it.
  *
  * @package Aranda_de_Duero
@@ -32,13 +31,14 @@ const ARANDA_DE_DUERO_CHATBOT_PLACEHOLDER = '{{PREGUNTA}}';
 const ARANDA_DE_DUERO_CHATBOT_DATE_PLACEHOLDER = '{{FECHA}}';
 
 /**
- * Whether the assistant is shown: to everybody, unless the filter says otherwise (for example to test it only with administrators:
- * `add_filter( 'aranda_de_duero_chatbot_enabled', fn() => current_user_can( 'manage_options' ) );`).
+ * Whether the assistant is shown: only to visitors who are logged in, while it is being tested. To open it to everybody, or to restrict it
+ * to administrators: `add_filter( 'aranda_de_duero_chatbot_enabled', '__return_true' );` or
+ * `add_filter( 'aranda_de_duero_chatbot_enabled', fn() => current_user_can( 'manage_options' ) );`.
  *
  * @return bool
  */
 function aranda_de_duero_chatbot_enabled() {
-	return (bool) apply_filters( 'aranda_de_duero_chatbot_enabled', true );
+	return (bool) apply_filters( 'aranda_de_duero_chatbot_enabled', is_user_logged_in() );
 }
 
 /**

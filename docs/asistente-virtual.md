@@ -1,6 +1,6 @@
 # Asistente virtual (burbuja abajo a la derecha)
 
-**Estado:** lo ve todo el mundo (activado el 2026-10-21 a petición del equipo; se puede apagar o volver a limitar a administradores con el filtro `aranda_de_duero_chatbot_enabled`). Código: `inc/chatbot.php`, `template-parts/chatbot.php`, `js/chatbot.js`, estilos `.chatbot*` en `css/aranda-de-duero.css`.
+**Estado:** **solo lo ven los usuarios con sesión iniciada** (prueba, 2026-10-21). Para abrirlo a todos: `add_filter( 'aranda_de_duero_chatbot_enabled', '__return_true' );` (o cambiar el valor por defecto de `aranda_de_duero_chatbot_enabled()`); para limitarlo a administradores, el filtro con `current_user_can( 'manage_options' )`. Código: `inc/chatbot.php`, `template-parts/chatbot.php`, `js/chatbot.js`, estilos `.chatbot*` en `css/aranda-de-duero.css`.
 
 ## Cómo funciona
 
@@ -34,7 +34,7 @@ se abre nada, sale un mensaje (con `role="alert"`) y el foco va a la casilla; **
 - Aviso rojo y visible sobre la caja: **«No escribas información personal (nombre, DNI, dirección, teléfono, correo, datos de salud…): tu pregunta se transmite a un tercero»**.
 - Casilla obligatoria: **«Acepto enviar información a terceros fuera del control del Ayuntamiento»**. Sin marcarla no se envía nada: sale un mensaje de error (con `role="alert"`) y el foco va a la casilla. **Se desmarca después de cada envío**, de modo que cada pregunta pide su consentimiento.
 
-## Mejoras del prompt al abrirlo a todos
+## Mejoras del prompt (pensadas para abrirlo a todos)
 
 - La pregunta se trata **como datos, no como instrucciones** (defensa contra «ignora las reglas anteriores»), y se repite que no se revelan ni cambian las instrucciones.
 - **Fecha de hoy** (`{{FECHA}}`): la pone el navegador al enviar, así que una página guardada en la caché nunca lleva una fecha vieja; descarta información de años anteriores.

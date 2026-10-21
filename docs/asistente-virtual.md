@@ -1,4 +1,6 @@
-# Asistente virtual (burbuja abajo a la derecha)
+# Asistente virtual (burbuja abajo a la derecha) — versión alfa
+
+El panel lo indica con la etiqueta «Versión alfa» (ámbar) y un aviso de que puede fallar.
 
 **Estado:** **solo lo ven los usuarios con sesión iniciada** (prueba, 2026-10-21). Para abrirlo a todos: `add_filter( 'aranda_de_duero_chatbot_enabled', '__return_true' );` (o cambiar el valor por defecto de `aranda_de_duero_chatbot_enabled()`); para limitarlo a administradores, el filtro con `current_user_can( 'manage_options' )`. Código: `inc/chatbot.php`, `template-parts/chatbot.php`, `js/chatbot.js`, estilos `.chatbot*` en `css/aranda-de-duero.css`.
 

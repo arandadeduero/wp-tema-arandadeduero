@@ -18,7 +18,10 @@ $aranda_privacy_url = aranda_de_duero_page_url( 'politica-privacidad' );
 			</span>
 			<span class="screen-reader-text"><?php esc_html_e( 'Cerrar el asistente virtual', 'aranda-de-duero' ); ?></span>
 		</button>
-		<p class="chatbot-kicker"><?php esc_html_e( 'Asistente virtual', 'aranda-de-duero' ); ?></p>
+		<p class="chatbot-kicker">
+			<?php esc_html_e( 'Asistente virtual', 'aranda-de-duero' ); ?>
+			<span class="chatbot-alpha"><?php esc_html_e( 'Versión alfa', 'aranda-de-duero' ); ?></span>
+		</p>
 		<h2 class="chatbot-title" id="chatbot-title"><?php esc_html_e( 'Preguntas sobre el Ayuntamiento', 'aranda-de-duero' ); ?></h2>
 		<p class="chatbot-warning"><strong><?php esc_html_e( 'No escribas información personal', 'aranda-de-duero' ); ?></strong> <?php esc_html_e( '(nombre, DNI, dirección, teléfono, correo, datos de salud…): tu pregunta se transmite a un tercero.', 'aranda-de-duero' ); ?></p>
 		<form class="chatbot-form" data-chatbot-form>
@@ -33,7 +36,7 @@ $aranda_privacy_url = aranda_de_duero_page_url( 'politica-privacidad' );
 			<button type="submit" class="chatbot-send"><?php esc_html_e( 'Enviar pregunta', 'aranda-de-duero' ); ?></button>
 		</form>
 		<p class="chatbot-notice">
-			<?php esc_html_e( 'Al pulsar «Enviar pregunta» se enviará tu consulta a ChatGPT, un servicio de un tercero (OpenAI), y se abrirá en una pestaña nueva. Verifica la información: puede contener inexactitudes.', 'aranda-de-duero' ); ?>
+			<?php esc_html_e( 'Al pulsar «Enviar pregunta» se enviará tu consulta a ChatGPT, un servicio de un tercero (OpenAI), y se abrirá en una pestaña nueva. Verifica la información: puede contener inexactitudes. Es una versión alfa, en pruebas: puede fallar.', 'aranda-de-duero' ); ?>
 			<?php if ( '' !== $aranda_privacy_url ) : ?>
 				<a href="<?php echo esc_url( $aranda_privacy_url ); ?>"><?php esc_html_e( 'Política de privacidad', 'aranda-de-duero' ); ?></a>
 			<?php endif; ?>
@@ -46,6 +49,6 @@ $aranda_privacy_url = aranda_de_duero_page_url( 'politica-privacidad' );
 			echo aranda_de_duero_icon( 'aranda-de-duero/comment-dots', array( 'size' => 28 ) );
 			?>
 		</span>
-		<span class="screen-reader-text"><?php esc_html_e( 'Abrir el asistente virtual', 'aranda-de-duero' ); ?></span>
+		<span class="screen-reader-text"><?php esc_html_e( 'Abrir el asistente virtual (versión alfa)', 'aranda-de-duero' ); ?></span>
 	</button>
 </div>

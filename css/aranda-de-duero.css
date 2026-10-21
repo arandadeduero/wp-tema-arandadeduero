@@ -3463,6 +3463,17 @@ a.service-card:focus-visible .service-card-title {
     text-transform: uppercase;
 }
 
+.chatbot-alpha {
+    display: inline-block;
+    margin-inline-start: var(--spacing-sm);
+    border-radius: var(--border-radius);
+    padding: 0 var(--spacing-sm);
+    background: var(--color-amber);
+    color: var(--color-black);
+    font-size: 0.75rem;
+    letter-spacing: 0.04em;
+}
+
 .chatbot-title {
     margin: 0 3rem var(--spacing-lg) 0;
     font-size: 1.25rem;

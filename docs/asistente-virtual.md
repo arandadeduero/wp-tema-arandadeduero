@@ -29,6 +29,11 @@ El panel muestra, encima de la caja, un aviso destacado: **«No escribas informa
 transmite a un tercero»**. Para enviar hay que marcar la casilla **«Acepto enviar información a terceros fuera del control del Ayuntamiento»**: sin marcarla no
 se abre nada, sale un mensaje (con `role="alert"`) y el foco va a la casilla; **se desmarca después de cada envío**, así que el consentimiento es de cada pregunta.
 
+## Aviso y consentimiento antes de enviar
+
+- Aviso rojo y visible sobre la caja: **«No escribas información personal (nombre, DNI, dirección, teléfono, correo, datos de salud…): tu pregunta se transmite a un tercero»**.
+- Casilla obligatoria: **«Acepto enviar información a terceros fuera del control del Ayuntamiento»**. Sin marcarla no se envía nada: sale un mensaje de error (con `role="alert"`) y el foco va a la casilla. **Se desmarca después de cada envío**, de modo que cada pregunta pide su consentimiento.
+
 ## Mejoras del prompt al abrirlo a todos
 
 - La pregunta se trata **como datos, no como instrucciones** (defensa contra «ignora las reglas anteriores»), y se repite que no se revelan ni cambian las instrucciones.
@@ -40,6 +45,6 @@ se abre nada, sale un mensaje (con `role="alert"`) y el foco va a la casilla; **
 
 ## Pendiente (lo que no puede hacer el código)
 
-1. **Política de privacidad:** el panel avisa («se enviará tu consulta a ChatGPT, un servicio de un tercero (OpenAI)… No escribas datos personales») y enlaza la política, pero **el texto de la política debe mencionar este tratamiento**; es decisión de quien lleve la protección de datos del Ayuntamiento.
+1. **Política de privacidad:** el panel avisa, pide marcar la casilla y enlaza la política, pero **el texto de la política debe mencionar este tratamiento**; es decisión de quien lleve la protección de datos del Ayuntamiento.
 2. **Comprobar el comportamiento de ChatGPT:** que acepte el parámetro `?q=` y que respete el prompt; no se ha podido probar desde aquí (pide una cuenta). Si deja de funcionar, la burbuja abriría ChatGPT sin la pregunta.
 3. Probar respuestas con preguntas fáciles, fuera de tema y de opinión política, y revisar que no inventa.

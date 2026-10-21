@@ -25,6 +25,17 @@ envía el audio a un tercero.
 
 Para cambiar las fuentes o las reglas, se edita `inc/chatbot.php`.
 
+## Registro de las preguntas (30 días)
+
+Para depurar qué pide la gente, **cada pregunta que se envía se guarda también en la web** antes de abrir ChatGPT (si el guardado falla, la pregunta sigue su camino):
+
+- **Dónde:** tipo de contenido privado «Preguntas del asistente» (menú del escritorio de WordPress), sin dirección pública ni API REST, y **solo los administradores** (`manage_options`) pueden verlo o borrarlo; no se pueden crear a mano.
+- **Qué se guarda:** la pregunta (máx. 500 caracteres, una línea, sin etiquetas), la **página de origen** (solo si es de esta web), la fecha y el usuario con sesión. **No se guarda la IP.**
+- **Cuánto:** **30 días** (`ARANDA_DE_DUERO_CHATBOT_LOG_DAYS`). Una tarea diaria de WordPress (`aranda_de_duero_chatbot_purge_event`) borra del todo las más antiguas; depende de que la web reciba visitas (WP-Cron).
+- **Cómo llega:** el script envía la pregunta a `POST /wp-json/aranda-de-duero/v1/asistente` con el nonce de REST; solo acepta usuarios que pueden ver el asistente y limita a 20 preguntas por usuario y minuto.
+- **Aviso en el panel:** «Guardamos tu pregunta y la página desde la que la haces durante 30 días, solo visibles para los administradores, para mejorar el asistente».
+- Es **otro tratamiento, del Ayuntamiento** (distinto del envío a ChatGPT): debe constar en la política de privacidad, con su finalidad y su plazo. Si se abre al público habrá que pasar a una tabla propia (con mucho volumen, un tipo de contenido se vuelve lento).
+
 ## Aviso y casilla de consentimiento
 
 El panel muestra, encima de la caja, un aviso destacado: **«No escribas información personal (nombre, DNI, dirección, teléfono, correo, datos de salud…): tu pregunta se

@@ -56,6 +56,18 @@
             year: 'numeric',
         });
 
+    // The question is also kept in the site, for the administrators (30 days). It never stops the question if it fails.
+    const keep = (text) => {
+        if (!config.logUrl) return;
+        fetch(config.logUrl, {
+            method: 'POST',
+            credentials: 'same-origin',
+            keepalive: true,
+            headers: { 'Content-Type': 'application/json', 'X-WP-Nonce': config.nonce },
+            body: JSON.stringify({ question: text, page: window.location.href }),
+        }).catch(() => {});
+    };
+
     const buildUrl = (text) => {
         const url = new URL(config.chatUrl);
         const prompt = config.prompt
@@ -87,6 +99,7 @@
             consent.focus({ preventScroll: true });
             return;
         }
+        keep(text);
         const link = document.createElement('a');
         link.href = buildUrl(text);
         link.target = '_blank';

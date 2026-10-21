@@ -10,7 +10,8 @@ defined( 'ABSPATH' ) || exit;
  * to the official websites, and asks for neutrality. Nothing is sent until the visitor presses the button, and the panel says so.
  *
  * For now it is only shown to logged-in users, as a test (aranda_de_duero_chatbot_enabled() and its filter change that). The question goes to a third party (OpenAI) only when the visitor presses the button, and the
- * panel says so and links the privacy policy, which has to mention it.
+ * panel says so and links the privacy policy, which has to mention it. Each question that is sent is also kept for 30 days (page it
+ * came from included) in a private post type that only administrators see, to know what people ask.
  *
  * @package Aranda_de_Duero
  */
@@ -133,6 +134,260 @@ function aranda_de_duero_chatbot_prompt() {
 }
 
 /**
+ * Post type that keeps the questions that were sent, to see what people ask. Only administrators see it (Preguntas del asistente).
+ */
+const ARANDA_DE_DUERO_CHATBOT_LOG_TYPE = 'pregunta_asistente';
+
+/**
+ * Days a question is kept; the daily clean-up deletes the older ones.
+ */
+const ARANDA_DE_DUERO_CHATBOT_LOG_DAYS = 30;
+
+/**
+ * Event of the daily clean-up.
+ */
+const ARANDA_DE_DUERO_CHATBOT_PURGE_EVENT = 'aranda_de_duero_chatbot_purge_event';
+
+/**
+ * Questions a user can send per minute (they go to the log).
+ */
+const ARANDA_DE_DUERO_CHATBOT_LOG_LIMIT = 20;
+
+/**
+ * Register the private post type of the questions: no public address, no REST API, and only administrators can see or delete them.
+ */
+function aranda_de_duero_chatbot_register_log_type() {
+	$admin = 'manage_options';
+
+	register_post_type(
+		ARANDA_DE_DUERO_CHATBOT_LOG_TYPE,
+		array(
+			'labels'          => array(
+				'name'          => 'Preguntas del asistente',
+				'singular_name' => 'Pregunta del asistente',
+				'menu_name'     => 'Preguntas del asistente',
+				'search_items'  => 'Buscar preguntas',
+				'not_found'     => 'Todavía no hay preguntas.',
+			),
+			'public'          => false,
+			'show_ui'         => true,
+			'show_in_menu'    => true,
+			'show_in_rest'    => false,
+			'menu_icon'       => 'dashicons-format-chat',
+			'menu_position'   => 80,
+			'supports'        => array( 'title', 'editor', 'author' ),
+			'map_meta_cap'    => true,
+			'capabilities'    => array(
+				'edit_post'           => $admin,
+				'read_post'           => $admin,
+				'delete_post'         => $admin,
+				'edit_posts'          => $admin,
+				'edit_others_posts'   => $admin,
+				'delete_posts'        => $admin,
+				'delete_others_posts' => $admin,
+				'publish_posts'       => $admin,
+				'read_private_posts'  => $admin,
+				'create_posts'        => 'do_not_allow',
+			),
+		)
+	);
+}
+add_action( 'init', 'aranda_de_duero_chatbot_register_log_type' );
+
+/**
+ * A question as it is kept: one line, no tags, the longest allowed.
+ *
+ * @param mixed $text Question as it came.
+ * @return string
+ */
+function aranda_de_duero_chatbot_clean_question( $text ) {
+	$text = trim( (string) preg_replace( '/\s+/', ' ', wp_strip_all_tags( (string) $text ) ) );
+
+	return mb_substr( $text, 0, ARANDA_DE_DUERO_CHATBOT_MAX_QUESTION );
+}
+
+/**
+ * The page the question was asked from, only when it is a page of this site.
+ *
+ * @param mixed $url Address as it came.
+ * @return string
+ */
+function aranda_de_duero_chatbot_clean_page( $url ) {
+	$url = esc_url_raw( (string) $url );
+
+	return wp_parse_url( $url, PHP_URL_HOST ) === wp_parse_url( home_url(), PHP_URL_HOST ) ? $url : '';
+}
+
+/**
+ * Keep a question that has been sent.
+ *
+ * @param mixed $question Question.
+ * @param mixed $page     Page it was asked from.
+ * @param int   $user_id  Logged-in user.
+ * @return int Id of the entry, or 0 when there was nothing to keep.
+ */
+function aranda_de_duero_chatbot_log_question( $question, $page, $user_id ) {
+	$question = aranda_de_duero_chatbot_clean_question( $question );
+	if ( '' === $question ) {
+		return 0;
+	}
+
+	$id = wp_insert_post(
+		array(
+			'post_type'    => ARANDA_DE_DUERO_CHATBOT_LOG_TYPE,
+			'post_status'  => 'private',
+			'post_title'   => mb_strimwidth( $question, 0, 80, '…' ),
+			'post_content' => $question,
+			'post_author'  => (int) $user_id,
+			'meta_input'   => array( '_chatbot_page' => aranda_de_duero_chatbot_clean_page( $page ) ),
+		),
+		true
+	);
+
+	return is_wp_error( $id ) ? 0 : (int) $id;
+}
+
+/**
+ * Whether a user has already sent too many questions this minute (and count this one).
+ *
+ * @param int $user_id User.
+ * @return bool
+ */
+function aranda_de_duero_chatbot_throttled( $user_id ) {
+	$key   = 'aranda_chatbot_rate_' . (int) $user_id;
+	$count = (int) get_transient( $key );
+	if ( $count >= ARANDA_DE_DUERO_CHATBOT_LOG_LIMIT ) {
+		return true;
+	}
+	set_transient( $key, $count + 1, MINUTE_IN_SECONDS );
+
+	return false;
+}
+
+/**
+ * REST route the script calls when a question is sent: it is kept before the new tab opens (a failure does not stop the question).
+ *
+ * @param WP_REST_Request $request Request with `question` and `page`.
+ * @return WP_REST_Response
+ */
+function aranda_de_duero_chatbot_rest_log( $request ) {
+	$user_id = get_current_user_id();
+	if ( aranda_de_duero_chatbot_throttled( $user_id ) ) {
+		return new WP_REST_Response( array( 'saved' => false ), 429 );
+	}
+
+	$id = aranda_de_duero_chatbot_log_question( $request->get_param( 'question' ), $request->get_param( 'page' ), $user_id );
+
+	return new WP_REST_Response( array( 'saved' => $id > 0 ), $id > 0 ? 201 : 400 );
+}
+
+/**
+ * Only whoever can see the assistant can send to the log (the REST nonce of a logged-in user is checked by WordPress).
+ *
+ * @return bool
+ */
+function aranda_de_duero_chatbot_rest_permission() {
+	return aranda_de_duero_chatbot_enabled();
+}
+
+/**
+ * Register the route.
+ */
+function aranda_de_duero_chatbot_register_route() {
+	register_rest_route(
+		'aranda-de-duero/v1',
+		'/asistente',
+		array(
+			'methods'             => 'POST',
+			'callback'            => 'aranda_de_duero_chatbot_rest_log',
+			'permission_callback' => 'aranda_de_duero_chatbot_rest_permission',
+		)
+	);
+}
+add_action( 'rest_api_init', 'aranda_de_duero_chatbot_register_route' );
+
+/**
+ * Delete the questions older than the days they are kept.
+ *
+ * @return int How many were deleted.
+ */
+function aranda_de_duero_chatbot_purge() {
+	$deleted = 0;
+
+	// 100 at a time, up to 2.000 per run, so that one run never takes long.
+	for ( $round = 0; $round < 20; $round++ ) {
+		$ids = get_posts(
+			array(
+				'post_type'      => ARANDA_DE_DUERO_CHATBOT_LOG_TYPE,
+				'post_status'    => 'any',
+				'posts_per_page' => 100,
+				'fields'         => 'ids',
+				'no_found_rows'  => true,
+				'date_query'     => array( array( 'before' => ARANDA_DE_DUERO_CHATBOT_LOG_DAYS . ' days ago' ) ),
+			)
+		);
+		if ( empty( $ids ) ) {
+			break;
+		}
+		foreach ( $ids as $id ) {
+			wp_delete_post( $id, true );
+		}
+		$deleted += count( $ids );
+	}
+
+	return $deleted;
+}
+
+/**
+ * The daily event: the clean-up without a value to return.
+ */
+function aranda_de_duero_chatbot_run_purge() {
+	aranda_de_duero_chatbot_purge();
+}
+add_action( ARANDA_DE_DUERO_CHATBOT_PURGE_EVENT, 'aranda_de_duero_chatbot_run_purge' );
+
+/**
+ * Schedule the daily clean-up.
+ */
+function aranda_de_duero_chatbot_schedule_purge() {
+	if ( ! wp_next_scheduled( ARANDA_DE_DUERO_CHATBOT_PURGE_EVENT ) ) {
+		wp_schedule_event( time() + HOUR_IN_SECONDS, 'daily', ARANDA_DE_DUERO_CHATBOT_PURGE_EVENT );
+	}
+}
+add_action( 'init', 'aranda_de_duero_chatbot_schedule_purge' );
+
+/**
+ * Column with the page the question came from, in the list of the admin.
+ *
+ * @param array<string,string> $columns Columns.
+ * @return array<string,string>
+ */
+function aranda_de_duero_chatbot_log_columns( $columns ) {
+	$columns['origen'] = 'Página de origen';
+
+	return $columns;
+}
+add_filter( 'manage_' . ARANDA_DE_DUERO_CHATBOT_LOG_TYPE . '_posts_columns', 'aranda_de_duero_chatbot_log_columns' );
+
+/**
+ * Content of that column.
+ *
+ * @param string $column  Column.
+ * @param int    $post_id Entry.
+ */
+function aranda_de_duero_chatbot_log_column( $column, $post_id ) {
+	if ( 'origen' !== $column ) {
+		return;
+	}
+
+	$page = (string) get_post_meta( $post_id, '_chatbot_page', true );
+	if ( '' !== $page ) {
+		printf( '<a href="%1$s">%1$s</a>', esc_url( $page ) );
+	}
+}
+add_action( 'manage_' . ARANDA_DE_DUERO_CHATBOT_LOG_TYPE . '_posts_custom_column', 'aranda_de_duero_chatbot_log_column', 10, 2 );
+
+/**
  * Load the script (with the prompt) and print the bubble, when it is shown.
  */
 function aranda_de_duero_chatbot_assets() {
@@ -157,6 +412,8 @@ function aranda_de_duero_chatbot_assets() {
 				'chatUrl'         => 'https://chatgpt.com/',
 				'placeholder'     => ARANDA_DE_DUERO_CHATBOT_PLACEHOLDER,
 				'datePlaceholder' => ARANDA_DE_DUERO_CHATBOT_DATE_PLACEHOLDER,
+				'logUrl'          => rest_url( 'aranda-de-duero/v1/asistente' ),
+				'nonce'           => wp_create_nonce( 'wp_rest' ),
 				'max'             => ARANDA_DE_DUERO_CHATBOT_MAX_QUESTION,
 				'prompt'          => aranda_de_duero_chatbot_prompt(),
 			),

@@ -36,7 +36,7 @@ $aranda_privacy_url = aranda_de_duero_page_url( 'politica-privacidad' );
 			<button type="submit" class="chatbot-send"><?php esc_html_e( 'Enviar pregunta', 'aranda-de-duero' ); ?></button>
 		</form>
 		<p class="chatbot-notice">
-			<?php esc_html_e( 'Al pulsar «Enviar pregunta» se enviará tu consulta a ChatGPT, un servicio de un tercero (OpenAI), y se abrirá en una pestaña nueva. Verifica la información: puede contener inexactitudes. Es una versión alfa, en pruebas: puede fallar.', 'aranda-de-duero' ); ?>
+			<?php esc_html_e( 'Al pulsar «Enviar pregunta» se enviará tu consulta a ChatGPT, un servicio de un tercero (OpenAI), y se abrirá en una pestaña nueva. Verifica la información: puede contener inexactitudes. Es una versión alfa, en pruebas: puede fallar. Guardamos tu pregunta y la página desde la que la haces durante 30 días, solo visibles para los administradores, para mejorar el asistente.', 'aranda-de-duero' ); ?>
 			<?php if ( '' !== $aranda_privacy_url ) : ?>
 				<a href="<?php echo esc_url( $aranda_privacy_url ); ?>"><?php esc_html_e( 'Política de privacidad', 'aranda-de-duero' ); ?></a>
 			<?php endif; ?>

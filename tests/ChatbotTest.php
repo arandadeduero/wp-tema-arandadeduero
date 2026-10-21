@@ -73,4 +73,83 @@ class ChatbotTest extends TestCase {
 
 		$this->assertLessThan( 7000, strlen( rawurlencode( $longest ) ) );
 	}
+
+	public function test_a_question_is_kept_as_one_line_without_tags_and_no_longer_than_allowed() {
+		WP_Mock::userFunction( 'wp_strip_all_tags' )->andReturnUsing( 'strip_tags' );
+
+		$this->assertSame( 'Hola mundo', aranda_de_duero_chatbot_clean_question( "  <b>Hola</b>\n\n mundo  " ) );
+		$this->assertSame( ARANDA_DE_DUERO_CHATBOT_MAX_QUESTION, mb_strlen( aranda_de_duero_chatbot_clean_question( str_repeat( 'ñ', 900 ) ) ) );
+	}
+
+	public function test_the_page_of_origin_has_to_be_of_this_site() {
+		WP_Mock::userFunction( 'esc_url_raw' )->andReturnUsing(
+			function ( $url ) {
+				return $url;
+			}
+		);
+		WP_Mock::userFunction( 'wp_parse_url' )->andReturnUsing( 'parse_url' );
+
+		$this->assertSame( 'https://www.arandadeduero.es/bandos/', aranda_de_duero_chatbot_clean_page( 'https://www.arandadeduero.es/bandos/' ) );
+		$this->assertSame( '', aranda_de_duero_chatbot_clean_page( 'https://example.org/' ) );
+		$this->assertSame( '', aranda_de_duero_chatbot_clean_page( '' ) );
+	}
+
+	public function test_a_question_is_kept_as_a_private_entry_with_its_page() {
+		WP_Mock::userFunction( 'wp_strip_all_tags' )->andReturnUsing( 'strip_tags' );
+		WP_Mock::userFunction( 'esc_url_raw' )->andReturnUsing(
+			function ( $url ) {
+				return $url;
+			}
+		);
+		WP_Mock::userFunction( 'wp_parse_url' )->andReturnUsing( 'parse_url' );
+		WP_Mock::userFunction( 'is_wp_error' )->andReturn( false );
+		WP_Mock::userFunction( 'wp_insert_post' )->once()->with(
+			\Mockery::on(
+				function ( $args ) {
+					return ARANDA_DE_DUERO_CHATBOT_LOG_TYPE === $args['post_type']
+						&& 'private' === $args['post_status']
+						&& '¿Cómo pido cita?' === $args['post_content']
+						&& 7 === $args['post_author']
+						&& 'https://www.arandadeduero.es/' === $args['meta_input']['_chatbot_page'];
+				}
+			),
+			true
+		)->andReturn( 55 );
+
+		$this->assertSame( 55, aranda_de_duero_chatbot_log_question( '¿Cómo pido cita?', 'https://www.arandadeduero.es/', 7 ) );
+	}
+
+	public function test_an_empty_question_is_not_kept() {
+		WP_Mock::userFunction( 'wp_strip_all_tags' )->andReturnUsing( 'strip_tags' );
+		WP_Mock::userFunction( 'wp_insert_post' )->never();
+
+		$this->assertSame( 0, aranda_de_duero_chatbot_log_question( '   ', '', 7 ) );
+	}
+
+	public function test_a_user_cannot_send_more_than_the_limit_per_minute() {
+		WP_Mock::userFunction( 'get_transient' )->andReturn( ARANDA_DE_DUERO_CHATBOT_LOG_LIMIT );
+		WP_Mock::userFunction( 'set_transient' )->never();
+
+		$this->assertTrue( aranda_de_duero_chatbot_throttled( 7 ) );
+	}
+
+	public function test_below_the_limit_the_count_goes_up() {
+		WP_Mock::userFunction( 'get_transient' )->andReturn( 3 );
+		WP_Mock::userFunction( 'set_transient' )->once()->with( 'aranda_chatbot_rate_7', 4, 60 );
+
+		$this->assertFalse( aranda_de_duero_chatbot_throttled( 7 ) );
+	}
+
+	public function test_the_clean_up_deletes_the_old_questions_for_good() {
+		$calls = 0;
+		WP_Mock::userFunction( 'get_posts' )->andReturnUsing(
+			function () use ( &$calls ) {
+				return 0 === $calls++ ? array( 11, 12 ) : array();
+			}
+		);
+		WP_Mock::userFunction( 'wp_delete_post' )->once()->with( 11, true );
+		WP_Mock::userFunction( 'wp_delete_post' )->once()->with( 12, true );
+
+		$this->assertSame( 2, aranda_de_duero_chatbot_purge() );
+	}
 }

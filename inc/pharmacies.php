@@ -220,6 +220,44 @@ function aranda_de_duero_pharmacy_map_links( $pharmacy ) {
 }
 
 /**
+ * Whether a browser runs on an Apple device (Mac, iPhone, iPad, iPod), where Apple Maps is the natural map.
+ *
+ * @param string $user_agent User-Agent header.
+ * @return bool
+ */
+function aranda_de_duero_is_apple_device( $user_agent ) {
+	return 1 === preg_match( '/iPhone|iPad|iPod|Macintosh|Mac OS X/i', (string) $user_agent );
+}
+
+/**
+ * The one map link for a pharmacy: Google Maps, or Apple Maps on an Apple device.
+ *
+ * It is chosen on the server from the User-Agent, so a page cache would have to vary on it (there is none now).
+ *
+ * @param array<string,mixed> $pharmacy   Pharmacy of the catalogue.
+ * @param string|null         $user_agent User-Agent; the one of the request when omitted.
+ * @return array{label: string, url: string, icon: string}|null Null when the pharmacy has no address.
+ */
+function aranda_de_duero_pharmacy_map_link( $pharmacy, $user_agent = null ) {
+	$links = aranda_de_duero_pharmacy_map_links( $pharmacy );
+	if ( array() === $links ) {
+		return null;
+	}
+
+	if ( null === $user_agent ) {
+		$user_agent = isset( $_SERVER['HTTP_USER_AGENT'] ) ? sanitize_text_field( wp_unslash( $_SERVER['HTTP_USER_AGENT'] ) ) : '';
+	}
+
+	$apple = aranda_de_duero_is_apple_device( $user_agent );
+
+	return array(
+		'label' => $links[ $apple ? 1 : 0 ]['label'],
+		'url'   => $links[ $apple ? 1 : 0 ]['url'],
+		'icon'  => $apple ? 'aranda-de-duero/location-arrow' : 'aranda-de-duero/location-dot',
+	);
+}
+
+/**
  * Days from a date to the 31 December of its year (0 on 31 December itself).
  *
  * @param string $today Day, «YYYY-MM-DD».

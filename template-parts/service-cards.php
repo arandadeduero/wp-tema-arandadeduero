@@ -3,7 +3,8 @@
  * A list of service cards (title, one-line description, link): «Accesos frecuentes» and «Pagos y recibos».
  *
  * Passed with get_template_part() as the third argument:
- * - `items` (array<int, array{title: string, text: string, url: string, new_tab: bool}>) The cards.
+ * - `items` (array<int, array<string, mixed>>) The cards: title, text, url, new_tab; the pharmacy on duty also has `pharmacy` (name,
+ *   address, phone, phone_href, map).
  *
  * @package Aranda_de_Duero
  */
@@ -19,6 +20,33 @@ if ( array() === $aranda_cards['items'] ) {
 ?>
 <ul class="service-cards">
 	<?php foreach ( $aranda_cards['items'] as $aranda_card ) : ?>
+		<?php if ( ! empty( $aranda_card['pharmacy'] ) ) : ?>
+			<?php $aranda_pharmacy = $aranda_card['pharmacy']; ?>
+			<?php /* The pharmacy on duty now: not one link, because it has its own (phone, map) inside. */ ?>
+			<li>
+				<div class="service-card service-card-pharmacy">
+					<a class="service-card-title" href="<?php echo esc_url( $aranda_card['url'] ); ?>"><?php echo esc_html( $aranda_card['title'] ); ?></a>
+					<span class="service-card-pharmacy-name"><?php echo esc_html( $aranda_pharmacy['name'] ); ?></span>
+					<span class="service-card-text"><?php echo esc_html( $aranda_pharmacy['address'] ); ?></span>
+					<span class="service-card-pharmacy-actions">
+						<?php if ( '' !== $aranda_pharmacy['phone_href'] ) : ?>
+							<a href="<?php echo esc_url( $aranda_pharmacy['phone_href'] ); ?>"><?php echo esc_html( $aranda_pharmacy['phone'] ); ?></a>
+						<?php endif; ?>
+						<?php if ( ! empty( $aranda_pharmacy['map'] ) ) : ?>
+							<a class="pharmacy-map" href="<?php echo esc_url( $aranda_pharmacy['map']['url'] ); ?>" target="_blank" rel="noopener">
+								<?php
+								// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- aranda_de_duero_icon() returns SVG markup already sanitized by the WP 7.1 SVG Icon API (see inc/icons.php).
+								echo aranda_de_duero_icon( $aranda_pharmacy['map']['icon'], array( 'size' => 14 ) );
+								echo esc_html( $aranda_pharmacy['map']['label'] );
+								aranda_de_duero_the_new_tab_notice();
+								?>
+							</a>
+						<?php endif; ?>
+					</span>
+				</div>
+			</li>
+			<?php continue; ?>
+		<?php endif; ?>
 		<li>
 			<a class="service-card" href="<?php echo esc_url( $aranda_card['url'] ); ?>"
 				<?php

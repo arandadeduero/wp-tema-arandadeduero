@@ -41,7 +41,7 @@ function aranda_de_duero_payments_url() {
 /**
  * «Accesos frecuentes» of the home page.
  *
- * @return array<int, array{title: string, text: string, url: string, new_tab: bool}>
+ * @return array<int, array<string, mixed>>
  */
 function aranda_de_duero_quick_access() {
 	$info = aranda_de_duero_contact_info();
@@ -108,20 +108,28 @@ function aranda_de_duero_quick_access() {
 	// Only once the page exists, so the card never leads to a 404; third place, after the payments.
 	$pharmacy_url = aranda_de_duero_page_url( 'farmacia-de-guardia' );
 	if ( '' !== $pharmacy_url ) {
-		array_splice(
-			$items,
-			2,
-			0,
-			array(
-				array(
-					'title'    => __( 'Farmacia de guardia', 'aranda-de-duero' ),
-					'text'     => __( 'Consulta qué farmacia está de guardia hoy.', 'aranda-de-duero' ),
-					'url'      => $pharmacy_url,
-					'new_tab'  => false,
-					'keywords' => 'farmacia farmacias guardia urgencia medicamentos',
-				),
-			)
+		$card = array(
+			'title'    => __( 'Farmacia de guardia', 'aranda-de-duero' ),
+			'text'     => __( 'Consulta qué farmacia está de guardia hoy.', 'aranda-de-duero' ),
+			'url'      => $pharmacy_url,
+			'new_tab'  => false,
+			'keywords' => 'farmacia farmacias guardia urgencia medicamentos',
 		);
+
+		// The card names the pharmacy on duty now (name, address, phone, map); without calendar it is a plain link to the page.
+		$guard = aranda_de_duero_pharmacy_guard_for_date( aranda_de_duero_pharmacy_guard_day( current_time( 'Y-m-d H:i:s' ) ) );
+		if ( null !== $guard ) {
+			$pharmacy         = $guard['pharmacy'];
+			$card['pharmacy'] = array(
+				'name'       => (string) $pharmacy['name'],
+				'address'    => (string) $pharmacy['address'],
+				'phone'      => aranda_de_duero_pharmacy_phone( isset( $pharmacy['phone'] ) ? $pharmacy['phone'] : '' ),
+				'phone_href' => empty( $pharmacy['phone'] ) ? '' : 'tel:' . $pharmacy['phone'],
+				'map'        => aranda_de_duero_pharmacy_map_link( $pharmacy ),
+			);
+		}
+
+		array_splice( $items, 2, 0, array( $card ) );
 	}
 
 	/**

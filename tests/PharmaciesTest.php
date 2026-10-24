@@ -61,6 +61,29 @@ class PharmaciesTest extends TestCase {
 		$this->assertSame( array(), aranda_de_duero_pharmacy_map_links( array() ) );
 	}
 
+	public function test_apple_devices_get_apple_maps_and_the_rest_google_maps() {
+		$pharmacy = array(
+			'address'    => 'Avenida Castilla, 58',
+			'postalCode' => '09400',
+			'city'       => 'Aranda de Duero',
+		);
+		$agents   = array(
+			'Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 Safari/604.1' => 'Apple Maps',
+			'Mozilla/5.0 (iPad; CPU OS 17_0 like Mac OS X) AppleWebKit/605.1.15 Safari/604.1'          => 'Apple Maps',
+			'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 Safari/605.1.15'     => 'Apple Maps',
+			'Mozilla/5.0 (Linux; Android 14; Pixel 8) AppleWebKit/537.36 Chrome/120 Mobile Safari/537.36' => 'Google Maps',
+			'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120 Safari/537.36'     => 'Google Maps',
+			'' => 'Google Maps',
+		);
+
+		foreach ( $agents as $agent => $label ) {
+			$link = aranda_de_duero_pharmacy_map_link( $pharmacy, $agent );
+			$this->assertSame( $label, $link['label'], $agent );
+			$this->assertSame( 'Apple Maps' === $label ? 'aranda-de-duero/location-arrow' : 'aranda-de-duero/location-dot', $link['icon'], $agent );
+		}
+		$this->assertNull( aranda_de_duero_pharmacy_map_link( array(), 'iPhone' ) );
+	}
+
 	public function test_a_day_gives_its_pharmacy() {
 		$this->mocks();
 

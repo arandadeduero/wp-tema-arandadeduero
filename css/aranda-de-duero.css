@@ -2817,6 +2817,7 @@ div.service-card .service-card-title:focus-visible {
 
 /* Botón de mapa (Google Maps o Apple Maps según el dispositivo): pequeño, con el icono de la plataforma. */
 .pharmacy-map svg {
+    display: inline-block;
     width: 1em;
     height: 1em;
     margin-right: 0.35em;

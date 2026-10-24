@@ -82,6 +82,7 @@
     --color-primary-10: rgb(0 131 193 / 10%);
     --color-primary-15: rgb(0 131 193 / 15%);
     --color-primary-40: rgb(0 131 193 / 40%);
+    --color-red-15: rgb(206 14 45 / 15%);
     --color-amber-15: rgb(245 168 0 / 15%);
     --color-amber-40: rgb(245 168 0 / 40%);
 
@@ -2805,7 +2806,8 @@ div.service-card .service-card-title:focus-visible {
     font-weight: 700;
 }
 
-.service-card-pharmacy-actions {
+.service-card-pharmacy-actions,
+.service-card-waste-actions {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -4009,4 +4011,41 @@ a.service-card:focus-visible .service-card-title {
 .pharmacy-guard a:focus-visible {
     outline: 3px solid var(--color-white);
     outline-offset: 2px;
+}
+
+/* Recogida de residuos (page-residuos.php y su tarjeta de la portada): rojo claro el día que no se puede depositar basura. */
+.waste-ban {
+    margin: 0 0 var(--spacing-xl);
+    padding: var(--spacing-lg) var(--spacing-xl);
+    border-left: 6px solid var(--color-red);
+    border-radius: var(--border-radius-lg);
+    background: var(--color-red-15);
+    color: var(--color-black);
+}
+
+.waste-ban-title {
+    margin: 0;
+    font-size: clamp(1.25rem, 3.5vw, 2rem);
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.waste-ban-title + p {
+    margin-top: var(--spacing-sm);
+}
+
+.waste-phone {
+    font-size: 1.75rem;
+    font-weight: 700;
+}
+
+div.service-card.service-card-waste.is-banned {
+    border-left-color: var(--color-red);
+    background: var(--color-red-15);
+}
+
+.service-card-waste-ban {
+    color: var(--color-black);
+    font-weight: 800;
+    text-transform: uppercase;
 }

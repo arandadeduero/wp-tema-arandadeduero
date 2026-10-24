@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "note": "Días en los que NO se puede depositar basura en los contenedores. Una entrada por día: {\"date\": \"AAAA-MM-DD\", \"reason\": \"motivo (opcional)\"}. Con la fecha de hoy aquí, la página y la tarjeta de la portada se ponen en rojo claro con «HOY PROHIBIDO DEPOSITAR BASURA». Todavía no se ha facilitado ningún día."
+  },
+  "days": []
+}

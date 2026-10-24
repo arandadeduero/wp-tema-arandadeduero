@@ -4,7 +4,7 @@
  *
  * Passed with get_template_part() as the third argument:
  * - `items` (array<int, array<string, mixed>>) The cards: title, text, url, new_tab; the pharmacy on duty also has `pharmacy` (name,
- *   address, phone, phone_href, map).
+ *   address, phone, phone_href, map) and the waste card has `waste` (ban, bulky_phone, bulky_href, bulky_label).
  *
  * @package Aranda_de_Duero
  */
@@ -20,6 +20,24 @@ if ( array() === $aranda_cards['items'] ) {
 ?>
 <ul class="service-cards">
 	<?php foreach ( $aranda_cards['items'] as $aranda_card ) : ?>
+		<?php if ( ! empty( $aranda_card['waste'] ) ) : ?>
+			<?php $aranda_waste_card = $aranda_card['waste']; ?>
+			<?php /* Waste: not one link, because it has the bulky-items phone inside. Light red on a day without deposit. */ ?>
+			<li>
+				<div class="service-card service-card-waste<?php echo $aranda_waste_card['ban'] ? ' is-banned' : ''; ?>">
+					<a class="service-card-title" href="<?php echo esc_url( $aranda_card['url'] ); ?>"><?php echo esc_html( $aranda_card['title'] ); ?></a>
+					<?php if ( $aranda_waste_card['ban'] ) : ?>
+						<span class="service-card-waste-ban"><?php esc_html_e( 'HOY PROHIBIDO DEPOSITAR BASURA', 'aranda-de-duero' ); ?></span>
+					<?php else : ?>
+						<span class="service-card-text"><?php echo esc_html( $aranda_card['text'] ); ?></span>
+					<?php endif; ?>
+					<span class="service-card-waste-actions">
+						<a href="<?php echo esc_url( $aranda_waste_card['bulky_href'] ); ?>"><?php echo esc_html( $aranda_waste_card['bulky_label'] . ': ' . $aranda_waste_card['bulky_phone'] ); ?></a>
+					</span>
+				</div>
+			</li>
+			<?php continue; ?>
+		<?php endif; ?>
 		<?php if ( ! empty( $aranda_card['pharmacy'] ) ) : ?>
 			<?php $aranda_pharmacy = $aranda_card['pharmacy']; ?>
 			<?php /* The pharmacy on duty now: not one link, because it has its own (phone, map) inside. */ ?>

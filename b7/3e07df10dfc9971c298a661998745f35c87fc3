@@ -1,0 +1,46 @@
+page-omic.php
+  s_e1aa48bb7b463c::t_8e0051d251e507 1-109
+page-objetos-perdidos.php
+  s_e1aa48bb7b463c::t_f7a1d7477fb49a 1-91
+functions.php
+  s_e1aa48bb7b463c::t_ac5015cd680148 449-452
+  s_e1aa48bb7b463c::t_69cc1e7502c245 448
+tests/SearchTest.php
+  s_e1aa48bb7b463c::t_ffa481959ca5ee 197,199,202,204,214
+  s_e1aa48bb7b463c::t_b53d8f3fc47d4b 9,185-196,198,200-201,203,205-213
+  s_e1aa48bb7b463c::t_5639a997cc1778 215
+docs/servicios-cotidianos.md
+  s_e1aa48bb7b463c::t_22de882d3f4f5f 1-65
+MEJORAS-OTROS-AYUNTAMIENTOS.md
+  s_e1aa48bb7b463c::t_7eae94e0f8e672 87,242
+tests/EverydayServicesTest.php
+  s_e1aa48bb7b463c::t_7676b8093cf6be 1-134
+inc/everyday-services.php
+  s_e1aa48bb7b463c::t_ade9e16b61c436 1-202
+inc/search.php
+  s_e1aa48bb7b463c::t_7c29b5325380bc 360
+  s_e1aa48bb7b463c::t_ad675308ac90bf 120-149
+page-home.php
+  s_e1aa48bb7b463c::t_efe267b59e202b 90-96
+tests/ServicesTest.php
+  s_e1aa48bb7b463c::t_829f9710ec2833 11
+  s_e1aa48bb7b463c::t_93f007dd836c7c 75-76
+css/aranda-de-duero.css
+  s_e1aa48bb7b463c::t_efe267b59e202b 2893-2894
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "b73e07df10dfc9971c298a661998745f35c87fc3",
+  "prompts": {},
+  "sessions": {
+    "s_e1aa48bb7b463c": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "950c7f09-0446-4c9c-8da1-ba075c088b88",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": "Guillermo López <willyaranda@gmail.com>"
+    }
+  }
+}

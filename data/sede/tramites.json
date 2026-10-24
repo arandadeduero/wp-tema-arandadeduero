@@ -1,0 +1,3329 @@
+{
+ "meta": {
+  "source": "https://sede.arandadeduero.es/sta/CarpetaPublic/doEvent?APP_CODE=STA&PAGE_CODE=CATALOGO",
+  "retrievedAt": "2026-10-24",
+  "count": 415
+ },
+ "procedures": [
+  {
+   "id": "6269004131923056299500",
+   "name": "[Asignación/Modificación/Supresión] del Complementos",
+   "area": "Recursos Humanos",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131922873399500",
+   "name": "Abonos a cuenta",
+   "area": "Hacienda y gestión económica",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131922838599500",
+   "name": "Acceso por los interesados a Datos de Carácter personal",
+   "area": "Padrón y otros documentos personales",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004137063185605225",
+   "name": "Actuaciones de comprobación",
+   "area": "Urbanismo y vivienda",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923077299500",
+   "name": "Actuaciones de urbanización por iniciativa privada",
+   "area": "Urbanismo y vivienda",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923078599500",
+   "name": "Actuaciones de urbanización por iniciativa pública",
+   "area": "Urbanismo y vivienda",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923142299500",
+   "name": "Actuaciones en fachadas, retirada de cableado/puntos de luz",
+   "area": "Urbanismo y vivienda",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923103999500",
+   "name": "Actuaciones jurídicas complementarias de la reparcelación",
+   "area": "Urbanismo y vivienda",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923087399500",
+   "name": "Acuerdo de Disolución de Junta de Compensación",
+   "area": "Urbanismo y vivienda",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923039799500",
+   "name": "Adscripción a Otro Puesto de Trabajo por Cuestiones de Salud (Personal Laboral)",
+   "area": "Recursos Humanos",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923278999500",
+   "name": "Alquiler de viviendas sociales",
+   "area": "Asuntos sociales, familia, mujer, juventud y mayor",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923315399500",
+   "name": "Alta de Abastecimiento y Suministro de Agua Potable",
+   "area": "Via pública y medio ambiente",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131922822299500",
+   "name": "Alta en el Padrón Municipal de Habitantes por nacimiento",
+   "area": "Padrón y otros documentos personales",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131922824399500",
+   "name": "Alta en el Padrón Municipal de Habitantes por omisión o cambio de residencia",
+   "area": "Padrón y otros documentos personales",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004142876573205225",
+   "name": "Alta y Baja en el Sistema de Pagos de Vencimiento Especial en el IBI (Impuesto de Bienes Inmuebles)",
+   "area": "Hacienda y gestión económica",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004132420736605225",
+   "name": "Alta/Baja/Modificaciones de Padron Tributario.",
+   "area": "",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131922956699500",
+   "name": "Aplazamiento o Fraccionamiento de deudas de naturaleza pública no tributaria en ejecutiva",
+   "area": "Hacienda y gestión económica",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131922955399500",
+   "name": "Aplazamiento o Fraccionamiento de deudas de naturaleza pública no tributaria en voluntaria",
+   "area": "Hacienda y gestión económica",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131922959299500",
+   "name": "Aplazamiento o Fraccionamiento de deudas de naturaleza pública tributaria en ejecutiva",
+   "area": "Hacienda y gestión económica",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131922957999500",
+   "name": "Aplazamiento o Fraccionamiento de deudas de naturaleza pública tributaria en voluntaria",
+   "area": "Hacienda y gestión económica",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131670985405225",
+   "name": "Aportación de documentación",
+   "area": "",
+   "presential": true,
+   "online": true,
+   "phone": false
+  },
+  {
+   "id": "6269004131923113199500",
+   "name": "Aprobación de cánones de urbanización",
+   "area": "Urbanismo y vivienda",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131922792099500",
+   "name": "Aprobación de Convenio entre Ayuntamiento y Empresa Privada",
+   "area": "",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923083099500",
+   "name": "Aprobación de convenio urbanístico de concierto",
+   "area": "Urbanismo y vivienda",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923100099500",
+   "name": "Aprobación de convenio urbanístico de conservación",
+   "area": "Urbanismo y vivienda",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923098599500",
+   "name": "Aprobación de entidad de conservación por el trámite abreviado",
+   "area": "Urbanismo y vivienda",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923073399500",
+   "name": "Aprobación de Estudio de Detalle",
+   "area": "Urbanismo y vivienda",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004155469107905225",
+   "name": "Aprobacion de Facturas.",
+   "area": "",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923105499500",
+   "name": "Aprobación de la cuenta de liquidación definitiva de la perecuación",
+   "area": "Urbanismo y vivienda",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004132504101105225",
+   "name": "Aprobación de la Justificación de una Subvención",
+   "area": "",
+   "presential": true,
+   "online": true,
+   "phone": false
+  },
+  {
+   "id": "6269004131923090899500",
+   "name": "Aprobación de la liberación de la expropiación",
+   "area": "Urbanismo y vivienda",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131922504399500",
+   "name": "Aprobación de modelo de Declaración sobre Bienes y Causas de posible Incompatibilidad y Actividades",
+   "area": "Hacienda y gestión económica",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923066399500",
+   "name": "Aprobación de plan especial",
+   "area": "Urbanismo y vivienda",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923068899500",
+   "name": "Aprobación de Plan especial de infraestructuras",
+   "area": "Urbanismo y vivienda",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923070399500",
+   "name": "Aprobación de Plan especial de protección",
+   "area": "Urbanismo y vivienda",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923067399500",
+   "name": "Aprobación de Plan especial de reforma interior",
+   "area": "Urbanismo y vivienda",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923071899500",
+   "name": "Aprobación de Plan Parcial",
+   "area": "Urbanismo y vivienda",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923086099500",
+   "name": "Aprobación de proyecto de actuación (Sistema de actuación por compensación)",
+   "area": "Urbanismo y vivienda",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923093899500",
+   "name": "Aprobación de proyecto de reparcelación",
+   "area": "Urbanismo y vivienda",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923092399500",
+   "name": "Aprobación de proyecto de urbanización",
+   "area": "Urbanismo y vivienda",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131922789499500",
+   "name": "Aprobación de un Convenio",
+   "area": "",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923080099500",
+   "name": "Aprobación de un Proyecto de Normalización (Actuaciones aisladas)",
+   "area": "Urbanismo y vivienda",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923144899500",
+   "name": "Aprobación del Plan de Seguridad y Salud de una Obra de Infraestructuras",
+   "area": "Urbanismo y vivienda",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923062999500",
+   "name": "Aprobación del Plan General de Ordenación Urbana del Municipio",
+   "area": "Urbanismo y vivienda",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923081599500",
+   "name": "Aprobación del proyecto de actuación (Sistema de concierto)",
+   "area": "Urbanismo y vivienda",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923089999500",
+   "name": "Aprobación del proyecto de actuación (sistema de concurrencia)",
+   "area": "Urbanismo y vivienda",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923088699500",
+   "name": "Aprobación del proyecto de actuación (sistema de cooperación)",
+   "area": "Urbanismo y vivienda",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004134238532305225",
+   "name": "Asistencia Letrada",
+   "area": "",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131922918699500",
+   "name": "AutolLiquidación de Tasa por Instalación de puestos, barracas, casetas de venta, espectáculos, etc",
+   "area": "Hacienda y gestión económica",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131922919399500",
+   "name": "AutolLiquidación de Tasa por Instalación de Quioskos en la vía pública",
+   "area": "Hacienda y gestión económica",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004157865454205225",
+   "name": "Autorización de acceso de vehículos al Casco Histórico - Carga y descarga - Reparto a domicilio",
+   "area": "",
+   "presential": true,
+   "online": true,
+   "phone": false
+  },
+  {
+   "id": "6269004157865513405225",
+   "name": "Autorización de acceso de vehículos al Casco Histórico - Celebraciones",
+   "area": "",
+   "presential": true,
+   "online": true,
+   "phone": false
+  },
+  {
+   "id": "6269004157865421305225",
+   "name": "Autorización de acceso de vehículos al Casco Histórico - Familiares o allegados de residentes",
+   "area": "",
+   "presential": true,
+   "online": true,
+   "phone": false
+  },
+  {
+   "id": "6269004157865597905225",
+   "name": "Autorización de acceso de vehículos al Casco Histórico - Garajes",
+   "area": "",
+   "presential": true,
+   "online": true,
+   "phone": false
+  },
+  {
+   "id": "6269004157865626805225",
+   "name": "Autorización de acceso de vehículos al Casco Histórico - Obras, montajes y mudanzas",
+   "area": "",
+   "presential": true,
+   "online": true,
+   "phone": false
+  },
+  {
+   "id": "6269004157864938805225",
+   "name": "Autorización de acceso de vehículos al Casco Histórico - Residentes",
+   "area": "",
+   "presential": true,
+   "online": true,
+   "phone": false
+  },
+  {
+   "id": "6269004157865368405225",
+   "name": "Autorización de acceso de vehículos al Casco Histórico - Residentes con movilidad reducida",
+   "area": "",
+   "presential": true,
+   "online": true,
+   "phone": false
+  },
+  {
+   "id": "6269004157865239205225",
+   "name": "Autorización de acceso de vehículos al Casco Histórico - Residentes ORA",
+   "area": "",
+   "presential": true,
+   "online": true,
+   "phone": false
+  },
+  {
+   "id": "6269004157865382505225",
+   "name": "Autorización de acceso de vehículos al Casco Histórico - Titulares de establecimientos.",
+   "area": "",
+   "presential": true,
+   "online": true,
+   "phone": false
+  },
+  {
+   "id": "6269004131923026699500",
+   "name": "Autorización de asistencias a cursos de formación",
+   "area": "Recursos Humanos",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131922952399500",
+   "name": "Autorización de Entidades Financieras para la colaboración en la Gestión Recaudatoria",
+   "area": "Hacienda y gestión económica",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923249699500",
+   "name": "Autorización de Espectáculos con Artificios Pirotécnicos",
+   "area": "Educación, cultura, ocio y deportes",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923232999500",
+   "name": "Autorización de instalación de atracciones de Feria",
+   "area": "Comercios, industrias y actividades · Educación, cultura, ocio y deportes",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923048299500",
+   "name": "Autorización de Teletrabajo",
+   "area": "Recursos Humanos",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923211899500",
+   "name": "Autorización de uso de productos fitosanitarios para usos distintos de la producción agraria",
+   "area": "Urbanismo y vivienda",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004138583836705225",
+   "name": "Autorización de uso excepcional",
+   "area": "Urbanismo y vivienda",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923231599500",
+   "name": "Autorización para el ejercicio de la venta ambulante mercado y otros espacios públicos",
+   "area": "Comercios, industrias y actividades · Educación, cultura, ocio y deportes",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923207099500",
+   "name": "Autorización para espectáculos públicos y actividades recreativas",
+   "area": "Urbanismo y vivienda",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923248499500",
+   "name": "Autorización para la Celebración de Pruebas Deportivas en Vías Públicas",
+   "area": "Educación, cultura, ocio y deportes",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923158799500",
+   "name": "Autorizacion y licencia de uso provisional en suelo urbanizable y urbano no consolidado",
+   "area": "Urbanismo y vivienda",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004132357193205225",
+   "name": "Autorizaciones de vertido en D.P.H.",
+   "area": "",
+   "presential": true,
+   "online": false,
+   "phone": false
+  },
+  {
+   "id": "6269004131923143599500",
+   "name": "Averías en pivotes de acceso",
+   "area": "Urbanismo y vivienda",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004177499022305225",
+   "name": "Ayudas para propietarios en situación de vulnerabilidad económica en edificios del ERRP Santa Catalina. 2ª Convocatoria.",
+   "area": "Urbanismo y vivienda",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923320199500",
+   "name": "Baja o cambio de Abastecimiento y Saneamiento de Aguas Potables",
+   "area": "Via pública y medio ambiente",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923202399500",
+   "name": "Baja voluntaria de licencia de actividad",
+   "area": "Urbanismo y vivienda",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131922934199500",
+   "name": "Bonificación a sujetos pasivos que ostenten la condición de titulares de familia numerosa",
+   "area": "Hacienda y gestión económica",
+   "presential": true,
+   "online": true,
+   "phone": false
+  },
+  {
+   "id": "6269004131922935899500",
+   "name": "Bonificación de IBI urbana - Empresas de urbanización, construcción y promoción inmobiliaria",
+   "area": "Hacienda y gestión económica",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131922937299500",
+   "name": "Bonificación de IBI urbana - Vivienda de Protección Oficial",
+   "area": "Hacienda y gestión económica",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004137253054905225",
+   "name": "Bonificación en el IBI por el establecimiento de sistemas de aprovechamiento de la energía solar",
+   "area": "",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131922939699500",
+   "name": "Bonificación en el ICIO",
+   "area": "Hacienda y gestión económica",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131922938599500",
+   "name": "Bonificación en IBI Rústicas Cooperativas Protegidas",
+   "area": "Hacienda y gestión económica",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004132357643605225",
+   "name": "Cambio de baterías",
+   "area": "Via pública y medio ambiente",
+   "presential": true,
+   "online": false,
+   "phone": false
+  },
+  {
+   "id": "6269004131923115799500",
+   "name": "Cambio de denominación de una vía",
+   "area": "Urbanismo y vivienda",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131922944999500",
+   "name": "Cambio de domicilio en el permiso de circulación y conducción (IVTM)",
+   "area": "Hacienda y gestión económica",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923101399500",
+   "name": "Cambio de sistema de actuación",
+   "area": "Urbanismo y vivienda",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923201299500",
+   "name": "Cambio de titularidad de actividad",
+   "area": "Urbanismo y vivienda",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923244899500",
+   "name": "Cambio de Titularidad de Licencia de «AutoTaxi»",
+   "area": "Tráfico, movilidad y transportes",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923173099500",
+   "name": "Cambio de titularidad de licencia urbanística o declaración responsable de obras",
+   "area": "Urbanismo y vivienda",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004132357640605225",
+   "name": "Cambio ubicación de contadores",
+   "area": "Via pública y medio ambiente",
+   "presential": true,
+   "online": false,
+   "phone": false
+  },
+  {
+   "id": "6269004131923120199500",
+   "name": "Cédula urbanística",
+   "area": "Urbanismo y vivienda",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004167368687805225",
+   "name": "Certamen Internacional de Bandas de música Villa de Aranda",
+   "area": "",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131922871399500",
+   "name": "Certificaciones de obra",
+   "area": "Hacienda y gestión económica",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923132799500",
+   "name": "Certificado de antigüedad de vivienda para su inscripción en el Registro de la Propiedad",
+   "area": "Urbanismo y vivienda",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131922966299500",
+   "name": "Certificado de deudas",
+   "area": "Hacienda y gestión económica",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131922982599500",
+   "name": "Certificado de deudas de terceros acreedores",
+   "area": "Hacienda y gestión económica",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004134615056205225",
+   "name": "Certificado de equivalencia",
+   "area": "Urbanismo y vivienda",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923134999500",
+   "name": "Certificado de silencio administrativo por solicitud de licencia ambiental",
+   "area": "Urbanismo y vivienda",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923131499500",
+   "name": "Certificado de silencio administrativo por solicitud de licencia urbanística",
+   "area": "Urbanismo y vivienda",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131922967399500",
+   "name": "Certificado de tercero",
+   "area": "Hacienda y gestión económica",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131922885099500",
+   "name": "Cesión de los contratos",
+   "area": "Hacienda y gestión económica",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004132566782005225",
+   "name": "Cesión de Uso de Bienes Patrimoniales por Adjudicación Directa",
+   "area": "",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004132459498205225",
+   "name": "Cifra oficial de Padrón de Habitantes",
+   "area": "Padrón y otros documentos personales",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131922963399500",
+   "name": "Compensación de deuda de carácter civil",
+   "area": "Hacienda y gestión económica",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131922960999500",
+   "name": "Compensación de deudas [Tributarias/No Tributarias] a instancia de parte",
+   "area": "Hacienda y gestión económica",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131922962099500",
+   "name": "Compensación de deudas entre Administraciones Públicas",
+   "area": "Hacienda y gestión económica",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004152662353705225",
+   "name": "Comunicación al Ayuntamiento de la realización del hecho imponible del IIVTNU (Plusvalía)",
+   "area": "Hacienda y gestión económica",
+   "presential": true,
+   "online": true,
+   "phone": false
+  },
+  {
+   "id": "6269004131923192799500",
+   "name": "Comunicación Ambiental Anexo III Decreto Legislativo 1/2015",
+   "area": "Urbanismo y vivienda",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923194199500",
+   "name": "Comunicación Ambiental Anexo III Decreto Legislativo 1/2015. Actividades e instalaciones ganaderas",
+   "area": "Urbanismo y vivienda",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923195499500",
+   "name": "Comunicación Ambiental Anexo III Decreto Legislativo 1/2015. Industrias Agrogalimentarias",
+   "area": "Urbanismo y vivienda",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923140999500",
+   "name": "Comunicación avería alumbrado público",
+   "area": "Urbanismo y vivienda",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923139699500",
+   "name": "Comunicación avería semáforos",
+   "area": "Urbanismo y vivienda",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923190899500",
+   "name": "Comunicación de inico de actividad",
+   "area": "Urbanismo y vivienda",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131922886099500",
+   "name": "Comunicación de la Subcontratación",
+   "area": "Hacienda y gestión económica",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923199799500",
+   "name": "Comunicación de modificación no sustancial de actividad sujeta a licencia ambiental",
+   "area": "Urbanismo y vivienda",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004132357212105225",
+   "name": "Comunicación de vertido sin depurar",
+   "area": "",
+   "presential": true,
+   "online": false,
+   "phone": false
+  },
+  {
+   "id": "6269004146782402505225",
+   "name": "Concesión Administrativa de Uso Privativo de Bien de Dominio Público en Régimen de Concurrencia",
+   "area": "Urbanismo y vivienda",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004164744858405225",
+   "name": "Concesión Administrativa de Uso Privativo de Bien de Dominio Público por Adjudicación directa",
+   "area": "",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923059999500",
+   "name": "Concesión de Anticipos Reintegrables",
+   "area": "Recursos Humanos",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131922802799500",
+   "name": "Concesión de Medalla Honorífica",
+   "area": "Educación, cultura, ocio y deportes",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923254899500",
+   "name": "Concesión de Tarjeta de Armas de Categoría 4ª",
+   "area": "",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131670987205225",
+   "name": "Consentimiento de reutilización de documentos",
+   "area": "",
+   "presential": true,
+   "online": true,
+   "phone": false
+  },
+  {
+   "id": "6269004131923107399500",
+   "name": "Constitución de asociación adminsitrativa-urbanística de colaboración",
+   "area": "Urbanismo y vivienda",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923097099500",
+   "name": "Constitución de entidad de conservación trámite ordinario",
+   "area": "Urbanismo y vivienda",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923084599500",
+   "name": "Constitución de la Junta de Compensación",
+   "area": "Urbanismo y vivienda",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923109299500",
+   "name": "Constitución de sociedad urbanística",
+   "area": "Urbanismo y vivienda",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131922755599500",
+   "name": "Constitución del Pleno",
+   "area": "",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131922840599500",
+   "name": "Consulta de Fondos al Archivo Municipal por Particulares",
+   "area": "Petición de información",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923281399500",
+   "name": "Convenio Residencia Ciudad de Aranda (altas)",
+   "area": "Asuntos sociales, familia, mujer, juventud y mayor",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131922758099500",
+   "name": "Convocatoria de Comisión Informativa Permanente",
+   "area": "",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131922759399500",
+   "name": "Convocatoria de la Junta de Portavoces",
+   "area": "",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131922904499500",
+   "name": "Declaración de Alteración Catastral de un Bien Inmueble",
+   "area": "Hacienda y gestión económica",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131922774899500",
+   "name": "Declaración de Bienes y Causas de Incompatibilidad",
+   "area": "Hacienda y gestión económica",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923167099500",
+   "name": "Declaración de innecesariedad de licencia de parcelación",
+   "area": "Urbanismo y vivienda",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923102699500",
+   "name": "Declaración de la pérdida de la condición de urbanizador",
+   "area": "Urbanismo y vivienda",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923181599500",
+   "name": "Declaración de ruina inminente",
+   "area": "Urbanismo y vivienda",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923179899500",
+   "name": "Declaración de ruina ordinaria",
+   "area": "Urbanismo y vivienda",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004152662353505225",
+   "name": "Declaración para practicar la liquidación del IIVTNU (Plusvalía)",
+   "area": "Hacienda y gestión económica",
+   "presential": true,
+   "online": true,
+   "phone": false
+  },
+  {
+   "id": "6269004131923176799500",
+   "name": "Declaracion responsable de Obras",
+   "area": "Urbanismo y vivienda",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004169811520505225",
+   "name": "Declaración responsable de obras en el cementerio.",
+   "area": "",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004142060533805225",
+   "name": "Declaración responsable otras subvenciones, Arandabonos",
+   "area": "Cooperación al desarrollo y participación ciudadana · Comercios, industrias y actividades",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004138474046105225",
+   "name": "Declaración responsable primera ocupación",
+   "area": "Urbanismo y vivienda",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923210499500",
+   "name": "Declaraciones Responsables o Comunicaciones de Actividades y Espectáculos Públicos",
+   "area": "Urbanismo y vivienda",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131922790699500",
+   "name": "Denuncia de convenio de colaboración",
+   "area": "",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923259699500",
+   "name": "Denuncias por existencia de animales incontrolados o plagas zoológicas",
+   "area": "Sanidad y consumo · Via pública y medio ambiente",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131922793699500",
+   "name": "Derecho de acceso a la información pública",
+   "area": "Cooperación al desarrollo y participación ciudadana",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923146199500",
+   "name": "Desperfectos en la vía pública",
+   "area": "Urbanismo y vivienda",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131922883099500",
+   "name": "Devolución de garantía",
+   "area": "Hacienda y gestión económica",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923170699500",
+   "name": "Devolucion de garantia o fianza de residuos de construccion y demolicion",
+   "area": "Urbanismo y vivienda",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131922969799500",
+   "name": "Devolución de ingreso duplicado",
+   "area": "Hacienda y gestión económica",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131922968499500",
+   "name": "Devolución de ingreso indebido",
+   "area": "Hacienda y gestión económica",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131922888299500",
+   "name": "Devolución de la documentación",
+   "area": "Hacienda y gestión económica",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131922941599500",
+   "name": "Devolución derivada de la normativa de cada tributo",
+   "area": "Hacienda y gestión económica",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004133782917005225",
+   "name": "Devolución garantías constituidas sobre el Dominio Público",
+   "area": "Urbanismo y vivienda",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004132439295705225",
+   "name": "Dietas por viajes y desplazamientos",
+   "area": "Hacienda y gestión económica",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923043199500",
+   "name": "Dimisión de trabajador funcionario, laboral o eventual",
+   "area": "Recursos Humanos",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923110599500",
+   "name": "Disolución de asociación adminsitrativa-urbanistica colaboradora",
+   "area": "Urbanismo y vivienda",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923111899500",
+   "name": "Disolución de sociedad urbanística",
+   "area": "Urbanismo y vivienda",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131922837499500",
+   "name": "Ejercicio de los Derechos en relación con Datos de Carácter Personal",
+   "area": "Padrón y otros documentos personales",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004132312730705225",
+   "name": "Enmiendas",
+   "area": "",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923032699500",
+   "name": "Excedencia Forzosa por Desempeño de Cargo Representativo",
+   "area": "Recursos Humanos",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923027799500",
+   "name": "Excedencia Voluntaria",
+   "area": "Recursos Humanos",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923029199500",
+   "name": "Excedencia Voluntaria para el Cuidado de Dependientes",
+   "area": "Recursos Humanos",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923028499500",
+   "name": "Excedencia Voluntaria para el Cuidado de Familiares",
+   "area": "Recursos Humanos",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923030599500",
+   "name": "Excedencia Voluntaria por Agrupación Familiar",
+   "area": "Recursos Humanos",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923031999500",
+   "name": "Excedencia Voluntaria por Interés Particular",
+   "area": "Recursos Humanos",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923029899500",
+   "name": "Excedencia Voluntaria por Servicios en el Sector Público",
+   "area": "Recursos Humanos",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131922928899500",
+   "name": "Exenciones del IAE",
+   "area": "Hacienda y gestión económica",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131922929599500",
+   "name": "Exenciones del ICIO",
+   "area": "Hacienda y gestión económica",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131922928199500",
+   "name": "Exenciones directas de carácter rogado en el Impuesto sobre Bienes Inmuebles",
+   "area": "Hacienda y gestión económica",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131922931099500",
+   "name": "Exenciones y bonificaciones en el Impuesto Sobre Vehículos de Tracción Mecánica (IVTM)",
+   "area": "Hacienda y gestión económica",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004175667453905225",
+   "name": "Expediente de regularizacion (Certificado de vulnerabilidad)",
+   "area": "",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131922902799500",
+   "name": "Expedientes de Prestaciones Patrimoniales no tributarias",
+   "area": "Hacienda y gestión económica",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923074699500",
+   "name": "Expropiación forzosa por Razón de Urbanismo mediante procedimiento de Urgencia",
+   "area": "Urbanismo y vivienda",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131922761399500",
+   "name": "Formación de Grupos Municipales",
+   "area": "",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131922794799500",
+   "name": "Funcionamiento Comisión de Trabajo",
+   "area": "Cooperación al desarrollo y participación ciudadana",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004152250362005225",
+   "name": "GESTIÓN TRIBUTARIA. Resolución AEAT",
+   "area": "",
+   "presential": true,
+   "online": true,
+   "phone": false
+  },
+  {
+   "id": "6269004131923057199500",
+   "name": "Gratificación por Servicios Extraordinarios",
+   "area": "Recursos Humanos",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923234199500",
+   "name": "Hoja de reclamación de consumo",
+   "area": "Comercios, industrias y actividades · Educación, cultura, ocio y deportes",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004132316292505225",
+   "name": "Huertos urbanos de ocio",
+   "area": "",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004152223760805225",
+   "name": "IBI Bonificación por familia numerosa  (Art.LRHL 74.4)",
+   "area": "Hacienda y gestión económica",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004152223762105225",
+   "name": "IBI Bonificacion vivienda de protección oficial",
+   "area": "",
+   "presential": true,
+   "online": false,
+   "phone": true
+  },
+  {
+   "id": "6269004179169163705225",
+   "name": "IBI Exención Ley 49/2002, de 23 de diciembre, de régimen fiscal de las entidades sin fines lucrativos.",
+   "area": "",
+   "presential": true,
+   "online": true,
+   "phone": false
+  },
+  {
+   "id": "6269004131923053999500",
+   "name": "Indemnización por Razón de Servicio, Dietas y Gastos de Viaje",
+   "area": "Recursos Humanos",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923054699500",
+   "name": "Indemnizaciones por Razón del Servicio, Asistencias a Tribunales de Selección",
+   "area": "Recursos Humanos",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923134099500",
+   "name": "Informe de compatibilidad urbanística previo a la autorización ambiental integrada",
+   "area": "Urbanismo y vivienda",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004132978796705225",
+   "name": "Informes de arraigo y adecuación de vivienda",
+   "area": "Asuntos sociales, familia, mujer, juventud y mayor",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004132978799505225",
+   "name": "Informes personales",
+   "area": "Asuntos sociales, familia, mujer, juventud y mayor",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004132765241505225",
+   "name": "Informes previos Fomento (Carreteras)",
+   "area": "Urbanismo y vivienda",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004168191986905225",
+   "name": "Inscripcion al concurso de Carteles de Fiestas Patronales",
+   "area": "",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004132947795705225",
+   "name": "Inscripción al desfile de Carnaval",
+   "area": "Educación, cultura, ocio y deportes",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923303999500",
+   "name": "Inscripción Curso de la Escuela de Animación y Tiempo Libre",
+   "area": "Educación, cultura, ocio y deportes",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923302899500",
+   "name": "Inscripción Curso de Monitor de tiempo Libre",
+   "area": "Educación, cultura, ocio y deportes",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923312999500",
+   "name": "Inscripción en Atletismo divertido",
+   "area": "Educación, cultura, ocio y deportes",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131922798099500",
+   "name": "Inscripción en el Registro Municipal de Asociaciones Ciudadanas",
+   "area": "Cooperación al desarrollo y participación ciudadana",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923310799500",
+   "name": "Inscripción en la Fase Local de deporte base",
+   "area": "Educación, cultura, ocio y deportes",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923308399500",
+   "name": "Inscripción para la elección de la Corte Real de las Fiestas patronales",
+   "area": "Educación, cultura, ocio y deportes",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923311899500",
+   "name": "Inscripciones en pruebas de deporte escolar: cross, ciclismo, orientación",
+   "area": "Educación, cultura, ocio y deportes",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004132356864205225",
+   "name": "Inspección del servicio de aguas",
+   "area": "",
+   "presential": true,
+   "online": false,
+   "phone": false
+  },
+  {
+   "id": "6269004131923185699500",
+   "name": "Inspección Técnica de Edificios",
+   "area": "Urbanismo y vivienda",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004168192643005225",
+   "name": "Instalacion de barra de bar en eventos de las Concejalias de Juventud y Festejos",
+   "area": "",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004132357653205225",
+   "name": "Instalación de grupo de presión",
+   "area": "Via pública y medio ambiente",
+   "presential": true,
+   "online": false,
+   "phone": false
+  },
+  {
+   "id": "6269004131922845599500",
+   "name": "Interposición de Recurso de Alzada",
+   "area": "Hacienda y gestión económica",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131922850099500",
+   "name": "Interposición de Recurso de Reposición Obligatorio en materia de inspección tributaria",
+   "area": "Hacienda y gestión económica",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131922848299500",
+   "name": "Interposición de Recurso de Reposición Obligatorio en periodo de recaudación voluntaria",
+   "area": "Hacienda y gestión económica",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131922847599500",
+   "name": "Interposición de Recurso Extraordinario de Revisión",
+   "area": "Hacienda y gestión económica",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131922846599500",
+   "name": "Interposición de Recurso Potestativo de Reposición",
+   "area": "Hacienda y gestión económica",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004152223767305225",
+   "name": "IVTM Bonificación carac. de los motores y su incidencia en el medio ambien",
+   "area": "",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004152223766005225",
+   "name": "IVTM Bonificación vehículos históricos",
+   "area": "",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004152223764905225",
+   "name": "IVTM Exención personas con discapacidad",
+   "area": "",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923042499500",
+   "name": "Jubilación Parcial (con relevo o sin relevo)",
+   "area": "Recursos Humanos",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923044699500",
+   "name": "Jubilación por Voluntad del Interesado",
+   "area": "Recursos Humanos",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004144234902605225",
+   "name": "Justificacion subvencion de Turismo (concurrencia competitiva).",
+   "area": "",
+   "presential": true,
+   "online": false,
+   "phone": false
+  },
+  {
+   "id": "6269004169249494105225",
+   "name": "Justificacion subvencion para Asociaciones Culturales (concurrencia competitiva).",
+   "area": "Educación, cultura, ocio y deportes",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004175767591305225",
+   "name": "Justificacion subvencion para Asociaciones vinculadas a Servicios Sociales (concurrencia competitiva).",
+   "area": "",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004137606045205225",
+   "name": "Justificacion Subvencion por Concesion Directa, Alquileres.",
+   "area": "",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004174519632205225",
+   "name": "Justificacion Subvencion por Concesion Directa, Cultura.",
+   "area": "",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004144078126505225",
+   "name": "Justificacion Subvencion por Concesion Directa, Servicios Sociales.",
+   "area": "Asuntos sociales, familia, mujer, juventud y mayor",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923160699500",
+   "name": "Legalización de obras o edificaciones",
+   "area": "Urbanismo y vivienda",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923188599500",
+   "name": "Licencia ambiental",
+   "area": "Urbanismo y vivienda",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923050399500",
+   "name": "Licencia Cooperación",
+   "area": "Recursos Humanos",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923157099500",
+   "name": "Licencia de instalación y puesta en servicio de grúa torre desmontable",
+   "area": "Urbanismo y vivienda",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923154599500",
+   "name": "Licencia de obras con autorización de uso excepcional en suelo rústico",
+   "area": "Urbanismo y vivienda",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923152899500",
+   "name": "Licencia de obras de demolición",
+   "area": "Urbanismo y vivienda",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923002299500",
+   "name": "Licencia de ocupación de vía pública con elementos provisionales de obra",
+   "area": "Comercios, industrias y actividades",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923005899500",
+   "name": "Licencia de ocupación de vía pública con veladores",
+   "area": "Comercios, industrias y actividades",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131926608899500",
+   "name": "Licencia de ocupación de vía pública para eventos, actividades recreativas y culturales, feria, etc",
+   "area": "Educación, cultura, ocio y deportes",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923165999500",
+   "name": "Licencia de segregación, división y parcelación",
+   "area": "Urbanismo y vivienda",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923003499500",
+   "name": "Licencia de Uso Común Especial (para el establecimiento o paso de Redes de Suministro)",
+   "area": "Comercios, industrias y actividades",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004133495015505225",
+   "name": "Licencia de uso común especial colocación de carteles",
+   "area": "Educación, cultura, ocio y deportes",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004133280135505225",
+   "name": "Licencia de utilización de bienes de servicio público",
+   "area": "Educación, cultura, ocio y deportes",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923048999500",
+   "name": "Licencia por Asuntos Propios",
+   "area": "Recursos Humanos",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131926613599500",
+   "name": "Licencia por Estudios sobre Materias Directamente Relacionadas con la Función Pública (Funcionario)",
+   "area": "Recursos Humanos",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923150599500",
+   "name": "Licencia urbanistica de obras",
+   "area": "Urbanismo y vivienda",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923147099500",
+   "name": "Licencia urbanística en supuestos de interés general",
+   "area": "Urbanismo y vivienda",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923240199500",
+   "name": "Licencias de Puerta Carretera,Vado permanente o Reserva de Espacio",
+   "area": "Comercios, industrias y actividades · Tráfico, movilidad y transportes",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004132420683905225",
+   "name": "Liquidación de Tasa por Aprovechamientos Especiales del Subsuelo, Suelo y Vuelo de la vía pública",
+   "area": "",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923306199500",
+   "name": "Matricula Escuela Municipal de Folklore",
+   "area": "Educación, cultura, ocio y deportes",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131922831999500",
+   "name": "Matrimonio Civil Celebrado por el Alcalde/Concejal Delegado",
+   "area": "",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131922764899500",
+   "name": "Moción de Censura",
+   "area": "",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004132311762305225",
+   "name": "Mociones",
+   "area": "",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131922827499500",
+   "name": "Modificación de datos en el Padrón municipal de habitantes",
+   "area": "Padrón y otros documentos personales",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004132357654605225",
+   "name": "Modificacion de diámetro de contador",
+   "area": "Via pública y medio ambiente",
+   "presential": true,
+   "online": false,
+   "phone": false
+  },
+  {
+   "id": "6269004132357617005225",
+   "name": "Modificación de instalación",
+   "area": "Via pública y medio ambiente",
+   "presential": true,
+   "online": false,
+   "phone": false
+  },
+  {
+   "id": "6269004132357655005225",
+   "name": "Modificacion de Instalaciones existentes",
+   "area": "Via pública y medio ambiente",
+   "presential": true,
+   "online": false,
+   "phone": false
+  },
+  {
+   "id": "6269004131922778699500",
+   "name": "Modificación de las retribuciones de los miembros de la Corporación Local",
+   "area": "Hacienda y gestión económica",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923064499500",
+   "name": "Modificación de Plan General de Ordenación Urbana",
+   "area": "Urbanismo y vivienda",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923198499500",
+   "name": "Modificación sustancial de licencia ambiental",
+   "area": "Urbanismo y vivienda",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131922505999500",
+   "name": "Nombramiento de Hijo Predilecto o adoptivo",
+   "area": "Educación, cultura, ocio y deportes",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923075999500",
+   "name": "Ocupación Directa para la Obtención de Terrenos Destinados a Dotaciones Públicas",
+   "area": "Urbanismo y vivienda",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923033399500",
+   "name": "Otras excedencias voluntarias (violencia de genero / terrorismo)",
+   "area": "Recursos Humanos",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923051099500",
+   "name": "Otras Licencias y Permisos",
+   "area": "Recursos Humanos",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004133004306305225",
+   "name": "Otras solicitudes",
+   "area": "",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923039099500",
+   "name": "Pase a la Situación de Segunda Actividad (por Disminución de Aptitudes Físicas o Psíquicas)",
+   "area": "Recursos Humanos",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923038399500",
+   "name": "Pase a la Situación de Segunda Actividad (por Razón de Edad)",
+   "area": "Recursos Humanos",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923211199500",
+   "name": "Permiso de Quema de Rastrojos",
+   "area": "Urbanismo y vivienda",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923049699500",
+   "name": "Permiso por Campaña Electoral",
+   "area": "Recursos Humanos",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923037699500",
+   "name": "Permuta entre Funcionarios de Carrera de Diferentes Corporaciones Locales",
+   "area": "Recursos Humanos",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004132297586405225",
+   "name": "Personación del Ayuntamiento en Procedimiento Contencioso-Administrativo",
+   "area": "",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004132297641705225",
+   "name": "Peticion de documentacion original y copia",
+   "area": "Petición de información",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004132978744805225",
+   "name": "Petición de informes",
+   "area": "",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004132978747305225",
+   "name": "Petición de informes en materia de Servicios Sociales",
+   "area": "",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004132963341905225",
+   "name": "Petición informes AEAT",
+   "area": "",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004132965758505225",
+   "name": "Petición informes otros órganos Admon Estado",
+   "area": "",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004132965709605225",
+   "name": "Petición informes Seguridad Social",
+   "area": "",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004139292359205225",
+   "name": "Planes de autoprotección",
+   "area": "",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004137801989005225",
+   "name": "Preguntas al Pleno",
+   "area": "",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004164814153605225",
+   "name": "Presentación de documentación para subvención nominativa",
+   "area": "",
+   "presential": true,
+   "online": true,
+   "phone": false
+  },
+  {
+   "id": "6269004152658546405225",
+   "name": "Presentación de oferta para contrato menor",
+   "area": "",
+   "presential": true,
+   "online": true,
+   "phone": false
+  },
+  {
+   "id": "6269004131923270899500",
+   "name": "Prestación del Servicio de atención preventiva (altas)",
+   "area": "Asuntos sociales, familia, mujer, juventud y mayor",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923274199500",
+   "name": "Prestación del Servicio de atención preventiva (extinción)",
+   "area": "Asuntos sociales, familia, mujer, juventud y mayor",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923271999500",
+   "name": "Prestación del Servicio de atención preventiva (modificaciones)",
+   "area": "Asuntos sociales, familia, mujer, juventud y mayor",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923273099500",
+   "name": "Prestación del Servicio de atención preventiva (suspensión)",
+   "area": "Asuntos sociales, familia, mujer, juventud y mayor",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923283699500",
+   "name": "Prestación del Servicio de Ayuda a domicilio (altas)",
+   "area": "Asuntos sociales, familia, mujer, juventud y mayor",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923286999500",
+   "name": "Prestación del Servicio de Ayuda a domicilio (bajas)",
+   "area": "Asuntos sociales, familia, mujer, juventud y mayor",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923284799500",
+   "name": "Prestación del Servicio de Ayuda a domicilio (modificaciones)",
+   "area": "Asuntos sociales, familia, mujer, juventud y mayor",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923285899500",
+   "name": "Prestación del Servicio de Ayuda a domicilio (suspensión)",
+   "area": "Asuntos sociales, familia, mujer, juventud y mayor",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923288299500",
+   "name": "Prestación del Servicio de servicio de comidas (altas)",
+   "area": "Asuntos sociales, familia, mujer, juventud y mayor",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923291599500",
+   "name": "Prestación del Servicio de servicio de comidas (bajas)",
+   "area": "Asuntos sociales, familia, mujer, juventud y mayor",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923289399500",
+   "name": "Prestación del Servicio de servicio de comidas (modificaciones)",
+   "area": "Asuntos sociales, familia, mujer, juventud y mayor",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923290499500",
+   "name": "Prestación del Servicio de servicio de comidas (suspensión)",
+   "area": "Asuntos sociales, familia, mujer, juventud y mayor",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923275499500",
+   "name": "Prestación del Servicio de teleasistencia (altas)",
+   "area": "Asuntos sociales, familia, mujer, juventud y mayor",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923277699500",
+   "name": "Prestación del Servicio de teleasistencia (extinción)",
+   "area": "Asuntos sociales, familia, mujer, juventud y mayor",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923276599500",
+   "name": "Prestación del Servicio de teleasistencia (suspensión)",
+   "area": "Asuntos sociales, familia, mujer, juventud y mayor",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923229699500",
+   "name": "Préstamo material \"Casa de la Juventud\"",
+   "area": "Educación, cultura, ocio y deportes",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131926581599500",
+   "name": "Proc. sancionador por falta asistencia a sesiones e incumplimiento de obligaciones de Corporativo",
+   "area": "Hacienda y gestión económica",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923252899500",
+   "name": "Procedimiento Sancionador L.O. Protección de la Seguridad Ciudadana",
+   "area": "",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923251699500",
+   "name": "Procedimiento Sancionador por infracción de la Ley 3/1994, de 29 de marzo",
+   "area": "",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923045799500",
+   "name": "Prolongación de la Permanencia en el Servicio Activo (Personal Funcionario)",
+   "area": "Recursos Humanos",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131922788099500",
+   "name": "Propuesta de días de las fiestas locales",
+   "area": "",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923171799500",
+   "name": "Prórroga de la licencia de obras",
+   "area": "Urbanismo y vivienda",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923196599500",
+   "name": "Prórroga para el inicio de la actividad de licencia ambiental",
+   "area": "Urbanismo y vivienda",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131922953399500",
+   "name": "Providencias de Apremio",
+   "area": "Hacienda y gestión económica",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923095399500",
+   "name": "Recepción Definitiva de Obras de Urbanización",
+   "area": "Urbanismo y vivienda",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131922844599500",
+   "name": "Reclamación contra la Inactividad de la Administración",
+   "area": "Hacienda y gestión económica",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131922851099500",
+   "name": "Reclamación en materia contractual",
+   "area": "Hacienda y gestión económica",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131922905199500",
+   "name": "Reclamaciones a Catastro",
+   "area": "Hacienda y gestión económica",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923215199500",
+   "name": "Reclamaciones y sugerencias sobre instalaciones de servicios público",
+   "area": "Petición de información",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131922795699500",
+   "name": "Reclamaciones, quejas y sugerencias",
+   "area": "Cooperación al desarrollo y participación ciudadana",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131922777299500",
+   "name": "Reconocimiento de Compatibilidad de Miembros de la Corporación para desempeñar actividades públicas",
+   "area": "Hacienda y gestión económica",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131926615299500",
+   "name": "Reconocimiento de Compatibilidad de Personal Adm.Local para Desempeñar Actividades en Sector Público",
+   "area": "Recursos Humanos",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131926614599500",
+   "name": "Reconocimiento de Compatibilidad del Personal de Adm.Local para Desempeñar Actividades Privadas",
+   "area": "Recursos Humanos",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131922776099500",
+   "name": "Reconocimiento de Dedicación Exclusiva o Parcial a Miembros de la Corporación",
+   "area": "Hacienda y gestión económica",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923055599500",
+   "name": "Reconocimiento de Grado",
+   "area": "Recursos Humanos",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923053299500",
+   "name": "Reconocimiento de Trienio/s",
+   "area": "Recursos Humanos",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131926605299500",
+   "name": "Reconocimiento del Derecho a la Devolución derivada de la normativa del tributo (art 31 Ley 58/2003)",
+   "area": "Hacienda y gestión económica",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131922853699500",
+   "name": "Rectificación de error material",
+   "area": "Hacienda y gestión económica",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004132439308105225",
+   "name": "Recurso de Reposición en materia de Tráfico",
+   "area": "",
+   "presential": true,
+   "online": true,
+   "phone": false
+  },
+  {
+   "id": "6269004131922849399500",
+   "name": "Recurso de reposición obligatorio contra tributos locales en periodo de pago voluntario",
+   "area": "Hacienda y gestión económica",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004132439316105225",
+   "name": "Recurso extraordinario en materia de Tráfico",
+   "area": "",
+   "presential": true,
+   "online": true,
+   "phone": false
+  },
+  {
+   "id": "6269004135674068205225",
+   "name": "Recurso reposición en vía ejecutiva contra ingresos de derecho público",
+   "area": "Hacienda y gestión económica",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131922854599500",
+   "name": "Recusación de autoridad o el empleado público",
+   "area": "Hacienda y gestión económica",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923046499500",
+   "name": "Reducción de Jornada Laboral por lactancia",
+   "area": "Recursos Humanos",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923047199500",
+   "name": "Reducción de Jornada por hijo de menos de 12 años",
+   "area": "Recursos Humanos",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923031299500",
+   "name": "Reingreso al Servicio Activo",
+   "area": "Recursos Humanos",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923052199500",
+   "name": "Reingreso al Servicio Activo tras Incapacidad Permanente",
+   "area": "Recursos Humanos",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004133044212905225",
+   "name": "Relaciones con el Registro de la Propiedad",
+   "area": "Urbanismo y vivienda",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004135706453405225",
+   "name": "Relaciones con otras entidades",
+   "area": "Urbanismo y vivienda",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131922828699500",
+   "name": "Renovación de la Inscripción en el Padrón Municipal de Habitantes para Extranjeros",
+   "area": "Padrón y otros documentos personales",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923117499500",
+   "name": "Renumeración de una vía pública",
+   "area": "Urbanismo y vivienda",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923280099500",
+   "name": "Renuncia a alquiler",
+   "area": "Asuntos sociales, familia, mujer, juventud y mayor",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131922773999500",
+   "name": "Renuncia a la condición de Alcalde Pedáneo",
+   "area": "",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131922771599500",
+   "name": "Renuncia a la condición de Concejal",
+   "area": "",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923262499500",
+   "name": "Renuncia a una Concesión de Uso Funerario",
+   "area": "Sanidad y consumo",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131922766599500",
+   "name": "Renuncia al cargo de Alcalde",
+   "area": "",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131922770499500",
+   "name": "Renuncia al cargo de Concejal-Delegado",
+   "area": "",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131922768699500",
+   "name": "Renuncia al cargo de Teniente de Alcalde",
+   "area": "",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004155260371405225",
+   "name": "Requerimiento para la Identificacion de Conductor",
+   "area": "",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131922881899500",
+   "name": "Resolución de los contratos",
+   "area": "Hacienda y gestión económica",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131922842899500",
+   "name": "Responsabilidad Patrimonial de la Administración Pública",
+   "area": "Hacienda y gestión económica",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131922843599500",
+   "name": "Responsabilidad Patrimonial de la Administración Pública por Tramitación Simplificada",
+   "area": "Hacienda y gestión económica",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131922810099500",
+   "name": "Respuesta requerimientos JCyL",
+   "area": "",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131922784299500",
+   "name": "Retirada de Símbolos y Momumentos Públicos",
+   "area": "",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923015699500",
+   "name": "Reversión de [Bienes/Derechos Expropiados] a Instancia de Parte",
+   "area": "",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131922879199500",
+   "name": "Reversión de bienes por finalización del contrato de concesión",
+   "area": "Hacienda y gestión económica",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131922852099500",
+   "name": "Revisión de Oficio de un Acto o disposición Administrativa",
+   "area": "Hacienda y gestión económica",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131922868599500",
+   "name": "Revisión de precios del contrato",
+   "area": "Hacienda y gestión económica",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004169827340705225",
+   "name": "Servicio activo en otras Administraciones Públicas",
+   "area": "Recursos Humanos",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004133064708505225",
+   "name": "Solicitud actuación Escuela Folklore",
+   "area": "Educación, cultura, ocio y deportes",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004133520797905225",
+   "name": "Solicitud Becarios y Personal en Prácticas",
+   "area": "Recursos Humanos",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923319199500",
+   "name": "Solicitud de Acometida de agua, saneamiento y vertidos",
+   "area": "Via pública y medio ambiente",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923022399500",
+   "name": "Solicitud de admision a pruebas selectivas",
+   "area": "Recursos Humanos",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923258099500",
+   "name": "Solicitud de Alta, Baja o Modificación de Datos en el Registro de Animales",
+   "area": "Sanidad y consumo · Via pública y medio ambiente",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923261399500",
+   "name": "Solicitud de Autorización de Usos Funerarios: Nichos, Panteones, Columbarios...",
+   "area": "Sanidad y consumo",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923207799500",
+   "name": "Solicitud de Autorización del Ejercicio del Derecho de Admisión",
+   "area": "Urbanismo y vivienda",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923226299500",
+   "name": "Solicitud de ayuda individualizada del área cultura y educación",
+   "area": "Educación, cultura, ocio y deportes",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923058899500",
+   "name": "Solicitud de Ayudas de Acción Social",
+   "area": "Recursos Humanos",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131922801099500",
+   "name": "Solicitud de Baja en el Registro de Asociaciones Ciudadanas",
+   "area": "Cooperación al desarrollo y participación ciudadana",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923300999500",
+   "name": "Solicitud de Baja en Escuela de educación infantil municipal",
+   "area": "Educación, cultura, ocio y deportes",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131922826099500",
+   "name": "Solicitud de cambio de domicilio en el Padrón Municipal de Habitantes",
+   "area": "Padrón y otros documentos personales",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923263599500",
+   "name": "Solicitud de Cambio de Titularidad de Derecho Funerario: Nichos, Panteones, Columbarios...",
+   "area": "Sanidad y consumo",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923246599500",
+   "name": "Solicitud de cambio de vehículo de Taxi",
+   "area": "Tráfico, movilidad y transportes",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004134695194705225",
+   "name": "Solicitud de Certificado de \"Servicios prestados - Anexo I\"",
+   "area": "Recursos Humanos",
+   "presential": true,
+   "online": true,
+   "phone": false
+  },
+  {
+   "id": "6269004134695122905225",
+   "name": "Solicitud de Certificado de \"Superación de pruebas selectivas\"",
+   "area": "Recursos Humanos",
+   "presential": true,
+   "online": true,
+   "phone": false
+  },
+  {
+   "id": "6269004131922830599500",
+   "name": "Solicitud de certificado o volante de empadronamiento",
+   "area": "Padrón y otros documentos personales",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004132996781105225",
+   "name": "Solicitud de certificados e informes tributarios",
+   "area": "",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004177780211705225",
+   "name": "Solicitud de cesión de uso de espacios culturales Ibercaja.",
+   "area": "Educación, cultura, ocio y deportes",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004178028136805225",
+   "name": "Solicitud de cesión de uso de la sala de exposiciones Casa de la Cultura.",
+   "area": "Educación, cultura, ocio y deportes",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923217899500",
+   "name": "Solicitud de cesión de uso del auditorio Casa de la Cultura",
+   "area": "Educación, cultura, ocio y deportes",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004156512956305225",
+   "name": "Solicitud de concesión de ayudas a Grupos Municipales",
+   "area": "",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923224599500",
+   "name": "Solicitud de Concesión Directa de Subvenciones mediante convenio",
+   "area": "Educación, cultura, ocio y deportes",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269000018479610199999",
+   "name": "Solicitud de consentimiento",
+   "area": "",
+   "presential": true,
+   "online": true,
+   "phone": false
+  },
+  {
+   "id": "6269004131922964699500",
+   "name": "Solicitud de domiciliación de recibos de ingresos de derecho público de carácter periódico",
+   "area": "Hacienda y gestión económica",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923265099500",
+   "name": "Solicitud de Exhumación en Nichos, Panteones, Columbarios...",
+   "area": "Sanidad y consumo",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131922785499500",
+   "name": "Solicitud de Información por miembros de la Corporación",
+   "area": "",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004134205756805225",
+   "name": "Solicitud de Inhumación en Nichos, Panteones, Columbarios...",
+   "area": "Sanidad y consumo",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004172204673105225",
+   "name": "Solicitud de inscripción en el Registro de Animales Potencialmente Peligrosos",
+   "area": "Sanidad y consumo · Via pública y medio ambiente",
+   "presential": true,
+   "online": true,
+   "phone": false
+  },
+  {
+   "id": "6269004131923317599500",
+   "name": "Solicitud de instalación de sistema de tratamiento de aguas",
+   "area": "Via pública y medio ambiente",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004132312917205225",
+   "name": "Solicitud de Intervención en materia de Protección Civil e Incendios",
+   "area": "",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004172206673505225",
+   "name": "Solicitud de Licencia para la Tenencia de Animales Potencialmente Peligrosos - Documentación anual.",
+   "area": "Sanidad y consumo · Via pública y medio ambiente",
+   "presential": true,
+   "online": true,
+   "phone": false
+  },
+  {
+   "id": "6269004131923256499500",
+   "name": "Solicitud de Licencia para la Tenencia de Animales Potencialmente Peligrosos (propietario/paseo/renovación).",
+   "area": "Sanidad y consumo · Via pública y medio ambiente",
+   "presential": true,
+   "online": true,
+   "phone": false
+  },
+  {
+   "id": "6269004175402020605225",
+   "name": "Solicitud de limpieza de Grafitis de fachadas.",
+   "area": "",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131922877499500",
+   "name": "Solicitud de liquidación de un contrato",
+   "area": "Hacienda y gestión económica",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131922762099500",
+   "name": "Solicitud de local o despacho para grupo político",
+   "area": "",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923299899500",
+   "name": "Solicitud de matricula en Escuela de educación infantil municipal",
+   "area": "Educación, cultura, ocio y deportes",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923296399500",
+   "name": "Solicitud de matricula Escuela de Música",
+   "area": "Educación, cultura, ocio y deportes",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004140886544005225",
+   "name": "Solicitud de modificacion de datos fiscales del contribuyente.",
+   "area": "Hacienda y gestión económica",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923138399500",
+   "name": "Solicitud de modificación de puntos de luz (Ubicación)",
+   "area": "Urbanismo y vivienda",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131922874699500",
+   "name": "Solicitud de Modificación del Contrato",
+   "area": "Hacienda y gestión económica",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131922799799500",
+   "name": "Solicitud de Modificación del Registro de Asociaciones Vecinales",
+   "area": "Cooperación al desarrollo y participación ciudadana",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923004499500",
+   "name": "Solicitud de Modificación, Revocación o Renuncia de la Licencia de Ocupación",
+   "area": "Comercios, industrias y actividades",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923298599500",
+   "name": "Solicitud de nuevo ingreso en Escuela de educación infantil municipal",
+   "area": "Educación, cultura, ocio y deportes",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004133055504105225",
+   "name": "Solicitud de petición de atestados por compañía de seguros y particulares",
+   "area": "Tráfico, movilidad y transportes",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004179321104105225",
+   "name": "Solicitud de presentacion de alegaciones a sancion de trafico",
+   "area": "Tráfico, movilidad y transportes",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004179321306905225",
+   "name": "Solicitud de presentacion de alegaciones a un expediente",
+   "area": "",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923292899500",
+   "name": "Solicitud de Prestación de ayuda de urgencia social",
+   "area": "Asuntos sociales, familia, mujer, juventud y mayor",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923314099500",
+   "name": "Solicitud de prestamo de material para la realizacion de actividades deportivas a asociaciones, clubes y centros docentes.",
+   "area": "Educación, cultura, ocio y deportes",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131922875899500",
+   "name": "Solicitud de prórroga contractual",
+   "area": "Hacienda y gestión económica",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004154871243005225",
+   "name": "Solicitud de prórroga en el plazo de presentación de la declaración del IIVTNU Mortis causa (Plusvalía)",
+   "area": "Hacienda y gestión económica",
+   "presential": true,
+   "online": true,
+   "phone": false
+  },
+  {
+   "id": "6269004131932636305225",
+   "name": "Solicitud de Prueba Ayuntamiento",
+   "area": "",
+   "presential": false,
+   "online": false,
+   "phone": false
+  },
+  {
+   "id": "6269004131923297499500",
+   "name": "Solicitud de reserva de plaza en Escuela de educación infantil municipal",
+   "area": "Educación, cultura, ocio y deportes",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923228599500",
+   "name": "Solicitud de TarjetAranda joven",
+   "area": "Educación, cultura, ocio y deportes",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923216899500",
+   "name": "Solicitud de utilización de espacios municipales",
+   "area": "Educación, cultura, ocio y deportes",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923218899500",
+   "name": "Solicitud de utilización de instalaciones deportivas municipales por Club deportivos locales o Centros Docentes.",
+   "area": "Educación, cultura, ocio y deportes",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923321599500",
+   "name": "Solicitud de verificación de contadores",
+   "area": "Via pública y medio ambiente",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923316399500",
+   "name": "Solicitud de vertido mediante cisterna",
+   "area": "Via pública y medio ambiente",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004132998984605225",
+   "name": "Solicitud del recibo IBI por cotitularidad",
+   "area": "Hacienda y gestión económica",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131923219999500",
+   "name": "Solicitud Espacio Subterráneo",
+   "area": "Comercios, industrias y actividades",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004140674739805225",
+   "name": "Solicitud subvenciones para Asociaciones Culturales (concurrencia competitiva).",
+   "area": "Educación, cultura, ocio y deportes",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004132978769105225",
+   "name": "Solicitudes de información desde juzgados",
+   "area": "",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004140669156105225",
+   "name": "Subvenciones Consejo Municipal de la mujer (concurrencia competitiva).",
+   "area": "Asuntos sociales, familia, mujer, juventud y mayor",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004140674727605225",
+   "name": "Subvenciones de Turismo (concurrencia competitiva).",
+   "area": "",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004140673724305225",
+   "name": "Subvenciones para AMPAS actividades deportivas (concurrencia competitiva).",
+   "area": "Educación, cultura, ocio y deportes",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004140654693605225",
+   "name": "Subvenciones para Asociaciones de Comerciantes (concurrencia competitiva).",
+   "area": "Comercios, industrias y actividades",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004140668982205225",
+   "name": "Subvenciones para Asociaciones de mujeres (concurrencia competitiva).",
+   "area": "Asuntos sociales, familia, mujer, juventud y mayor",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004140652955105225",
+   "name": "Subvenciones para Asociaciones Juveniles (concurrencia competitiva).",
+   "area": "Asuntos sociales, familia, mujer, juventud y mayor",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004140654865105225",
+   "name": "Subvenciones para Asociaciones vecinales (concurrencia competitiva).",
+   "area": "Cooperación al desarrollo y participación ciudadana",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004140668891805225",
+   "name": "Subvenciones para Asociaciones vinculadas a Servicios Sociales (concurrencia competitiva).",
+   "area": "Asuntos sociales, familia, mujer, juventud y mayor",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004140654357405225",
+   "name": "Subvenciones para el adecentamiento de centros escolares (concurrencia competitiva).",
+   "area": "Educación, cultura, ocio y deportes",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004155850060905225",
+   "name": "Subvenciones para la cofinanciación de proyectos de cooperación al desarrollo en el ámbito internacional (concurrencia competitiva)",
+   "area": "",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004140654209005225",
+   "name": "Subvenciones para la realización de actividades extraescolares (concurrencia competitiva).",
+   "area": "Educación, cultura, ocio y deportes",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004174799369605225",
+   "name": "Subvenciones para rehabilitacion de viviendas (E.R.R.P.) de Santa Catalina. 2ª Convocatoria",
+   "area": "",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004131922880599500",
+   "name": "Suspensión de la Ejecución",
+   "area": "Hacienda y gestión económica",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004141949403505225",
+   "name": "Sustitución de garantías",
+   "area": "",
+   "presential": false,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004132312727505225",
+   "name": "Sustitución del Alcalde",
+   "area": "",
+   "presential": true,
+   "online": true,
+   "phone": true
+  },
+  {
+   "id": "6269004132357639105225",
+   "name": "Tramites Tratamiento de aguas",
+   "area": "Via pública y medio ambiente",
+   "presential": true,
+   "online": false,
+   "phone": false
+  }
+ ]
+}

@@ -169,17 +169,54 @@ function aranda_de_duero_search_words( $text ) {
 }
 
 /**
- * Everything the finder can offer, without repeated addresses: the shortcuts of the home page, the payment services, the
- * other pages of the office and of this site, and the «Especiales» of the home page.
+ * The procedures of the catalogue of the electronic office as searchable entries, each pointing to its own page in the catalogue.
  *
+ * The list is data/sede/tramites.json (node scripts/update-sede-catalog.js refreshes it from the office). It is only searched on the
+ * results page: its ~400 entries would weigh down the suggestions that travel with every page.
+ *
+ * @return array<int, array{title: string, text: string, url: string, new_tab: bool, keywords: string}>
+ */
+function aranda_de_duero_sede_catalog_entries() {
+	$file = get_template_directory() . '/data/sede/tramites.json';
+	// phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents -- a file of the theme, not a URL.
+	$raw  = is_readable( $file ) ? file_get_contents( $file ) : false;
+	$data = false === $raw ? null : json_decode( $raw, true );
+	if ( ! is_array( $data ) || empty( $data['procedures'] ) || ! is_array( $data['procedures'] ) ) {
+		return array();
+	}
+
+	$entries = array();
+	foreach ( $data['procedures'] as $procedure ) {
+		if ( empty( $procedure['id'] ) || empty( $procedure['name'] ) ) {
+			continue;
+		}
+		$entries[] = aranda_de_duero_directory_entry(
+			(string) $procedure['name'],
+			empty( $procedure['area'] ) ? __( 'Trámite de la sede electrónica.', 'aranda-de-duero' ) : (string) $procedure['area'],
+			aranda_de_duero_sede_url( '/sta/CarpetaPublic/doEvent?APP_CODE=STA&PAGE_CODE=CATALOGO&DETALLE=' . rawurlencode( (string) $procedure['id'] ) ),
+			''
+		);
+	}
+
+	return $entries;
+}
+
+/**
+ * Everything the finder can offer, without repeated addresses: the shortcuts of the home page, the payment services, the
+ * other pages of the office and of this site, and the «Especiales» of the home page; with the catalogue of procedures when asked.
+ *
+ * @param bool $with_catalog Add the procedures of the catalogue of the office (after the rest, so the curated services come first).
  * @return array<int, array{title: string, text: string, url: string, new_tab: bool, keywords?: string}>
  */
-function aranda_de_duero_search_pool() {
+function aranda_de_duero_search_pool( $with_catalog = false ) {
 	$pool = aranda_de_duero_quick_access();
 	foreach ( aranda_de_duero_payment_services() as $group ) {
 		$pool = array_merge( $pool, $group['items'] );
 	}
 	$pool = array_merge( $pool, aranda_de_duero_service_directory(), aranda_de_duero_search_especiales() );
+	if ( $with_catalog ) {
+		$pool = array_merge( $pool, aranda_de_duero_sede_catalog_entries() );
+	}
 
 	$unique = array();
 	foreach ( $pool as $service ) {
@@ -281,7 +318,7 @@ function aranda_de_duero_search_services( $query, $limit = 6 ) {
 		return array();
 	}
 
-	$pool = aranda_de_duero_search_pool();
+	$pool = aranda_de_duero_search_pool( true );
 
 	$found = array();
 	foreach ( $pool as $index => $service ) {

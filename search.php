@@ -19,7 +19,7 @@ global $wp_query;
 // just to read the total doubled the (slow) LIKE scan over all posts.
 $total_results   = (int) $wp_query->found_posts;
 $aranda_search   = get_search_query( false );
-$aranda_services = aranda_de_duero_search_services( $aranda_search );
+$aranda_services = aranda_de_duero_search_services( $aranda_search, 12 );
 ?>
 
 <div class="container mt-4">

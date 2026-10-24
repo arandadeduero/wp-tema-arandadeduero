@@ -184,6 +184,18 @@ function aranda_de_duero_sede_catalog_synonyms() {
 			'stems'    => array( 'funerari', 'nicho', 'panteon', 'columbario', 'exhumacion', 'inhumacion', 'cementerio' ),
 			'keywords' => 'sepultura sepulturas',
 		),
+		array(
+			'stems'    => array( 'vado' ),
+			'keywords' => 'cochera cocheras garaje garajes',
+		),
+		array(
+			'stems'    => array( 'peligroso' ),
+			'keywords' => 'perro perros',
+		),
+		array(
+			'stems'    => array( 'ibi' ),
+			'keywords' => 'contribucion',
+		),
 	);
 }
 

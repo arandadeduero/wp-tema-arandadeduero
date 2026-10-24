@@ -78,6 +78,15 @@ class SearchTest extends TestCase {
 			$this->assertContains( 'Solicitud de Inhumación en Nichos, Panteones, Columbarios...', $found, $query );
 		}
 
+		foreach ( array(
+			'cochera'      => 'Licencias de Puerta Carretera,Vado permanente o Reserva de Espacio',
+			'garaje'       => 'Licencias de Puerta Carretera,Vado permanente o Reserva de Espacio',
+			'perro'        => 'Solicitud de inscripción en el Registro de Animales Potencialmente Peligrosos',
+			'contribución' => 'Solicitud del recibo IBI por cotitularidad',
+		) as $query => $title ) {
+			$this->assertContains( $title, $this->titles( aranda_de_duero_search_services( $query, 50 ) ), $query );
+		}
+
 		$this->assertSame( '', aranda_de_duero_sede_catalog_keywords( 'Licencia de obras de demolición' ) );
 	}
 

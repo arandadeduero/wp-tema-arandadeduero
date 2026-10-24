@@ -11,6 +11,7 @@ Plantilla `page-residuos.php`, datos de contacto en `inc/waste.php` y días sin 
 | Teléfono de enseres y otros contactos | `aranda_de_duero_waste_info()` en `inc/waste.php` |
 | Días en los que no se puede depositar basura | `data/residuos/dias-sin-deposito.json` |
 | Textos de los contenedores, punto limpio y atención | `page-residuos.php` |
+| Colores de los contenedores (azul, amarillo, marrón, verde y gris, claros, del folleto) | Variables `--color-bin-*` en el `:root` de `css/aranda-de-duero.css`; excepción pedida por el Ayuntamiento, solo para esta página |
 | Búsqueda: «Recogida de residuos» y «Recogida de enseres» | La tarjeta lleva sus palabras clave; la de enseres está en `aranda_de_duero_service_directory()` de `inc/search.php` |
 
 Fuente del contenido: folleto «La separación de residuos empieza desde casa» (Concejalía de Medio Ambiente), publicado en la noticia
@@ -44,7 +45,7 @@ Añadir el día a `data/residuos/dias-sin-deposito.json` y subir el tema complet
 ## Cambiar textos o teléfonos
 
 - Teléfonos y correo: `aranda_de_duero_waste_info()` en `inc/waste.php` (los usan la página, la tarjeta y la búsqueda).
-- Contenedores, horarios, punto limpio y atención: `page-residuos.php`.
+- Contenedores, horarios, punto limpio y atención: `page-residuos.php`. El teléfono de enseres va en la caja azul de arriba (`#enseres`), justo después de la introducción.
 - Sinónimos de la búsqueda: `keywords` de la tarjeta (`inc/services.php`) y de la entrada de enseres (`inc/search.php`), sin acentos.
 
 ## Pendiente

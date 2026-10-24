@@ -21,32 +21,37 @@ $aranda_day_text = static function ( $date ) {
 	return wp_date( 'l j \d\e F', (int) strtotime( $date . ' 12:00:00' ) );
 };
 
-// Containers: title, what goes in, and the hours when the leaflet gives them.
+// Containers: title, what goes in, the hours when the leaflet gives them, and the colour of the container (leaflet).
 $aranda_containers = array(
 	array(
 		__( 'Contenedor azul · Papel y cartón', 'aranda-de-duero' ),
 		__( 'Libretas, folios, revistas, papel de regalo y de envolver, sobres (sin ventanilla), folletos de publicidad, y cajas, piezas de cartón y envases de cereales, galletas, etc. Las cajas grandes se pliegan o trocean antes de depositarlas.', 'aranda-de-duero' ),
 		'',
+		'blue',
 	),
 	array(
 		__( 'Contenedor amarillo · Envases ligeros', 'aranda-de-duero' ),
 		__( 'Envases de plástico (botellas de agua, refrescos, leche…), bolsas y envolturas de plástico, envases de metal (latas de conserva y de bebida) y envases tipo brick (leche, zumos, vinos, batidos, caldos, gazpacho…).', 'aranda-de-duero' ),
 		'',
+		'yellow',
 	),
 	array(
 		__( 'Contenedor marrón · Orgánica', 'aranda-de-duero' ),
 		__( 'Restos de la preparación de la comida y sobras, alimentos en mal estado (separados de su envase), cáscaras de huevo y de frutos secos, posos de café y bolsitas de infusiones, papel de cocina y servilletas de papel sucias, pequeñas ramas y restos de poda, hojas y flores, corchos de botella, virutas de madera y serrín.', 'aranda-de-duero' ),
 		'',
+		'brown',
 	),
 	array(
 		__( 'Iglú verde · Vidrio', 'aranda-de-duero' ),
 		__( 'Botellas, tarros y frascos de vidrio (de bebidas, alimentos, perfumes y cosméticos), sin tapón.', 'aranda-de-duero' ),
 		__( 'De 8:00 a 23:00 h.', 'aranda-de-duero' ),
+		'green',
 	),
 	array(
 		__( 'Contenedor de tapa verde · Resto', 'aranda-de-duero' ),
 		__( 'Lo que no se puede depositar en los demás: pañales usados, juguetes, biberones, chupetes, utensilios de cocina, objetos cerámicos, arena para mascotas, pelo, polvo, colillas…', 'aranda-de-duero' ),
 		__( 'De 21:00 a 23:00 h.', 'aranda-de-duero' ),
+		'gray',
 	),
 );
 
@@ -79,7 +84,7 @@ $aranda_special = array(
 							'tips' => array(
 								array( __( 'Separa en casa', 'aranda-de-duero' ), __( 'los residuos en cinco grupos: papel y cartón, envases, orgánica, vidrio y resto.', 'aranda-de-duero' ) ),
 								array( __( 'Respeta el horario', 'aranda-de-duero' ), __( 'del vidrio (de 8:00 a 23:00 h) y del contenedor de resto (de 21:00 a 23:00 h).', 'aranda-de-duero' ) ),
-								array( __( 'Muebles y enseres', 'aranda-de-duero' ), __( 'se recogen previa solicitud: llama al teléfono que verás más abajo.', 'aranda-de-duero' ) ),
+								array( __( 'Muebles y enseres', 'aranda-de-duero' ), __( 'se recogen previa solicitud: el teléfono está justo debajo.', 'aranda-de-duero' ) ),
 							),
 						)
 					);
@@ -93,6 +98,17 @@ $aranda_special = array(
 							<?php endif; ?>
 						</div>
 					<?php endif; ?>
+
+					<section class="waste-bulky" id="enseres" aria-labelledby="waste-bulky-title">
+						<h2 id="waste-bulky-title" class="waste-bulky-title"><?php esc_html_e( 'Recogida de muebles y enseres', 'aranda-de-duero' ); ?></h2>
+						<p>
+							<?php
+							/* translators: %s: company that collects the items. */
+							echo esc_html( sprintf( __( 'Colchones, sofás, electrodomésticos… Se recogen previa solicitud, a través de %s; llama a este teléfono:', 'aranda-de-duero' ), $aranda_waste['bulky_company'] ) );
+							?>
+						</p>
+						<p class="waste-phone"><a href="<?php echo esc_url( $aranda_waste['bulky_href'] ); ?>"><?php echo esc_html( $aranda_waste['bulky_phone'] ); ?></a></p>
+					</section>
 
 					<?php if ( array() !== $aranda_next ) : ?>
 						<section class="waste-next" aria-labelledby="waste-next-title">
@@ -115,7 +131,7 @@ $aranda_special = array(
 						<div class="row">
 							<?php foreach ( $aranda_containers as $aranda_container ) : ?>
 								<div class="col-md-6 mb-3">
-									<div class="card h-100">
+									<div class="card waste-bin waste-bin-<?php echo esc_attr( $aranda_container[3] ); ?> h-100">
 										<div class="card-body">
 											<h3 class="h5"><?php echo esc_html( $aranda_container[0] ); ?></h3>
 											<p class="mb-1"><?php echo esc_html( $aranda_container[1] ); ?></p>
@@ -134,17 +150,6 @@ $aranda_special = array(
 								<li><strong><?php echo esc_html( $aranda_item[0] ); ?>:</strong> <?php echo esc_html( $aranda_item[1] ); ?></li>
 							<?php endforeach; ?>
 						</ul>
-					</section>
-
-					<section class="waste-bulky" id="enseres" aria-labelledby="waste-bulky-title">
-						<h2 id="waste-bulky-title" class="h4"><?php esc_html_e( 'Recogida de enseres (muebles, colchones, electrodomésticos…)', 'aranda-de-duero' ); ?></h2>
-						<p>
-							<?php
-							/* translators: %s: company that collects the items. */
-							echo esc_html( sprintf( __( 'La recogida es previa solicitud, a través de %s; llama a este teléfono:', 'aranda-de-duero' ), $aranda_waste['bulky_company'] ) );
-							?>
-						</p>
-						<p class="waste-phone"><a href="<?php echo esc_url( $aranda_waste['bulky_href'] ); ?>"><?php echo esc_html( $aranda_waste['bulky_phone'] ); ?></a></p>
 					</section>
 
 					<section class="waste-recycling-center" id="punto-limpio" aria-labelledby="waste-center-title">

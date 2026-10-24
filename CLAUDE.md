@@ -26,7 +26,7 @@ Para trabajar con Claude Code en este repositorio. El detalle está en [DEVELOPM
 - **Ningún JavaScript de terceros ni jQuery**, y **ningún recurso de terceros** en el navegador (RGPD).
 - **Ningún color escrito a mano, y solo los de la paleta corporativa.** Todo color es una variable del `:root` de `css/aranda-de-duero.css`: azul `#0083c1` (Pantone 7460C),
   azul claro `#e9f4f9`, rojo `#ce0e2d` (186C), ámbar `#f5a800` (130C), marrón `#a4541c` (160C), celeste `#3cb4e5` (298C), negro 75 % `#646464` y 90 % `#3c3c3c`, más negro, blanco
-  y sus transparencias (`--color-black-10`…). Solo hay dos excepciones, por accesibilidad: `--color-primary-accessible` `#0073ad` (texto, enlaces y botones con texto blanco, porque
+  y sus transparencias (`--color-black-10`…). Excepción del Ayuntamiento (2026-10-25): los cinco colores claros de los contenedores (`--color-bin-*`), tomados de su folleto, solo en la página de residuos. Solo hay dos excepciones más, por accesibilidad: `--color-primary-accessible` `#0073ad` (texto, enlaces y botones con texto blanco, porque
   `#0083c1` da 4,19:1) y su hover `--color-primary-dark`. `stylelint` falla con cualquier hex, `rgb()`/`hsl()` o color con nombre fuera de la paleta. **No inventar tonos**: si hace falta
   uno que no está, preguntar. En PHP, los pocos valores que no pueden leer una variable (`aranda_de_duero_brand_color()`, los valores por defecto del Personalizador) están en
   `inc/customizer-css.php`; `theme.json` usa la misma paleta; `tests/ColorSourcesTest.php` vigila que todo coincida.

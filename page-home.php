@@ -262,7 +262,24 @@ $query = aranda_de_duero_content(
 					<div class="col-md-2 border-right p-3">
 						<?php if ( ! empty( $first_event['thumbnail'] ) ) : ?>
 							<a href="<?php echo esc_url( $first_event['link'] ); ?>" title="<?php echo esc_attr( $first_event['title'] ); ?>">
-								<img loading="lazy" decoding="async" src="<?php echo esc_url( $first_event['thumbnail'] ); ?>" class="img-fluid" alt="<?php echo esc_attr( $first_event['title'] ); ?>">
+								<?php
+								$aranda_poster_attrs = array(
+									'class'    => 'img-fluid',
+									'alt'      => $first_event['title'],
+									'loading'  => 'lazy',
+									'decoding' => 'async',
+									'sizes'    => '(min-width: 768px) 190px, 100vw', // The poster is one sixth of the row from tablet width up.
+								);
+								// The attachment gives the tag its width, height and srcset (the poster used to be the full-size file with no dimensions: layout shift).
+								$aranda_poster = ! empty( $first_event['thumbnail_id'] ) ? wp_get_attachment_image( (int) $first_event['thumbnail_id'], 'medium', false, $aranda_poster_attrs ) : '';
+								if ( '' !== $aranda_poster ) {
+									echo $aranda_poster; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- wp_get_attachment_image() escapes its attributes.
+								} else {
+									?>
+									<img loading="lazy" decoding="async" src="<?php echo esc_url( $first_event['thumbnail'] ); ?>" class="img-fluid" alt="<?php echo esc_attr( $first_event['title'] ); ?>">
+									<?php
+								}
+								?>
 							</a>
 						<?php else : ?>
 							<a href="<?php echo esc_url( $first_event['link'] ); ?>" title="<?php echo esc_attr( $first_event['title'] ); ?>" class="text-decoration-none">

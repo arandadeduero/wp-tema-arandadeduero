@@ -140,13 +140,14 @@ function aranda_de_duero_query_upcoming_events( $limit ) {
 		}
 
 		$upcoming_events[] = array(
-			'id'         => get_the_ID(),
-			'date_start' => $date_start,
-			'date_end'   => $date_end,
-			'title'      => get_the_title(),
-			'thumbnail'  => wp_get_attachment_url( get_post_thumbnail_id( get_the_ID() ) ),
-			'link'       => get_permalink( get_the_ID() ),
-			'series'     => $series,
+			'id'           => get_the_ID(),
+			'date_start'   => $date_start,
+			'date_end'     => $date_end,
+			'title'        => get_the_title(),
+			'thumbnail'    => wp_get_attachment_url( get_post_thumbnail_id( get_the_ID() ) ),
+			'thumbnail_id' => (int) get_post_thumbnail_id( get_the_ID() ),
+			'link'         => get_permalink( get_the_ID() ),
+			'series'       => $series,
 		);
 	}
 

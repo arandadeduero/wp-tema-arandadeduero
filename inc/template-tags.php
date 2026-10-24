@@ -174,6 +174,56 @@ if ( ! function_exists( 'aranda_de_duero_entry_topics_footer' ) ) :
 	}
 endif;
 
+if ( ! function_exists( 'aranda_de_duero_attachment_id_from_url' ) ) :
+	/**
+	 * Id of the attachment a media address belongs to, or 0 when it is not one (kept a week: the lookup is a query and the header image is on every page).
+	 *
+	 * @param string $url Address of the file.
+	 * @return int
+	 */
+	function aranda_de_duero_attachment_id_from_url( $url ) {
+		$key = 'aranda_att_' . md5( $url );
+		$id  = get_transient( $key );
+		if ( false === $id ) {
+			$id = (int) attachment_url_to_postid( $url );
+			set_transient( $key, (string) $id, WEEK_IN_SECONDS );
+		}
+
+		return (int) $id;
+	}
+endif;
+
+if ( ! function_exists( 'aranda_de_duero_header_image_html' ) ) :
+	/**
+	 * The <img> of the header image. When the address is a file of the media library the tag gets its width, height and srcset (no layout
+	 * shift, and a smaller file on a phone); otherwise it is the plain tag it used to be.
+	 *
+	 * @param string $url Address of the image.
+	 * @param string $alt Alt text («» for a decorative image).
+	 * @return string
+	 */
+	function aranda_de_duero_header_image_html( $url, $alt ) {
+		$id    = aranda_de_duero_attachment_id_from_url( $url );
+		$image = $id ? wp_get_attachment_image(
+			$id,
+			'full',
+			false,
+			array(
+				'class'         => 'img-fluid w-100 cabecera_pagina',
+				'alt'           => $alt,
+				'loading'       => 'eager',
+				'fetchpriority' => 'high',
+			)
+		) : '';
+
+		if ( '' !== $image ) {
+			return $image;
+		}
+
+		return '<img src="' . esc_url( $url ) . '" class="img-fluid w-100 cabecera_pagina" alt="' . esc_attr( $alt ) . '" />';
+	}
+endif;
+
 if ( ! function_exists( 'aranda_de_duero_the_header_image' ) ) :
 	/**
 	 * Prints the full-width header image used at the top of page and
@@ -203,7 +253,9 @@ if ( ! function_exists( 'aranda_de_duero_the_header_image' ) ) :
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-12 p-0">
-					<img src="<?php echo esc_url( $header_image ); ?>" class="img-fluid w-100 cabecera_pagina" alt="<?php echo esc_attr( $alt ); ?>" />
+					<?php
+					echo aranda_de_duero_header_image_html( (string) $header_image, $alt ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- the tag is built with esc_url()/esc_attr() or by wp_get_attachment_image().
+					?>
 				</div>
 			</div>
 		</div>

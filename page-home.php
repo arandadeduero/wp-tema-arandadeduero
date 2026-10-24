@@ -300,26 +300,26 @@ $query = aranda_de_duero_content(
 						<span class="h5 text-uppercase"><?php echo esc_html( date_i18n( 'F' ) ); ?></span>
 					</div>
 
-					<!-- Events Grid (2x2) -->
+					<!-- Events Grid (2 columns x 3 rows) -->
 					<?php
 					// Display events in a 2-column grid
 					$event_index    = 0;
-					$events_to_show = array_slice( $agenda_events, 0, 4 ); // Show up to 4 events
+					$events_to_show = array_slice( $agenda_events, 0, 6 ); // Show up to 6 events
 
 					for ( $col = 0; $col < 2; $col++ ) : // 2 columns
 						?>
 						<div class="col-md-4 <?php echo ( $col < 1 ) ? 'border-right' : ''; ?>">
 							<?php
-							// Display 2 events per column
-							for ( $row = 0; $row < 2; $row++ ) :
-								$event_idx = ( $col * 2 ) + $row;
+							// Display 3 events per column
+							for ( $row = 0; $row < 3; $row++ ) :
+								$event_idx = ( $col * 3 ) + $row;
 
 								if ( ! empty( $events_to_show[ $event_idx ] ) ) :
 									$event    = $events_to_show[ $event_idx ];
 									$event_dt = strtotime( $event['date_start'] );
-									$is_last  = ( count( $events_to_show ) - 1 === $event_idx );
+									$has_next = $row < 2 && ! empty( $events_to_show[ $event_idx + 1 ] ); // Another event below it in the same column.
 									?>
-									<div class="event-item p-3 <?php echo ( ! $is_last && 0 === $row ) ? 'border-bottom' : ''; ?>">
+									<div class="event-item p-3 <?php echo $has_next ? 'border-bottom' : ''; ?>">
 										<h3 class="h6 event-name">
 											<a href="<?php echo esc_url( $event['link'] ); ?>" class="text-dark text-decoration-none">
 												<?php echo esc_html( $event['title'] ); ?>

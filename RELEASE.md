@@ -50,12 +50,13 @@ Dos maneras equivalentes:
 
 ## 3. Después de desplegar
 
-1. **Vaciar la caché de Cache Enabler.** Si no, los navegadores siguen recibiendo la página anterior aunque el
-   código esté subido (la respuesta lleva `x-cache-handler: cache-enabler-engine` y `Vary: accept`).
+1. **Caché de página:** Cache Enabler está desactivado desde 2026-10-25, así que no hay nada que vaciar. Si se reactiva,
+   vaciarla: si no, los navegadores siguen recibiendo la página anterior aunque el código esté subido (la respuesta lleva
+   `x-cache-handler: cache-enabler-engine` y `Vary: accept`).
 2. **Esperar unos 30 s:** el servidor (PHP 7.4) puede seguir sirviendo los `.php` anteriores por la caché de opcache.
 3. **Comprobar en la web real**, no en la copia local:
    - Ver lo que ven los visitantes: un navegador, o `curl` con `-H 'Accept: text/html'`. Para comprobar solo que el
-     código nuevo funciona, cargar la página con un parámetro (`/?sin-cache=x`), que la caché no usa.
+     código nuevo funciona con la caché reactivada, cargar la página con un parámetro (`/?sin-cache=x`), que la caché no usa.
    - Cambios visibles: capturas en móvil y escritorio, y Lighthouse (accesibilidad y SEO deberían seguir en 100 en
      la home, noticias, noticia y agenda).
    - Cambios de rendimiento: LCP con red Fast 4G y CPU ×4, sin caché.

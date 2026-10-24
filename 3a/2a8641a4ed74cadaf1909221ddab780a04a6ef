@@ -1,0 +1,27 @@
+CLAUDE.md
+  s_4f5cd8214eb10f::t_3dbba333046279 29
+css/aranda-de-duero.css
+  s_4f5cd8214eb10f::t_3dbba333046279 89-98,4062-4124
+page-residuos.php
+  s_4f5cd8214eb10f::t_3dbba333046279 24,30,36,42,48,54,87,102-112,134
+MEJORAS-OTROS-AYUNTAMIENTOS.md
+  s_4f5cd8214eb10f::t_1f7beceb5252dd 240
+docs/recogida-de-residuos.md
+  s_4f5cd8214eb10f::t_497d41416253f2 14,48
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "3a2a8641a4ed74cadaf1909221ddab780a04a6ef",
+  "prompts": {},
+  "sessions": {
+    "s_4f5cd8214eb10f": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "2755f5ae-2053-4324-9f05-1e0bfa06829c",
+        "model": "claude-sonnet-5-5"
+      },
+      "human_author": "Guillermo López <willyaranda@gmail.com>"
+    }
+  }
+}

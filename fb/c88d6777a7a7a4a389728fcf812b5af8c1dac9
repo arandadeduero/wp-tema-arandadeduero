@@ -1,0 +1,29 @@
+template-parts/service-cards.php
+  s_e1aa48bb7b463c::t_d643218b6428b2 28,46
+docs/servicios-cotidianos.md
+  s_e1aa48bb7b463c::t_d62cc2c780afa1 41-44,52-58
+inc/everyday-services.php
+  s_e1aa48bb7b463c::t_c556779ad8fc2f 60-61,69-70
+tests/EverydayServicesTest.php
+  s_e1aa48bb7b463c::t_72c9a5a132527d 119-120
+MEJORAS-OTROS-AYUNTAMIENTOS.md
+  s_e1aa48bb7b463c::t_3269ab2dacf16d 242
+css/aranda-de-duero.css
+  s_e1aa48bb7b463c::t_4face375accea5 2805-2810,2827-2828
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "fbc88d6777a7a7a4a389728fcf812b5af8c1dac9",
+  "prompts": {},
+  "sessions": {
+    "s_e1aa48bb7b463c": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "950c7f09-0446-4c9c-8da1-ba075c088b88",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": "Guillermo López <willyaranda@gmail.com>"
+    }
+  }
+}

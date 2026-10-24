@@ -1,0 +1,35 @@
+page-farmacias.php
+  s_4f5cd8214eb10f::t_671c4910378b62 60,62-63,65,67-71,143-147
+  s_4f5cd8214eb10f::t_f75d5ca9059921 8
+inc/pharmacies.php
+  s_4f5cd8214eb10f::t_671c4910378b62 190-221
+  s_4f5cd8214eb10f::t_bec3cd9a4e19d9 189
+tests/PharmaciesTest.php
+  s_4f5cd8214eb10f::t_1daf9848be8808 49-63
+css/aranda-de-duero.css
+  s_4f5cd8214eb10f::t_671c4910378b62 3902-3954
+tests/ServicesTest.php
+  s_4f5cd8214eb10f::t_1daf9848be8808 83-100
+inc/services.php
+  s_4f5cd8214eb10f::t_671c4910378b62 108-126
+MEJORAS-OTROS-AYUNTAMIENTOS.md
+  s_4f5cd8214eb10f::t_d4bf33dfd35304 236
+docs/farmacias-de-guardia.md
+  s_4f5cd8214eb10f::t_db83ddd7f3adef 10,33,35
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "2634203f4229bba4aab75798a6e0e594e9c02e9f",
+  "prompts": {},
+  "sessions": {
+    "s_4f5cd8214eb10f": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "2755f5ae-2053-4324-9f05-1e0bfa06829c",
+        "model": "claude-sonnet-5-5"
+      },
+      "human_author": "Guillermo López <willyaranda@gmail.com>"
+    }
+  }
+}

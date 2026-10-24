@@ -62,3 +62,4 @@ style-rtl.css.map
 dist/
 build/
 .phpunit.result.cache
+*.zip

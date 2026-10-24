@@ -141,7 +141,7 @@ $aranda_special = array(
 						<p>
 							<?php
 							/* translators: %s: company that collects the items. */
-							echo esc_html( sprintf( __( 'La recogida es previa solicitud, a través de %s. Llama a este teléfono:', 'aranda-de-duero' ), $aranda_waste['bulky_company'] ) );
+							echo esc_html( sprintf( __( 'La recogida es previa solicitud, a través de %s; llama a este teléfono:', 'aranda-de-duero' ), $aranda_waste['bulky_company'] ) );
 							?>
 						</p>
 						<p class="waste-phone"><a href="<?php echo esc_url( $aranda_waste['bulky_href'] ); ?>"><?php echo esc_html( $aranda_waste['bulky_phone'] ); ?></a></p>

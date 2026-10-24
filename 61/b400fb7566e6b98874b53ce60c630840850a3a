@@ -1,0 +1,27 @@
+CLAUDE.md
+  s_4f5cd8214eb10f::t_d0598bdd918d4e 9-13,40
+DEVELOPMENT.md
+  s_4f5cd8214eb10f::t_9781ef40035192 106-107
+RELEASE.md
+  s_4f5cd8214eb10f::t_14aa4ad7a3e03d 53-55,59
+docs/farmacias-de-guardia.md
+  s_4f5cd8214eb10f::t_1b130d6fd3477b 11,32,35-37
+docs/tipos-de-contenido-y-elementos-propios.md
+  s_4f5cd8214eb10f::t_784e268037c1c5 321,337
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "61b400fb7566e6b98874b53ce60c630840850a3a",
+  "prompts": {},
+  "sessions": {
+    "s_4f5cd8214eb10f": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "2755f5ae-2053-4324-9f05-1e0bfa06829c",
+        "model": "claude-sonnet-5-5"
+      },
+      "human_author": "Guillermo López <willyaranda@gmail.com>"
+    }
+  }
+}

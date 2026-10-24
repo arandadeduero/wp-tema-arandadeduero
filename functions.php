@@ -68,6 +68,9 @@ if ( ! function_exists( 'aranda_de_duero_setup' ) ) :
 		 */
 		add_theme_support( 'post-thumbnails' );
 
+		// The news cards of the home page are about 200 px wide: 450 px covers them on a high-density screen (the next size down is 300, the next up 768).
+		add_image_size( 'aranda-tarjeta', 450, 0 );
+
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus(
 			array(

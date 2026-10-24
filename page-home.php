@@ -121,7 +121,9 @@ $query = aranda_de_duero_content(
 				$query->the_post();
 				?>
 				<?php
-				$image_type = 'large';
+				// The first news is wide (large); the rest are cards of a quarter of the row from desktop width, half from tablet, full below.
+				$image_type  = ( 0 === $count ) ? 'large' : 'aranda-tarjeta';
+				$image_sizes = ( 0 === $count ) ? '(min-width: 768px) 500px, calc(100vw - 140px)' : '(min-width: 992px) 200px, (min-width: 768px) 260px, calc(100vw - 140px)';
 
 				// Open row for first item or every 4 items after first
 				if ( 0 === $count || ( $count > 0 && 0 === ( $count - 1 ) % 4 ) ) {
@@ -158,6 +160,7 @@ $query = aranda_de_duero_content(
 											'loading'  => ( 0 === $count ) ? 'eager' : 'lazy',
 											'fetchpriority' => ( 0 === $count ) ? 'high' : 'auto',
 											'decoding' => 'async',
+											'sizes'    => $image_sizes,
 										)
 									);
 									?>

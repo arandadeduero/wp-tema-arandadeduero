@@ -388,6 +388,11 @@ require get_template_directory() . '/inc/audiences.php';
 require get_template_directory() . '/inc/content-types.php';
 
 /**
+ * Virtual assistant: bubble that sends the question to ChatGPT with a closed prompt (only administrators, for now).
+ */
+require get_template_directory() . '/inc/chatbot.php';
+
+/**
  * Archives of the "concejalia" and "tema" terms: pagination and notice of historic archives.
  */
 require get_template_directory() . '/inc/term-archives.php';
@@ -421,6 +426,16 @@ require get_template_directory() . '/inc/structured-data.php';
  * Speculation Rules (prefetch/prerender of internal links).
  */
 require get_template_directory() . '/inc/speculation-rules.php';
+
+/**
+ * E-mail reminders for information that goes out of date (delegations of the concejalías) and who receives them.
+ */
+require get_template_directory() . '/inc/reminders.php';
+
+/**
+ * Duty pharmacies (data/farmacias/<year>.json) and the yearly reminder to load the next calendar.
+ */
+require get_template_directory() . '/inc/pharmacies.php';
 
 /**
  * Load Jetpack compatibility file.

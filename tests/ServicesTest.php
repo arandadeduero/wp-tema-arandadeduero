@@ -3,13 +3,12 @@ use WP_Mock\Tools\TestCase;
 
 require_once dirname( __DIR__ ) . '/inc/template-functions.php';
 require_once dirname( __DIR__ ) . '/inc/services.php';
-require_once dirname( __DIR__ ) . '/inc/pharmacies.php';
-require_once dirname( __DIR__ ) . '/inc/waste.php';
 
 // Minimal stand-in: the tests only need `instanceof WP_Post` and `post_status`.
 if ( ! class_exists( 'WP_Post' ) ) {
 	class WP_Post {
 		public $post_status = 'publish';
+		public $post_name   = '';
 	}
 }
 
@@ -73,6 +72,8 @@ class ServicesTest extends TestCase {
 
 		$items = aranda_de_duero_quick_access();
 
+		// Farmacia de guardia, recogida de residuos, OMIC, objetos perdidos and the bus moved to «Servicios cotidianos»
+		// (tests/EverydayServicesTest.php): this list is only the town-hall procedures.
 		$this->assertCount( 8, $items );
 		foreach ( $items as $item ) {
 			$this->assertNotSame( '', $item['title'] );
@@ -80,76 +81,6 @@ class ServicesTest extends TestCase {
 			$this->assertStringStartsWith( 'https://', $item['url'] );
 			$this->assertIsBool( $item['new_tab'] );
 		}
-	}
-
-	public function test_the_pharmacy_card_only_appears_when_its_page_is_published() {
-		$this->mocks();
-		$page              = new WP_Post();
-		$page->post_status = 'publish';
-		\WP_Mock::userFunction( 'get_page_by_path' )->andReturnUsing(
-			function ( $path ) use ( $page ) {
-				return 'farmacia-de-guardia' === $path ? $page : null;
-			}
-		);
-		\WP_Mock::userFunction( 'get_permalink' )->andReturn( 'https://www.arandadeduero.es/farmacia-de-guardia/' );
-		\WP_Mock::userFunction( 'get_template_directory' )->andReturn( dirname( __DIR__ ) );
-		\WP_Mock::userFunction( 'sanitize_text_field' )->andReturnArg( 0 );
-		\WP_Mock::userFunction( 'wp_unslash' )->andReturnArg( 0 );
-		// Before ten in the morning it is still the guard of the day before.
-		\WP_Mock::userFunction( 'current_time' )->andReturn( '2026-10-25 09:30:00' );
-
-		$items = aranda_de_duero_quick_access();
-
-		$this->assertCount( 9, $items );
-		$this->assertSame( 'Farmacia de guardia', $items[2]['title'] );
-		$this->assertSame( 'https://www.arandadeduero.es/farmacia-de-guardia/', $items[2]['url'] );
-		$this->assertSame( 'INÉS BRIME BERDUGO', $items[2]['pharmacy']['name'] );
-		$this->assertSame( 'Avenida Castilla, 58', $items[2]['pharmacy']['address'] );
-		$this->assertSame( '947 501 237', $items[2]['pharmacy']['phone'] );
-		$this->assertSame( 'tel:947501237', $items[2]['pharmacy']['phone_href'] );
-		$this->assertSame( 'Google Maps', $items[2]['pharmacy']['map']['label'] );
-	}
-
-	public function test_the_waste_card_follows_the_pharmacy_one_and_carries_the_bulky_phone() {
-		$this->mocks();
-		$page              = new WP_Post();
-		$page->post_status = 'publish';
-		\WP_Mock::userFunction( 'get_page_by_path' )->andReturnUsing(
-			function ( $path ) use ( $page ) {
-				return 'recogida-de-residuos' === $path ? $page : null;
-			}
-		);
-		\WP_Mock::userFunction( 'get_permalink' )->andReturn( 'https://www.arandadeduero.es/recogida-de-residuos/' );
-		\WP_Mock::userFunction( 'get_template_directory' )->andReturn( dirname( __DIR__ ) );
-		\WP_Mock::userFunction( 'current_time' )->andReturn( '2026-10-25' );
-
-		$items = aranda_de_duero_quick_access();
-
-		// The pharmacy page is not published here, so the waste card takes the third place.
-		$this->assertCount( 9, $items );
-		$this->assertSame( 'Recogida de residuos', $items[2]['title'] );
-		$this->assertSame( '947 50 60 50', $items[2]['waste']['bulky_phone'] );
-		$this->assertFalse( $items[2]['waste']['ban'] );
-		$this->assertStringContainsString( 'basura', $items[2]['keywords'] );
-	}
-
-	public function test_without_a_calendar_the_pharmacy_card_is_a_plain_link() {
-		$this->mocks();
-		$page              = new WP_Post();
-		$page->post_status = 'publish';
-		\WP_Mock::userFunction( 'get_page_by_path' )->andReturnUsing(
-			function ( $path ) use ( $page ) {
-				return 'farmacia-de-guardia' === $path ? $page : null;
-			}
-		);
-		\WP_Mock::userFunction( 'get_permalink' )->andReturn( 'https://www.arandadeduero.es/farmacia-de-guardia/' );
-		\WP_Mock::userFunction( 'get_template_directory' )->andReturn( dirname( __DIR__ ) );
-		\WP_Mock::userFunction( 'current_time' )->andReturn( '2098-06-01 12:00:00' );
-
-		$items = aranda_de_duero_quick_access();
-
-		$this->assertSame( 'Farmacia de guardia', $items[2]['title'] );
-		$this->assertArrayNotHasKey( 'pharmacy', $items[2] );
 	}
 
 	public function test_every_payment_service_has_title_text_and_a_secure_url() {

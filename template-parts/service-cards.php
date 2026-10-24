@@ -25,7 +25,7 @@ if ( array() === $aranda_cards['items'] ) {
 			<?php /* Waste: not one link, because it has the bulky-items phone inside. Light red on a day without deposit. */ ?>
 			<li>
 				<div class="service-card service-card-waste<?php echo $aranda_waste_card['ban'] ? ' is-banned' : ''; ?>">
-					<a class="service-card-title" href="<?php echo esc_url( $aranda_card['url'] ); ?>"><?php echo esc_html( $aranda_card['title'] ); ?></a>
+					<a class="service-card-title stretched-link" href="<?php echo esc_url( $aranda_card['url'] ); ?>"><?php echo esc_html( $aranda_card['title'] ); ?></a>
 					<?php if ( $aranda_waste_card['ban'] ) : ?>
 						<span class="service-card-waste-ban"><?php esc_html_e( 'HOY PROHIBIDO DEPOSITAR BASURA', 'aranda-de-duero' ); ?></span>
 					<?php else : ?>
@@ -43,7 +43,7 @@ if ( array() === $aranda_cards['items'] ) {
 			<?php /* The pharmacy on duty now: not one link, because it has its own (phone, map) inside. */ ?>
 			<li>
 				<div class="service-card service-card-pharmacy">
-					<a class="service-card-title" href="<?php echo esc_url( $aranda_card['url'] ); ?>"><?php echo esc_html( $aranda_card['title'] ); ?></a>
+					<a class="service-card-title stretched-link" href="<?php echo esc_url( $aranda_card['url'] ); ?>"><?php echo esc_html( $aranda_card['title'] ); ?></a>
 					<span class="service-card-pharmacy-name"><?php echo esc_html( $aranda_pharmacy['name'] ); ?></span>
 					<span class="service-card-text"><?php echo esc_html( $aranda_pharmacy['address'] ); ?></span>
 					<span class="service-card-pharmacy-actions">

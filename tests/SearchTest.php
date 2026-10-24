@@ -6,6 +6,7 @@ require_once dirname( __DIR__ ) . '/inc/services.php';
 require_once dirname( __DIR__ ) . '/inc/especiales.php';
 require_once dirname( __DIR__ ) . '/inc/search.php';
 require_once dirname( __DIR__ ) . '/inc/waste.php';
+require_once dirname( __DIR__ ) . '/inc/everyday-services.php';
 require_once dirname( __DIR__ ) . '/inc/situations.php';
 require_once dirname( __DIR__ ) . '/inc/audiences.php';
 
@@ -179,6 +180,37 @@ class SearchTest extends TestCase {
 		$this->mocks();
 
 		$this->assertNotContains( 'Recogida de enseres', $this->titles( aranda_de_duero_search_services( 'enseres', 12 ) ) );
+	}
+
+	public function test_the_transport_entry_is_always_searchable() {
+		$this->mocks();
+
+		foreach ( array( 'autobus', 'autobuses', 'bus', 'transporte urbano', 'horario autobus', 'parada' ) as $query ) {
+			$found = aranda_de_duero_search_services( $query, 12 );
+			$this->assertContains( 'Transporte: autobús urbano', $this->titles( $found ), $query );
+		}
+
+		$services = aranda_de_duero_search_services( 'autobus', 12 );
+		$this->assertSame( 'https://busurbanoaranda.com/', $services[0]['url'] );
+	}
+
+	public function test_omic_and_lost_found_are_not_found_without_their_pages() {
+		$this->mocks();
+
+		$this->assertNotContains( 'OMIC: información al consumidor', $this->titles( aranda_de_duero_search_services( 'reclamacion', 12 ) ) );
+		$this->assertNotContains( 'Objetos perdidos', $this->titles( aranda_de_duero_search_services( 'llaves', 12 ) ) );
+	}
+
+	public function test_omic_and_lost_found_are_found_by_their_synonyms_once_published() {
+		$this->published = array( 'omic', 'objetos-perdidos' );
+		$this->mocks();
+
+		foreach ( array( 'omic', 'consumo', 'reclamacion', 'denuncia', 'mediacion' ) as $query ) {
+			$this->assertContains( 'OMIC: información al consumidor', $this->titles( aranda_de_duero_search_services( $query, 12 ) ), $query );
+		}
+		foreach ( array( 'objetos perdidos', 'llaves', 'cartera', 'movil perdido', 'hallado' ) as $query ) {
+			$this->assertContains( 'Objetos perdidos', $this->titles( aranda_de_duero_search_services( $query, 12 ) ), $query );
+		}
 	}
 
 	public function test_the_curated_services_come_before_the_catalogue_and_the_suggestions_do_not_carry_it() {

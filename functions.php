@@ -446,6 +446,11 @@ require get_template_directory() . '/inc/pharmacies.php';
 require get_template_directory() . '/inc/waste.php';
 
 /**
+ * «Servicios cotidianos» of the home page (farmacia de guardia, residuos, OMIC, objetos perdidos, autobús urbano).
+ */
+require get_template_directory() . '/inc/everyday-services.php';
+
+/**
  * Load Jetpack compatibility file.
  */
 if ( defined( 'JETPACK__VERSION' ) ) {

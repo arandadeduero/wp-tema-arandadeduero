@@ -1,0 +1,39 @@
+docs/farmacias-de-guardia.md
+  s_4f5cd8214eb10f::t_0eb08a6eb7e330 82
+  s_4f5cd8214eb10f::t_3ee5fc8682895d 83
+inc/reminders.php
+  s_4f5cd8214eb10f::t_0eb08a6eb7e330 49,51-65
+js/search-suggest.js
+  s_4f5cd8214eb10f::t_0eb08a6eb7e330 5,30,35-37,63-81,194-203,206
+tests/EspecialesTest.php
+  s_4f5cd8214eb10f::t_3ee5fc8682895d 34-37,40-62
+  s_4f5cd8214eb10f::t_ce40c89504e761 38-39
+tests/SearchTest.php
+  s_4f5cd8214eb10f::t_3ee5fc8682895d 106-127
+MEJORAS-OTROS-AYUNTAMIENTOS.md
+  s_4f5cd8214eb10f::t_fe4b9249fcd967 237
+inc/especiales.php
+  s_4f5cd8214eb10f::t_6accf56c4b7c3d 32-33
+inc/search.php
+  s_4f5cd8214eb10f::t_0eb08a6eb7e330 423
+  s_4f5cd8214eb10f::t_6accf56c4b7c3d 342-351,353,368-398,421-422
+tests/RemindersTest.php
+  s_4f5cd8214eb10f::t_3ee5fc8682895d 30-35,37-55
+  s_4f5cd8214eb10f::t_ce40c89504e761 97-98,100,109
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "c68e35d3866d530e2bfc563592989685651b50ec",
+  "prompts": {},
+  "sessions": {
+    "s_4f5cd8214eb10f": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "2755f5ae-2053-4324-9f05-1e0bfa06829c",
+        "model": "claude-sonnet-5-5"
+      },
+      "human_author": "Guillermo López <willyaranda@gmail.com>"
+    }
+  }
+}

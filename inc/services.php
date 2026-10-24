@@ -132,6 +132,35 @@ function aranda_de_duero_quick_access() {
 		array_splice( $items, 2, 0, array( $card ) );
 	}
 
+	// Same rule for the waste page: the card only exists once the page is published. It carries the bulky-items phone and, on a day
+	// without deposit, the warning (the card turns light red).
+	$waste_url = aranda_de_duero_waste_page_url();
+	if ( '' !== $waste_url ) {
+		$waste = aranda_de_duero_waste_info();
+		$ban   = aranda_de_duero_waste_ban( current_time( 'Y-m-d' ) );
+
+		array_splice(
+			$items,
+			'' !== $pharmacy_url ? 3 : 2,
+			0,
+			array(
+				array(
+					'title'    => __( 'Recogida de residuos', 'aranda-de-duero' ),
+					'text'     => __( 'Cómo separar la basura, punto limpio y horarios.', 'aranda-de-duero' ),
+					'url'      => $waste_url,
+					'new_tab'  => false,
+					'keywords' => 'residuos basura basuras reciclaje reciclar contenedor contenedores vidrio papel carton envases organica organico resto punto limpio aceite ropa pilas medicamentos compost',
+					'waste'    => array(
+						'ban'          => null !== $ban,
+						'bulky_phone'  => $waste['bulky_phone'],
+						'bulky_href'   => $waste['bulky_href'],
+						'bulky_label'  => __( 'Enseres', 'aranda-de-duero' ),
+					),
+				),
+			)
+		);
+	}
+
 	/**
 	 * Filters the shortcuts shown in «Accesos frecuentes».
 	 *

@@ -441,6 +441,11 @@ require get_template_directory() . '/inc/reminders.php';
 require get_template_directory() . '/inc/pharmacies.php';
 
 /**
+ * Waste collection: contacts and days without deposit (page-residuos.php, its card of the home page and the search).
+ */
+require get_template_directory() . '/inc/waste.php';
+
+/**
  * Load Jetpack compatibility file.
  */
 if ( defined( 'JETPACK__VERSION' ) ) {

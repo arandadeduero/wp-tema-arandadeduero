@@ -145,6 +145,34 @@ function aranda_de_duero_contact_info() {
 }
 
 /**
+ * Where an address of this site that only exists as «transparency» must lead: the transparency portal, which is the only place for it.
+ *
+ * @param string $path Path of the request, with or without slashes.
+ * @return string Portal address, or '' when the path is not one of those.
+ */
+function aranda_de_duero_transparency_redirect_target( $path ) {
+	$info = aranda_de_duero_contact_info();
+
+	return in_array( trim( (string) $path, '/' ), array( 'transparencia', 'portal-de-transparencia' ), true ) ? $info['transparency_url'] : '';
+}
+
+/**
+ * Send /transparencia/ to the portal, but only while the site has no page of that name.
+ */
+function aranda_de_duero_redirect_transparency() {
+	if ( ! is_404() || ! isset( $_SERVER['REQUEST_URI'] ) ) {
+		return;
+	}
+
+	$target = aranda_de_duero_transparency_redirect_target( (string) wp_parse_url( esc_url_raw( wp_unslash( $_SERVER['REQUEST_URI'] ) ), PHP_URL_PATH ) );
+	if ( '' !== $target ) {
+		wp_redirect( $target, 301 ); // phpcs:ignore WordPress.Security.SafeRedirect.wp_redirect_wp_redirect -- a fixed address of the theme (the portal), not user input.
+		exit;
+	}
+}
+add_action( 'template_redirect', 'aranda_de_duero_redirect_transparency' );
+
+/**
  * URL of the internal reporting channel (Ley 2/2023), or '' if none is configured.
  *
  * The link in the footer only appears once an editor sets the URL in the Customizer, so

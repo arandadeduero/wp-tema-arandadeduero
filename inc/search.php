@@ -103,6 +103,20 @@ function aranda_de_duero_service_directory() {
 		aranda_de_duero_directory_entry( __( 'Enlaces de interés', 'aranda-de-duero' ), __( 'Redes sociales y perfiles del Ayuntamiento.', 'aranda-de-duero' ), home_url( '/enlaces-de-interes/' ), 'enlaces redes sociales instagram facebook twitter tiktok youtube flickr', false ),
 	);
 
+	// Bulky items (muebles, colchones…): the phone is in the text, and the link goes to its place in the waste page.
+	$waste_url = aranda_de_duero_waste_page_url();
+	if ( '' !== $waste_url ) {
+		$waste     = aranda_de_duero_waste_info();
+		$entries[] = aranda_de_duero_directory_entry(
+			__( 'Recogida de enseres', 'aranda-de-duero' ),
+			/* translators: %s: phone number. */
+			sprintf( __( 'Muebles, colchones y electrodomésticos: llama al %s, previa solicitud.', 'aranda-de-duero' ), $waste['bulky_phone'] ),
+			$waste_url . '#enseres',
+			'enseres enser mueble muebles colchon colchones sofa sofas somier armario armarios trasto trastos electrodomestico electrodomesticos nevera frigorifico lavadora voluminoso voluminosos recoger recogida retirar retirada tirar telefono valoriza viejo viejos vieja viejas',
+			false
+		);
+	}
+
 	$entries[] = aranda_de_duero_directory_entry( __( 'Trámites del portal', 'aranda-de-duero' ), __( 'Todos los trámites con página propia en este portal.', 'aranda-de-duero' ), home_url( '/tramites/' ), 'tramites tramite solicitudes modelos documentacion', false );
 
 	$situations = aranda_de_duero_situations_url();

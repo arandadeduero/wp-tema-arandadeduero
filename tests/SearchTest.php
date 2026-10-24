@@ -5,10 +5,18 @@ require_once dirname( __DIR__ ) . '/inc/template-functions.php';
 require_once dirname( __DIR__ ) . '/inc/services.php';
 require_once dirname( __DIR__ ) . '/inc/especiales.php';
 require_once dirname( __DIR__ ) . '/inc/search.php';
+require_once dirname( __DIR__ ) . '/inc/waste.php';
 require_once dirname( __DIR__ ) . '/inc/situations.php';
 require_once dirname( __DIR__ ) . '/inc/audiences.php';
 
 class SearchTest extends TestCase {
+
+	/**
+	 * Slugs of the pages that are published in the test.
+	 *
+	 * @var string[]
+	 */
+	private $published = array();
 
 	private function mocks( array $especiales = array() ) {
 		\WP_Mock::userFunction( 'apply_filters' )->andReturnUsing(
@@ -26,7 +34,20 @@ class SearchTest extends TestCase {
 				return 'https://www.arandadeduero.es' . $path;
 			}
 		);
-		\WP_Mock::userFunction( 'get_page_by_path' )->andReturn( null );
+		// The waste page is published only in the tests that say so.
+		$published = $this->published;
+		\WP_Mock::userFunction( 'get_page_by_path' )->andReturnUsing(
+			function ( $path ) use ( $published ) {
+				if ( ! in_array( $path, $published, true ) ) {
+					return null;
+				}
+				$page              = new WP_Post();
+				$page->post_status = 'publish';
+				$page->post_name   = $path;
+
+				return $page;
+			}
+		);
 		\WP_Mock::userFunction( 'get_template_directory' )->andReturn( dirname( __DIR__ ) );
 		\WP_Mock::userFunction( 'wp_parse_url' )->andReturnUsing(
 			function ( $url, $component = -1 ) {
@@ -39,7 +60,11 @@ class SearchTest extends TestCase {
 				return 'https://pmus.arandadeduero.es/';
 			}
 		);
-		\WP_Mock::userFunction( 'get_permalink' )->andReturn( 'https://www.arandadeduero.es/especial/' );
+		\WP_Mock::userFunction( 'get_permalink' )->andReturnUsing(
+			function ( $post ) {
+				return 'https://www.arandadeduero.es/' . ( isset( $post->post_name ) ? $post->post_name : 'especial' ) . '/';
+			}
+		);
 		\WP_Mock::userFunction( 'get_post_thumbnail_id' )->andReturn( 0 );
 		// Same effect as WordPress' remove_accents() for the Spanish accents.
 		\WP_Mock::userFunction( 'remove_accents' )->andReturnUsing(
@@ -123,6 +148,37 @@ class SearchTest extends TestCase {
 
 		// The page carries only the curated services.
 		$this->assertLessThan( 150, count( aranda_de_duero_search_index() ) );
+	}
+
+	public function test_bulky_items_are_found_by_their_synonyms_and_show_the_phone() {
+		$this->published = array( 'recogida-de-residuos' );
+		$this->mocks();
+
+		foreach ( array( 'enseres', 'muebles', 'sofá', 'colchón', 'trastos', 'electrodomésticos', 'recoger muebles', 'teléfono enseres', 'nevera vieja' ) as $query ) {
+			$found = aranda_de_duero_search_services( $query, 12 );
+			$this->assertContains( 'Recogida de enseres', $this->titles( $found ), $query );
+		}
+
+		$services = aranda_de_duero_search_services( 'enseres', 12 );
+		$this->assertStringContainsString( '947 50 60 50', $services[0]['text'] );
+		$this->assertSame( 'https://www.arandadeduero.es/recogida-de-residuos/#enseres', $services[0]['url'] );
+	}
+
+	public function test_the_waste_page_is_found_by_everyday_words() {
+		$this->published = array( 'recogida-de-residuos' );
+		$this->mocks();
+		\WP_Mock::userFunction( 'current_time' )->andReturn( '2026-10-25' );
+		\WP_Mock::userFunction( 'get_template_directory' )->andReturn( dirname( __DIR__ ) );
+
+		foreach ( array( 'basura', 'reciclaje', 'contenedores', 'punto limpio', 'vidrio', 'orgánico', 'pilas', 'aceite' ) as $query ) {
+			$this->assertContains( 'Recogida de residuos', $this->titles( aranda_de_duero_search_services( $query, 12 ) ), $query );
+		}
+	}
+
+	public function test_without_the_waste_page_nothing_points_to_it() {
+		$this->mocks();
+
+		$this->assertNotContains( 'Recogida de enseres', $this->titles( aranda_de_duero_search_services( 'enseres', 12 ) ) );
 	}
 
 	public function test_the_curated_services_come_before_the_catalogue_and_the_suggestions_do_not_carry_it() {

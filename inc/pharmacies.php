@@ -21,6 +21,31 @@ function aranda_de_duero_pharmacy_reminder_days() {
 }
 
 /**
+ * Hour of the day at which the guard passes from one pharmacy to the next: the guard of a calendar day runs from that hour to
+ * the same hour of the next day.
+ *
+ * @return int
+ */
+function aranda_de_duero_pharmacy_guard_change_hour() {
+	return 10;
+}
+
+/**
+ * The calendar day whose guard is in force at a moment: before the change hour it is still the guard of the day before.
+ *
+ * @param string $now Moment in the site time zone, «YYYY-MM-DD HH:MM:SS».
+ * @return string Day, «YYYY-MM-DD».
+ */
+function aranda_de_duero_pharmacy_guard_day( $now ) {
+	$moment = date_create_immutable( $now );
+	if ( false === $moment ) {
+		return substr( (string) $now, 0, 10 );
+	}
+
+	return $moment->modify( '-' . aranda_de_duero_pharmacy_guard_change_hour() . ' hours' )->format( 'Y-m-d' );
+}
+
+/**
  * Decoded content of a file of data/farmacias/, or null when it is missing or is not valid JSON.
  *
  * @param string $file File name, e.g. «2026.json».

@@ -13,7 +13,7 @@
 get_header();
 aranda_de_duero_the_header_image( '' );
 
-$aranda_today    = current_time( 'Y-m-d' );
+$aranda_today    = aranda_de_duero_pharmacy_guard_day( current_time( 'Y-m-d H:i:s' ) );
 $aranda_guard    = aranda_de_duero_pharmacy_guard_for_date( $aranda_today );
 $aranda_after    = aranda_de_duero_pharmacy_guard_after( $aranda_today, 14 );
 $aranda_catalog  = aranda_de_duero_pharmacy_catalog();
@@ -67,7 +67,7 @@ $aranda_day_text = static function ( $date ) {
 								</div>
 							</div>
 							<p class="small text-muted">
-								<?php esc_html_e( 'El calendario del Colegio no indica a qué hora cambia la guardia. Si consultas de madrugada, mira también la farmacia del día anterior o llama antes de ir.', 'aranda-de-duero' ); ?>
+								<?php esc_html_e( 'La guardia suele cambiar a las 10 de la mañana: hasta esa hora se muestra la farmacia del día anterior. Si es una urgencia, llama antes de ir.', 'aranda-de-duero' ); ?>
 							</p>
 							<?php if ( $aranda_guard['low_confidence'] ) : ?>
 								<p class="alert alert-warning" role="alert">

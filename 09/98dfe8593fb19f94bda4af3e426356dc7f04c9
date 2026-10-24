@@ -1,0 +1,19 @@
+MEJORAS-OTROS-AYUNTAMIENTOS.md
+  s_4f5cd8214eb10f::t_83f894e9d413df 59-65,71,73,76-77,84,87-91,98-103,110-112,239
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "0998dfe8593fb19f94bda4af3e426356dc7f04c9",
+  "prompts": {},
+  "sessions": {
+    "s_4f5cd8214eb10f": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "2755f5ae-2053-4324-9f05-1e0bfa06829c",
+        "model": "claude-sonnet-5-5"
+      },
+      "human_author": "Guillermo López <willyaranda@gmail.com>"
+    }
+  }
+}

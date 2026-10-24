@@ -7,7 +7,7 @@ Plantilla `page-farmacias.php`, lógica en `inc/pharmacies.php` y datos en `data
 
 | Cuándo | Qué hacer | Quién |
 |---|---|---|
-| Una vez, tras el primer despliegue | Crear la página `farmacias-de-guardia` con la plantilla «Plantilla Farmacias de guardia» y enlazarla | Quien edita WordPress |
+| Una vez, tras el primer despliegue | Crear la página `farmacia-de-guardia` con la plantilla «Plantilla Farmacias de guardia» y enlazarla | Quien edita WordPress |
 | Una vez | Excluir esa página de la caché de página (o dejar la caducidad en pocas horas) | Quien administra Cache Enabler |
 | Cada diciembre | Crear `data/farmacias/<año siguiente>.json` y subir el tema completo | Informática |
 | Cuando cambie una farmacia (dirección, teléfono, cierre, apertura) | Editar `data/farmacias/catalogo.json` y subir el tema | Informática |
@@ -30,9 +30,9 @@ con el Colegio que se puede publicar en la web municipal.
 ## Primera puesta en marcha
 
 1. `npm run release`, subir **el tema completo** a WordPress y vaciar la caché de Cache Enabler.
-2. *Páginas → Añadir nueva*: título «Farmacias de guardia», dirección `farmacias-de-guardia`, plantilla **Plantilla Farmacias de guardia** (panel «Página»), y publicar. El contenido del editor sale al final de la página, tras los datos.
+2. *Páginas → Añadir nueva*: título «Farmacia de guardia», dirección `farmacia-de-guardia` (la tarjeta de «Accesos frecuentes» de la portada busca la página por esa dirección y solo sale si está publicada), plantilla **Plantilla Farmacias de guardia** (panel «Página»), y publicar. El contenido del editor sale al final de la página, tras los datos.
 3. Enlazarla donde convenga: *Apariencia → Menús* o una tarjeta de «Accesos frecuentes» (esto último es una decisión de contenido).
-4. Excluir la URL `/farmacias-de-guardia/` de la caché de página. La página imprime la fecha de hoy y la farmacia de ese día; con
+4. Excluir la URL `/farmacia-de-guardia/` de la caché de página. La página imprime la fecha de hoy y la farmacia de ese día; con
    la página en caché puede enseñarse la de ayer hasta que caduque. La fecha sale escrita junto a la farmacia para que se note
    si la copia está desfasada.
 5. Comprobar en la web publicada: la farmacia de hoy, que el teléfono es un enlace, la tabla de los próximos días y el

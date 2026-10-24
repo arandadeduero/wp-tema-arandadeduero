@@ -105,6 +105,25 @@ function aranda_de_duero_quick_access() {
 		),
 	);
 
+	// Only once the page exists, so the card never leads to a 404; second place, next to the payments.
+	$pharmacy_url = aranda_de_duero_page_url( 'farmacia-de-guardia' );
+	if ( '' !== $pharmacy_url ) {
+		array_splice(
+			$items,
+			2,
+			0,
+			array(
+				array(
+					'title'    => __( 'Farmacia de guardia', 'aranda-de-duero' ),
+					'text'     => __( 'Consulta qué farmacia está de guardia hoy.', 'aranda-de-duero' ),
+					'url'      => $pharmacy_url,
+					'new_tab'  => false,
+					'keywords' => 'farmacia farmacias guardia urgencia medicamentos',
+				),
+			)
+		);
+	}
+
 	/**
 	 * Filters the shortcuts shown in «Accesos frecuentes».
 	 *

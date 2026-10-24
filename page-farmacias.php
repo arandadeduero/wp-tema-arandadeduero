@@ -5,7 +5,7 @@
  * The pharmacy on duty today, the next days and the twelve pharmacies of the town. The data are in data/farmacias/ (see
  * inc/pharmacies.php); a new year is a new file there.
  *
- * Create a page with the slug `farmacias-de-guardia` and this template.
+ * Create a page with the slug `farmacia-de-guardia` (the card of the home page looks for it) and this template.
  *
  * @package Aranda_de_Duero
  */
@@ -57,13 +57,18 @@ $aranda_day_text = static function ( $date ) {
 								echo esc_html( sprintf( __( 'De guardia: %s', 'aranda-de-duero' ), $aranda_day_text( $aranda_today ) ) );
 								?>
 							</h2>
-							<div class="card mb-3">
+							<div class="card pharmacy-guard mb-3">
 								<div class="card-body">
-									<p class="h5 mb-1"><?php echo esc_html( $aranda_guard['pharmacy']['name'] ); ?></p>
-									<p class="mb-1"><?php echo esc_html( $aranda_guard['pharmacy']['address'] ); ?></p>
+									<p class="pharmacy-name mb-1"><?php echo esc_html( $aranda_guard['pharmacy']['name'] ); ?></p>
+									<p class="pharmacy-address mb-2"><?php echo esc_html( $aranda_guard['pharmacy']['address'] ); ?></p>
 									<?php if ( ! empty( $aranda_guard['pharmacy']['phone'] ) ) : ?>
-										<p class="mb-0"><a href="<?php echo esc_url( 'tel:' . $aranda_guard['pharmacy']['phone'] ); ?>"><?php echo esc_html( aranda_de_duero_pharmacy_phone( $aranda_guard['pharmacy']['phone'] ) ); ?></a></p>
+										<p class="pharmacy-phone mb-3"><a href="<?php echo esc_url( 'tel:' . $aranda_guard['pharmacy']['phone'] ); ?>"><?php echo esc_html( aranda_de_duero_pharmacy_phone( $aranda_guard['pharmacy']['phone'] ) ); ?></a></p>
 									<?php endif; ?>
+									<p class="pharmacy-maps mb-0">
+										<?php foreach ( aranda_de_duero_pharmacy_map_links( $aranda_guard['pharmacy'] ) as $aranda_map ) : ?>
+											<a href="<?php echo esc_url( $aranda_map['url'] ); ?>" target="_blank" rel="noopener"><?php echo esc_html( $aranda_map['label'] ); ?><?php aranda_de_duero_the_new_tab_notice(); ?></a>
+										<?php endforeach; ?>
+									</p>
 								</div>
 							</div>
 							<p class="small text-muted">
@@ -135,6 +140,11 @@ $aranda_day_text = static function ( $date ) {
 												<?php if ( ! empty( $aranda_pharmacy['zone'] ) ) : ?>
 													<small class="text-muted">(<?php echo esc_html( $aranda_pharmacy['zone'] ); ?>)</small>
 												<?php endif; ?>
+												<small class="d-block">
+													<?php foreach ( aranda_de_duero_pharmacy_map_links( $aranda_pharmacy ) as $aranda_map ) : ?>
+														<a href="<?php echo esc_url( $aranda_map['url'] ); ?>" target="_blank" rel="noopener"><?php echo esc_html( $aranda_map['label'] ); ?><?php aranda_de_duero_the_new_tab_notice(); ?></a>
+													<?php endforeach; ?>
+												</small>
 											</td>
 											<td>
 												<?php if ( ! empty( $aranda_pharmacy['phone'] ) ) : ?>

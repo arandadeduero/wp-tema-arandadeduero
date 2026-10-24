@@ -187,6 +187,39 @@ function aranda_de_duero_pharmacy_phone( $phone ) {
 }
 
 /**
+ * Links that open the address of a pharmacy in Google Maps and in Apple Maps.
+ *
+ * They search by address: the coordinates of the catalogue are only street-level, so a pin could land on another house.
+ *
+ * @param array<string,mixed> $pharmacy Pharmacy of the catalogue.
+ * @return array<int,array{label: string, url: string}>
+ */
+function aranda_de_duero_pharmacy_map_links( $pharmacy ) {
+	$parts = array();
+	foreach ( array( 'address', 'postalCode', 'city' ) as $key ) {
+		if ( ! empty( $pharmacy[ $key ] ) ) {
+			$parts[] = (string) $pharmacy[ $key ];
+		}
+	}
+	if ( array() === $parts ) {
+		return array();
+	}
+
+	$place = rawurlencode( implode( ', ', $parts ) );
+
+	return array(
+		array(
+			'label' => 'Google Maps',
+			'url'   => 'https://www.google.com/maps/search/?api=1&query=' . $place,
+		),
+		array(
+			'label' => 'Apple Maps',
+			'url'   => 'https://maps.apple.com/?q=' . $place,
+		),
+	);
+}
+
+/**
  * Days from a date to the 31 December of its year (0 on 31 December itself).
  *
  * @param string $today Day, «YYYY-MM-DD».

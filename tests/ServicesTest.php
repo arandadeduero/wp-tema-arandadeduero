@@ -80,6 +80,24 @@ class ServicesTest extends TestCase {
 		}
 	}
 
+	public function test_the_pharmacy_card_only_appears_when_its_page_is_published() {
+		$this->mocks();
+		$page              = new WP_Post();
+		$page->post_status = 'publish';
+		\WP_Mock::userFunction( 'get_page_by_path' )->andReturnUsing(
+			function ( $path ) use ( $page ) {
+				return 'farmacia-de-guardia' === $path ? $page : null;
+			}
+		);
+		\WP_Mock::userFunction( 'get_permalink' )->andReturn( 'https://www.arandadeduero.es/farmacia-de-guardia/' );
+
+		$items = aranda_de_duero_quick_access();
+
+		$this->assertCount( 9, $items );
+		$this->assertSame( 'Farmacia de guardia', $items[2]['title'] );
+		$this->assertSame( 'https://www.arandadeduero.es/farmacia-de-guardia/', $items[2]['url'] );
+	}
+
 	public function test_every_payment_service_has_title_text_and_a_secure_url() {
 		$this->mocks();
 

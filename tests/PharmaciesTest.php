@@ -46,6 +46,21 @@ class PharmaciesTest extends TestCase {
 		$this->assertSame( '2025-12-31', aranda_de_duero_pharmacy_guard_day( '2026-01-01 03:00:00' ) );
 	}
 
+	public function test_the_map_links_search_by_address_in_both_apps() {
+		$links = aranda_de_duero_pharmacy_map_links(
+			array(
+				'address'    => 'Avenida Castilla, 58',
+				'postalCode' => '09400',
+				'city'       => 'Aranda de Duero',
+			)
+		);
+
+		$this->assertSame( array( 'Google Maps', 'Apple Maps' ), array_column( $links, 'label' ) );
+		$this->assertSame( 'https://www.google.com/maps/search/?api=1&query=Avenida%20Castilla%2C%2058%2C%2009400%2C%20Aranda%20de%20Duero', $links[0]['url'] );
+		$this->assertSame( 'https://maps.apple.com/?q=Avenida%20Castilla%2C%2058%2C%2009400%2C%20Aranda%20de%20Duero', $links[1]['url'] );
+		$this->assertSame( array(), aranda_de_duero_pharmacy_map_links( array() ) );
+	}
+
 	public function test_a_day_gives_its_pharmacy() {
 		$this->mocks();
 

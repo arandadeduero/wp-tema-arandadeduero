@@ -152,4 +152,17 @@ class ChatbotTest extends TestCase {
 
 		$this->assertSame( 2, aranda_de_duero_chatbot_purge() );
 	}
+
+	public function test_the_clean_up_keeps_going_while_there_are_old_questions() {
+		$calls = 0;
+		WP_Mock::userFunction( 'get_posts' )->andReturnUsing(
+			function () use ( &$calls ) {
+				// 30 batches: more than the old limit of 20 rounds a day.
+				return $calls++ < 30 ? array( $calls ) : array();
+			}
+		);
+		WP_Mock::userFunction( 'wp_delete_post' )->times( 30 );
+
+		$this->assertSame( 30, aranda_de_duero_chatbot_purge() );
+	}
 }

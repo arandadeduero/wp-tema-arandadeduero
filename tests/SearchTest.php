@@ -27,6 +27,7 @@ class SearchTest extends TestCase {
 			}
 		);
 		\WP_Mock::userFunction( 'get_page_by_path' )->andReturn( null );
+		\WP_Mock::userFunction( 'get_template_directory' )->andReturn( dirname( __DIR__ ) );
 		\WP_Mock::userFunction( 'wp_parse_url' )->andReturnUsing(
 			function ( $url, $component = -1 ) {
 				return parse_url( $url, $component );
@@ -50,6 +51,69 @@ class SearchTest extends TestCase {
 
 	private function titles( array $services ) {
 		return array_column( $services, 'title' );
+	}
+
+	public function test_the_catalogue_of_the_office_is_searchable_with_a_page_for_each_procedure() {
+		$this->mocks();
+
+		$entries = aranda_de_duero_sede_catalog_entries();
+		$this->assertGreaterThan( 400, count( $entries ) );
+		$this->assertCount( count( $entries ), array_unique( array_column( $entries, 'url' ) ) );
+		foreach ( $entries as $entry ) {
+			$this->assertStringContainsString( 'PAGE_CODE=CATALOGO&DETALLE=', $entry['url'] );
+		}
+
+		$found = $this->titles( aranda_de_duero_search_services( 'primera ocupación', 12 ) );
+		$this->assertContains( 'Declaración responsable primera ocupación', $found );
+	}
+
+	public function test_the_validated_synonyms_find_catalogue_procedures() {
+		$this->mocks();
+
+		$basura = $this->titles( aranda_de_duero_search_services( 'basura', 12 ) );
+		$this->assertContains( 'Devolucion de garantia o fianza de residuos de construccion y demolicion', $basura );
+
+		foreach ( array( 'sepultura', 'sepulturas' ) as $query ) {
+			$found = $this->titles( aranda_de_duero_search_services( $query, 12 ) );
+			$this->assertContains( 'Solicitud de Inhumación en Nichos, Panteones, Columbarios...', $found, $query );
+		}
+
+		foreach ( array(
+			'cochera'      => 'Licencias de Puerta Carretera,Vado permanente o Reserva de Espacio',
+			'garaje'       => 'Licencias de Puerta Carretera,Vado permanente o Reserva de Espacio',
+			'perro'        => 'Solicitud de inscripción en el Registro de Animales Potencialmente Peligrosos',
+			'contribución' => 'Solicitud del recibo IBI por cotitularidad',
+			'guardería'    => 'Solicitud de matricula en Escuela de educación infantil municipal',
+			'boda'         => 'Matrimonio Civil Celebrado por el Alcalde/Concejal Delegado',
+			'petardos'     => 'Autorización de Espectáculos con Artificios Pirotécnicos',
+			'peatonal'     => 'Autorización de acceso de vehículos al Casco Histórico - Residentes',
+			'coche'        => 'IVTM Bonificación vehículos históricos',
+			'aplazar'      => 'Aplazamiento o Fraccionamiento de deudas de naturaleza pública tributaria en voluntaria',
+			'oposiciones'  => 'Solicitud de admision a pruebas selectivas',
+			'reforma'      => 'Declaracion responsable de Obras',
+			'ayudas'       => 'Justificacion subvencion de Turismo (concurrencia competitiva).',
+			'placas'       => 'Bonificación en el IBI por el establecimiento de sistemas de aprovechamiento de la energía solar',
+			'mascota'      => 'Solicitud de Alta, Baja o Modificación de Datos en el Registro de Animales',
+			'zona azul'    => 'Autorización de acceso de vehículos al Casco Histórico - Residentes ORA',
+			'recurrir'     => 'Interposición de Recurso de Alzada',
+		) as $query => $title ) {
+			$this->assertContains( $title, $this->titles( aranda_de_duero_search_services( $query, 50 ) ), $query );
+		}
+
+		$this->assertSame( '', aranda_de_duero_sede_catalog_keywords( 'Certificado de deudas' ) );
+	}
+
+	public function test_the_curated_services_come_before_the_catalogue_and_the_suggestions_do_not_carry_it() {
+		$this->mocks();
+
+		$this->assertSame( 'Certificado de padrón', $this->titles( aranda_de_duero_search_services( 'padrón', 12 ) )[0] );
+		$this->assertLessThan( 150, count( aranda_de_duero_search_index() ) );
+	}
+
+	public function test_a_missing_catalogue_file_gives_no_entries_and_the_rest_still_works() {
+		\WP_Mock::userFunction( 'get_template_directory' )->andReturn( '/no/existe' );
+
+		$this->assertSame( array(), aranda_de_duero_sede_catalog_entries() );
 	}
 
 	public function test_a_word_finds_the_service_with_or_without_accents() {
@@ -241,11 +305,13 @@ class SearchTest extends TestCase {
 	public function test_the_index_and_the_server_search_offer_the_same_services() {
 		$this->mocks();
 
-		$index = array_column( aranda_de_duero_search_index(), 'u' );
+		$index   = array_column( aranda_de_duero_search_index(), 'u' );
+		$catalog = array_column( aranda_de_duero_sede_catalog_entries(), 'url' );
 
+		// The server also searches the catalogue of the office, which is too big to travel with every page.
 		foreach ( array( 'padron', 'pagar', 'ayuda', 'firma' ) as $query ) {
 			foreach ( aranda_de_duero_search_services( $query, 50 ) as $service ) {
-				$this->assertContains( $service['url'], $index, $query );
+				$this->assertContains( $service['url'], array_merge( $index, $catalog ), $query );
 			}
 		}
 		$this->assertSame( $index, array_values( array_unique( $index ) ) );

@@ -7,7 +7,7 @@ Plantilla `page-farmacias.php`, lógica en `inc/pharmacies.php` y datos en `data
 
 | Cuándo | Qué hacer | Quién |
 |---|---|---|
-| Una vez, tras el primer despliegue | Crear la página `farmacias-de-guardia` con la plantilla «Plantilla Farmacias de guardia» y enlazarla | Quien edita WordPress |
+| Una vez, tras el primer despliegue | Crear la página `farmacia-de-guardia` con la plantilla «Plantilla Farmacias de guardia» y enlazarla | Quien edita WordPress |
 | Una vez | Excluir esa página de la caché de página (o dejar la caducidad en pocas horas) | Quien administra Cache Enabler |
 | Cada diciembre | Crear `data/farmacias/<año siguiente>.json` y subir el tema completo | Informática |
 | Cuando cambie una farmacia (dirección, teléfono, cierre, apertura) | Editar `data/farmacias/catalogo.json` y subir el tema | Informática |
@@ -30,9 +30,9 @@ con el Colegio que se puede publicar en la web municipal.
 ## Primera puesta en marcha
 
 1. `npm run release`, subir **el tema completo** a WordPress y vaciar la caché de Cache Enabler.
-2. *Páginas → Añadir nueva*: título «Farmacias de guardia», dirección `farmacias-de-guardia`, plantilla **Plantilla Farmacias de guardia** (panel «Página»), y publicar. El contenido del editor sale al final de la página, tras los datos.
+2. *Páginas → Añadir nueva*: título «Farmacia de guardia», dirección `farmacia-de-guardia` (la tarjeta de «Accesos frecuentes» de la portada busca la página por esa dirección y solo sale si está publicada), plantilla **Plantilla Farmacias de guardia** (panel «Página»), y publicar. El contenido del editor sale al final de la página, tras los datos.
 3. Enlazarla donde convenga: *Apariencia → Menús* o una tarjeta de «Accesos frecuentes» (esto último es una decisión de contenido).
-4. Excluir la URL `/farmacias-de-guardia/` de la caché de página. La página imprime la fecha de hoy y la farmacia de ese día; con
+4. Excluir la URL `/farmacia-de-guardia/` de la caché de página. La página imprime la fecha de hoy y la farmacia de ese día; con
    la página en caché puede enseñarse la de ayer hasta que caduque. La fecha sale escrita junto a la farmacia para que se note
    si la copia está desfasada.
 5. Comprobar en la web publicada: la farmacia de hoy, que el teléfono es un enlace, la tabla de los próximos días y el
@@ -79,7 +79,7 @@ Un aviso de WP-Cron diario por cada tarea. Los destinatarios son `informatica@ar
 | Aviso | Cuándo | Qué dice |
 |---|---|---|
 | Calendario de farmacias del año siguiente | A los 15, 10 y 5 días del 31 de diciembre, mientras no exista `data/farmacias/<año siguiente>.json`. Deja de avisar al subir el fichero | Cómo cargar el calendario (los pasos de arriba) |
-| Posibles cambios en las delegaciones | 1 de enero y 1 de julio | Qué comprobar de las concejalías: concejal, teléfono, correo, ubicación, menú «Áreas y servicios», `docs/concejalias-vigentes-y-terminos.md` y el horario de atención del Ayuntamiento |
+| Posibles cambios en las delegaciones | 1 de enero y 1 de julio | Qué comprobar de las concejalías: concejal, teléfono, correo, ubicación, menú «Áreas y servicios», `docs/concejalias-vigentes-y-terminos.md` el horario de atención del Ayuntamiento y el catálogo de trámites del buscador (`node scripts/update-sede-catalog.js`) |
 | Corporación municipal vigente | 15 de junio de 2027 | Revisar alcalde o alcaldesa, concejales, delegaciones y textos que citan al alcalde por su nombre |
 
 Cómo funciona:

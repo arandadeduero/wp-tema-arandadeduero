@@ -35,7 +35,6 @@ Para trabajar con Claude Code en este repositorio. El detalle está en [DEVELOPM
 
 ## Producción (www.arandadeduero.es)
 
-- **Bloquea IPs tras ráfagas** (503 durante una hora): pocas peticiones, espaciadas, nunca en paralelo.
 - La caché de página devuelve la versión anterior hasta vaciarla; para ver código nuevo: `?sin-cache=x` o `Accept: text/html`.
 - Un despliegue **no borra** los ficheros que se quitan del repositorio.
 - No hay WordPress local ni entorno de pruebas: se verifica con tests, una copia del HTML real con el CSS nuevo y,

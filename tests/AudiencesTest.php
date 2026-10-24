@@ -31,6 +31,7 @@ class AudiencesTest extends TestCase {
 				return 'https://www.arandadeduero.es' . $path;
 			}
 		);
+		\WP_Mock::userFunction( 'get_template_directory' )->andReturn( dirname( __DIR__ ) );
 		\WP_Mock::userFunction( 'get_page_by_path' )->andReturnUsing(
 			function ( $path ) use ( $page ) {
 				return 'para-ti' === $path ? $page : null;

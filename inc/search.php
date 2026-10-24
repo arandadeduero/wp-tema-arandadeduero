@@ -196,6 +196,58 @@ function aranda_de_duero_sede_catalog_synonyms() {
 			'stems'    => array( 'ibi' ),
 			'keywords' => 'contribucion',
 		),
+		array(
+			'stems'    => array( 'infantil' ),
+			'keywords' => 'guarderia guarderias',
+		),
+		array(
+			'stems'    => array( 'matrimonio' ),
+			'keywords' => 'boda bodas casarse casar',
+		),
+		array(
+			'stems'    => array( 'pirotecnicos' ),
+			'keywords' => 'fuegos artificiales petardos',
+		),
+		array(
+			'stems'    => array( 'casco' ),
+			'keywords' => 'peatonal peatonales bolardo bolardos coche coches',
+		),
+		array(
+			'stems'    => array( 'ivtm' ),
+			'keywords' => 'impuesto circulacion coche coches',
+		),
+		array(
+			'stems'    => array( 'aplazamiento' ),
+			'keywords' => 'aplazar plazos',
+		),
+		array(
+			'stems'    => array( 'selectivas' ),
+			'keywords' => 'oposiciones oposicion',
+		),
+		array(
+			'stems'    => array( 'obras' ),
+			'keywords' => 'reforma reformas',
+		),
+		array(
+			'stems'    => array( 'subvencion' ),
+			'keywords' => 'ayuda ayudas',
+		),
+		array(
+			'stems'    => array( 'solar' ),
+			'keywords' => 'placas paneles',
+		),
+		array(
+			'stems'    => array( 'animales' ),
+			'keywords' => 'mascota mascotas',
+		),
+		array(
+			'stems'    => array( 'ora' ),
+			'keywords' => 'aparcar aparcamiento estacionamiento zona azul',
+		),
+		array(
+			'stems'    => array( 'recurso' ),
+			'keywords' => 'recurrir recurrido',
+		),
 	);
 }
 

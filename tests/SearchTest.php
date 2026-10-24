@@ -83,11 +83,24 @@ class SearchTest extends TestCase {
 			'garaje'       => 'Licencias de Puerta Carretera,Vado permanente o Reserva de Espacio',
 			'perro'        => 'Solicitud de inscripción en el Registro de Animales Potencialmente Peligrosos',
 			'contribución' => 'Solicitud del recibo IBI por cotitularidad',
+			'guardería'    => 'Solicitud de matricula en Escuela de educación infantil municipal',
+			'boda'         => 'Matrimonio Civil Celebrado por el Alcalde/Concejal Delegado',
+			'petardos'     => 'Autorización de Espectáculos con Artificios Pirotécnicos',
+			'peatonal'     => 'Autorización de acceso de vehículos al Casco Histórico - Residentes',
+			'coche'        => 'IVTM Bonificación vehículos históricos',
+			'aplazar'      => 'Aplazamiento o Fraccionamiento de deudas de naturaleza pública tributaria en voluntaria',
+			'oposiciones'  => 'Solicitud de admision a pruebas selectivas',
+			'reforma'      => 'Declaracion responsable de Obras',
+			'ayudas'       => 'Justificacion subvencion de Turismo (concurrencia competitiva).',
+			'placas'       => 'Bonificación en el IBI por el establecimiento de sistemas de aprovechamiento de la energía solar',
+			'mascota'      => 'Solicitud de Alta, Baja o Modificación de Datos en el Registro de Animales',
+			'zona azul'    => 'Autorización de acceso de vehículos al Casco Histórico - Residentes ORA',
+			'recurrir'     => 'Interposición de Recurso de Alzada',
 		) as $query => $title ) {
 			$this->assertContains( $title, $this->titles( aranda_de_duero_search_services( $query, 50 ) ), $query );
 		}
 
-		$this->assertSame( '', aranda_de_duero_sede_catalog_keywords( 'Licencia de obras de demolición' ) );
+		$this->assertSame( '', aranda_de_duero_sede_catalog_keywords( 'Certificado de deudas' ) );
 	}
 
 	public function test_the_curated_services_come_before_the_catalogue_and_the_suggestions_do_not_carry_it() {

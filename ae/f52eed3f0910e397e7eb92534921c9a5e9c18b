@@ -1,0 +1,48 @@
+inc/search.php
+  s_4f5cd8214eb10f::t_dda95f8c22bb02 106-114,116-119
+  s_4f5cd8214eb10f::t_7415fe6d56c5ae 115
+tests/WasteTest.php
+  s_4f5cd8214eb10f::t_de266bbdb0d32a 1-79
+template-parts/service-cards.php
+  s_4f5cd8214eb10f::t_dda95f8c22bb02 7,23-40
+functions.php
+  s_4f5cd8214eb10f::t_dda95f8c22bb02 444-447
+  s_4f5cd8214eb10f::t_58a8ce7f86470f 443
+data/residuos/dias-sin-deposito.json
+  s_4f5cd8214eb10f::t_88854be6cc9657 1-6
+tests/ServicesTest.php
+  s_4f5cd8214eb10f::t_de266bbdb0d32a 7,113-133
+  s_4f5cd8214eb10f::t_d2cd321cfb6448 134-135
+inc/waste.php
+  s_4f5cd8214eb10f::t_ccb7462c1f6d49 1-108
+css/aranda-de-duero.css
+  s_4f5cd8214eb10f::t_99973608798f79 85,2809-2810,4015-4051
+inc/services.php
+  s_4f5cd8214eb10f::t_dda95f8c22bb02 135-163
+MEJORAS-OTROS-AYUNTAMIENTOS.md
+  s_4f5cd8214eb10f::t_d6d2ed408e4353 240
+docs/recogida-de-residuos.md
+  s_4f5cd8214eb10f::t_d6d2ed408e4353 1-53
+tests/SearchTest.php
+  s_4f5cd8214eb10f::t_31499ec18747fa 8,14-20,37-50,63-67,153-182
+  s_4f5cd8214eb10f::t_9e7e85835ef490 183
+page-residuos.php
+  s_4f5cd8214eb10f::t_a719704d845656 1-173,175-208
+  s_4f5cd8214eb10f::t_dda95f8c22bb02 174
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "aef52eed3f0910e397e7eb92534921c9a5e9c18b",
+  "prompts": {},
+  "sessions": {
+    "s_4f5cd8214eb10f": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "2755f5ae-2053-4324-9f05-1e0bfa06829c",
+        "model": "claude-sonnet-5-5"
+      },
+      "human_author": "Guillermo López <willyaranda@gmail.com>"
+    }
+  }
+}

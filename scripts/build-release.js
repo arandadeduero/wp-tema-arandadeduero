@@ -34,6 +34,7 @@ const FILES_TO_INCLUDE = [
 
 const DIRECTORIES_TO_INCLUDE = [
     'css',
+    'data',
     'inc',
     'images',
     'js',

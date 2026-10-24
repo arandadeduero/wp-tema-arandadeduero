@@ -103,6 +103,28 @@ class SearchTest extends TestCase {
 		$this->assertSame( '', aranda_de_duero_sede_catalog_keywords( 'Certificado de deudas' ) );
 	}
 
+	public function test_the_catalogue_index_for_the_browser_has_the_synonyms_and_stays_out_of_the_page() {
+		$this->mocks();
+
+		$catalog = aranda_de_duero_search_catalog_index();
+		$this->assertGreaterThan( 400, count( $catalog ) );
+
+		$nichos = array_values(
+			array_filter(
+				$catalog,
+				static function ( $entry ) {
+					return 'Solicitud de Inhumación en Nichos, Panteones, Columbarios...' === $entry['n'];
+				}
+			)
+		);
+		$this->assertCount( 1, $nichos );
+		$this->assertContains( 'sepultura', explode( ' ', $nichos[0]['w'] ) );
+		$this->assertSame( 1, $nichos[0]['b'] );
+
+		// The page carries only the curated services.
+		$this->assertLessThan( 150, count( aranda_de_duero_search_index() ) );
+	}
+
 	public function test_the_curated_services_come_before_the_catalogue_and_the_suggestions_do_not_carry_it() {
 		$this->mocks();
 

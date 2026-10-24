@@ -339,8 +339,18 @@ function aranda_de_duero_search_pool( $with_catalog = false ) {
  * @return array<int, array{n: string, d: string, u: string, b: int, w: string, t: string}>
  */
 function aranda_de_duero_search_index() {
+	return aranda_de_duero_search_index_for( aranda_de_duero_search_pool() );
+}
+
+/**
+ * Services prepared for the browser (see aranda_de_duero_search_index()).
+ *
+ * @param array<int, array{title: string, text: string, url: string, new_tab: bool, keywords?: string}> $services Services.
+ * @return array<int, array{n: string, d: string, u: string, b: int, w: string, t: string}>
+ */
+function aranda_de_duero_search_index_for( array $services ) {
 	$index = array();
-	foreach ( aranda_de_duero_search_pool() as $service ) {
+	foreach ( $services as $service ) {
 		$text    = $service['title'] . ' ' . $service['text'] . ' ' . ( isset( $service['keywords'] ) ? $service['keywords'] : '' );
 		$index[] = array(
 			'n' => $service['title'],
@@ -354,6 +364,37 @@ function aranda_de_duero_search_index() {
 
 	return $index;
 }
+
+/**
+ * The procedures of the catalogue of the office prepared for the browser. The script asks for them the first time somebody types in
+ * the box (about 400 entries: too many to travel with every page).
+ *
+ * @return array<int, array{n: string, d: string, u: string, b: int, w: string, t: string}>
+ */
+function aranda_de_duero_search_catalog_index() {
+	return aranda_de_duero_search_index_for( aranda_de_duero_sede_catalog_entries() );
+}
+
+/**
+ * REST route with the catalogue index; public data, and the browser keeps it for an hour.
+ */
+function aranda_de_duero_search_register_catalog_route() {
+	register_rest_route(
+		'aranda-de-duero/v1',
+		'/tramites',
+		array(
+			'methods'             => 'GET',
+			'callback'            => static function () {
+				$response = new WP_REST_Response( aranda_de_duero_search_catalog_index() );
+				$response->header( 'Cache-Control', 'public, max-age=3600' );
+
+				return $response;
+			},
+			'permission_callback' => '__return_true',
+		)
+	);
+}
+add_action( 'rest_api_init', 'aranda_de_duero_search_register_catalog_route' );
 
 /**
  * Load the script that suggests services while typing, with its data (once per page).
@@ -377,8 +418,9 @@ function aranda_de_duero_enqueue_search_suggest() {
 		'aranda-de-duero-search-suggest',
 		'arandaSearch',
 		array(
-			'items' => aranda_de_duero_search_index(),
-			'i18n'  => array(
+			'items'      => aranda_de_duero_search_index(),
+			'catalogUrl' => rest_url( 'aranda-de-duero/v1/tramites' ),
+			'i18n'       => array(
 				/* translators: %s: what the visitor typed. */
 				'all'     => __( 'Buscar «%s» en noticias y páginas', 'aranda-de-duero' ),
 				'one'     => __( '1 sugerencia disponible', 'aranda-de-duero' ),

@@ -2,7 +2,7 @@
  * Service suggestions while typing in the «¿Qué necesitas?» box.
  *
  * The list of services comes with the page (`arandaSearch`, built by aranda_de_duero_search_index() in inc/search.php), so
- * the suggestions appear at once and nothing is asked to the server. The matching is the same as the server's
+ * the suggestions appear at once; the procedures of the electronic office are asked for once, on first use (`catalogUrl`). The matching is the same as the server's
  * (aranda_de_duero_search_services()): every word typed must start a word of the title, the description or the synonyms,
  * and matches in the title come first. Without JavaScript the box is a plain search form.
  *
@@ -27,12 +27,14 @@
             .split(/[^a-z0-9]+/)
             .filter(Boolean);
 
-    const entries = data.items.map((item, index) => ({
+    const toEntry = (item, index) => ({
         item,
         index,
         all: item.w.split(' '),
         title: item.t.split(' '),
-    }));
+    });
+
+    const entries = data.items.map(toEntry);
 
     const startsAWord = (list, term) => list.some((word) => word.startsWith(term));
 
@@ -56,6 +58,25 @@
         element.className = className;
         element.textContent = text;
         return element;
+    };
+
+    // The ~400 procedures of the electronic office are not in the page: they are asked for once, the first time somebody uses a
+    // box, and added after the curated services (so those keep coming first). If the request fails the box keeps working as before.
+    let catalogRequested = false;
+    const loadCatalog = () => {
+        if (catalogRequested || !data.catalogUrl) return Promise.resolve(false);
+        catalogRequested = true;
+
+        return fetch(data.catalogUrl, { credentials: 'omit' })
+            .then((response) => (response.ok ? response.json() : []))
+            .then((items) => {
+                const known = new Set(entries.map((entry) => entry.item.u));
+                items
+                    .filter((item) => !known.has(item.u))
+                    .forEach((item) => entries.push(toEntry(item, entries.length)));
+                return items.length > 0;
+            })
+            .catch(() => false);
     };
 
     const init = (form) => {
@@ -170,9 +191,19 @@
                     : (i18n.many || '%d').replace('%d', String(found.length));
         };
 
-        input.addEventListener('input', render);
+        const withCatalog = () => {
+            loadCatalog().then((added) => {
+                if (added && document.activeElement === input) render();
+            });
+        };
+
+        input.addEventListener('input', () => {
+            render();
+            withCatalog();
+        });
         input.addEventListener('focus', () => {
             if (list.hidden) render();
+            withCatalog();
         });
 
         input.addEventListener('keydown', (event) => {

@@ -33,13 +33,19 @@ if ( array() === $aranda_cards['items'] ) {
 							<a href="<?php echo esc_url( $aranda_pharmacy['phone_href'] ); ?>"><?php echo esc_html( $aranda_pharmacy['phone'] ); ?></a>
 						<?php endif; ?>
 						<?php if ( ! empty( $aranda_pharmacy['map'] ) ) : ?>
-							<a class="pharmacy-map" href="<?php echo esc_url( $aranda_pharmacy['map']['url'] ); ?>" target="_blank" rel="noopener">
+							<?php // Only the drawing, small and on the right; the name of the app is for screen readers. ?>
+							<a class="pharmacy-map pharmacy-map-icon" href="<?php echo esc_url( $aranda_pharmacy['map']['url'] ); ?>" target="_blank" rel="noopener">
 								<?php
 								// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- aranda_de_duero_icon() returns SVG markup already sanitized by the WP 7.1 SVG Icon API (see inc/icons.php).
-								echo aranda_de_duero_icon( $aranda_pharmacy['map']['icon'], array( 'size' => 14 ) );
-								echo esc_html( $aranda_pharmacy['map']['label'] );
-								aranda_de_duero_the_new_tab_notice();
+								echo aranda_de_duero_icon( $aranda_pharmacy['map']['icon'], array( 'size' => 16 ) );
 								?>
+								<span class="screen-reader-text">
+									<?php
+									/* translators: %s: map application, Google Maps or Apple Maps. */
+									echo esc_html( sprintf( __( 'Cómo llegar con %s', 'aranda-de-duero' ), $aranda_pharmacy['map']['label'] ) );
+									?>
+								</span>
+								<?php aranda_de_duero_the_new_tab_notice(); ?>
 							</a>
 						<?php endif; ?>
 					</span>

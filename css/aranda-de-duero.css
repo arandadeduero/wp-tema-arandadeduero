@@ -2825,11 +2825,22 @@ div.service-card .service-card-title:focus-visible {
 }
 
 .service-card-pharmacy-actions a.pharmacy-map {
-    padding: var(--spacing-xs) var(--spacing-md);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 2rem;
+    min-height: 2rem;
+    margin-left: auto;
+    padding: var(--spacing-xs);
     border-radius: var(--border-radius-lg);
     background: var(--color-primary-accessible);
     color: var(--color-white);
     text-decoration: none;
+}
+
+.service-card-pharmacy-actions a.pharmacy-map svg {
+    margin-right: 0;
+    vertical-align: 0;
 }
 
 .service-card-pharmacy-actions a.pharmacy-map:hover,

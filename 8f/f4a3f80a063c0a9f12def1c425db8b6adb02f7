@@ -1,0 +1,25 @@
+docs/farmacias-de-guardia.md
+  s_4f5cd8214eb10f::t_32cca033201e28 25
+inc/pharmacies.php
+  s_4f5cd8214eb10f::t_a6e6eeb3e306db 23-47
+page-farmacias.php
+  s_4f5cd8214eb10f::t_b71260cf59d8a0 16,70
+tests/PharmaciesTest.php
+  s_4f5cd8214eb10f::t_2e77cf58f43073 41-48
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "8ff4a3f80a063c0a9f12def1c425db8b6adb02f7",
+  "prompts": {},
+  "sessions": {
+    "s_4f5cd8214eb10f": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "2755f5ae-2053-4324-9f05-1e0bfa06829c",
+        "model": "claude-sonnet-5-5"
+      },
+      "human_author": "Guillermo López <willyaranda@gmail.com>"
+    }
+  }
+}

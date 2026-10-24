@@ -1,0 +1,36 @@
+inc/pharmacies.php
+  s_4f5cd8214eb10f::t_86efe71c6c04f9 222-259
+inc/icons.php
+  s_4f5cd8214eb10f::t_86efe71c6c04f9 104-107
+template-parts/service-cards.php
+  s_4f5cd8214eb10f::t_05d34cffd8e642 6-7,23-49
+inc/services.php
+  s_4f5cd8214eb10f::t_86efe71c6c04f9 44,111-116,118-132
+page-farmacias.php
+  s_4f5cd8214eb10f::t_86efe71c6c04f9 67-79,151-163
+tests/ServicesTest.php
+  s_4f5cd8214eb10f::t_22175b024a46eb 6,94-98,105-128
+tests/PharmaciesTest.php
+  s_4f5cd8214eb10f::t_22175b024a46eb 64-86
+css/aranda-de-duero.css
+  s_4f5cd8214eb10f::t_05d34cffd8e642 2777-2778,2794-2837
+  s_4f5cd8214eb10f::t_9ebf70bfb35537 2838
+MEJORAS-OTROS-AYUNTAMIENTOS.md
+  s_4f5cd8214eb10f::t_6cbf41dc6006ea 238
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "a6bfe1b48a91e3b0e8daf97289cca22d065da55a",
+  "prompts": {},
+  "sessions": {
+    "s_4f5cd8214eb10f": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "2755f5ae-2053-4324-9f05-1e0bfa06829c",
+        "model": "claude-sonnet-5-5"
+      },
+      "human_author": "Guillermo López <willyaranda@gmail.com>"
+    }
+  }
+}

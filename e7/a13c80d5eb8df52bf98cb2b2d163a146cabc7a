@@ -1,0 +1,37 @@
+data/sede/tramites.json
+  s_4f5cd8214eb10f::t_398f6a088e5543 1-506,508-538,540-1122,1124-1154,1156-1426,1428-1882,1884-2738,2740-2930,2932-2954,2956-2962,2964-3329
+  s_4f5cd8214eb10f::t_8c93b887fab6d7 507,539,1123,1155,1427,1883,2739,2931,2955,2963
+scripts/update-sede-catalog.js
+  s_4f5cd8214eb10f::t_8c93b887fab6d7 57
+  s_4f5cd8214eb10f::t_398f6a088e5543 1-56,58-70
+inc/search.php
+  s_4f5cd8214eb10f::t_ef2546c4bb8168 172-179,181,183-203,206,208,211,217-219,321
+  s_4f5cd8214eb10f::t_18c744c0b4e692 180,182
+  s_4f5cd8214eb10f::t_adb9765520b896 171
+search.php
+  s_4f5cd8214eb10f::t_ef2546c4bb8168 22
+tests/SearchTest.php
+  s_4f5cd8214eb10f::t_a01f3737566f11 30,56-81
+  s_4f5cd8214eb10f::t_bb2814054a8e7c 272-273,275,278
+  s_4f5cd8214eb10f::t_e5a31e988dd362 82
+tests/AudiencesTest.php
+  s_4f5cd8214eb10f::t_fa5a3b160711b0 34
+MEJORAS-OTROS-AYUNTAMIENTOS.md
+  s_4f5cd8214eb10f::t_b8e1c69e187ed8 72,235
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "e7a13c80d5eb8df52bf98cb2b2d163a146cabc7a",
+  "prompts": {},
+  "sessions": {
+    "s_4f5cd8214eb10f": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "2755f5ae-2053-4324-9f05-1e0bfa06829c",
+        "model": "claude-sonnet-5-5"
+      },
+      "human_author": "Guillermo López <willyaranda@gmail.com>"
+    }
+  }
+}

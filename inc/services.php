@@ -105,7 +105,7 @@ function aranda_de_duero_quick_access() {
 		),
 	);
 
-	// Only once the page exists, so the card never leads to a 404; second place, next to the payments.
+	// Only once the page exists, so the card never leads to a 404; third place, after the payments.
 	$pharmacy_url = aranda_de_duero_page_url( 'farmacia-de-guardia' );
 	if ( '' !== $pharmacy_url ) {
 		array_splice(

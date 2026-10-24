@@ -29,7 +29,8 @@ function aranda_de_duero_home_especiales() {
 
 	$items = array();
 	foreach ( (array) $posts as $post ) {
-		$link = trim( (string) get_post_meta( $post->ID, 'especiales_enlace', true ) );
+		// esc_url_raw() drops a «javascript:» link: this address also travels to the suggestions of the search box.
+		$link = esc_url_raw( trim( (string) get_post_meta( $post->ID, 'especiales_enlace', true ) ) );
 
 		$items[] = array(
 			'title'    => (string) $post->post_title,

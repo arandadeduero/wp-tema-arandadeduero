@@ -46,9 +46,23 @@ function aranda_de_duero_periodic_reminders( $year ) {
 		$reminders[] = array(
 			'id'      => 'delegaciones-' . $year . '-' . $month,
 			'date'    => $year . '-' . $month . '-01',
-			'subject' => __( 'Revisión semestral de la web: delegaciones, horario y catálogo de trámites', 'aranda-de-duero' ),
+			'subject' => __( 'Revisión semestral de la web: delegaciones y horario', 'aranda-de-duero' ),
 			'message' => __(
-				"Aviso semestral (1 de enero y 1 de julio): revisar si ha habido cambios en las delegaciones del equipo de gobierno y refrescar lo que envejece (horario y catálogo de trámites del buscador).\n\nQué comprobar:\n\n1. La lista oficial en https://www.arandadeduero.es/corporacion-municipal/ frente a las concejalías de la web (Entradas → Concejalías): concejal o concejala, teléfono, correo y ubicación de cada una.\n2. Si cambia el reparto de áreas, que las concejalías, el menú «Áreas y servicios» y la tabla de /informacion-de-concejalias/ lo reflejen.\n3. Si se crea, une o elimina un área, actualizar docs/concejalias-vigentes-y-terminos.md en el repositorio del tema.\n\n4. El horario de atención del Ayuntamiento que muestra la web (inc/template-functions.php, «Lunes a Viernes: 8:30 - 14:30»): comprobar que sigue siendo el vigente.\n5. El catálogo de trámites del buscador: en el repositorio del tema, ejecutar «node scripts/update-sede-catalog.js», revisar el cambio en data/sede/tramites.json (trámites nuevos o quitados) y subir el tema completo.\n\nSi no ha cambiado nada, no hay que hacer nada.",
+				"Aviso semestral (1 de enero y 1 de julio): revisar si ha habido cambios en las delegaciones del equipo de gobierno y en el horario de atención.\n\nQué comprobar:\n\n1. La lista oficial en https://www.arandadeduero.es/corporacion-municipal/ frente a las concejalías de la web (Entradas → Concejalías): concejal o concejala, teléfono, correo y ubicación de cada una.\n2. Si cambia el reparto de áreas, que las concejalías, el menú «Áreas y servicios» y la tabla de /informacion-de-concejalias/ lo reflejen.\n3. Si se crea, une o elimina un área, actualizar docs/concejalias-vigentes-y-terminos.md en el repositorio del tema.\n\n4. El horario de atención del Ayuntamiento que muestra la web (inc/template-functions.php, «Lunes a Viernes: 8:30 - 14:30»): comprobar que sigue siendo el vigente.\n\nSi no ha cambiado nada, no hay que hacer nada.",
+				'aranda-de-duero'
+			),
+		);
+	}
+
+	// Every month: the catalogue of procedures of the electronic office that the search box uses is a copy and goes out of date.
+	for ( $month = 1; $month <= 12; $month++ ) {
+		$key         = sprintf( '%04d-%02d', $year, $month );
+		$reminders[] = array(
+			'id'      => 'catalogo-' . $key,
+			'date'    => $key . '-01',
+			'subject' => __( 'Refrescar el catálogo de trámites del buscador', 'aranda-de-duero' ),
+			'message' => __(
+				"Aviso mensual: el buscador «¿Qué necesitas?» guarda una copia del catálogo de trámites de la sede electrónica (data/sede/tramites.json) y la sede puede haber añadido o quitado trámites.\n\nQué hacer:\n\n1. En el repositorio del tema, ejecutar «node scripts/update-sede-catalog.js».\n2. Revisar el cambio en data/sede/tramites.json (trámites nuevos o quitados) con «git diff».\n3. Si hay cambios, subir el tema completo (npm run release) y vaciar la caché de Cache Enabler.\n\nSi no ha cambiado nada, no hay que hacer nada.",
 				'aranda-de-duero'
 			),
 		);

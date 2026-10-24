@@ -27,9 +27,32 @@ class RemindersTest extends TestCase {
 	public function test_the_delegations_are_reviewed_every_six_months() {
 		$this->mocks();
 
-		$dates = array_column( aranda_de_duero_periodic_reminders( 2026 ), 'date' );
+		$delegations = array_filter(
+			aranda_de_duero_periodic_reminders( 2026 ),
+			static function ( $reminder ) {
+				return 0 === strpos( $reminder['id'], 'delegaciones-' );
+			}
+		);
 
-		$this->assertSame( array( '2026-01-01', '2026-07-01' ), $dates );
+		$this->assertSame( array( '2026-01-01', '2026-07-01' ), array_values( array_column( $delegations, 'date' ) ) );
+	}
+
+	public function test_the_catalogue_of_procedures_is_refreshed_every_month() {
+		$this->mocks();
+
+		$reminders = array_values(
+			array_filter(
+				aranda_de_duero_periodic_reminders( 2026 ),
+				static function ( $reminder ) {
+					return 0 === strpos( $reminder['id'], 'catalogo-' );
+				}
+			)
+		);
+
+		$this->assertCount( 12, $reminders );
+		$this->assertSame( '2026-01-01', $reminders[0]['date'] );
+		$this->assertSame( '2026-12-01', $reminders[11]['date'] );
+		$this->assertStringContainsString( 'update-sede-catalog.js', $reminders[0]['message'] );
 	}
 
 	public function test_the_reminder_of_15_june_2027_exists_only_that_year() {
@@ -71,9 +94,10 @@ class RemindersTest extends TestCase {
 	public function test_the_check_sends_the_reminder_and_remembers_its_id() {
 		$this->mocks();
 		\WP_Mock::userFunction( 'current_time' )->andReturn( '2027-07-01' );
-		\WP_Mock::userFunction( 'get_option' )->andReturn( array( 'delegaciones-2027-01' ) );
+		// The catalogue reminder of the same day is already sent: only the delegations one is due.
+		\WP_Mock::userFunction( 'get_option' )->andReturn( array( 'delegaciones-2027-01', 'catalogo-2027-07' ) );
 		\WP_Mock::userFunction( 'wp_mail' )->once()->with( array( 'informatica@arandadeduero.es', 'glopez@arandadeduero.es' ), \Mockery::type( 'string' ), \Mockery::type( 'string' ) )->andReturn( true );
-		\WP_Mock::userFunction( 'update_option' )->once()->with( 'aranda_reminders_sent', array( 'delegaciones-2027-01', 'delegaciones-2027-07' ), false );
+		\WP_Mock::userFunction( 'update_option' )->once()->with( 'aranda_reminders_sent', array( 'delegaciones-2027-01', 'catalogo-2027-07', 'delegaciones-2027-07' ), false );
 
 		aranda_de_duero_periodic_reminders_check();
 		$this->assertTrue( true );
@@ -82,7 +106,7 @@ class RemindersTest extends TestCase {
 	public function test_a_failed_mail_is_not_remembered() {
 		$this->mocks();
 		\WP_Mock::userFunction( 'current_time' )->andReturn( '2027-07-01' );
-		\WP_Mock::userFunction( 'get_option' )->andReturn( array() );
+		\WP_Mock::userFunction( 'get_option' )->andReturn( array( 'catalogo-2027-07' ) );
 		\WP_Mock::userFunction( 'wp_mail' )->once()->andReturn( false );
 		\WP_Mock::userFunction( 'update_option' )->never();
 

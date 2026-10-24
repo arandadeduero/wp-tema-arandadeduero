@@ -318,7 +318,7 @@ Solo se afirma lo que el código demuestra; **qué plugins están instalados o a
 | **Jetpack** | Compatibilidad opcional (`functions.php:404`, `inc/jetpack.php`); se desactiva su Open Graph (`inc/social-meta.php:175`) | Nada |
 | **Plugins SEO** (Yoast, Rank Math, AIOSEO, SEOPress) | Si se detecta uno, el tema deja de imprimir Open Graph y JSON-LD (`inc/social-meta.php:15-20`, `inc/structured-data.php:162`) | Se recuperan las etiquetas del tema |
 | **Font Awesome (plugin)** | El tema le quita sus estilos (`inc/performance.php:57-82`) | Nada: ya no se usan |
-| **Cache Enabler, Site Kit, aviso de cookies** | No se invocan desde el código del tema; los cita la documentación (`CLAUDE.md`, `pagina-enlaces.md`) | **No verificable desde el código** |
+| **Cache Enabler (desactivado desde 2026-10-25), Site Kit, aviso de cookies** | No se invocan desde el código del tema; los cita la documentación (`CLAUDE.md`, `pagina-enlaces.md`) | **No verificable desde el código** |
 | **WordPress 7.1 (API de iconos)** | `wp_get_icon`, `wp_register_icon_collection` (`inc/icons.php:14-45`), con protección `function_exists` | Sin iconos, pero sin error |
 | **Servicios externos (solo enlaces)** | `sede.arandadeduero.es`, `citaprevia.`, `transparencia.`, `turismo.`, `asociaciones.`, `fiestas…dev`, `arandactiva.com`, `face.gob.es`, Flickr y redes | Enlaces rotos si cambian; ningún recurso se carga de terceros en el navegador |
 
@@ -334,7 +334,7 @@ Solo se afirma lo que el código demuestra; **qué plugins están instalados o a
 7. Si hay más de 24 Especiales, más de 50 eventos o más de 12 diapositivas ya creados (los límites del código cortarían el resto).
 8. Qué **valores** tienen los ajustes del Personalizador (banner de plenos activo, canal de información, imágenes por defecto, JS).
 9. Cuántos **eventos recurrentes** tiene My Calendar y cómo guarda `event_begin` en ellos (afecta a la lista de la portada).
-10. Si Cache Enabler respeta `?sin-cache=x` o cachea la portada con el banner de plenos activado (regla del proyecto, no del código).
+10. (Cache Enabler está desactivado desde 2026-10-25.) Si Cache Enabler respeta `?sin-cache=x` o cachea la portada con el banner de plenos activado (regla del proyecto, no del código).
 
 ## Cómo se haría de otra manera
 

@@ -6,9 +6,11 @@ Para trabajar con Claude Code en este repositorio. El detalle está en [DEVELOPM
 ## Cómo se trabaja aquí
 
 - **Idioma:** español en las respuestas, los commits y los PR.
-- **No hay despliegue automático.** El usuario sube el tema a mano (`npm run release`, siempre **el tema completo**) y vacía
-  la caché de Cache Enabler. Al abrir un PR, recordárselo. **Solo se mergea cuando dice que está desplegado y se ha
-  comprobado en la web real**; «comprueba y mergea» autoriza el merge si la comprobación sale bien.
+- **No hay despliegue automático, pero el flujo lo hace Claude.** En cada cambio: PR, zip (`npm run release`, siempre **el tema
+  completo**, desde una rama que lleve todo lo que ya está en producción), subida a `wp-admin/theme-install.php` con Chrome (la
+  sesión del usuario ya está abierta; nunca escribir contraseñas), comprobación del cambio en la web real y un informe con lo
+  verificado, lo no verificado y **qué debe mirar el usuario y en qué página**. **Solo se mergea cuando el usuario responde
+  «merge»** (o «comprueba y mergea»).
 - **Excepción: PR solo de documentación.** Si todos los ficheros son `.md` o no cambian la web (nada de `.php`, `.js`, `.css`, `theme.json`,
   `composer.json`, `package.json`, `scripts/` ni `.github/`), se hace commit con `[skip ci]`, PR y merge al momento
   (`gh pr merge N --merge --delete-branch --body "[skip ci]"`), sin esperar a la CI ni al despliegue. Comprobar antes con `git diff --name-only main`.
@@ -35,7 +37,7 @@ Para trabajar con Claude Code en este repositorio. El detalle está en [DEVELOPM
 
 ## Producción (www.arandadeduero.es)
 
-- La caché de página devuelve la versión anterior hasta vaciarla; para ver código nuevo: `?sin-cache=x` o `Accept: text/html`.
+- Cache Enabler está desactivado desde 2026-10-25: no hay caché de página. Si se reactiva, hay que vaciarla tras desplegar y, para ver código nuevo, usar `?sin-cache=x` o `Accept: text/html`.
 - Un despliegue **no borra** los ficheros que se quitan del repositorio.
 - No hay WordPress local ni entorno de pruebas: se verifica con tests, una copia del HTML real con el CSS nuevo y,
   sobre todo, la web publicada.

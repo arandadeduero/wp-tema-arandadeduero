@@ -4061,28 +4061,28 @@ div.service-card.service-card-waste.is-banned {
 }
 
 /* Cada contenedor con su color claro, el del folleto. */
-.waste-bin {
+.card.waste-bin {
     border: 1px solid var(--color-black-10);
     color: var(--color-black);
 }
 
-.waste-bin-blue {
+.card.waste-bin-blue {
     background: var(--color-bin-blue);
 }
 
-.waste-bin-yellow {
+.card.waste-bin-yellow {
     background: var(--color-bin-yellow);
 }
 
-.waste-bin-brown {
+.card.waste-bin-brown {
     background: var(--color-bin-brown);
 }
 
-.waste-bin-green {
+.card.waste-bin-green {
     background: var(--color-bin-green);
 }
 
-.waste-bin-gray {
+.card.waste-bin-gray {
     background: var(--color-bin-gray);
 }
 
@@ -4095,7 +4095,7 @@ div.service-card.service-card-waste.is-banned {
     color: var(--color-white);
 }
 
-.waste-bulky-title {
+.waste-bulky .waste-bulky-title {
     margin: 0 0 var(--spacing-sm);
     color: var(--color-white);
     font-size: 1.25rem;

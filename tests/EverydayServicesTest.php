@@ -1,0 +1,134 @@
+<?php
+use WP_Mock\Tools\TestCase;
+
+require_once dirname( __DIR__ ) . '/inc/template-functions.php';
+require_once dirname( __DIR__ ) . '/inc/pharmacies.php';
+require_once dirname( __DIR__ ) . '/inc/waste.php';
+require_once dirname( __DIR__ ) . '/inc/everyday-services.php';
+
+// Minimal stand-in: the tests only need `instanceof WP_Post` and `post_status`/`post_name`.
+if ( ! class_exists( 'WP_Post' ) ) {
+	class WP_Post {
+		public $post_status = 'publish';
+		public $post_name   = '';
+	}
+}
+
+class EverydayServicesTest extends TestCase {
+
+	private function mocks( array $published = array() ) {
+		\WP_Mock::userFunction( 'apply_filters' )->andReturnUsing(
+			function ( $tag, $value ) {
+				return $value;
+			}
+		);
+		\WP_Mock::userFunction( '__' )->andReturnUsing(
+			function ( $text ) {
+				return $text;
+			}
+		);
+		\WP_Mock::userFunction( 'get_page_by_path' )->andReturnUsing(
+			function ( $path ) use ( $published ) {
+				if ( ! in_array( $path, $published, true ) ) {
+					return null;
+				}
+				$page              = new WP_Post();
+				$page->post_status = 'publish';
+				$page->post_name   = $path;
+
+				return $page;
+			}
+		);
+		\WP_Mock::userFunction( 'get_permalink' )->andReturnUsing(
+			function ( $post ) {
+				return 'https://www.arandadeduero.es/' . $post->post_name . '/';
+			}
+		);
+	}
+
+	public function test_the_bus_is_the_only_one_without_a_page_and_always_appears() {
+		$this->mocks();
+
+		$items = aranda_de_duero_everyday_services();
+
+		$this->assertCount( 1, $items );
+		$this->assertSame( 'Transporte: autobús urbano', $items[0]['title'] );
+		$this->assertSame( 'https://busurbanoaranda.com/', $items[0]['url'] );
+		$this->assertTrue( $items[0]['new_tab'] );
+	}
+
+	public function test_every_page_appears_once_published_in_order_with_the_bus_last() {
+		$this->mocks( array( 'farmacia-de-guardia', 'recogida-de-residuos', 'omic', 'objetos-perdidos' ) );
+		\WP_Mock::userFunction( 'get_template_directory' )->andReturn( dirname( __DIR__ ) );
+		\WP_Mock::userFunction( 'sanitize_text_field' )->andReturnArg( 0 );
+		\WP_Mock::userFunction( 'wp_unslash' )->andReturnArg( 0 );
+		\WP_Mock::userFunction( 'current_time' )->andReturn( '2098-06-01 12:00:00' );
+
+		$items = aranda_de_duero_everyday_services();
+
+		$this->assertSame(
+			array( 'Farmacia de guardia', 'Recogida de residuos', 'OMIC: información al consumidor', 'Objetos perdidos', 'Transporte: autobús urbano' ),
+			array_column( $items, 'title' )
+		);
+	}
+
+	public function test_the_pharmacy_card_names_the_pharmacy_of_the_moment() {
+		$this->mocks( array( 'farmacia-de-guardia' ) );
+		\WP_Mock::userFunction( 'get_template_directory' )->andReturn( dirname( __DIR__ ) );
+		\WP_Mock::userFunction( 'sanitize_text_field' )->andReturnArg( 0 );
+		\WP_Mock::userFunction( 'wp_unslash' )->andReturnArg( 0 );
+		\WP_Mock::userFunction( 'current_time' )->andReturn( '2026-10-25 09:30:00' );
+
+		$items = aranda_de_duero_everyday_services();
+
+		$this->assertCount( 2, $items );
+		$this->assertSame( 'INÉS BRIME BERDUGO', $items[0]['pharmacy']['name'] );
+	}
+
+	public function test_the_waste_card_carries_the_bulky_phone_and_the_ban() {
+		$this->mocks( array( 'recogida-de-residuos' ) );
+		\WP_Mock::userFunction( 'get_template_directory' )->andReturn( dirname( __DIR__ ) );
+		\WP_Mock::userFunction( 'current_time' )->andReturn( '2026-10-25' );
+
+		$items = aranda_de_duero_everyday_services();
+
+		$this->assertCount( 2, $items );
+		$this->assertSame( '947 50 60 50', $items[0]['waste']['bulky_phone'] );
+		$this->assertFalse( $items[0]['waste']['ban'] );
+	}
+
+	public function test_omic_and_lost_found_are_plain_links_with_their_keywords() {
+		$this->mocks( array( 'omic', 'objetos-perdidos' ) );
+
+		$items = aranda_de_duero_everyday_services();
+
+		$this->assertCount( 3, $items );
+		$this->assertSame( 'https://www.arandadeduero.es/omic/', $items[0]['url'] );
+		$this->assertStringContainsString( 'reclamacion', $items[0]['keywords'] );
+		$this->assertSame( 'https://www.arandadeduero.es/objetos-perdidos/', $items[1]['url'] );
+		$this->assertStringContainsString( 'llaves', $items[1]['keywords'] );
+	}
+
+	public function test_omic_and_lost_found_contact_data() {
+		$omic = aranda_de_duero_omic_info();
+		$this->assertSame( '947 50 86 66', $omic['phone_1'] );
+		$this->assertSame( 'tel:947508666', $omic['phone_1_href'] );
+
+		$lost = aranda_de_duero_lost_found_info();
+		$this->assertSame( '947 51 26 46', $lost['phone'] );
+		$this->assertSame( 'policia@arandadeduero.es', $lost['email'] );
+	}
+
+	public function test_the_old_omic_article_redirects_to_the_new_page_once_it_exists() {
+		$this->mocks( array( 'omic' ) );
+
+		$this->assertSame( 'https://www.arandadeduero.es/omic/', aranda_de_duero_omic_article_redirect_target( 'la-omic-que-es-y-que-funciones-tiene' ) );
+		$this->assertSame( '', aranda_de_duero_omic_article_redirect_target( 'otra-noticia' ) );
+	}
+
+	public function test_the_old_omic_article_does_not_redirect_without_the_new_page() {
+		$this->mocks();
+
+		$this->assertSame( '', aranda_de_duero_omic_article_redirect_target( 'la-omic-que-es-y-que-funciones-tiene' ) );
+	}
+}

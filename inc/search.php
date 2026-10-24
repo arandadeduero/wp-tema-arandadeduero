@@ -117,6 +117,36 @@ function aranda_de_duero_service_directory() {
 		);
 	}
 
+	// Everyday services with their own page (inc/everyday-services.php): OMIC and objetos perdidos, only once published.
+	$omic_url = aranda_de_duero_omic_page_url();
+	if ( '' !== $omic_url ) {
+		$entries[] = aranda_de_duero_directory_entry(
+			__( 'OMIC: información al consumidor', 'aranda-de-duero' ),
+			__( 'Reclamaciones, mediación e información como consumidor.', 'aranda-de-duero' ),
+			$omic_url,
+			'omic consumo consumidor consumidores usuario usuarios reclamacion reclamaciones queja quejas denuncia denuncias mediacion arbitraje defensa',
+			false
+		);
+	}
+
+	$lost_found_url = aranda_de_duero_lost_found_page_url();
+	if ( '' !== $lost_found_url ) {
+		$entries[] = aranda_de_duero_directory_entry(
+			__( 'Objetos perdidos', 'aranda-de-duero' ),
+			__( 'Qué hacer si pierdes algo o lo encuentras en la calle.', 'aranda-de-duero' ),
+			$lost_found_url,
+			'objeto objetos perdido perdidos perdida perdidas encontrado encontrados hallado hallados extraviado extraviados llaves cartera movil telefono mochila documentacion dni',
+			false
+		);
+	}
+
+	$entries[] = aranda_de_duero_directory_entry(
+		__( 'Transporte: autobús urbano', 'aranda-de-duero' ),
+		__( 'Líneas, horarios y paradas del autobús urbano.', 'aranda-de-duero' ),
+		aranda_de_duero_transport_url(),
+		'autobus autobuses bus transporte urbano linea lineas horario horarios parada paradas billete billetes'
+	);
+
 	$entries[] = aranda_de_duero_directory_entry( __( 'Trámites del portal', 'aranda-de-duero' ), __( 'Todos los trámites con página propia en este portal.', 'aranda-de-duero' ), home_url( '/tramites/' ), 'tramites tramite solicitudes modelos documentacion', false );
 
 	$situations = aranda_de_duero_situations_url();
@@ -327,7 +357,7 @@ function aranda_de_duero_sede_catalog_entries() {
  * @return array<int, array{title: string, text: string, url: string, new_tab: bool, keywords?: string}>
  */
 function aranda_de_duero_search_pool( $with_catalog = false ) {
-	$pool = aranda_de_duero_quick_access();
+	$pool = array_merge( aranda_de_duero_quick_access(), aranda_de_duero_everyday_services() );
 	foreach ( aranda_de_duero_payment_services() as $group ) {
 		$pool = array_merge( $pool, $group['items'] );
 	}

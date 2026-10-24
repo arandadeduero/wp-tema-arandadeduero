@@ -87,6 +87,13 @@ if ( '1' === get_theme_mod( 'aranda_de_duero_show_banner' ) && '' !== get_theme_
 		<?php get_template_part( 'template-parts/service-cards', null, array( 'items' => aranda_de_duero_quick_access() ) ); ?>
 	</div>
 </section>
+<!-- Servicios cotidianos -->
+<section class="home-accesos home-everyday-services" aria-labelledby="home-everyday-services-title">
+	<div class="container mt-4">
+		<h2 id="home-everyday-services-title" class="h4 text-blue font-weight-normal text-uppercase"><?php esc_html_e( 'Servicios cotidianos', 'aranda-de-duero' ); ?></h2>
+		<?php get_template_part( 'template-parts/service-cards', null, array( 'items' => aranda_de_duero_everyday_services() ) ); ?>
+	</div>
+</section>
 <!-- Secciones principales -->
 <?php
 $query = aranda_de_duero_content(

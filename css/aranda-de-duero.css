@@ -2890,7 +2890,8 @@ a.service-card:focus-visible .service-card-title {
     line-height: 1.3;
 }
 
-.home-accesos .service-cards {
+.home-accesos .service-cards,
+.home-everyday-services .service-cards {
     margin-top: var(--spacing-lg);
 }
 

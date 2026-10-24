@@ -79,7 +79,7 @@ Un aviso de WP-Cron diario por cada tarea. Los destinatarios son `informatica@ar
 | Aviso | Cuándo | Qué dice |
 |---|---|---|
 | Calendario de farmacias del año siguiente | A los 15, 10 y 5 días del 31 de diciembre, mientras no exista `data/farmacias/<año siguiente>.json`. Deja de avisar al subir el fichero | Cómo cargar el calendario (los pasos de arriba) |
-| Posibles cambios en las delegaciones | 1 de enero y 1 de julio | Qué comprobar de las concejalías: concejal, teléfono, correo, ubicación, menú «Áreas y servicios», `docs/concejalias-vigentes-y-terminos.md` y el horario de atención del Ayuntamiento |
+| Posibles cambios en las delegaciones | 1 de enero y 1 de julio | Qué comprobar de las concejalías: concejal, teléfono, correo, ubicación, menú «Áreas y servicios», `docs/concejalias-vigentes-y-terminos.md` el horario de atención del Ayuntamiento y el catálogo de trámites del buscador (`node scripts/update-sede-catalog.js`) |
 | Corporación municipal vigente | 15 de junio de 2027 | Revisar alcalde o alcaldesa, concejales, delegaciones y textos que citan al alcalde por su nombre |
 
 Cómo funciona:

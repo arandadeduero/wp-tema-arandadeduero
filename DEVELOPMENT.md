@@ -103,8 +103,7 @@ No hay entorno de pruebas ni WordPress en local. Se verifica con:
 3. Inyectar CSS en la página publicada con las herramientas del navegador.
 4. Tras desplegar: Lighthouse sobre la web real y medición del LCP (red Fast 4G, CPU ×4).
 
-Producción **bloquea IPs tras ráfagas de peticiones** (503 durante una hora): pocas peticiones, espaciadas y nunca en
-paralelo. Y la caché de página (Cache Enabler) devuelve la versión anterior hasta que se vacía: para ver código
+La caché de página (Cache Enabler) devuelve la versión anterior hasta que se vacía: para ver código
 recién desplegado, añadir un parámetro a la URL (`/?sin-cache=x`) o enviar `Accept: text/html` si se usa `curl`.
 
 ## Dependencias y seguridad

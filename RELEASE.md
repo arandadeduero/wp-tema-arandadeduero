@@ -59,8 +59,7 @@ Dos maneras equivalentes:
    - Cambios visibles: capturas en móvil y escritorio, y Lighthouse (accesibilidad y SEO deberían seguir en 100 en
      la home, noticias, noticia y agenda).
    - Cambios de rendimiento: LCP con red Fast 4G y CPU ×4, sin caché.
-4. Pocas peticiones y espaciadas: producción **bloquea la IP** tras una ráfaga (503 durante una hora).
-5. Solo entonces, mergear el PR y borrar la rama.
+4. Solo entonces, mergear el PR y borrar la rama.
 
 ## Versión
 

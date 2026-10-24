@@ -320,8 +320,9 @@ add_action( 'rest_api_init', 'aranda_de_duero_chatbot_register_route' );
 function aranda_de_duero_chatbot_purge() {
 	$deleted = 0;
 
-	// 100 at a time, up to 2.000 per run, so that one run never takes long.
-	for ( $round = 0; $round < 20; $round++ ) {
+	// 100 at a time for up to 20 seconds: a run never takes long, however many questions have piled up.
+	$until = microtime( true ) + 20;
+	while ( microtime( true ) < $until ) {
 		$ids = get_posts(
 			array(
 				'post_type'      => ARANDA_DE_DUERO_CHATBOT_LOG_TYPE,

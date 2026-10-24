@@ -116,7 +116,8 @@ class EverydayServicesTest extends TestCase {
 
 		$lost = aranda_de_duero_lost_found_info();
 		$this->assertSame( '947 51 26 46', $lost['phone'] );
-		$this->assertSame( 'policia@arandadeduero.es', $lost['email'] );
+		$this->assertSame( 'policialocalad@arandadeduero.es', $lost['email'] );
+		$this->assertSame( 'Calle Valladolid, 4', $lost['address'] );
 	}
 
 	public function test_the_old_omic_article_redirects_to_the_new_page_once_it_exists() {

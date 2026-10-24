@@ -57,9 +57,8 @@ function aranda_de_duero_omic_info() {
 /**
  * Contact data of the Policía Local for lost-and-found items.
  *
- * Source: the periodic «Objetos hallados en vía pública» publications of the Policía Local (e.g. the one of December 2020). The
- * address is the one that publication gives; a 2019 project for a new headquarters means it may have changed since, so the page
- * asks to call first rather than go in person without checking.
+ * Source: the Ayuntamiento's own page of concejalías and departments (/informacion-de-concejalias/), 2026-10-25. The Policía
+ * Local moved to this address in 2021, from its previous one at Plaza Jardines de Don Diego.
  *
  * @return array<string,string>
  */
@@ -67,8 +66,8 @@ function aranda_de_duero_lost_found_info() {
 	return array(
 		'phone'      => '947 51 26 46',
 		'phone_href' => 'tel:947512646',
-		'email'      => 'policia@arandadeduero.es',
-		'address'    => 'Plaza Jardines de Don Diego, 3',
+		'email'      => 'policialocalad@arandadeduero.es',
+		'address'    => 'Calle Valladolid, 4',
 	);
 }
 

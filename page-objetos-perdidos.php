@@ -57,7 +57,6 @@ $aranda_lost = aranda_de_duero_lost_found_info();
 							<li>
 								<strong><?php esc_html_e( 'Dirección:', 'aranda-de-duero' ); ?></strong>
 								<?php echo esc_html( $aranda_lost['address'] ); ?>
-								<span class="text-muted"><?php esc_html_e( '(confírmala por teléfono antes de ir)', 'aranda-de-duero' ); ?></span>
 							</li>
 						</ul>
 					</section>

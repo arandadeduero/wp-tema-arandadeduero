@@ -38,16 +38,23 @@ cuando está publicada, para que nunca lleve a un 404. El autobús siempre apare
 
 ## Objetos perdidos
 
-- **Contacto:** `aranda_de_duero_lost_found_info()` — teléfono 947 51 26 46, correo `policia@arandadeduero.es` y la dirección
-  Plaza Jardines de Don Diego, 3. **Fuente:** las publicaciones periódicas «Objetos hallados en vía pública» de la Policía
-  Local (la de diciembre de 2020 es la más reciente que se ha encontrado). **La dirección no está confirmada**: hay un proyecto
-  de 2019 para una nueva sede y no consta si se ha completado, así que la página pide llamar antes de ir.
+- **Contacto:** `aranda_de_duero_lost_found_info()` — teléfono 947 51 26 46, correo `policialocalad@arandadeduero.es` y la
+  dirección Calle Valladolid, 4. **Fuente:** la propia página de concejalías y departamentos del Ayuntamiento
+  (`/informacion-de-concejalias/`), 2026-10-25. La Policía Local se mudó a esta dirección en 2021, desde la antigua de
+  Plaza Jardines de Don Diego.
 - Si el Ayuntamiento confirma o cambia estos datos, se edita solo `aranda_de_duero_lost_found_info()`.
 
 ## Autobús urbano
 
 Un enlace directo a `https://busurbanoaranda.com/` (`aranda_de_duero_transport_url()`), sin página propia porque la información
 ya vive en ese sitio. Si alguna vez cambia la dirección, es la única línea que tocar.
+
+## Toda la tarjeta lleva a la página
+
+La tarjeta de farmacia y la de residuos tienen dentro otros enlaces (teléfono, mapa), así que el título no puede ser el único
+`<a>` de toda la tarjeta sin que quede invalido el HTML. Se usa el mismo truco que ya tenía «Especiales»
+(`.stretched-link` de Bootstrap): el título estira su enlace a toda la tarjeta, y los enlaces de teléfono y mapa van por
+encima (`z-index`) para seguir siendo clicables.
 
 ## Dónde tocar si se quiere cambiar algo
 
@@ -60,6 +67,5 @@ ya vive en ese sitio. Si alguna vez cambia la dirección, es la única línea qu
 
 ## No verificado
 
-- Si la dirección de la Policía Local sigue siendo Plaza Jardines de Don Diego, 3, tras el proyecto de nueva sede (2019).
 - El aspecto de las dos páginas nuevas en la web real (se comprueba tras el primer despliegue).
 - Que `busurbanoaranda.com` sea el sitio oficial del operador (solo se comprobó que responde).

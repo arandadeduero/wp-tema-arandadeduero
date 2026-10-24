@@ -4097,7 +4097,9 @@ div.service-card.service-card-waste.is-banned {
 
 .waste-bulky .waste-bulky-title {
     margin: 0 0 var(--spacing-sm);
-    color: var(--color-white) !important; /* La regla global de los títulos también lleva !important */
+
+    /* La regla global de los títulos también lleva !important */
+    color: var(--color-white) !important;
     font-size: 1.25rem;
     font-weight: 700;
 }

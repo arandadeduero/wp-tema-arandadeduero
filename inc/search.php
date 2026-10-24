@@ -169,6 +169,46 @@ function aranda_de_duero_search_words( $text ) {
 }
 
 /**
+ * Words people use that the catalogue does not: a procedure whose title has a word starting with one of the stems of a rule is
+ * also found by the keywords of that rule. Validated by the Ayuntamiento (2026-10-24); add a rule only with their ok.
+ *
+ * @return array<int, array{stems: string[], keywords: string}>
+ */
+function aranda_de_duero_sede_catalog_synonyms() {
+	return array(
+		array(
+			'stems'    => array( 'residuo' ),
+			'keywords' => 'basura basuras',
+		),
+		array(
+			'stems'    => array( 'funerari', 'nicho', 'panteon', 'columbario', 'exhumacion', 'inhumacion', 'cementerio' ),
+			'keywords' => 'sepultura sepulturas',
+		),
+	);
+}
+
+/**
+ * The synonyms that apply to a procedure of the catalogue.
+ *
+ * @param string $title Title of the procedure.
+ * @return string Keywords, without accents ('' when no rule applies).
+ */
+function aranda_de_duero_sede_catalog_keywords( $title ) {
+	$words    = aranda_de_duero_search_words( $title );
+	$keywords = array();
+	foreach ( aranda_de_duero_sede_catalog_synonyms() as $rule ) {
+		foreach ( $rule['stems'] as $stem ) {
+			if ( aranda_de_duero_search_has_word( $words, $stem ) ) {
+				$keywords[] = $rule['keywords'];
+				break;
+			}
+		}
+	}
+
+	return implode( ' ', $keywords );
+}
+
+/**
  * The procedures of the catalogue of the electronic office as searchable entries, each pointing to its own page in the catalogue.
  *
  * The list is data/sede/tramites.json (node scripts/update-sede-catalog.js refreshes it from the office). It is only searched on the
@@ -194,7 +234,7 @@ function aranda_de_duero_sede_catalog_entries() {
 			(string) $procedure['name'],
 			empty( $procedure['area'] ) ? __( 'Trámite de la sede electrónica.', 'aranda-de-duero' ) : (string) $procedure['area'],
 			aranda_de_duero_sede_url( '/sta/CarpetaPublic/doEvent?APP_CODE=STA&PAGE_CODE=CATALOGO&DETALLE=' . rawurlencode( (string) $procedure['id'] ) ),
-			''
+			aranda_de_duero_sede_catalog_keywords( (string) $procedure['name'] )
 		);
 	}
 

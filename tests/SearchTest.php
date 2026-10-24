@@ -67,6 +67,20 @@ class SearchTest extends TestCase {
 		$this->assertContains( 'Declaración responsable primera ocupación', $found );
 	}
 
+	public function test_the_validated_synonyms_find_catalogue_procedures() {
+		$this->mocks();
+
+		$basura = $this->titles( aranda_de_duero_search_services( 'basura', 12 ) );
+		$this->assertContains( 'Devolucion de garantia o fianza de residuos de construccion y demolicion', $basura );
+
+		foreach ( array( 'sepultura', 'sepulturas' ) as $query ) {
+			$found = $this->titles( aranda_de_duero_search_services( $query, 12 ) );
+			$this->assertContains( 'Solicitud de Inhumación en Nichos, Panteones, Columbarios...', $found, $query );
+		}
+
+		$this->assertSame( '', aranda_de_duero_sede_catalog_keywords( 'Licencia de obras de demolición' ) );
+	}
+
 	public function test_the_curated_services_come_before_the_catalogue_and_the_suggestions_do_not_carry_it() {
 		$this->mocks();
 

@@ -64,11 +64,19 @@ $aranda_day_text = static function ( $date ) {
 									<?php if ( ! empty( $aranda_guard['pharmacy']['phone'] ) ) : ?>
 										<p class="pharmacy-phone mb-3"><a href="<?php echo esc_url( 'tel:' . $aranda_guard['pharmacy']['phone'] ); ?>"><?php echo esc_html( aranda_de_duero_pharmacy_phone( $aranda_guard['pharmacy']['phone'] ) ); ?></a></p>
 									<?php endif; ?>
-									<p class="pharmacy-maps mb-0">
-										<?php foreach ( aranda_de_duero_pharmacy_map_links( $aranda_guard['pharmacy'] ) as $aranda_map ) : ?>
-											<a href="<?php echo esc_url( $aranda_map['url'] ); ?>" target="_blank" rel="noopener"><?php echo esc_html( $aranda_map['label'] ); ?><?php aranda_de_duero_the_new_tab_notice(); ?></a>
-										<?php endforeach; ?>
-									</p>
+									<?php $aranda_map = aranda_de_duero_pharmacy_map_link( $aranda_guard['pharmacy'] ); ?>
+									<?php if ( null !== $aranda_map ) : ?>
+										<p class="pharmacy-maps mb-0">
+											<a class="pharmacy-map" href="<?php echo esc_url( $aranda_map['url'] ); ?>" target="_blank" rel="noopener">
+												<?php
+												// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- aranda_de_duero_icon() returns SVG markup already sanitized by the WP 7.1 SVG Icon API (see inc/icons.php).
+												echo aranda_de_duero_icon( $aranda_map['icon'], array( 'size' => 16 ) );
+												echo esc_html( $aranda_map['label'] );
+												aranda_de_duero_the_new_tab_notice();
+												?>
+											</a>
+										</p>
+									<?php endif; ?>
 								</div>
 							</div>
 							<p class="small text-muted">
@@ -140,11 +148,19 @@ $aranda_day_text = static function ( $date ) {
 												<?php if ( ! empty( $aranda_pharmacy['zone'] ) ) : ?>
 													<small class="text-muted">(<?php echo esc_html( $aranda_pharmacy['zone'] ); ?>)</small>
 												<?php endif; ?>
-												<small class="d-block">
-													<?php foreach ( aranda_de_duero_pharmacy_map_links( $aranda_pharmacy ) as $aranda_map ) : ?>
-														<a href="<?php echo esc_url( $aranda_map['url'] ); ?>" target="_blank" rel="noopener"><?php echo esc_html( $aranda_map['label'] ); ?><?php aranda_de_duero_the_new_tab_notice(); ?></a>
-													<?php endforeach; ?>
-												</small>
+												<?php $aranda_map = aranda_de_duero_pharmacy_map_link( $aranda_pharmacy ); ?>
+												<?php if ( null !== $aranda_map ) : ?>
+													<small class="d-block">
+														<a class="pharmacy-map" href="<?php echo esc_url( $aranda_map['url'] ); ?>" target="_blank" rel="noopener">
+															<?php
+															// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- aranda_de_duero_icon() returns SVG markup already sanitized by the WP 7.1 SVG Icon API (see inc/icons.php).
+															echo aranda_de_duero_icon( $aranda_map['icon'], array( 'size' => 14 ) );
+															echo esc_html( $aranda_map['label'] );
+															aranda_de_duero_the_new_tab_notice();
+															?>
+														</a>
+													</small>
+												<?php endif; ?>
 											</td>
 											<td>
 												<?php if ( ! empty( $aranda_pharmacy['phone'] ) ) : ?>

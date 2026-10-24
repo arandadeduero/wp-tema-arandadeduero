@@ -2774,7 +2774,8 @@ button.poster-dialog-button {
     margin: 0;
 }
 
-a.service-card {
+a.service-card,
+div.service-card {
     display: flex;
     flex-direction: column;
     gap: var(--spacing-xs);
@@ -2788,6 +2789,63 @@ a.service-card {
     color: var(--color-text);
     line-height: 1.5;
     text-decoration: none;
+}
+
+div.service-card .service-card-title {
+    text-decoration: none;
+}
+
+div.service-card .service-card-title:hover,
+div.service-card .service-card-title:focus-visible {
+    text-decoration: underline;
+}
+
+.service-card-pharmacy-name {
+    color: var(--color-black);
+    font-weight: 700;
+}
+
+.service-card-pharmacy-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--spacing-sm) var(--spacing-lg);
+    margin-top: auto;
+    padding-top: var(--spacing-xs);
+    font-weight: 600;
+}
+
+/* Botón de mapa (Google Maps o Apple Maps según el dispositivo): pequeño, con el icono de la plataforma. */
+.pharmacy-map svg {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    margin-right: 0.35em;
+    vertical-align: -0.125em;
+}
+
+.service-card-pharmacy-actions a.pharmacy-map {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 2rem;
+    min-height: 2rem;
+    margin-left: auto;
+    padding: var(--spacing-xs);
+    border-radius: var(--border-radius-lg);
+    background: var(--color-primary-accessible);
+    color: var(--color-white);
+    text-decoration: none;
+}
+
+.service-card-pharmacy-actions a.pharmacy-map svg {
+    margin-right: 0;
+    vertical-align: 0;
+}
+
+.service-card-pharmacy-actions a.pharmacy-map:hover,
+.service-card-pharmacy-actions a.pharmacy-map:focus-visible {
+    background: var(--color-primary-dark);
 }
 
 a.service-card:hover,

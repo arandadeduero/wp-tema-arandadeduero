@@ -1,0 +1,69 @@
+.gitignore
+  s_4f5cd8214eb10f::t_420de10cf0cbec 65
+MEJORAS-OTROS-AYUNTAMIENTOS.md
+  s_4f5cd8214eb10f::t_5279f1ec3b0147 87,169,180
+RELEASE.md
+  s_4f5cd8214eb10f::t_7a74fbe37ecb22 14-15,19,24,67-68
+css/aranda-de-duero.css
+  s_4f5cd8214eb10f::t_41ed4650b3124c 3386-3552
+data/farmacias/2026.json
+  s_4f5cd8214eb10f::t_af11e75256371d 1-1491
+data/farmacias/catalogo.json
+  s_4f5cd8214eb10f::t_cf32387c75a8c4 1-228
+docs/asistente-virtual.md
+  s_4f5cd8214eb10f::t_ca1c518bd0c0cb 1-63
+docs/farmacias-de-guardia.md
+  s_4f5cd8214eb10f::t_bd68ed86851e1d 1-104
+functions.php
+  s_4f5cd8214eb10f::t_6d2c3227b5fc17 390-394,430-439
+inc/chatbot.php
+  s_4f5cd8214eb10f::t_12a7cff41d1357 1-441
+inc/events.php
+  s_4f5cd8214eb10f::t_4d5ebdbb619edd 14-18,101-103,184-185
+inc/icons.php
+  s_4f5cd8214eb10f::t_73b765866c23c4 103-111
+inc/pharmacies.php
+  s_4f5cd8214eb10f::t_e82dcdcb2741f9 1-281
+inc/reminders.php
+  s_4f5cd8214eb10f::t_2a325bae585695 1-131
+inc/term-contact.php
+  s_4f5cd8214eb10f::t_0ba505cfe4af4b 7
+js/chatbot.js
+  s_4f5cd8214eb10f::t_02e6c87b65cba3 1-120
+page-farmacias.php
+  s_4f5cd8214eb10f::t_bce0c0fe5b4b24 1-172
+readme.txt
+  s_4f5cd8214eb10f::t_15d6e1848a91f2 9
+scripts/build-release.js
+  s_4f5cd8214eb10f::t_24d38447c09426 20,37
+style-rtl.css
+  s_4f5cd8214eb10f::t_52fcafcdadb7e8 7
+style.css
+  s_4f5cd8214eb10f::t_5a2201cf391aac 7
+template-parts/chatbot.php
+  s_4f5cd8214eb10f::t_220afb638c34fa 1-54
+tests/ChatbotTest.php
+  s_4f5cd8214eb10f::t_caa532c2f8ec57 1-155
+tests/PharmaciesTest.php
+  s_4f5cd8214eb10f::t_11b338b6e92662 1-143
+tests/RemindersTest.php
+  s_4f5cd8214eb10f::t_151c2311004cdf 1-102
+tests/bootstrap.php
+  s_4f5cd8214eb10f::t_d81cb9e4f28b35 11-12
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "4ed1cb735c90bbb016a3dfb01f4a9313efeee957",
+  "prompts": {},
+  "sessions": {
+    "s_4f5cd8214eb10f": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "2755f5ae-2053-4324-9f05-1e0bfa06829c",
+        "model": "claude-sonnet-5-5"
+      },
+      "human_author": "Guillermo López <willyaranda@gmail.com>"
+    }
+  }
+}

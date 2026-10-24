@@ -4,7 +4,7 @@ defined( 'ABSPATH' ) || exit;
 /**
  * General information of a concejalía: who leads it, phone, e-mail and where it is.
  *
- * The taxonomy is registered by the Custom Post Type UI plugin, so the fields are term meta registered here (no extra plugin):
+ * The taxonomy is registered by the theme (inc/content-types.php), and the fields are term meta registered here (no extra plugin):
  * they are edited in Entradas → Concejalías, shown under the description of the archive (template-parts/term-heading.php) and
  * in the index /concejalia/ (template-parts/term-index.php).
  *

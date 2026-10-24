@@ -12,6 +12,11 @@ defined( 'ABSPATH' ) || exit;
  */
 
 /**
+ * How many event posts are read to find the upcoming ones.
+ */
+const ARANDA_DE_DUERO_EVENTS_SCAN = 500;
+
+/**
  * Transient key for the upcoming-events list.
  *
  * @param int $limit Maximum number of events.
@@ -93,7 +98,9 @@ function aranda_de_duero_query_upcoming_events( $limit ) {
 
 	// Only published events: the result is cached for everyone, so it must not depend on who triggered the cache fill
 	// (WP_Query adds private posts for users who can read them).
-	$query = aranda_de_duero_content( 'mc-events', '', '', $limit, false, array( 'post_status' => 'publish' ) );
+	// shortcut: the posts come newest-created first, not by event date, so a wide window is read and cut to $limit after the past
+	// events are dropped; upgrade to a query by event date if the site ever holds more than ARANDA_DE_DUERO_EVENTS_SCAN events.
+	$query = aranda_de_duero_content( 'mc-events', '', '', max( (int) $limit, ARANDA_DE_DUERO_EVENTS_SCAN ), false, array( 'post_status' => 'publish' ) );
 
 	if ( ! $query->have_posts() ) {
 		return array();
@@ -172,6 +179,8 @@ function aranda_de_duero_query_upcoming_events( $limit ) {
 		$dates = array_column( $upcoming_events, 'date_start' );
 		array_multisort( $dates, SORT_ASC, $upcoming_events );
 	}
+
+	$upcoming_events = array_slice( $upcoming_events, 0, max( 0, (int) $limit ) );
 
 	return $upcoming_events;
 }

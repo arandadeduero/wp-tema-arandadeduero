@@ -48,7 +48,7 @@ function aranda_de_duero_periodic_reminders( $year ) {
 			'date'    => $year . '-' . $month . '-01',
 			'subject' => __( 'Revisar posibles cambios en las delegaciones de las concejalías', 'aranda-de-duero' ),
 			'message' => __(
-				"Aviso semestral (1 de enero y 1 de julio): revisar si ha habido cambios en las delegaciones del equipo de gobierno.\n\nQué comprobar:\n\n1. La lista oficial en https://www.arandadeduero.es/corporacion-municipal/ frente a las concejalías de la web (Entradas → Concejalías): concejal o concejala, teléfono, correo y ubicación de cada una.\n2. Si cambia el reparto de áreas, que las concejalías, el menú «Áreas y servicios» y la tabla de /informacion-de-concejalias/ lo reflejen.\n3. Si se crea, une o elimina un área, actualizar docs/concejalias-vigentes-y-terminos.md en el repositorio del tema.\n\nSi no ha cambiado nada, no hay que hacer nada.",
+				"Aviso semestral (1 de enero y 1 de julio): revisar si ha habido cambios en las delegaciones del equipo de gobierno.\n\nQué comprobar:\n\n1. La lista oficial en https://www.arandadeduero.es/corporacion-municipal/ frente a las concejalías de la web (Entradas → Concejalías): concejal o concejala, teléfono, correo y ubicación de cada una.\n2. Si cambia el reparto de áreas, que las concejalías, el menú «Áreas y servicios» y la tabla de /informacion-de-concejalias/ lo reflejen.\n3. Si se crea, une o elimina un área, actualizar docs/concejalias-vigentes-y-terminos.md en el repositorio del tema.\n\n4. El horario de atención del Ayuntamiento que muestra la web (inc/template-functions.php, «Lunes a Viernes: 8:30 - 14:30»): comprobar que sigue siendo el vigente.\n\nSi no ha cambiado nada, no hay que hacer nada.",
 				'aranda-de-duero'
 			),
 		);
@@ -113,6 +113,8 @@ function aranda_de_duero_periodic_reminders_check() {
 		if ( wp_mail( aranda_de_duero_reminder_recipients(), $reminder['subject'], $reminder['message'] ) ) {
 			$sent[] = $reminder['id'];
 			update_option( 'aranda_reminders_sent', $sent, false );
+		} else {
+			error_log( 'aranda-de-duero: wp_mail() no pudo enviar el aviso «' . $reminder['id'] . '»; se reintenta mañana.' ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log -- the only trace of a failed reminder.
 		}
 	}
 }

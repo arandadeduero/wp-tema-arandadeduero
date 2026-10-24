@@ -11,17 +11,17 @@ npm run release
 
 1. Ejecuta `npm run build`: ESLint con `--max-warnings 0`, Stylelint y la sintaxis PHP (`lint:php`). Si algo falla,
    no se crea el paquete.
-2. Ejecuta `scripts/build-release.js`, que empaqueta el tema en **`aranda-de-duero-2.0.0.zip`, en la raíz del
-   repositorio** (el nombre sale de `THEME_VERSION` en ese script; ver «Versión» más abajo).
+2. Ejecuta `scripts/build-release.js`, que empaqueta el tema en **`dist/aranda-de-duero-2.0.0.zip`** (`dist/` está en
+   `.gitignore` y se vacía en cada compilación) (el nombre sale de `THEME_VERSION` en ese script; ver «Versión» más abajo).
 
 No hay compilación ni minificación: se empaquetan los ficheros tal cual están.
 
-**Qué lleva el zip** (87 ficheros a 2026-10-18):
+**Qué lleva el zip** (117 entradas a 2026-10-24):
 
 - Todos los `*.php` de la raíz (plantillas, `functions.php`, taxonomías…). La lista **se lee del disco**: una plantilla
   nueva entra sola, no hay que añadirla a ningún sitio.
 - `style.css`, `style-rtl.css`, `theme.json`, `readme.txt`, `screenshot.png`, `LICENSE` y `README.md`.
-- Los directorios `css/` (incluidas las fuentes Outfit), `inc/`, `images/`, `js/`, `languages/` y `template-parts/`.
+- Los directorios `css/` (incluidas las fuentes Outfit), `data/` (calendario y catálogo de farmacias), `inc/`, `images/`, `js/`, `languages/` y `template-parts/`.
 
 **Qué no lleva:** `node_modules`, `vendor`, `tests`, `docs`, `scripts`, `.github`, la configuración de las
 herramientas ni los documentos de desarrollo.
@@ -64,8 +64,8 @@ Dos maneras equivalentes:
 
 ## Versión
 
-`THEME_VERSION` está en `scripts/build-release.js` (2.0.0) y `style.css` dice `Version: 1.0.0`: no coinciden y
-ninguna de las dos se usa para nada más que el nombre del zip y la ficha del tema. Los CSS y JS se versionan solos por
+`THEME_VERSION` está en `scripts/build-release.js` y la misma versión (2.0.0) en `style.css`, `style-rtl.css` y `readme.txt`; hay que
+subir las cuatro a la vez. Solo se usan para el nombre del zip y la ficha del tema. Los CSS y JS se versionan solos por
 fecha de modificación (`aranda_de_duero_asset_version()`, con `filemtime()`), salvo Bootstrap, cuya versión está
 escrita en `aranda_de_duero_bootstrap_css()` en `functions.php`: **subirla cuando se cambie `css/bootstrap.min.css`** para
 que los navegadores no sirvan la copia vieja.

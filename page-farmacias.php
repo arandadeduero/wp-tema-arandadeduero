@@ -66,6 +66,9 @@ $aranda_day_text = static function ( $date ) {
 									<?php endif; ?>
 								</div>
 							</div>
+							<p class="small text-muted">
+								<?php esc_html_e( 'El calendario del Colegio no indica a qué hora cambia la guardia. Si consultas de madrugada, mira también la farmacia del día anterior o llama antes de ir.', 'aranda-de-duero' ); ?>
+							</p>
 							<?php if ( $aranda_guard['low_confidence'] ) : ?>
 								<p class="alert alert-warning" role="alert">
 									<?php esc_html_e( 'Este día está por confirmar: antes de ir, contrasta la farmacia con el Colegio Oficial de Farmacéuticos de Burgos.', 'aranda-de-duero' ); ?>

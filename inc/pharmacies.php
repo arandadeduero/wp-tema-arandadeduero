@@ -264,6 +264,8 @@ function aranda_de_duero_pharmacy_reminder_check() {
 	if ( wp_mail( aranda_de_duero_reminder_recipients(), $mail['subject'], $mail['message'] ) ) {
 		$sent_all[ $year ] = array_values( array_unique( array_merge( $sent, $due ) ) );
 		update_option( 'aranda_pharmacy_reminders_sent', $sent_all, false );
+	} else {
+		error_log( 'aranda-de-duero: wp_mail() no pudo enviar el aviso del calendario de farmacias; se reintenta mañana.' ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log -- the only trace of a failed reminder.
 	}
 }
 add_action( 'aranda_de_duero_pharmacy_reminder', 'aranda_de_duero_pharmacy_reminder_check' );

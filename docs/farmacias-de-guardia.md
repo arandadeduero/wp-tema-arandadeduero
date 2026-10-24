@@ -22,7 +22,7 @@ Plantilla `page-farmacias.php`, lógica en `inc/pharmacies.php` y datos en `data
 Fuente: Colegio Oficial de Farmacéuticos de Burgos, «Servicios de Urgencia Z.F. Aranda de Duero». Los ficheros de 2026 se
 copiaron de `data/farmacias.json` y `data/farmacias-guardia-2026.json` del repositorio `api-ciudad`, mientras esa API no sea pública.
 
-Lo que **no** traen los datos: el horario de la guardia y el horario normal de apertura. La página no los muestra.
+Lo que **no** traen los datos: el horario de la guardia, la hora a la que cambia de una farmacia a otra y el horario normal de apertura. La página no los muestra y avisa de que, de madrugada, conviene mirar también la farmacia del día anterior. **Pendiente:** preguntar al Colegio a qué hora cambia la guardia; si es por la mañana, restar esa hora a «ahora» en `page-farmacias.php` antes de buscar el día.
 
 Licencia de la fuente: figura como «no especificada, uso informativo, verificar antes de redistribución». Conviene confirmar
 con el Colegio que se puede publicar en la web municipal.
@@ -79,13 +79,13 @@ Un aviso de WP-Cron diario por cada tarea. Los destinatarios son `informatica@ar
 | Aviso | Cuándo | Qué dice |
 |---|---|---|
 | Calendario de farmacias del año siguiente | A los 15, 10 y 5 días del 31 de diciembre, mientras no exista `data/farmacias/<año siguiente>.json`. Deja de avisar al subir el fichero | Cómo cargar el calendario (los pasos de arriba) |
-| Posibles cambios en las delegaciones | 1 de enero y 1 de julio | Qué comprobar de las concejalías: concejal, teléfono, correo, ubicación, menú «Áreas y servicios» y `docs/concejalias-vigentes-y-terminos.md` |
+| Posibles cambios en las delegaciones | 1 de enero y 1 de julio | Qué comprobar de las concejalías: concejal, teléfono, correo, ubicación, menú «Áreas y servicios», `docs/concejalias-vigentes-y-terminos.md` y el horario de atención del Ayuntamiento |
 | Corporación municipal vigente | 15 de junio de 2027 | Revisar alcalde o alcaldesa, concejales, delegaciones y textos que citan al alcalde por su nombre |
 
 Cómo funciona:
 
 - Cada aviso se envía una sola vez, el día señalado o en la semana siguiente (el cron solo corre cuando hay visitas). Uno cuya fecha ya pasó hace más de una semana no se envía, así que desplegar el tema no dispara los antiguos.
-- Se apunta como enviado solo si `wp_mail()` dice que salió. Si falla, se reintenta al día siguiente.
+- Se apunta como enviado solo si `wp_mail()` dice que salió. Si falla, se escribe una línea en el registro de errores de PHP (`aranda-de-duero: wp_mail() no pudo enviar…`) y se reintenta al día siguiente.
 - Si el sitio no tiene visitas varios días, los avisos de farmacias pendientes salen juntos en un solo correo.
 - Qué avisos se enviaron: opciones `aranda_pharmacy_reminders_sent` y `aranda_reminders_sent` (no cargan en cada página).
 

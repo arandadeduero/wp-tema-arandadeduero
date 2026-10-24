@@ -17,7 +17,7 @@ const THEME_NAME = 'aranda-de-duero';
 const THEME_VERSION = '2.0.0';
 const DIST_DIR = path.join(__dirname, '..', 'dist');
 const RELEASE_DIR = path.join(DIST_DIR, THEME_NAME);
-const OUTPUT_ZIP = path.join(__dirname, '..', `${THEME_NAME}-${THEME_VERSION}.zip`);
+const OUTPUT_ZIP = path.join(DIST_DIR, `${THEME_NAME}-${THEME_VERSION}.zip`);
 
 const ROOT = path.join(__dirname, '..');
 
@@ -53,7 +53,6 @@ function ensureDistDirectory() {
         fs.rmSync(DIST_DIR, { recursive: true, force: true });
     }
     fs.mkdirSync(DIST_DIR, { recursive: true });
-    fs.mkdirSync(RELEASE_DIR, { recursive: true });
 }
 
 // Copy file
@@ -126,9 +125,6 @@ async function createArchive() {
         output.on('close', () => {
             const stats = fs.statSync(OUTPUT_ZIP);
             const sizeKb = (stats.size / 1024).toFixed(2);
-
-            // Cleanup dist directory
-            fs.rmSync(DIST_DIR, { recursive: true, force: true });
 
             console.log(`\n✅ Release package created successfully!`);
             console.log(`📦 File: ${OUTPUT_ZIP}`);

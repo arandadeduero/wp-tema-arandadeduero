@@ -44,7 +44,7 @@ class SearchTest extends TestCase {
 				if ( 'especial' === $args['post_type'] ) {
 					return $especiales;
 				}
-				return 'servicio-municipal' === $args['post_type'] ? $services : array();
+				return is_array( $args['post_type'] ) && in_array( 'servicio-municipal', $args['post_type'], true ) ? $services : array();
 			}
 		);
 		\WP_Mock::userFunction( 'get_terms' )->andReturn( $concejalias );

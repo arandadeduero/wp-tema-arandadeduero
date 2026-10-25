@@ -448,6 +448,11 @@ require get_template_directory() . '/inc/waste.php';
 require get_template_directory() . '/inc/everyday-services.php';
 
 /**
+ * Projects with European funds (PRTR / NextGenerationEU).
+ */
+require get_template_directory() . '/inc/eu-funds.php';
+
+/**
  * Load Jetpack compatibility file.
  */
 if ( defined( 'JETPACK__VERSION' ) ) {

@@ -3926,24 +3926,48 @@ div.service-card.service-card-waste.is-banned {
     font-size: 0.875rem;
 }
 
-/* Página de un servicio (single-servicio-municipal.php): enlace de vuelta a su concejalía, mismo patrón que .event-back-link. */
-.single-servicio-municipal .service-kicker {
+/* Página de un servicio o de un proyecto europeo: enlace de vuelta (a su concejalía o a Fondos europeos), mismo patrón que .event-back-link. */
+:is(.single-servicio-municipal, .single-proyecto-europeo) .service-kicker {
     margin: 0 0 var(--spacing-sm);
     font-size: 0.9375rem;
 }
 
-.single-servicio-municipal .service-back-link {
+:is(.single-servicio-municipal, .single-proyecto-europeo) .service-back-link {
     color: var(--color-primary-accessible);
     font-weight: 600;
     text-decoration: none;
 }
 
-.single-servicio-municipal .service-back-link::before {
+:is(.single-servicio-municipal, .single-proyecto-europeo) .service-back-link::before {
     content: '←';
     margin-right: 0.35em;
 }
 
-.single-servicio-municipal .service-back-link:hover,
-.single-servicio-municipal .service-back-link:focus-visible {
+:is(.single-servicio-municipal, .single-proyecto-europeo) .service-back-link:hover,
+:is(.single-servicio-municipal, .single-proyecto-europeo) .service-back-link:focus-visible {
     text-decoration: underline;
+}
+
+/* Proyecto europeo: datos de la ficha, lema obligatorio del PRTR y total del índice ([proyectos_europeos]). */
+.eu-project-data {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: var(--spacing-sm) var(--spacing-md);
+    margin: var(--spacing-md) 0;
+    padding: var(--spacing-md);
+    background: var(--color-primary-light);
+}
+
+.eu-project-data dt {
+    font-weight: 600;
+}
+
+.eu-project-data dd {
+    margin: 0;
+}
+
+.eu-funds-wording,
+.eu-funds-total {
+    margin: var(--spacing-md) 0;
+    font-weight: 600;
 }

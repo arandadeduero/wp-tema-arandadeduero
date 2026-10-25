@@ -111,6 +111,19 @@ function aranda_de_duero_post_types() {
 				'menu_icon'  => 'dashicons-building',
 			)
 		),
+		'proyecto-europeo'   => aranda_de_duero_post_type_args(
+			'proyecto-europeo',
+			'Proyecto europeo',
+			'Proyectos europeos',
+			array(
+				'supports'  => array( 'title', 'editor', 'excerpt', 'revisions' ),
+				'rewrite'   => array(
+					'slug'       => 'fondos-europeos',
+					'with_front' => true,
+				),
+				'menu_icon' => 'dashicons-flag',
+			)
+		),
 	);
 }
 

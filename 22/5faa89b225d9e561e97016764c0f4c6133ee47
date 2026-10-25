@@ -1,0 +1,25 @@
+inc/everyday-services.php
+  s_e1aa48bb7b463c::t_b5905a1f4dacd2 134-135,139-140
+tests/EverydayServicesTest.php
+  s_e1aa48bb7b463c::t_b5905a1f4dacd2 45-53
+docs/servicios-cotidianos.md
+  s_e1aa48bb7b463c::t_b5905a1f4dacd2 15,49-51
+MEJORAS-OTROS-AYUNTAMIENTOS.md
+  s_e1aa48bb7b463c::t_b5905a1f4dacd2 250
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "225faa89b225d9e561e97016764c0f4c6133ee47",
+  "prompts": {},
+  "sessions": {
+    "s_e1aa48bb7b463c": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "950c7f09-0446-4c9c-8da1-ba075c088b88",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Guillermo López <willyaranda@gmail.com>"
+    }
+  }
+}

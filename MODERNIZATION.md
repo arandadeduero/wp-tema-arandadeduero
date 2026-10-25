@@ -78,6 +78,13 @@ historial de git.
 
 ## PHP
 
+- **PHP 8.3** (2026-10-25): el servidor pasó de 7.4.21 a 8.3.36. `composer.json`, `style.css`, `readme.txt`, la CI,
+  phpcs (`testVersion 8.3-`) y phpstan (`phpVersion: 80300`) apuntan ya a 8.3. El código no tenía nada roto en 8.x
+  (sin `${}` en cadenas, `strftime`, `utf8_encode` ni clases propias con propiedades dinámicas); solo se cambiaron los
+  `strpos` de «empieza por» y «contiene» por `str_starts_with()` y `str_contains()`. En la búsqueda («¿Qué necesitas?»)
+  eso baja de 2,75 a 2,27 ms por consulta (medido en local con los 487 servicios y trámites), una mejora real pero
+  pequeña: la petición entera tarda 300-620 ms y el código del tema no llega al 1 %. El resto de la mejora de 8.3 la da
+  el propio motor, sin tocar el tema.
 - Estándares de WordPress verificados con phpcs, PHPStan nivel 5 y tests unitarios (PHPUnit + WP_Mock).
 - Versión de cada asset según `filemtime()` (`aranda_de_duero_asset_version()`).
 - Imágenes destacadas con `the_post_thumbnail()` (`srcset`/`sizes` automáticos).

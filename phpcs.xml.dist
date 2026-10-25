@@ -133,8 +133,8 @@
 	#############################################################################
 	-->
 
-	<!-- Check for PHP 7.4+ compatibility -->
-	<config name="testVersion" value="7.4-"/>
+	<!-- Check for PHP 8.3+ compatibility (the server runs 8.3) -->
+	<config name="testVersion" value="8.3-"/>
 	<rule ref="PHPCompatibilityWP"/>
 
 </ruleset>

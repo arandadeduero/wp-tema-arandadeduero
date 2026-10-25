@@ -4,6 +4,8 @@ includes:
 
 parameters:
     level: 5
+    # The server's version (8.3.36), not whichever PHP runs phpstan.
+    phpVersion: 80300
     paths:
         - .
     excludePaths:

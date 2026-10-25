@@ -6,14 +6,6 @@ require_once dirname( __DIR__ ) . '/inc/pharmacies.php';
 require_once dirname( __DIR__ ) . '/inc/waste.php';
 require_once dirname( __DIR__ ) . '/inc/everyday-services.php';
 
-// Minimal stand-in: the tests only need `instanceof WP_Post` and `post_status`/`post_name`.
-if ( ! class_exists( 'WP_Post' ) ) {
-	class WP_Post {
-		public $post_status = 'publish';
-		public $post_name   = '';
-	}
-}
-
 class EverydayServicesTest extends TestCase {
 
 	private function mocks( array $published = array() ) {

@@ -98,7 +98,7 @@ function aranda_de_duero_drop_font_awesome_hint( $urls, $relation_type ) {
 			(array) $urls,
 			function ( $url ) {
 				$host = is_array( $url ) ? ( $url['href'] ?? '' ) : (string) $url;
-				return false === strpos( $host, 'use.fontawesome.com' );
+				return ! str_contains( $host, 'use.fontawesome.com' );
 			}
 		)
 	);

@@ -3,12 +3,6 @@ use WP_Mock\Tools\TestCase;
 
 require_once dirname( __DIR__ ) . '/inc/template-functions.php';
 
-if ( ! class_exists( 'WP_Post' ) ) {
-	class WP_Post {
-		public $post_status = 'publish';
-	}
-}
-
 class ThemeGuardsTest extends TestCase {
 
 	public function test_a_published_page_is_found_by_its_slug() {

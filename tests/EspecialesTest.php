@@ -48,7 +48,7 @@ class EspecialesTest extends TestCase {
 		// Same effect as WordPress' esc_url_raw() for a scheme that is not allowed.
 		\WP_Mock::userFunction( 'esc_url_raw' )->andReturnUsing(
 			function ( $url ) {
-				return 0 === strpos( $url, 'javascript:' ) ? '' : $url;
+				return str_starts_with( $url, 'javascript:' ) ? '' : $url;
 			}
 		);
 		\WP_Mock::userFunction( 'get_permalink' )->andReturn( 'https://www.arandadeduero.es/especial/' );

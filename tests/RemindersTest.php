@@ -30,7 +30,7 @@ class RemindersTest extends TestCase {
 		$delegations = array_filter(
 			aranda_de_duero_periodic_reminders( 2026 ),
 			static function ( $reminder ) {
-				return 0 === strpos( $reminder['id'], 'delegaciones-' );
+				return str_starts_with( $reminder['id'], 'delegaciones-' );
 			}
 		);
 
@@ -44,7 +44,7 @@ class RemindersTest extends TestCase {
 			array_filter(
 				aranda_de_duero_periodic_reminders( 2026 ),
 				static function ( $reminder ) {
-					return 0 === strpos( $reminder['id'], 'catalogo-' );
+					return str_starts_with( $reminder['id'], 'catalogo-' );
 				}
 			)
 		);

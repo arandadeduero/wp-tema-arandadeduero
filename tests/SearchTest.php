@@ -50,6 +50,7 @@ class SearchTest extends TestCase {
 			}
 		);
 		\WP_Mock::userFunction( 'get_template_directory' )->andReturn( dirname( __DIR__ ) );
+		\WP_Mock::userFunction( 'current_time' )->andReturn( '2026-10-25' );
 		\WP_Mock::userFunction( 'wp_parse_url' )->andReturnUsing(
 			function ( $url, $component = -1 ) {
 				return parse_url( $url, $component );
@@ -402,7 +403,7 @@ class SearchTest extends TestCase {
 		$this->mocks();
 
 		foreach ( aranda_de_duero_service_directory() as $entry ) {
-			if ( false !== strpos( $entry['url'], 'sede.arandadeduero.es' ) ) {
+			if ( str_contains( $entry['url'], 'sede.arandadeduero.es' ) ) {
 				$this->assertStringContainsString( '/sta/Carpeta', $entry['url'] );
 				$this->assertStringContainsString( '?APP_CODE=STA&PAGE_CODE=', $entry['url'] );
 			}

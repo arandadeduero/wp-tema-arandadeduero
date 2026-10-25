@@ -117,7 +117,7 @@ function aranda_de_duero_get_submenu_html( $css_class ) {
 	);
 	$menu = is_string( $menu ) ? aranda_de_duero_strip_menu_forms( $menu ) : '';
 
-	return false !== strpos( $menu, '<li' ) ? '<section class="widget widget_nav_menu">' . $menu . '</section>' : '';
+	return str_contains( $menu, '<li' ) ? '<section class="widget widget_nav_menu">' . $menu . '</section>' : '';
 }
 
 /**

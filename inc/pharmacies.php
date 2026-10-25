@@ -197,14 +197,32 @@ function aranda_de_duero_pharmacy_phone( $phone ) {
 }
 
 /**
- * Links that open the address of a pharmacy in Google Maps and in Apple Maps.
+ * Links that open a pharmacy in Google Maps and in Apple Maps.
  *
- * They search by address: the coordinates of the catalogue are only street-level, so a pin could land on another house.
+ * With coordinates checked against the pharmacy's own point in OpenStreetMap (precision «poi» or «house») they drop a pin on
+ * it; otherwise they search by address, because a street-level coordinate could land on another house.
  *
  * @param array<string,mixed> $pharmacy Pharmacy of the catalogue.
  * @return array<int,array{label: string, url: string}>
  */
 function aranda_de_duero_pharmacy_map_links( $pharmacy ) {
+	$precision = isset( $pharmacy['geocode']['precision'] ) ? $pharmacy['geocode']['precision'] : '';
+	if ( in_array( $precision, array( 'poi', 'house' ), true ) && isset( $pharmacy['location']['latitude'], $pharmacy['location']['longitude'] ) ) {
+		$point = (float) $pharmacy['location']['latitude'] . ',' . (float) $pharmacy['location']['longitude'];
+		$name  = rawurlencode( 'Farmacia ' . ( isset( $pharmacy['name'] ) ? $pharmacy['name'] : '' ) );
+
+		return array(
+			array(
+				'label' => 'Google Maps',
+				'url'   => 'https://www.google.com/maps/search/?api=1&query=' . rawurlencode( $point ),
+			),
+			array(
+				'label' => 'Apple Maps',
+				'url'   => 'https://maps.apple.com/?ll=' . $point . '&q=' . $name,
+			),
+		);
+	}
+
 	$parts = array();
 	foreach ( array( 'address', 'postalCode', 'city' ) as $key ) {
 		if ( ! empty( $pharmacy[ $key ] ) ) {

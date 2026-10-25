@@ -54,6 +54,46 @@ class PharmaciesTest extends TestCase {
 		$this->assertSame( array(), aranda_de_duero_pharmacy_map_links( array() ) );
 	}
 
+	public function test_a_checked_point_puts_the_pin_on_the_pharmacy() {
+		$links = aranda_de_duero_pharmacy_map_links(
+			array(
+				'name'     => 'CARLOS GÓMEZ',
+				'address'  => 'Avenida el Ferial, 18',
+				'location' => array(
+					'latitude'  => 41.6738114,
+					'longitude' => -3.6828554,
+				),
+				'geocode'  => array( 'precision' => 'poi' ),
+			)
+		);
+
+		$this->assertSame( 'https://www.google.com/maps/search/?api=1&query=41.6738114%2C-3.6828554', $links[0]['url'] );
+		$this->assertSame( 'https://maps.apple.com/?ll=41.6738114,-3.6828554&q=Farmacia%20CARLOS%20G%C3%93MEZ', $links[1]['url'] );
+	}
+
+	public function test_a_street_level_point_still_searches_by_address() {
+		$links = aranda_de_duero_pharmacy_map_links(
+			array(
+				'address'  => 'Avenida Castilla, 58',
+				'location' => array(
+					'latitude'  => 41.6595191,
+					'longitude' => -3.6921246,
+				),
+				'geocode'  => array( 'precision' => 'street' ),
+			)
+		);
+
+		$this->assertSame( 'https://www.google.com/maps/search/?api=1&query=Avenida%20Castilla%2C%2058', $links[0]['url'] );
+	}
+
+	public function test_every_pharmacy_of_the_catalogue_has_a_map_link() {
+		$catalog = json_decode( (string) file_get_contents( dirname( __DIR__ ) . '/data/farmacias/catalogo.json' ), true );
+
+		foreach ( $catalog['pharmacies'] as $pharmacy ) {
+			$this->assertCount( 2, aranda_de_duero_pharmacy_map_links( $pharmacy ), $pharmacy['name'] );
+		}
+	}
+
 	public function test_apple_devices_get_apple_maps_and_the_rest_google_maps() {
 		$pharmacy = array(
 			'address'    => 'Avenida Castilla, 58',

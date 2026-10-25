@@ -12,7 +12,7 @@ trámites del Ayuntamiento de «Accesos frecuentes».
 | Recogida de residuos | `/recogida-de-residuos/` | `inc/waste.php`, `data/residuos/` (ver `docs/recogida-de-residuos.md`) |
 | OMIC | `/omic/`, plantilla `page-omic.php` | `aranda_de_duero_omic_info()` en `inc/everyday-services.php` |
 | Objetos perdidos | `/objetos-perdidos/`, plantilla `page-objetos-perdidos.php` | `aranda_de_duero_lost_found_info()` en `inc/everyday-services.php` |
-| Autobús urbano | Enlace directo a `https://busurbanoaranda.com/` | `aranda_de_duero_transport_url()`; no tiene página propia |
+| Autobús urbano | La ficha `/servicios/transporte-urbano/` (Movilidad) si está publicada; si no, `https://busurbanoaranda.com/` | `aranda_de_duero_page_url( 'transporte-urbano', 'servicio-municipal' )` y `aranda_de_duero_transport_url()` |
 
 Cada página (farmacia, residuos, OMIC, objetos perdidos) solo aparece en la tarjeta de la portada y en el buscador
 cuando está publicada, para que nunca lleve a un 404. El autobús siempre aparece, porque enlaza a un sitio externo.
@@ -46,8 +46,9 @@ cuando está publicada, para que nunca lleve a un 404. El autobús siempre apare
 
 ## Autobús urbano
 
-Un enlace directo a `https://busurbanoaranda.com/` (`aranda_de_duero_transport_url()`), sin página propia porque la información
-ya vive en ese sitio. Si alguna vez cambia la dirección, es la única línea que tocar.
+La tarjeta lleva a la ficha de servicio «Transporte urbano» (`/servicios/transporte-urbano/`, Movilidad), que enlaza la web del
+operador, el visor de rutas e itinerarios y el mapa. Si esa ficha no está publicada, la tarjeta vuelve a ir directa a
+`https://busurbanoaranda.com/` (`aranda_de_duero_transport_url()`), en otra pestaña.
 
 ## Toda la tarjeta lleva a la página
 

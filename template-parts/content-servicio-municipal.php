@@ -9,16 +9,17 @@ $aranda_concejalias = wp_get_post_terms( get_the_ID(), 'concejalia' );
 ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
-		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 		<?php foreach ( $aranda_concejalias as $aranda_concejalia ) : ?>
-			<p class="entry-meta">
-				<?php
-				/* translators: %s: name of the concejalía. */
-				echo esc_html( sprintf( __( 'Servicio de %s', 'aranda-de-duero' ), $aranda_concejalia->name ) );
-				?>
-				<a href="<?php echo esc_url( get_term_link( $aranda_concejalia ) ); ?>"><?php esc_html_e( 'Ver la concejalía', 'aranda-de-duero' ); ?></a>
+			<p class="service-kicker">
+				<a class="service-back-link" href="<?php echo esc_url( get_term_link( $aranda_concejalia ) ); ?>">
+					<?php
+					/* translators: %s: name of the concejalía. */
+					echo esc_html( sprintf( __( 'Volver a la concejalía: %s', 'aranda-de-duero' ), $aranda_concejalia->name ) );
+					?>
+				</a>
 			</p>
 		<?php endforeach; ?>
+		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 	</header><!-- .entry-header -->
 
 	<?php aranda_de_duero_post_thumbnail(); ?>

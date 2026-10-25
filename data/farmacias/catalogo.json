@@ -5,43 +5,46 @@
     "license": "No especificada por la fuente — uso informativo, verificar antes de redistribución comercial",
     "geocodeProvider": "OpenStreetMap Nominatim (© OpenStreetMap contributors, ODbL 1.0, https://osm.org/copyright)",
     "retrievedAt": "2026-09-09",
-    "note": "Catálogo de farmacias (datos fijos: nombre, dirección, teléfono). El calendario de guardias vive por separado en data/farmacias-guardia-2026.json."
+    "note": "Catálogo de farmacias (datos fijos: nombre, dirección, teléfono). El calendario de guardias vive por separado en data/farmacias/<año>.json. Coordenadas revisadas el 2026-10-25 contra los puntos de farmacia de OpenStreetMap (precision «poi»); direcciones de Julián Lázaro, Blanca Portela y Elsa Álvaro corregidas por el Ayuntamiento ese día.",
+    "geocodedAt": "2026-10-25"
   },
   "pharmacies": [
     {
       "id": 1,
       "name": "JULIÁN LÁZARO",
-      "address": "Plaza Mayor, 11",
+      "address": "Plaza Mayor, 10",
       "postalCode": "09400",
       "city": "Aranda de Duero",
       "zone": null,
       "phone": "947500269",
       "location": {
-        "latitude": 41.6701895,
-        "longitude": -3.6885626
+        "latitude": 41.670179,
+        "longitude": -3.6886373
       },
       "geocode": {
         "provider": "OpenStreetMap Nominatim",
-        "precision": "house",
-        "match": "11, Plaza Mayor, Aranda de Duero"
+        "precision": "poi",
+        "osm": "node/9827924986",
+        "match": "Farmacia Julián Lázaro Cebas (OSM: Plaza Mayor, 10)"
       }
     },
     {
       "id": 2,
       "name": "BLANCA PORTELA",
-      "address": "Plaza Mayor, 13 bis",
+      "address": "Plaza Mayor, 14",
       "postalCode": "09400",
       "city": "Aranda de Duero",
       "zone": null,
       "phone": "947500151",
       "location": {
-        "latitude": 41.6701412,
-        "longitude": -3.6882846
+        "latitude": 41.6701889,
+        "longitude": -3.6881138
       },
       "geocode": {
         "provider": "OpenStreetMap Nominatim",
-        "precision": "house",
-        "match": "13, Plaza Mayor, Aranda de Duero (edificio Museo de Juegos Tradicionales)"
+        "precision": "poi",
+        "osm": "node/1270451586",
+        "match": "Farmacia Blanca Portela Arribas (OSM: Plaza Mayor, 14)"
       }
     },
     {
@@ -53,13 +56,14 @@
       "zone": null,
       "phone": "947500185",
       "location": {
-        "latitude": 41.6713133,
-        "longitude": -3.6855273
+        "latitude": 41.6713178,
+        "longitude": -3.685504
       },
       "geocode": {
         "provider": "OpenStreetMap Nominatim",
-        "precision": "house",
-        "match": "30, Calle Isilla, Aranda de Duero"
+        "precision": "poi",
+        "osm": "node/1270451645",
+        "match": "Lda. Ana Prada de las Heras (OSM: Calle Isilla, 30)"
       }
     },
     {
@@ -71,13 +75,14 @@
       "zone": "Santa Catalina",
       "phone": "947501129",
       "location": {
-        "latitude": 41.670947,
-        "longitude": -3.6777202
+        "latitude": 41.6708388,
+        "longitude": -3.6778535
       },
       "geocode": {
         "provider": "OpenStreetMap Nominatim",
-        "precision": "house",
-        "match": "4, Plaza Obispo Acosta, Barrio Santa Catalina, Aranda de Duero"
+        "precision": "poi",
+        "osm": "node/4630843046",
+        "match": "Ldo. Ignacio de Santiago Herrero (OSM: Plaza Obispo Acosta, 4)"
       }
     },
     {
@@ -89,31 +94,33 @@
       "zone": null,
       "phone": "947501237",
       "location": {
-        "latitude": 41.6595191,
-        "longitude": -3.6921246
+        "latitude": 41.6654184,
+        "longitude": -3.6913548
       },
       "geocode": {
         "provider": "OpenStreetMap Nominatim",
-        "precision": "street",
-        "match": "Avenida Castilla, Aranda de Duero (sin número exacto en OSM)"
+        "precision": "poi",
+        "osm": "node/1270451592",
+        "match": "Lda. Inés Brime Berdugo (OSM: Avenida Castilla, 58)"
       }
     },
     {
       "id": 6,
       "name": "ELSA ÁLVARO REYZÁBAL",
-      "address": "Calle Duero, s/n",
+      "address": "Calle Duero, 2",
       "postalCode": "09400",
       "city": "Aranda de Duero",
       "zone": "Polígono",
       "phone": "947500039",
       "location": {
-        "latitude": 41.6586919,
-        "longitude": -3.6934053
+        "latitude": 41.6598271,
+        "longitude": -3.6936704
       },
       "geocode": {
         "provider": "OpenStreetMap Nominatim",
-        "precision": "street",
-        "match": "Calle Duero, Aranda de Duero (s/n, sin número por definición)"
+        "precision": "poi",
+        "osm": "node/5536194043",
+        "match": "Lda. Elsa Álvaro Reyzabal (OSM: Calle Duero, 2)"
       }
     },
     {
@@ -125,13 +132,14 @@
       "zone": "Barrio de la Estación",
       "phone": "947512666",
       "location": {
-        "latitude": 41.6629721,
-        "longitude": -3.6946118
+        "latitude": 41.6612919,
+        "longitude": -3.6893316
       },
       "geocode": {
         "provider": "OpenStreetMap Nominatim",
-        "precision": "street",
-        "match": "Avenida Luis Mateos, Aranda de Duero (sin número exacto en OSM)"
+        "precision": "poi",
+        "osm": "node/3390792604",
+        "match": "Lda. Elena del Cura (OSM: Avenida Luis Mateos, 1)"
       }
     },
     {
@@ -148,8 +156,9 @@
       },
       "geocode": {
         "provider": "OpenStreetMap Nominatim",
-        "precision": "house",
-        "match": "27, Calle Burgo de Osma, Aranda de Duero (POI ya mapeado como farmacia en OSM: 'Lda. Ana Mª Victorias Gonzalez Lafont')"
+        "precision": "poi",
+        "osm": "node/1691290216",
+        "match": "Lda. Ana Mª Victorias Gonzalez Lafont (OSM: Calle Burgo de Osma, 27)"
       }
     },
     {
@@ -161,13 +170,14 @@
       "zone": null,
       "phone": "947513013",
       "location": {
-        "latitude": 41.6744049,
-        "longitude": -3.6860289
+        "latitude": 41.6744492,
+        "longitude": -3.6860135
       },
       "geocode": {
         "provider": "OpenStreetMap Nominatim",
-        "precision": "house",
-        "match": "31, Calle San Francisco, Aranda de Duero"
+        "precision": "poi",
+        "osm": "node/1350720739",
+        "match": "Lda. Amparo Sanz Hernán (OSM: Calle San Francisco, 31)"
       }
     },
     {
@@ -179,13 +189,14 @@
       "zone": "Santa Catalina",
       "phone": "947511523",
       "location": {
-        "latitude": 41.670712,
-        "longitude": -3.681085
+        "latitude": 41.6707008,
+        "longitude": -3.6810074
       },
       "geocode": {
         "provider": "OpenStreetMap Nominatim",
-        "precision": "house",
-        "match": "6, Calle Pizarro, Barrio Santa Catalina, Aranda de Duero"
+        "precision": "poi",
+        "osm": "node/1270451621",
+        "match": "Ldo. Fernando Blanco Terreros (OSM: Calle Pizarro, 6)"
       }
     },
     {
@@ -202,8 +213,9 @@
       },
       "geocode": {
         "provider": "OpenStreetMap Nominatim",
-        "precision": "house",
-        "match": "18, Avenida el Ferial, Aranda de Duero (POI ya mapeado como farmacia en OSM: 'Ldo. Carlos Gómez Sáiz')"
+        "precision": "poi",
+        "osm": "node/6848100217",
+        "match": "Ldo. Carlos Gómez Sáiz (OSM: Avenida el Ferial, 18)"
       }
     },
     {
@@ -215,13 +227,14 @@
       "zone": "frente a Tamaca",
       "phone": "947514837",
       "location": {
-        "latitude": 41.6630893,
-        "longitude": -3.6909328
+        "latitude": 41.6631228,
+        "longitude": -3.6909254
       },
       "geocode": {
         "provider": "OpenStreetMap Nominatim",
-        "precision": "house",
-        "match": "57, Avenida Castilla, Aranda de Duero"
+        "precision": "poi",
+        "osm": "node/2368416175",
+        "match": "Lda. Ana Mª Garcia Hernando (OSM: Avenida Castilla, 57)"
       }
     }
   ]

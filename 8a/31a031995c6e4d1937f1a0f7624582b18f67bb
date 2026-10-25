@@ -1,0 +1,27 @@
+inc/eu-funds.php
+  s_e1aa48bb7b463c::t_c6480ba4e3f5b9 24-38
+docs/fondos-europeos.md
+  s_e1aa48bb7b463c::t_c6480ba4e3f5b9 17-19,30
+template-parts/content-proyecto-europeo.php
+  s_e1aa48bb7b463c::t_c6480ba4e3f5b9 3-4,35
+tests/EuFundsTest.php
+  s_e1aa48bb7b463c::t_c6480ba4e3f5b9 47-52
+MEJORAS-OTROS-AYUNTAMIENTOS.md
+  s_e1aa48bb7b463c::t_54c3313443f72c 252
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "8a31a031995c6e4d1937f1a0f7624582b18f67bb",
+  "prompts": {},
+  "sessions": {
+    "s_e1aa48bb7b463c": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "950c7f09-0446-4c9c-8da1-ba075c088b88",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Guillermo López <willyaranda@gmail.com>"
+    }
+  }
+}

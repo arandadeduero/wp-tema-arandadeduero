@@ -9,12 +9,14 @@ defined( 'ABSPATH' ) || exit;
  */
 
 /**
- * Permalink of the OMIC page when it is published, or '' (so nothing points to a page that does not exist yet).
+ * Permalink of the OMIC service when it is published, or '' (so nothing points to a service that does not exist yet).
+ *
+ * OMIC is a «servicio-municipal» (Comercio y Consumo), not a static page: see docs/servicios.md.
  *
  * @return string
  */
 function aranda_de_duero_omic_page_url() {
-	return aranda_de_duero_page_url( 'omic' );
+	return aranda_de_duero_service_url( 'omic' );
 }
 
 /**
@@ -33,25 +35,6 @@ function aranda_de_duero_lost_found_page_url() {
  */
 function aranda_de_duero_transport_url() {
 	return 'https://busurbanoaranda.com/';
-}
-
-/**
- * Contact data of the OMIC (Oficina Municipal de Información al Consumidor), the municipal office that informs, mediates and
- * receives consumer complaints (Concejalía de Consumo).
- *
- * Source: the Junta de Castilla y León's directory of OMIC of the province of Burgos (consumo.jcyl.es), 2026-10-25. Not the same
- * phone as the Ayuntamiento's general switchboard.
- *
- * @return array<string,string>
- */
-function aranda_de_duero_omic_info() {
-	return array(
-		'phone_1'      => '947 50 86 66',
-		'phone_1_href' => 'tel:947508666',
-		'phone_2'      => '947 50 92 45',
-		'phone_2_href' => 'tel:947509245',
-		'address'      => 'Plaza Mayor, 13',
-	);
 }
 
 /**
@@ -199,3 +182,35 @@ function aranda_de_duero_redirect_omic_article() {
 	}
 }
 add_action( 'template_redirect', 'aranda_de_duero_redirect_omic_article' );
+
+/**
+ * Where the old static /omic/ page (a page with the page-omic.php template, replaced 2026-10-25 by the «OMIC» servicio-municipal)
+ * must redirect, now that the page itself is gone: its address, or '' when the given path is not it or the new service does not
+ * exist yet.
+ *
+ * @param string $path Path of the request, with or without slashes.
+ * @return string
+ */
+function aranda_de_duero_omic_page_redirect_target( $path ) {
+	if ( 'omic' !== trim( (string) $path, '/' ) ) {
+		return '';
+	}
+
+	return aranda_de_duero_omic_page_url();
+}
+
+/**
+ * Send the old /omic/ page to the new service (301), now that the page has been deleted.
+ */
+function aranda_de_duero_redirect_omic_page() {
+	if ( ! is_404() || ! isset( $_SERVER['REQUEST_URI'] ) ) {
+		return;
+	}
+
+	$target = aranda_de_duero_omic_page_redirect_target( (string) wp_parse_url( esc_url_raw( wp_unslash( $_SERVER['REQUEST_URI'] ) ), PHP_URL_PATH ) );
+	if ( '' !== $target ) {
+		wp_redirect( $target, 301 ); // phpcs:ignore WordPress.Security.SafeRedirect.wp_redirect_wp_redirect -- a fixed address of the theme, not user input.
+		exit;
+	}
+}
+add_action( 'template_redirect', 'aranda_de_duero_redirect_omic_page' );

@@ -245,3 +245,16 @@ function aranda_de_duero_concejalia_service_cards( $slug ) {
 
 	return $cards;
 }
+
+/**
+ * Permalink of a «servicio-municipal» by its slug, when published, or '' (so nothing points to a service that does not exist
+ * yet). Mirrors aranda_de_duero_page_url(), but scoped to this post type.
+ *
+ * @param string $slug Slug of the service.
+ * @return string
+ */
+function aranda_de_duero_service_url( $slug ) {
+	$service = get_page_by_path( $slug, OBJECT, 'servicio-municipal' );
+
+	return ( $service instanceof WP_Post && 'publish' === $service->post_status ) ? (string) get_permalink( $service ) : '';
+}

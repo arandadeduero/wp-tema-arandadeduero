@@ -29,9 +29,9 @@ tarjeta por cada uno, antes de las noticias. Si la concejalía no tiene ningún 
 
 ## El contenido se edita con el editor, no en una plantilla fija
 
-A diferencia de páginas como `/omic/` u `/objetos-perdidos/`, que tienen el teléfono, la dirección y el resto de datos
-escritos directamente en PHP (`aranda_de_duero_omic_info()` y similares), un servicio **no tiene ninguna función de
-datos fija**: todo el contenido (qué es, teléfonos, horarios…) vive en el editor de bloques de la propia entrada
+A diferencia de páginas como `/objetos-perdidos/`, que tienen el teléfono, la dirección y el resto de datos escritos
+directamente en PHP (`aranda_de_duero_lost_found_info()`), un servicio **no tiene ninguna función de datos fija**:
+todo el contenido (qué es, teléfonos, horarios…) vive en el editor de bloques de la propia entrada
 (`the_content()`), igual que una noticia. El tipo ya tiene `show_in_rest` y soporte de `editor`, así que el editor es
 el completo de WordPress (bloques), no un cuadro de texto plano. También lleva soporte de `excerpt`, para un resumen
 corto independiente que se usa como texto de su tarjeta.
@@ -42,13 +42,20 @@ En `taxonomy-concejalia.php`, la lista de noticias bajo «Servicios» usa el mod
 `template-parts/term-posts.php` (`compact => true`): solo título y fecha, sin miniatura, para que quepan muchas antes
 de la paginación. `taxonomy-tema.php` sigue usando las tarjetas grandes de siempre, sin cambios.
 
+## OMIC sustituye a la antigua página `/omic/`
+
+El servicio «OMIC» (Comercio y Consumo) sustituye a la antigua página estática `/omic/`, con la plantilla
+`page-omic.php` (borrada) y la función `aranda_de_duero_omic_info()` (borrada también, ya sin uso). El contenido se
+migró al cuerpo de la entrada. La página vieja se ha borrado; `/omic/` redirige (301,
+`aranda_de_duero_redirect_omic_page()` en `inc/everyday-services.php`) al nuevo servicio.
+
 ## Pendiente
 
-- **Los servicios reales no están creados todavía.** Hay un CSV con 80 términos de la taxonomía vieja clasificados
-  (18 propuestos como servicio de verdad, el resto como eventos, etiquetas, hermanamientos o documentos), aceptado por
-  el usuario el 2026-10-25, pero las páginas en sí no se han creado. Siguiente paso: crear esas ~18-28 fichas con su
-  concejalía y, si hay texto aprovechable, partir de la descripción que tuviera el término viejo en la taxonomía
-  `servicio` (sin comprobar si la tiene).
+- **Contenido de 16 de las 18 fichas, sin verificar.** Se crearon las 18 fichas aceptadas por el usuario el
+  2026-10-25, cada una con su concejalía, pero solo OMIC (contenido migrado de la antigua página) y Policía Local
+  (dirección y teléfono ya verificados para `/objetos-perdidos/`) llevan datos de contacto comprobados. Las otras 16
+  llevan una descripción breve y genérica, sin teléfono, dirección ni horario inventados: el Ayuntamiento debe
+  ampliarlas o corregirlas desde el editor.
 - **La taxonomía `servicio` sigue mezclada**, sin limpiar los 48 términos numéricos ni separar lo que no es un servicio.
 - No hay archivo general `/servicios/` que liste todos a la vez (`has_archive` está desactivado a propósito, para no
   tener que hacer también esa plantilla hoy); cada servicio solo se ve desde la página de su concejalía o por su URL

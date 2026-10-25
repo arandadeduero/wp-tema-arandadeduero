@@ -42,6 +42,15 @@ class EverydayServicesTest extends TestCase {
 		$this->assertTrue( $items[0]['new_tab'] );
 	}
 
+	public function test_the_bus_leads_to_its_service_once_published() {
+		$this->mocks( array( 'transporte-urbano' ) );
+
+		$items = aranda_de_duero_everyday_services();
+
+		$this->assertSame( 'https://www.arandadeduero.es/transporte-urbano/', $items[0]['url'] );
+		$this->assertFalse( $items[0]['new_tab'] );
+	}
+
 	public function test_every_page_appears_once_published_in_order_with_the_bus_last() {
 		$this->mocks( array( 'farmacia-de-guardia', 'recogida-de-residuos', 'omic', 'objetos-perdidos' ) );
 		\WP_Mock::userFunction( 'get_template_directory' )->andReturn( dirname( __DIR__ ) );

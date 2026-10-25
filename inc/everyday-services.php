@@ -131,11 +131,13 @@ function aranda_de_duero_everyday_services() {
 		);
 	}
 
+	// The «Transporte urbano» service when it is published (it links the operator, the routes and the map); the operator until then.
+	$bus_url = aranda_de_duero_page_url( 'transporte-urbano', 'servicio-municipal' );
 	$items[] = array(
 		'title'    => __( 'Transporte: autobús urbano', 'aranda-de-duero' ),
 		'text'     => __( 'Líneas, horarios y paradas del autobús urbano.', 'aranda-de-duero' ),
-		'url'      => aranda_de_duero_transport_url(),
-		'new_tab'  => true,
+		'url'      => '' !== $bus_url ? $bus_url : aranda_de_duero_transport_url(),
+		'new_tab'  => '' === $bus_url,
 		'keywords' => 'autobus autobuses bus transporte urbano linea lineas horario horarios parada paradas billete billetes',
 	);
 

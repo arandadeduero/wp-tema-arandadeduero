@@ -1,0 +1,43 @@
+tests/EuFundsTest.php
+  s_e1aa48bb7b463c::t_433d8498daf2f9 1-73
+single-proyecto-europeo.php
+  s_e1aa48bb7b463c::t_6b2ed956fffa38 1-8
+css/aranda-de-duero.css
+  s_e1aa48bb7b463c::t_00d9e1bc148f71 3929-3930,3935,3941,3946-3947,3950-3973
+docs/fondos-europeos.md
+  s_e1aa48bb7b463c::t_3605dbecb3e2da 1-35
+inc/search.php
+  s_e1aa48bb7b463c::t_2f642a2c0b75fd 165-166,198
+template-parts/content-proyecto-europeo.php
+  s_e1aa48bb7b463c::t_6b2ed956fffa38 1-39
+tests/SearchTest.php
+  s_e1aa48bb7b463c::t_2f642a2c0b75fd 47
+inc/eu-funds.php
+  s_e1aa48bb7b463c::t_555a8ed8a2e58d 1-218
+  s_e1aa48bb7b463c::t_76ea1b2b10de59 219-226
+functions.php
+  s_e1aa48bb7b463c::t_c0d94ab49386ae 451-454
+  s_e1aa48bb7b463c::t_eb0293d56bb373 450
+MEJORAS-OTROS-AYUNTAMIENTOS.md
+  s_e1aa48bb7b463c::t_3605dbecb3e2da 251
+tests/ContentTypesTest.php
+  s_e1aa48bb7b463c::t_433d8498daf2f9 8-9,18,34
+inc/content-types.php
+  s_e1aa48bb7b463c::t_c0d94ab49386ae 114-126
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "db30db4aeb6cf1dc7784094ba9d045bc1eefb716",
+  "prompts": {},
+  "sessions": {
+    "s_e1aa48bb7b463c": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "950c7f09-0446-4c9c-8da1-ba075c088b88",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Guillermo López <willyaranda@gmail.com>"
+    }
+  }
+}

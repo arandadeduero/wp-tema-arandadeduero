@@ -27,6 +27,21 @@ tarjeta por cada uno, antes de las noticias. Si la concejalía no tiene ningún 
 3. Asignar la concejalía correspondiente (campo «Concejalía», igual que en una noticia o un trámite).
 4. Publicar. Sale ya en la página de esa concejalía y en su propia URL `/servicios/<slug>/`.
 
+## El contenido se edita con el editor, no en una plantilla fija
+
+A diferencia de páginas como `/omic/` u `/objetos-perdidos/`, que tienen el teléfono, la dirección y el resto de datos
+escritos directamente en PHP (`aranda_de_duero_omic_info()` y similares), un servicio **no tiene ninguna función de
+datos fija**: todo el contenido (qué es, teléfonos, horarios…) vive en el editor de bloques de la propia entrada
+(`the_content()`), igual que una noticia. El tipo ya tiene `show_in_rest` y soporte de `editor`, así que el editor es
+el completo de WordPress (bloques), no un cuadro de texto plano. También lleva soporte de `excerpt`, para un resumen
+corto independiente que se usa como texto de su tarjeta.
+
+## Lista de noticias de la concejalía
+
+En `taxonomy-concejalia.php`, la lista de noticias bajo «Servicios» usa el modo compacto de
+`template-parts/term-posts.php` (`compact => true`): solo título y fecha, sin miniatura, para que quepan muchas antes
+de la paginación. `taxonomy-tema.php` sigue usando las tarjetas grandes de siempre, sin cambios.
+
 ## Pendiente
 
 - **Los servicios reales no están creados todavía.** Hay un CSV con 80 términos de la taxonomía vieja clasificados

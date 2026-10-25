@@ -1,0 +1,95 @@
+RELEASE.md
+  s_e1aa48bb7b463c::t_6e32c1b4c9f672 12,23,35-36,67-68
+inc/everyday-services.php
+  s_e1aa48bb7b463c::t_4f3c851cb3ee56 19
+tests/ContactInfoTest.php
+  s_e1aa48bb7b463c::t_792aa60d5e0159 8-9,11,24,35
+tests/HomeCarouselTest.php
+  s_e1aa48bb7b463c::t_792aa60d5e0159 8-9,16
+tests/bootstrap.php
+  s_e1aa48bb7b463c::t_f2c2c467bdb64c 19-53
+  s_e1aa48bb7b463c::t_da553be364e1b1 13
+  s_e1aa48bb7b463c::t_ba246734999139 54
+inc/audiences.php
+  s_e1aa48bb7b463c::t_4f3c851cb3ee56 74
+inc/template-functions.php
+  s_e1aa48bb7b463c::t_4f3c851cb3ee56 235-236
+  s_e1aa48bb7b463c::t_d24e6c2e33cced 160-161,163,168-172,174,178
+  s_e1aa48bb7b463c::t_82449c617392a8 231-232
+DEVELOPMENT.md
+  s_e1aa48bb7b463c::t_6e32c1b4c9f672 84
+  s_e1aa48bb7b463c::t_1819136982aa43 40-43
+tests/ColorSourcesTest.php
+  s_e1aa48bb7b463c::t_6e32c1b4c9f672 70
+tests/SearchTest.php
+  s_e1aa48bb7b463c::t_792aa60d5e0159 15-16,25
+page-home.php
+  s_e1aa48bb7b463c::t_4f3c851cb3ee56 39
+tests/EverydayServicesTest.php
+  s_e1aa48bb7b463c::t_da553be364e1b1 97-108
+  s_e1aa48bb7b463c::t_792aa60d5e0159 11-12,14
+  s_e1aa48bb7b463c::t_74651f4ce117e4 109-110
+inc/pharmacies.php
+  s_e1aa48bb7b463c::t_cdb814b0d36704 55-56,58-60,72-76,78,340
+tests/PerformanceTest.php
+  s_e1aa48bb7b463c::t_c2aec50f1cee0a 85-90,93-99,102
+  s_e1aa48bb7b463c::t_7052ec57dd57cc 91-92,100-101
+inc/services.php
+  s_e1aa48bb7b463c::t_4f3c851cb3ee56 32,34
+MEJORAS-OTROS-AYUNTAMIENTOS.md
+  s_e1aa48bb7b463c::t_1819136982aa43 247
+tests/SituationsTest.php
+  s_e1aa48bb7b463c::t_792aa60d5e0159 12-13,15
+tests/PharmaciesTest.php
+  s_e1aa48bb7b463c::t_792aa60d5e0159 9-10,13
+inc/reminders.php
+  s_e1aa48bb7b463c::t_cdb814b0d36704 65
+tests/ChatbotTest.php
+  s_e1aa48bb7b463c::t_792aa60d5e0159 9-10,13
+  s_e1aa48bb7b463c::t_32129a14af8365 35-47
+  s_e1aa48bb7b463c::t_8c2e5668f1cbeb 48-49
+tests/TermSortTest.php
+  s_e1aa48bb7b463c::t_792aa60d5e0159 9-10,12
+tests/StructuredDataTest.php
+  s_e1aa48bb7b463c::t_792aa60d5e0159 8-9,21
+tests/RemindersTest.php
+  s_e1aa48bb7b463c::t_792aa60d5e0159 8-9,11
+package.json
+  s_e1aa48bb7b463c::t_6e32c1b4c9f672 40,47
+tests/ServicesTest.php
+  s_e1aa48bb7b463c::t_835c66e6303a3e 27,35
+  s_e1aa48bb7b463c::t_792aa60d5e0159 9-10,12
+docs/servicios.md
+  s_e1aa48bb7b463c::t_e8e33e520248af 50-51
+tests/ThemeGuardsTest.php
+  s_e1aa48bb7b463c::t_835c66e6303a3e 10
+inc/performance.php
+  s_e1aa48bb7b463c::t_4dfbe17151dad0 109-122
+  s_e1aa48bb7b463c::t_cd9de827352b7f 108
+inc/events.php
+  s_e1aa48bb7b463c::t_4f3c851cb3ee56 125-126
+404.php
+  s_e1aa48bb7b463c::t_4f3c851cb3ee56 55,69,131
+inc/search.php
+  s_e1aa48bb7b463c::t_fa752c013e9dc3 120
+inc/chatbot.php
+  s_e1aa48bb7b463c::t_32129a14af8365 300-301
+tests/AudiencesTest.php
+  s_e1aa48bb7b463c::t_792aa60d5e0159 12-13,15
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "8a846434bea44876023e6a312133debc97f8eb1b",
+  "prompts": {},
+  "sessions": {
+    "s_e1aa48bb7b463c": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "950c7f09-0446-4c9c-8da1-ba075c088b88",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Guillermo López <willyaranda@gmail.com>"
+    }
+  }
+}

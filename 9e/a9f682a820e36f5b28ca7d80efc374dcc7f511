@@ -1,0 +1,31 @@
+MEJORAS-OTROS-AYUNTAMIENTOS.md
+  s_e1aa48bb7b463c::t_adb8f6727cb93c 245
+  s_e1aa48bb7b463c::t_b06ac57f3234ea 87
+inc/content-types.php
+  s_e1aa48bb7b463c::t_91fe524f9bc27c 248-260
+tests/EverydayServicesTest.php
+  s_e1aa48bb7b463c::t_c9e48627ae6a17 112
+  s_e1aa48bb7b463c::t_94bd9e8affe901 131-147
+inc/everyday-services.php
+  s_e1aa48bb7b463c::t_868c436dc64ad6 185-216
+  s_e1aa48bb7b463c::t_420acf92e19ba4 12-14,19
+docs/servicios.md
+  s_e1aa48bb7b463c::t_a4a6497f0f7e76 32-34
+  s_e1aa48bb7b463c::t_e661c28c608adb 45-51,54-58
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "9ea9f682a820e36f5b28ca7d80efc374dcc7f511",
+  "prompts": {},
+  "sessions": {
+    "s_e1aa48bb7b463c": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "950c7f09-0446-4c9c-8da1-ba075c088b88",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": "Guillermo López <willyaranda@gmail.com>"
+    }
+  }
+}

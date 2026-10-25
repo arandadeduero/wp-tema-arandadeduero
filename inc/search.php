@@ -541,7 +541,7 @@ function aranda_de_duero_enqueue_search_suggest() {
  */
 function aranda_de_duero_search_has_word( array $words, $term ) {
 	foreach ( $words as $word ) {
-		if ( 0 === strpos( $word, $term ) ) {
+		if ( str_starts_with( $word, $term ) ) {
 			return true;
 		}
 	}

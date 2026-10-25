@@ -10,8 +10,8 @@ composer install   # phpcs (WPCS + PHPCompatibility), phpstan, parallel-lint, PH
 npm install        # eslint, stylelint, prettier y archiver (el paquete de release)
 ```
 
-Requisitos: PHP 8.2 o superior **para las herramientas** (la CI usa 8.2; el código del tema debe seguir funcionando
-en PHP 7.4, que es el del servidor), Node 20 o superior y Composer.
+Requisitos: PHP 8.3 o superior (el servidor tiene 8.3.36 desde el 2026-10-25 y la CI usa 8.3; el código del tema
+puede usar lo que trae 8.3, pero nada posterior), Node 20 o superior y Composer.
 
 **No hay paso de compilación.** Lo que hay en `css/` y `js/` es exactamente lo que se sirve: no hay SCSS, ni
 minificación, ni Autoprefixer en el flujo. Por eso **no hay** PostCSS, cssnano, terser, browser-sync ni `@wordpress/scripts`: se quitaron el
@@ -33,12 +33,9 @@ se minifica o se quiere recarga en vivo, se vuelven a añadir entonces.
 | `npm run lint` | `lint:js`, `lint:css` y `lint:php` |
 | `npm run release` | Lint y paquete del tema (ver [RELEASE.md](RELEASE.md)) |
 
-Compatibilidad con PHP 7.4 (no la ejecuta la CI; hacerlo antes de un PR que toque PHP):
-
-```sh
-./vendor/bin/phpcs -p --standard=PHPCompatibilityWP --runtime-set testVersion 7.4 --extensions=php \
-  --ignore='vendor/*,node_modules/*,dist/*,tests/*' .
-```
+La compatibilidad con PHP 8.3 no es un paso aparte: `lint:wpcs` incluye PHPCompatibilityWP con `testVersion 8.3-`
+(`phpcs.xml.dist`) y `phpstan` analiza como PHP 8.3 (`phpVersion: 80300` en `phpstan.neon.dist`), aunque se ejecute
+con un PHP más nuevo.
 
 ## Qué hace cada dependencia
 
@@ -50,7 +47,7 @@ Cada paquete tiene un motivo; si deja de tenerlo, se quita (mirar antes con `git
 | `stylelint`, `stylelint-config-standard`, `stylelint-prettier` | `npm run lint:css` (`.stylelintrc.json`) |
 | `prettier` | `npm run format` y las reglas de formato de ESLint y Stylelint |
 | `archiver` | `scripts/build-release.js` (el zip) |
-| composer: `phpcs` + `wpcs` + `phpcompatibility-wp` + `dealerdirect` | `lint:wpcs` (`phpcs.xml.dist`, incluye PHP 7.4) |
+| composer: `phpcs` + `wpcs` + `phpcompatibility-wp` + `dealerdirect` | `lint:wpcs` (`phpcs.xml.dist`, incluye la compatibilidad con PHP 8.3) |
 | composer: `phpstan` + `phpstan-wordpress` | `phpstan` |
 | composer: `phpunit` + `wp_mock` | `test` |
 | composer: `parallel-lint` | `lint:php` |
@@ -60,8 +57,7 @@ publicado, solo afectan a una herramienta que lee nuestro propio CSS y no llegan
 
 ## Antes de abrir un PR
 
-Todo en verde: `composer run lint:php`, `lint:wpcs`, `phpstan`, `test`, `npm run lint:js`, `npm run lint:css`, y la
-compatibilidad con PHP 7.4 si se tocó PHP. La CI (`.github/workflows/tests.yml`) ejecuta los seis primeros en cada
+Todo en verde: `composer run lint:php`, `lint:wpcs`, `phpstan`, `test`, `npm run lint:js` y `npm run lint:css`. La CI (`.github/workflows/tests.yml`) ejecuta los seis primeros en cada
 push y en cada PR, con permisos de solo lectura (`permissions: contents: read`).
 
 - `phpcbf` reformatea los arrays y puede romper parches hechos por sustitución de texto: después de editar con un

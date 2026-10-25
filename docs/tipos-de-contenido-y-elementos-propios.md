@@ -338,7 +338,7 @@ Solo se afirma lo que el código demuestra; **qué plugins están instalados o a
 
 ## Cómo se haría de otra manera
 
-Respetando las reglas del proyecto (`CLAUDE.md`: español, sin JS/CSS/recursos de terceros, sin CSS en línea, solo la paleta, PHP 7.4).
+Respetando las reglas del proyecto (`CLAUDE.md`: español, sin JS/CSS/recursos de terceros, sin CSS en línea, solo la paleta, PHP 8.3).
 
 | Elemento | Alternativa real | A favor | En contra |
 |---|---|---|---|

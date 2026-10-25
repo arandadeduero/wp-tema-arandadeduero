@@ -7,12 +7,6 @@ require_once dirname( __DIR__ ) . '/inc/search.php';
 require_once dirname( __DIR__ ) . '/inc/situations.php';
 require_once dirname( __DIR__ ) . '/inc/audiences.php';
 
-if ( ! class_exists( 'WP_Post' ) ) {
-	class WP_Post {
-		public $post_status = 'publish';
-	}
-}
-
 class SituationsTest extends TestCase {
 
 	private function mocks( $page = null ) {

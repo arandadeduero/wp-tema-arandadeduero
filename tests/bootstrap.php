@@ -14,3 +14,12 @@ define( 'MINUTE_IN_SECONDS', 60 );
 require_once dirname( __DIR__ ) . '/vendor/autoload.php';
 
 WP_Mock::bootstrap();
+
+// Stand-in for WordPress' WP_Post: the tests need `instanceof WP_Post` and these properties (declared, since PHP 8.2
+// deprecates creating them on the fly).
+class WP_Post {
+	public $ID          = 0;
+	public $post_title  = '';
+	public $post_status = 'publish';
+	public $post_name   = '';
+}

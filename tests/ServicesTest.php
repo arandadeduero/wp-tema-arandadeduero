@@ -4,14 +4,6 @@ use WP_Mock\Tools\TestCase;
 require_once dirname( __DIR__ ) . '/inc/template-functions.php';
 require_once dirname( __DIR__ ) . '/inc/services.php';
 
-// Minimal stand-in: the tests only need `instanceof WP_Post` and `post_status`.
-if ( ! class_exists( 'WP_Post' ) ) {
-	class WP_Post {
-		public $post_status = 'publish';
-		public $post_name   = '';
-	}
-}
-
 class ServicesTest extends TestCase {
 
 	private function mocks() {

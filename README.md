@@ -15,7 +15,7 @@ consultar, usar y adaptar; las propuestas de mejora son bienvenidas como inciden
 ## Requisitos
 
 - WordPress 7.1 o superior (los iconos usan `wp_get_icon()`; en versiones anteriores no se muestran)
-- PHP 7.4 o superior
+- PHP 8.3 o superior
 - Plugins que usan las plantillas: Advanced Custom Fields y My Calendar
 - Ya **no hacen falta** (el tema los sustituye y se pueden desactivar): Elementor, Smart Slider, Ajax Load More,
   Mobile Menu y el plugin de Font Awesome

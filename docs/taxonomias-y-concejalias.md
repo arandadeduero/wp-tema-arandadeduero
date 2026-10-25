@@ -243,7 +243,7 @@ Marcado «no verificable desde el código; lo mide el estudio de la web real»:
 
 ## 8. Cómo se haría de otra manera
 
-Todas las opciones respetan las reglas del proyecto (sin JS/CSS/recursos de terceros, PHP 7.4, solo paleta).
+Todas las opciones respetan las reglas del proyecto (sin JS/CSS/recursos de terceros, PHP 8.3, solo paleta).
 
 | Opción | Ventajas | Inconvenientes |
 |---|---|---|

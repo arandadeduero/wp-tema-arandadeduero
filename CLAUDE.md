@@ -31,7 +31,7 @@ Para trabajar con Claude Code en este repositorio. El detalle está en [DEVELOPM
   uno que no está, preguntar. En PHP, los pocos valores que no pueden leer una variable (`aranda_de_duero_brand_color()`, los valores por defecto del Personalizador) están en
   `inc/customizer-css.php`; `theme.json` usa la misma paleta; `tests/ColorSourcesTest.php` vigila que todo coincida.
 - **Tipografía: solo Outfit.**
-- Compatible con **PHP 7.4** (el del servidor).
+- **PHP 8.3** (el del servidor: 8.3.36 desde 2026-10-25). Se puede usar lo que trae 8.3; `lint:wpcs` comprueba la compatibilidad (`testVersion 8.3-`) y `phpstan` analiza como 8.3.
 - Antes de un PR: `composer run lint:php`, `lint:wpcs`, `phpstan`, `test`, `npm run lint:js`, `npm run lint:css`.
 - Un listado o bloque repetido va en una pieza común de `template-parts/`.
 

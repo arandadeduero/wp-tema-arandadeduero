@@ -52,7 +52,7 @@ aranda_de_duero_the_header_image( '' );
 								<p>
 									Consulta los eventos, conciertos, exposiciones y actividades que tenemos preparadas.
 								</p>
-								<a href="<?php echo esc_url( get_permalink( get_page_by_path( 'agenda' ) ) ); ?>"
+								<a href="<?php echo esc_url( aranda_de_duero_page_url( 'agenda' ) ); ?>"
 									class="btn btn-outline-primary btn-sm">
 									Ver agenda
 								</a>
@@ -66,7 +66,7 @@ aranda_de_duero_the_header_image( '' );
 								<p>
 									Mantente informado sobre las novedades y actualidad de nuestro municipio.
 								</p>
-								<a href="<?php echo esc_url( get_permalink( get_page_by_path( 'noticias' ) ) ); ?>"
+								<a href="<?php echo esc_url( aranda_de_duero_page_url( 'noticias' ) ); ?>"
 									class="btn btn-outline-primary btn-sm">
 									Leer noticias
 								</a>
@@ -128,7 +128,7 @@ aranda_de_duero_the_header_image( '' );
 								</a>
 							</div>
 							<div class="col-md-6 mb-3">
-								<a href="<?php echo esc_url( get_permalink( get_page_by_path( 'web-map' ) ) ); ?>" class="quick-link-card">
+								<a href="<?php echo esc_url( aranda_de_duero_page_url( 'web-map' ) ); ?>" class="quick-link-card">
 									<span class="quick-link-card-icon">🗺️</span>
 									<span class="quick-link-card-text">Mapa del sitio web</span>
 								</a>

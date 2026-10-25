@@ -288,15 +288,6 @@ function aranda_de_duero_chatbot_rest_log( $request ) {
 }
 
 /**
- * Only whoever can see the assistant can send to the log (the REST nonce of a logged-in user is checked by WordPress).
- *
- * @return bool
- */
-function aranda_de_duero_chatbot_rest_permission() {
-	return aranda_de_duero_chatbot_enabled();
-}
-
-/**
  * Register the route.
  */
 function aranda_de_duero_chatbot_register_route() {
@@ -306,7 +297,8 @@ function aranda_de_duero_chatbot_register_route() {
 		array(
 			'methods'             => 'POST',
 			'callback'            => 'aranda_de_duero_chatbot_rest_log',
-			'permission_callback' => 'aranda_de_duero_chatbot_rest_permission',
+			// Only whoever can see the assistant writes to the log; WordPress checks the REST nonce of the logged-in user.
+			'permission_callback' => 'aranda_de_duero_chatbot_enabled',
 		)
 	);
 }

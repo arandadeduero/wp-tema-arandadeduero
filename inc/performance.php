@@ -106,6 +106,21 @@ function aranda_de_duero_drop_font_awesome_hint( $urls, $relation_type ) {
 add_filter( 'wp_resource_hints', 'aranda_de_duero_drop_font_awesome_hint', 10, 2 );
 
 /**
+ * Jetpack Stats sends each visitor's IP to stats.wp.com (Automattic, USA). Like Google Analytics, it only loads once the
+ * visitor accepts third-party cookies in GDPR Cookie Compliance; without that plugin, never. The page where they accept
+ * is not counted: the check runs on the server, so it applies from the next page on.
+ */
+function aranda_de_duero_stats_only_with_consent() {
+	if ( function_exists( 'gdpr_cookie_is_accepted' ) && gdpr_cookie_is_accepted( 'thirdparty' ) ) {
+		return;
+	}
+
+	wp_dequeue_script( 'jetpack-stats' );
+}
+add_action( 'wp_print_scripts', 'aranda_de_duero_stats_only_with_consent', 1 );
+add_action( 'wp_print_footer_scripts', 'aranda_de_duero_stats_only_with_consent', 1 );
+
+/**
  * Transparent 1x1 GIF used as a stand-in until a deferred slide image loads.
  */
 const ARANDA_DE_DUERO_PLACEHOLDER_GIF = 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==';

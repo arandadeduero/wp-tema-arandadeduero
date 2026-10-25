@@ -6,21 +6,14 @@ require_once dirname( __DIR__ ) . '/inc/pharmacies.php';
 
 class PharmaciesTest extends TestCase {
 
+	use Aranda_WP_Stubs;
+
 	private function mocks() {
 		\WP_Mock::userFunction( 'get_template_directory' )->andReturn( dirname( __DIR__ ) );
-		\WP_Mock::userFunction( '__' )->andReturnUsing(
-			function ( $text ) {
-				return $text;
-			}
-		);
+		$this->stub_wp_basics();
 		\WP_Mock::userFunction( '_n' )->andReturnUsing(
 			function ( $single, $plural, $number ) {
 				return 1 === $number ? $single : $plural;
-			}
-		);
-		\WP_Mock::userFunction( 'apply_filters' )->andReturnUsing(
-			function ( $tag, $value ) {
-				return $value;
 			}
 		);
 	}

@@ -5,17 +5,10 @@ require_once dirname( __DIR__ ) . '/inc/reminders.php';
 
 class RemindersTest extends TestCase {
 
+	use Aranda_WP_Stubs;
+
 	private function mocks() {
-		\WP_Mock::userFunction( '__' )->andReturnUsing(
-			function ( $text ) {
-				return $text;
-			}
-		);
-		\WP_Mock::userFunction( 'apply_filters' )->andReturnUsing(
-			function ( $tag, $value ) {
-				return $value;
-			}
-		);
+		$this->stub_wp_basics();
 	}
 
 	public function test_both_addresses_receive_the_reminders() {

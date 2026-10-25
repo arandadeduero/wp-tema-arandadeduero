@@ -16,7 +16,7 @@ defined( 'ABSPATH' ) || exit;
  * @return string
  */
 function aranda_de_duero_omic_page_url() {
-	return aranda_de_duero_service_url( 'omic' );
+	return aranda_de_duero_page_url( 'omic', 'servicio-municipal' );
 }
 
 /**
@@ -198,19 +198,3 @@ function aranda_de_duero_omic_page_redirect_target( $path ) {
 
 	return aranda_de_duero_omic_page_url();
 }
-
-/**
- * Send the old /omic/ page to the new service (301), now that the page has been deleted.
- */
-function aranda_de_duero_redirect_omic_page() {
-	if ( ! is_404() || ! isset( $_SERVER['REQUEST_URI'] ) ) {
-		return;
-	}
-
-	$target = aranda_de_duero_omic_page_redirect_target( (string) wp_parse_url( esc_url_raw( wp_unslash( $_SERVER['REQUEST_URI'] ) ), PHP_URL_PATH ) );
-	if ( '' !== $target ) {
-		wp_redirect( $target, 301 ); // phpcs:ignore WordPress.Security.SafeRedirect.wp_redirect_wp_redirect -- a fixed address of the theme, not user input.
-		exit;
-	}
-}
-add_action( 'template_redirect', 'aranda_de_duero_redirect_omic_page' );

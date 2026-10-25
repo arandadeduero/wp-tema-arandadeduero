@@ -9,41 +9,19 @@ require_once dirname( __DIR__ ) . '/inc/audiences.php';
 
 class SituationsTest extends TestCase {
 
+	use Aranda_WP_Stubs;
+
 	private function mocks( $page = null ) {
-		\WP_Mock::userFunction( 'apply_filters' )->andReturnUsing(
-			function ( $tag, $value ) {
-				return $value;
-			}
-		);
-		\WP_Mock::userFunction( '__' )->andReturnUsing(
-			function ( $text ) {
-				return $text;
-			}
-		);
-		\WP_Mock::userFunction( 'home_url' )->andReturnUsing(
-			function ( $path = '' ) {
-				return 'https://www.arandadeduero.es' . $path;
-			}
-		);
+		$this->stub_wp_basics();
 		\WP_Mock::userFunction( 'get_page_by_path' )->andReturnUsing(
 			function ( $path ) use ( $page ) {
 				return 'tramites-por-situaciones' === $path ? $page : null;
 			}
 		);
 		\WP_Mock::userFunction( 'get_permalink' )->andReturn( 'https://www.arandadeduero.es/tramites-por-situaciones/' );
-		\WP_Mock::userFunction( 'wp_parse_url' )->andReturnUsing(
-			function ( $url, $component = -1 ) {
-				return parse_url( $url, $component );
-			}
-		);
 		\WP_Mock::userFunction( 'get_posts' )->andReturn( array() );
 		\WP_Mock::userFunction( 'get_terms' )->andReturn( array() );
 		\WP_Mock::userFunction( 'is_wp_error' )->andReturn( false );
-		\WP_Mock::userFunction( 'remove_accents' )->andReturnUsing(
-			function ( $text ) {
-				return strtr( $text, array( 'á' => 'a', 'é' => 'e', 'í' => 'i', 'ó' => 'o', 'ú' => 'u', 'ñ' => 'n' ) );
-			}
-		);
 	}
 
 	public function test_every_procedure_points_to_its_page_in_this_site() {

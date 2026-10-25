@@ -36,19 +36,15 @@
     "stylelint-prettier": "^5.0.3"
   },
   "scripts": {
-    "watch:js": "eslint js --fix --quiet || true",
-    "build": "npm run build:js && npm run lint",
-    "build:js": "eslint js --max-warnings 0",
     "lint": "npm run lint:js && npm run lint:css && npm run lint:php",
-    "lint:js": "eslint js --report-unused-disable-directives",
+    "lint:js": "eslint js --max-warnings 0 --report-unused-disable-directives",
     "lint:css": "stylelint 'css/**/*.css'",
     "lint:php": "composer run lint:php",
     "fix:css": "stylelint 'css/**/*.css' --fix",
     "format": "npm run format:js && npm run format:css",
     "format:js": "prettier --write 'js/**/*.js'",
     "format:css": "prettier --write 'css/**/*.css'",
-    "clean": "rm -rf node_modules dist *.css.map",
-    "release": "npm run build && node scripts/build-release.js",
+    "release": "npm run lint && node scripts/build-release.js",
     "test": "npm run lint"
   },
   "prettier": {

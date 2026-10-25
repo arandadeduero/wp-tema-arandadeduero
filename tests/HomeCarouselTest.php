@@ -5,17 +5,15 @@ require_once dirname( __DIR__ ) . '/inc/home-carousel.php';
 
 class HomeCarouselTest extends TestCase {
 
+	use Aranda_WP_Stubs;
+
 	private function mocks() {
 		\WP_Mock::userFunction( 'esc_attr__' )->andReturnUsing(
 			function ( $text ) {
 				return $text;
 			}
 		);
-		\WP_Mock::userFunction( '__' )->andReturnUsing(
-			function ( $text ) {
-				return $text;
-			}
-		);
+		$this->stub_wp_basics();
 		\WP_Mock::userFunction( 'esc_attr' )->andReturnUsing(
 			function ( $text ) {
 				return $text;

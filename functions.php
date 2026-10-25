@@ -216,9 +216,6 @@ function aranda_de_duero_scripts() {
 		'all'
 	);
 
-	// RTL support
-	wp_style_add_data( 'aranda-de-duero-style', 'rtl', 'replace' );
-
 	// Navigation - deferred loading for better performance
 	wp_enqueue_script(
 		'aranda-de-duero-navigation',

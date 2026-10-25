@@ -36,7 +36,7 @@ get_header();
 </div>
 <!-- Banner de plenos  -->
 <?php
-if ( '1' === get_theme_mod( 'aranda_de_duero_show_banner' ) && '' !== get_theme_mod( 'aranda_de_duero_show_banner_text' ) ) :
+if ( get_theme_mod( 'aranda_de_duero_show_banner' ) && '' !== get_theme_mod( 'aranda_de_duero_show_banner_text' ) ) :
 	?>
 	<div class="container">
 		<div class="row my-5">

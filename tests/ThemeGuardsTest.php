@@ -7,7 +7,7 @@ class ThemeGuardsTest extends TestCase {
 
 	public function test_a_published_page_is_found_by_its_slug() {
 		$page = new WP_Post();
-		\WP_Mock::userFunction( 'get_page_by_path' )->with( 'aviso-legal' )->andReturn( $page );
+		\WP_Mock::userFunction( 'get_page_by_path' )->with( 'aviso-legal', OBJECT, 'page' )->andReturn( $page );
 		\WP_Mock::userFunction( 'get_permalink' )->andReturn( 'https://example.test/aviso-legal/' );
 
 		$this->assertSame( 'https://example.test/aviso-legal/', aranda_de_duero_page_url( 'aviso-legal' ) );

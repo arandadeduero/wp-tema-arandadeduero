@@ -62,7 +62,7 @@ function aranda_de_duero_periodic_reminders( $year ) {
 			'date'    => $key . '-01',
 			'subject' => __( 'Refrescar el catálogo de trámites del buscador', 'aranda-de-duero' ),
 			'message' => __(
-				"Aviso mensual: el buscador «¿Qué necesitas?» guarda una copia del catálogo de trámites de la sede electrónica (data/sede/tramites.json) y la sede puede haber añadido o quitado trámites.\n\nQué hacer:\n\n1. En el repositorio del tema, ejecutar «node scripts/update-sede-catalog.js».\n2. Revisar el cambio en data/sede/tramites.json (trámites nuevos o quitados) con «git diff».\n3. Si hay cambios, subir el tema completo (npm run release) y vaciar la caché de Cache Enabler.\n\nSi no ha cambiado nada, no hay que hacer nada.",
+				"Aviso mensual: el buscador «¿Qué necesitas?» guarda una copia del catálogo de trámites de la sede electrónica (data/sede/tramites.json) y la sede puede haber añadido o quitado trámites.\n\nQué hacer:\n\n1. En el repositorio del tema, ejecutar «node scripts/update-sede-catalog.js».\n2. Revisar el cambio en data/sede/tramites.json (trámites nuevos o quitados) con «git diff».\n3. Si hay cambios, subir el tema completo (npm run release).\n\nSi no ha cambiado nada, no hay que hacer nada.",
 				'aranda-de-duero'
 			),
 		);

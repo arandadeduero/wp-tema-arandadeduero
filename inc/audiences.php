@@ -71,9 +71,7 @@ function aranda_de_duero_audience_entry( $title ) {
  * @return string
  */
 function aranda_de_duero_audiences_url() {
-	$page = get_page_by_path( 'para-ti' );
-
-	return ( $page instanceof WP_Post && 'publish' === $page->post_status ) ? (string) get_permalink( $page ) : '';
+	return aranda_de_duero_page_url( 'para-ti' );
 }
 
 /**

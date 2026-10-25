@@ -9,7 +9,7 @@ No hay despliegue automático: el paquete se genera con `npm run release` y se s
 npm run release
 ```
 
-1. Ejecuta `npm run build`: ESLint con `--max-warnings 0`, Stylelint y la sintaxis PHP (`lint:php`). Si algo falla,
+1. Ejecuta `npm run lint`: ESLint con `--max-warnings 0`, Stylelint y la sintaxis PHP (`lint:php`). Si algo falla,
    no se crea el paquete.
 2. Ejecuta `scripts/build-release.js`, que empaqueta el tema en **`dist/aranda-de-duero-2.0.0.zip`** (`dist/` está en
    `.gitignore` y se vacía en cada compilación) (el nombre sale de `THEME_VERSION` en ese script; ver «Versión» más abajo).
@@ -20,7 +20,7 @@ No hay compilación ni minificación: se empaquetan los ficheros tal cual están
 
 - Todos los `*.php` de la raíz (plantillas, `functions.php`, taxonomías…). La lista **se lee del disco**: una plantilla
   nueva entra sola, no hay que añadirla a ningún sitio.
-- `style.css`, `style-rtl.css`, `theme.json`, `readme.txt`, `screenshot.png`, `LICENSE` y `README.md`.
+- `style.css`, `theme.json`, `readme.txt`, `screenshot.png`, `LICENSE` y `README.md`.
 - Los directorios `css/` (incluidas las fuentes Outfit), `data/` (calendario y catálogo de farmacias), `inc/`, `images/`, `js/`, `languages/` y `template-parts/`.
 
 **Qué no lleva:** `node_modules`, `vendor`, `tests`, `docs`, `scripts`, `.github`, la configuración de las
@@ -32,8 +32,8 @@ herramientas ni los documentos de desarrollo.
 > `page-exp-plaza-de-toros.php` ni `theme.json`. Se arregló en el PR de la documentación; si vuelve a fallar tras una
 > actualización de `archiver`, lo primero es mirar su API.
 
-`bin/build-zip.sh` hace un `git archive` de **todo** el repositorio (con tests y documentación): sirve para guardar una
-copia del código, no para subir a producción.
+Para guardar una copia de **todo** el repositorio (con tests y documentación), no para subir a producción:
+`git archive --format=zip --prefix=wp-tema-arandadeduero/ HEAD -o dist/repo.zip`.
 
 ## 2. Desplegar
 
@@ -64,8 +64,8 @@ Dos maneras equivalentes:
 
 ## Versión
 
-`THEME_VERSION` está en `scripts/build-release.js` y la misma versión (2.0.0) en `style.css`, `style-rtl.css` y `readme.txt`; hay que
-subir las cuatro a la vez. Solo se usan para el nombre del zip y la ficha del tema. Los CSS y JS se versionan solos por
+`THEME_VERSION` está en `scripts/build-release.js` y la misma versión (2.0.0) en `style.css` y `readme.txt`; hay que
+subir las tres a la vez. Solo se usan para el nombre del zip y la ficha del tema. Los CSS y JS se versionan solos por
 fecha de modificación (`aranda_de_duero_asset_version()`, con `filemtime()`), salvo Bootstrap, cuya versión está
 escrita en `aranda_de_duero_bootstrap_css()` en `functions.php`: **subirla cuando se cambie `css/bootstrap.min.css`** para
 que los navegadores no sirvan la copia vieja.

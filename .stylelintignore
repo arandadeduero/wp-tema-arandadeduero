@@ -1,6 +1,5 @@
 # Vendor/bundled/minified CSS — not our source, not worth linting
 css/*.min.css
-style-rtl.css
 
 node_modules/
 vendor/

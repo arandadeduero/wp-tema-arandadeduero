@@ -67,7 +67,7 @@ class ColorSourcesTest extends TestCase {
 	public function test_no_colour_variable_is_used_without_being_defined() {
 		$defined = array_keys( $this->root_variables() );
 
-		foreach ( array( 'css/aranda-de-duero.css', 'style.css', 'style-rtl.css' ) as $file ) {
+		foreach ( array( 'css/aranda-de-duero.css', 'style.css' ) as $file ) {
 			preg_match_all( '/var\(\s*(--(?:color|gray)-[\w-]+)/', $this->css( $file ), $used );
 			foreach ( array_unique( $used[1] ) as $name ) {
 				$this->assertContains( $name, $defined, $file . ' usa ' . $name . ' sin definirla en :root' );
@@ -104,7 +104,6 @@ class ColorSourcesTest extends TestCase {
 	public function test_the_stylesheets_are_not_empty_and_keep_the_theme_header() {
 		$this->assertStringContainsString( 'Theme Name: Aranda de Duero', $this->css( 'style.css' ) );
 		$this->assertGreaterThan( 10000, strlen( $this->css( 'style.css' ) ) );
-		$this->assertGreaterThan( 10000, strlen( $this->css( 'style-rtl.css' ) ) );
 		$this->assertGreaterThan( 50000, strlen( $this->css( 'css/aranda-de-duero.css' ) ) );
 	}
 

@@ -5,14 +5,14 @@
     "license": "No especificada por la fuente — uso informativo, verificar antes de redistribución comercial",
     "geocodeProvider": "OpenStreetMap Nominatim (© OpenStreetMap contributors, ODbL 1.0, https://osm.org/copyright)",
     "retrievedAt": "2026-09-09",
-    "note": "Catálogo de farmacias (datos fijos: nombre, dirección, teléfono). El calendario de guardias vive por separado en data/farmacias/<año>.json. Coordenadas revisadas el 2026-10-25 contra los puntos de farmacia de OpenStreetMap (precision «poi»).",
+    "note": "Catálogo de farmacias (datos fijos: nombre, dirección, teléfono). El calendario de guardias vive por separado en data/farmacias/<año>.json. Coordenadas revisadas el 2026-10-25 contra los puntos de farmacia de OpenStreetMap (precision «poi»); direcciones de Julián Lázaro, Blanca Portela y Elsa Álvaro corregidas por el Ayuntamiento ese día.",
     "geocodedAt": "2026-10-25"
   },
   "pharmacies": [
     {
       "id": 1,
       "name": "JULIÁN LÁZARO",
-      "address": "Plaza Mayor, 11",
+      "address": "Plaza Mayor, 10",
       "postalCode": "09400",
       "city": "Aranda de Duero",
       "zone": null,
@@ -31,7 +31,7 @@
     {
       "id": 2,
       "name": "BLANCA PORTELA",
-      "address": "Plaza Mayor, 13 bis",
+      "address": "Plaza Mayor, 14",
       "postalCode": "09400",
       "city": "Aranda de Duero",
       "zone": null,
@@ -94,19 +94,20 @@
       "zone": null,
       "phone": "947501237",
       "location": {
-        "latitude": 41.6595191,
-        "longitude": -3.6921246
+        "latitude": 41.6654184,
+        "longitude": -3.6913548
       },
       "geocode": {
         "provider": "OpenStreetMap Nominatim",
-        "precision": "street",
-        "match": "Avenida Castilla, Aranda de Duero (sin número exacto en OSM). Sin punto en OSM con este nombre ni número 58 en la avenida. OSM tiene «Lda. Rosario Berdugo Lazuén» (node/1270451592) en Avenida Castilla, 52: puede ser la misma farmacia con otro titular, por confirmar. Mientras, el mapa busca por la dirección."
+        "precision": "poi",
+        "osm": "node/1270451592",
+        "match": "Lda. Inés Brime Berdugo (OSM: Avenida Castilla, 58)"
       }
     },
     {
       "id": 6,
       "name": "ELSA ÁLVARO REYZÁBAL",
-      "address": "Calle Duero, s/n",
+      "address": "Calle Duero, 2",
       "postalCode": "09400",
       "city": "Aranda de Duero",
       "zone": "Polígono",
@@ -131,13 +132,14 @@
       "zone": "Barrio de la Estación",
       "phone": "947512666",
       "location": {
-        "latitude": 41.6629721,
-        "longitude": -3.6946118
+        "latitude": 41.6612919,
+        "longitude": -3.6893316
       },
       "geocode": {
         "provider": "OpenStreetMap Nominatim",
-        "precision": "street",
-        "match": "Avenida Luis Mateos, Aranda de Duero (sin número exacto en OSM). OSM no tiene esta farmacia ni el número 1 de la avenida (solo la calle). El mapa busca por la dirección."
+        "precision": "poi",
+        "osm": "node/3390792604",
+        "match": "Lda. Elena del Cura (OSM: Avenida Luis Mateos, 1)"
       }
     },
     {

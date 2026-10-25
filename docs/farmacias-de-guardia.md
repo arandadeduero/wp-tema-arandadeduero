@@ -22,18 +22,15 @@ Plantilla `page-farmacias.php`, lógica en `inc/pharmacies.php` y datos en `data
 Fuente: Colegio Oficial de Farmacéuticos de Burgos, «Servicios de Urgencia Z.F. Aranda de Duero». Los ficheros de 2026 se
 copiaron de `data/farmacias.json` y `data/farmacias-guardia-2026.json` del repositorio `api-ciudad`, mientras esa API no sea pública.
 
-**Coordenadas y mapa** (revisadas el 2026-10-25 con Nominatim, de OpenStreetMap, © colaboradores de OpenStreetMap, ODbL). Diez
-farmacias tienen su propio punto en OpenStreetMap con su nombre: sus coordenadas son las de ese punto (`geocode.precision`
-«poi», `geocode.osm` con el nodo) y el botón de mapa pone la chincheta en la farmacia. Las otras dos buscan por la dirección
-en Google Maps o Apple Maps:
+**Coordenadas y mapa** (revisadas el 2026-10-25 con Nominatim, de OpenStreetMap, © colaboradores de OpenStreetMap, ODbL). Las
+doce farmacias tienen su propio punto en OpenStreetMap: sus coordenadas son las de ese punto (`geocode.precision` «poi»,
+`geocode.osm` con el nodo) y el botón de mapa pone la chincheta en la farmacia. Si una farmacia nueva no tiene punto, el botón
+busca por la dirección, como antes. Para añadir o corregir una: buscarla en https://nominatim.openstreetmap.org y copiar su
+latitud, longitud y nodo.
 
-- **Inés Brime Berdugo (Avenida Castilla, 58):** OpenStreetMap no tiene el número 58; sí tiene «Lda. Rosario Berdugo Lazuén» en
-  Avenida Castilla, 52. Puede ser la misma farmacia con otro titular: confirmarlo y, si lo es, copiar ese punto.
-- **Elena del Cura (Avenida Luis Mateos, 1):** OpenStreetMap no tiene ni la farmacia ni el número.
-
-Las direcciones de texto son las del Colegio, aunque OpenStreetMap no siempre coincide: pone a Julián Lázaro en Plaza Mayor,
-10 (el Colegio dice 11), a Blanca Portela en Plaza Mayor, 14 (el Colegio dice 13 bis) y a Elsa Álvaro en Calle Pisuerga, 3
-(el Colegio dice Calle Duero, s/n). OpenStreetMap también lleva el horario de apertura de algunas, que la página no usa.
+Direcciones corregidas por el Ayuntamiento el 2026-10-25 (el documento del Colegio decía otra cosa): Julián Lázaro, Plaza Mayor,
+10 (no 11); Blanca Portela, Plaza Mayor, 14 (no 13 bis); Elsa Álvaro, Calle Duero, 2 (no s/n). Ese mismo día se añadieron en
+OpenStreetMap Inés Brime Berdugo (Avenida Castilla, 58) y Elena del Cura (Avenida Luis Mateos, 1).
 
 Lo que **no** traen los datos: el horario de la guardia y el horario normal de apertura. La página no los muestra. La guardia de un día va de las 9:50 a las 9:50 del día siguiente (`aranda_de_duero_pharmacy_guard_change_minutes()` en `inc/pharmacies.php`): antes de las 9:50 la página enseña la farmacia del día anterior. Esa hora la dio el Ayuntamiento el 2026-10-25 (antes se usaban las 10:00); no es un dato del Colegio.
 

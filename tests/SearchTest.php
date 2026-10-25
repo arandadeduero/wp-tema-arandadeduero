@@ -19,7 +19,7 @@ class SearchTest extends TestCase {
 	 */
 	private $published = array();
 
-	private function mocks( array $especiales = array() ) {
+	private function mocks( array $especiales = array(), array $concejalias = array(), array $services = array() ) {
 		\WP_Mock::userFunction( 'apply_filters' )->andReturnUsing(
 			function ( $tag, $value ) {
 				return $value;
@@ -55,7 +55,36 @@ class SearchTest extends TestCase {
 				return parse_url( $url, $component );
 			}
 		);
-		\WP_Mock::userFunction( 'get_posts' )->andReturn( $especiales );
+		\WP_Mock::userFunction( 'get_posts' )->andReturnUsing(
+			function ( $args ) use ( $especiales, $services ) {
+				if ( 'especial' === $args['post_type'] ) {
+					return $especiales;
+				}
+				return 'servicio-municipal' === $args['post_type'] ? $services : array();
+			}
+		);
+		\WP_Mock::userFunction( 'get_terms' )->andReturn( $concejalias );
+		\WP_Mock::userFunction( 'is_wp_error' )->andReturn( false );
+		\WP_Mock::userFunction( 'get_term_link' )->andReturnUsing(
+			function ( $term ) {
+				return 'https://www.arandadeduero.es/concejalia/' . $term->slug . '/';
+			}
+		);
+		\WP_Mock::userFunction( 'get_the_title' )->andReturnUsing(
+			function ( $post ) {
+				return isset( $post->post_title ) ? $post->post_title : '';
+			}
+		);
+		\WP_Mock::userFunction( 'get_the_excerpt' )->andReturnUsing(
+			function ( $post ) {
+				return isset( $post->post_excerpt ) ? $post->post_excerpt : '';
+			}
+		);
+		\WP_Mock::userFunction( 'wp_strip_all_tags' )->andReturnUsing(
+			function ( $text ) {
+				return trim( strip_tags( $text ) );
+			}
+		);
 		\WP_Mock::userFunction( 'get_post_meta' )->andReturnUsing(
 			function ( $id ) {
 				return 'https://pmus.arandadeduero.es/';
@@ -343,6 +372,30 @@ class SearchTest extends TestCase {
 		$this->assertSame( array( 'PMUS Aranda de Duero' ), $this->titles( $found ) );
 		$this->assertSame( 'https://pmus.arandadeduero.es/', $found[0]['url'] );
 		$this->assertTrue( $found[0]['new_tab'] );
+	}
+
+	public function test_concejalias_with_content_and_their_services_are_searchable() {
+		$cultura       = new stdClass();
+		$cultura->name = 'Cultura';
+		$cultura->slug = 'cultura';
+
+		$biblioteca               = new stdClass();
+		$biblioteca->post_title   = 'Biblioteca';
+		$biblioteca->post_excerpt = '<p>Préstamo y sala de lectura.</p>';
+
+		$this->mocks( array(), array( $cultura ), array( $biblioteca ) );
+
+		$entries = aranda_de_duero_search_concejalias_and_services();
+
+		$this->assertSame( array( 'Concejalía de Cultura', 'Biblioteca' ), $this->titles( $entries ) );
+		$this->assertSame( 'https://www.arandadeduero.es/concejalia/cultura/', $entries[0]['url'] );
+		$this->assertSame( 'Préstamo y sala de lectura.', $entries[1]['text'] );
+	}
+
+	public function test_no_concejalias_or_services_gives_no_extra_entries() {
+		$this->mocks();
+
+		$this->assertSame( array(), aranda_de_duero_search_concejalias_and_services() );
 	}
 
 	public function test_every_office_address_follows_the_pattern_the_office_uses() {

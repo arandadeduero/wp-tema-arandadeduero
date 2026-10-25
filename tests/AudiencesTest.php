@@ -44,6 +44,8 @@ class AudiencesTest extends TestCase {
 			}
 		);
 		\WP_Mock::userFunction( 'get_posts' )->andReturn( array() );
+		\WP_Mock::userFunction( 'get_terms' )->andReturn( array() );
+		\WP_Mock::userFunction( 'is_wp_error' )->andReturn( false );
 		\WP_Mock::userFunction( 'remove_accents' )->andReturnUsing(
 			function ( $text ) {
 				return strtr( $text, array( 'á' => 'a', 'é' => 'e', 'í' => 'i', 'ó' => 'o', 'ú' => 'u', 'ñ' => 'n' ) );

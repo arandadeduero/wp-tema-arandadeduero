@@ -1,0 +1,63 @@
+style-rtl.css
+  s_e1aa48bb7b463c::t_75adc68f31a20a 9
+inc/performance.php
+  s_e1aa48bb7b463c::t_d50b9f8de6142a 101
+inc/search.php
+  s_e1aa48bb7b463c::t_d50b9f8de6142a 544
+tests/RemindersTest.php
+  s_e1aa48bb7b463c::t_d50b9f8de6142a 33,47
+docs/taxonomias-y-concejalias.md
+  s_e1aa48bb7b463c::t_a4e5932b1443a2 246
+readme.txt
+  s_e1aa48bb7b463c::t_75adc68f31a20a 8
+phpstan.neon.dist
+  s_e1aa48bb7b463c::t_66e5dd4100bbfc 7-8
+composer.json
+  s_e1aa48bb7b463c::t_75adc68f31a20a 20
+style.css
+  s_e1aa48bb7b463c::t_75adc68f31a20a 9
+tests/bootstrap.php
+  s_e1aa48bb7b463c::t_b03c7ae1740fb4 17-20,23-25
+  s_e1aa48bb7b463c::t_ccec722e83da63 21-22
+phpcs.xml.dist
+  s_e1aa48bb7b463c::t_75adc68f31a20a 136-137
+.github/workflows/tests.yml
+  s_e1aa48bb7b463c::t_75adc68f31a20a 17,29,41,53
+tests/EspecialesTest.php
+  s_e1aa48bb7b463c::t_d50b9f8de6142a 51
+CLAUDE.md
+  s_e1aa48bb7b463c::t_a4e5932b1443a2 34
+MEJORAS-OTROS-AYUNTAMIENTOS.md
+  s_e1aa48bb7b463c::t_f00bf494751610 246
+README.md
+  s_e1aa48bb7b463c::t_a4e5932b1443a2 18
+tests/SearchTest.php
+  s_e1aa48bb7b463c::t_53e31739371135 53
+  s_e1aa48bb7b463c::t_d50b9f8de6142a 406
+DEVELOPMENT.md
+  s_e1aa48bb7b463c::t_a4e5932b1443a2 13-14,36-38,50,60
+MODERNIZATION.md
+  s_e1aa48bb7b463c::t_a4e5932b1443a2 81-87
+RELEASE.md
+  s_e1aa48bb7b463c::t_a4e5932b1443a2 56
+inc/areas-menu.php
+  s_e1aa48bb7b463c::t_d50b9f8de6142a 120
+docs/tipos-de-contenido-y-elementos-propios.md
+  s_e1aa48bb7b463c::t_a4e5932b1443a2 341
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "d3f6b598adf847e56c00ce1d353c5410659069f6",
+  "prompts": {},
+  "sessions": {
+    "s_e1aa48bb7b463c": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "950c7f09-0446-4c9c-8da1-ba075c088b88",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Guillermo López <willyaranda@gmail.com>"
+    }
+  }
+}

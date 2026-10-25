@@ -1,6 +1,7 @@
 <?php
 /**
- * Template part for a project with European funds: its data, its content and, always, the mandatory PRTR wording as text.
+ * Template part for a project with European funds: its data, its content and, always, its mandatory wording as text (PRTR or
+ * REACT-EU, by its programme).
  *
  * @package Aranda_de_Duero
  */
@@ -31,7 +32,7 @@ $aranda_data      = aranda_de_duero_eu_project_data( get_the_ID() );
 		<?php the_content(); ?>
 	</div><!-- .entry-content -->
 
-	<p class="eu-funds-wording"><?php echo esc_html( ARANDA_DE_DUERO_EU_FUNDS_WORDING ); ?></p>
+	<p class="eu-funds-wording"><?php echo esc_html( aranda_de_duero_eu_wording( (string) get_post_meta( get_the_ID(), '_aranda_eu_programme', true ) ) ); ?></p>
 
 	<footer class="entry-footer">
 		<?php aranda_de_duero_entry_footer(); ?>

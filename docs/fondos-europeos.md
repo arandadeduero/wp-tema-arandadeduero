@@ -14,7 +14,9 @@ Tipo de contenido `proyecto-europeo` (URL `/fondos-europeos/<proyecto>/`, menú 
   texto** («Plan de Recuperación, Transformación y Resiliencia – Financiado por la Unión Europea – NextGenerationEU»,
   Orden HFP/1030/2021, art. 9.3.b), no solo dentro de los logos.
 
-Por eso este tipo es solo para proyectos del PRTR / NextGenerationEU. Los de REACT-EU (FEDER) llevan otro lema y no están.
+Si el programa del proyecto dice «REACT-EU», el lema es el de ese fondo (FEDER, Reglamento (UE) 1303/2013, anexo XII):
+«Financiado por la Unión Europea, a través del Fondo Europeo de Desarrollo Regional (FEDER), como parte de la respuesta de la
+Unión a la pandemia de COVID-19 – Una manera de hacer Europa». Es el caso del equipamiento de Bomberos (2023).
 
 ## El índice
 
@@ -25,11 +27,10 @@ los proyectos que tienen importe y una tarjeta por proyecto publicado (programa,
 ## Contratos
 
 Las tablas «Contratos adjudicados» de cada ficha salen de los datos abiertos de la Plataforma de Contratación
-(https://willyaranda.github.io/contratacion-estado/datos/contratos.json, campo `nextgeneration`), solo los adjudicados, a
+(https://willyaranda.github.io/contratacion-estado/datos/contratos.json, campo `nextgeneration`: PRTR, NextGenerationEU o REACT-EU), solo los adjudicados, a
 fecha 2026-10-25. No se actualizan solas: con un contrato nuevo, añadir su fila a la tabla de la ficha.
 
 ## Pendiente de confirmar con el departamento
 
 - La ayuda concedida de cada proyecto salvo la piscina (resolución definitiva del PIREP: 1.672.367,45 €).
 - La barra de logos común («falta el logo del Ayto» en los escaneos).
-- Los 6 contratos de REACT-EU de Bomberos (2023), fuera de esta sección.

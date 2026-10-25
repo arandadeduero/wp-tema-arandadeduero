@@ -1,0 +1,19 @@
+docs/servicios.md
+  s_e1aa48bb7b463c::t_e85cb757e4e99f 30-44
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "7bf8326b4437987d5fd5d7b3d78b19cf691c7672",
+  "prompts": {},
+  "sessions": {
+    "s_e1aa48bb7b463c": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "950c7f09-0446-4c9c-8da1-ba075c088b88",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": "Guillermo López <willyaranda@gmail.com>"
+    }
+  }
+}

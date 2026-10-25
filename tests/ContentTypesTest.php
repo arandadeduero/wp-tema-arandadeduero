@@ -5,8 +5,8 @@ require_once dirname( __DIR__ ) . '/inc/content-types.php';
 
 class ContentTypesTest extends TestCase {
 
-	public function test_the_five_post_types_and_six_taxonomies_are_defined() {
-		$this->assertSame( array( 'seccion-principal', 'actividad', 'especial', 'tramite', 'servicio-municipal' ), array_keys( aranda_de_duero_post_types() ) );
+	public function test_the_six_post_types_and_six_taxonomies_are_defined() {
+		$this->assertSame( array( 'seccion-principal', 'actividad', 'especial', 'tramite', 'servicio-municipal', 'proyecto-europeo' ), array_keys( aranda_de_duero_post_types() ) );
 		$this->assertSame(
 			array( 'seccion', 'concejalia', 'tema', 'servicio', 'categoria_tramite', 'home_section_category' ),
 			array_keys( aranda_de_duero_taxonomies() )
@@ -15,7 +15,7 @@ class ContentTypesTest extends TestCase {
 
 	public function test_the_addresses_of_the_four_old_types_do_not_change() {
 		$types = aranda_de_duero_post_types();
-		unset( $types['servicio-municipal'] );
+		unset( $types['servicio-municipal'], $types['proyecto-europeo'] );
 
 		foreach ( $types as $slug => $args ) {
 			$this->assertSame( $slug, $args['rewrite']['slug'] );
@@ -31,6 +31,7 @@ class ContentTypesTest extends TestCase {
 		$types = aranda_de_duero_post_types();
 
 		$this->assertSame( 'servicios', $types['servicio-municipal']['rewrite']['slug'] );
+		$this->assertSame( 'fondos-europeos', $types['proyecto-europeo']['rewrite']['slug'] );
 		$this->assertSame( array( 'concejalia' ), $types['servicio-municipal']['taxonomies'] );
 	}
 

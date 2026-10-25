@@ -162,8 +162,8 @@ function aranda_de_duero_search_especiales() {
 }
 
 /**
- * Every concejalía with content and every published servicio-municipal, as searchable entries: «cultura» finds the
- * concejalía's own page, «biblioteca» finds its service.
+ * Every concejalía with content, every published servicio-municipal and every proyecto-europeo, as searchable entries:
+ * «cultura» finds the concejalía's own page, «biblioteca» its service, «piscina» its European project.
  *
  * @return array<int, array{title: string, text: string, url: string, new_tab: bool, keywords?: string}>
  */
@@ -195,7 +195,7 @@ function aranda_de_duero_search_concejalias_and_services() {
 
 	$services = get_posts(
 		array(
-			'post_type'      => 'servicio-municipal',
+			'post_type'      => array( 'servicio-municipal', 'proyecto-europeo' ),
 			'post_status'    => 'publish',
 			'posts_per_page' => -1,
 			'orderby'        => 'title',

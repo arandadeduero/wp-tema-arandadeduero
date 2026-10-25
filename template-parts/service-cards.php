@@ -43,7 +43,7 @@ if ( array() === $aranda_cards['items'] ) {
 			<?php /* The pharmacy on duty now: not one link, because it has its own (phone, map) inside. */ ?>
 			<li>
 				<div class="service-card service-card-pharmacy">
-					<a class="service-card-title stretched-link" href="<?php echo esc_url( $aranda_card['url'] ); ?>"><?php echo esc_html( $aranda_card['title'] ); ?></a>
+					<a class="service-card-title stretched-link" href="<?php echo esc_url( $aranda_card['url'] ); ?>"><span aria-hidden="true">💊 </span><?php echo esc_html( $aranda_card['title'] ); ?></a>
 					<span class="service-card-pharmacy-name"><?php echo esc_html( $aranda_pharmacy['name'] ); ?></span>
 					<span class="service-card-text"><?php echo esc_html( $aranda_pharmacy['address'] ); ?></span>
 					<span class="service-card-pharmacy-actions">

@@ -22,7 +22,7 @@ Plantilla `page-farmacias.php`, lógica en `inc/pharmacies.php` y datos en `data
 Fuente: Colegio Oficial de Farmacéuticos de Burgos, «Servicios de Urgencia Z.F. Aranda de Duero». Los ficheros de 2026 se
 copiaron de `data/farmacias.json` y `data/farmacias-guardia-2026.json` del repositorio `api-ciudad`, mientras esa API no sea pública.
 
-Lo que **no** traen los datos: el horario de la guardia y el horario normal de apertura. La página no los muestra. La guardia de un día va de las 10:00 a las 10:00 del día siguiente (`aranda_de_duero_pharmacy_guard_change_hour()` en `inc/pharmacies.php`): antes de las 10:00 la página enseña la farmacia del día anterior. Esa hora es la habitual según el Ayuntamiento, no un dato del Colegio; conviene confirmarla con él.
+Lo que **no** traen los datos: el horario de la guardia y el horario normal de apertura. La página no los muestra. La guardia de un día va de las 9:50 a las 9:50 del día siguiente (`aranda_de_duero_pharmacy_guard_change_minutes()` en `inc/pharmacies.php`): antes de las 9:50 la página enseña la farmacia del día anterior. Esa hora la dio el Ayuntamiento el 2026-10-25 (antes se usaban las 10:00); no es un dato del Colegio.
 
 Licencia de la fuente: figura como «no especificada, uso informativo, verificar antes de redistribución». Conviene confirmar
 con el Colegio que se puede publicar en la web municipal.

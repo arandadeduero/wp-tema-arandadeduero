@@ -45,7 +45,14 @@ $query = aranda_de_duero_concejalias( $current_term->slug );
 						<?php
 					endif;
 
-					get_template_part( 'template-parts/term-posts', null, array( 'query' => $query ) );
+					get_template_part(
+						'template-parts/term-posts',
+						null,
+						array(
+							'query'   => $query,
+							'compact' => true,
+						)
+					);
 					?>
 				</main><!-- #main -->
 			</div>

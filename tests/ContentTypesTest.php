@@ -34,6 +34,14 @@ class ContentTypesTest extends TestCase {
 		$this->assertSame( array( 'concejalia' ), $types['servicio-municipal']['taxonomies'] );
 	}
 
+	public function test_servicio_municipal_is_edited_with_the_full_block_editor_and_an_excerpt_field() {
+		$args = aranda_de_duero_post_types()['servicio-municipal'];
+
+		// show_in_rest is what turns on the block editor (Gutenberg), not just a plain text box.
+		$this->assertTrue( $args['show_in_rest'] );
+		$this->assertSame( array( 'title', 'editor', 'thumbnail', 'excerpt' ), $args['supports'] );
+	}
+
 	public function test_the_home_sections_are_the_only_ones_out_of_the_rest_api_and_the_search() {
 		$types = aranda_de_duero_post_types();
 

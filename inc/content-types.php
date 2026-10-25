@@ -103,6 +103,7 @@ function aranda_de_duero_post_types() {
 			'Servicios',
 			array(
 				'taxonomies' => array( 'concejalia' ),
+				'supports'   => array( 'title', 'editor', 'thumbnail', 'excerpt' ), // + excerpt, for the short text of its card.
 				'rewrite'    => array(
 					'slug'       => 'servicios',
 					'with_front' => true,

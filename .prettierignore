@@ -10,7 +10,6 @@ build/
 *.min.js
 *.min.css
 style.css.map
-style-rtl.css.map
 
 # IDE & OS
 .vscode/

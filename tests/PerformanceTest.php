@@ -82,4 +82,22 @@ class PerformanceTest extends TestCase {
 
 		$this->assertFalse( aranda_de_duero_has_pdf_embed() );
 	}
+
+	public function test_jetpack_stats_is_dropped_until_third_party_cookies_are_accepted() {
+		WP_Mock::userFunction( 'gdpr_cookie_is_accepted' )->with( 'thirdparty' )->andReturn( false );
+		WP_Mock::userFunction( 'wp_dequeue_script' )->once()->with( 'jetpack-stats' );
+
+		aranda_de_duero_stats_only_with_consent();
+
+		$this->assertConditionsMet();
+	}
+
+	public function test_jetpack_stats_loads_once_they_are_accepted() {
+		WP_Mock::userFunction( 'gdpr_cookie_is_accepted' )->with( 'thirdparty' )->andReturn( true );
+		WP_Mock::userFunction( 'wp_dequeue_script' )->never();
+
+		aranda_de_duero_stats_only_with_consent();
+
+		$this->assertConditionsMet();
+	}
 }

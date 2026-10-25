@@ -6,13 +6,11 @@ require_once dirname( __DIR__ ) . '/inc/chatbot.php';
 
 class ChatbotTest extends TestCase {
 
+	use Aranda_WP_Stubs;
+
 	public function setUp(): void {
 		parent::setUp();
-		WP_Mock::userFunction( 'home_url' )->andReturnUsing(
-			function ( $path = '' ) {
-				return 'https://www.arandadeduero.es' . $path;
-			}
-		);
+		$this->stub_wp_basics();
 	}
 
 	public function test_a_logged_in_user_sees_the_assistant() {
@@ -32,6 +30,21 @@ class ChatbotTest extends TestCase {
 		WP_Mock::onFilter( 'aranda_de_duero_chatbot_enabled' )->with( false )->reply( true );
 
 		$this->assertTrue( aranda_de_duero_chatbot_enabled() );
+	}
+
+	public function test_an_anonymous_visitor_cannot_write_to_the_log() {
+		$route = null;
+		WP_Mock::userFunction( 'register_rest_route' )->andReturnUsing(
+			function ( $namespace, $path, $args ) use ( &$route ) {
+				$route = $args;
+			}
+		);
+		WP_Mock::userFunction( 'is_user_logged_in' )->andReturn( false );
+
+		aranda_de_duero_chatbot_register_route();
+
+		$this->assertSame( 'POST', $route['methods'] );
+		$this->assertFalse( call_user_func( $route['permission_callback'] ) );
 	}
 
 	public function test_the_prompt_has_the_question_once_and_names_every_official_website() {

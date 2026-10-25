@@ -5,12 +5,10 @@ require_once dirname( __DIR__ ) . '/inc/template-functions.php';
 
 class ContactInfoTest extends TestCase {
 
+	use Aranda_WP_Stubs;
+
 	public function test_returns_the_town_hall_contact_data() {
-		\WP_Mock::userFunction( 'apply_filters' )->andReturnUsing(
-			function ( $tag, $value ) {
-				return $value;
-			}
-		);
+		$this->stub_wp_basics();
 
 		$info = aranda_de_duero_contact_info();
 
@@ -23,11 +21,7 @@ class ContactInfoTest extends TestCase {
 	}
 
 	public function test_transparency_addresses_of_this_site_lead_to_the_portal() {
-		\WP_Mock::userFunction( 'apply_filters' )->andReturnUsing(
-			function ( $tag, $value ) {
-				return $value;
-			}
-		);
+		$this->stub_wp_basics();
 
 		foreach ( array( '/transparencia/', 'transparencia', '/portal-de-transparencia', '/transparencia' ) as $path ) {
 			$this->assertSame( 'https://transparencia.arandadeduero.es/', aranda_de_duero_transparency_redirect_target( $path ), $path );
@@ -38,11 +32,7 @@ class ContactInfoTest extends TestCase {
 	}
 
 	public function test_phone_link_matches_the_visible_number() {
-		\WP_Mock::userFunction( 'apply_filters' )->andReturnUsing(
-			function ( $tag, $value ) {
-				return $value;
-			}
-		);
+		$this->stub_wp_basics();
 
 		$info = aranda_de_duero_contact_info();
 

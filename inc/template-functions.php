@@ -157,20 +157,25 @@ function aranda_de_duero_transparency_redirect_target( $path ) {
 }
 
 /**
- * Send /transparencia/ to the portal, but only while the site has no page of that name.
+ * Old addresses that no longer exist as pages, sent (301) to where they live now: /transparencia/ to the portal, /omic/ to the
+ * «OMIC» service. Only on a 404, so a page created later with one of those slugs wins.
  */
-function aranda_de_duero_redirect_transparency() {
+function aranda_de_duero_redirect_old_paths() {
 	if ( ! is_404() || ! isset( $_SERVER['REQUEST_URI'] ) ) {
 		return;
 	}
 
-	$target = aranda_de_duero_transparency_redirect_target( (string) wp_parse_url( esc_url_raw( wp_unslash( $_SERVER['REQUEST_URI'] ) ), PHP_URL_PATH ) );
+	$path   = (string) wp_parse_url( esc_url_raw( wp_unslash( $_SERVER['REQUEST_URI'] ) ), PHP_URL_PATH );
+	$target = aranda_de_duero_transparency_redirect_target( $path );
+	if ( '' === $target ) {
+		$target = aranda_de_duero_omic_page_redirect_target( $path );
+	}
 	if ( '' !== $target ) {
-		wp_redirect( $target, 301 ); // phpcs:ignore WordPress.Security.SafeRedirect.wp_redirect_wp_redirect -- a fixed address of the theme (the portal), not user input.
+		wp_redirect( $target, 301 ); // phpcs:ignore WordPress.Security.SafeRedirect.wp_redirect_wp_redirect -- fixed addresses of the theme, not user input.
 		exit;
 	}
 }
-add_action( 'template_redirect', 'aranda_de_duero_redirect_transparency' );
+add_action( 'template_redirect', 'aranda_de_duero_redirect_old_paths' );
 
 /**
  * URL of the internal reporting channel (Ley 2/2023), or '' if none is configured.
@@ -223,11 +228,12 @@ add_action( 'pre_get_posts', 'aranda_de_duero_archive_page_size' );
  *
  * Pages are found by slug, not by title: an editor can retitle a page without breaking the links that point to it.
  *
- * @param string $path Slug or path of the page, as in get_page_by_path().
+ * @param string $path      Slug or path of the page, as in get_page_by_path().
+ * @param string $post_type Post type to look in («servicio-municipal» for a service).
  * @return string
  */
-function aranda_de_duero_page_url( $path ) {
-	$page = get_page_by_path( $path );
+function aranda_de_duero_page_url( $path, $post_type = 'page' ) {
+	$page = get_page_by_path( $path, OBJECT, $post_type );
 
 	return ( $page instanceof WP_Post && 'publish' === $page->post_status ) ? (string) get_permalink( $page ) : '';
 }

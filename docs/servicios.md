@@ -47,7 +47,8 @@ de la paginación. `taxonomy-tema.php` sigue usando las tarjetas grandes de siem
 El servicio «OMIC» (Comercio y Consumo) sustituye a la antigua página estática `/omic/`, con la plantilla
 `page-omic.php` (borrada) y la función `aranda_de_duero_omic_info()` (borrada también, ya sin uso). El contenido se
 migró al cuerpo de la entrada. La página vieja se ha borrado; `/omic/` redirige (301,
-`aranda_de_duero_redirect_omic_page()` en `inc/everyday-services.php`) al nuevo servicio.
+`aranda_de_duero_redirect_old_paths()` en `inc/template-functions.php`, la misma que manda `/transparencia/` al portal) al
+nuevo servicio.
 
 ## Pendiente
 

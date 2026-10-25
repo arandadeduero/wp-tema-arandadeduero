@@ -12,6 +12,8 @@ require_once dirname( __DIR__ ) . '/inc/audiences.php';
 
 class SearchTest extends TestCase {
 
+	use Aranda_WP_Stubs;
+
 	/**
 	 * Slugs of the pages that are published in the test.
 	 *
@@ -20,21 +22,7 @@ class SearchTest extends TestCase {
 	private $published = array();
 
 	private function mocks( array $especiales = array(), array $concejalias = array(), array $services = array() ) {
-		\WP_Mock::userFunction( 'apply_filters' )->andReturnUsing(
-			function ( $tag, $value ) {
-				return $value;
-			}
-		);
-		\WP_Mock::userFunction( '__' )->andReturnUsing(
-			function ( $text ) {
-				return $text;
-			}
-		);
-		\WP_Mock::userFunction( 'home_url' )->andReturnUsing(
-			function ( $path = '' ) {
-				return 'https://www.arandadeduero.es' . $path;
-			}
-		);
+		$this->stub_wp_basics();
 		// The waste page is published only in the tests that say so.
 		$published = $this->published;
 		\WP_Mock::userFunction( 'get_page_by_path' )->andReturnUsing(
@@ -51,11 +39,6 @@ class SearchTest extends TestCase {
 		);
 		\WP_Mock::userFunction( 'get_template_directory' )->andReturn( dirname( __DIR__ ) );
 		\WP_Mock::userFunction( 'current_time' )->andReturn( '2026-10-25' );
-		\WP_Mock::userFunction( 'wp_parse_url' )->andReturnUsing(
-			function ( $url, $component = -1 ) {
-				return parse_url( $url, $component );
-			}
-		);
 		\WP_Mock::userFunction( 'get_posts' )->andReturnUsing(
 			function ( $args ) use ( $especiales, $services ) {
 				if ( 'especial' === $args['post_type'] ) {
@@ -97,12 +80,6 @@ class SearchTest extends TestCase {
 			}
 		);
 		\WP_Mock::userFunction( 'get_post_thumbnail_id' )->andReturn( 0 );
-		// Same effect as WordPress' remove_accents() for the Spanish accents.
-		\WP_Mock::userFunction( 'remove_accents' )->andReturnUsing(
-			function ( $text ) {
-				return strtr( $text, array( 'á' => 'a', 'é' => 'e', 'í' => 'i', 'ó' => 'o', 'ú' => 'u', 'Á' => 'A', 'É' => 'E', 'Í' => 'I', 'Ó' => 'O', 'Ú' => 'U', 'ñ' => 'n' ) );
-			}
-		);
 	}
 
 	private function titles( array $services ) {

@@ -5,6 +5,8 @@ require_once dirname( __DIR__ ) . '/inc/structured-data.php';
 
 class StructuredDataTest extends TestCase {
 
+	use Aranda_WP_Stubs;
+
 	public function setUp(): void {
 		parent::setUp();
 
@@ -16,11 +18,7 @@ class StructuredDataTest extends TestCase {
 		);
 		\WP_Mock::userFunction( 'get_theme_mod' )->andReturn( 0 );
 		\WP_Mock::userFunction( 'wp_strip_all_tags' )->andReturnUsing( 'strip_tags' );
-		\WP_Mock::userFunction( 'apply_filters' )->andReturnUsing(
-			function ( $tag, $value ) {
-				return $value;
-			}
-		);
+		$this->stub_wp_basics();
 	}
 
 	private function types( array $graph ) {

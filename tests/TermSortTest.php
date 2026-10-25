@@ -6,12 +6,10 @@ require_once dirname( __DIR__ ) . '/inc/term-index.php';
 
 class TermSortTest extends TestCase {
 
+	use Aranda_WP_Stubs;
+
 	public function test_terms_are_sorted_by_name_ignoring_case_and_accents() {
-		WP_Mock::userFunction( 'remove_accents' )->andReturnUsing(
-			function ( $text ) {
-				return strtr( $text, array( 'Á' => 'A', 'á' => 'a', 'é' => 'e', 'í' => 'i', 'ó' => 'o', 'ú' => 'u', 'Ú' => 'U' ) );
-			}
-		);
+		$this->stub_wp_basics();
 
 		$names = array( 'Hacienda', 'Festejos', 'Educación', 'Alcaldía', 'Deportes', 'urbanismo', 'Ámbito' );
 		$terms = array_map(

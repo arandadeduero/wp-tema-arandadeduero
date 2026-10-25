@@ -29,13 +29,9 @@ function aranda_de_duero_sede_url( $path ) {
  * @return string
  */
 function aranda_de_duero_payments_url() {
-	$page = get_page_by_path( 'pagos-y-recibos' );
+	$url = aranda_de_duero_page_url( 'pagos-y-recibos' );
 
-	if ( $page instanceof WP_Post && 'publish' === $page->post_status ) {
-		return (string) get_permalink( $page );
-	}
-
-	return aranda_de_duero_sede_url( '/sta/CarpetaPublic/doEvent?APP_CODE=STA&PAGE_CODE=FRONTAL_SPT' );
+	return '' !== $url ? $url : aranda_de_duero_sede_url( '/sta/CarpetaPublic/doEvent?APP_CODE=STA&PAGE_CODE=FRONTAL_SPT' );
 }
 
 /**

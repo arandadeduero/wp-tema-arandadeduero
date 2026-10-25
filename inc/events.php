@@ -107,8 +107,6 @@ function aranda_de_duero_query_upcoming_events( $limit ) {
 	}
 
 	$upcoming_events = array();
-	$current_year    = (int) current_time( 'Y' );
-	$next_year       = $current_year + 1;
 	$today           = strtotime( current_time( 'Y-m-d' ) );
 	$series_ids      = array();
 
@@ -124,11 +122,8 @@ function aranda_de_duero_query_upcoming_events( $limit ) {
 		$date_start = $event_data[0]['event_begin'];
 		$date_end   = $event_data[0]['event_end'];
 
-		$date_end_timestamp = strtotime( $date_end );
-		$event_year         = (int) wp_date( 'Y', strtotime( $date_start ) );
-
-		// Only show active upcoming events from the current/next year.
-		if ( ( $event_year !== $current_year && $event_year !== $next_year ) || $today > $date_end_timestamp ) {
+		// Only events that have not ended: one that started last year (a Christmas exhibition) is still on in January.
+		if ( $today > strtotime( $date_end ) ) {
 			continue;
 		}
 

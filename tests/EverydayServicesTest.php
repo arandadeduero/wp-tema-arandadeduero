@@ -8,17 +8,10 @@ require_once dirname( __DIR__ ) . '/inc/everyday-services.php';
 
 class EverydayServicesTest extends TestCase {
 
+	use Aranda_WP_Stubs;
+
 	private function mocks( array $published = array() ) {
-		\WP_Mock::userFunction( 'apply_filters' )->andReturnUsing(
-			function ( $tag, $value ) {
-				return $value;
-			}
-		);
-		\WP_Mock::userFunction( '__' )->andReturnUsing(
-			function ( $text ) {
-				return $text;
-			}
-		);
+		$this->stub_wp_basics();
 		\WP_Mock::userFunction( 'get_page_by_path' )->andReturnUsing(
 			function ( $path ) use ( $published ) {
 				if ( ! in_array( $path, $published, true ) ) {
@@ -99,6 +92,20 @@ class EverydayServicesTest extends TestCase {
 		$this->assertStringContainsString( 'reclamacion', $items[0]['keywords'] );
 		$this->assertSame( 'https://www.arandadeduero.es/objetos-perdidos/', $items[1]['url'] );
 		$this->assertStringContainsString( 'llaves', $items[1]['keywords'] );
+	}
+
+	public function test_the_omic_link_is_the_service_not_a_page() {
+		\WP_Mock::userFunction( 'get_page_by_path' )->once()->with( 'omic', OBJECT, 'servicio-municipal' )->andReturnUsing(
+			function () {
+				$service            = new WP_Post();
+				$service->post_name = 'omic';
+
+				return $service;
+			}
+		);
+		\WP_Mock::userFunction( 'get_permalink' )->andReturn( 'https://www.arandadeduero.es/servicios/omic/' );
+
+		$this->assertSame( 'https://www.arandadeduero.es/servicios/omic/', aranda_de_duero_omic_page_url() );
 	}
 
 	public function test_lost_found_contact_data() {

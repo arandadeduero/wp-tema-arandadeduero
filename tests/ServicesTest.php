@@ -6,22 +6,10 @@ require_once dirname( __DIR__ ) . '/inc/services.php';
 
 class ServicesTest extends TestCase {
 
+	use Aranda_WP_Stubs;
+
 	private function mocks() {
-		\WP_Mock::userFunction( 'apply_filters' )->andReturnUsing(
-			function ( $tag, $value ) {
-				return $value;
-			}
-		);
-		\WP_Mock::userFunction( '__' )->andReturnUsing(
-			function ( $text ) {
-				return $text;
-			}
-		);
-		\WP_Mock::userFunction( 'home_url' )->andReturnUsing(
-			function ( $path = '' ) {
-				return 'https://www.arandadeduero.es' . $path;
-			}
-		);
+		$this->stub_wp_basics();
 	}
 
 	public function test_sede_url_is_built_on_the_configured_office() {
@@ -36,7 +24,7 @@ class ServicesTest extends TestCase {
 	public function test_payments_shortcut_points_to_the_page_when_it_is_published() {
 		$this->mocks();
 		$page = new WP_Post();
-		\WP_Mock::userFunction( 'get_page_by_path' )->with( 'pagos-y-recibos' )->andReturn( $page );
+		\WP_Mock::userFunction( 'get_page_by_path' )->with( 'pagos-y-recibos', OBJECT, 'page' )->andReturn( $page );
 		\WP_Mock::userFunction( 'get_permalink' )->with( $page )->andReturn( 'https://www.arandadeduero.es/pagos-y-recibos/' );
 
 		$this->assertSame( 'https://www.arandadeduero.es/pagos-y-recibos/', aranda_de_duero_payments_url() );
@@ -44,7 +32,7 @@ class ServicesTest extends TestCase {
 
 	public function test_payments_shortcut_falls_back_to_the_gateway_without_a_page() {
 		$this->mocks();
-		\WP_Mock::userFunction( 'get_page_by_path' )->with( 'pagos-y-recibos' )->andReturn( null );
+		\WP_Mock::userFunction( 'get_page_by_path' )->with( 'pagos-y-recibos', OBJECT, 'page' )->andReturn( null );
 
 		$this->assertStringEndsWith( 'PAGE_CODE=FRONTAL_SPT', aranda_de_duero_payments_url() );
 	}

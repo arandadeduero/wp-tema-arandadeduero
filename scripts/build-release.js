@@ -26,7 +26,6 @@ const ROOT = path.join(__dirname, '..');
 const FILES_TO_INCLUDE = [
     ...fs.readdirSync(ROOT).filter((file) => file.endsWith('.php')),
     'style.css',
-    'style-rtl.css',
     'theme.json',
     'readme.txt',
     'screenshot.png',

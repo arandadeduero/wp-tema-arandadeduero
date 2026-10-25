@@ -37,6 +37,10 @@ La compatibilidad con PHP 8.3 no es un paso aparte: `lint:wpcs` incluye PHPCompa
 (`phpcs.xml.dist`) y `phpstan` analiza como PHP 8.3 (`phpVersion: 80300` en `phpstan.neon.dist`), aunque se ejecute
 con un PHP más nuevo.
 
+En los tests, `tests/bootstrap.php` trae un `WP_Post` de prueba y el trait `Aranda_WP_Stubs`: `$this->stub_wp_basics()`
+simula `apply_filters`, `__`, `home_url`, `wp_parse_url` y `remove_accents`. Llamarlo antes que los stubs propios del
+test: con WP_Mock gana el primero que coincide.
+
 ## Qué hace cada dependencia
 
 Cada paquete tiene un motivo; si deja de tenerlo, se quita (mirar antes con `git grep` si algún script, configuración o la CI lo usa).
@@ -77,7 +81,7 @@ push y en cada PR, con permisos de solo lectura (`permissions: contents: read`).
   `.stylelintrc.json` (`color-no-hex`, `color-named`, `function-disallowed-list`) hace fallar la CI con un hex, un `rgb()`/`hsl()` o un color con nombre
   fuera de esa paleta (`transparent` y `currentcolor` sí valen). **La paleta es la corporativa** (azul `#0083c1`, azul claro `#e9f4f9`, rojo, ámbar, marrón, celeste, negro 75 % y 90 %,
   negro y blanco) más dos tonos de accesibilidad (`--color-primary-accessible`, `--color-primary-dark`); `theme.json` usa los mismos y un test comprueba que coinciden. Para añadir uno: reutilizar un token existente o añadirlo a la paleta con un nombre con
-  sentido. `style.css` y `style-rtl.css` usan las mismas variables (se definen en el CSS del tema). Las imágenes SVG embebidas como máscara y los `.svg` de
+  sentido. `style.css` usa las mismas variables (se definen en el CSS del tema). Las imágenes SVG embebidas como máscara y los `.svg` de
   `images/` llevan colores propios: no pueden leer variables.
 - **Sin JavaScript de terceros ni jQuery.** `js/` son siete ficheros propios, con `defer` y en el pie. De Bootstrap
   solo se carga el CSS.

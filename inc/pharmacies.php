@@ -52,7 +52,12 @@ function aranda_de_duero_pharmacy_guard_day( $now ) {
  * @return array<string,mixed>|null
  */
 function aranda_de_duero_pharmacy_read_json( $file ) {
+	static $decoded = array(); // The page asks for the same files ~15 times per view.
+
 	$path = get_template_directory() . '/data/farmacias/' . $file;
+	if ( isset( $decoded[ $path ] ) ) {
+		return $decoded[ $path ];
+	}
 	if ( ! is_readable( $path ) ) {
 		return null;
 	}
@@ -64,8 +69,13 @@ function aranda_de_duero_pharmacy_read_json( $file ) {
 	}
 
 	$data = json_decode( $raw, true );
+	if ( ! is_array( $data ) ) {
+		return null;
+	}
 
-	return is_array( $data ) ? $data : null;
+	$decoded[ $path ] = $data;
+
+	return $data;
 }
 
 /**
@@ -327,7 +337,7 @@ function aranda_de_duero_pharmacy_reminder_mail( $year, $days_left ) {
 		'message' => sprintf(
 			/* translators: 1: next year, 2: current year. */
 			__(
-				"La web del Ayuntamiento no tiene todavía el calendario de farmacias de guardia de %1\$d, y el de %2\$d termina el 31 de diciembre.\n\nPara que la página «Farmacias de guardia» siga funcionando:\n\n1. Conseguir el calendario %1\$d del Colegio Oficial de Farmacéuticos de Burgos (https://www.cofburgos.es), zona farmacéutica de Aranda de Duero.\n2. Crear en el repositorio del tema el fichero data/farmacias/%1\$d.json con el mismo formato que data/farmacias/%2\$d.json (una entrada por día, con su fecha y el número de la farmacia).\n3. Subir el tema completo a WordPress (npm run release) y vaciar la caché de Cache Enabler.\n\nSi la farmacia de un día no está clara en el documento, anotar esa fecha en meta.lowConfidenceDates y la web avisará de que se confirme con el Colegio.\n\nEste aviso se repite a los 15, 10 y 5 días del 31 de diciembre mientras no exista el fichero.",
+				"La web del Ayuntamiento no tiene todavía el calendario de farmacias de guardia de %1\$d, y el de %2\$d termina el 31 de diciembre.\n\nPara que la página «Farmacias de guardia» siga funcionando:\n\n1. Conseguir el calendario %1\$d del Colegio Oficial de Farmacéuticos de Burgos (https://www.cofburgos.es), zona farmacéutica de Aranda de Duero.\n2. Crear en el repositorio del tema el fichero data/farmacias/%1\$d.json con el mismo formato que data/farmacias/%2\$d.json (una entrada por día, con su fecha y el número de la farmacia).\n3. Subir el tema completo a WordPress (npm run release).\n\nSi la farmacia de un día no está clara en el documento, anotar esa fecha en meta.lowConfidenceDates y la web avisará de que se confirme con el Colegio.\n\nEste aviso se repite a los 15, 10 y 5 días del 31 de diciembre mientras no exista el fichero.",
 				'aranda-de-duero'
 			),
 			$next,

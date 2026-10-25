@@ -80,7 +80,7 @@ $aranda_day_text = static function ( $date ) {
 								</div>
 							</div>
 							<p class="small text-muted">
-								<?php esc_html_e( 'La guardia suele cambiar a las 10 de la mañana: hasta esa hora se muestra la farmacia del día anterior. Si es una urgencia, llama antes de ir.', 'aranda-de-duero' ); ?>
+								<?php esc_html_e( 'La guardia cambia a las 9:50 de la mañana: hasta esa hora se muestra la farmacia del día anterior. Si es una urgencia, llama antes de ir.', 'aranda-de-duero' ); ?>
 							</p>
 							<?php if ( $aranda_guard['low_confidence'] ) : ?>
 								<p class="alert alert-warning" role="alert">

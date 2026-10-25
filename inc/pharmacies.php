@@ -21,17 +21,17 @@ function aranda_de_duero_pharmacy_reminder_days() {
 }
 
 /**
- * Hour of the day at which the guard passes from one pharmacy to the next: the guard of a calendar day runs from that hour to
- * the same hour of the next day.
+ * Time of day at which the guard passes from one pharmacy to the next, in minutes after midnight: the guard of a calendar day
+ * runs from 9:50 to 9:50 of the next day (Ayuntamiento, 2026-10-25).
  *
  * @return int
  */
-function aranda_de_duero_pharmacy_guard_change_hour() {
-	return 10;
+function aranda_de_duero_pharmacy_guard_change_minutes() {
+	return 9 * 60 + 50;
 }
 
 /**
- * The calendar day whose guard is in force at a moment: before the change hour it is still the guard of the day before.
+ * The calendar day whose guard is in force at a moment: before the change time it is still the guard of the day before.
  *
  * @param string $now Moment in the site time zone, «YYYY-MM-DD HH:MM:SS».
  * @return string Day, «YYYY-MM-DD».
@@ -42,7 +42,7 @@ function aranda_de_duero_pharmacy_guard_day( $now ) {
 		return substr( (string) $now, 0, 10 );
 	}
 
-	return $moment->modify( '-' . aranda_de_duero_pharmacy_guard_change_hour() . ' hours' )->format( 'Y-m-d' );
+	return $moment->modify( '-' . aranda_de_duero_pharmacy_guard_change_minutes() . ' minutes' )->format( 'Y-m-d' );
 }
 
 /**

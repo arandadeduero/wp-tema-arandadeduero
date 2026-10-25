@@ -31,10 +31,10 @@ class PharmaciesTest extends TestCase {
 		}
 	}
 
-	public function test_the_guard_changes_at_ten_in_the_morning() {
+	public function test_the_guard_changes_at_nine_fifty_in_the_morning() {
 		$this->assertSame( '2026-10-23', aranda_de_duero_pharmacy_guard_day( '2026-10-24 00:30:00' ) );
-		$this->assertSame( '2026-10-23', aranda_de_duero_pharmacy_guard_day( '2026-10-24 09:59:59' ) );
-		$this->assertSame( '2026-10-24', aranda_de_duero_pharmacy_guard_day( '2026-10-24 10:00:00' ) );
+		$this->assertSame( '2026-10-23', aranda_de_duero_pharmacy_guard_day( '2026-10-24 09:49:59' ) );
+		$this->assertSame( '2026-10-24', aranda_de_duero_pharmacy_guard_day( '2026-10-24 09:50:00' ) );
 		$this->assertSame( '2026-10-24', aranda_de_duero_pharmacy_guard_day( '2026-10-24 23:59:59' ) );
 		$this->assertSame( '2025-12-31', aranda_de_duero_pharmacy_guard_day( '2026-01-01 03:00:00' ) );
 	}

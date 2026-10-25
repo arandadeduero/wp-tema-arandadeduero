@@ -1,0 +1,28 @@
+MEJORAS-OTROS-AYUNTAMIENTOS.md
+  s_e1aa48bb7b463c::t_2e72226c88b950 249
+tests/PharmaciesTest.php
+  s_e1aa48bb7b463c::t_44b6d594fe98e9 57-96
+docs/farmacias-de-guardia.md
+  s_e1aa48bb7b463c::t_2e72226c88b950 25-37
+data/farmacias/catalogo.json
+  s_e1aa48bb7b463c::t_44b6d594fe98e9 8
+  s_e1aa48bb7b463c::t_082a19d34f426d 9,21-22,26-28,40-41,45-47,59-60,64-66,78-79,83-85,103,115-116,120-122,140,157-159,171-172,176-178,190-191,195-197,214-216,228-229,233-235
+inc/pharmacies.php
+  s_e1aa48bb7b463c::t_44b6d594fe98e9 200,202-203,209-225
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "a24075f695b48eb5f5e5ed3d84479661fc05cf54",
+  "prompts": {},
+  "sessions": {
+    "s_e1aa48bb7b463c": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "950c7f09-0446-4c9c-8da1-ba075c088b88",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Guillermo López <willyaranda@gmail.com>"
+    }
+  }
+}

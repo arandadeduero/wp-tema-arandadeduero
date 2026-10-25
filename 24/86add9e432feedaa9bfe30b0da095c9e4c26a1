@@ -1,0 +1,23 @@
+data/farmacias/catalogo.json
+  s_e1aa48bb7b463c::t_09a8719f1045cf 8,15,34,97-98,102-104,110,135-136,140-142
+docs/farmacias-de-guardia.md
+  s_e1aa48bb7b463c::t_24c48019147f0c 25-33
+MEJORAS-OTROS-AYUNTAMIENTOS.md
+  s_e1aa48bb7b463c::t_24c48019147f0c 249
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "2486add9e432feedaa9bfe30b0da095c9e4c26a1",
+  "prompts": {},
+  "sessions": {
+    "s_e1aa48bb7b463c": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "950c7f09-0446-4c9c-8da1-ba075c088b88",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Guillermo López <willyaranda@gmail.com>"
+    }
+  }
+}

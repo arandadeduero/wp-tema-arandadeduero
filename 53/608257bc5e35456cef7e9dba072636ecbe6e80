@@ -1,0 +1,30 @@
+tests/ContentTypesTest.php
+  s_e1aa48bb7b463c::t_9a10fcaea6d73f 37-44
+template-parts/term-posts.php
+  s_e1aa48bb7b463c::t_8d48c903941cfd 6-8,13-15,23-41
+  s_e1aa48bb7b463c::t_f28fadefdda720 42-43
+inc/content-types.php
+  s_e1aa48bb7b463c::t_6f110cc81c2f51 106
+taxonomy-concejalia.php
+  s_e1aa48bb7b463c::t_9ad6f75cd8a8ae 48-55
+css/aranda-de-duero.css
+  s_e1aa48bb7b463c::t_134aa1c949fa36 4136-4158
+phpstan-baseline.neon
+  s_e1aa48bb7b463c::t_4a4b53c299aa09 45,50
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "53608257bc5e35456cef7e9dba072636ecbe6e80",
+  "prompts": {},
+  "sessions": {
+    "s_e1aa48bb7b463c": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "950c7f09-0446-4c9c-8da1-ba075c088b88",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": "Guillermo López <willyaranda@gmail.com>"
+    }
+  }
+}

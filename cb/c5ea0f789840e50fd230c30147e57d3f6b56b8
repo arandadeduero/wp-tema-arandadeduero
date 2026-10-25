@@ -1,0 +1,38 @@
+inc/content-types.php
+  s_e1aa48bb7b463c::t_4b742166beee3a 200-201,228-235,237-246
+  s_e1aa48bb7b463c::t_50aeb2f9698dc8 82,88,94
+  s_e1aa48bb7b463c::t_08d1bf055d3114 202-227
+  s_e1aa48bb7b463c::t_b74b37724af88c 5,7-14,100-111
+  s_e1aa48bb7b463c::t_ca7ab3324c7cbe 236
+  s_e1aa48bb7b463c::t_6f9c9f38131fab 112
+taxonomy-concejalia.php
+  s_e1aa48bb7b463c::t_4b742166beee3a 37-47
+docs/servicios.md
+  s_e1aa48bb7b463c::t_bc132883cb3c7d 1-40
+template-parts/content-servicio-municipal.php
+  s_e1aa48bb7b463c::t_c18f232d173d6a 1-56
+MEJORAS-OTROS-AYUNTAMIENTOS.md
+  s_e1aa48bb7b463c::t_6646fcf62c8956 245
+tests/ContentTypesTest.php
+  s_e1aa48bb7b463c::t_ce09b1e607936e 8-9,16-20,30-36,43,55
+tests/ServicioMunicipalTest.php
+  s_e1aa48bb7b463c::t_c47441a059ee74 1-57
+single-servicio-municipal.php
+  s_e1aa48bb7b463c::t_1792147ba5e859 1-29
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "cbc5ea0f789840e50fd230c30147e57d3f6b56b8",
+  "prompts": {},
+  "sessions": {
+    "s_e1aa48bb7b463c": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "950c7f09-0446-4c9c-8da1-ba075c088b88",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": "Guillermo López <willyaranda@gmail.com>"
+    }
+  }
+}

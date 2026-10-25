@@ -82,7 +82,7 @@
         "provider": "OpenStreetMap Nominatim",
         "precision": "poi",
         "osm": "node/4630843046",
-        "match": "Ldo. Ignacio de Santiago Herrero (OSM: Plaza Obispo Acosta)"
+        "match": "Ldo. Ignacio de Santiago Herrero (OSM: Plaza Obispo Acosta, 4)"
       }
     },
     {
@@ -120,7 +120,7 @@
         "provider": "OpenStreetMap Nominatim",
         "precision": "poi",
         "osm": "node/5536194043",
-        "match": "Lda. Elsa Álvaro Reyzabal (OSM: Calle Pisuerga)"
+        "match": "Lda. Elsa Álvaro Reyzabal (OSM: Calle Duero, 2)"
       }
     },
     {
@@ -177,7 +177,7 @@
         "provider": "OpenStreetMap Nominatim",
         "precision": "poi",
         "osm": "node/1350720739",
-        "match": "Lda. Amparo Sanz Hernán (OSM: Calle San Francisco)"
+        "match": "Lda. Amparo Sanz Hernán (OSM: Calle San Francisco, 31)"
       }
     },
     {
@@ -196,7 +196,7 @@
         "provider": "OpenStreetMap Nominatim",
         "precision": "poi",
         "osm": "node/1270451621",
-        "match": "Ldo. Miguel Blanco Planas (OSM: Calle Pizarro)"
+        "match": "Ldo. Fernando Blanco Terreros (OSM: Calle Pizarro, 6)"
       }
     },
     {
@@ -234,7 +234,7 @@
         "provider": "OpenStreetMap Nominatim",
         "precision": "poi",
         "osm": "node/2368416175",
-        "match": "Lda. Ana Mª Garcia Hernando (OSM: Paseo del Sol)"
+        "match": "Lda. Ana Mª Garcia Hernando (OSM: Avenida Castilla, 57)"
       }
     }
   ]

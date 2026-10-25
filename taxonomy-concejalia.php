@@ -34,7 +34,25 @@ $query = aranda_de_duero_concejalias( $current_term->slug );
 							'kicker' => __( 'Concejalía', 'aranda-de-duero' ),
 						)
 					);
-					get_template_part( 'template-parts/term-posts', null, array( 'query' => $query ) );
+
+					$aranda_services = aranda_de_duero_concejalia_service_cards( $current_term->slug );
+					if ( array() !== $aranda_services ) :
+						?>
+						<section class="concejalia-services" aria-labelledby="concejalia-services-title">
+							<h2 id="concejalia-services-title" class="h4"><?php esc_html_e( 'Servicios', 'aranda-de-duero' ); ?></h2>
+							<?php get_template_part( 'template-parts/service-cards', null, array( 'items' => $aranda_services ) ); ?>
+						</section>
+						<?php
+					endif;
+
+					get_template_part(
+						'template-parts/term-posts',
+						null,
+						array(
+							'query'   => $query,
+							'compact' => true,
+						)
+					);
 					?>
 				</main><!-- #main -->
 			</div>

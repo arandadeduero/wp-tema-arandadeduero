@@ -109,11 +109,7 @@ class EverydayServicesTest extends TestCase {
 		$this->assertStringContainsString( 'llaves', $items[1]['keywords'] );
 	}
 
-	public function test_omic_and_lost_found_contact_data() {
-		$omic = aranda_de_duero_omic_info();
-		$this->assertSame( '947 50 86 66', $omic['phone_1'] );
-		$this->assertSame( 'tel:947508666', $omic['phone_1_href'] );
-
+	public function test_lost_found_contact_data() {
 		$lost = aranda_de_duero_lost_found_info();
 		$this->assertSame( '947 51 26 46', $lost['phone'] );
 		$this->assertSame( 'policialocalad@arandadeduero.es', $lost['email'] );
@@ -131,5 +127,22 @@ class EverydayServicesTest extends TestCase {
 		$this->mocks();
 
 		$this->assertSame( '', aranda_de_duero_omic_article_redirect_target( 'la-omic-que-es-y-que-funciones-tiene' ) );
+	}
+
+	public function test_the_old_omic_page_redirects_to_the_new_service_once_it_exists() {
+		$this->mocks( array( 'omic' ) );
+
+		foreach ( array( '/omic/', 'omic', '/omic' ) as $path ) {
+			$this->assertSame( 'https://www.arandadeduero.es/omic/', aranda_de_duero_omic_page_redirect_target( $path ), $path );
+		}
+		foreach ( array( '/', '/omic-que-es/', '/servicios/omic/' ) as $path ) {
+			$this->assertSame( '', aranda_de_duero_omic_page_redirect_target( $path ), $path );
+		}
+	}
+
+	public function test_the_old_omic_page_does_not_redirect_without_the_new_service() {
+		$this->mocks();
+
+		$this->assertSame( '', aranda_de_duero_omic_page_redirect_target( 'omic' ) );
 	}
 }

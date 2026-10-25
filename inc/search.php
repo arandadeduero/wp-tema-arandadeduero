@@ -191,6 +191,61 @@ function aranda_de_duero_search_especiales() {
 }
 
 /**
+ * Every concejalía with content and every published servicio-municipal, as searchable entries: «cultura» finds the
+ * concejalía's own page, «biblioteca» finds its service.
+ *
+ * @return array<int, array{title: string, text: string, url: string, new_tab: bool, keywords?: string}>
+ */
+function aranda_de_duero_search_concejalias_and_services() {
+	$entries = array();
+
+	$terms = get_terms(
+		array(
+			'taxonomy'   => 'concejalia',
+			'hide_empty' => true,
+		)
+	);
+	if ( ! is_wp_error( $terms ) ) {
+		foreach ( $terms as $term ) {
+			$link = get_term_link( $term );
+			if ( is_wp_error( $link ) ) {
+				continue;
+			}
+			$entries[] = aranda_de_duero_directory_entry(
+				/* translators: %s: name of the concejalía. */
+				sprintf( __( 'Concejalía de %s', 'aranda-de-duero' ), $term->name ),
+				__( 'Noticias, trámites y servicios de esta concejalía.', 'aranda-de-duero' ),
+				$link,
+				'',
+				false
+			);
+		}
+	}
+
+	$services = get_posts(
+		array(
+			'post_type'      => 'servicio-municipal',
+			'post_status'    => 'publish',
+			'posts_per_page' => -1,
+			'orderby'        => 'title',
+			'order'          => 'ASC',
+			'no_found_rows'  => true,
+		)
+	);
+	foreach ( (array) $services as $service ) {
+		$entries[] = aranda_de_duero_directory_entry(
+			get_the_title( $service ),
+			wp_strip_all_tags( (string) get_the_excerpt( $service ) ),
+			(string) get_permalink( $service ),
+			'',
+			false
+		);
+	}
+
+	return $entries;
+}
+
+/**
  * Lower case, no accents.
  *
  * @param string $text Text.
@@ -361,7 +416,7 @@ function aranda_de_duero_search_pool( $with_catalog = false ) {
 	foreach ( aranda_de_duero_payment_services() as $group ) {
 		$pool = array_merge( $pool, $group['items'] );
 	}
-	$pool = array_merge( $pool, aranda_de_duero_service_directory(), aranda_de_duero_search_especiales() );
+	$pool = array_merge( $pool, aranda_de_duero_service_directory(), aranda_de_duero_search_especiales(), aranda_de_duero_search_concejalias_and_services() );
 	if ( $with_catalog ) {
 		$pool = array_merge( $pool, aranda_de_duero_sede_catalog_entries() );
 	}

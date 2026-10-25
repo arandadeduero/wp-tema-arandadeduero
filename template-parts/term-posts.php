@@ -3,18 +3,42 @@
  * Card list of a term archive (concejalía or tema), with its pagination or, when empty, a message.
  *
  * Passed with get_template_part() as the third argument:
- * - `query` (WP_Query) Posts to list.
+ * - `query`   (WP_Query) Posts to list.
+ * - `compact` (bool, optional) A dense list (title and date, no thumbnail) instead of the big cards. Used on the concejalía
+ *   page, under its «Servicios»: the big cards pushed the services too far down. Default false.
  *
  * @package Aranda_de_Duero
  */
 
-$aranda_args  = isset( $args ) ? $args : array(); // $args is set by get_template_part().
-$aranda_query = $aranda_args['query'];
+$aranda_args    = isset( $args ) ? $args : array(); // $args is set by get_template_part().
+$aranda_query   = $aranda_args['query'];
+$aranda_compact = ! empty( $aranda_args['compact'] );
 
 if ( ! $aranda_query->have_posts() ) :
 	?>
 	<p class="archive-empty"><?php esc_html_e( 'Todavía no hay contenido en este apartado.', 'aranda-de-duero' ); ?></p>
 	<?php
+	return;
+endif;
+
+if ( $aranda_compact ) :
+	?>
+	<ul class="term-posts-compact list-unstyled">
+		<?php
+		while ( $aranda_query->have_posts() ) :
+			$aranda_query->the_post();
+			?>
+			<li class="term-posts-compact-item">
+				<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+				<time class="archive-card-date" datetime="<?php echo esc_attr( get_the_date( 'c' ) ); ?>"><?php echo esc_html( get_the_date() ); ?></time>
+			</li>
+			<?php
+		endwhile;
+		?>
+	</ul>
+	<?php
+	wp_reset_postdata();
+	aranda_de_duero_query_pagination( $aranda_query );
 	return;
 endif;
 ?>

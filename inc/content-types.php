@@ -2,11 +2,16 @@
 defined( 'ABSPATH' ) || exit;
 
 /**
- * Content types and taxonomies of the site (they were registered by the Custom Post Type UI plugin).
+ * Content types and taxonomies of the site. Most were registered by the Custom Post Type UI plugin.
  *
- * The arguments are the ones that plugin exported («Obtener el código», 2026-10-20), so nothing changes for the content, the
- * addresses or the editors. A type or taxonomy that something else has already registered (the plugin, while it is still active) is
- * left as it is, so the plugin can be deactivated at any time without registering anything twice.
+ * The arguments of `seccion-principal`, `actividad`, `especial`, `tramite` and the six original taxonomies are the ones that
+ * plugin exported («Obtener el código», 2026-10-20), so nothing changes for their content, addresses or editors. `servicio-municipal`
+ * (2026-10-25) is new, added by the theme itself: the «Biblioteca», «Escuela de música»… services of each concejalía, as their own
+ * pages (`concejalia` is the taxonomy that links a service to its concejalía; the old `servicio` taxonomy is unrelated classification
+ * on news posts, kept as it was to avoid a slug clash — see docs/servicios.md).
+ *
+ * A type or taxonomy that something else has already registered (the plugin, while it is still active) is left as it is, so the
+ * plugin can be deactivated at any time without registering anything twice.
  *
  * @package Aranda_de_Duero
  */
@@ -74,23 +79,37 @@ function aranda_de_duero_post_types() {
 				'hierarchical'        => true,
 			)
 		),
-		'actividad'         => aranda_de_duero_post_type_args(
+		'actividad' => aranda_de_duero_post_type_args(
 			'actividad',
 			'Actividad',
 			'Actividades',
 			array( 'taxonomies' => array( 'seccion', 'concejalia', 'tema', 'servicio' ) )
 		),
-		'especial'          => aranda_de_duero_post_type_args(
+		'especial' => aranda_de_duero_post_type_args(
 			'especial',
 			'Especial',
 			'Especiales',
 			array( 'taxonomies' => array( 'concejalia' ) )
 		),
-		'tramite'           => aranda_de_duero_post_type_args(
+		'tramite' => aranda_de_duero_post_type_args(
 			'tramite',
 			'Trámite',
 			'Trámites',
 			array( 'taxonomies' => array( 'concejalia' ) )
+		),
+		'servicio-municipal' => aranda_de_duero_post_type_args(
+			'servicio-municipal',
+			'Servicio',
+			'Servicios',
+			array(
+				'taxonomies' => array( 'concejalia' ),
+				'supports'   => array( 'title', 'editor', 'thumbnail', 'excerpt' ), // + excerpt, for the short text of its card.
+				'rewrite'    => array(
+					'slug'       => 'servicios',
+					'with_front' => true,
+				),
+				'menu_icon'  => 'dashicons-building',
+			)
 		),
 	);
 }
@@ -179,3 +198,63 @@ function aranda_de_duero_register_post_types() {
 	}
 }
 add_action( 'init', 'aranda_de_duero_register_post_types' );
+
+/**
+ * Published «servicio-municipal» posts of a concejalía (Biblioteca, Escuela de música… under Cultura), in title order.
+ *
+ * @param string $slug Slug of the concejalía.
+ * @return array<int,WP_Post>
+ */
+function aranda_de_duero_concejalia_services( $slug ) {
+	return get_posts(
+		array(
+			'post_type'      => 'servicio-municipal',
+			'post_status'    => 'publish',
+			'posts_per_page' => -1,
+			'orderby'        => 'title',
+			'order'          => 'ASC',
+			'no_found_rows'  => true,
+			'tax_query'      => array( // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_tax_query -- a handful of services per concejalía.
+				array(
+					'taxonomy' => 'concejalia',
+					'field'    => 'slug',
+					'terms'    => $slug,
+				),
+			),
+		)
+	);
+}
+
+/**
+ * Services of a concejalía (aranda_de_duero_concejalia_services()), as cards for template-parts/service-cards.php.
+ *
+ * @param string $slug Slug of the concejalía.
+ * @return array<int, array{title: string, text: string, url: string, new_tab: bool}>
+ */
+function aranda_de_duero_concejalia_service_cards( $slug ) {
+	$cards = array();
+
+	foreach ( aranda_de_duero_concejalia_services( $slug ) as $service ) {
+		$cards[] = array(
+			'title'   => get_the_title( $service ),
+			'text'    => wp_strip_all_tags( (string) get_the_excerpt( $service ) ),
+			'url'     => (string) get_permalink( $service ),
+			'new_tab' => false,
+		);
+	}
+
+	return $cards;
+}
+
+/**
+ * Permalink of a «servicio-municipal» by its slug, when published, or '' (so nothing points to a service that does not exist
+ * yet). Mirrors aranda_de_duero_page_url(), but scoped to this post type.
+ *
+ * @param string $slug Slug of the service.
+ * @return string
+ */
+function aranda_de_duero_service_url( $slug ) {
+	$service = get_page_by_path( $slug, OBJECT, 'servicio-municipal' );
+
+	return ( $service instanceof WP_Post && 'publish' === $service->post_status ) ? (string) get_permalink( $service ) : '';
+}

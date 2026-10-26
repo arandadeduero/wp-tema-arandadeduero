@@ -44,6 +44,12 @@ class EuFundsTest extends TestCase {
 		$this->assertSame( '0,00 €', aranda_de_duero_eu_amount_text( 0 ) );
 	}
 
+	public function test_react_eu_projects_get_their_own_wording() {
+		$this->assertStringContainsString( 'respuesta de la Unión a la pandemia de COVID-19', aranda_de_duero_eu_wording( 'REACT-EU · FEDER' ) );
+		$this->assertStringContainsString( 'NextGenerationEU', aranda_de_duero_eu_wording( 'PIREP local · PRTR' ) );
+		$this->assertStringContainsString( 'NextGenerationEU', aranda_de_duero_eu_wording( '' ) );
+	}
+
 	public function test_a_project_shows_only_the_fields_it_has() {
 		$this->assertSame(
 			array(

@@ -22,6 +22,21 @@ const ARANDA_DE_DUERO_EU_FUNDS_PAGE = 'fondos-nextgenerationeu-prtr';
 const ARANDA_DE_DUERO_EU_FUNDS_WORDING = 'Plan de Recuperación, Transformación y Resiliencia – Financiado por la Unión Europea – NextGenerationEU';
 
 /**
+ * Mandatory wording of REACT-EU, which is FEDER (Reglamento (UE) 1303/2013, anexo XII, as amended for REACT-EU).
+ */
+const ARANDA_DE_DUERO_EU_REACT_WORDING = 'Financiado por la Unión Europea, a través del Fondo Europeo de Desarrollo Regional (FEDER), como parte de la respuesta de la Unión a la pandemia de COVID-19 – Una manera de hacer Europa';
+
+/**
+ * The wording a project must show: the REACT-EU one when its programme says so, the PRTR one otherwise.
+ *
+ * @param string $programme Programme of the project.
+ * @return string
+ */
+function aranda_de_duero_eu_wording( $programme ) {
+	return false !== stripos( (string) $programme, 'REACT' ) ? ARANDA_DE_DUERO_EU_REACT_WORDING : ARANDA_DE_DUERO_EU_FUNDS_WORDING;
+}
+
+/**
  * Fields of a project: meta key => label. The amounts are numbers in euros; the rest, text.
  *
  * @return array<string,string>

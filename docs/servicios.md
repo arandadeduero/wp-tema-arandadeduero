@@ -50,13 +50,13 @@ migró al cuerpo de la entrada. La página vieja se ha borrado; `/omic/` redirig
 `aranda_de_duero_redirect_old_paths()` en `inc/template-functions.php`, la misma que manda `/transparencia/` al portal) al
 nuevo servicio.
 
-## Secciones plegables
+## Secciones plegables (reutilizables)
 
-Un servicio largo (por ejemplo la Escuela de Música) se escribe en el editor como una introducción, un índice y un
+Cualquier contenido largo del editor (un servicio como la Escuela de Música, una página o una noticia; las clases no dependen del tipo) se escribe en el editor como una introducción, un índice y un
 `<details class="service-section" id="…">` por sección, con su `<summary>` y un `<div class="service-section-body">`
 dentro. Todas van cerradas por defecto. El índice es un `<nav class="service-toc">` con enlaces `#id`; el JS del tema
 (`setupServiceSections()` en `js/aranda-de-duero.js`) abre la sección a la que apunta la URL. Los estilos están en
-`css/aranda-de-duero.css` (`.single-servicio-municipal .service-section`). Sin JS siguen funcionando: solo hay que pulsar
+`css/aranda-de-duero.css` (`.service-section`, `.service-toc`, `.service-section-body`). Sin JS siguen funcionando: solo hay que pulsar
 cada título.
 
 ## Pendiente

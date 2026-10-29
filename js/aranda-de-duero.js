@@ -107,7 +107,7 @@ const ArandaTheme = (() => {
         });
     };
 
-    // Servicio con secciones plegables: un enlace del índice (o una URL con #) abre la sección a la que apunta.
+    // Secciones plegables (details.service-section, en cualquier página): un enlace del índice (o una URL con #) abre la sección a la que apunta.
     const setupServiceSections = () => {
         const openTarget = () => {
             const id = decodeURIComponent(window.location.hash.slice(1));

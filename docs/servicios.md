@@ -62,7 +62,7 @@ cada título.
 ## Enlace en pastilla
 
 Para destacar un enlace externo importante (la web de Turismo, la de la Biblioteca…), en el editor o en la descripción de
-una concejalía: `<a class="link-pill" href="https://…">Texto</a>`. Estilos en `css/aranda-de-duero.css` (`a.link-pill`).
+una concejalía: `<a class="link-pill" href="https://…">Texto</a>`. Estilos en `css/aranda-de-duero.css` (`a.link-pill`). En la descripción de una concejalía o tema, WordPress quita el `class` de los enlaces al guardar; `aranda_de_duero_term_description_link_class()` (`inc/term-archives.php`) lo permite, pero solo vale para lo que se guarde después de desplegarla.
 
 ## Pendiente
 

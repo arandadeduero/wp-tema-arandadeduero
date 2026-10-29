@@ -40,4 +40,15 @@ class TermArchivesTest extends TestCase {
 
 		$this->assertSame( 0, aranda_de_duero_term_newest_timestamp( $term ) );
 	}
+
+	public function test_term_descriptions_keep_the_class_of_their_links() {
+		$tags = aranda_de_duero_term_description_link_class( array( 'a' => array( 'href' => true ) ), 'pre_term_description' );
+		$this->assertTrue( $tags['a']['class'] );
+		$this->assertTrue( $tags['a']['href'] );
+	}
+
+	public function test_other_contexts_are_left_alone() {
+		$tags = aranda_de_duero_term_description_link_class( array( 'a' => array( 'href' => true ) ), 'pre_user_description' );
+		$this->assertArrayNotHasKey( 'class', $tags['a'] );
+	}
 }

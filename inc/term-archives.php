@@ -96,3 +96,19 @@ function aranda_de_duero_query_pagination( $query ) {
 	</nav>
 	<?php
 }
+
+/**
+ * Let the description of a concejalía or tema keep the `class` of its links (the «link-pill» button): WordPress' filter for
+ * term descriptions only allows href, title, rel… on <a>, so the class was dropped when saving.
+ *
+ * @param array<string, array<string, bool>> $tags    Allowed tags and attributes.
+ * @param string                             $context Context of the filter (`pre_term_description` when saving).
+ * @return array<string, array<string, bool>>
+ */
+function aranda_de_duero_term_description_link_class( $tags, $context ) {
+	if ( 'pre_term_description' === $context && isset( $tags['a'] ) ) {
+		$tags['a']['class'] = true;
+	}
+	return $tags;
+}
+add_filter( 'wp_kses_allowed_html', 'aranda_de_duero_term_description_link_class', 10, 2 );

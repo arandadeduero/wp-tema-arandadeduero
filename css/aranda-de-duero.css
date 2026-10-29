@@ -3971,3 +3971,84 @@ div.service-card.service-card-waste.is-banned {
     margin: var(--spacing-md) 0;
     font-weight: 600;
 }
+
+/* Secciones plegables, reutilizables en cualquier contenido del editor (servicios, páginas, noticias): índice .service-toc con enlaces y un <details class="service-section"> por sección, cerrado por defecto. */
+.service-toc {
+    margin: var(--spacing-md) 0;
+    padding: var(--spacing-md);
+    background: var(--color-primary-light);
+}
+
+.service-toc > :first-child {
+    margin-top: 0;
+    font-weight: 600;
+}
+
+.service-toc ol {
+    margin-bottom: 0;
+}
+
+.service-section {
+    margin: 0 0 var(--spacing-sm);
+    border: 1px solid var(--color-black-15);
+    scroll-margin-top: var(--spacing-xl);
+}
+
+.service-section > summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-md);
+    padding: var(--spacing-sm) var(--spacing-md);
+    color: var(--color-primary-accessible);
+    font-family: Outfit, sans-serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    cursor: pointer;
+    list-style: none;
+}
+
+.service-section > summary::-webkit-details-marker {
+    display: none;
+}
+
+.service-section > summary::after {
+    content: '+';
+    flex-shrink: 0;
+    font-size: 1.5rem;
+    line-height: 1;
+}
+
+.service-section[open] > summary::after {
+    content: '−';
+}
+
+.service-section > summary:hover,
+.service-section > summary:focus-visible {
+    background: var(--color-primary-light);
+}
+
+.service-section[open] > summary {
+    border-bottom: 1px solid var(--color-black-15);
+}
+
+.service-section-body {
+    padding: var(--spacing-md);
+}
+
+.service-section-body > :last-child {
+    margin-bottom: 0;
+}
+
+.service-section-body table {
+    width: 100%;
+    margin-bottom: var(--spacing-md);
+}
+
+.service-section-body th,
+.service-section-body td {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-bottom: 1px solid var(--color-black-10);
+    text-align: left;
+    overflow-wrap: anywhere;
+}

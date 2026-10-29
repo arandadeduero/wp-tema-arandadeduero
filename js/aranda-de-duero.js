@@ -107,12 +107,26 @@ const ArandaTheme = (() => {
         });
     };
 
+    // Secciones plegables (details.service-section, en cualquier página): un enlace del índice (o una URL con #) abre la sección a la que apunta.
+    const setupServiceSections = () => {
+        const openTarget = () => {
+            const id = decodeURIComponent(window.location.hash.slice(1));
+            const section = id ? document.getElementById(id) : null;
+            const details = section?.closest('details.service-section');
+            if (details) details.open = true;
+        };
+
+        window.addEventListener('hashchange', openTarget);
+        openTarget();
+    };
+
     // Initialize all modules
     const init = () => {
         setupCategoryToggle();
         setupEventDescriptions();
         setupSearchMenu();
         setupStreamingBanner();
+        setupServiceSections();
     };
 
     return { init };

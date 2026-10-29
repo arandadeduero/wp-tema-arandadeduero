@@ -1,0 +1,22 @@
+css/aranda-de-duero.css
+  s_4ee4655f76d081::t_a8d5d4b168569b 156-168
+  s_4ee4655f76d081::t_25ceb0d7f65cae 4089-4115
+docs/servicios.md
+  s_4ee4655f76d081::t_25ceb0d7f65cae 62-66
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "8cdaec91a761cfdced90d13462ad548ea01015c8",
+  "prompts": {},
+  "sessions": {
+    "s_4ee4655f76d081": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "9320e096-86f6-44b7-9031-c4247e4d2290",
+        "model": "claude-sonnet-5-5"
+      },
+      "human_author": "Guillermo López Leal <guillermo.lopezleal@vonage.com>"
+    }
+  }
+}

@@ -42,14 +42,14 @@ if ( get_theme_mod( 'aranda_de_duero_show_banner' ) && '' !== get_theme_mod( 'ar
 		<div class="row my-5">
 			<div class="col-12">
 				<!-- Inicio banner plenos  -->
-				<div id="banner_streaming" class="d-md-flex w-100 justify-content-between align-items-center">
+				<div id="banner_streaming" class="d-md-flex w-100 justify-content-center align-items-center">
 					<div id="banner_left" class="d-flex">
-						<div><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/webcamIcon.png"></div>
-						<div class="ml-3"><small class="banner_streaming_color font-weight-bold">En directo - <?php echo esc_html( get_theme_mod( 'aranda_de_duero_show_banner_text' ) ); ?></small><br><span class="font-weight-bold">PLENO DEL AYUNTAMIENTO DE ARANDA DE DUERO</span></div>
+						<div><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/webcamIcon.png" alt="" width="45" height="55"></div>
+						<div><small class="banner_streaming_color font-weight-bold">En directo - <?php echo esc_html( get_theme_mod( 'aranda_de_duero_show_banner_text' ) ); ?></small><br><span class="font-weight-bold">PLENO DEL AYUNTAMIENTO DE ARANDA DE DUERO</span></div>
 					</div>
-					<div id="banner_right" class="d-flex align-items-center justify-content-end pr-5">
+					<div id="banner_right" class="d-flex align-items-center">
 						<div><span class="banner-streaming-text">Síguelo a través de Youtube </span> </div>
-						<div class="ml-3 pr-4"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/playIcon.png"></div>
+						<div><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/playIcon.png" alt="" width="42" height="42"></div>
 					</div>
 				</div>
 				<!-- Fin banner plenos  -->

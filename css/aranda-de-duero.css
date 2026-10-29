@@ -783,7 +783,18 @@ header .custom-logo-link {
     color: var(--color-red);
 }
 
+#banner_streaming {
+    gap: var(--spacing-md) var(--spacing-xl);
+}
+
+#banner_left {
+    align-items: center;
+    gap: var(--spacing-lg);
+}
+
 #banner_right {
+    gap: var(--spacing-md);
+    padding: var(--spacing-md) var(--spacing-xl);
     background: url('/wp-content/themes/aranda-de-duero/images/flechaBg.png');
     background-position-x: 0%;
     background-position-y: 0%;

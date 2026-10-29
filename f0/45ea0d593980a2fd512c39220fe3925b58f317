@@ -1,0 +1,23 @@
+inc/term-archives.php
+  s_4ee4655f76d081::t_9e514bc6760e70 99-114
+tests/TermArchivesTest.php
+  s_4ee4655f76d081::t_9e514bc6760e70 43-53
+docs/servicios.md
+  s_4ee4655f76d081::t_5fb28b7c926de1 65
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "f045ea0d593980a2fd512c39220fe3925b58f317",
+  "prompts": {},
+  "sessions": {
+    "s_4ee4655f76d081": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "9320e096-86f6-44b7-9031-c4247e4d2290",
+        "model": "claude-sonnet-5-5"
+      },
+      "human_author": "Guillermo López Leal <guillermo.lopezleal@vonage.com>"
+    }
+  }
+}

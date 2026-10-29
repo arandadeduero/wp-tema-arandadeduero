@@ -784,7 +784,18 @@ header .custom-logo-link {
 }
 
 #banner_streaming {
-    gap: var(--spacing-md) var(--spacing-xl);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-lg) var(--spacing-xl);
+}
+
+@media (width >= 768px) {
+    #banner_streaming {
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
 }
 
 #banner_left {

@@ -42,7 +42,7 @@ if ( get_theme_mod( 'aranda_de_duero_show_banner' ) && '' !== get_theme_mod( 'ar
 		<div class="row my-5">
 			<div class="col-12">
 				<!-- Inicio banner plenos  -->
-				<div id="banner_streaming" class="d-md-flex w-100 justify-content-center align-items-center">
+				<div id="banner_streaming" class="w-100">
 					<div id="banner_left" class="d-flex">
 						<div><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/webcamIcon.png" alt="" width="45" height="55"></div>
 						<div><small class="banner_streaming_color font-weight-bold">En directo - <?php echo esc_html( get_theme_mod( 'aranda_de_duero_show_banner_text' ) ); ?></small><br><span class="font-weight-bold">PLENO DEL AYUNTAMIENTO DE ARANDA DE DUERO</span></div>

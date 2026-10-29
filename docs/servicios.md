@@ -59,6 +59,11 @@ dentro. Todas van cerradas por defecto. El índice es un `<nav class="service-to
 `css/aranda-de-duero.css` (`.service-section`, `.service-toc`, `.service-section-body`). Sin JS siguen funcionando: solo hay que pulsar
 cada título.
 
+## Enlace en pastilla
+
+Para destacar un enlace externo importante (la web de Turismo, la de la Biblioteca…), en el editor o en la descripción de
+una concejalía: `<a class="link-pill" href="https://…">Texto</a>`. Estilos en `css/aranda-de-duero.css` (`a.link-pill`).
+
 ## Pendiente
 
 - **Contenido de 16 de las 18 fichas, sin verificar.** Se crearon las 18 fichas aceptadas por el usuario el

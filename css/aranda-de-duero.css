@@ -3971,3 +3971,84 @@ div.service-card.service-card-waste.is-banned {
     margin: var(--spacing-md) 0;
     font-weight: 600;
 }
+
+/* Servicio con secciones plegables: índice con enlaces y un <details class="service-section"> por sección, cerrado por defecto. */
+.single-servicio-municipal .service-toc {
+    margin: var(--spacing-md) 0;
+    padding: var(--spacing-md);
+    background: var(--color-primary-light);
+}
+
+.single-servicio-municipal .service-toc > :first-child {
+    margin-top: 0;
+    font-weight: 600;
+}
+
+.single-servicio-municipal .service-toc ol {
+    margin-bottom: 0;
+}
+
+.single-servicio-municipal .service-section {
+    margin: 0 0 var(--spacing-sm);
+    border: 1px solid var(--color-black-15);
+    scroll-margin-top: var(--spacing-xl);
+}
+
+.single-servicio-municipal .service-section > summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-md);
+    padding: var(--spacing-sm) var(--spacing-md);
+    color: var(--color-primary-accessible);
+    font-family: Outfit, sans-serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    cursor: pointer;
+    list-style: none;
+}
+
+.single-servicio-municipal .service-section > summary::-webkit-details-marker {
+    display: none;
+}
+
+.single-servicio-municipal .service-section > summary::after {
+    content: '+';
+    flex-shrink: 0;
+    font-size: 1.5rem;
+    line-height: 1;
+}
+
+.single-servicio-municipal .service-section[open] > summary::after {
+    content: '−';
+}
+
+.single-servicio-municipal .service-section > summary:hover,
+.single-servicio-municipal .service-section > summary:focus-visible {
+    background: var(--color-primary-light);
+}
+
+.single-servicio-municipal .service-section[open] > summary {
+    border-bottom: 1px solid var(--color-black-15);
+}
+
+.single-servicio-municipal .service-section-body {
+    padding: var(--spacing-md);
+}
+
+.single-servicio-municipal .service-section-body > :last-child {
+    margin-bottom: 0;
+}
+
+.single-servicio-municipal .service-section-body table {
+    width: 100%;
+    margin-bottom: var(--spacing-md);
+}
+
+.single-servicio-municipal .service-section-body th,
+.single-servicio-municipal .service-section-body td {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-bottom: 1px solid var(--color-black-10);
+    text-align: left;
+    overflow-wrap: anywhere;
+}

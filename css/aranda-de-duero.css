@@ -153,7 +153,19 @@ h6 a {
     color: var(--aranda-header-text-color, var(--color-text)) !important;
 }
 
-.post a:not(h1 a, h2 a, h3 a, h4 a, h5 a, h6 a, .wp-element-button, .wp-block-button__link, .btn) {
+.post
+    a:not(
+        h1 a,
+        h2 a,
+        h3 a,
+        h4 a,
+        h5 a,
+        h6 a,
+        .wp-element-button,
+        .wp-block-button__link,
+        .btn,
+        .link-pill
+    ) {
     color: var(--aranda-link-color, var(--color-text)) !important;
 }
 
@@ -783,7 +795,29 @@ header .custom-logo-link {
     color: var(--color-red);
 }
 
+#banner_streaming {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-lg) var(--spacing-xl);
+}
+
+@media (width >= 768px) {
+    #banner_streaming {
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+#banner_left {
+    align-items: center;
+    gap: var(--spacing-lg);
+}
+
 #banner_right {
+    gap: var(--spacing-md);
+    padding: var(--spacing-md) var(--spacing-xl);
     background: url('/wp-content/themes/aranda-de-duero/images/flechaBg.png');
     background-position-x: 0%;
     background-position-y: 0%;
@@ -4051,4 +4085,31 @@ div.service-card.service-card-waste.is-banned {
     border-bottom: 1px solid var(--color-black-10);
     text-align: left;
     overflow-wrap: anywhere;
+}
+
+/* Enlace destacado en forma de pastilla, para el editor: <a class="link-pill" href="…">Texto</a> (por ejemplo, la web de Turismo o de la Biblioteca). */
+a.link-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin: var(--spacing-xs) 0;
+    padding: var(--spacing-sm) var(--spacing-xl);
+    border-radius: 999px;
+    background: var(--color-primary-accessible);
+    color: var(--color-white);
+    font-family: Outfit, sans-serif;
+    font-size: 1.125rem;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+a.link-pill::after {
+    content: '→';
+}
+
+a.link-pill:hover,
+a.link-pill:focus-visible {
+    background: var(--color-primary-dark);
+    color: var(--color-white);
+    text-decoration: none;
 }

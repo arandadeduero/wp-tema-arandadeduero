@@ -7,7 +7,7 @@ Sin recursos de terceros en el navegador del visitante (RGPD).
 
 ## Código público
 
-Este tema es software libre (GPL v2 o posterior) y su código es público. Responde a una política del equipo de gobierno: toda
+Este tema es software libre (GPL v2 o posterior, y EUPL-1.2 para el código propio del Ayuntamiento) y su código es público. Responde a una política del equipo de gobierno: toda
 inversión en programas propios del Ayuntamiento se publica para que pueda ser reutilizada por otras administraciones, en la línea
 de la campaña europea [«Dinero público, código público»](https://publiccode.eu/) de la Free Software Foundation Europe. Se puede
 consultar, usar y adaptar; las propuestas de mejora son bienvenidas como incidencias o *pull requests*.
@@ -71,4 +71,7 @@ patch y otro con las major; CodeQL, el análisis de secretos y las alertas de se
 
 ## Licencia
 
-GPL v2 o posterior. Ver [LICENSE](LICENSE). Basado en Underscores, © Automattic, Inc.
+**Licencia dual:**
+
+- El tema completo se distribuye bajo la **GPL v2 o posterior** ([LICENSE](LICENSE)). Es obligatorio: un tema de WordPress es obra derivada de WordPress (GPL) y además parte de Underscores, © Automattic, Inc. (GPL).
+- El código escrito por el Ayuntamiento de Aranda de Duero se ofrece además, a elección de quien lo reutilice, bajo la **Licencia Pública de la Unión Europea (EUPL) v1.2** ([LICENSE-EUPL](LICENSE-EUPL)), la licencia común del software del Ayuntamiento: ver [arandadeduero/licencia](https://github.com/arandadeduero/licencia). Así se puede llevar a proyectos EUPL. El código de Underscores y de otros terceros es solo GPL.

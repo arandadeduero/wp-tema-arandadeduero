@@ -1,0 +1,22 @@
+tests/ContactInfoTest.php
+  s_f6de3257f4678d::t_1709ed372270c4 34-48
+inc/template-functions.php
+  s_f6de3257f4678d::t_1709ed372270c4 160-175,178,190-191
+  s_f6de3257f4678d::t_1a45826b40450f 159,192
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "294830b1083c79210a5f17cb19737c3b48f10844",
+  "prompts": {},
+  "sessions": {
+    "s_f6de3257f4678d": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "450c4be8-9d44-439a-82ee-0301ea2504e8",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Guillermo López <willyaranda@gmail.com>"
+    }
+  }
+}

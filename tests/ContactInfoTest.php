@@ -75,6 +75,7 @@ class ContactInfoTest extends TestCase {
 		$this->assertSame( 'https://www.arandadeduero.es/inspeccion-tecnica-de-edificios/', aranda_de_duero_replaced_post_redirect_target( '/i-t-e-inspeccion-tecnica-edificios-2/' ) );
 		$this->assertSame( 'https://www.arandadeduero.es/servicios/transporte-urbano/', aranda_de_duero_replaced_post_redirect_target( '/autobuses-urbanos-destinos-horarios-y-tarifas/' ) );
 		$this->assertSame( 'https://www.arandadeduero.es/informacion-de-concejalias/', aranda_de_duero_replaced_post_redirect_target( '/ayuntamiento-telefonos-de-contacto/' ) );
+		$this->assertSame( 'https://contratos.arandadeduero.es/', aranda_de_duero_replaced_post_redirect_target( '/perfil-del-contratante/' ) );
 		$this->assertSame( '', aranda_de_duero_replaced_post_redirect_target( '/trenes-destinos-horarios-y-tarifas/' ) );
 	}
 

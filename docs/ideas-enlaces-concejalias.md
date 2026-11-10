@@ -91,7 +91,7 @@ Hoy una página no puede salir en una concejalía. Hay dos opciones:
 - **Concurso «Empecinado» 2025:** la noticia del VIII concurso enlaza las **bases del V concurso (2022)**.
 - **Concejalías con 0 entradas:** cementerio, comunicación, contratación, nuevas tecnologías, procesos y transición digital. Con 1 entrada: aguas, barrios y participación. ¿Se ocultan o se rellenan?
   - **2026-11-10:** nuevas tecnologías, procesos y transición digital eran la misma concejalía. Ahora es una sola, el término 334, «Nuevas tecnologías, procesos y transición digital»; los términos vacíos de procesos y transición digital se borraron.
-  - Contratación tiene ya pastillas a contratos.arandadeduero.es y a la Plataforma de Contratación del Sector Público. Alcaldía lleva la de contratos.arandadeduero.es en lugar de la de `/perfil-del-contratante/`, cuyos botones no tienen enlace.
+  - Contratación tiene ya pastillas a contratos.arandadeduero.es y a la Plataforma de Contratación del Sector Público. Alcaldía lleva la de contratos.arandadeduero.es en lugar de la de `/perfil-del-contratante/`, cuyos botones no tienen enlace. Esa página (12319) se pasó a borrador y su URL da un 301 a contratos.arandadeduero.es (PR del 2026-11-10).
   - Hacienda tiene la pastilla «Visor de presupuestos» (presupuestos.arandadeduero.es).
 - **HECHO el 2026-11-10:** las 4 noticias obsoletas, en borrador; autobuses → «Transporte urbano» y teléfonos → `/informacion-de-concejalias/` (301); trenes y guía de empresas, 404. Las noticias de la ITE (4399 y 28576) → `/inspeccion-tecnica-de-edificios/` (301).
 - **Noticias que se pueden despublicar o redirigir**, por obsoletas o duplicadas:

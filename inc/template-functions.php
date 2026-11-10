@@ -157,7 +157,7 @@ function aranda_de_duero_transparency_redirect_target( $path ) {
 }
 
 /**
- * Where an old post of this site that was replaced must lead: the page that replaced it (by slug, only while it is published) or
+ * Where an old post or page of this site that was replaced must lead: the page that replaced it (by slug, only while it is published) or
  * the full address of another site, or '' when the path is not one of those.
  *
  * @param string $path Path of the request, with or without slashes.
@@ -175,6 +175,9 @@ function aranda_de_duero_replaced_post_redirect_target( $path ) {
 		// Out-of-date posts unpublished 2026-11-10: urban buses (2016) and the COVID-time contact phones (2020).
 		'autobuses-urbanos-destinos-horarios-y-tarifas'          => 'https://www.arandadeduero.es/servicios/transporte-urbano/',
 		'ayuntamiento-telefonos-de-contacto'                     => 'informacion-de-concejalias',
+		// The old «perfil del contratante» page (12319, unpublished 2026-11-10: buttons without links, a repealed law), now the
+		// Ayuntamiento's contracting site.
+		'perfil-del-contratante'                                 => 'https://contratos.arandadeduero.es/',
 	);
 	$path     = trim( (string) $path, '/' );
 	if ( ! isset( $replaced[ $path ] ) ) {

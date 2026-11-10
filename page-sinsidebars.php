@@ -22,7 +22,8 @@ aranda_de_duero_the_header_image( '' );
 					while ( have_posts() ) :
 						the_post();
 
-						get_template_part( 'template-parts/content', 'page-notitle' );
+						// The title is shown (and is the page's <h1>): «notitle» hid it with d-none, so screen readers lost it too.
+						get_template_part( 'template-parts/content', 'page' );
 
 						// If comments are open or we have at least one comment, load up the comment template.
 						if ( comments_open() || get_comments_number() ) :

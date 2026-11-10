@@ -63,6 +63,17 @@ class ServicesTest extends TestCase {
 		}
 	}
 
+	public function test_the_fiscal_calendar_is_the_page_of_this_site() {
+		$this->mocks();
+
+		$items = array_merge( ...array_column( aranda_de_duero_payment_services(), 'items' ) );
+		$found = array_values( array_filter( $items, static fn( $item ) => 'Calendario fiscal' === $item['title'] ) );
+
+		$this->assertCount( 1, $found );
+		$this->assertStringEndsWith( '/calendario-fiscal/', $found[0]['url'] );
+		$this->assertFalse( $found[0]['new_tab'] );
+	}
+
 	public function test_every_payment_service_has_title_text_and_a_secure_url() {
 		$this->mocks();
 

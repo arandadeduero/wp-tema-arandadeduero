@@ -31,6 +31,21 @@ class ContactInfoTest extends TestCase {
 		}
 	}
 
+	public function test_the_second_ordinances_post_leads_to_the_ordinances_page() {
+		$this->stub_wp_basics();
+		$page              = new WP_Post();
+		$page->post_status = 'publish';
+		\WP_Mock::userFunction( 'get_page_by_path' )->with( 'listado-completo-ordenanzas-fiscales-vigentes', OBJECT, 'page' )->andReturn( $page );
+		\WP_Mock::userFunction( 'get_permalink' )->andReturn( 'https://www.arandadeduero.es/listado-completo-ordenanzas-fiscales-vigentes/' );
+
+		foreach ( array( '/listado-completo-ordenanzas-fiscales-vigentes-3/', 'listado-completo-ordenanzas-fiscales-vigentes-3' ) as $path ) {
+			$this->assertSame( 'https://www.arandadeduero.es/listado-completo-ordenanzas-fiscales-vigentes/', aranda_de_duero_replaced_post_redirect_target( $path ), $path );
+		}
+		foreach ( array( '/', '/listado-completo-ordenanzas-fiscales-vigentes/', '/listado-completo-ordenanzas-fiscales-vigentes-2/' ) as $path ) {
+			$this->assertSame( '', aranda_de_duero_replaced_post_redirect_target( $path ), $path );
+		}
+	}
+
 	public function test_phone_link_matches_the_visible_number() {
 		$this->stub_wp_basics();
 

@@ -157,8 +157,25 @@ function aranda_de_duero_transparency_redirect_target( $path ) {
 }
 
 /**
+ * Where an old post of this site that was replaced by a page must lead: that page, or '' when the path is not one of those or the
+ * page is not published.
+ *
+ * @param string $path Path of the request, with or without slashes.
+ * @return string
+ */
+function aranda_de_duero_replaced_post_redirect_target( $path ) {
+	$replaced = array(
+		// Second copy of the ordinances list (post 1506, unpublished 2026-11-10); the first copy's address is now the page itself.
+		'listado-completo-ordenanzas-fiscales-vigentes-3' => 'listado-completo-ordenanzas-fiscales-vigentes',
+	);
+	$path     = trim( (string) $path, '/' );
+
+	return isset( $replaced[ $path ] ) ? aranda_de_duero_page_url( $replaced[ $path ] ) : '';
+}
+
+/**
  * Old addresses that no longer exist as pages, sent (301) to where they live now: /transparencia/ to the portal, /omic/ to the
- * «OMIC» service. Only on a 404, so a page created later with one of those slugs wins.
+ * «OMIC» service, old posts to the pages that replaced them. Only on a 404, so a page created later with one of those slugs wins.
  */
 function aranda_de_duero_redirect_old_paths() {
 	if ( ! is_404() || ! isset( $_SERVER['REQUEST_URI'] ) ) {
@@ -169,6 +186,9 @@ function aranda_de_duero_redirect_old_paths() {
 	$target = aranda_de_duero_transparency_redirect_target( $path );
 	if ( '' === $target ) {
 		$target = aranda_de_duero_omic_page_redirect_target( $path );
+	}
+	if ( '' === $target ) {
+		$target = aranda_de_duero_replaced_post_redirect_target( $path );
 	}
 	if ( '' !== $target ) {
 		wp_redirect( $target, 301 ); // phpcs:ignore WordPress.Security.SafeRedirect.wp_redirect_wp_redirect -- fixed addresses of the theme, not user input.

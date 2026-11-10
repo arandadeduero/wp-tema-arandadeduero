@@ -53,7 +53,7 @@ Dudas resueltas por el usuario el 2026-11-10: plaza de toros e iluminación → 
 **B2 HECHO el 2026-11-10:** página 35546 `/inspeccion-tecnica-de-edificios/` (qué edificios, censo 2025-2026, cómo se presenta, normativa y censos anteriores), con pastilla en Urbanismo. Las noticias «I.T.E. inspección técnica edificios» (4399 y 28576) siguen publicadas.
 
 **B5 y B6 HECHOS el 2026-11-10:**
-- La noticia del PMUS (24667) está en borrador y su URL da un 301 a pmus.arandadeduero.es (PR #154). Los 4 PDF del PMUS subidos ese día a WordPress (ID 35518-35521) quedan sin uso.
+- La noticia del PMUS (24667) está en borrador y su URL da un 301 a pmus.arandadeduero.es (PR #154). Los 4 PDF del PMUS subidos ese día a WordPress (ID 35518-35521) se borraron después: los tomos están en pmus.arandadeduero.es y los originales en `/archivos/documentos/PMUS/`.
 - La página del mapa de ruido 2024 tiene ahora el apartado «Mapas y planes de acción anteriores», con los planes de acción de 2013 y 2019.
 
 ## C. Tarjetas nuevas: fichas de *servicio municipal*

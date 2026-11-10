@@ -169,6 +169,12 @@ function aranda_de_duero_replaced_post_redirect_target( $path ) {
 		'listado-completo-ordenanzas-fiscales-vigentes-3'        => 'listado-completo-ordenanzas-fiscales-vigentes',
 		// The PMUS post (24667, unpublished 2026-11-10): the plan has its own site, with the same volumes.
 		'plan-de-movilidad-urbana-sostenible-de-aranda-de-duero' => 'https://pmus.arandadeduero.es/',
+		// The two ITE index posts (4399 and 28576, unpublished 2026-11-10), replaced by the ITE page.
+		'i-t-e-inspeccion-tecnica-edificios'                     => 'inspeccion-tecnica-de-edificios',
+		'i-t-e-inspeccion-tecnica-edificios-2'                   => 'inspeccion-tecnica-de-edificios',
+		// Out-of-date posts unpublished 2026-11-10: urban buses (2016) and the COVID-time contact phones (2020).
+		'autobuses-urbanos-destinos-horarios-y-tarifas'          => 'https://www.arandadeduero.es/servicios/transporte-urbano/',
+		'ayuntamiento-telefonos-de-contacto'                     => 'informacion-de-concejalias',
 	);
 	$path     = trim( (string) $path, '/' );
 	if ( ! isset( $replaced[ $path ] ) ) {

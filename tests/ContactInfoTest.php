@@ -54,6 +54,30 @@ class ContactInfoTest extends TestCase {
 		}
 	}
 
+	public function test_the_ite_and_out_of_date_posts_lead_to_their_replacements() {
+		$this->stub_wp_basics();
+		\WP_Mock::userFunction( 'get_page_by_path' )->andReturnUsing(
+			static function ( $path ) {
+				$page              = new WP_Post();
+				$page->post_status = 'publish';
+				$page->post_name   = $path;
+
+				return $page;
+			}
+		);
+		\WP_Mock::userFunction( 'get_permalink' )->andReturnUsing(
+			static function ( $post ) {
+				return 'https://www.arandadeduero.es/' . $post->post_name . '/';
+			}
+		);
+
+		$this->assertSame( 'https://www.arandadeduero.es/inspeccion-tecnica-de-edificios/', aranda_de_duero_replaced_post_redirect_target( '/i-t-e-inspeccion-tecnica-edificios/' ) );
+		$this->assertSame( 'https://www.arandadeduero.es/inspeccion-tecnica-de-edificios/', aranda_de_duero_replaced_post_redirect_target( '/i-t-e-inspeccion-tecnica-edificios-2/' ) );
+		$this->assertSame( 'https://www.arandadeduero.es/servicios/transporte-urbano/', aranda_de_duero_replaced_post_redirect_target( '/autobuses-urbanos-destinos-horarios-y-tarifas/' ) );
+		$this->assertSame( 'https://www.arandadeduero.es/informacion-de-concejalias/', aranda_de_duero_replaced_post_redirect_target( '/ayuntamiento-telefonos-de-contacto/' ) );
+		$this->assertSame( '', aranda_de_duero_replaced_post_redirect_target( '/trenes-destinos-horarios-y-tarifas/' ) );
+	}
+
 	public function test_phone_link_matches_the_visible_number() {
 		$this->stub_wp_basics();
 

@@ -75,6 +75,8 @@ Los datos de contacto ya están en `/informacion-de-concejalias/`. Los horarios 
 | Cultura | Museos municipales: Casa de las Bolas, Arte Sacro (San Juan) y quizá el Museo del Tren | reglamento de museos (2022) |
 | Educación | Ludotecas municipales | entrada «horario octubre y noviembre» (2026) |
 
+**C HECHO el 2026-11-10:** 11 fichas publicadas (ID 35550-35560) con los datos de `/informacion-de-concejalias/` y de `/recogida-de-residuos/`: CEAS, Ayuda a domicilio y teleasistencia, Viviendas sociales (Servicios sociales); Punto limpio, Oficina de Medio Ambiente (Medio ambiente); Oficina de Turismo (Turismo); Oficina técnica de Urbanismo (Urbanismo); Gestión tributaria y recaudación (Hacienda); Servicio municipal de aguas (Aguas); Cementerio municipal (Cementerio y Urbanismo, que comparten oficina y teléfono); Museos municipales (Cultura). **Ludotecas no**: no hay fuente con sus datos ni su concejalía. Sin horarios salvo los ya publicados (punto limpio y Medio Ambiente).
+
 ## D. Con código (PR): tarjetas también para páginas
 
 **APARCADO el 2026-11-10** por decisión del usuario («para más adelante»). Guardado en la memoria.
@@ -88,9 +90,10 @@ Hoy una página no puede salir en una concejalía. Hay dos opciones:
 - ~~**Calendario fiscal:** el especial de portada seguía en 2026~~ — resuelto en B1.
 - **Concurso «Empecinado» 2025:** la noticia del VIII concurso enlaza las **bases del V concurso (2022)**.
 - **Concejalías con 0 entradas:** cementerio, comunicación, contratación, nuevas tecnologías, procesos y transición digital. Con 1 entrada: aguas, barrios y participación. ¿Se ocultan o se rellenan?
+- **HECHO el 2026-11-10:** las 4 noticias obsoletas, en borrador; autobuses → «Transporte urbano» y teléfonos → `/informacion-de-concejalias/` (301); trenes y guía de empresas, 404. Las noticias de la ITE (4399 y 28576) → `/inspeccion-tecnica-de-edificios/` (301).
 - **Noticias que se pueden despublicar o redirigir**, por obsoletas o duplicadas:
   - «Trenes destinos, horarios y tarifas» (2010)
   - «Autobuses urbanos destinos horarios y tarifas» (2016), que ya tiene la ficha «Transporte urbano»
   - «Ayuntamiento teléfonos de contacto» (2020), duplicada con `/informacion-de-concejalias/` y Teléfonos de interés
   - «Guía para la creación de empresas» (2011)
-- **Noticias repetidas**, por ejemplo «Matrículas en la Escuela municipal de folklore» (5 entradas con el mismo título).
+- **Corrección:** las «Matrículas en la Escuela Municipal de Folklore» **no son duplicadas**: son 5 noticias de cursos distintos (2020/21, 2022/23, 2024/25, 2025/26 y 2026/27).

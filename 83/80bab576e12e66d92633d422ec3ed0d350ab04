@@ -1,0 +1,21 @@
+tests/ServicesTest.php
+  s_2f3ac1511c9dd8::t_11aa60280e3c0c 66-76
+inc/services.php
+  s_2f3ac1511c9dd8::t_11aa60280e3c0c 179-181
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "8380bab576e12e66d92633d422ec3ed0d350ab04",
+  "prompts": {},
+  "sessions": {
+    "s_2f3ac1511c9dd8": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "ceff7912-4ad9-4949-85d9-1e52a56e708b",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Guillermo López <willyaranda@gmail.com>"
+    }
+  }
+}

@@ -48,9 +48,13 @@ Dudas resueltas por el usuario el 2026-11-10: plaza de toros e iluminación → 
 | B5 | «Plan de Movilidad Urbana Sostenible» (2024, hoy migrado) | **No hace falta página.** Ya existe pmus.arandadeduero.es con los mismos tomos, y la pastilla de Movilidad y el especial apuntan allí. Se podría redirigir la entrada a esa web | — |
 | B6 | «Planes de acción en materia de contaminación acústica» (2019) y «Aprobación plan de acción…» (2013) | Ya están en la página del mapa de ruido 2024; enlazarlos desde «Mapas anteriores» | — |
 
-**B1 HECHO el 2026-11-10:** página 35537 `/calendario-fiscal/` con la tabla de 2027 sacada del BOP. El especial de la portada (ID 24085) y la pastilla de Hacienda apuntan ya allí. **Cada año hay que actualizar la tabla** cuando salga el nuevo calendario en el BOP (normalmente a finales de octubre).
+**B1 HECHO el 2026-11-10:** página 35537 `/calendario-fiscal/` con las tablas de 2026 (año en curso) y 2027 (sacada del BOP). El especial de la portada (ID 24085) y la pastilla de Hacienda apuntan ya allí. **Cada año hay que actualizar la tabla** cuando salga el nuevo calendario en el BOP (normalmente a finales de octubre).
 
 **B2 HECHO el 2026-11-10:** página 35546 `/inspeccion-tecnica-de-edificios/` (qué edificios, censo 2025-2026, cómo se presenta, normativa y censos anteriores), con pastilla en Urbanismo. Las noticias «I.T.E. inspección técnica edificios» (4399 y 28576) siguen publicadas.
+
+**B5 y B6 HECHOS el 2026-11-10:**
+- La noticia del PMUS (24667) está en borrador y su URL da un 301 a pmus.arandadeduero.es (PR #154). Los 4 PDF del PMUS subidos ese día a WordPress (ID 35518-35521) quedan sin uso.
+- La página del mapa de ruido 2024 tiene ahora el apartado «Mapas y planes de acción anteriores», con los planes de acción de 2013 y 2019.
 
 ## C. Tarjetas nuevas: fichas de *servicio municipal*
 
@@ -81,7 +85,7 @@ Hoy una página no puede salir en una concejalía. Hay dos opciones:
 
 ## E. Detectado de paso (sin tocar)
 
-- **Calendario fiscal:** el especial de portada «Calendario fiscal 2026» sigue en 2026, y ya existe el de 2027.
+- ~~**Calendario fiscal:** el especial de portada seguía en 2026~~ — resuelto en B1.
 - **Concurso «Empecinado» 2025:** la noticia del VIII concurso enlaza las **bases del V concurso (2022)**.
 - **Concejalías con 0 entradas:** cementerio, comunicación, contratación, nuevas tecnologías, procesos y transición digital. Con 1 entrada: aguas, barrios y participación. ¿Se ocultan o se rellenan?
 - **Noticias que se pueden despublicar o redirigir**, por obsoletas o duplicadas:

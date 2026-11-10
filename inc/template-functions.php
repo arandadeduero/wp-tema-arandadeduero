@@ -157,8 +157,8 @@ function aranda_de_duero_transparency_redirect_target( $path ) {
 }
 
 /**
- * Where an old post of this site that was replaced by a page must lead: that page, or '' when the path is not one of those or the
- * page is not published.
+ * Where an old post of this site that was replaced must lead: the page that replaced it (by slug, only while it is published) or
+ * the full address of another site, or '' when the path is not one of those.
  *
  * @param string $path Path of the request, with or without slashes.
  * @return string
@@ -166,11 +166,16 @@ function aranda_de_duero_transparency_redirect_target( $path ) {
 function aranda_de_duero_replaced_post_redirect_target( $path ) {
 	$replaced = array(
 		// Second copy of the ordinances list (post 1506, unpublished 2026-11-10); the first copy's address is now the page itself.
-		'listado-completo-ordenanzas-fiscales-vigentes-3' => 'listado-completo-ordenanzas-fiscales-vigentes',
+		'listado-completo-ordenanzas-fiscales-vigentes-3'        => 'listado-completo-ordenanzas-fiscales-vigentes',
+		// The PMUS post (24667, unpublished 2026-11-10): the plan has its own site, with the same volumes.
+		'plan-de-movilidad-urbana-sostenible-de-aranda-de-duero' => 'https://pmus.arandadeduero.es/',
 	);
 	$path     = trim( (string) $path, '/' );
+	if ( ! isset( $replaced[ $path ] ) ) {
+		return '';
+	}
 
-	return isset( $replaced[ $path ] ) ? aranda_de_duero_page_url( $replaced[ $path ] ) : '';
+	return str_starts_with( $replaced[ $path ], 'https://' ) ? $replaced[ $path ] : aranda_de_duero_page_url( $replaced[ $path ] );
 }
 
 /**

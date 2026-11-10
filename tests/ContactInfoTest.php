@@ -46,6 +46,14 @@ class ContactInfoTest extends TestCase {
 		}
 	}
 
+	public function test_the_pmus_post_leads_to_the_pmus_site() {
+		$this->stub_wp_basics();
+
+		foreach ( array( '/plan-de-movilidad-urbana-sostenible-de-aranda-de-duero/', 'plan-de-movilidad-urbana-sostenible-de-aranda-de-duero' ) as $path ) {
+			$this->assertSame( 'https://pmus.arandadeduero.es/', aranda_de_duero_replaced_post_redirect_target( $path ), $path );
+		}
+	}
+
 	public function test_phone_link_matches_the_visible_number() {
 		$this->stub_wp_basics();
 

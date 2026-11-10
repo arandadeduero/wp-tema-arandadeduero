@@ -1,0 +1,21 @@
+docs/tipos-de-contenido-y-elementos-propios.md
+  s_2f3ac1511c9dd8::t_38aebdc438c1a1 182,357
+page-sinsidebars.php
+  s_2f3ac1511c9dd8::t_38aebdc438c1a1 25-26
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "aade107e4262b81537f2b041b8cb7eb97fa97b76",
+  "prompts": {},
+  "sessions": {
+    "s_2f3ac1511c9dd8": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "ceff7912-4ad9-4949-85d9-1e52a56e708b",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Guillermo López <willyaranda@gmail.com>"
+    }
+  }
+}

@@ -1,0 +1,21 @@
+inc/template-functions.php
+  s_2f3ac1511c9dd8::t_b2baf52d6fd589 160-161,169-171,174-176,178
+tests/ContactInfoTest.php
+  s_2f3ac1511c9dd8::t_b2baf52d6fd589 49-56
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "5039096fd133491c926b963b3aed878079522ea7",
+  "prompts": {},
+  "sessions": {
+    "s_2f3ac1511c9dd8": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "ceff7912-4ad9-4949-85d9-1e52a56e708b",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Guillermo López <willyaranda@gmail.com>"
+    }
+  }
+}

@@ -176,9 +176,9 @@ function aranda_de_duero_payment_services() {
 				array(
 					'title'    => __( 'Calendario fiscal', 'aranda-de-duero' ),
 					'text'     => __( 'Los periodos de pago de los tributos municipales.', 'aranda-de-duero' ),
-					'url'      => aranda_de_duero_sede_url( '/sta/CarpetaPublic/Public?APP_CODE=STA&PAGE_CODE=CALFISCALPUB' ),
-					'new_tab'  => true,
-					'keywords' => 'calendario contribuyente plazos periodo pago voluntario',
+					'url'      => home_url( '/calendario-fiscal/' ),
+					'new_tab'  => false,
+					'keywords' => 'calendario contribuyente plazos periodo pago voluntario domiciliados ivtm ibi iae vados agua',
 				),
 				array(
 					'title'    => __( 'Mi calendario fiscal', 'aranda-de-duero' ),

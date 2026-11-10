@@ -50,6 +50,8 @@ Dudas resueltas por el usuario el 2026-11-10: plaza de toros e iluminación → 
 
 **B1 HECHO el 2026-11-10:** página 35537 `/calendario-fiscal/` con la tabla de 2027 sacada del BOP. El especial de la portada (ID 24085) y la pastilla de Hacienda apuntan ya allí. **Cada año hay que actualizar la tabla** cuando salga el nuevo calendario en el BOP (normalmente a finales de octubre).
 
+**B2 HECHO el 2026-11-10:** página 35546 `/inspeccion-tecnica-de-edificios/` (qué edificios, censo 2025-2026, cómo se presenta, normativa y censos anteriores), con pastilla en Urbanismo. Las noticias «I.T.E. inspección técnica edificios» (4399 y 28576) siguen publicadas.
+
 ## C. Tarjetas nuevas: fichas de *servicio municipal*
 
 Los datos de contacto ya están en `/informacion-de-concejalias/`. Los horarios hay que confirmarlos con cada servicio.

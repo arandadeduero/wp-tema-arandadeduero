@@ -311,6 +311,9 @@ class SearchTest extends TestCase {
 		$this->assertContains( 'Turismo', $this->titles( aranda_de_duero_search_services( 'turismo' ) ) );
 		$this->assertContains( 'Bandos', $this->titles( aranda_de_duero_search_services( 'bando' ) ) );
 		$this->assertContains( 'Teléfonos de interés', $this->titles( aranda_de_duero_search_services( 'telefono' ) ) );
+		foreach ( array( 'reglamento', 'reglamentos', 'uniones civiles' ) as $query ) {
+			$this->assertContains( 'Reglamentos municipales', $this->titles( aranda_de_duero_search_services( $query ) ), $query );
+		}
 	}
 
 	public function test_the_photos_of_the_council_are_found_and_open_in_a_new_tab() {

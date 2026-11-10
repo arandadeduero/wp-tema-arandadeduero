@@ -1,0 +1,23 @@
+inc/template-functions.php
+  s_2f3ac1511c9dd8::t_6ed20d26ec2566 172-177
+tests/ContactInfoTest.php
+  s_2f3ac1511c9dd8::t_6ed20d26ec2566 57-80
+docs/ideas-enlaces-concejalias.md
+  s_2f3ac1511c9dd8::t_9418441fc22143 78-79,93,99
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "10663b77454afb891c9940bf9c74175db9452bb8",
+  "prompts": {},
+  "sessions": {
+    "s_2f3ac1511c9dd8": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "ceff7912-4ad9-4949-85d9-1e52a56e708b",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Guillermo López <willyaranda@gmail.com>"
+    }
+  }
+}

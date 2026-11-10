@@ -1,0 +1,19 @@
+docs/ideas-enlaces-concejalias.md
+  s_2f3ac1511c9dd8::t_92f6d36eecf23b 56
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "53e0b3b6b746b34b266f12aba25426725ef380cf",
+  "prompts": {},
+  "sessions": {
+    "s_2f3ac1511c9dd8": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "ceff7912-4ad9-4949-85d9-1e52a56e708b",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Guillermo López <willyaranda@gmail.com>"
+    }
+  }
+}

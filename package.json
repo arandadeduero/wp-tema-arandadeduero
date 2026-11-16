@@ -26,14 +26,14 @@
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "archiver": "^8.0.0",
-    "eslint": "^10.13.0",
+    "eslint": "^10.14.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.7",
-    "globals": "^17.13.0",
-    "prettier": "^3.9.10",
+    "globals": "^17.14.0",
+    "prettier": "^3.10.1",
     "stylelint": "^17.16.0",
     "stylelint-config-standard": "^40.0.0",
-    "stylelint-prettier": "^5.0.3"
+    "stylelint-prettier": "^5.1.0"
   },
   "scripts": {
     "lint": "npm run lint:js && npm run lint:css && npm run lint:php",
